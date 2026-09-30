@@ -665,7 +665,189 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // 8.11. API: Live Stream de Sensores IoT (Pivôs, Silos Termometria & CAN-Bus Frota)
+  // 8.11. API: Listagem de Viagens e Manifestos de Carga (MDF-e / CIOT)
+  if (pathname === '/api/v1/logistica/mdfe/listar' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    const db = loadDb();
+    if (!db.viagensMdfe || db.viagensMdfe.length === 0) {
+      db.viagensMdfe = [
+        {
+          id: 'frete-01',
+          numeroMdfe: 'MDFE-5126-00412',
+          serie: '1',
+          chaveAcessoMdfe: '51260918491029000188580010000041201001928414',
+          protocoloAutorizacao: '151260009481029',
+          dataHoraEmissao: '30/09/2026, 09:30:00',
+          placaCavalo: 'RAZ-8H19',
+          placaCarreta1: 'BWP-4A20',
+          placaCarreta2: 'BWP-4A21',
+          motoristaNome: 'Sebastião Barreto',
+          cpfMotorista: '482.910.428-19',
+          transportadora: 'TransGrãos Logística do Centro-Oeste Ltda',
+          cnpjTransportadora: '04.192.841/0001-92',
+          rntrc: '04819204',
+          ciot: '0948120491820',
+          seguradoraRctrc: 'Porto Seguro Cargas • Apólice 849.201 • Averbação ATTM-9410',
+          tipoVeiculo: 'RODOTREM_9_EIXOS',
+          rotaDestino: 'Sorriso/MT ➔ Terminal Ferroviário Rondonópolis/MT',
+          distanciaKm: 820,
+          pesoCargaTon: 49.5,
+          pesoLiquidoKg: 49500,
+          sacas60kg: 825,
+          tarifaTonKm: 0.285,
+          valorPedagio: 420.0,
+          custoTotalFrete: 11993.25,
+          fretePorSaca: 14.54,
+          romaneioVinculado: 'ROM-2026-416210',
+          nfeVinculada: 'NF-e 001.004.128',
+          statusFila: 'EXPEDIDO_EM_TRANSITO',
+          municipioOrigem: 'Sorriso - MT (IBGE: 5107909)',
+          municipioDestino: 'Rondonópolis - MT (IBGE: 5107602)'
+        },
+        {
+          id: 'frete-02',
+          numeroMdfe: 'MDFE-5126-00413',
+          serie: '1',
+          chaveAcessoMdfe: '51260918491029000188580010000041211001928420',
+          protocoloAutorizacao: '151260009481030',
+          dataHoraEmissao: '30/09/2026, 11:15:00',
+          placaCavalo: 'BTA-4D88',
+          placaCarreta1: 'KLE-2C11',
+          placaCarreta2: 'KLE-2C12',
+          motoristaNome: 'Wanderley Siqueira',
+          cpfMotorista: '519.204.819-33',
+          transportadora: 'Expresso Rota do Grão Rodoviário',
+          cnpjTransportadora: '08.921.492/0001-11',
+          rntrc: '07192831',
+          ciot: '0948120491821',
+          seguradoraRctrc: 'Tokio Marine Seguradora • Apólice 910.428 • Averbação 7120',
+          tipoVeiculo: 'BITREM_7_EIXOS',
+          rotaDestino: 'Sorriso/MT ➔ Porto de Miritituba/PA (BR-163 Arco Norte)',
+          distanciaKm: 1050,
+          pesoCargaTon: 37.0,
+          pesoLiquidoKg: 37000,
+          sacas60kg: 616.7,
+          tarifaTonKm: 0.290,
+          valorPedagio: 580.0,
+          custoTotalFrete: 11861.0,
+          fretePorSaca: 19.23,
+          romaneioVinculado: 'ROM-2026-416215',
+          nfeVinculada: 'NF-e 001.004.129',
+          statusFila: 'PESAGEM_FINAL',
+          municipioOrigem: 'Sorriso - MT (IBGE: 5107909)',
+          municipioDestino: 'Itaituba / Miritituba - PA (IBGE: 1503606)'
+        }
+      ];
+      saveDb(db);
+    }
+    res.end(JSON.stringify({ sucesso: true, viagens: db.viagensMdfe }));
+    return;
+  }
+
+  // 8.12. API: Emissão Eletrônica de MDF-e (Modelo 58 SEFAZ) & Registro CIOT ANTT
+  if (pathname === '/api/v1/logistica/mdfe/emitir' && req.method === 'POST') {
+    parseRequestBody(payload => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      if (!db.viagensMdfe) db.viagensMdfe = [];
+
+      const ano = new Date().getFullYear();
+      const numSeq = Math.floor(1000 + Math.random() * 9000);
+      const numeroMdfe = `MDFE-${new Date().getMonth() + 1}${ano.toString().slice(-2)}-0${numSeq}`;
+      const chaveAcessoMdfe = `512609184910290001885800100000${numSeq}10019284${Math.floor(10 + Math.random() * 89)}`;
+      const protocoloAutorizacao = `1512600094${Math.floor(10000 + Math.random() * 90000)}`;
+      const ciot = `09481${Math.floor(10000000 + Math.random() * 90000000)}`;
+
+      const pesoTon = Number(payload.pesoCargaTon) || 37.0;
+      const pesoKg = pesoTon * 1000;
+      const sacas = Number((pesoKg / 60).toFixed(1));
+      const distanciaKm = Number(payload.distanciaKm) || (payload.rotaDestino?.includes('Miritituba') ? 1050 : 820);
+      const tarifaTonKm = Number(payload.tarifaTonKm) || (payload.rotaDestino?.includes('Miritituba') ? 0.290 : 0.285);
+      const valorPedagio = Number(payload.valorPedagio) || (payload.rotaDestino?.includes('Miritituba') ? 580.0 : 420.0);
+      const custoTotalFrete = distanciaKm * pesoTon * tarifaTonKm + valorPedagio;
+      const fretePorSaca = sacas > 0 ? Number((custoTotalFrete / sacas).toFixed(2)) : 0;
+
+      const novaViagem = {
+        id: `frete-${Date.now()}`,
+        numeroMdfe,
+        serie: '1',
+        chaveAcessoMdfe,
+        protocoloAutorizacao,
+        dataHoraEmissao: new Date().toLocaleString('pt-BR'),
+        placaCavalo: payload.placaCavalo || 'BRA-9X21',
+        placaCarreta1: payload.placaCarreta1 || 'KLE-2C11',
+        placaCarreta2: payload.placaCarreta2 || 'KLE-2C12',
+        motoristaNome: payload.motoristaNome || 'Edson Arantes',
+        cpfMotorista: payload.cpfMotorista || '419.820.192-88',
+        transportadora: payload.transportadora || 'TransGrãos Logística do Centro-Oeste Ltda',
+        cnpjTransportadora: payload.cnpjTransportadora || '04.192.841/0001-92',
+        rntrc: payload.rntrc || '04819204',
+        ciot,
+        seguradoraRctrc: payload.seguradoraRctrc || 'Porto Seguro Cargas • Apólice 849.201 • Averbação ATTM-9410',
+        tipoVeiculo: payload.tipoVeiculo || 'RODOTREM_9_EIXOS',
+        rotaDestino: payload.rotaDestino || 'Sorriso/MT ➔ Terminal Ferroviário Rondonópolis/MT',
+        distanciaKm,
+        pesoCargaTon: pesoTon,
+        pesoLiquidoKg: pesoKg,
+        sacas60kg: sacas,
+        tarifaTonKm,
+        valorPedagio,
+        custoTotalFrete,
+        fretePorSaca,
+        romaneioVinculado: payload.romaneioVinculado || `ROM-${ano}-${Math.floor(100000 + Math.random() * 900000)}`,
+        nfeVinculada: payload.nfeVinculada || `NF-e 001.004.${Math.floor(100 + Math.random() * 900)}`,
+        statusFila: 'EXPEDIDO_EM_TRANSITO',
+        municipioOrigem: 'Sorriso - MT (IBGE: 5107909)',
+        municipioDestino: payload.rotaDestino?.includes('Miritituba')
+          ? 'Itaituba / Miritituba - PA (IBGE: 1503606)'
+          : 'Rondonópolis - MT (IBGE: 5107602)'
+      };
+
+      db.viagensMdfe.unshift(novaViagem);
+      saveDb(db);
+
+      res.statusCode = 201;
+      res.end(
+        JSON.stringify({
+          sucesso: true,
+          mensagem: 'MDF-e emitido e autorizado com sucesso na SEFAZ-MT com CIOT ANTT averbado.',
+          viagem: novaViagem
+        })
+      );
+    });
+    return;
+  }
+
+  // 8.13. API: Encerramento de MDF-e no Destino
+  if (pathname === '/api/v1/logistica/mdfe/encerrar' && req.method === 'POST') {
+    parseRequestBody(payload => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      if (!db.viagensMdfe) db.viagensMdfe = [];
+
+      const viagem = db.viagensMdfe.find(v => v.id === payload.id);
+      if (!viagem) {
+        res.statusCode = 404;
+        res.end(JSON.stringify({ sucesso: false, erro: 'Viagem / MDF-e não localizado.' }));
+        return;
+      }
+
+      viagem.statusFila = 'ENCERRADO';
+      viagem.dataHoraEncerramento = new Date().toLocaleString('pt-BR');
+      saveDb(db);
+
+      res.end(
+        JSON.stringify({
+          sucesso: true,
+          mensagem: `MDF-e ${viagem.numeroMdfe} encerrado com sucesso no terminal de destino.`,
+          viagem
+        })
+      );
+    });
+    return;
+  }
+
+  // 8.14. API: Live Stream de Sensores IoT (Pivôs, Silos Termometria & CAN-Bus Frota)
   if (pathname === '/api/v1/telemetria/sensores/live') {
     res.setHeader('Content-Type', 'application/json');
     const agora = new Date();
