@@ -16,8 +16,8 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      // Registro do Service Worker para Operação 100% Offline no Campo
-      if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+      // Registro do Service Worker para Operação 100% Offline no Campo (Apenas fora de iframes)
+      if ('serviceWorker' in navigator && window.location.protocol.startsWith('http') && window.self === window.top) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/sw.js')
             .then((reg) => {

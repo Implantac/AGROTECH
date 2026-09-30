@@ -17,8 +17,8 @@
   <body class="bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500 selection:text-slate-950">
     <div id="root"></div>
     <script>
-      // Registro do Service Worker para Operação 100% Offline no Campo
-      if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+      // Registro do Service Worker para Operação 100% Offline no Campo (Apenas fora de iframes)
+      if ('serviceWorker' in navigator && window.location.protocol.startsWith('http') && window.self === window.top) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/sw.js')
             .then((reg) => {

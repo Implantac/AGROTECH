@@ -507,6 +507,20 @@ const server = http.createServer((req, res) => {
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
+      // Se for asset estático inexistente, retorna 404 em vez de index.html para não quebrar MIME types
+      if (
+        pathname.startsWith('/assets/') ||
+        pathname.endsWith('.js') ||
+        pathname.endsWith('.css') ||
+        pathname.endsWith('.svg') ||
+        pathname.endsWith('.png') ||
+        pathname.endsWith('.json') ||
+        pathname.endsWith('.woff2')
+      ) {
+        res.statusCode = 404;
+        res.end('Arquivo não encontrado: ' + pathname);
+        return;
+      }
       filePath = path.join(STATIC_DIR, 'index.html');
     }
 
