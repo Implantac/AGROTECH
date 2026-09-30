@@ -1,0 +1,255 @@
+{
+  "usuarios": [
+    {
+      "id": "usr-01",
+      "nome": "Dr. Fernando Silveira",
+      "email": "produtor@superagtech.com.br",
+      "senhaHash": "produtor123",
+      "perfil": "PRODUTOR",
+      "fazenda": "Fazenda Santa Maria do Araguaia",
+      "permissoes": [
+        "ALL",
+        "FINANCEIRO",
+        "AGRONOMICO",
+        "FROTA",
+        "FISCAL"
+      ]
+    },
+    {
+      "id": "usr-02",
+      "nome": "Eng. Agr. Camila Duarte",
+      "email": "agronoma@superagtech.com.br",
+      "senhaHash": "agro123",
+      "perfil": "AGRONOMO",
+      "fazenda": "Fazenda Santa Maria do Araguaia",
+      "permissoes": [
+        "AGRONOMICO",
+        "TALHOES",
+        "MIP",
+        "ADUBACAO",
+        "ZARC"
+      ]
+    },
+    {
+      "id": "usr-03",
+      "nome": "Marcos Barreto",
+      "email": "operador@superagtech.com.br",
+      "senhaHash": "op123",
+      "perfil": "OPERADOR",
+      "fazenda": "Fazenda Santa Maria do Araguaia",
+      "permissoes": [
+        "FROTA",
+        "APONTAMENTO",
+        "COMBOIO",
+        "TELEMETRIA"
+      ]
+    },
+    {
+      "id": "usr-04",
+      "nome": "Dra. Valéria Campos (CRC/MT)",
+      "email": "contadora@superagtech.com.br",
+      "senhaHash": "fiscal123",
+      "perfil": "CONTADOR",
+      "fazenda": "Fazenda Santa Maria do Araguaia",
+      "permissoes": [
+        "FISCAL",
+        "LCDPR",
+        "NFE",
+        "DRE",
+        "CONTRATOS"
+      ]
+    }
+  ],
+  "fazendas": [
+    {
+      "id": "faz-01",
+      "nome": "Fazenda Santa Maria do Araguaia",
+      "cnpj": "00.123.456/0001-99",
+      "municipio": "Sorriso",
+      "uf": "MT",
+      "areaTotalHa": 3450,
+      "areaAgricultavelHa": 2800,
+      "reservaLegalHa": 650,
+      "car": "MT-5107909-E4D2.32A1.889C.4501.992B.7744.112A.F012",
+      "sigef": "89201928374"
+    }
+  ],
+  "talhoes": [
+    {
+      "type": "Feature",
+      "id": "talhao-01",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -55.7198,
+              -12.5482
+            ],
+            [
+              -55.7021,
+              -12.5482
+            ],
+            [
+              -55.7021,
+              -12.5621
+            ],
+            [
+              -55.7198,
+              -12.5621
+            ],
+            [
+              -55.7198,
+              -12.5482
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "talhao-01",
+        "codigo": "TAL-01",
+        "nome": "Talhão 01 - Pivô Central Norte",
+        "areaHa": 420.5,
+        "cultura": "Soja Grão",
+        "variedade": "TMG 2381 IPRO",
+        "dataPlantio": "12/10/2026",
+        "status": "PLANTADO",
+        "custoTotalABC": 158400,
+        "breakEvenScHa": 46.2,
+        "ndviMedio": 0.84,
+        "pragasDetectadas": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "talhao-02",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -55.7015,
+              -12.5485
+            ],
+            [
+              -55.684,
+              -12.5485
+            ],
+            [
+              -55.684,
+              -12.5615
+            ],
+            [
+              -55.7015,
+              -12.5615
+            ],
+            [
+              -55.7015,
+              -12.5485
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "talhao-02",
+        "codigo": "TAL-02",
+        "nome": "Talhão 02 - Safrinha Milho & Braquiária",
+        "areaHa": 380,
+        "cultura": "Milho Safrinha",
+        "variedade": "DKB 360 PRO4",
+        "dataPlantio": "15/02/2026",
+        "status": "COLHIDO",
+        "custoTotalABC": 124000,
+        "breakEvenScHa": 62,
+        "ndviMedio": 0.78,
+        "pragasDetectadas": 1
+      }
+    }
+  ],
+  "frota": [
+    {
+      "id": "TRAT-01",
+      "tag": "TRAT-JD-8R",
+      "modelo": "John Deere 8R 370",
+      "tipo": "Trator Pesado",
+      "horimetro": 3410.8,
+      "consumoInstantaneoLh": 28.4,
+      "rpmMotor": 1850,
+      "tempLiquidoArrefecimentoC": 86,
+      "posicaoGps": {
+        "lat": -12.5512,
+        "lng": -55.7098
+      },
+      "statusOperacional": "EM_OPERACAO",
+      "operador": "Marcos Barreto"
+    },
+    {
+      "id": "COLH-01",
+      "tag": "COLH-CASE-9250",
+      "modelo": "Case IH Axial-Flow 9250",
+      "tipo": "Colheitadeira",
+      "horimetro": 2180.2,
+      "consumoInstantaneoLh": 46.2,
+      "rpmMotor": 2100,
+      "tempLiquidoArrefecimentoC": 89,
+      "posicaoGps": {
+        "lat": -12.556,
+        "lng": -55.714
+      },
+      "statusOperacional": "EM_OPERACAO",
+      "operador": "Tiago Meneses"
+    }
+  ],
+  "estoque": [
+    {
+      "id": "INS-01",
+      "codigo": "ADU-MAP",
+      "descricao": "Fertilizante MAP 11-52-00 Granulado",
+      "categoria": "FERTILIZANTE",
+      "unidade": "TON",
+      "saldoAtual": 145,
+      "custoMedioUnitario": 4150,
+      "valorTotalEstoque": 601750,
+      "localArmazenamento": "Galpão A - Baia 03"
+    },
+    {
+      "id": "INS-02",
+      "codigo": "DEF-GLIFO",
+      "descricao": "Herbicida Glifosato 480 g/L SL",
+      "categoria": "DEFENSIVO",
+      "unidade": "L",
+      "saldoAtual": 2800,
+      "custoMedioUnitario": 38.5,
+      "valorTotalEstoque": 107800,
+      "localArmazenamento": "Depósito Defensivos (Armário 02)"
+    },
+    {
+      "id": "INS-03",
+      "codigo": "COMB-DIESEL-S10",
+      "descricao": "Óleo Diesel S-10 Granel",
+      "categoria": "COMBUSTIVEL",
+      "unidade": "L",
+      "saldoAtual": 32000,
+      "custoMedioUnitario": 5.92,
+      "valorTotalEstoque": 189440,
+      "localArmazenamento": "Tanque Aéreo Principal (Posto da Fazenda)"
+    }
+  ],
+  "cotacoesMercado": {
+    "sojaCbotUsdBushel": 12.65,
+    "sojaFobSantosSacaReais": 138.5,
+    "milhoB3SacaReais": 68.2,
+    "boiGordoB3ArrobaReais": 242,
+    "dolarPtaxBacen": 5.42,
+    "ultimaAtualizacao": "2026-09-30T16:30:00.000Z"
+  },
+  "subscriptionConfig": {
+    "profileId": "AGRICULTURA_GRAOS",
+    "customModuleIds": [],
+    "selectedCultures": [
+      "SOJA",
+      "MILHO"
+    ],
+    "updatedAt": "2026-09-30T19:16:18.379Z"
+  }
+}
