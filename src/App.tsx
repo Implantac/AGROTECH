@@ -43,6 +43,8 @@ import { NotificationCenterModal } from './components/NotificationCenterModal';
 import { ToastNotification, ToastItem } from './components/ToastNotification';
 import { UserRoleBar, UserProfileRole } from './components/UserRoleBar';
 import { ModuleConfigModal } from './components/ModuleConfigModal';
+import { HeaderFintechBar } from './components/HeaderFintechBar';
+import { DossieBancarioCreditoModal } from './components/DossieBancarioCreditoModal';
 import {
   getSavedSubscriptionConfig,
   saveSubscriptionConfig,
@@ -374,6 +376,7 @@ export const App: React.FC = () => {
 
   // Modal Central de Lançamentos Rápidos & Sistema de Toast
   const [isQuickEntryOpen, setIsQuickEntryOpen] = useState(false);
+  const [isDossieBancarioOpen, setIsDossieBancarioOpen] = useState(false);
   const [toasts, setToasts] = useState<ToastItem[]>([]);
 
   const addToast = (message: string, type: 'success' | 'warning' | 'info' = 'success') => {
@@ -505,6 +508,9 @@ export const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-emerald-500 selection:text-white">
+      {/* Barra de Ticker Financeiro B3/CBOT & Cockpit Climático Delta T */}
+      <HeaderFintechBar onOpenDossie={() => setIsDossieBancarioOpen(true)} />
+
       {/* 1. Barra de Navegação Superior (Header Principal Modernizado) */}
       <header className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 px-4 lg:px-8 py-2.5 print:hidden shadow-xl">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-3">
@@ -1351,6 +1357,12 @@ export const App: React.FC = () => {
         onClose={() => setIsQuickEntryOpen(false)}
         onSuccess={(msg) => addToast(msg, 'success')}
         profileId={subscriptionConfig.profileId}
+      />
+
+      {/* Dossiê Executivo de Crédito Rural & Homologação Bancária */}
+      <DossieBancarioCreditoModal
+        isOpen={isDossieBancarioOpen}
+        onClose={() => setIsDossieBancarioOpen(false)}
       />
 
       {/* Sistema de Notificações Toast Feedback Instantâneo */}

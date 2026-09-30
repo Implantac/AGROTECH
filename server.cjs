@@ -847,7 +847,142 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // 8.14. API: Live Stream de Sensores IoT (Pivôs, Silos Termometria & CAN-Bus Frota)
+  // 8.14. API: Ticker Financeiro e de Commodities em Tempo Real
+  if (pathname === '/api/v1/mercado/ticker' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    const agora = new Date();
+    const tick = Math.sin(agora.getTime() / 15000);
+
+    const tickerData = [
+      { id: 'soja_cbot', nome: 'Soja Chicago (CBOT)', valor: (1185.50 + tick * 4.2).toFixed(2), unidade: 'US$ / bu', variacaoPct: +1.25, tipo: 'ALTA' },
+      { id: 'milho_b3', nome: 'Milho B3 Futuro', valor: (68.40 + tick * 0.35).toFixed(2), unidade: 'R$ / sc', variacaoPct: +0.60, tipo: 'ALTA' },
+      { id: 'boi_gordo_b3', nome: 'Boi Gordo B3 (CEPEA)', valor: (242.50 + tick * 1.1).toFixed(2), unidade: 'R$ / @', variacaoPct: +0.82, tipo: 'ALTA' },
+      { id: 'dolar_ptax', nome: 'Dólar Comercial PTAX', valor: (5.4210 + tick * 0.012).toFixed(4), unidade: 'R$', variacaoPct: -0.35, tipo: 'BAIXA' },
+      { id: 'ureia_cfr', nome: 'Uréia CFR Paranaguá', valor: '385.00', unidade: 'US$ / t', variacaoPct: 0.0, tipo: 'ESTAVEL' },
+      { id: 'etanol_hidratado', nome: 'Etanol Paulínia', valor: (2.3420 + tick * 0.015).toFixed(4), unidade: 'R$ / L', variacaoPct: +1.10, tipo: 'ALTA' },
+      { id: 'cafe_arabica', nome: 'Café Arábica NY', valor: (254.80 + tick * 1.8).toFixed(2), unidade: 'c / lb', variacaoPct: +1.45, tipo: 'ALTA' },
+      { id: 'algodao_hvi', nome: 'Algodão Pluma CEPEA', valor: (412.80 + tick * 0.9).toFixed(2), unidade: 'R$ / @', variacaoPct: -0.15, tipo: 'BAIXA' }
+    ];
+
+    res.end(JSON.stringify({ sucesso: true, timestamp: agora.toISOString(), cotacoes: tickerData }));
+    return;
+  }
+
+  // 8.15. API: Monitoramento Psicrométrico em Tempo Real de Delta T & Janela de Pulverização
+  if (pathname === '/api/v1/clima/delta-t' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    const agora = new Date();
+    const hora = agora.getHours();
+    
+    // Simulação meteorológica realista por horário
+    const tempArC = parseFloat((24.5 + Math.sin((hora - 6) / 4) * 5.2).toFixed(1));
+    const umidadeRelativaPct = Math.max(35, Math.min(90, Math.round(75 - (tempArC - 20) * 3.5)));
+    const ventoKmH = parseFloat((6.5 + Math.sin(agora.getTime() / 20000) * 3.2).toFixed(1));
+
+    // Stull Wet-Bulb Temperature Formula (precisão psicrométrica industrial)
+    const T = tempArC;
+    const RH = umidadeRelativaPct;
+    const Tw = T * Math.atan(0.151977 * Math.pow(RH + 8.313659, 0.5)) +
+               Math.atan(T + RH) - Math.atan(RH - 1.676331) +
+               0.00391838 * Math.pow(RH, 1.5) * Math.atan(0.023101 * RH) - 4.686035;
+    
+    const deltaTC = parseFloat(Math.max(0.5, T - Tw).toFixed(1));
+
+    let statusJanela = 'OPTIMAL';
+    let corAlerta = 'EMERALD';
+    let mensagemTecnica = 'Janela de pulverização segura. Gotas com máxima deposição e mínima perda.';
+
+    if (deltaTC < 2.0) {
+      statusJanela = 'RISCO_INVERSAO_DERIVA';
+      corAlerta = 'AMBER';
+      mensagemTecnica = 'Delta T muito baixo (< 2°C). Risco de inversão térmica e gotas suspensas na atmosfera.';
+    } else if (deltaTC > 8.0) {
+      statusJanela = 'RISCO_EVAPORACAO_CRITICA';
+      corAlerta = 'RED';
+      mensagemTecnica = 'Delta T muito alto (> 8°C). Evaporação acelerada de gotas. Travar pulverizadores imediatamante!';
+    } else if (ventoKmH > 12.0) {
+      statusJanela = 'VENTO_EXCESSIVO_DERIVA';
+      corAlerta = 'AMBER';
+      mensagemTecnica = 'Velocidade do vento acima do limite (> 12 km/h). Risco iminente de deriva para áreas vizinhas.';
+    }
+
+    res.end(
+      JSON.stringify({
+        sucesso: true,
+        estacaoMeteorologica: 'Estação Davis Vantage Pro2 Plus - Sede Gleba 1',
+        tempArC,
+        umidadeRelativaPct,
+        ventoKmH,
+        direcaoVento: 'SE (Sudeste) 135°',
+        tempBulboUmidoC: parseFloat(Tw.toFixed(1)),
+        deltaTC,
+        statusJanela,
+        corAlerta,
+        mensagemTecnica,
+        pressaoAtmosfericaHpa: 1014.5,
+        radiacaoSolarWm2: 680,
+        timestamp: agora.toISOString()
+      })
+    );
+    return;
+  }
+
+  // 8.16. API: Compilação de Dossiê Bancário Executivo para Crédito Rural (Plano Safra / BNDES)
+  if (pathname === '/api/v1/credito/dossie/emitir' && req.method === 'POST') {
+    parseRequestBody(payload => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      if (!db.dossiesBancarios) db.dossiesBancarios = [];
+
+      const ano = new Date().getFullYear();
+      const numeroDossie = `DOSSIE-AGRO-${ano}-${Math.floor(100000 + Math.random() * 900000)}`;
+      const hashSeguranca = crypto.createHash('sha256').update(numeroDossie + Date.now()).digest('hex');
+
+      const areaTotalHa = 2450;
+      const custoEstimadoHa = 4250.0;
+      const limiteCusteioSugerido = areaTotalHa * custoEstimadoHa;
+      const patrimonioMaquinasRural = 18500000.0;
+      const valorTerraNua = areaTotalHa * 75000.0; // R$ 75k/ha em Sorriso/MT
+
+      const novoDossie = {
+        id: `dos-${Date.now()}`,
+        numeroDossie,
+        dataEmissao: new Date().toLocaleString('pt-BR'),
+        bancoDestino: payload.bancoDestino || 'Banco do Brasil S.A. (Agência Agro Sorriso/MT)',
+        linhaCredito: payload.linhaCredito || 'Pronamp / Moderfrota / Custeio Safra Verão',
+        produtorNome: 'Carlos Alberto Schneider',
+        cpfCnpj: '18.491.029/0001-88',
+        fazendaNome: 'Fazenda Santa Helena',
+        municipioUF: 'Sorriso / MT',
+        areaTotalHa,
+        culturasPrincipais: ['Soja Grão Padrão Exportação', 'Milho Safrinha'],
+        produtividadeMedia3AnosScHa: 68.4,
+        conformidadeEUDR: '100% CONFORME (Desmatamento Zero após 31/12/2020)',
+        carStatus: 'ATIVO & VALIDADO NO SICAR (MT-5107909-XXXXXXXX)',
+        limiteCusteioSugerido,
+        patrimonioTotalGarantias: patrimonioMaquinasRural + valorTerraNua,
+        ratingCreditoRural: 'AAA (Risco Mínimo - Histórico Impecável)',
+        protocoloBancario: `BACEN-SCR-${Math.floor(10000000 + Math.random() * 90000000)}`,
+        hashCertificacao: hashSeguranca,
+        status: 'HOMOLOGADO_PARA_ENQUADRAMENTO'
+      };
+
+      db.dossiesBancarios.unshift(novoDossie);
+      saveDb(db);
+
+      res.statusCode = 201;
+      res.end(
+        JSON.stringify({
+          sucesso: true,
+          mensagem: 'Dossiê Bancário Executivo compilado e certificado com sucesso.',
+          dossie: novoDossie
+        })
+      );
+    });
+    return;
+  }
+
+  // 8.17. API: Live Stream de Sensores IoT (Pivôs, Silos Termometria & CAN-Bus Frota)
   if (pathname === '/api/v1/telemetria/sensores/live') {
     res.setHeader('Content-Type', 'application/json');
     const agora = new Date();

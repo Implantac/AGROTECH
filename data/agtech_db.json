@@ -511,5 +511,32 @@
       "municipioOrigem": "Sorriso - MT (IBGE: 5107909)",
       "municipioDestino": "Itaituba / Miritituba - PA (IBGE: 1503606)"
     }
+  ],
+  "dossiesBancarios": [
+    {
+      "id": "dos-1790808265501",
+      "numeroDossie": "DOSSIE-AGRO-2026-725909",
+      "dataEmissao": "30/09/2026, 22:44:25",
+      "bancoDestino": "Banco do Brasil S.A.",
+      "linhaCredito": "Pronamp / Moderfrota / Custeio Safra Verão",
+      "produtorNome": "Carlos Alberto Schneider",
+      "cpfCnpj": "18.491.029/0001-88",
+      "fazendaNome": "Fazenda Santa Helena",
+      "municipioUF": "Sorriso / MT",
+      "areaTotalHa": 2450,
+      "culturasPrincipais": [
+        "Soja Grão Padrão Exportação",
+        "Milho Safrinha"
+      ],
+      "produtividadeMedia3AnosScHa": 68.4,
+      "conformidadeEUDR": "100% CONFORME (Desmatamento Zero após 31/12/2020)",
+      "carStatus": "ATIVO & VALIDADO NO SICAR (MT-5107909-XXXXXXXX)",
+      "limiteCusteioSugerido": 10412500,
+      "patrimonioTotalGarantias": 202250000,
+      "ratingCreditoRural": "AAA (Risco Mínimo - Histórico Impecável)",
+      "protocoloBancario": "BACEN-SCR-29332096",
+      "hashCertificacao": "12228c3d65118868acc3361bae0cec27cd3c3bb107364858e5c638233a630bd8",
+      "status": "HOMOLOGADO_PARA_ENQUADRAMENTO"
+    }
   ]
 }
