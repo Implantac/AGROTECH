@@ -378,6 +378,64 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 8.65. API: Emissão e Registro de Romaneio de Carga e Balança Rodoviária (CONAB)
+  if (pathname === '/api/v1/balanca/romaneio/emitir' && req.method === 'POST') {
+    parseRequestBody(payload => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      if (!db.romaneiosEmitidos) db.romaneiosEmitidos = [];
+
+      const numeroRomaneio = `ROM-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`;
+      const pesoBruto = Number(payload.pesoBrutoKg) || 56800;
+      const tara = Number(payload.taraCaminhaoKg) || 18900;
+      const pesoLiquido = pesoBruto - tara;
+      const umidade = Number(payload.umidadePercentual) || 14.5;
+      const impureza = Number(payload.impurezaPercentual) || 1.1;
+
+      const descUmidade = umidade > 14.0 ? Math.round(pesoLiquido * ((umidade - 14.0) / 100) * 1.25) : 0;
+      const descImpureza = impureza > 1.0 ? Math.round(pesoLiquido * ((impureza - 1.0) / 100)) : 0;
+      const pesoLiquidoFinal = pesoLiquido - descUmidade - descImpureza;
+      const sacas = Number((pesoLiquidoFinal / 60).toFixed(1));
+      const hashSeguranca = crypto.createHash('sha256').update(numeroRomaneio + Date.now()).digest('hex');
+
+      const novoRomaneio = {
+        id: `rom-${Date.now()}`,
+        numeroRomaneio,
+        dataHora: new Date().toLocaleString('pt-BR'),
+        placaCaminhao: payload.placaCaminhao || 'BRA-9X21 (Bitrem 9 Eixos)',
+        motoristaNome: payload.motoristaNome || 'Edson Arantes',
+        talhaoOrigemId: payload.talhaoOrigemId || 'talhao-04',
+        cultura: payload.cultura || 'Soja em Grãos (Safra 2026/27)',
+        pesoBrutoKg: pesoBruto,
+        taraCaminhaoKg: tara,
+        pesoLiquidoKg: pesoLiquido,
+        umidadePercentual: umidade,
+        descontoUmidadeKg: descUmidade,
+        impurezaPercentual: impureza,
+        descontoImpurezaKg: descImpureza,
+        pesoLiquidoFinalKg: pesoLiquidoFinal,
+        sacas60kgFinal: sacas,
+        armazemDestino: payload.armazemDestino || 'Terminal Ferroviário Rumo / Cargill Sinop',
+        hashAutenticidade: hashSeguranca,
+        balancista: 'Marcos Vinicius Ribeiro - Reg. 0492/MT',
+        status: 'EM_TRANSITO',
+      };
+
+      db.romaneiosEmitidos.unshift(novoRomaneio);
+      saveDb(db);
+
+      res.statusCode = 201;
+      res.end(
+        JSON.stringify({
+          sucesso: true,
+          mensagem: 'Ticket de pesagem e Romaneio oficial CONAB emitido com sucesso.',
+          romaneio: novoRomaneio,
+        })
+      );
+    });
+    return;
+  }
+
   // 8.7. API: Emissão Eletrônica de Receituário Agronômico (CREA / MAPA)
   if (pathname === '/api/v1/agronomico/receituario/emitir' && req.method === 'POST') {
     parseRequestBody(payload => {
