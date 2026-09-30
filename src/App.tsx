@@ -269,6 +269,7 @@ export const App: React.FC = () => {
   });
   const [isFarmDropdownOpen, setIsFarmDropdownOpen] = useState<boolean>(false);
   const [selectedDomain, setSelectedDomain] = useState<string>('TODOS');
+  const [ribbonFilter, setRibbonFilter] = useState<string>('');
 
   const farmsList = [
     {
@@ -479,11 +480,22 @@ export const App: React.FC = () => {
   const fiscalCount = availableModules.filter((m: ModuleItem) => m.category === 'FISCAL').length;
   const pecuariaCount = availableModules.filter((m: ModuleItem) => m.category === 'PECUARIA').length;
 
-  // Módulos exibidos na fita de navegação rápida
+  // Módulos exibidos na fita de navegação rápida com busca instantânea
   const ribbonModules = availableModules.filter((m: ModuleItem) => {
-    if (selectedDomain === 'FAVORITOS') return favoritos.includes(m.id);
-    if (selectedDomain === 'TODOS') return true;
-    return m.category === selectedDomain;
+    const matchesDomain =
+      selectedDomain === 'FAVORITOS'
+        ? favoritos.includes(m.id)
+        : selectedDomain === 'TODOS'
+        ? true
+        : m.category === selectedDomain;
+    if (!matchesDomain) return false;
+    if (!ribbonFilter.trim()) return true;
+    const q = ribbonFilter.toLowerCase();
+    return (
+      m.name.toLowerCase().includes(q) ||
+      m.fullName.toLowerCase().includes(q) ||
+      m.description.toLowerCase().includes(q)
+    );
   });
 
   // Lista dos módulos favoritos da barra superior (apenas ativos)
@@ -796,15 +808,36 @@ export const App: React.FC = () => {
               </button>
             </div>
 
-            {/* Botão para Configuração Modular */}
-            <button
-              onClick={() => setIsModuleConfigOpen(true)}
-              className="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold text-emerald-400 hover:text-emerald-300 hover:bg-emerald-950/40 border border-emerald-500/30 transition-all cursor-pointer whitespace-nowrap ml-2"
-              title="Personalizar Módulos Contratados de Acordo com a Atividade"
-            >
-              <Sliders className="w-3.5 h-3.5" />
-              <span>Configurar Atividades ({activeProfile.shortLabel})</span>
-            </button>
+            {/* Barra de Pesquisa Rápida na Fita & Botão para Configuração Modular */}
+            <div className="flex items-center gap-2 ml-auto">
+              <div className="relative flex items-center">
+                <Search className="w-3 h-3 text-slate-500 absolute left-2.5 pointer-events-none" />
+                <input
+                  type="text"
+                  placeholder="Filtrar módulos..."
+                  value={ribbonFilter}
+                  onChange={(e) => setRibbonFilter(e.target.value)}
+                  className="bg-slate-950/80 border border-slate-800 focus:border-emerald-500/60 rounded-lg pl-7 pr-6 py-1 text-xs text-white placeholder-slate-500 w-36 sm:w-44 focus:outline-none transition-all"
+                />
+                {ribbonFilter && (
+                  <button
+                    onClick={() => setRibbonFilter('')}
+                    className="absolute right-2 text-slate-500 hover:text-white text-xs"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
+
+              <button
+                onClick={() => setIsModuleConfigOpen(true)}
+                className="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold text-emerald-400 hover:text-emerald-300 hover:bg-emerald-950/40 border border-emerald-500/30 transition-all cursor-pointer whitespace-nowrap"
+                title="Personalizar Módulos Contratados de Acordo com a Atividade"
+              >
+                <Sliders className="w-3.5 h-3.5" />
+                <span>Configurar ({activeProfile.shortLabel})</span>
+              </button>
+            </div>
           </div>
 
           {/* Fita Horizontal de Módulos do Domínio Selecionado */}
@@ -877,7 +910,47 @@ export const App: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex flex-wrap items-center gap-2 shrink-0">
+            {/* Atalhos Rápidos Operacionais do Módulo */}
+            <div className="hidden sm:flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800">
+              {activeTab !== 'BI' && (
+                <button
+                  onClick={() => handleSelectModule('BI')}
+                  className="px-2.5 py-1 text-[11px] font-semibold text-slate-400 hover:text-white hover:bg-slate-900 rounded-lg transition-all"
+                  title="Painel Executivo BI"
+                >
+                  Cockpit BI
+                </button>
+              )}
+              {activeTab !== 'SIG' && (
+                <button
+                  onClick={() => handleSelectModule('SIG')}
+                  className="px-2.5 py-1 text-[11px] font-semibold text-slate-400 hover:text-emerald-400 hover:bg-slate-900 rounded-lg transition-all"
+                  title="Central SIG de Mapas"
+                >
+                  Mapa SIG
+                </button>
+              )}
+              {activeTab !== 'COPILOT' && (
+                <button
+                  onClick={() => handleSelectModule('COPILOT')}
+                  className="px-2.5 py-1 text-[11px] font-semibold text-teal-400 hover:text-teal-300 hover:bg-teal-950/40 rounded-lg transition-all flex items-center gap-1"
+                  title="Copilot IA Safra"
+                >
+                  <Sparkles className="w-3 h-3 text-teal-400" /> Copilot IA
+                </button>
+              )}
+              {activeTab !== 'MOBILE' && (
+                <button
+                  onClick={() => handleSelectModule('MOBILE')}
+                  className="px-2.5 py-1 text-[11px] font-semibold text-cyan-400 hover:text-cyan-300 hover:bg-cyan-950/40 rounded-lg transition-all flex items-center gap-1"
+                  title="Simulador de Aplicativo Mobile Offline"
+                >
+                  <Smartphone className="w-3 h-3 text-cyan-400" /> Mobile
+                </button>
+              )}
+            </div>
+
             <button
               onClick={() => handleToggleFavorito(activeModuleObj.id)}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-semibold transition cursor-pointer ${
@@ -891,7 +964,7 @@ export const App: React.FC = () => {
                   favoritos.includes(activeModuleObj.id) ? 'fill-current text-amber-400' : ''
                 }`}
               />
-              {favoritos.includes(activeModuleObj.id) ? 'Favoritado' : 'Favoritar'}
+              <span className="hidden sm:inline">{favoritos.includes(activeModuleObj.id) ? 'Favoritado' : 'Favoritar'}</span>
             </button>
             <button
               onClick={() => setIsQuickAccessOpen(true)}
@@ -1320,22 +1393,40 @@ export const App: React.FC = () => {
         activeProfileName={activeProfile.name}
       />
 
-      {/* Footer com Arquitetura e Especificações */}
-      <footer className="border-t border-slate-800/80 bg-slate-950 px-6 py-4 mt-auto text-xs text-slate-500 flex flex-col md:flex-row items-center justify-between gap-3 print:hidden">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-          <span>Plataforma Super AgTech v9.5 • 135 Módulos Enterprise • Arquitetura Offline-First & Microsserviços</span>
+      {/* Footer com Arquitetura, Atalhos e Indicadores de Sistema */}
+      <footer className="border-t border-slate-800/80 bg-slate-950 px-6 py-3.5 mt-auto text-xs text-slate-500 flex flex-col md:flex-row items-center justify-between gap-3 print:hidden">
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="text-slate-300 font-medium">Super AgTech Enterprise v9.5</span>
+            <span className="text-[10px] text-emerald-400 bg-emerald-950 px-1.5 py-0.5 rounded border border-emerald-800 font-mono">
+              PostGIS 3.4 Spatial • Online
+            </span>
+          </div>
+
+          <div className="hidden lg:flex items-center gap-2 text-[11px] text-slate-400 border-l border-slate-800 pl-3">
+            <span>SEFAZ A1: <b className="text-emerald-400">Válido (248 dias)</b></span>
+            <span>•</span>
+            <span>GPS RTK: <b className="text-cyan-400">Precisão 2cm</b></span>
+            <span>•</span>
+            <span>Sincronização: <b className="text-emerald-400">Ativa (12ms)</b></span>
+          </div>
         </div>
-        <div className="flex items-center gap-4 text-[11px]">
-          <span>PostGIS 3.4 Spatial</span>
-          <span>•</span>
-          <span>Golang Ingestion Gateway</span>
-          <span>•</span>
-          <span>VRA ISO-XML</span>
-          <span>•</span>
-          <span>Balança & Barter</span>
-          <span>•</span>
-          <span>LCDPR Receita Federal</span>
+
+        {/* Atalhos de Teclado */}
+        <div className="flex items-center gap-3 text-[11px]">
+          <span className="text-slate-400 hidden sm:inline">Atalhos Globais:</span>
+          <span className="flex items-center gap-1">
+            <kbd className="px-1.5 py-0.5 text-[10px] font-mono bg-slate-900 text-slate-300 rounded border border-slate-700">Ctrl K</kbd>
+            <span className="text-slate-400">Buscar</span>
+          </span>
+          <span className="flex items-center gap-1">
+            <kbd className="px-1.5 py-0.5 text-[10px] font-mono bg-slate-900 text-slate-300 rounded border border-slate-700">N</kbd>
+            <span className="text-slate-400">Lançamento</span>
+          </span>
         </div>
       </footer>
     </div>
