@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Warehouse,
   Flame,
@@ -13,7 +13,8 @@ import {
   TrendingUp,
   Percent,
   Sliders,
-  Sparkles
+  Sparkles,
+  Radio
 } from 'lucide-react';
 
 export interface SiloData {
@@ -113,6 +114,46 @@ const SILOS_INICIAIS: SiloData[] = [
 export const SilosArmazenagemModule: React.FC = () => {
   const [silos, setSilos] = useState<SiloData[]>(SILOS_INICIAIS);
   const [siloSelecionadoId, setSiloSelecionadoId] = useState<string>('silo-01');
+  const [iotTermometriaLive, setIotTermometriaLive] = useState<boolean>(true);
+
+  // Polling dos Sensores de Termometria dos Cabos
+  useEffect(() => {
+    let ativo = true;
+    const fetchSilosTelemetry = async () => {
+      try {
+        const resp = await fetch('/api/v1/telemetria/sensores/live');
+        if (resp.ok) {
+          const data = await resp.json();
+          if (ativo && Array.isArray(data.silosTermometria)) {
+            setIotTermometriaLive(true);
+            setSilos((prev) =>
+              prev.map((silo) => {
+                if (silo.id === 'silo-01' && data.silosTermometria[0]) {
+                  const s1 = data.silosTermometria[0];
+                  return {
+                    ...silo,
+                    umidadeMediaPct: s1.umidadePercentual,
+                    temperaturaMediaC: s1.cabos[0]?.tempC || silo.temperaturaMediaC,
+                    statusAeracao: s1.aeracaoLigada ? 'LIGADA' : 'DESLIGADA',
+                  };
+                }
+                return silo;
+              })
+            );
+          }
+        }
+      } catch {
+        if (ativo) setIotTermometriaLive(false);
+      }
+    };
+
+    fetchSilosTelemetry();
+    const timer = setInterval(fetchSilosTelemetry, 5000);
+    return () => {
+      ativo = false;
+      clearInterval(timer);
+    };
+  }, []);
 
   // Parâmetros do Secador de Grãos
   const [secadorPesoInicialTon, setSecadorPesoInicialTon] = useState<number>(60.0); // 60 toneladas
@@ -163,6 +204,14 @@ export const SilosArmazenagemModule: React.FC = () => {
                 </span>
                 <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
                   Aeração Forçada
+                </span>
+                <span className={`px-2 py-0.5 rounded text-[10px] font-bold flex items-center gap-1 ${
+                  iotTermometriaLive
+                    ? 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                    : 'bg-slate-800 text-slate-400'
+                }`}>
+                  <Radio className="w-3 h-3 text-emerald-400 animate-pulse" />
+                  IoT Silos Live
                 </span>
               </div>
               <p className="text-sm text-slate-400 mt-0.5">

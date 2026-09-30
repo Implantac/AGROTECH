@@ -324,6 +324,177 @@ const server = http.createServer((req, res) => {
     }
   }
 
+  // 8.6. API: Emissão Eletrônica de GTA (Guia de Trânsito Animal - INDEA / MAPA)
+  if (pathname === '/api/v1/pecuaria/gta/emitir' && req.method === 'POST') {
+    parseRequestBody(payload => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      if (!db.gtasEmitidas) db.gtasEmitidas = [];
+
+      const numeroGta = `MT-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}-A`;
+      const serie = 'SÉRIE ELETRÔNICA - MAPA/INDEA';
+      const hashSeguranca = crypto.createHash('sha256').update(numeroGta + Date.now()).digest('hex');
+
+      const novaGta = {
+        id: `gta-${Date.now()}`,
+        numeroGta,
+        serie,
+        dataEmissao: new Date().toISOString(),
+        origem: payload.origem || 'Estância Pantaneira - Poconé/MT (Código: 5106502001)',
+        destino: payload.destino || 'Frigorífico Pantanal Alimentos S.A. - Várzea Grande/MT (SIF 1253)',
+        finalidade: payload.finalidade || 'Abate Imediato - Padrão Hilton / UE',
+        especie: 'BOVINA',
+        quantidadeCabecas: payload.quantidadeCabecas || 50,
+        categoriaIdade: payload.categoriaIdade || 'Machos 24-36 meses (Castrados)',
+        lacreVeiculo: payload.lacreVeiculo || `LACRE-${Math.floor(100000 + Math.random() * 900000)}`,
+        motorista: payload.motorista || 'Valdir Santos - CNH 039821890',
+        placaVeiculo: payload.placaVeiculo || 'RNG-4B92 (Bi-Trem Boiadeiro)',
+        vencimentoDias: 3,
+        statusSanitario: 'Área Livre de Febre Aftosa sem Vacinação (OMSA) - Brucelose Negativo',
+        hashAutenticidade: hashSeguranca,
+        qrcodeUrl: `https://defesaagropecuaria.mt.gov.br/autenticar-gta?hash=${hashSeguranca.substring(0, 16)}`,
+        emitenteCrmv: 'Dr. Roberto Magalhães - CRMV-MT 4892',
+      };
+
+      db.gtasEmitidas.unshift(novaGta);
+      saveDb(db);
+
+      res.statusCode = 201;
+      res.end(
+        JSON.stringify({
+          sucesso: true,
+          mensagem: 'e-GTA emitida com sucesso junto ao Sistema de Defesa Agropecuária.',
+          gta: novaGta,
+        })
+      );
+    });
+    return;
+  }
+
+  // 8.7. API: Emissão Eletrônica de Receituário Agronômico (CREA / MAPA)
+  if (pathname === '/api/v1/agronomico/receituario/emitir' && req.method === 'POST') {
+    parseRequestBody(payload => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      if (!db.receituariosEmitidos) db.receituariosEmitidos = [];
+
+      const numeroReceita = `REC-${new Date().getFullYear()}-${Math.floor(100000 + Math.random() * 900000)}`;
+      const numeroArt = `ART-CREA-MT-${new Date().getFullYear()}-${Math.floor(1000000 + Math.random() * 9000000)}`;
+      const hashAssinatura = crypto.createHash('sha256').update(numeroReceita + numeroArt).digest('hex');
+
+      const novoReceituario = {
+        id: `rec-${Date.now()}`,
+        numeroReceita,
+        numeroArt,
+        agronomoResponsavel: payload.agronomoResponsavel || 'Dra. Camila Nogueira de Barros',
+        creaNumero: payload.creaNumero || 'CREA-MT 18492-D',
+        dataEmissao: new Date().toISOString(),
+        validadeDias: payload.validadeDias || 30,
+        talhaoAlvoId: payload.talhaoAlvoId || 'talhao-04',
+        cultura: payload.cultura || 'Soja (Glycine max)',
+        produtoComercial: payload.produtoComercial || 'Fox Xpro (Bayer)',
+        principioAtivo: payload.principioAtivo || 'Trifloxistrobina + Protioconazol',
+        doseRecomendada: payload.doseRecomendada || '0.50 L / ha',
+        volumeCaldaLha: payload.volumeCaldaLha || 150,
+        alvoBiologico: payload.alvoBiologico || 'Ferrugem Asiática (Phakopsora pachyrhizi)',
+        intervaloSegurancaDias: payload.intervaloSegurancaDias || 20,
+        periodoReentradaHoras: payload.periodoReentradaHoras || 24,
+        classeToxicologica: payload.classeToxicologica || 'Classe IV - Pouco Tóxico (Faixa Azul)',
+        instrucoesInpev: 'Tríplice lavagem obrigatória no preparo da calda e devolução no posto central do inpEV em até 365 dias.',
+        hashAssinaturaIcp: hashAssinatura,
+        status: 'EMITIDO_VALIDADO',
+      };
+
+      db.receituariosEmitidos.unshift(novoReceituario);
+      saveDb(db);
+
+      res.statusCode = 201;
+      res.end(
+        JSON.stringify({
+          sucesso: true,
+          mensagem: 'Receituário Agronômico emitido com ART averbada e assinatura digital.',
+          receituario: novoReceituario,
+        })
+      );
+    });
+    return;
+  }
+
+  // 8.8. API: Live Stream de Sensores IoT (Pivôs, Silos Termometria & CAN-Bus Frota)
+  if (pathname === '/api/v1/telemetria/sensores/live') {
+    res.setHeader('Content-Type', 'application/json');
+    const agora = new Date();
+    const noise = Math.sin(agora.getTime() / 10000) * 1.5;
+
+    const sensorData = {
+      timestamp: agora.toISOString(),
+      pivoCentral: {
+        id: 'PIVO-01-VALLEY',
+        status: 'IRRIGANDO_SECTOR_3',
+        pressaoBar: parseFloat((3.4 + noise * 0.1).toFixed(2)),
+        pressaoIdealBar: 3.5,
+        laminaMmHora: parseFloat((8.2 + noise * 0.2).toFixed(1)),
+        velocidadePercentual: 65,
+        anguloAtualGraus: (Math.floor(agora.getTime() / 2000) % 360),
+        vazaoM3h: parseFloat((280 + noise * 5).toFixed(1)),
+        tensaoSoloKpa: -28.4,
+        recomendacaoManejo: 'Manter lâmina programada para atingir 80% da Capacidade de Campo.',
+      },
+      silosTermometria: [
+        {
+          id: 'SILO-01-METÁLICO',
+          capacidadeTon: 5000,
+          ocupacaoTon: 4850,
+          grao: 'Soja em Grãos (Safra Atual)',
+          umidadePercentual: 13.2,
+          aeracaoLigada: true,
+          cabos: [
+            { caboId: 'Cabo 1 (Centro)', tempC: parseFloat((22.4 + noise * 0.3).toFixed(1)), status: 'IDEAL' },
+            { caboId: 'Cabo 2 (Norte)', tempC: parseFloat((23.1 + noise * 0.2).toFixed(1)), status: 'IDEAL' },
+            { caboId: 'Cabo 3 (Sul)', tempC: parseFloat((24.8 + noise * 0.4).toFixed(1)), status: 'ALERTA_AERACAO' },
+          ],
+        },
+        {
+          id: 'SILO-02-METÁLICO',
+          capacidadeTon: 5000,
+          ocupacaoTon: 3200,
+          grao: 'Milho Safrinha',
+          umidadePercentual: 13.8,
+          aeracaoLigada: false,
+          cabos: [
+            { caboId: 'Cabo 1 (Centro)', tempC: 21.8, status: 'IDEAL' },
+            { caboId: 'Cabo 2 (Norte)', tempC: 22.0, status: 'IDEAL' },
+          ],
+        },
+      ],
+      frotaAtivaCanbus: [
+        {
+          frotaId: 'TRAT-JD-8R',
+          maquina: 'Trator John Deere 8R 370',
+          rpm: Math.floor(1850 + noise * 30),
+          velocidadeKmh: parseFloat((18.2 + noise * 0.3).toFixed(1)),
+          consumoLhora: parseFloat((38.4 + noise * 1.2).toFixed(1)),
+          pilotoAutomaticoRtk: 'ATIVO_CORRECAO_RTK_2CM',
+          nivelTanqueArlaPercentual: 78,
+          pressaoOleoBar: 4.8,
+        },
+        {
+          frotaId: 'PULV-PAT-350',
+          maquina: 'Pulverizador Patriot 350',
+          rpm: Math.floor(1720 + noise * 20),
+          velocidadeKmh: parseFloat((16.5 + noise * 0.4).toFixed(1)),
+          consumoLhora: parseFloat((29.1 + noise * 0.8).toFixed(1)),
+          pressaoBarrasBar: 3.2,
+          pilotoAutomaticoRtk: 'ATIVO_CORRECAO_RTK_2CM',
+        },
+      ],
+    };
+
+    res.statusCode = 200;
+    res.end(JSON.stringify(sensorData));
+    return;
+  }
+
   // 9. Servir Arquivos Estáticos SPA
   let filePath = path.join(STATIC_DIR, pathname === '/' ? 'index.html' : pathname);
 

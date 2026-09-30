@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Droplet,
   Waves,
@@ -13,7 +13,8 @@ import {
   Clock,
   Sparkles,
   Sliders,
-  DollarSign
+  DollarSign,
+  Radio
 } from 'lucide-react';
 import { TALHOES_INICIAIS } from '../data/mockAgroData';
 
@@ -24,12 +25,46 @@ export const IrrigacaoPivoModule: React.FC = () => {
   const [sentidoRotacao, setSentidoRotacao] = useState<'HORARIO' | 'ANTI_HORARIO'>('HORARIO');
   const [modoTarifaNoturna, setModoTarifaNoturna] = useState<boolean>(true);
 
+  // Telemetria IoT em Tempo Real
+  const [anguloAtual, setAnguloAtual] = useState<number>(142);
+  const [pressaoBar, setPressaoBar] = useState<number>(3.4);
+  const [vazaoM3h, setVazaoM3h] = useState<number>(280);
+  const [iotOnline, setIotOnline] = useState<boolean>(true);
+
   // Parâmetros do Balanço Hídrico
   const [et0MmDia, setEt0MmDia] = useState<number>(5.4);
   const [kcCultura, setKcCultura] = useState<number>(1.15); // Soja R3/R5
   const [umidadeSoloAtual, setUmidadeSoloAtual] = useState<number>(22.0); // % volumétrica
   const capacidadeCampo = 35.0; // %
   const pontoMurcha = 16.0; // %
+
+  // Polling de Sensores IoT do Pivô
+  useEffect(() => {
+    let montado = true;
+    const fetchSensores = async () => {
+      try {
+        const res = await fetch('/api/v1/telemetria/sensores/live');
+        if (res.ok) {
+          const data = await res.json();
+          if (montado && data.pivoCentral) {
+            setAnguloAtual(data.pivoCentral.anguloAtualGraus);
+            setPressaoBar(data.pivoCentral.pressaoBar);
+            setVazaoM3h(data.pivoCentral.vazaoM3h);
+            setIotOnline(true);
+          }
+        }
+      } catch {
+        if (montado) setIotOnline(false);
+      }
+    };
+
+    fetchSensores();
+    const interval = setInterval(fetchSensores, 4000);
+    return () => {
+      montado = false;
+      clearInterval(interval);
+    };
+  }, []);
 
   // Cálculos do Motor de Irrigação
   const etcMmDia = et0MmDia * kcCultura; // ETc = ET0 * Kc
@@ -144,14 +179,26 @@ export const IrrigacaoPivoModule: React.FC = () => {
         <div className="lg:col-span-2 bg-slate-900/80 border border-slate-800 p-5 rounded-2xl space-y-5">
           <div className="flex items-center justify-between border-b border-slate-800 pb-3">
             <div>
-              <h2 className="text-base font-bold text-slate-100 flex items-center gap-2">
-                <Compass className="w-5 h-5 text-cyan-400" />
-                Telemetria do Pivô Central 01 (TAL-03 • 510 ha)
-              </h2>
-              <p className="text-xs text-slate-400">Bomba de captação rio Teles Pires • Pressão: 3.4 bar • Vazão: 380 m³/h</p>
+              <div className="flex items-center gap-2">
+                <h2 className="text-base font-bold text-slate-100 flex items-center gap-2">
+                  <Compass className="w-5 h-5 text-cyan-400" />
+                  Telemetria do Pivô Central 01 (TAL-03 • 510 ha)
+                </h2>
+                <span className={`px-2 py-0.5 rounded text-[10px] font-bold flex items-center gap-1 ${
+                  iotOnline
+                    ? 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                    : 'bg-slate-800 text-slate-400'
+                }`}>
+                  <Radio className="w-3 h-3 text-emerald-400 animate-pulse" />
+                  IoT LIVE
+                </span>
+              </div>
+              <p className="text-xs text-slate-400 mt-0.5">
+                Bomba rio Teles Pires • Pressão: <b className="text-cyan-400 font-mono">{pressaoBar} bar</b> • Vazão: <b className="text-emerald-400 font-mono">{vazaoM3h} m³/h</b>
+              </p>
             </div>
-            <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-mono">
-              Ângulo: 142° SE
+            <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 font-mono">
+              Ângulo: {anguloAtual}°
             </span>
           </div>
 
@@ -166,7 +213,7 @@ export const IrrigacaoPivoModule: React.FC = () => {
               {/* Braço Metálico Giratório */}
               <div
                 className="absolute w-24 h-1.5 bg-gradient-to-r from-cyan-400 to-emerald-400 origin-left left-1/2 rounded shadow-lg transition-all duration-700"
-                style={{ transform: 'rotate(142deg)' }}
+                style={{ transform: `rotate(${anguloAtual}deg)` }}
               >
                 <div className="w-3 h-3 rounded-full bg-emerald-400 absolute right-0 -top-0.5 animate-ping"></div>
               </div>

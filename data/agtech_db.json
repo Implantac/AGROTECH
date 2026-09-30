@@ -251,5 +251,27 @@
       "MILHO"
     ],
     "updatedAt": "2026-09-30T19:16:18.379Z"
-  }
+  },
+  "gtasEmitidas": [
+    {
+      "id": "gta-1790799674977",
+      "numeroGta": "MT-2026-458790-A",
+      "serie": "SÉRIE ELETRÔNICA - MAPA/INDEA",
+      "dataEmissao": "2026-09-30T20:21:14.977Z",
+      "origem": "Estância Pantaneira",
+      "destino": "Frigorífico JBS",
+      "finalidade": "Abate Cota Hilton",
+      "especie": "BOVINA",
+      "quantidadeCabecas": 65,
+      "categoriaIdade": "Machos 24-36 meses (Castrados)",
+      "lacreVeiculo": "LACRE-603488",
+      "motorista": "Valdir Santos - CNH 039821890",
+      "placaVeiculo": "RNG-4B92 (Bi-Trem Boiadeiro)",
+      "vencimentoDias": 3,
+      "statusSanitario": "Área Livre de Febre Aftosa sem Vacinação (OMSA) - Brucelose Negativo",
+      "hashAutenticidade": "60c76f005a5044cd081e31c0df0b796c386d69c8b132d85513518095216b36e1",
+      "qrcodeUrl": "https://defesaagropecuaria.mt.gov.br/autenticar-gta?hash=60c76f005a5044cd",
+      "emitenteCrmv": "Dr. Roberto Magalhães - CRMV-MT 4892"
+    }
+  ]
 }
