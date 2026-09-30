@@ -109,6 +109,13 @@ export interface ContratoGraosBarterData {
   statusEntrega: 'EM_ABERTO' | 'ENTREGA_PARCIAL' | 'LIQUIDADO';
   sacasEntregues: number;
   cprVinculadaNumero: string;
+  pacoteInsumos?: string;
+  talhaoPenhor?: string;
+  areaVinculadaHa?: number;
+  protocoloB3?: string;
+  hashAutenticidade?: string;
+  matriculaCRI?: string;
+  historicoEntregas?: { id: string; data: string; romaneio: string; sacas: number; placa: string }[];
 }
 
 export interface RomaneioColheitaData {
@@ -471,7 +478,17 @@ export const CONTRATOS_BARTER_INICIAIS: ContratoGraosBarterData[] = [
     localEntregaArmazem: 'Terminal Ferroviário Rumo / Cargill Sinop',
     statusEntrega: 'ENTREGA_PARCIAL',
     sacasEntregues: 18200,
-    cprVinculadaNumero: 'CPR-FÍSICA-CARTÓRIO-9182',
+    cprVinculadaNumero: 'CPR-F-B3-MT-2025-9182',
+    pacoteInsumos: 'Adubação NPK YaraBela (600 ton) + Pacote Herbicidas Syngenta',
+    talhaoPenhor: 'Talhão 01 - Sede (Gleba Norte)',
+    areaVinculadaHa: 650,
+    protocoloB3: 'B3-REG-94812-MT',
+    matriculaCRI: 'Matrícula 41.829 - CRI 1º Ofício de Sorriso/MT',
+    hashAutenticidade: '8f43a9d20c151e89f41b2c451a92e104f32a76db90412803b90124fe8192a831',
+    historicoEntregas: [
+      { id: 'ent-1', data: '22/03/2026', romaneio: 'ROM-2026-10492', sacas: 9100, placa: 'RAX-4J19 (Bitrem)' },
+      { id: 'ent-2', data: '25/03/2026', romaneio: 'ROM-2026-10518', sacas: 9100, placa: 'NDK-8E22 (Rodotrem)' },
+    ]
   },
   {
     id: 'ct-02',
@@ -486,7 +503,14 @@ export const CONTRATOS_BARTER_INICIAIS: ContratoGraosBarterData[] = [
     localEntregaArmazem: 'Armazém Geral Bunge Sorriso',
     statusEntrega: 'EM_ABERTO',
     sacasEntregues: 0,
-    cprVinculadaNumero: 'CPR-FINANCEIRA-BANCO-001',
+    cprVinculadaNumero: 'CPR-FIN-B3-MT-2025-0019',
+    pacoteInsumos: 'Trava Financeira PTAX/CBOT com Antecipação de Custeio',
+    talhaoPenhor: 'Talhão 02 - Pivô Central 01',
+    areaVinculadaHa: 450,
+    protocoloB3: 'B3-REG-77124-MT',
+    matriculaCRI: 'Matrícula 41.830 - CRI 1º Ofício de Sorriso/MT',
+    hashAutenticidade: '3e12f0a99182bc81726a1004923fca81902847120349b1a098492019481920ac',
+    historicoEntregas: []
   },
   {
     id: 'ct-03',
@@ -501,7 +525,14 @@ export const CONTRATOS_BARTER_INICIAIS: ContratoGraosBarterData[] = [
     localEntregaArmazem: 'Terminal Fluvial Amaggi Miritituba/PA',
     statusEntrega: 'EM_ABERTO',
     sacasEntregues: 0,
-    cprVinculadaNumero: 'CPR-FÍSICA-CARTÓRIO-9190',
+    cprVinculadaNumero: 'CPR-F-B3-MT-2025-9190',
+    pacoteInsumos: 'Sementes de Milho Híbrido VT PRO4 + Uréia Protegida',
+    talhaoPenhor: 'Talhão 03 - Baixada',
+    areaVinculadaHa: 380,
+    protocoloB3: 'B3-REG-51928-MT',
+    matriculaCRI: 'Matrícula 41.831 - CRI 1º Ofício de Sorriso/MT',
+    hashAutenticidade: '7a9821ef340912cb8491823a049182ac71829304918230918203918209381029',
+    historicoEntregas: []
   },
 ];
 

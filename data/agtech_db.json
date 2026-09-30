@@ -273,5 +273,142 @@
       "qrcodeUrl": "https://defesaagropecuaria.mt.gov.br/autenticar-gta?hash=60c76f005a5044cd",
       "emitenteCrmv": "Dr. Roberto Magalhães - CRMV-MT 4892"
     }
+  ],
+  "romaneiosEmitidos": [
+    {
+      "id": "rom-1790802032533",
+      "numeroRomaneio": "ROM-2026-416210",
+      "dataHora": "30/09/2026, 21:00:32",
+      "placaCaminhao": "BRA-9X21 (Bitrem 9 Eixos)",
+      "motoristaNome": "Edson Arantes",
+      "talhaoOrigemId": "talhao-04",
+      "cultura": "Soja Grão Tipo 1 (Padrão Exportação)",
+      "pesoBrutoKg": 54200,
+      "taraCaminhaoKg": 18900,
+      "pesoLiquidoKg": 35300,
+      "umidadePercentual": 14.5,
+      "descontoUmidadeKg": 221,
+      "impurezaPercentual": 1.1,
+      "descontoImpurezaKg": 35,
+      "pesoLiquidoFinalKg": 35044,
+      "sacas60kgFinal": 584.1,
+      "armazemDestino": "Terminal Ferroviário Rumo / Cargill Sinop",
+      "hashAutenticidade": "4b92a4d580fd1297766fa42d3c4304f0d861818740ae2d121095a4fe9dc10df6",
+      "balancista": "Marcos Vinicius Ribeiro - Reg. 0492/MT",
+      "status": "EM_TRANSITO"
+    }
+  ],
+  "contratosBarter": [
+    {
+      "id": "ct-1790806001323",
+      "numeroContrato": "CTR-BARTER-2026-6977",
+      "tipoOperacao": "BARTER_INSUMOS",
+      "compradorTrader": "LDC (Louis Dreyfus Company)",
+      "cultura": "Soja em Grãos Padrão Exportação (CONAB Tipo 1)",
+      "quantidadeSacas60kg": 13504,
+      "precoUnitarioSaca": 137,
+      "valorTotalContrato": 1850000,
+      "dataEntregaLimite": "2026-05-15",
+      "localEntregaArmazem": "Armazém LDC Sorriso/MT",
+      "statusEntrega": "ENTREGA_PARCIAL",
+      "sacasEntregues": 950,
+      "cprVinculadaNumero": "CPR-F-B3-MT-2026-99062",
+      "pacoteInsumos": "Pacote Químico Bayer (Fox Xpro + Belt + Roundup Transorb)",
+      "talhaoPenhor": "Talhão 04 - Sede (Pivô 02)",
+      "areaVinculadaHa": 310,
+      "protocoloB3": "B3-REG-66281-MT",
+      "matriculaCRI": "Matrícula 41.829 - CRI 1º Ofício de Sorriso/MT",
+      "hashAutenticidade": "ab26f57437b526ee21a32056b47546098dbc0104c1cbee368c24be791f1a8fa2",
+      "historicoEntregas": [
+        {
+          "id": "ent-1790806004241",
+          "data": "30/09/2026",
+          "romaneio": "ROM-2026-41920",
+          "sacas": 950,
+          "placa": "BRA-9X21"
+        }
+      ]
+    },
+    {
+      "id": "ct-01",
+      "numeroContrato": "CTR-CARGILL-2025-081",
+      "tipoOperacao": "BARTER_INSUMOS",
+      "compradorTrader": "Cargill Agrícola S.A. (Sorriso/MT)",
+      "cultura": "Soja em Grãos Padrão Exportação",
+      "quantidadeSacas60kg": 45000,
+      "precoUnitarioSaca": 134.5,
+      "valorTotalContrato": 6052500,
+      "dataEntregaLimite": "2026-03-30",
+      "localEntregaArmazem": "Terminal Ferroviário Rumo / Cargill Sinop",
+      "statusEntrega": "ENTREGA_PARCIAL",
+      "sacasEntregues": 18200,
+      "cprVinculadaNumero": "CPR-F-B3-MT-2025-9182",
+      "pacoteInsumos": "Adubação NPK YaraBela (600 ton) + Pacote Herbicidas Syngenta",
+      "talhaoPenhor": "Talhão 01 - Sede (Gleba Norte)",
+      "areaVinculadaHa": 650,
+      "protocoloB3": "B3-REG-94812-MT",
+      "matriculaCRI": "Matrícula 41.829 - CRI 1º Ofício de Sorriso/MT",
+      "hashAutenticidade": "8f43a9d20c151e89f41b2c451a92e104f32a76db90412803b90124fe8192a831",
+      "historicoEntregas": [
+        {
+          "id": "ent-1",
+          "data": "22/03/2026",
+          "romaneio": "ROM-2026-10492",
+          "sacas": 9100,
+          "placa": "RAX-4J19 (Bitrem)"
+        },
+        {
+          "id": "ent-2",
+          "data": "25/03/2026",
+          "romaneio": "ROM-2026-10518",
+          "sacas": 9100,
+          "placa": "NDK-8E22 (Rodotrem)"
+        }
+      ]
+    },
+    {
+      "id": "ct-02",
+      "numeroContrato": "CTR-BUNGE-2025-114",
+      "tipoOperacao": "VENDA_FUTURA_FIXA",
+      "compradorTrader": "Bunge Alimentos S.A.",
+      "cultura": "Soja em Grãos Padrão Exportação",
+      "quantidadeSacas60kg": 30000,
+      "precoUnitarioSaca": 136,
+      "valorTotalContrato": 4080000,
+      "dataEntregaLimite": "2026-04-15",
+      "localEntregaArmazem": "Armazém Geral Bunge Sorriso",
+      "statusEntrega": "EM_ABERTO",
+      "sacasEntregues": 0,
+      "cprVinculadaNumero": "CPR-FIN-B3-MT-2025-0019",
+      "pacoteInsumos": "Trava Financeira PTAX/CBOT com Antecipação de Custeio",
+      "talhaoPenhor": "Talhão 02 - Pivô Central 01",
+      "areaVinculadaHa": 450,
+      "protocoloB3": "B3-REG-77124-MT",
+      "matriculaCRI": "Matrícula 41.830 - CRI 1º Ofício de Sorriso/MT",
+      "hashAutenticidade": "3e12f0a99182bc81726a1004923fca81902847120349b1a098492019481920ac",
+      "historicoEntregas": []
+    },
+    {
+      "id": "ct-03",
+      "numeroContrato": "CTR-AMAGGI-2025-045",
+      "tipoOperacao": "BARTER_INSUMOS",
+      "compradorTrader": "Amaggi Exportação & Importação",
+      "cultura": "Milho Grão Safrinha",
+      "quantidadeSacas60kg": 25000,
+      "precoUnitarioSaca": 62,
+      "valorTotalContrato": 1550000,
+      "dataEntregaLimite": "2026-07-30",
+      "localEntregaArmazem": "Terminal Fluvial Amaggi Miritituba/PA",
+      "statusEntrega": "EM_ABERTO",
+      "sacasEntregues": 0,
+      "cprVinculadaNumero": "CPR-F-B3-MT-2025-9190",
+      "pacoteInsumos": "Sementes de Milho Híbrido VT PRO4 + Uréia Protegida",
+      "talhaoPenhor": "Talhão 03 - Baixada",
+      "areaVinculadaHa": 380,
+      "protocoloB3": "B3-REG-51928-MT",
+      "matriculaCRI": "Matrícula 41.831 - CRI 1º Ofício de Sorriso/MT",
+      "hashAutenticidade": "7a9821ef340912cb8491823a049182ac71829304918230918203918209381029",
+      "historicoEntregas": []
+    }
   ]
 }

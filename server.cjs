@@ -485,7 +485,187 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // 8.8. API: Live Stream de Sensores IoT (Pivôs, Silos Termometria & CAN-Bus Frota)
+  // 8.8. API: Listagem de Contratos de Barter e CPRs Registradas
+  if (pathname === '/api/v1/barter/cpr/listar' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    const db = loadDb();
+    if (!db.contratosBarter || db.contratosBarter.length === 0) {
+      db.contratosBarter = [
+        {
+          id: 'ct-01',
+          numeroContrato: 'CTR-CARGILL-2025-081',
+          tipoOperacao: 'BARTER_INSUMOS',
+          compradorTrader: 'Cargill Agrícola S.A. (Sorriso/MT)',
+          cultura: 'Soja em Grãos Padrão Exportação',
+          quantidadeSacas60kg: 45000,
+          precoUnitarioSaca: 134.5,
+          valorTotalContrato: 6052500.0,
+          dataEntregaLimite: '2026-03-30',
+          localEntregaArmazem: 'Terminal Ferroviário Rumo / Cargill Sinop',
+          statusEntrega: 'ENTREGA_PARCIAL',
+          sacasEntregues: 18200,
+          cprVinculadaNumero: 'CPR-F-B3-MT-2025-9182',
+          pacoteInsumos: 'Adubação NPK YaraBela (600 ton) + Pacote Herbicidas Syngenta',
+          talhaoPenhor: 'Talhão 01 - Sede (Gleba Norte)',
+          areaVinculadaHa: 650,
+          protocoloB3: 'B3-REG-94812-MT',
+          matriculaCRI: 'Matrícula 41.829 - CRI 1º Ofício de Sorriso/MT',
+          hashAutenticidade: '8f43a9d20c151e89f41b2c451a92e104f32a76db90412803b90124fe8192a831',
+          historicoEntregas: [
+            { id: 'ent-1', data: '22/03/2026', romaneio: 'ROM-2026-10492', sacas: 9100, placa: 'RAX-4J19 (Bitrem)' },
+            { id: 'ent-2', data: '25/03/2026', romaneio: 'ROM-2026-10518', sacas: 9100, placa: 'NDK-8E22 (Rodotrem)' },
+          ]
+        },
+        {
+          id: 'ct-02',
+          numeroContrato: 'CTR-BUNGE-2025-114',
+          tipoOperacao: 'VENDA_FUTURA_FIXA',
+          compradorTrader: 'Bunge Alimentos S.A.',
+          cultura: 'Soja em Grãos Padrão Exportação',
+          quantidadeSacas60kg: 30000,
+          precoUnitarioSaca: 136.0,
+          valorTotalContrato: 4080000.0,
+          dataEntregaLimite: '2026-04-15',
+          localEntregaArmazem: 'Armazém Geral Bunge Sorriso',
+          statusEntrega: 'EM_ABERTO',
+          sacasEntregues: 0,
+          cprVinculadaNumero: 'CPR-FIN-B3-MT-2025-0019',
+          pacoteInsumos: 'Trava Financeira PTAX/CBOT com Antecipação de Custeio',
+          talhaoPenhor: 'Talhão 02 - Pivô Central 01',
+          areaVinculadaHa: 450,
+          protocoloB3: 'B3-REG-77124-MT',
+          matriculaCRI: 'Matrícula 41.830 - CRI 1º Ofício de Sorriso/MT',
+          hashAutenticidade: '3e12f0a99182bc81726a1004923fca81902847120349b1a098492019481920ac',
+          historicoEntregas: []
+        },
+        {
+          id: 'ct-03',
+          numeroContrato: 'CTR-AMAGGI-2025-045',
+          tipoOperacao: 'BARTER_INSUMOS',
+          compradorTrader: 'Amaggi Exportação & Importação',
+          cultura: 'Milho Grão Safrinha',
+          quantidadeSacas60kg: 25000,
+          precoUnitarioSaca: 62.0,
+          valorTotalContrato: 1550000.0,
+          dataEntregaLimite: '2026-07-30',
+          localEntregaArmazem: 'Terminal Fluvial Amaggi Miritituba/PA',
+          statusEntrega: 'EM_ABERTO',
+          sacasEntregues: 0,
+          cprVinculadaNumero: 'CPR-F-B3-MT-2025-9190',
+          pacoteInsumos: 'Sementes de Milho Híbrido VT PRO4 + Uréia Protegida',
+          talhaoPenhor: 'Talhão 03 - Baixada',
+          areaVinculadaHa: 380,
+          protocoloB3: 'B3-REG-51928-MT',
+          matriculaCRI: 'Matrícula 41.831 - CRI 1º Ofício de Sorriso/MT',
+          hashAutenticidade: '7a9821ef340912cb8491823a049182ac71829304918230918203918209381029',
+          historicoEntregas: []
+        }
+      ];
+      saveDb(db);
+    }
+    res.end(JSON.stringify({ sucesso: true, contratos: db.contratosBarter }));
+    return;
+  }
+
+  // 8.9. API: Emissão Eletrônica de CPR & Registro de Contrato de Barter (B3 / Lei 13.986)
+  if (pathname === '/api/v1/barter/cpr/emitir' && req.method === 'POST') {
+    parseRequestBody(payload => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      if (!db.contratosBarter) db.contratosBarter = [];
+
+      const ano = new Date().getFullYear();
+      const numeroContrato = payload.numeroContrato || `CTR-BARTER-${ano}-${Math.floor(1000 + Math.random() * 9000)}`;
+      const precoUnitario = Number(payload.precoUnitarioSaca) || 135.0;
+      const valorTotal = Number(payload.valorTotalContrato) || 2700000.0;
+      const quantidadeSacas = Number(payload.quantidadeSacas60kg) || Math.round(valorTotal / precoUnitario);
+      const numeroCprB3 = payload.cprVinculadaNumero || `CPR-F-B3-MT-${ano}-${Math.floor(10000 + Math.random() * 90000)}`;
+      const protocoloB3 = `B3-REG-${Math.floor(10000 + Math.random() * 90000)}-MT`;
+      const hashAutenticidade = crypto.createHash('sha256').update(numeroCprB3 + numeroContrato + Date.now()).digest('hex');
+
+      const novoContrato = {
+        id: `ct-${Date.now()}`,
+        numeroContrato,
+        tipoOperacao: payload.tipoOperacao || 'BARTER_INSUMOS',
+        compradorTrader: payload.compradorTrader || 'Cargill Agrícola S.A.',
+        cultura: payload.cultura || 'Soja em Grãos Padrão Exportação',
+        quantidadeSacas60kg: quantidadeSacas,
+        precoUnitarioSaca: precoUnitario,
+        valorTotalContrato: valorTotal,
+        dataEntregaLimite: payload.dataEntregaLimite || `${ano}-04-30`,
+        localEntregaArmazem: payload.localEntregaArmazem || 'Terminal Ferroviário Rumo / Cargill Sinop',
+        statusEntrega: 'EM_ABERTO',
+        sacasEntregues: 0,
+        cprVinculadaNumero: numeroCprB3,
+        pacoteInsumos: payload.pacoteInsumos || 'Pacote de Fertilizantes e Defensivos Safra Verão',
+        talhaoPenhor: payload.talhaoPenhor || 'Talhão 01 - Sede (Gleba Norte)',
+        areaVinculadaHa: Number(payload.areaVinculadaHa) || 450,
+        protocoloB3,
+        matriculaCRI: payload.matriculaCRI || 'Matrícula 41.829 - CRI 1º Ofício de Sorriso/MT',
+        hashAutenticidade,
+        historicoEntregas: []
+      };
+
+      db.contratosBarter.unshift(novoContrato);
+      saveDb(db);
+
+      res.statusCode = 201;
+      res.end(
+        JSON.stringify({
+          sucesso: true,
+          mensagem: 'Contrato de Barter e CPR-Física emitidos e registrados na B3 com sucesso.',
+          contrato: novoContrato
+        })
+      );
+    });
+    return;
+  }
+
+  // 8.10. API: Amortização / Baixa Física de CPR via Romaneio de Entrega
+  if (pathname === '/api/v1/barter/cpr/amortizar' && req.method === 'POST') {
+    parseRequestBody(payload => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      if (!db.contratosBarter) db.contratosBarter = [];
+
+      const contrato = db.contratosBarter.find(c => c.id === payload.contratoId);
+      if (!contrato) {
+        res.statusCode = 404;
+        res.end(JSON.stringify({ sucesso: false, erro: 'Contrato de Barter / CPR não localizado.' }));
+        return;
+      }
+
+      const sacasAmortizadas = Number(payload.sacasEntregues) || 1000;
+      contrato.sacasEntregues = (contrato.sacasEntregues || 0) + sacasAmortizadas;
+      if (contrato.sacasEntregues >= contrato.quantidadeSacas60kg) {
+        contrato.statusEntrega = 'LIQUIDADO';
+      } else {
+        contrato.statusEntrega = 'ENTREGA_PARCIAL';
+      }
+
+      if (!contrato.historicoEntregas) contrato.historicoEntregas = [];
+      contrato.historicoEntregas.unshift({
+        id: `ent-${Date.now()}`,
+        data: new Date().toLocaleDateString('pt-BR'),
+        romaneio: payload.numeroRomaneio || `ROM-${new Date().getFullYear()}-${Math.floor(10000 + Math.random() * 90000)}`,
+        sacas: sacasAmortizadas,
+        placa: payload.placa || 'BRA-9X21 (Bitrem)'
+      });
+
+      saveDb(db);
+
+      res.end(
+        JSON.stringify({
+          sucesso: true,
+          mensagem: `Baixa física de ${sacasAmortizadas.toLocaleString('pt-BR')} sacas averbada no contrato ${contrato.numeroContrato}.`,
+          contrato
+        })
+      );
+    });
+    return;
+  }
+
+  // 8.11. API: Live Stream de Sensores IoT (Pivôs, Silos Termometria & CAN-Bus Frota)
   if (pathname === '/api/v1/telemetria/sensores/live') {
     res.setHeader('Content-Type', 'application/json');
     const agora = new Date();
