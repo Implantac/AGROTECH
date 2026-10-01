@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Package,
   FileCode,
@@ -13,18 +13,90 @@ import {
   Plus,
   Minus,
   X,
-  CheckCircle2
+  CheckCircle2,
+  QrCode,
+  Calendar,
+  Clock,
+  TrendingUp,
+  ShieldCheck,
+  Layers,
+  Truck,
+  RotateCcw
 } from 'lucide-react';
 import { INSUMOS_INICIAIS, InsumoEstoqueData, TALHOES_INICIAIS } from '../data/mockAgroData';
+
+export interface InsumoLoteInfo {
+  loteNumero: string;
+  dataFabricacao: string;
+  dataValidade: string;
+  registroMapa: string;
+  diasParaVencer: number;
+  statusValidade: 'REGULAR' | 'ATENCAO_90D' | 'CRITICO_30D';
+}
+
+export interface InsumoCompletoEstoque extends InsumoEstoqueData {
+  lote: InsumoLoteInfo;
+  classeABC: 'A' | 'B' | 'C';
+  valorTotal: number;
+  tempoReposicaoDias: number; // Lead time do fornecedor
+  consumoMedioDiarioSafra: number;
+}
+
+const LOTES_MOCK: Record<string, InsumoLoteInfo> = {
+  'ins-01': {
+    loteNumero: 'GLY-2026-9481B',
+    dataFabricacao: '2026-03-10',
+    dataValidade: '2028-03-10',
+    registroMapa: 'MAPA nº 004128/99',
+    diasParaVencer: 526,
+    statusValidade: 'REGULAR'
+  },
+  'ins-02': {
+    loteNumero: 'FOX-2025-0149C',
+    dataFabricacao: '2025-08-15',
+    dataValidade: '2027-08-15',
+    registroMapa: 'MAPA nº 010214/17',
+    diasParaVencer: 318,
+    statusValidade: 'REGULAR'
+  },
+  'ins-03': {
+    loteNumero: 'ENG-2026-1182A',
+    dataFabricacao: '2026-01-20',
+    dataValidade: '2026-11-20',
+    registroMapa: 'MAPA nº 005481/08',
+    diasParaVencer: 50,
+    statusValidade: 'ATENCAO_90D'
+  },
+  'ins-04': {
+    loteNumero: 'ADU-2026-8800K',
+    dataFabricacao: '2026-05-01',
+    dataValidade: '2027-05-01',
+    registroMapa: 'MAPA Fertilizante 091-B',
+    diasParaVencer: 212,
+    statusValidade: 'REGULAR'
+  },
+  'ins-05': {
+    loteNumero: 'DIE-S10-CORP09',
+    dataFabricacao: '2026-09-15',
+    dataValidade: '2026-12-15',
+    registroMapa: 'ANP Combustíveis 8412',
+    diasParaVencer: 75,
+    statusValidade: 'ATENCAO_90D'
+  }
+};
 
 export const AlmoxarifadoModule: React.FC = () => {
   const [insumos, setInsumos] = useState<InsumoEstoqueData[]>(INSUMOS_INICIAIS);
   const [searchTerm, setSearchTerm] = useState('');
   const [xmlImported, setXmlImported] = useState(false);
+  const [filtroCategoria, setFiltroCategoria] = useState<string>('TODAS');
+  const [abaAtiva, setAbaAtiva] = useState<'ESTOQUE' | 'CURVA_ABC' | 'LOTES_VALIDADE' | 'PONTO_PEDIDO'>('ESTOQUE');
 
   // Modais de Lançamento de Almoxarifado
   const [modalEntradaOpen, setModalEntradaOpen] = useState(false);
   const [modalSaidaOpen, setModalSaidaOpen] = useState(false);
+  const [modalLeitorQrOpen, setModalLeitorQrOpen] = useState(false);
+  const [codigoLido, setCodigoLido] = useState<string>('');
 
   // Form states: Entrada de Insumo
   const [entradaInsumoId, setEntradaInsumoId] = useState<string>('ins-01');
@@ -36,6 +108,56 @@ export const AlmoxarifadoModule: React.FC = () => {
   const [saidaInsumoId, setSaidaInsumoId] = useState<string>('ins-02');
   const [saidaTalhaoId, setSaidaTalhaoId] = useState<string>('talhao-02');
   const [saidaQtd, setSaidaQtd] = useState<number>(120);
+
+  // Enriquecimento dos Insumos com Curva ABC e Lote
+  const insumosEnriquecidos: InsumoCompletoEstoque[] = useMemo(() => {
+    // Calcula valor total por item para classificar em Curva ABC
+    const comValor = insumos.map((i) => {
+      const valorTotal = i.saldoAtual * i.custoMedioUnitario;
+      const lote = LOTES_MOCK[i.id] || {
+        loteNumero: `LOTE-${i.id.toUpperCase()}-2026`,
+        dataFabricacao: '2026-02-01',
+        dataValidade: '2027-02-01',
+        registroMapa: 'MAPA REGULAR',
+        diasParaVencer: 120,
+        statusValidade: 'REGULAR' as const
+      };
+      return {
+        ...i,
+        valorTotal,
+        lote,
+        tempoReposicaoDias: i.categoria === 'FERTILIZANTE' ? 15 : i.categoria === 'DEFENSIVO' ? 7 : 3,
+        consumoMedioDiarioSafra: i.categoria === 'COMBUSTIVEL' ? 450 : i.categoria === 'FERTILIZANTE' ? 2500 : 25
+      };
+    });
+
+    // Ordenar decrescente por valor total
+    comValor.sort((a, b) => b.valorTotal - a.valorTotal);
+    const somaTotal = comValor.reduce((acc, c) => acc + c.valorTotal, 0);
+
+    let acumulado = 0;
+    return comValor.map((item) => {
+      acumulado += item.valorTotal;
+      const pctAcumulada = (acumulado / (somaTotal || 1)) * 100;
+      let classeABC: 'A' | 'B' | 'C' = 'C';
+      if (pctAcumulada <= 75) classeABC = 'A';
+      else if (pctAcumulada <= 92) classeABC = 'B';
+
+      return {
+        ...item,
+        classeABC
+      };
+    });
+  }, [insumos]);
+
+  // Estatísticas Rápidas
+  const totalFinanceiroEstoque = useMemo(() => {
+    return insumos.reduce((acc, i) => acc + i.saldoAtual * i.custoMedioUnitario, 0);
+  }, [insumos]);
+
+  const itensAbaixoMinimo = useMemo(() => {
+    return insumos.filter((i) => i.saldoAtual <= i.estoqueMinimo).length;
+  }, [insumos]);
 
   // Simulação de Importação de XML de NF-e
   const handleSimularImportacaoNFe = () => {
@@ -98,12 +220,23 @@ export const AlmoxarifadoModule: React.FC = () => {
     setModalSaidaOpen(false);
   };
 
-  const filteredInsumos = insumos.filter(
-    (ins) =>
+  // Leitura simulada de QR Code GS1-128
+  const handleSimularScanQr = (insumo: InsumoCompletoEstoque) => {
+    const rawQr = `(01)07891234567890(10)${insumo.lote.loteNumero}(17)${insumo.lote.dataValidade.replace(/-/g, '')}(21)${insumo.id.toUpperCase()}`;
+    setCodigoLido(rawQr);
+    setModalLeitorQrOpen(true);
+  };
+
+  const filteredInsumos = insumosEnriquecidos.filter((ins) => {
+    const matchBusca =
       ins.nomeComercial.toLowerCase().includes(searchTerm.toLowerCase()) ||
       ins.principioAtivo.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      ins.categoria.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+      ins.lote.loteNumero.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      ins.categoria.toLowerCase().includes(searchTerm.toLowerCase());
+
+    const matchCategoria = filtroCategoria === 'TODAS' || ins.categoria === filtroCategoria;
+    return matchBusca && matchCategoria;
+  });
 
   return (
     <div className="space-y-6">
@@ -111,16 +244,16 @@ export const AlmoxarifadoModule: React.FC = () => {
       <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="px-2 py-0.5 bg-emerald-950 text-emerald-400 border border-emerald-800 rounded text-xs font-bold">
-              Gestão de Insumos & Custo Médio Móvel
+            <span className="px-2 py-0.5 bg-emerald-950 text-emerald-400 border border-emerald-800 rounded text-xs font-bold flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Gestão de Insumos & Custo Médio Ponderado Móvel
             </span>
-            <span className="text-xs text-slate-400">Almoxarifado Central Sede</span>
+            <span className="text-xs text-slate-400">Almoxarifado Central Sede • Galpão Climatizado DEFITO</span>
           </div>
           <h2 className="text-xl font-bold text-white flex items-center gap-2">
-            <Package className="w-5 h-5 text-emerald-400" /> Inventário de Defensivos, Fertilizantes e Diesel
+            <Package className="w-5 h-5 text-emerald-400" /> Almoxarifado Central, Lotes & Curva ABC
           </h2>
           <p className="text-xs text-slate-400 mt-1">
-            Cada aplicação no campo pelo tratorista consome o estoque e apropria o custo exato no talhão em tempo real.
+            Controle físico-financeiro de defensivos, sementes, fertilizantes e diesel com rastreabilidade de lote, validade MAPA e apropriação por talhão.
           </p>
         </div>
 
@@ -160,6 +293,51 @@ export const AlmoxarifadoModule: React.FC = () => {
         </div>
       </div>
 
+      {/* 4 Cards de Resumo Executivo */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="bg-slate-900 border border-slate-800 p-4 rounded-xl shadow">
+          <div className="flex justify-between items-center text-xs text-slate-400 mb-1">
+            <span>Patrimônio em Estoque</span>
+            <TrendingUp className="w-4 h-4 text-emerald-400" />
+          </div>
+          <p className="text-2xl font-black text-emerald-400">
+            R$ {totalFinanceiroEstoque.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+          </p>
+          <span className="text-[11px] text-slate-400 mt-1 block">Apropriado em DRE Safra</span>
+        </div>
+
+        <div className="bg-slate-900 border border-slate-800 p-4 rounded-xl shadow">
+          <div className="flex justify-between items-center text-xs text-slate-400 mb-1">
+            <span>Itens Abaixo do Mínimo</span>
+            <AlertTriangle className="w-4 h-4 text-amber-400" />
+          </div>
+          <p className="text-2xl font-black text-amber-400">
+            {itensAbaixoMinimo} <span className="text-xs font-normal text-slate-400">insumos</span>
+          </p>
+          <span className="text-[11px] text-amber-400/90 mt-1 block font-medium">Requer compra imediata</span>
+        </div>
+
+        <div className="bg-slate-900 border border-slate-800 p-4 rounded-xl shadow">
+          <div className="flex justify-between items-center text-xs text-slate-400 mb-1">
+            <span>Itens em Classe A (80/20)</span>
+            <Layers className="w-4 h-4 text-cyan-400" />
+          </div>
+          <p className="text-2xl font-black text-cyan-400">
+            {insumosEnriquecidos.filter((i) => i.classeABC === 'A').length} <span className="text-xs font-normal text-slate-400">itens críticos</span>
+          </p>
+          <span className="text-[11px] text-slate-400 mt-1 block">Fertilizantes e Defensivos nobres</span>
+        </div>
+
+        <div className="bg-slate-900 border border-slate-800 p-4 rounded-xl shadow">
+          <div className="flex justify-between items-center text-xs text-slate-400 mb-1">
+            <span>Conformidade DEFITO / MAPA</span>
+            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+          </div>
+          <p className="text-2xl font-black text-white">100%</p>
+          <span className="text-[11px] text-emerald-400 mt-1 block font-medium">Lotes e validade auditados</span>
+        </div>
+      </div>
+
       {/* Alerta de Custo Médio Ponderado Recalculado */}
       {xmlImported && (
         <div className="bg-gradient-to-r from-emerald-950/80 to-slate-900 border border-emerald-800/60 p-4 rounded-xl shadow-lg flex items-center justify-between">
@@ -182,78 +360,373 @@ export const AlmoxarifadoModule: React.FC = () => {
         </div>
       )}
 
-      {/* Barra de Pesquisa e Tabela */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl shadow-xl overflow-hidden">
-        <div className="p-4 border-b border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <div className="relative w-full sm:w-72">
-            <Search className="w-4 h-4 text-slate-500 absolute left-3 top-2.5" />
-            <input
-              type="text"
-              placeholder="Buscar insumo ou princípio ativo..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-slate-950 border border-slate-700 rounded-lg pl-9 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
-            />
-          </div>
-          <span className="text-xs text-slate-400">
-            Mostrando <b>{filteredInsumos.length}</b> itens em estoque
-          </span>
-        </div>
+      {/* Navegação entre Abas */}
+      <div className="flex flex-wrap gap-2 border-b border-slate-800 pb-2">
+        <button
+          onClick={() => setAbaAtiva('ESTOQUE')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+            abaAtiva === 'ESTOQUE'
+              ? 'bg-emerald-600 text-white shadow-md'
+              : 'bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800'
+          }`}
+        >
+          <Package className="w-4 h-4" />
+          1. Saldo Físico & Custos Médios
+        </button>
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-xs text-left text-slate-300">
-            <thead className="bg-slate-950 text-slate-400 uppercase text-[10px] tracking-wider">
-              <tr>
-                <th className="px-4 py-3">Insumo Comercial</th>
-                <th className="px-4 py-3">Princípio Ativo</th>
-                <th className="px-4 py-3">Categoria</th>
-                <th className="px-4 py-3 text-right">Saldo Físico</th>
-                <th className="px-4 py-3 text-right text-emerald-400">Custo Médio Unitário</th>
-                <th className="px-4 py-3 text-right">Valor Total em Estoque</th>
-                <th className="px-4 py-3 text-center">Status</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-800">
-              {filteredInsumos.map((ins) => {
-                const totalFinanceiro = ins.saldoAtual * ins.custoMedioUnitario;
-                const isBaixo = ins.saldoAtual <= ins.estoqueMinimo;
+        <button
+          onClick={() => setAbaAtiva('CURVA_ABC')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+            abaAtiva === 'CURVA_ABC'
+              ? 'bg-emerald-600 text-white shadow-md'
+              : 'bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800'
+          }`}
+        >
+          <Layers className="w-4 h-4" />
+          2. Curva ABC Financeira (Pareto)
+        </button>
 
-                return (
-                  <tr key={ins.id} className="hover:bg-slate-800/50">
-                    <td className="px-4 py-3 font-bold text-white">{ins.nomeComercial}</td>
-                    <td className="px-4 py-3 text-slate-400">{ins.principioAtivo}</td>
-                    <td className="px-4 py-3">
-                      <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-800 text-slate-300">
-                        {ins.categoria}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 text-right font-mono font-bold text-slate-200">
-                      {ins.saldoAtual.toLocaleString('pt-BR')} {ins.unidade}
-                    </td>
-                    <td className="px-4 py-3 text-right font-mono font-bold text-emerald-400">
-                      R$ {ins.custoMedioUnitario.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} / {ins.unidade}
-                    </td>
-                    <td className="px-4 py-3 text-right font-mono text-slate-300">
-                      R$ {totalFinanceiro.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
-                    </td>
-                    <td className="px-4 py-3 text-center">
-                      {isBaixo ? (
-                        <span className="px-2 py-0.5 bg-red-950 text-red-400 border border-red-800 rounded-full text-[10px] font-bold inline-flex items-center gap-1">
-                          <AlertTriangle className="w-3 h-3" /> Abaixo do Mínimo
-                        </span>
-                      ) : (
-                        <span className="px-2 py-0.5 bg-emerald-950 text-emerald-400 border border-emerald-800 rounded-full text-[10px] font-bold">
-                          Normal
-                        </span>
-                      )}
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
+        <button
+          onClick={() => setAbaAtiva('LOTES_VALIDADE')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+            abaAtiva === 'LOTES_VALIDADE'
+              ? 'bg-emerald-600 text-white shadow-md'
+              : 'bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800'
+          }`}
+        >
+          <Calendar className="w-4 h-4" />
+          3. Rastreabilidade de Lotes & Validade MAPA
+        </button>
+
+        <button
+          onClick={() => setAbaAtiva('PONTO_PEDIDO')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+            abaAtiva === 'PONTO_PEDIDO'
+              ? 'bg-emerald-600 text-white shadow-md'
+              : 'bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800'
+          }`}
+        >
+          <Truck className="w-4 h-4" />
+          4. Dimensionamento de Ponto de Pedido (Lead Time)
+        </button>
       </div>
+
+      {/* ABA 1: TABELA DE ESTOQUE */}
+      {abaAtiva === 'ESTOQUE' && (
+        <div className="bg-slate-900 border border-slate-800 rounded-2xl shadow-xl overflow-hidden">
+          <div className="p-4 border-b border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+              <div className="relative w-full sm:w-64">
+                <Search className="w-4 h-4 text-slate-500 absolute left-3 top-2.5" />
+                <input
+                  type="text"
+                  placeholder="Buscar insumo, princípio ativo ou lote..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full bg-slate-950 border border-slate-700 rounded-lg pl-9 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
+                />
+              </div>
+
+              {/* Filtro de Categoria */}
+              <select
+                value={filtroCategoria}
+                onChange={(e) => setFiltroCategoria(e.target.value)}
+                className="bg-slate-950 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-slate-300"
+              >
+                <option value="TODAS">Todas Categorias</option>
+                <option value="DEFENSIVO">Defensivos</option>
+                <option value="FERTILIZANTE">Fertilizantes</option>
+                <option value="ADJUVANTE">Adjuvantes</option>
+                <option value="COMBUSTIVEL">Combustível</option>
+              </select>
+            </div>
+
+            <span className="text-xs text-slate-400">
+              Mostrando <b>{filteredInsumos.length}</b> de <b>{insumos.length}</b> itens
+            </span>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs text-left text-slate-300">
+              <thead className="bg-slate-950 text-slate-400 uppercase text-[10px] tracking-wider">
+                <tr>
+                  <th className="px-4 py-3">Insumo Comercial</th>
+                  <th className="px-4 py-3">Princípio Ativo</th>
+                  <th className="px-4 py-3">Lote / Reg. MAPA</th>
+                  <th className="px-4 py-3">Categoria</th>
+                  <th className="px-4 py-3 text-right">Saldo Físico</th>
+                  <th className="px-4 py-3 text-right text-emerald-400">Custo Médio Unitário</th>
+                  <th className="px-4 py-3 text-right">Valor Total em Estoque</th>
+                  <th className="px-4 py-3 text-center">Status</th>
+                  <th className="px-4 py-3 text-center">QR Code</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800">
+                {filteredInsumos.map((ins) => {
+                  const totalFinanceiro = ins.saldoAtual * ins.custoMedioUnitario;
+                  const isBaixo = ins.saldoAtual <= ins.estoqueMinimo;
+
+                  return (
+                    <tr key={ins.id} className="hover:bg-slate-800/50">
+                      <td className="px-4 py-3 font-bold text-white">
+                        {ins.nomeComercial}
+                        <span className="block text-[10px] text-slate-500 font-mono">ID: {ins.id}</span>
+                      </td>
+                      <td className="px-4 py-3 text-slate-400">{ins.principioAtivo}</td>
+                      <td className="px-4 py-3">
+                        <span className="font-mono text-cyan-400 block font-semibold">{ins.lote.loteNumero}</span>
+                        <span className="text-[10px] text-slate-500">{ins.lote.registroMapa}</span>
+                      </td>
+                      <td className="px-4 py-3">
+                        <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-800 text-slate-300">
+                          {ins.categoria}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-right font-mono font-bold text-slate-200">
+                        {ins.saldoAtual.toLocaleString('pt-BR')} {ins.unidade}
+                      </td>
+                      <td className="px-4 py-3 text-right font-mono font-bold text-emerald-400">
+                        R$ {ins.custoMedioUnitario.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} / {ins.unidade}
+                      </td>
+                      <td className="px-4 py-3 text-right font-mono text-slate-300">
+                        R$ {totalFinanceiro.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                      </td>
+                      <td className="px-4 py-3 text-center">
+                        {isBaixo ? (
+                          <span className="px-2 py-0.5 bg-red-950 text-red-400 border border-red-800 rounded-full text-[10px] font-bold inline-flex items-center gap-1">
+                            <AlertTriangle className="w-3 h-3" /> Abaixo do Mínimo
+                          </span>
+                        ) : (
+                          <span className="px-2 py-0.5 bg-emerald-950 text-emerald-400 border border-emerald-800 rounded-full text-[10px] font-bold">
+                            Normal
+                          </span>
+                        )}
+                      </td>
+                      <td className="px-4 py-3 text-center">
+                        <button
+                          onClick={() => handleSimularScanQr(ins)}
+                          className="p-1.5 hover:bg-slate-800 text-slate-400 hover:text-cyan-400 rounded-lg transition"
+                          title="Escanear / Ver QR Code GS1-128"
+                        >
+                          <QrCode className="w-4 h-4" />
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {/* ABA 2: CURVA ABC FINANCEIRA */}
+      {abaAtiva === 'CURVA_ABC' && (
+        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+          <div>
+            <h3 className="text-base font-bold text-white flex items-center gap-2">
+              <Layers className="w-5 h-5 text-cyan-400" />
+              Classificação por Curva ABC (Princípio de Pareto 80/20)
+            </h3>
+            <p className="text-xs text-slate-400 mt-1">
+              Os itens da Classe A concentram cerca de 75-80% do capital imobilizado e exigem controle diário rigoroso de aplicação e segurança contra desvios.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs text-left text-slate-300">
+              <thead className="bg-slate-950 text-slate-400 uppercase text-[10px] tracking-wider">
+                <tr>
+                  <th className="px-4 py-3 text-center">Classe</th>
+                  <th className="px-4 py-3">Insumo</th>
+                  <th className="px-4 py-3">Categoria</th>
+                  <th className="px-4 py-3 text-right">Saldo</th>
+                  <th className="px-4 py-3 text-right">Custo Unitário</th>
+                  <th className="px-4 py-3 text-right">Valor Total</th>
+                  <th className="px-4 py-3 text-right">% do Capital</th>
+                  <th className="px-4 py-3 text-center">Estratégia de Suprimentos</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800">
+                {insumosEnriquecidos.map((ins) => {
+                  const pctCapital = (ins.valorTotal / (totalFinanceiroEstoque || 1)) * 100;
+
+                  return (
+                    <tr key={ins.id} className="hover:bg-slate-800/50">
+                      <td className="px-4 py-3 text-center">
+                        <span
+                          className={`px-2.5 py-1 rounded-full text-xs font-black font-mono ${
+                            ins.classeABC === 'A'
+                              ? 'bg-red-950 text-red-400 border border-red-800'
+                              : ins.classeABC === 'B'
+                              ? 'bg-amber-950 text-amber-400 border border-amber-800'
+                              : 'bg-blue-950 text-blue-400 border border-blue-800'
+                          }`}
+                        >
+                          Classe {ins.classeABC}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 font-bold text-white">{ins.nomeComercial}</td>
+                      <td className="px-4 py-3 text-slate-400">{ins.categoria}</td>
+                      <td className="px-4 py-3 text-right font-mono font-bold text-slate-200">
+                        {ins.saldoAtual.toLocaleString('pt-BR')} {ins.unidade}
+                      </td>
+                      <td className="px-4 py-3 text-right font-mono">
+                        R$ {ins.custoMedioUnitario.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                      </td>
+                      <td className="px-4 py-3 text-right font-mono font-bold text-emerald-400">
+                        R$ {ins.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                      </td>
+                      <td className="px-4 py-3 text-right font-mono font-bold text-cyan-400">
+                        {pctCapital.toFixed(1)}%
+                      </td>
+                      <td className="px-4 py-3 text-center text-[11px] text-slate-400">
+                        {ins.classeABC === 'A'
+                          ? 'Auditoria Semanal & Travamento Barter'
+                          : ins.classeABC === 'B'
+                          ? 'Auditoria Quinzenal'
+                          : 'Estoque de Segurança Simples'}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {/* ABA 3: LOTES E VALIDADE MAPA */}
+      {abaAtiva === 'LOTES_VALIDADE' && (
+        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+          <div>
+            <h3 className="text-base font-bold text-white flex items-center gap-2">
+              <Calendar className="w-5 h-5 text-amber-400" />
+              Auditoria de Validade e Quarentena Sanitária (IN MAPA nº 42)
+            </h3>
+            <p className="text-xs text-slate-400 mt-1">
+              Controle preventivo contra aplicação de defensivos com validade expirada, evitando autuações do INDEA/IDAF e perda de eficácia biológica.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+            {insumosEnriquecidos.map((ins) => (
+              <div
+                key={ins.id}
+                className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h4 className="font-bold text-white text-sm">{ins.nomeComercial}</h4>
+                      <span className="text-[10px] text-slate-400 font-mono">Lote: {ins.lote.loteNumero}</span>
+                    </div>
+                    <span
+                      className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                        ins.lote.statusValidade === 'CRITICO_30D'
+                          ? 'bg-red-950 text-red-400 border border-red-800'
+                          : ins.lote.statusValidade === 'ATENCAO_90D'
+                          ? 'bg-amber-950 text-amber-400 border border-amber-800'
+                          : 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                      }`}
+                    >
+                      {ins.lote.statusValidade === 'ATENCAO_90D' ? 'Vence em < 90 dias' : 'Validade Regular'}
+                    </span>
+                  </div>
+
+                  <div className="mt-3 space-y-1.5 text-xs">
+                    <div className="flex justify-between">
+                      <span className="text-slate-500">Fabricação:</span>
+                      <span className="font-mono text-slate-300">{ins.lote.dataFabricacao}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-slate-500">Vencimento:</span>
+                      <span className="font-mono font-bold text-white">{ins.lote.dataValidade}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-slate-500">Dias Restantes:</span>
+                      <span className="font-mono font-bold text-amber-400">{ins.lote.diasParaVencer} dias</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-slate-500">Reg. MAPA:</span>
+                      <span className="font-mono text-[11px] text-slate-400">{ins.lote.registroMapa}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => handleSimularScanQr(ins)}
+                  className="w-full py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs font-semibold flex items-center justify-center gap-1.5 border border-slate-800 transition"
+                >
+                  <QrCode className="w-3.5 h-3.5" /> Gerar Etiqueta GS1-128
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ABA 4: PONTO DE PEDIDO E LEAD TIME */}
+      {abaAtiva === 'PONTO_PEDIDO' && (
+        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+          <div>
+            <h3 className="text-base font-bold text-white flex items-center gap-2">
+              <Truck className="w-5 h-5 text-cyan-400" />
+              Dimensionamento de Ponto de Pedido: PP = (Consumo × Lead Time) + Estoque de Segurança
+            </h3>
+            <p className="text-xs text-slate-400 mt-1">
+              Garante que novas ordens de compra sejam disparadas antes que a janela de aplicação fique desabastecida.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {insumosEnriquecidos.map((ins) => {
+              const consumoNoLeadTime = ins.consumoMedioDiarioSafra * ins.tempoReposicaoDias;
+              const pontoPedidoRecomendado = consumoNoLeadTime + ins.estoqueMinimo;
+              const precisaComprar = ins.saldoAtual <= pontoPedidoRecomendado;
+
+              return (
+                <div key={ins.id} className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <h4 className="font-bold text-white text-sm">{ins.nomeComercial}</h4>
+                      <span className="text-xs text-slate-400">{ins.categoria}</span>
+                    </div>
+                    <span
+                      className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                        precisaComprar
+                          ? 'bg-rose-950 text-rose-400 border border-rose-800'
+                          : 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                      }`}
+                    >
+                      {precisaComprar ? 'Gatilho de Compra Disparado' : 'Estoque Confortável'}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2 text-xs pt-2">
+                    <div className="bg-slate-900 p-2 rounded-lg border border-slate-800">
+                      <span className="text-[10px] text-slate-500 block">Lead Time Fornecedor</span>
+                      <span className="font-bold text-white font-mono">{ins.tempoReposicaoDias} dias</span>
+                    </div>
+                    <div className="bg-slate-900 p-2 rounded-lg border border-slate-800">
+                      <span className="text-[10px] text-slate-500 block">Ponto de Pedido</span>
+                      <span className="font-bold text-amber-400 font-mono">
+                        {pontoPedidoRecomendado.toLocaleString('pt-BR')} {ins.unidade}
+                      </span>
+                    </div>
+                    <div className="bg-slate-900 p-2 rounded-lg border border-slate-800">
+                      <span className="text-[10px] text-slate-500 block">Saldo Atual</span>
+                      <span className="font-bold text-cyan-400 font-mono">
+                        {ins.saldoAtual.toLocaleString('pt-BR')} {ins.unidade}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Modal Entrada de NF-e */}
       {modalEntradaOpen && (
@@ -413,7 +886,41 @@ export const AlmoxarifadoModule: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Modal Leitor / Etiqueta GS1-128 */}
+      {modalLeitorQrOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fade-in">
+          <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-sm p-6 shadow-2xl space-y-4 text-center">
+            <div className="flex justify-between items-center border-b border-slate-800 pb-2">
+              <span className="text-xs font-bold text-white flex items-center gap-1.5">
+                <QrCode className="w-4 h-4 text-cyan-400" /> Etiqueta de Galpão GS1-128
+              </span>
+              <button onClick={() => setModalLeitorQrOpen(false)} className="text-slate-400 hover:text-white">
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="p-4 bg-white rounded-xl inline-block shadow">
+              <div className="w-36 h-36 bg-slate-900 text-white flex flex-col items-center justify-center font-mono text-[10px] rounded p-2">
+                <QrCode className="w-20 h-20 text-emerald-400 mb-1" />
+                <span>GS1-128 AGRO</span>
+              </div>
+            </div>
+
+            <div className="text-left bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-[11px] space-y-1">
+              <span className="text-slate-500 text-[10px] block">String de Dados GS1:</span>
+              <p className="text-cyan-400 break-all">{codigoLido}</p>
+            </div>
+
+            <button
+              onClick={() => setModalLeitorQrOpen(false)}
+              className="w-full py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-xl transition"
+            >
+              Fechar
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
-
