@@ -45,6 +45,7 @@ import { UserRoleBar, UserProfileRole } from './components/UserRoleBar';
 import { ModuleConfigModal } from './components/ModuleConfigModal';
 import { HeaderFintechBar } from './components/HeaderFintechBar';
 import { DossieBancarioCreditoModal } from './components/DossieBancarioCreditoModal';
+import { OfflineSyncCockpitModal } from './components/OfflineSyncCockpitModal';
 import {
   getSavedSubscriptionConfig,
   saveSubscriptionConfig,
@@ -377,6 +378,7 @@ export const App: React.FC = () => {
   // Modal Central de Lançamentos Rápidos & Sistema de Toast
   const [isQuickEntryOpen, setIsQuickEntryOpen] = useState(false);
   const [isDossieBancarioOpen, setIsDossieBancarioOpen] = useState(false);
+  const [isOfflineSyncModalOpen, setIsOfflineSyncModalOpen] = useState(false);
   const [toasts, setToasts] = useState<ToastItem[]>([]);
 
   const addToast = (message: string, type: 'success' | 'warning' | 'info' = 'success') => {
@@ -722,10 +724,15 @@ export const App: React.FC = () => {
               <AlertCircle className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
               <span>3 Alertas Pendentes</span>
             </button>
-            <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-slate-800 text-slate-300 border border-slate-700 flex items-center gap-1.5">
-              <Wifi className="w-3.5 h-3.5 text-emerald-400" />
-              <span>18ms • 12 Máquinas Online</span>
-            </span>
+            <button
+              onClick={() => setIsOfflineSyncModalOpen(true)}
+              className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1.5 transition-all cursor-pointer group"
+              title="Central Offline-First & Sincronização PWA"
+            >
+              <Wifi className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
+              <span>18ms • Fila PWA Sync</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            </button>
           </div>
         </div>
       </div>
@@ -1363,6 +1370,13 @@ export const App: React.FC = () => {
       <DossieBancarioCreditoModal
         isOpen={isDossieBancarioOpen}
         onClose={() => setIsDossieBancarioOpen(false)}
+      />
+
+      {/* Central Offline-First & Fila de Sincronização PWA */}
+      <OfflineSyncCockpitModal
+        isOpen={isOfflineSyncModalOpen}
+        onClose={() => setIsOfflineSyncModalOpen(false)}
+        onNotify={(msg, type) => addToast(msg, type)}
       />
 
       {/* Sistema de Notificações Toast Feedback Instantâneo */}
