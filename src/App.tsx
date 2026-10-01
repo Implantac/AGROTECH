@@ -34,8 +34,13 @@ import {
   Bell,
   MapPin,
   ChevronDown,
-  Wifi
+  Wifi,
+  Globe,
+  LogOut,
+  ExternalLink
 } from 'lucide-react';
+import { PublicLandingPage } from './components/PublicLandingPage';
+import { LoginScreen } from './components/LoginScreen';
 import { TALHOES_INICIAIS, TalhaoData } from './data/mockAgroData';
 import { QuickAccessModal, ALL_MODULES, ModuleItem } from './components/QuickAccessModal';
 import { GlobalQuickEntryModal } from './components/GlobalQuickEntryModal';
@@ -255,6 +260,32 @@ class ModuleErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBound
 }
 
 export const App: React.FC = () => {
+  // Controle de Visualização Global: Landing Page Institucional | Tela de Login | Cockpit da Plataforma
+  const [currentAppView, setCurrentAppView] = useState<'LANDING' | 'LOGIN' | 'PLATFORM'>(() => {
+    try {
+      if (typeof window !== 'undefined' && window.localStorage) {
+        const saved = localStorage.getItem('agtech_current_app_view');
+        if (saved === 'LANDING' || saved === 'LOGIN' || saved === 'PLATFORM') {
+          return saved;
+        }
+      }
+    } catch {
+      // fallback
+    }
+    return 'PLATFORM';
+  });
+
+  const handleNavigateView = (view: 'LANDING' | 'LOGIN' | 'PLATFORM') => {
+    setCurrentAppView(view);
+    try {
+      if (typeof window !== 'undefined' && window.localStorage) {
+        localStorage.setItem('agtech_current_app_view', view);
+      }
+    } catch {
+      // ignore
+    }
+  };
+
   const [activeTab, setActiveTab] = useState<string>('BI');
   const [selectedTalhao, setSelectedTalhao] = useState<TalhaoData | null>(null);
   const [isQuickAccessOpen, setIsQuickAccessOpen] = useState<boolean>(false);
@@ -508,6 +539,38 @@ export const App: React.FC = () => {
     (m: ModuleItem) => favoritos.includes(m.id) || m.id === activeTab
   );
 
+  // Renderização Condicional: Landing Page Comercial / Institucional
+  if (currentAppView === 'LANDING') {
+    return (
+      <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950">
+        <PublicLandingPage
+          onGoToLogin={() => handleNavigateView('LOGIN')}
+          onEnterPlatformDirectly={() => {
+            handleNavigateView('PLATFORM');
+            addToast('Bem-vindo ao Cockpit Super AgTech Enterprise!', 'success');
+          }}
+        />
+        <ToastNotification toasts={toasts} onCloseToast={removeToast} />
+      </div>
+    );
+  }
+
+  // Renderização Condicional: Tela de Login Segura
+  if (currentAppView === 'LOGIN') {
+    return (
+      <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950">
+        <LoginScreen
+          onLoginSuccess={(profile) => {
+            handleNavigateView('PLATFORM');
+            addToast(`Bem-vindo, ${profile?.name || 'Produtor Rural'}! Cockpit carregado.`, 'success');
+          }}
+          onBackToLanding={() => handleNavigateView('LANDING')}
+        />
+        <ToastNotification toasts={toasts} onCloseToast={removeToast} />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-emerald-500 selection:text-white">
       {/* Barra de Ticker Financeiro B3/CBOT & Cockpit Climático Delta T */}
@@ -635,6 +698,26 @@ export const App: React.FC = () => {
                 <kbd className="hidden md:inline-block px-1.5 py-0.2 text-[9px] font-mono bg-emerald-950/40 text-emerald-100 rounded border border-emerald-900/50">
                   N
                 </kbd>
+              </button>
+
+              {/* Botão para Portal Institucional / Planos */}
+              <button
+                onClick={() => handleNavigateView('LANDING')}
+                className="flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-950 hover:bg-slate-800 text-amber-400 hover:text-amber-300 rounded-xl border border-amber-500/30 text-xs font-semibold shadow transition-all cursor-pointer"
+                title="Ver Landing Page Institucional, Comparativo com TOTVS/Climate e Planos"
+              >
+                <Globe className="w-3.5 h-3.5" />
+                <span className="hidden xl:inline">Portal Comercial</span>
+              </button>
+
+              {/* Botão de Trocar Conta / Login */}
+              <button
+                onClick={() => handleNavigateView('LOGIN')}
+                className="flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-950 hover:bg-slate-800 text-slate-300 hover:text-white rounded-xl border border-slate-800 text-xs font-semibold shadow transition-all cursor-pointer"
+                title="Trocar de Conta / Tela de Login"
+              >
+                <LogOut className="w-3.5 h-3.5 text-slate-400" />
+                <span className="hidden xl:inline">Sair</span>
               </button>
             </div>
           </div>
