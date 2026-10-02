@@ -1706,9 +1706,9 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
         </div>
 
         {/* Rodapé com Atalhos de Teclado */}
-        <div className="p-3 bg-slate-950 border-t border-slate-800 flex justify-between items-center text-[11px] text-slate-500">
+        <div className="p-3 bg-[#F7F9F5] border-t border-[#EAF4E7] flex justify-between items-center text-[11px] text-[#66736A]">
           <span>Dica: Use a estrela (⭐) para fixar os módulos que você mais utiliza no topo da tela.</span>
-          <span className="font-mono bg-slate-800 px-2 py-0.5 rounded text-slate-400">ESC para fechar</span>
+          <span className="font-mono bg-white border border-[#EAF4E7] px-2 py-0.5 rounded text-[#285943]">ESC para fechar</span>
         </div>
       </div>
     </div>

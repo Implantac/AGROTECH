@@ -112,19 +112,19 @@ export const NozPecanPomaresModule: React.FC = () => {
             <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
               🌰 Noz-Pecan de Precisão, Colheita Shaker & Amêndoas Halves
             </h2>
-            <p className="text-sm text-slate-300 max-w-3xl leading-relaxed">
+            <p className="text-sm text-[#26332A] max-w-3xl leading-relaxed">
               Manejo intensivo de pomares de noz-pecan: nutrição foliar com zinco para superação da alternância bienal de produção, vibração mecânica de troncos (shaker), secagem rápida para umidade inferior a 4.5% e quebra pneumática para metades nobres inteiras.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Noz em Casca</span>
+            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
+              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Noz em Casca</span>
               <span className="text-xl font-black text-amber-400">88.000 kg</span>
-              <span className="text-[10px] text-slate-400 block mt-0.5">40 ha Pomar</span>
+              <span className="text-[10px] text-[#66736A] block mt-0.5">40 ha Pomar</span>
             </div>
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Faturamento</span>
+            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
+              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Faturamento</span>
               <span className="text-xl font-black text-emerald-400">R$ 2,75M</span>
               <span className="text-[10px] text-emerald-400/80 block mt-0.5">65.2% Margem</span>
             </div>
@@ -134,8 +134,8 @@ export const NozPecanPomaresModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Rendimento de Amêndoa</span>
             <Activity className="w-4 h-4 text-amber-400" />
           </div>
@@ -146,48 +146,48 @@ export const NozPecanPomaresModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Metades Inteiras (Halves)</span>
             <Award className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black text-cyan-400">82.0% Integridade</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             Zero Quebra Excessiva em Farelos
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Nutrição de Zinco (Zn)</span>
             <Leaf className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">&gt; 65 mg/kg Foliar</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             Combate a "Orelha-de-Rato"
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
             <DollarSign className="w-4 h-4 text-teal-400" />
           </div>
           <div className="text-2xl font-black text-teal-400">R$ 1.796.160,00</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             R$ 44.904,00 por hectare
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-slate-800 pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('pomares')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'pomares'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Trees className="w-4 h-4" />
@@ -199,7 +199,7 @@ export const NozPecanPomaresModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'qualidade'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -211,7 +211,7 @@ export const NozPecanPomaresModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'sanidade'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <ShieldCheck className="w-4 h-4" />
@@ -223,7 +223,7 @@ export const NozPecanPomaresModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -234,19 +234,19 @@ export const NozPecanPomaresModule: React.FC = () => {
       {/* Conteúdo Aba 1: Pomares */}
       {activeTab === 'pomares' && (
         <div className="space-y-4">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Trees className="w-5 h-5 text-amber-400" />
               Talhões de Nogueira-Pecan em Idade Reprodutiva
             </h3>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               A nogueira-pecan é uma espécie longeva que atinge estabilidade a partir do 10º ano de plantio. O espaçamento padrão de 10m x 10m (100 árvores/ha) exige podas de desbaste e iluminação para garantir boa taxa de fixação de frutos nas pontas dos ramos.
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-slate-800 text-slate-400 font-bold uppercase tracking-wider">
+                  <tr className="border-b border-[#EAF4E7] text-[#66736A] font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Pomar / Local</th>
                     <th className="py-3 px-3">Cultivar Principal</th>
                     <th className="py-3 px-3">Idade</th>
@@ -262,7 +262,7 @@ export const NozPecanPomaresModule: React.FC = () => {
                     <tr key={p.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-white">{p.identificacao}</div>
-                        <div className="text-[11px] text-slate-400 font-mono">{p.id}</div>
+                        <div className="text-[11px] text-[#66736A] font-mono">{p.id}</div>
                       </td>
                       <td className="py-3.5 px-3 text-amber-300 font-semibold">{p.cultivar}</td>
                       <td className="py-3.5 px-3 font-mono text-white">{p.idadePomarAnos} anos</td>
@@ -287,47 +287,47 @@ export const NozPecanPomaresModule: React.FC = () => {
       {/* Conteúdo Aba 2: Qualidade */}
       {activeTab === 'qualidade' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Award className="w-5 h-5 text-amber-400" />
               Processamento Pós-Colheita & Classificação
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Etapas industriais de secagem e despeliculagem para evitar rancidez oxidativa:
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <span className="font-bold text-white block">Secagem Imediata em Silos de Fluxo Cruzado</span>
-                <span className="text-slate-400 text-[11px] block mt-0.5">
+                <span className="text-[#66736A] text-[11px] block mt-0.5">
                   A noz recém-colhida possui 12% a 15% de umidade e deve ser reduzida para 4.0% a 4.5% em menos de 48 horas sob ar morno (32°C).
                 </span>
               </div>
-              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <span className="font-bold text-white block">Quebra Pneumática de Baixo Impacto</span>
-                <span className="text-slate-400 text-[11px] block mt-0.5">
+                <span className="text-[#66736A] text-[11px] block mt-0.5">
                   Preserva as amêndoas em metades simétricas (Halves), que alcançam preço 70% superior a pedaços ou farinhas de noz.
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               Perfil Nutricional e Ácidos Graxos
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Composição de gorduras saudáveis da noz-pecan:
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <span className="text-slate-400">Ácido Oleico (Ômega-9 Cardioprotetor):</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+                <span className="text-[#66736A]">Ácido Oleico (Ômega-9 Cardioprotetor):</span>
                 <span className="font-mono font-bold text-emerald-400">62.0% dos Lipídios</span>
               </div>
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <span className="text-slate-400">Embalagem com Atmosfera Modificada:</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+                <span className="text-[#66736A]">Embalagem com Atmosfera Modificada:</span>
                 <span className="font-mono font-bold text-cyan-400">Injeção de Nitrogênio (Zero Oxigênio)</span>
               </div>
             </div>
@@ -338,32 +338,32 @@ export const NozPecanPomaresModule: React.FC = () => {
       {/* Conteúdo Aba 3: Sanidade */}
       {activeTab === 'sanidade' && (
         <div className="space-y-4">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <ShieldCheck className="w-5 h-5 text-emerald-400" />
               Manejo da Sarna da Pecan (Venturia effusa) & Nutrição de Zinco
             </h3>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               A sarna ataca o epicarpo (casca verde) e as folhas jovens em primaveras chuvosas. O zinco é o micronutriente chave: sem aplicações foliares repetidas no início da brotação, as folhas ficam lanceoladas e deformadas ("orelha-de-rato"), paralisando a safra do ano seguinte.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Teor Foliar de Zinco</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Teor Foliar de Zinco</span>
                 <span className="text-2xl font-black text-white font-mono">72 mg/kg</span>
                 <span className="text-[11px] text-emerald-400 block">Faixa Ideal (superior a 65 mg/kg)</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Monitoramento de Sarna</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Monitoramento de Sarna</span>
                 <span className="text-2xl font-black text-emerald-400 font-mono">Zero Lesões Ativas</span>
-                <span className="text-[11px] text-slate-400 block">Fungicidas protetores na brotação</span>
+                <span className="text-[11px] text-[#66736A] block">Fungicidas protetores na brotação</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Colheita Shaker</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Colheita Shaker</span>
                 <span className="text-2xl font-black text-amber-400 font-mono">98% Eficiência</span>
-                <span className="text-[11px] text-slate-400 block">Vibração de 3 segundos por árvore</span>
+                <span className="text-[11px] text-[#66736A] block">Vibração de 3 segundos por árvore</span>
               </div>
             </div>
           </div>
@@ -373,14 +373,14 @@ export const NozPecanPomaresModule: React.FC = () => {
       {/* Conteúdo Aba 4: Simulador */}
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-amber-400" />
               Parâmetros do Pomar de Pecan
             </h3>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Área do Pomar (ha)</span>
                 <span className="font-mono text-amber-400">{areaPomarHa} hectares</span>
               </div>
@@ -396,7 +396,7 @@ export const NozPecanPomaresModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Produtividade NIS (kg/ha)</span>
                 <span className="font-mono text-cyan-400">{produtividadeNisKgHa} kg/ha</span>
               </div>
@@ -412,7 +412,7 @@ export const NozPecanPomaresModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Preço Amêndoa Limpa (R$/kg)</span>
                 <span className="font-mono text-emerald-400">R$ {precoKgAmendoaReais.toFixed(2)}</span>
               </div>
@@ -428,7 +428,7 @@ export const NozPecanPomaresModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Custo de Manejo e Indústria por Ha</span>
                 <span className="font-mono text-rose-400">R$ {custoManejoHaReais.toFixed(2)}</span>
               </div>
@@ -444,39 +444,39 @@ export const NozPecanPomaresModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               Retorno Financeiro da Pecanicultura
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Noz em Casca</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Noz em Casca</span>
                 <span className="font-mono font-bold text-white text-base">
                   {(metricas.producaoTotalNisKg / 1000).toFixed(0)} ton
                 </span>
-                <span className="text-[10px] text-slate-400 block">{areaPomarHa} ha colhidos</span>
+                <span className="text-[10px] text-[#66736A] block">{areaPomarHa} ha colhidos</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Amêndoas Limpas</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Amêndoas Limpas</span>
                 <span className="font-mono font-bold text-amber-400 text-base">
                   {(metricas.amendoasLimpasKg / 1000).toFixed(1)} ton
                 </span>
                 <span className="text-[10px] text-amber-400/80 block">54% rendimento</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Receita Bruta</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Receita Bruta</span>
                 <span className="font-mono font-bold text-white text-base">
                   R$ {(metricas.receitaBrutaReais / 1000000).toFixed(2)}M
                 </span>
-                <span className="text-[10px] text-slate-400 block">Venda Boutique / Granel</span>
+                <span className="text-[10px] text-[#66736A] block">Venda Boutique / Granel</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Lucro Líquido</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Lucro Líquido</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {(metricas.lucroLiquidoReais / 1000000).toFixed(2)}M
                 </span>
@@ -484,15 +484,15 @@ export const NozPecanPomaresModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Receita com Amêndoas Processadas ({metricas.amendoasLimpasKg.toLocaleString()} kg @ R$ {precoKgAmendoaReais.toFixed(2)}):</span>
+            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Receita com Amêndoas Processadas ({metricas.amendoasLimpasKg.toLocaleString()} kg @ R$ {precoKgAmendoaReais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-white">
                   R$ {metricas.receitaBrutaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Custos de Manejo, Zinco Foliar, Colheita Mecânica e Quebra:</span>
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Custos de Manejo, Zinco Foliar, Colheita Mecânica e Quebra:</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {metricas.custoTotalReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>

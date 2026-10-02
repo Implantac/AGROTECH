@@ -176,18 +176,18 @@ export const RomaneioColheitaModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Banner de Romaneios e Balança */}
-      <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-white border border-[#EAF4E7] p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="px-2 py-0.5 bg-blue-950 text-blue-400 border border-blue-800 rounded text-xs font-bold flex items-center gap-1.5">
               <Scale className="w-3.5 h-3.5" /> Balança Rodoviária & Rastreabilidade de Grãos
             </span>
-            <span className="text-xs text-slate-400">Escoamento da Safra • Fazenda Santa Helena</span>
+            <span className="text-xs text-[#66736A]">Escoamento da Safra • Fazenda Santa Helena</span>
           </div>
-          <h2 className="text-xl font-bold text-white flex items-center gap-2">
+          <h2 className="text-xl font-bold text-[#1D4B38] flex items-center gap-2">
             <Truck className="w-5 h-5 text-emerald-400" /> Romaneios de Carga, Pesagem e Descontos Técnicos CONAB
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#66736A] mt-1">
             Cálculo automático de descontos por umidade (base 14%) e impureza (base 1%) para acompanhar a NFP-e de transporte.
           </p>
         </div>
@@ -197,15 +197,15 @@ export const RomaneioColheitaModule: React.FC = () => {
             onClick={() => setAbaAtiva('balanca')}
             className={`px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 border transition-all ${
               abaAtiva === 'balanca'
-                ? 'bg-blue-600 text-white border-blue-500 shadow-lg shadow-blue-950/40'
-                : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+                ? 'bg-blue-600 text-[#1D4B38] border-blue-500 shadow-lg shadow-blue-950/40'
+                : 'bg-[#F7F9F5] hover:bg-slate-700 text-[#26332A] border-[#8FBF88]'
             }`}
           >
             <Scale className="w-4 h-4 text-blue-400" /> Balança Digital Toledo
           </button>
           <button
             onClick={() => setModalNovoOpen(true)}
-            className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg shadow-emerald-950/40 transition-all shrink-0"
+            className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-[#1D4B38] rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg shadow-emerald-950/40 transition-all shrink-0"
           >
             <Plus className="w-4 h-4" /> Pesar Caminhão na Balança
           </button>
@@ -214,48 +214,48 @@ export const RomaneioColheitaModule: React.FC = () => {
 
       {/* Cards de Resumo da Colheita do Dia */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-slate-900 border border-slate-800 p-4 rounded-xl shadow">
-          <div className="flex justify-between items-center text-xs text-slate-400 mb-1">
+        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow">
+          <div className="flex justify-between items-center text-xs text-[#66736A] mb-1">
             <span>Cargas Romaneadas Hoje</span>
             <Truck className="w-4 h-4 text-emerald-400" />
           </div>
-          <p className="text-2xl font-black text-white">
-            {totalCargas} <span className="text-xs font-normal text-slate-400">caminhões</span>
+          <p className="text-2xl font-black text-[#1D4B38]">
+            {totalCargas} <span className="text-xs font-normal text-[#66736A]">caminhões</span>
           </p>
           <span className="text-[11px] text-emerald-400 mt-1 block font-medium">Balança Rodoviária 80t Ativa</span>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-4 rounded-xl shadow">
-          <div className="flex justify-between items-center text-xs text-slate-400 mb-1">
+        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow">
+          <div className="flex justify-between items-center text-xs text-[#66736A] mb-1">
             <span>Volume Líquido Limpo e Seco</span>
             <Scale className="w-4 h-4 text-emerald-400" />
           </div>
           <p className="text-2xl font-black text-emerald-400 font-mono">
-            {totalSacasRomaneadas.toLocaleString('pt-BR', { minimumFractionDigits: 1 })} <span className="text-xs font-normal text-slate-400">sc</span>
+            {totalSacasRomaneadas.toLocaleString('pt-BR', { minimumFractionDigits: 1 })} <span className="text-xs font-normal text-[#66736A]">sc</span>
           </p>
-          <span className="text-[11px] text-slate-400 mt-1 block">{(totalSacasRomaneadas * 60 / 1000).toFixed(1)} toneladas líquidas</span>
+          <span className="text-[11px] text-[#66736A] mt-1 block">{(totalSacasRomaneadas * 60 / 1000).toFixed(1)} toneladas líquidas</span>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-4 rounded-xl shadow">
-          <div className="flex justify-between items-center text-xs text-slate-400 mb-1">
+        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow">
+          <div className="flex justify-between items-center text-xs text-[#66736A] mb-1">
             <span>Média de Umidade Recebida</span>
             <Droplets className="w-4 h-4 text-blue-400" />
           </div>
           <p className="text-2xl font-black text-blue-400 font-mono">
             14.3%
           </p>
-          <span className="text-[11px] text-slate-400 mt-1 block">Dentro da margem de segurança</span>
+          <span className="text-[11px] text-[#66736A] mt-1 block">Dentro da margem de segurança</span>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex items-center gap-2 border-b border-slate-800 pb-2">
+      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setAbaAtiva('romaneios')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             abaAtiva === 'romaneios'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-[#1D4B38] hover:bg-[#F7F9F5]/40'
           }`}
         >
           <Truck className="w-4 h-4" />
@@ -267,7 +267,7 @@ export const RomaneioColheitaModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             abaAtiva === 'balanca'
               ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-[#1D4B38] hover:bg-[#F7F9F5]/40'
           }`}
         >
           <Scale className="w-4 h-4" />
@@ -280,15 +280,15 @@ export const RomaneioColheitaModule: React.FC = () => {
         <div className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Display Digital da Balança */}
-            <div className="lg:col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl relative overflow-hidden">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+            <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl relative overflow-hidden">
+              <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-4 mb-4">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 bg-blue-500/10 rounded-xl border border-blue-500/20 text-blue-400">
                     <Scale className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-white">Indicador Digital Toledo Prix 8200 (80 Toneladas)</h3>
-                    <p className="text-xs text-slate-400">Ponte de Pesagem 30m • Células de Carga Digitais em Inox</p>
+                    <h3 className="text-base font-bold text-[#1D4B38]">Indicador Digital Toledo Prix 8200 (80 Toneladas)</h3>
+                    <p className="text-xs text-[#66736A]">Ponte de Pesagem 30m • Células de Carga Digitais em Inox</p>
                   </div>
                 </div>
 
@@ -303,30 +303,30 @@ export const RomaneioColheitaModule: React.FC = () => {
               </div>
 
               {/* Display de Peso Digital Fluorescente */}
-              <div className="bg-slate-950 rounded-2xl p-6 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-inner">
+              <div className="bg-[#F7F9F5] rounded-2xl p-6 border border-[#EAF4E7] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-inner">
                 <div>
-                  <span className="text-xs font-mono uppercase text-slate-400 tracking-wider">Peso Bruto Registrado</span>
+                  <span className="text-xs font-mono uppercase text-[#66736A] tracking-wider">Peso Bruto Registrado</span>
                   <div className="text-5xl sm:text-6xl font-black font-mono tracking-tight text-emerald-400 mt-1 flex items-baseline gap-2">
                     {pesoDigitalAoVivo.toLocaleString('pt-BR')} <span className="text-2xl text-slate-500 font-normal">kg</span>
                   </div>
-                  <div className="text-xs text-slate-400 mt-1">
-                    Tara Padrão do Bitrem: <b className="text-slate-300 font-mono">{tara.toLocaleString('pt-BR')} kg</b> • Peso Líquido Inicial: <b className="text-amber-400 font-mono">{(pesoDigitalAoVivo - tara).toLocaleString('pt-BR')} kg</b>
+                  <div className="text-xs text-[#66736A] mt-1">
+                    Tara Padrão do Bitrem: <b className="text-[#26332A] font-mono">{tara.toLocaleString('pt-BR')} kg</b> • Peso Líquido Inicial: <b className="text-amber-400 font-mono">{(pesoDigitalAoVivo - tara).toLocaleString('pt-BR')} kg</b>
                   </div>
                 </div>
 
                 {/* Qualidade do Grão */}
-                <div className="bg-slate-900 p-4 rounded-xl border border-slate-800 min-w-[240px] space-y-2 text-xs">
-                  <span className="text-[10px] text-slate-400 uppercase tracking-wider block font-semibold">Análise de Amostra CONAB</span>
+                <div className="bg-slate-900 p-4 rounded-xl border border-[#EAF4E7] min-w-[240px] space-y-2 text-xs">
+                  <span className="text-[10px] text-[#66736A] uppercase tracking-wider block font-semibold">Análise de Amostra CONAB</span>
                   <div className="flex justify-between items-center">
-                    <span className="text-slate-400">Umidade (Motomco 919):</span>
+                    <span className="text-[#66736A]">Umidade (Motomco 919):</span>
                     <b className={leitorUmidadeMotomco > 14 ? 'text-amber-400' : 'text-emerald-400'}>{leitorUmidadeMotomco}%</b>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-slate-400">Impureza (Peneira):</span>
+                    <span className="text-[#66736A]">Impureza (Peneira):</span>
                     <b className={leitorImpurezaPeneira > 1 ? 'text-amber-400' : 'text-emerald-400'}>{leitorImpurezaPeneira}%</b>
                   </div>
-                  <div className="flex justify-between items-center pt-1 border-t border-slate-800">
-                    <span className="text-slate-400">Desconto Calculado:</span>
+                  <div className="flex justify-between items-center pt-1 border-t border-[#EAF4E7]">
+                    <span className="text-[#66736A]">Desconto Calculado:</span>
                     <b className="text-rose-400 font-mono">
                       -{Math.round((pesoDigitalAoVivo - tara) * (Math.max(0, leitorUmidadeMotomco - 14) / 100 * 1.25 + Math.max(0, leitorImpurezaPeneira - 1) / 100))} kg
                     </b>
@@ -335,19 +335,19 @@ export const RomaneioColheitaModule: React.FC = () => {
               </div>
 
               {/* Ação do Balancista */}
-              <div className="mt-6 p-4 bg-slate-950/60 rounded-xl border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="mt-6 p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <Truck className="w-5 h-5 text-blue-400" />
                   <div>
-                    <span className="text-xs text-slate-400">Veículo na Balança:</span>
-                    <p className="text-sm font-bold text-white">Scania R540 6x4 • Bitrem Graneleiro 9 Eixos</p>
+                    <span className="text-xs text-[#66736A]">Veículo na Balança:</span>
+                    <p className="text-sm font-bold text-[#1D4B38]">Scania R540 6x4 • Bitrem Graneleiro 9 Eixos</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
                   <button
                     onClick={simularEntradaCaminhao}
-                    className="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-xl text-xs flex items-center gap-1.5 border border-slate-700"
+                    className="px-4 py-2.5 bg-[#F7F9F5] hover:bg-slate-700 text-[#26332A] font-semibold rounded-xl text-xs flex items-center gap-1.5 border border-[#8FBF88]"
                   >
                     <RotateCcw className="w-3.5 h-3.5" /> Simular Próximo Caminhão
                   </button>
@@ -358,7 +358,7 @@ export const RomaneioColheitaModule: React.FC = () => {
                       setImpureza(leitorImpurezaPeneira);
                       setModalNovoOpen(true);
                     }}
-                    className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs flex items-center gap-1.5 shadow-lg shadow-emerald-950/40"
+                    className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-[#1D4B38] font-bold rounded-xl text-xs flex items-center gap-1.5 shadow-lg shadow-emerald-950/40"
                   >
                     <FileCheck2 className="w-4 h-4" /> Emitir Romaneio Desta Pesagem
                   </button>
@@ -367,27 +367,27 @@ export const RomaneioColheitaModule: React.FC = () => {
             </div>
 
             {/* Painel de Regras CONAB */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 space-y-4 text-xs">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
+            <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 space-y-4 text-xs">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#66736A] flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Tabela Oficial CONAB (Soja Padrão)
               </h4>
 
               <div className="space-y-3">
-                <div className="p-3 bg-slate-950 rounded-xl border border-slate-800">
-                  <span className="text-slate-400 block text-[11px]">Tolerância de Umidade</span>
-                  <b className="text-white text-sm">Até 14.0%</b>
+                <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]">
+                  <span className="text-[#66736A] block text-[11px]">Tolerância de Umidade</span>
+                  <b className="text-[#1D4B38] text-sm">Até 14.0%</b>
                   <p className="text-[10px] text-slate-500 mt-0.5">Acima de 14%, desconto de 1.25% para cada 1% excedente (secagem).</p>
                 </div>
 
-                <div className="p-3 bg-slate-950 rounded-xl border border-slate-800">
-                  <span className="text-slate-400 block text-[11px]">Tolerância de Impureza</span>
-                  <b className="text-white text-sm">Até 1.0%</b>
+                <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]">
+                  <span className="text-[#66736A] block text-[11px]">Tolerância de Impureza</span>
+                  <b className="text-[#1D4B38] text-sm">Até 1.0%</b>
                   <p className="text-[10px] text-slate-500 mt-0.5">Desconto direto de 1:1 sobre o peso líquido para impurezas de colheita.</p>
                 </div>
 
-                <div className="p-3 bg-slate-950 rounded-xl border border-slate-800">
-                  <span className="text-slate-400 block text-[11px]">Grãos Ardidos e Avariados</span>
-                  <b className="text-white text-sm">Máximo 8.0%</b>
+                <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]">
+                  <span className="text-[#66736A] block text-[11px]">Grãos Ardidos e Avariados</span>
+                  <b className="text-[#1D4B38] text-sm">Máximo 8.0%</b>
                   <p className="text-[10px] text-slate-500 mt-0.5">Desconto comercial tabelado ou recusa de recebimento no porto.</p>
                 </div>
               </div>
@@ -398,17 +398,17 @@ export const RomaneioColheitaModule: React.FC = () => {
 
       {/* Aba Tabela de Romaneios de Carga */}
       {abaAtiva === 'romaneios' && (
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl shadow-xl overflow-hidden">
-          <div className="p-4 border-b border-slate-800 flex justify-between items-center">
+        <div className="bg-white border border-[#EAF4E7] rounded-2xl shadow-xl overflow-hidden">
+          <div className="p-4 border-b border-[#EAF4E7] flex justify-between items-center">
             <div>
-              <h3 className="text-sm font-bold text-white">Romaneios Emitidos (Balança da Fazenda)</h3>
-              <p className="text-xs text-slate-400">Rastreabilidade ponta a ponta desde o talhão até o armazém geral</p>
+              <h3 className="text-sm font-bold text-[#1D4B38]">Romaneios Emitidos (Balança da Fazenda)</h3>
+              <p className="text-xs text-[#66736A]">Rastreabilidade ponta a ponta desde o talhão até o armazém geral</p>
             </div>
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-xs text-left text-slate-300">
-              <thead className="bg-slate-950 text-slate-400 uppercase text-[10px] tracking-wider">
+            <table className="w-full text-xs text-left text-[#26332A]">
+              <thead className="bg-[#F7F9F5] text-[#66736A] uppercase text-[10px] tracking-wider">
                 <tr>
                   <th className="px-4 py-3">Romaneio / Data</th>
                   <th className="px-4 py-3">Veículo / Motorista</th>
@@ -421,33 +421,33 @@ export const RomaneioColheitaModule: React.FC = () => {
                   <th className="px-4 py-3 text-center">Ações</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800 font-sans">
+              <tbody className="divide-y divide-[#EAF4E7] font-sans">
                 {romaneios.map((rom) => {
                   const talhao = TALHOES_INICIAIS.find((t) => t.id === rom.talhaoOrigemId);
 
                   return (
-                    <tr key={rom.id} className="hover:bg-slate-800/50">
+                    <tr key={rom.id} className="hover:bg-[#F7F9F5]">
                       <td className="px-4 py-3">
-                        <span className="font-mono font-bold text-white block">{rom.numeroRomaneio}</span>
-                        <span className="text-[10px] text-slate-400">{rom.dataHora}</span>
+                        <span className="font-mono font-bold text-[#1D4B38] block">{rom.numeroRomaneio}</span>
+                        <span className="text-[10px] text-[#66736A]">{rom.dataHora}</span>
                       </td>
                       <td className="px-4 py-3">
-                        <span className="font-bold text-slate-200 block">{rom.placaCaminhao}</span>
-                        <span className="text-[10px] text-slate-400">{rom.motoristaNome}</span>
+                        <span className="font-bold text-[#26332A] block">{rom.placaCaminhao}</span>
+                        <span className="text-[10px] text-[#66736A]">{rom.motoristaNome}</span>
                       </td>
                       <td className="px-4 py-3">
                         <span className="font-semibold text-emerald-400">{talhao?.codigo || 'TAL-04'}</span>
-                        <span className="text-[10px] text-slate-400 block">{talhao?.nome || 'Talhão 04'}</span>
+                        <span className="text-[10px] text-[#66736A] block">{talhao?.nome || 'Talhão 04'}</span>
                       </td>
-                      <td className="px-4 py-3 text-right font-mono text-slate-300">
+                      <td className="px-4 py-3 text-right font-mono text-[#26332A]">
                         {rom.pesoLiquidoKg.toLocaleString('pt-BR')} kg
                       </td>
                       <td className="px-4 py-3 text-center font-mono">
-                        <span className={rom.umidadePercentual > 14 ? 'text-amber-400 font-bold' : 'text-slate-300'}>
+                        <span className={rom.umidadePercentual > 14 ? 'text-amber-400 font-bold' : 'text-[#26332A]'}>
                           {rom.umidadePercentual}% U
                         </span>
                         <span className="text-slate-500 mx-1">|</span>
-                        <span className={rom.impurezaPercentual > 1 ? 'text-amber-400' : 'text-slate-300'}>
+                        <span className={rom.impurezaPercentual > 1 ? 'text-amber-400' : 'text-[#26332A]'}>
                           {rom.impurezaPercentual}% Imp
                         </span>
                       </td>
@@ -471,9 +471,9 @@ export const RomaneioColheitaModule: React.FC = () => {
                       <td className="px-4 py-3 text-center">
                         <button
                           onClick={() => setRomaneioParaImprimir(rom)}
-                          className="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-[10px] font-bold border border-slate-700 flex items-center gap-1 mx-auto"
+                          className="px-2.5 py-1 bg-[#F7F9F5] hover:bg-slate-700 text-[#26332A] rounded text-[10px] font-bold border border-[#8FBF88] flex items-center gap-1 mx-auto"
                         >
-                          <Printer className="w-3 h-3 text-slate-400" /> Imprimir
+                          <Printer className="w-3 h-3 text-[#66736A]" /> Imprimir
                         </button>
                       </td>
                     </tr>
@@ -488,39 +488,39 @@ export const RomaneioColheitaModule: React.FC = () => {
       {/* Modal de Nova Pesagem */}
       {modalNovoOpen && (
         <div className="fixed inset-0 z-[1000] bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-700 p-6 rounded-2xl max-w-lg w-full shadow-2xl text-slate-200 space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
+          <div className="bg-slate-900 border border-[#8FBF88] p-6 rounded-2xl max-w-lg w-full shadow-2xl text-[#26332A] space-y-4">
+            <h3 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
               <Scale className="w-5 h-5 text-emerald-400" /> Nova Pesagem na Balança Rodoviária
             </h3>
 
             <div className="space-y-3 text-xs">
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="text-slate-400 block mb-1">Placa do Caminhão</label>
+                  <label className="text-[#66736A] block mb-1">Placa do Caminhão</label>
                   <input
                     type="text"
                     value={placa}
                     onChange={(e) => setPlaca(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white font-mono"
+                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2 text-[#1D4B38] font-mono"
                   />
                 </div>
                 <div>
-                  <label className="text-slate-400 block mb-1">Motorista</label>
+                  <label className="text-[#66736A] block mb-1">Motorista</label>
                   <input
                     type="text"
                     value={motorista}
                     onChange={(e) => setMotorista(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white"
+                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2 text-[#1D4B38]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1">Talhão de Origem (Colheita)</label>
+                <label className="text-[#66736A] block mb-1">Talhão de Origem (Colheita)</label>
                 <select
                   value={talhaoOrigemId}
                   onChange={(e) => setTalhaoOrigemId(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white"
+                  className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2 text-[#1D4B38]"
                 >
                   {TALHOES_INICIAIS.map((t) => (
                     <option key={t.id} value={t.id}>
@@ -532,50 +532,50 @@ export const RomaneioColheitaModule: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="text-slate-400 block mb-1">Peso Bruto (kg)</label>
+                  <label className="text-[#66736A] block mb-1">Peso Bruto (kg)</label>
                   <input
                     type="number"
                     value={pesoBruto}
                     onChange={(e) => setPesoBruto(Number(e.target.value))}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white font-bold"
+                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2 text-[#1D4B38] font-bold"
                   />
                 </div>
                 <div>
-                  <label className="text-slate-400 block mb-1">Tara do Caminhão (kg)</label>
+                  <label className="text-[#66736A] block mb-1">Tara do Caminhão (kg)</label>
                   <input
                     type="number"
                     value={tara}
                     onChange={(e) => setTara(Number(e.target.value))}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white font-bold"
+                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2 text-[#1D4B38] font-bold"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="text-slate-400 block mb-1">Umidade (% sensor Motomco)</label>
+                  <label className="text-[#66736A] block mb-1">Umidade (% sensor Motomco)</label>
                   <input
                     type="number"
                     step="0.1"
                     value={umidade}
                     onChange={(e) => setUmidade(Number(e.target.value))}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white font-bold"
+                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2 text-[#1D4B38] font-bold"
                   />
                 </div>
                 <div>
-                  <label className="text-slate-400 block mb-1">Impureza (% peneira)</label>
+                  <label className="text-[#66736A] block mb-1">Impureza (% peneira)</label>
                   <input
                     type="number"
                     step="0.1"
                     value={impureza}
                     onChange={(e) => setImpureza(Number(e.target.value))}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white font-bold"
+                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2 text-[#1D4B38] font-bold"
                   />
                 </div>
               </div>
 
               {/* Prévia dos Cálculos de Desconto */}
-              <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-1 text-slate-300">
+              <div className="bg-[#F7F9F5] p-3 rounded-xl border border-[#EAF4E7] space-y-1 text-[#26332A]">
                 <div className="flex justify-between">
                   <span>Peso Líquido Inicial:</span>
                   <span className="font-mono">{pesoLiquidoInicial.toLocaleString('pt-BR')} kg</span>
@@ -584,24 +584,24 @@ export const RomaneioColheitaModule: React.FC = () => {
                   <span>Desconto de Umidade + Impureza:</span>
                   <span className="font-mono">-{descontoUmidadeKg + descontoImpurezaKg} kg</span>
                 </div>
-                <div className="flex justify-between font-bold text-emerald-400 border-t border-slate-800 pt-1">
+                <div className="flex justify-between font-bold text-emerald-400 border-t border-[#EAF4E7] pt-1">
                   <span>Peso Líquido Final:</span>
                   <span className="font-mono">{pesoLiquidoFinal.toLocaleString('pt-BR')} kg ({sacas60kgCalculadas} sc)</span>
                 </div>
               </div>
             </div>
 
-            <div className="flex justify-end gap-2 pt-2 border-t border-slate-800">
+            <div className="flex justify-end gap-2 pt-2 border-t border-[#EAF4E7]">
               <button
                 onClick={() => setModalNovoOpen(false)}
-                className="px-3.5 py-1.5 rounded-lg text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium"
+                className="px-3.5 py-1.5 rounded-lg text-xs bg-[#F7F9F5] hover:bg-slate-700 text-[#26332A] font-medium"
               >
                 Cancelar
               </button>
               <button
                 onClick={handleEmitirRomaneio}
                 disabled={loadingEmissao}
-                className="px-4 py-2 rounded-lg text-xs bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center gap-1.5 shadow-lg shadow-emerald-950/40"
+                className="px-4 py-2 rounded-lg text-xs bg-emerald-600 hover:bg-emerald-500 text-[#1D4B38] font-bold flex items-center gap-1.5 shadow-lg shadow-emerald-950/40"
               >
                 {loadingEmissao ? <RefreshCw className="w-3.5 h-3.5 animate-spin" /> : <Scale className="w-3.5 h-3.5" />}
                 Emitir Ticket & Romaneio Oficial
@@ -726,7 +726,7 @@ export const RomaneioColheitaModule: React.FC = () => {
               </button>
               <button
                 onClick={() => window.print()}
-                className="px-5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs flex items-center gap-1.5 shadow"
+                className="px-5 py-2 bg-emerald-600 hover:bg-emerald-500 text-[#1D4B38] font-bold rounded-xl text-xs flex items-center gap-1.5 shadow"
               >
                 <Printer className="w-4 h-4" /> Imprimir Ticket Oficial
               </button>

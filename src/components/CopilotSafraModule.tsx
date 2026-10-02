@@ -598,7 +598,7 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
                     </div>
                   </div>
 
-                  <p className="text-xs text-[#26332A] leading-relaxed bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                  <p className="text-xs text-[#26332A] leading-relaxed bg-[#F7F9F5] p-3 rounded-xl border border-[#EAF4E7]/80">
                     {ins.diagnostico}
                   </p>
 
@@ -607,7 +607,7 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
                     {ins.fatoresCruzados.map((fat, fIdx) => {
                       const IconComponent = fat.icone;
                       return (
-                        <div key={fIdx} className="bg-slate-950/80 p-2.5 rounded-xl border border-slate-800 flex items-center gap-2">
+                        <div key={fIdx} className="bg-[#F7F9F5] p-2.5 rounded-xl border border-[#EAF4E7] flex items-center gap-2">
                           <div className="p-1.5 bg-[#F7F9F5] text-indigo-400 rounded-lg shrink-0">
                             <IconComponent className="w-3.5 h-3.5" />
                           </div>
@@ -621,7 +621,7 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
                   </div>
 
                   {/* Recomendação e Impacto */}
-                  <div className="border-t border-slate-800 pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+                  <div className="border-t border-[#EAF4E7] pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
                     <div>
                       <span className="text-[#66736A] font-medium">Ação Prescrita: </span>
                       <span className="text-emerald-400 font-semibold">{ins.recomendacaoAcao}</span>
@@ -652,7 +652,7 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
 
         {/* Coluna 3: Chat Interativo com o Copilot Safra */}
         <div className="bg-white border border-[#EAF4E7] rounded-2xl flex flex-col h-[650px] shadow-xl overflow-hidden">
-          <div className="p-4 border-b border-slate-800 bg-slate-950/60 flex items-center justify-between">
+          <div className="p-4 border-b border-[#EAF4E7] bg-[#F7F9F5] flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="p-2 bg-indigo-500/20 text-indigo-400 rounded-xl">
                 <Bot className="w-4 h-4" />
@@ -709,7 +709,7 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
           </div>
 
           {/* Sugestões Rápidas de Prompt */}
-          <div className="p-2 border-t border-slate-800/80 bg-slate-950/40 flex flex-wrap gap-1.5">
+          <div className="p-2 border-t border-[#EAF4E7]/80 bg-[#F7F9F5]/40 flex flex-wrap gap-1.5">
             {promptSugestoes.map((p, idx) => (
               <button
                 key={idx}
@@ -727,14 +727,14 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
               e.preventDefault();
               handleEnviarPergunta();
             }}
-            className="p-3 border-t border-slate-800 bg-slate-950/60 flex items-center gap-2"
+            className="p-3 border-t border-[#EAF4E7] bg-[#F7F9F5] flex items-center gap-2"
           >
             <input
               type="text"
               value={perguntaInput}
               onChange={(e) => setPerguntaInput(e.target.value)}
               placeholder="Pergunte ao Copilot sobre talhões, cocho, Brix ou diesel..."
-              className="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-[#26332A] placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+              className="flex-1 bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-xs text-[#26332A] placeholder-slate-500 focus:outline-none focus:border-indigo-500"
             />
             <button
               type="submit"

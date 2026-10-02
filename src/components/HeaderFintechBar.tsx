@@ -178,79 +178,79 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
 
       {/* Modal Técnico de Análise Psicrométrica Delta T */}
       {modalDeltaTOpen && (
-        <div className="fixed inset-0 z-[1250] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-700 p-6 rounded-2xl max-w-lg w-full shadow-2xl text-slate-200 space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div className="fixed inset-0 z-[1250] bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white border border-[#EAF4E7] p-6 rounded-2xl max-w-lg w-full shadow-2xl text-[#26332A] space-y-4">
+            <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-3">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-emerald-950 text-emerald-400 border border-emerald-800 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-[#EAF4E7] text-[#285943] border border-[#8FBF88] flex items-center justify-center">
                   <Droplets className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white">
+                  <h3 className="text-base font-bold text-[#1D4B38]">
                     Monitoramento Psicrométrico de Delta T (ΔT)
                   </h3>
-                  <p className="text-xs text-slate-400">{deltaT.estacaoMeteorologica}</p>
+                  <p className="text-xs text-[#66736A]">{deltaT.estacaoMeteorologica}</p>
                 </div>
               </div>
               <button
                 onClick={() => setModalDeltaTOpen(false)}
-                className="text-slate-400 hover:text-white"
+                className="text-[#66736A] hover:text-[#1D4B38] p-1.5 rounded-lg hover:bg-[#F7F9F5] transition cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-3">
+            <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] space-y-3">
               <div className="flex justify-between items-center">
-                <span className="text-xs text-slate-400">Valor Atual de Delta T:</span>
-                <span className="text-xl font-black font-mono text-emerald-400">
+                <span className="text-xs text-[#66736A]">Valor Atual de Delta T:</span>
+                <span className="text-xl font-black font-mono text-[#285943]">
                   {deltaT.deltaTC} °C
                 </span>
               </div>
 
               {/* Barra de Faixas de Delta T */}
               <div className="space-y-1">
-                <div className="flex justify-between text-[10px] text-slate-500 font-mono">
+                <div className="flex justify-between text-[10px] text-[#66736A] font-mono">
                   <span>0°C (Inversão)</span>
-                  <span className="text-emerald-400 font-bold">2°C a 8°C (Ideal)</span>
+                  <span className="text-[#285943] font-bold">2°C a 8°C (Ideal)</span>
                   <span>12°C (Evaporação)</span>
                 </div>
-                <div className="w-full h-3 rounded-full bg-slate-800 flex overflow-hidden">
+                <div className="w-full h-3 rounded-full bg-[#EAF4E7] flex overflow-hidden">
                   <div className="w-[16%] bg-amber-500" title="0°C a 2°C: Risco de Inversão"></div>
-                  <div className="w-[50%] bg-emerald-500" title="2°C a 8°C: Faixa Ideal"></div>
+                  <div className="w-[50%] bg-[#5F8F52]" title="2°C a 8°C: Faixa Ideal"></div>
                   <div className="w-[34%] bg-rose-500" title="> 8°C: Risco de Evaporação"></div>
                 </div>
               </div>
 
-              <p className="text-xs text-emerald-300 font-medium leading-relaxed bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-900/50">
+              <p className="text-xs text-[#1D4B38] font-medium leading-relaxed bg-[#EAF4E7] p-2.5 rounded-lg border border-[#8FBF88]">
                 {deltaT.mensagemTecnica}
               </p>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs font-mono">
-              <div className="p-2.5 bg-slate-950 border border-slate-800 rounded-lg">
-                <span className="text-[10px] text-slate-500 block">TEMP. SECO</span>
-                <span className="font-bold text-white text-sm">{deltaT.tempArC}°C</span>
+              <div className="p-2.5 bg-[#F7F9F5] border border-[#EAF4E7] rounded-lg">
+                <span className="text-[10px] text-[#66736A] block">TEMP. SECO</span>
+                <span className="font-bold text-[#1D4B38] text-sm">{deltaT.tempArC}°C</span>
               </div>
-              <div className="p-2.5 bg-slate-950 border border-slate-800 rounded-lg">
-                <span className="text-[10px] text-slate-500 block">TEMP. ÚMIDO</span>
-                <span className="font-bold text-blue-400 text-sm">{deltaT.tempBulboUmidoC}°C</span>
+              <div className="p-2.5 bg-[#F7F9F5] border border-[#EAF4E7] rounded-lg">
+                <span className="text-[10px] text-[#66736A] block">TEMP. ÚMIDO</span>
+                <span className="font-bold text-[#7DA9C4] text-sm">{deltaT.tempBulboUmidoC}°C</span>
               </div>
-              <div className="p-2.5 bg-slate-950 border border-slate-800 rounded-lg">
-                <span className="text-[10px] text-slate-500 block">UMIDADE REL.</span>
-                <span className="font-bold text-cyan-400 text-sm">{deltaT.umidadeRelativaPct}%</span>
+              <div className="p-2.5 bg-[#F7F9F5] border border-[#EAF4E7] rounded-lg">
+                <span className="text-[10px] text-[#66736A] block">UMIDADE REL.</span>
+                <span className="font-bold text-[#5F8F52] text-sm">{deltaT.umidadeRelativaPct}%</span>
               </div>
-              <div className="p-2.5 bg-slate-950 border border-slate-800 rounded-lg">
-                <span className="text-[10px] text-slate-500 block">VELOC. VENTO</span>
-                <span className="font-bold text-amber-400 text-sm">{deltaT.ventoKmH} km/h</span>
+              <div className="p-2.5 bg-[#F7F9F5] border border-[#EAF4E7] rounded-lg">
+                <span className="text-[10px] text-[#66736A] block">VELOC. VENTO</span>
+                <span className="font-bold text-[#A67C1E] text-sm">{deltaT.ventoKmH} km/h</span>
               </div>
             </div>
 
-            <div className="text-[11px] text-slate-400 pt-2 border-t border-slate-800 space-y-1">
+            <div className="text-[11px] text-[#66736A] pt-2 border-t border-[#EAF4E7] space-y-1">
               <p>
-                <strong>Regra Agronômica Internacional (ASABE S572):</strong>
+                <strong className="text-[#1D4B38]">Regra Agronômica Internacional (ASABE S572):</strong>
               </p>
-              <ul className="list-disc list-inside space-y-0.5 text-slate-400 text-[10px]">
+              <ul className="list-disc list-inside space-y-0.5 text-[#66736A] text-[10px]">
                 <li><strong>Abaixo de 2°C:</strong> As gotas não assentam; risco severo de deriva por inversão térmica.</li>
                 <li><strong>Entre 2°C e 8°C:</strong> Janela de ouro. Deposição máxima da calda no alvo foliar.</li>
                 <li><strong>Acima de 8°C:</strong> A gota evapora antes de tocar na folha; ineficiência química severa.</li>
@@ -260,7 +260,7 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
             <div className="flex justify-end pt-2">
               <button
                 onClick={() => setModalDeltaTOpen(false)}
-                className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold"
+                className="px-4 py-2 bg-[#285943] hover:bg-[#1D4B38] text-white rounded-xl text-xs font-bold transition cursor-pointer"
               >
                 Entendido
               </button>

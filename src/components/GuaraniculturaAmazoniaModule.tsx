@@ -109,19 +109,19 @@ export const GuaraniculturaAmazoniaModule: React.FC = () => {
             <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
               🔴 Guaranicultura de Precisão: Clones BRS, Colheita & Torra Maués
             </h2>
-            <p className="text-sm text-slate-300 max-w-3xl leading-relaxed">
+            <p className="text-sm text-[#26332A] max-w-3xl leading-relaxed">
               Manejo do guaranazeiro (*Paullinia cupana*) com clones resistentes à antracnose, colheita seletiva de frutos maduros em deiscência ("olho de boi"), fermentação biológica e torrefação artesanal em fornos de barro a 140°C para Indicação Geográfica (IG Maués).
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Grão Torrado</span>
+            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
+              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Grão Torrado</span>
               <span className="text-xl font-black text-red-400">20.000 kg</span>
-              <span className="text-[10px] text-slate-400 block mt-0.5">25 ha Pomar</span>
+              <span className="text-[10px] text-[#66736A] block mt-0.5">25 ha Pomar</span>
             </div>
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Faturamento</span>
+            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
+              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Faturamento</span>
               <span className="text-xl font-black text-amber-400">R$ 900.000</span>
               <span className="text-[10px] text-amber-400/80 block mt-0.5">59.7% Margem</span>
             </div>
@@ -131,8 +131,8 @@ export const GuaraniculturaAmazoniaModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-red-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-red-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Teor de Cafeína</span>
             <Zap className="w-4 h-4 text-amber-400" />
           </div>
@@ -143,48 +143,48 @@ export const GuaraniculturaAmazoniaModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-red-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-red-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Cafeína Pura Extraível</span>
             <Activity className="w-4 h-4 text-red-400" />
           </div>
           <div className="text-2xl font-black text-red-400">960.0 kg Puro</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             Indústria Farmacêutica e Bebidas
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-red-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-red-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Preço IG Maués</span>
             <Award className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">R$ 45,00 / kg</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             Selo de Origem Geográfica
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-red-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-red-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
             <DollarSign className="w-4 h-4 text-teal-400" />
           </div>
           <div className="text-2xl font-black text-teal-400">R$ 537.500,00</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             R$ 21.500,00 por hectare
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-slate-800 pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('guaranazais')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'guaranazais'
               ? 'bg-red-500 text-white shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Leaf className="w-4 h-4" />
@@ -196,7 +196,7 @@ export const GuaraniculturaAmazoniaModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'torrefacao'
               ? 'bg-red-500 text-white shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Flame className="w-4 h-4" />
@@ -208,7 +208,7 @@ export const GuaraniculturaAmazoniaModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'cafeina'
               ? 'bg-red-500 text-white shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Zap className="w-4 h-4" />
@@ -220,7 +220,7 @@ export const GuaraniculturaAmazoniaModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
               ? 'bg-red-500 text-white shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -231,19 +231,19 @@ export const GuaraniculturaAmazoniaModule: React.FC = () => {
       {/* Conteúdo Aba 1: Guaranazais */}
       {activeTab === 'guaranazais' && (
         <div className="space-y-4">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Leaf className="w-5 h-5 text-red-400" />
               Lotes de Guaranazeiros Clonares Embrapa Amazônia Ocidental
             </h3>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               O guaranazeiro cultivado por sementes produz apenas 150 a 200 kg/ha devido à variabilidade genética e suscetibilidade à antracnose (*Colletotrichum guaranicola*). Os clones clonados por estaquia atingem mais de 800 kg/ha com alta tolerância a fungos.
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-slate-800 text-slate-400 font-bold uppercase tracking-wider">
+                  <tr className="border-b border-[#EAF4E7] text-[#66736A] font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Gleba / Comunidade</th>
                     <th className="py-3 px-3">Clone Embrapa</th>
                     <th className="py-3 px-3">Área (ha)</th>
@@ -258,7 +258,7 @@ export const GuaraniculturaAmazoniaModule: React.FC = () => {
                     <tr key={l.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-white">{l.identificacao}</div>
-                        <div className="text-[11px] text-slate-400 font-mono">{l.id}</div>
+                        <div className="text-[11px] text-[#66736A] font-mono">{l.id}</div>
                       </td>
                       <td className="py-3.5 px-3 text-red-300 font-semibold">{l.clone}</td>
                       <td className="py-3.5 px-3 font-mono text-white">{l.areaHa} ha</td>
@@ -282,47 +282,47 @@ export const GuaraniculturaAmazoniaModule: React.FC = () => {
       {/* Conteúdo Aba 2: Torrefação */}
       {activeTab === 'torrefacao' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Flame className="w-5 h-5 text-orange-400" />
               Torrefação Lenta em Fornos de Barro de Maués
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Processamento tradicional que confere o aroma defumado característico e cor de chocolate escuro aos bastões de guaraná:
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <span className="font-bold text-white block">Fermentação de 3 Dias do Arilo Branco</span>
-                <span className="text-slate-400 text-[11px] block mt-0.5">
+                <span className="text-[#66736A] text-[11px] block mt-0.5">
                   Facilita o despolpamento biológico mecânico e concentra precursores aromáticos voláteis no interior da amêndoa.
                 </span>
               </div>
-              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <span className="font-bold text-white block">Torra por 4 a 5 Horas a 140°C</span>
-                <span className="text-slate-400 text-[11px] block mt-0.5">
+                <span className="text-[#66736A] text-[11px] block mt-0.5">
                   Seca a umidade para 8.5% e carameliza os carboidratos sem volatizar as moléculas bioativas de teobromina e cafeína.
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               Certificação de Indicação Geográfica (IG)
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Rastreabilidade do território indígena Sateré-Mawé e cooperativas ribeirinhas:
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <span className="text-slate-400">Selo Oficial INPI:</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+                <span className="text-[#66736A]">Selo Oficial INPI:</span>
                 <span className="font-mono font-bold text-amber-400">IG Maués • Denominação de Origem</span>
               </div>
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <span className="text-slate-400">Ágio no Mercado Global:</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+                <span className="text-[#66736A]">Ágio no Mercado Global:</span>
                 <span className="font-mono font-bold text-emerald-400">+50% vs Guaraná Convencional</span>
               </div>
             </div>
@@ -333,32 +333,32 @@ export const GuaraniculturaAmazoniaModule: React.FC = () => {
       {/* Conteúdo Aba 3: Cafeína */}
       {activeTab === 'cafeina' && (
         <div className="space-y-4">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Zap className="w-5 h-5 text-amber-400" />
               Concentração Fitoquímica e Aporte Energético
             </h3>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               O guaraná contém o maior percentual natural de cafeína do reino vegetal. Além disso, a presença de taninos condensados forma complexos moleculares que retardam a liberação da cafeína no organismo, garantindo efeito estimulante prolongado de até 6 horas sem taquicardia ou picos abruptos.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Cafeína Natural</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Cafeína Natural</span>
                 <span className="text-2xl font-black text-white font-mono">4.8% a 5.2%</span>
                 <span className="text-[11px] text-amber-400 block">Contra 1.2% no café arábica</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Teofilina e Teobromina</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Teofilina e Teobromina</span>
                 <span className="text-2xl font-black text-emerald-400 font-mono">0.45%</span>
-                <span className="text-[11px] text-slate-400 block">Broncodilatador natural</span>
+                <span className="text-[11px] text-[#66736A] block">Broncodilatador natural</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Destino Comercial</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Destino Comercial</span>
                 <span className="text-2xl font-black text-red-400 font-mono">Energy Drinks</span>
-                <span className="text-[11px] text-slate-400 block">Cosméticos e suplementos esportivos</span>
+                <span className="text-[11px] text-[#66736A] block">Cosméticos e suplementos esportivos</span>
               </div>
             </div>
           </div>
@@ -368,14 +368,14 @@ export const GuaraniculturaAmazoniaModule: React.FC = () => {
       {/* Conteúdo Aba 4: Simulador */}
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-red-400" />
               Parâmetros da Guaranicultura
             </h3>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Área Plantada (ha)</span>
                 <span className="font-mono text-red-400">{areaHa} hectares</span>
               </div>
@@ -391,7 +391,7 @@ export const GuaraniculturaAmazoniaModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Produtividade Grão Torrado (kg/ha)</span>
                 <span className="font-mono text-cyan-400">{produtividadeGraoSecoKgHa} kg/ha</span>
               </div>
@@ -407,7 +407,7 @@ export const GuaraniculturaAmazoniaModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Preço Venda Grão IG Maués (R$/kg)</span>
                 <span className="font-mono text-amber-400">R$ {precoKgGuaranaReais.toFixed(2)}</span>
               </div>
@@ -423,7 +423,7 @@ export const GuaraniculturaAmazoniaModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Custo de Manejo e Torra por Ha</span>
                 <span className="font-mono text-rose-400">R$ {custoManejoHaReais.toFixed(2)}</span>
               </div>
@@ -439,39 +439,39 @@ export const GuaraniculturaAmazoniaModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               Retorno Financeiro da Guaranicultura
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Grão Torrado</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Grão Torrado</span>
                 <span className="font-mono font-bold text-white text-base">
                   {(metricas.producaoTotalKg / 1000).toFixed(1)} ton
                 </span>
-                <span className="text-[10px] text-slate-400 block">{areaHa} ha colhidos</span>
+                <span className="text-[10px] text-[#66736A] block">{areaHa} ha colhidos</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Cafeína Pura</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Cafeína Pura</span>
                 <span className="font-mono font-bold text-amber-400 text-base">
                   {metricas.cafeinaTotalKg.toFixed(0)} kg
                 </span>
                 <span className="text-[10px] text-amber-400/80 block">4.8% ativo puro</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Receita Bruta</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Receita Bruta</span>
                 <span className="font-mono font-bold text-white text-base">
                   R$ {(metricas.receitaBrutaReais / 1000).toFixed(0)}k
                 </span>
-                <span className="text-[10px] text-slate-400 block">Selo IG Maués</span>
+                <span className="text-[10px] text-[#66736A] block">Selo IG Maués</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Lucro Líquido</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Lucro Líquido</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {(metricas.lucroLiquidoReais / 1000).toFixed(0)}k
                 </span>
@@ -479,15 +479,15 @@ export const GuaraniculturaAmazoniaModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Receita com Venda de Sementes Tostadas ({metricas.producaoTotalKg.toLocaleString()} kg @ R$ {precoKgGuaranaReais.toFixed(2)}):</span>
+            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Receita com Venda de Sementes Tostadas ({metricas.producaoTotalKg.toLocaleString()} kg @ R$ {precoKgGuaranaReais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-white">
                   R$ {metricas.receitaBrutaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Custos de Poda, Colheita Manual Seletiva e Fornos de Torra:</span>
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Custos de Poda, Colheita Manual Seletiva e Fornos de Torra:</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {metricas.custoTotalReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>

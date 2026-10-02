@@ -107,7 +107,7 @@ export const FertirrigacaoInjecaoMulticanalModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-800 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-cyan-500 to-blue-500 flex items-center justify-center shadow-lg shadow-cyan-500/20">
             <Droplets className="w-7 h-7 text-slate-950" />
@@ -121,7 +121,7 @@ export const FertirrigacaoInjecaoMulticanalModule: React.FC = () => {
                 Módulo 131 • Controle Automático de CE (mS/cm) & pH
               </span>
             </div>
-            <p className="text-sm text-slate-400 mt-1">
+            <p className="text-sm text-[#66736A] mt-1">
               Injeção proporcional Venturi e Dosatron com tanques segregados para evitar precipitação de gesso, neutralização de bicarbonatos e dosagem por setor.
             </p>
           </div>
@@ -140,9 +140,9 @@ export const FertirrigacaoInjecaoMulticanalModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Volume Diário Aplicado</span>
+            <span className="text-xs font-medium text-[#66736A]">Volume Diário Aplicado</span>
             <Droplets className="w-5 h-5 text-cyan-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -153,9 +153,9 @@ export const FertirrigacaoInjecaoMulticanalModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Custo da Solução / m³</span>
+            <span className="text-xs font-medium text-[#66736A]">Custo da Solução / m³</span>
             <DollarSign className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -166,9 +166,9 @@ export const FertirrigacaoInjecaoMulticanalModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Condutividade Elétrica</span>
+            <span className="text-xs font-medium text-[#66736A]">Condutividade Elétrica</span>
             <Activity className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -179,9 +179,9 @@ export const FertirrigacaoInjecaoMulticanalModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Economia vs Adubo em Pó</span>
+            <span className="text-xs font-medium text-[#66736A]">Economia vs Adubo em Pó</span>
             <Award className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -194,13 +194,13 @@ export const FertirrigacaoInjecaoMulticanalModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-800 pb-2">
+      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('canais')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'canais'
               ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -212,7 +212,7 @@ export const FertirrigacaoInjecaoMulticanalModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'sensores'
               ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Gauge className="w-4 h-4" />
@@ -224,7 +224,7 @@ export const FertirrigacaoInjecaoMulticanalModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'receitas'
               ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <FlaskConical className="w-4 h-4" />
@@ -236,7 +236,7 @@ export const FertirrigacaoInjecaoMulticanalModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -246,15 +246,15 @@ export const FertirrigacaoInjecaoMulticanalModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'canais' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-slate-800 p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Droplets className="w-5 h-5 text-cyan-400" />
             Tanques Matriz de Injeção Dosatron / Venturi
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-300">
-              <thead className="text-xs uppercase bg-slate-950/60 text-slate-400">
+            <table className="w-full text-left text-sm text-[#26332A]">
+              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
                 <tr>
                   <th className="px-4 py-3">Canal / Injetor</th>
                   <th className="px-4 py-3">Composição Nutricional</th>
@@ -268,9 +268,9 @@ export const FertirrigacaoInjecaoMulticanalModule: React.FC = () => {
                 {canais.map((c) => (
                   <tr key={c.id} className="hover:bg-slate-800/30">
                     <td className="px-4 py-3 font-semibold text-white">{c.canal}</td>
-                    <td className="px-4 py-3 text-xs text-slate-300">{c.composicaoQuimica}</td>
+                    <td className="px-4 py-3 text-xs text-[#26332A]">{c.composicaoQuimica}</td>
                     <td className="px-4 py-3 font-mono text-cyan-400 font-bold">{c.taxaInjecaoLPorHora} L/h</td>
-                    <td className="px-4 py-3 text-xs text-slate-400">{c.proporcaoDosagem}</td>
+                    <td className="px-4 py-3 text-xs text-[#66736A]">{c.proporcaoDosagem}</td>
                     <td className="px-4 py-3 font-semibold text-emerald-400">{c.nivelAtualPct}%</td>
                     <td className="px-4 py-3">
                       <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
@@ -287,44 +287,44 @@ export const FertirrigacaoInjecaoMulticanalModule: React.FC = () => {
 
       {activeTab === 'sensores' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Activity className="w-5 h-5 text-cyan-400" />
               <h4 className="text-sm font-semibold text-white">Sensor Toroidal de CE</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Leitura eletromagnética contínua sem contato metálico direto com a calda, eliminando incrustações de sais e garantindo CE estável em 2.15 mS/cm.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Tolerância Operacional:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Tolerância Operacional:</span>
               <span className="text-sm font-bold text-cyan-400 block">± 0.05 mS/cm da meta</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Gauge className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Eletrodo Diferencial de pH</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Sonda de vidro industrial pressurizada que comanda a microdosagem de ácido nítrico para neutralização imediata de carbonatos da água de poço artesiano.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Faixa de Absorção Máxima:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Faixa de Absorção Máxima:</span>
               <span className="text-sm font-bold text-emerald-400 block">pH 5.8 a 6.2 (Disponibilidade total de micro e macro)</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <AlertTriangle className="w-5 h-5 text-yellow-400" />
               <h4 className="text-sm font-semibold text-white">Alarme de Segurança de Desvio</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Válvula solenoide de alívio que descarta a calda de volta ao reservatório se a CE ultrapassar 3.0 mS/cm, evitando queima radicular por salinização súbita.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Tempo de Resposta:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Tempo de Resposta:</span>
               <span className="text-sm font-bold text-yellow-400 block">Corte automático em menos de 800 ms</span>
             </div>
           </div>
@@ -332,39 +332,39 @@ export const FertirrigacaoInjecaoMulticanalModule: React.FC = () => {
       )}
 
       {activeTab === 'receitas' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <FlaskConical className="w-5 h-5 text-cyan-400" />
             Regra Fundamental de Incompatibilidade: Cálcio x Sulfatos/Fosfatos
           </h3>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-[#66736A]">
             A mistura de Nitrato de Cálcio com Sulfato de Magnésio ou Fosfato Monopotássico (MKP) na mesma caixa gera a precipitação imediata de Gesso insolúvel (CaSO4) e Fosfato Dicálcico, entupindo gotejadores e microaspersores.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Tanque A</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Tanque A</span>
               <p className="text-lg font-bold text-cyan-400 mt-1">Cálcio & Ferro Quelatado</p>
-              <span className="text-[11px] text-slate-400">Zero presença de enxofre ou fósforo</span>
+              <span className="text-[11px] text-[#66736A]">Zero presença de enxofre ou fósforo</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Tanque B</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Tanque B</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">Sulfatos & Fosfatos</p>
-              <span className="text-[11px] text-slate-400">Dissolução completa e límpida</span>
+              <span className="text-[11px] text-[#66736A]">Dissolução completa e límpida</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Mistura na Linha Principal</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Mistura na Linha Principal</span>
               <p className="text-lg font-bold text-yellow-400 mt-1">Diluição 1:200 Dinâmica</p>
-              <span className="text-[11px] text-slate-400">Sem contato concentrado dos sais</span>
+              <span className="text-[11px] text-[#66736A]">Sem contato concentrado dos sais</span>
             </div>
           </div>
         </div>
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-cyan-400" />
             Simulador de Eficiência Hídrico-Nutricional & Custos
@@ -372,57 +372,57 @@ export const FertirrigacaoInjecaoMulticanalModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-slate-400">Vazão do Setor (m³/h)</label>
+              <label className="text-xs font-medium text-[#66736A]">Vazão do Setor (m³/h)</label>
               <input
                 type="number"
                 value={vazaoSetorM3H}
                 onChange={(e) => setVazaoSetorM3H(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Horas Diárias de Irrigação</label>
+              <label className="text-xs font-medium text-[#66736A]">Horas Diárias de Irrigação</label>
               <input
                 type="number"
                 step="0.5"
                 value={horasIrrigacaoDia}
                 onChange={(e) => setHorasIrrigacaoDia(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Custo Adubos / Dia (R$)</label>
+              <label className="text-xs font-medium text-[#66736A]">Custo Adubos / Dia (R$)</label>
               <input
                 type="number"
                 step="10"
                 value={custoAdubosDiaReais}
                 onChange={(e) => setCustoAdubosDiaReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Dias de Ciclo na Safra</label>
+              <label className="text-xs font-medium text-[#66736A]">Dias de Ciclo na Safra</label>
               <input
                 type="number"
                 value={diasIrrigacaoSafra}
                 onChange={(e) => setDiasIrrigacaoSafra(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-slate-950/60 rounded-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-slate-400 block">Custo Médio da Água Fertirrigada:</span>
+              <span className="text-xs text-[#66736A] block">Custo Médio da Água Fertirrigada:</span>
               <span className="text-base font-bold text-cyan-400">
                 R$ {metricas.custoAguaNutritivaPorM3.toFixed(2)} por m³ aplicado
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-slate-400 block">Economia de Fertilizantes na Safra:</span>
+              <span className="text-xs text-[#66736A] block">Economia de Fertilizantes na Safra:</span>
               <span className="text-xl font-bold text-emerald-400">
                 R$ {metricas.economiaVsAduboSoloReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

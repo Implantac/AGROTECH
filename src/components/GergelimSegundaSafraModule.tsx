@@ -112,7 +112,7 @@ export const GergelimSegundaSafraModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-800 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-400 flex items-center justify-center shadow-lg shadow-amber-500/20">
             <Wheat className="w-7 h-7 text-slate-950" />
@@ -126,7 +126,7 @@ export const GergelimSegundaSafraModule: React.FC = () => {
                 Módulo 114 • Safrinha no Cerrado, Mesas Densimétricas & Mercado Global
               </span>
             </div>
-            <p className="text-sm text-slate-400 mt-1">
+            <p className="text-sm text-[#66736A] mt-1">
               Cultura resiliente ao estresse hídrico no pós-soja, teor de óleo superior a 50% e classificação Tipo 1 para exportação à Ásia e Oriente Médio.
             </p>
           </div>
@@ -145,9 +145,9 @@ export const GergelimSegundaSafraModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Volume Total Safra</span>
+            <span className="text-xs font-medium text-[#66736A]">Volume Total Safra</span>
             <Wheat className="w-5 h-5 text-amber-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -158,9 +158,9 @@ export const GergelimSegundaSafraModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Preço FOB Exportação</span>
+            <span className="text-xs font-medium text-[#66736A]">Preço FOB Exportação</span>
             <Globe2 className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -171,9 +171,9 @@ export const GergelimSegundaSafraModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Receita Bruta Total</span>
+            <span className="text-xs font-medium text-[#66736A]">Receita Bruta Total</span>
             <TrendingUp className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -184,9 +184,9 @@ export const GergelimSegundaSafraModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Margem Líquida / Saca</span>
+            <span className="text-xs font-medium text-[#66736A]">Margem Líquida / Saca</span>
             <Award className="w-5 h-5 text-amber-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -199,13 +199,13 @@ export const GergelimSegundaSafraModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-800 pb-2">
+      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('lavouras')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'lavouras'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Wheat className="w-4 h-4" />
@@ -217,7 +217,7 @@ export const GergelimSegundaSafraModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'qualidade'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Filter className="w-4 h-4" />
@@ -229,7 +229,7 @@ export const GergelimSegundaSafraModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'exportacao'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Globe2 className="w-4 h-4" />
@@ -241,7 +241,7 @@ export const GergelimSegundaSafraModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -251,15 +251,15 @@ export const GergelimSegundaSafraModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'lavouras' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-slate-800 p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Wheat className="w-5 h-5 text-amber-400" />
             Talhões Monitorados no Médio-Norte e Vale do Araguaia
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-300">
-              <thead className="text-xs uppercase bg-slate-950/60 text-slate-400">
+            <table className="w-full text-left text-sm text-[#26332A]">
+              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
                 <tr>
                   <th className="px-4 py-3">Talhão / Região</th>
                   <th className="px-4 py-3">Cultivar</th>
@@ -294,44 +294,44 @@ export const GergelimSegundaSafraModule: React.FC = () => {
 
       {activeTab === 'qualidade' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Droplets className="w-5 h-5 text-amber-400" />
               <h4 className="text-sm font-semibold text-white">Teor Lipídico Elevado</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Grãos com mais de 50% de óleo de alta pureza e baixa acidez livre, muito valorizados pela indústria de tahine e óleos finos.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Exigência Padrão Tipo 1:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Exigência Padrão Tipo 1:</span>
               <span className="text-sm font-bold text-amber-400 block">superior ou igual a 50.0% de óleo</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Filter className="w-5 h-5 text-cyan-400" />
               <h4 className="text-sm font-semibold text-white">Limpeza em Mesa Densimétrica</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Separação gravitacional e ar aspirado eliminam pedúnculos, sementes chochas, poeira e pedriscos antes da exportação.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Impureza Máxima Permitida:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Impureza Máxima Permitida:</span>
               <span className="text-sm font-bold text-cyan-400 block">menor ou igual a 1.0%</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Coloração Clara Uniforme</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Seleção por leitoras ópticas cromáticas garantindo 99.5% de pureza visual sem grãos pretos ou manchados por chuvas na colheita.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Pureza Visual:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Pureza Visual:</span>
               <span className="text-sm font-bold text-emerald-400 block">superior a 99.5% de sementes brancas</span>
             </div>
           </div>
@@ -339,30 +339,30 @@ export const GergelimSegundaSafraModule: React.FC = () => {
       )}
 
       {activeTab === 'exportacao' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Globe2 className="w-5 h-5 text-yellow-400" />
             Fluxo Logístico de Exportação (Containers 20ft & Big Bags)
           </h3>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-[#66736A]">
             O gergelim brasileiro conquistou mercados cruciais na Ásia e Oriente Médio devido à janela de colheita complementar do hemisfério sul e padrões de resíduo zero.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">China & Índia</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">China & Índia</span>
               <p className="text-lg font-bold text-white mt-1">Esmagamento & Óleo</p>
               <span className="text-[11px] text-slate-500">Demanda em grande escala</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Turquia & Oriente Médio</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Turquia & Oriente Médio</span>
               <p className="text-lg font-bold text-amber-400 mt-1">Tahine & Confeitaria</p>
               <span className="text-[11px] text-amber-500/80">Exige grão branco extra limpo</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Embalagem de Trânsito</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Embalagem de Trânsito</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">Big Bag 1.000 kg c/ liner</p>
               <span className="text-[11px] text-slate-500">Protege contra umidade marítima</span>
             </div>
@@ -371,7 +371,7 @@ export const GergelimSegundaSafraModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-amber-400" />
             Simulador de Paridade Cambial & Rentabilidade por Saca
@@ -379,56 +379,56 @@ export const GergelimSegundaSafraModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-slate-400">Área Cultivada (ha)</label>
+              <label className="text-xs font-medium text-[#66736A]">Área Cultivada (ha)</label>
               <input
                 type="number"
                 value={areaHa}
                 onChange={(e) => setAreaHa(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Produtividade (kg/ha)</label>
+              <label className="text-xs font-medium text-[#66736A]">Produtividade (kg/ha)</label>
               <input
                 type="number"
                 value={produtividadeKgHa}
                 onChange={(e) => setProdutividadeKgHa(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Cotação FOB (USD/ton)</label>
+              <label className="text-xs font-medium text-[#66736A]">Cotação FOB (USD/ton)</label>
               <input
                 type="number"
                 value={precoExportacaoUsdTon}
                 onChange={(e) => setPrecoExportacaoUsdTon(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Câmbio USD/BRL</label>
+              <label className="text-xs font-medium text-[#66736A]">Câmbio USD/BRL</label>
               <input
                 type="number"
                 step="0.05"
                 value={taxaCambioUsdBrl}
                 onChange={(e) => setTaxaCambioUsdBrl(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-slate-950/60 rounded-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-slate-400 block">Status de Conformidade Exportação:</span>
+              <span className="text-xs text-[#66736A] block">Status de Conformidade Exportação:</span>
               <span className={`text-base font-bold ${metricas.isTipo1Exportacao ? 'text-emerald-400' : 'text-yellow-400'}`}>
                 {metricas.isTipo1Exportacao ? '✓ TIPO 1 EXPORTAÇÃO PREMIUM (ÁGIO MÁXIMO)' : 'PADRÃO COMERCIAL INTERNO'}
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-slate-400 block">Lucro Líquido Safra:</span>
+              <span className="text-xs text-[#66736A] block">Lucro Líquido Safra:</span>
               <span className="text-xl font-bold text-emerald-400">
                 R$ {metricas.lucroLiquidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

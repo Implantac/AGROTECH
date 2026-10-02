@@ -89,7 +89,7 @@ export const MoendaDifusorCanaExtracaoModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-800 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500 to-lime-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
             <Factory className="w-7 h-7 text-slate-950" />
@@ -103,7 +103,7 @@ export const MoendaDifusorCanaExtracaoModule: React.FC = () => {
                 Módulo 133 • Eficiência de Extração (&gt; 97.5%) & Cogeração
               </span>
             </div>
-            <p className="text-sm text-slate-400 mt-1">
+            <p className="text-sm text-[#66736A] mt-1">
               Controle da extração de sacarose na cana desfibrada, taxa de embebição composta, redução de Pol no bagaço e balanço de vapor para bioeletricidade.
             </p>
           </div>
@@ -122,9 +122,9 @@ export const MoendaDifusorCanaExtracaoModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Moagem Diária</span>
+            <span className="text-xs font-medium text-[#66736A]">Moagem Diária</span>
             <Factory className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -135,9 +135,9 @@ export const MoendaDifusorCanaExtracaoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Eficiência de Extração</span>
+            <span className="text-xs font-medium text-[#66736A]">Eficiência de Extração</span>
             <Award className="w-5 h-5 text-lime-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -148,9 +148,9 @@ export const MoendaDifusorCanaExtracaoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Faturamento Diário ATR</span>
+            <span className="text-xs font-medium text-[#66736A]">Faturamento Diário ATR</span>
             <DollarSign className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -161,9 +161,9 @@ export const MoendaDifusorCanaExtracaoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Cogeração de Energia</span>
+            <span className="text-xs font-medium text-[#66736A]">Cogeração de Energia</span>
             <Zap className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -176,13 +176,13 @@ export const MoendaDifusorCanaExtracaoModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-800 pb-2">
+      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('linhas')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'linhas'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -194,7 +194,7 @@ export const MoendaDifusorCanaExtracaoModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'balanco'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Scale className="w-4 h-4" />
@@ -206,7 +206,7 @@ export const MoendaDifusorCanaExtracaoModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'cogerecao'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Flame className="w-4 h-4" />
@@ -218,7 +218,7 @@ export const MoendaDifusorCanaExtracaoModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -228,15 +228,15 @@ export const MoendaDifusorCanaExtracaoModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'linhas' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-slate-800 p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Factory className="w-5 h-5 text-emerald-400" />
             Operação de Moendas e Difusores Contínuos
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-300">
-              <thead className="text-xs uppercase bg-slate-950/60 text-slate-400">
+            <table className="w-full text-left text-sm text-[#26332A]">
+              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
                 <tr>
                   <th className="px-4 py-3">Equipamento</th>
                   <th className="px-4 py-3">Tecnologia</th>
@@ -251,11 +251,11 @@ export const MoendaDifusorCanaExtracaoModule: React.FC = () => {
                 {linhas.map((l) => (
                   <tr key={l.id} className="hover:bg-slate-800/30">
                     <td className="px-4 py-3 font-semibold text-white">{l.linha}</td>
-                    <td className="px-4 py-3 text-xs text-slate-400">{l.tipoTecnologia}</td>
+                    <td className="px-4 py-3 text-xs text-[#66736A]">{l.tipoTecnologia}</td>
                     <td className="px-4 py-3 font-mono font-bold text-white">{l.capacidadeTph} TPH</td>
                     <td className="px-4 py-3 font-bold text-emerald-400">{l.eficienciaExtracaoPct}%</td>
                     <td className="px-4 py-3 font-bold text-lime-400">{l.polBagacoPct}%</td>
-                    <td className="px-4 py-3 text-slate-300">{l.consumoEnergiaKwhPorTon} kWh/t</td>
+                    <td className="px-4 py-3 text-[#26332A]">{l.consumoEnergiaKwhPorTon} kWh/t</td>
                     <td className="px-4 py-3">
                       <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                         {l.status}
@@ -271,44 +271,44 @@ export const MoendaDifusorCanaExtracaoModule: React.FC = () => {
 
       {activeTab === 'balanco' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Scale className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Índice de Preparo (Open Cells)</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Desfibrador de facas pesadas operando acima de 88% de células abertas, permitindo que a água de embebição penetre no vacúolo celular sem necessidade de esmagamento excessivo.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Meta Industrial:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Meta Industrial:</span>
               <span className="text-sm font-bold text-emerald-400 block">Open Cells superior a 90%</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Sliders className="w-5 h-5 text-lime-400" />
               <h4 className="text-sm font-semibold text-white">Taxa de Embebição Composta</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Água de embebição aquecida a 75°C aplicada no último terno/estágio do difusor, arrastando a sacarose residual em contracorrente e minimizando o gasto de vapor na evaporação.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Taxa em Relação à Cana:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Taxa em Relação à Cana:</span>
               <span className="text-sm font-bold text-lime-400 block">30% a 32% sobre a massa</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Award className="w-5 h-5 text-yellow-400" />
               <h4 className="text-sm font-semibold text-white">Pol no Bagaço Final</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Indicador crítico de perda sacarina. Cada 0.1% a menos de Pol no bagaço representa mais de 14.000 kg de açúcar ou 8.000 litros de etanol a mais por dia na safra.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Limite de Excelência:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Limite de Excelência:</span>
               <span className="text-sm font-bold text-yellow-400 block">Pol inferior a 1.40%</span>
             </div>
           </div>
@@ -316,39 +316,39 @@ export const MoendaDifusorCanaExtracaoModule: React.FC = () => {
       )}
 
       {activeTab === 'cogerecao' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Flame className="w-5 h-5 text-yellow-400" />
             Caldeiras Aquotubulares de 67 bar e Turbogeradores a Vapor
           </h3>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-[#66736A]">
             O bagaço desidratado (umidade inferior a 50%) alimenta caldeiras de alta pressão com geração de vapor superaquecido a 520°C, acionando turbinas de condensação para exportação de excedente à rede elétrica nacional (CCEE).
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Umidade do Bagaço</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Umidade do Bagaço</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">48.5% UR</p>
-              <span className="text-[11px] text-slate-400">Poder calorífico superior (PCS) elevado</span>
+              <span className="text-[11px] text-[#66736A]">Poder calorífico superior (PCS) elevado</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Pressão de Vapor</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Pressão de Vapor</span>
               <p className="text-lg font-bold text-yellow-400 mt-1">67 bar / 520°C</p>
-              <span className="text-[11px] text-slate-400">Ciclo térmico de alta eficiência</span>
+              <span className="text-[11px] text-[#66736A]">Ciclo térmico de alta eficiência</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Exportação CCEE</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Exportação CCEE</span>
               <p className="text-lg font-bold text-white mt-1">+85 kWh/t exportados</p>
-              <span className="text-[11px] text-slate-400">Receita complementar de bioeletricidade</span>
+              <span className="text-[11px] text-[#66736A]">Receita complementar de bioeletricidade</span>
             </div>
           </div>
         </div>
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-emerald-400" />
             Simulador de Moagem & Faturamento da Safra Sucroalcooleira
@@ -356,58 +356,58 @@ export const MoendaDifusorCanaExtracaoModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-slate-400">Cana Moída / Dia (ton)</label>
+              <label className="text-xs font-medium text-[#66736A]">Cana Moída / Dia (ton)</label>
               <input
                 type="number"
                 value={toneladasCanaMoidaDia}
                 onChange={(e) => setToneladasCanaMoidaDia(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Pol da Cana (%)</label>
+              <label className="text-xs font-medium text-[#66736A]">Pol da Cana (%)</label>
               <input
                 type="number"
                 step="0.1"
                 value={polCanaPct}
                 onChange={(e) => setPolCanaPct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Eficiência Extração (%)</label>
+              <label className="text-xs font-medium text-[#66736A]">Eficiência Extração (%)</label>
               <input
                 type="number"
                 step="0.1"
                 value={eficienciaExtracaoPct}
                 onChange={(e) => setEficienciaExtracaoPct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Preço ATR (R$/kg)</label>
+              <label className="text-xs font-medium text-[#66736A]">Preço ATR (R$/kg)</label>
               <input
                 type="number"
                 step="0.05"
                 value={precoKgAtrReais}
                 onChange={(e) => setPrecoKgAtrReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-slate-950/60 rounded-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-slate-400 block">Faturamento Diário de ATR:</span>
+              <span className="text-xs text-[#66736A] block">Faturamento Diário de ATR:</span>
               <span className="text-base font-bold text-emerald-400">
                 R$ {metricas.faturamentoDiaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} / dia
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-slate-400 block">Faturamento Acumulado na Safra:</span>
+              <span className="text-xs text-[#66736A] block">Faturamento Acumulado na Safra:</span>
               <span className="text-xl font-bold text-emerald-400">
                 R$ {metricas.faturamentoSafraReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

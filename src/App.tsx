@@ -1124,10 +1124,10 @@ export const App: React.FC = () => {
             <div className="space-y-4">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                 <div>
-                  <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                    <Map className="w-5 h-5 text-emerald-400" /> Central Geográfica SIG (PostGIS + Mapbox/Leaflet)
+                  <h2 className="text-xl font-bold text-[#1D4B38] flex items-center gap-2">
+                    <Map className="w-5 h-5 text-[#5F8F52]" /> Central Geográfica SIG (PostGIS + Mapbox/Leaflet)
                   </h2>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-[#66736A]">
                     Polígonos vetoriais com dados agronômicos, fitossanidade em tempo real, telemetria de frotas e índice NDVI Sentinel-2.
                   </p>
                 </div>
@@ -1141,54 +1141,54 @@ export const App: React.FC = () => {
 
               {/* Painel do Talhão Selecionado */}
               {selectedTalhao && (
-                <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative animate-fade-in">
+                <div className="bg-white border border-[#EAF4E7] p-5 rounded-2xl shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative animate-fade-in text-[#26332A]">
                   <button
                     onClick={() => setSelectedTalhao(null)}
-                    className="absolute top-3 right-3 p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800"
+                    className="absolute top-3 right-3 p-1.5 rounded-lg text-[#66736A] hover:text-[#1D4B38] hover:bg-[#F7F9F5] transition cursor-pointer"
                   >
                     <X className="w-4 h-4" />
                   </button>
 
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs px-2 py-0.5 bg-emerald-950 text-emerald-400 border border-emerald-800 rounded font-bold">
+                      <span className="font-mono text-xs px-2.5 py-0.5 bg-[#EAF4E7] text-[#1D4B38] border border-[#8FBF88] rounded-md font-bold">
                         {selectedTalhao.codigo}
                       </span>
-                      <h3 className="text-base font-bold text-white">{selectedTalhao.nome}</h3>
-                      <span className="text-xs text-slate-400">({selectedTalhao.areaHa} ha)</span>
+                      <h3 className="text-base font-bold text-[#1D4B38]">{selectedTalhao.nome}</h3>
+                      <span className="text-xs text-[#66736A]">({selectedTalhao.areaHa} ha)</span>
                     </div>
-                    <p className="text-xs text-slate-300">
-                      Cultura: <span className="font-semibold text-emerald-400">{selectedTalhao.cultura}</span> • Variedade: {selectedTalhao.variedade} • Plantado em {selectedTalhao.dataPlantio}
+                    <p className="text-xs text-[#66736A]">
+                      Cultura: <span className="font-semibold text-[#285943]">{selectedTalhao.cultura}</span> • Variedade: {selectedTalhao.variedade} • Plantado em {selectedTalhao.dataPlantio}
                     </p>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-4 text-xs">
-                    <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
-                      <span className="text-slate-400 text-[10px] block uppercase font-bold">Custo ABC Acumulado</span>
-                      <span className="text-white font-mono font-bold text-sm">
+                    <div className="bg-[#F7F9F5] p-3 rounded-xl border border-[#EAF4E7]">
+                      <span className="text-[#66736A] text-[10px] block uppercase font-bold">Custo ABC Acumulado</span>
+                      <span className="text-[#1D4B38] font-mono font-bold text-sm">
                         R$ {selectedTalhao.custoTotalABC.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                       </span>
                     </div>
 
-                    <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
-                      <span className="text-slate-400 text-[10px] block uppercase font-bold">Break-Even</span>
-                      <span className="text-amber-400 font-mono font-bold text-sm">
+                    <div className="bg-[#F7F9F5] p-3 rounded-xl border border-[#EAF4E7]">
+                      <span className="text-[#66736A] text-[10px] block uppercase font-bold">Break-Even</span>
+                      <span className="text-[#A67C1E] font-mono font-bold text-sm">
                         {selectedTalhao.breakEvenScHa.toFixed(1)} sc/ha
                       </span>
                     </div>
 
-                    <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
-                      <span className="text-slate-400 text-[10px] block uppercase font-bold">Vigor NDVI (Satélite)</span>
-                      <span className="text-emerald-400 font-mono font-bold text-sm">
+                    <div className="bg-[#F7F9F5] p-3 rounded-xl border border-[#EAF4E7]">
+                      <span className="text-[#66736A] text-[10px] block uppercase font-bold">Vigor NDVI (Satélite)</span>
+                      <span className="text-[#285943] font-mono font-bold text-sm">
                         {selectedTalhao.ndviMedio.toFixed(2)} (Alta biomassa)
                       </span>
                     </div>
 
                     <button
                       onClick={() => setActiveTab('MOBILE')}
-                      className="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow"
+                      className="px-4 py-2.5 bg-[#285943] hover:bg-[#1D4B38] text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md cursor-pointer transition"
                     >
-                      <Smartphone className="w-3.5 h-3.5" /> Lançar Operação
+                      <Smartphone className="w-4 h-4" /> Lançar Operação
                     </button>
                   </div>
                 </div>

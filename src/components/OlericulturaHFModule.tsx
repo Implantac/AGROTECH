@@ -127,7 +127,7 @@ export const OlericulturaHFModule: React.FC = () => {
   }, [lotes, precoCaixaCat1Reais, precoCaixaCat2Reais, precoCaixaRefugoReais, custoOperacionalPorHa]);
 
   return (
-    <div className="space-y-6 animate-fade-in text-slate-100">
+    <div className="space-y-6 animate-fade-in text-[#1D4B38]">
       {/* Cabeçalho */}
       <div className="bg-gradient-to-r from-red-950/40 via-slate-900 to-slate-900 border border-red-800/40 rounded-2xl p-6 shadow-xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -144,7 +144,7 @@ export const OlericulturaHFModule: React.FC = () => {
                     Tomate • Batata • Cebola • Gotejamento Subterrâneo
                   </span>
                 </h2>
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-[#66736A]">
                   Fertirrigação diária por pulso, alerta precoce de Requeima (horas de molhamento) e classificação de calibre comercial.
                 </p>
               </div>
@@ -163,14 +163,14 @@ export const OlericulturaHFModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: Produção Total */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Produção Total HF</span>
             <Boxes className="w-4 h-4 text-red-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-red-400">
             {hfMetrics.producaoTotalTon.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
-            <span className="text-xs font-normal text-slate-400">ton</span>
+            <span className="text-xs font-normal text-[#66736A]">ton</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             {Math.round(hfMetrics.caixasTotaisGeral).toLocaleString('pt-BR')} caixas de 20 kg colhidas.
@@ -178,8 +178,8 @@ export const OlericulturaHFModule: React.FC = () => {
         </div>
 
         {/* KPI 2: Faturamento Total */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Faturamento Bruto HF</span>
             <Coins className="w-4 h-4 text-amber-400" />
           </div>
@@ -192,8 +192,8 @@ export const OlericulturaHFModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Margem Líquida */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Margem Líquida</span>
             <TrendingUp className="w-4 h-4 text-emerald-400" />
           </div>
@@ -206,14 +206,14 @@ export const OlericulturaHFModule: React.FC = () => {
         </div>
 
         {/* KPI 4: Qualidade Comercial */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Caixas Cat 1 (Especial)</span>
             <Award className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
             {Math.round(hfMetrics.totalCaixasCat1).toLocaleString('pt-BR')}{' '}
-            <span className="text-xs font-normal text-slate-400">cx</span>
+            <span className="text-xs font-normal text-[#66736A]">cx</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Preço de ponta: R$ {precoCaixaCat1Reais.toFixed(2)} por caixa.
@@ -224,18 +224,18 @@ export const OlericulturaHFModule: React.FC = () => {
       {/* Grid de Lotes e Painel de Mercado */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Lotes de Olericultura */}
-        <div className="lg:col-span-2 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <Layers className="w-5 h-5 text-red-400" />
                 Talhões de Hortifrúti & Sanidade Fitossanitária
               </h3>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-[#66736A]">
                 Monitoramento de horas de molhamento foliar para prevenção de Requeima e Pinta Preta.
               </p>
             </div>
-            <span className="text-xs font-mono text-slate-400">
+            <span className="text-xs font-mono text-[#66736A]">
               {lotes.length} Talhões em Manejo
             </span>
           </div>
@@ -252,7 +252,7 @@ export const OlericulturaHFModule: React.FC = () => {
               return (
                 <div
                   key={l.id}
-                  className="p-4 bg-slate-950 border border-slate-800 rounded-xl hover:border-slate-700 transition-all space-y-2"
+                  className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl hover:border-slate-700 transition-all space-y-2"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
@@ -260,7 +260,7 @@ export const OlericulturaHFModule: React.FC = () => {
                         {l.id}
                       </span>
                       <h4 className="text-xs font-bold text-white">{l.cultura}</h4>
-                      <span className="text-[11px] text-slate-400 font-mono">({l.variedade})</span>
+                      <span className="text-[11px] text-[#66736A] font-mono">({l.variedade})</span>
                     </div>
 
                     <span
@@ -276,7 +276,7 @@ export const OlericulturaHFModule: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-400">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-[#66736A]">
                     <span>Área: <strong className="text-white">{l.areaHa} ha</strong></span>
                     <span>Produtividade: <strong className="text-red-400">{l.produtividadeTonHa} ton/ha</strong> ({loteTon.toFixed(0)} t)</span>
                     <span>Cat 1: <strong className="text-emerald-400">{l.pctCat1}%</strong></span>
@@ -289,12 +289,12 @@ export const OlericulturaHFModule: React.FC = () => {
           </div>
 
           {/* Diretrizes Técnicas de HF de Precisão */}
-          <div className="p-4 bg-slate-950/60 border border-slate-800 rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-red-400 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes Agronômicas de Olericultura de Alta Performance:
             </div>
-            <ul className="list-disc list-inside text-slate-400 space-y-1">
+            <ul className="list-disc list-inside text-[#66736A] space-y-1">
               <li>
                 <strong>Fertirrigação Balanceada:</strong> Fornecimento fracionado diário de Nitrato de Cálcio e Sulfato de Potássio para manter sólidos solúveis (°Brix), parede celular espessa e ausência de podridão apical.
               </li>
@@ -309,7 +309,7 @@ export const OlericulturaHFModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Parâmetros Comerciais */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Coins className="w-5 h-5 text-amber-400" />
             Cotações de Mercado & Custos HF
@@ -317,64 +317,64 @@ export const OlericulturaHFModule: React.FC = () => {
 
           <div className="space-y-4 text-xs">
             <div>
-              <label className="text-slate-400 font-medium block mb-1">Preço Caixa 20kg - Categoria Especial (R$)</label>
+              <label className="text-[#66736A] font-medium block mb-1">Preço Caixa 20kg - Categoria Especial (R$)</label>
               <input
                 type="number"
                 step="1.00"
                 value={precoCaixaCat1Reais}
                 onChange={(e) => setPrecoCaixaCat1Reais(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-slate-400 font-medium block mb-1">Preço Caixa 20kg - Categoria 2 (R$)</label>
+              <label className="text-[#66736A] font-medium block mb-1">Preço Caixa 20kg - Categoria 2 (R$)</label>
               <input
                 type="number"
                 step="1.00"
                 value={precoCaixaCat2Reais}
                 onChange={(e) => setPrecoCaixaCat2Reais(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-slate-400 font-medium block mb-1">Preço Caixa 20kg - Refugo Industrial (R$)</label>
+              <label className="text-[#66736A] font-medium block mb-1">Preço Caixa 20kg - Refugo Industrial (R$)</label>
               <input
                 type="number"
                 step="1.00"
                 value={precoCaixaRefugoReais}
                 onChange={(e) => setPrecoCaixaRefugoReais(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-slate-400 font-medium block mb-1">Custo Total de Produção & Embalagem (R$/ha)</label>
+              <label className="text-[#66736A] font-medium block mb-1">Custo Total de Produção & Embalagem (R$/ha)</label>
               <input
                 type="number"
                 step="1000"
                 value={custoOperacionalPorHa}
                 onChange={(e) => setCustoOperacionalPorHa(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             {/* Resumo Consolidado */}
-            <div className="pt-3 border-t border-slate-800 space-y-2">
+            <div className="pt-3 border-t border-[#EAF4E7] space-y-2">
               <div className="flex justify-between">
-                <span className="text-slate-400">Faturamento da Safra:</span>
+                <span className="text-[#66736A]">Faturamento da Safra:</span>
                 <span className="text-amber-400 font-mono font-bold">
                   R$ {hfMetrics.faturamentoBrutoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Custo Total da Área:</span>
+                <span className="text-[#66736A]">Custo Total da Área:</span>
                 <span className="text-rose-400 font-mono font-bold">
                   -R$ {hfMetrics.custoTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
-              <div className="flex justify-between border-t border-slate-800 pt-2 font-bold">
+              <div className="flex justify-between border-t border-[#EAF4E7] pt-2 font-bold">
                 <span className="text-white">Lucro Líquido HF:</span>
                 <span className="text-emerald-400 font-mono">
                   R$ {hfMetrics.margemLiquidaReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}

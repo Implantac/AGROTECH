@@ -113,7 +113,7 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
   ]);
 
   return (
-    <div className="space-y-6 animate-fade-in text-slate-100">
+    <div className="space-y-6 animate-fade-in text-[#1D4B38]">
       {/* Cabeçalho */}
       <div className="bg-gradient-to-r from-teal-950/40 via-slate-900 to-slate-900 border border-teal-800/40 rounded-2xl p-6 shadow-xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -130,7 +130,7 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
                     FAMACHA© • Escore ECC • Creep Feeding • Selo ARTE
                   </span>
                 </h2>
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-[#66736A]">
                   Manejo sanitário seletivo contra Haemonchus contortus, terminação de cordeiros pesados e bacia leiteira caprina.
                 </p>
               </div>
@@ -149,8 +149,8 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: Economia FAMACHA */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Economia Sanitária FAMACHA©</span>
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
           </div>
@@ -163,8 +163,8 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
         </div>
 
         {/* KPI 2: Faturamento Carne */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Safra de Cordeiros (Corte)</span>
             <Scale className="w-4 h-4 text-amber-400" />
           </div>
@@ -177,8 +177,8 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Bacia Leiteira Caprina */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Leite & Queijos Caprinos</span>
             <Milk className="w-4 h-4 text-cyan-400" />
           </div>
@@ -191,8 +191,8 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
         </div>
 
         {/* KPI 4: Faturamento Total */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Faturamento Bruto Geral</span>
             <Coins className="w-4 h-4 text-white" />
           </div>
@@ -209,18 +209,18 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
       {/* Grid de Lotes e Painel de Simulação */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Lotes do Rebanho */}
-        <div className="lg:col-span-2 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <Layers className="w-5 h-5 text-teal-400" />
                 Lotes de Produção & Monitoramento Sanitário
               </h3>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-[#66736A]">
                 Avaliação periódica de Escore Corporal (ECC) e coloração da mucosa ocular FAMACHA©.
               </p>
             </div>
-            <span className="text-xs font-mono text-slate-400">
+            <span className="text-xs font-mono text-[#66736A]">
               {lotes.length} Lotes Ativos
             </span>
           </div>
@@ -232,7 +232,7 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
               return (
                 <div
                   key={l.id}
-                  className="p-4 bg-slate-950 border border-slate-800 rounded-xl hover:border-slate-700 transition-all space-y-2"
+                  className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl hover:border-slate-700 transition-all space-y-2"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
@@ -246,7 +246,7 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-400">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-[#66736A]">
                     <span>Rebanho: <strong className="text-white">{l.quantidadeCabecas} cab</strong></span>
                     <span>ECC Médio: <strong className="text-cyan-400">{l.escoreCorporalMedio.toFixed(1)}/5.0</strong></span>
                     <span>FAMACHA 4-5: <strong className="text-rose-400">{l.grauFamachaCriticoPct}% ({animaisTratar} cab)</strong></span>
@@ -258,12 +258,12 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
           </div>
 
           {/* Banner Técnico de Boas Práticas Ovinos/Caprinos */}
-          <div className="p-4 bg-slate-950/60 border border-slate-800 rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-teal-400 font-semibold">
               <Sparkles className="w-4 h-4" />
               Princípios do Protocolo FAMACHA© & Manejo Rotacionado (Embrapa Caprinos e Ovinos):
             </div>
-            <ul className="list-disc list-inside text-slate-400 space-y-1">
+            <ul className="list-disc list-inside text-[#66736A] space-y-1">
               <li>
                 <strong>Controle de Haemonchose:</strong> O verme estomacal Haemonchus contortus é hematófago. A avaliação da cor da mucosa conjuntival identifica anêmicos (Graus 4 e 5) antes do surgimento do edema submandibular (papo).
               </li>
@@ -278,7 +278,7 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Parâmetros Comerciais */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Coins className="w-5 h-5 text-amber-400" />
             Parâmetros Comerciais & Custos
@@ -286,59 +286,59 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
 
           <div className="space-y-4 text-xs">
             <div>
-              <label className="text-slate-400 font-medium block mb-1">Preço do kg Vivo do Cordeiro (R$)</label>
+              <label className="text-[#66736A] font-medium block mb-1">Preço do kg Vivo do Cordeiro (R$)</label>
               <input
                 type="number"
                 step="0.50"
                 value={precoKgVivoCordeiroReais}
                 onChange={(e) => setPrecoKgVivoCordeiroReais(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-slate-400 font-medium block mb-1">Preço do Litro de Leite Caprino (R$)</label>
+              <label className="text-[#66736A] font-medium block mb-1">Preço do Litro de Leite Caprino (R$)</label>
               <input
                 type="number"
                 step="0.10"
                 value={precoLitroLeiteCaprinoReais}
                 onChange={(e) => setPrecoLitroLeiteCaprinoReais(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-slate-400 font-medium block mb-1">Custo da Dose de Vermífugo (R$)</label>
+              <label className="text-[#66736A] font-medium block mb-1">Custo da Dose de Vermífugo (R$)</label>
               <input
                 type="number"
                 step="0.20"
                 value={custoDoseVermifugoReais}
                 onChange={(e) => setCustoDoseVermifugoReais(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             {/* Resumo Consolidado */}
-            <div className="pt-3 border-t border-slate-800 space-y-2">
+            <div className="pt-3 border-t border-[#EAF4E7] space-y-2">
               <div className="flex justify-between">
-                <span className="text-slate-400">Venda de Cordeiros:</span>
+                <span className="text-[#66736A]">Venda de Cordeiros:</span>
                 <span className="text-amber-400 font-mono font-bold">
                   R$ {ovinoMetrics.faturamentoCordeirosReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Venda de Leite Caprino:</span>
+                <span className="text-[#66736A]">Venda de Leite Caprino:</span>
                 <span className="text-cyan-400 font-mono font-bold">
                   R$ {ovinoMetrics.faturamentoLeiteReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Custo Tratamento Seletivo:</span>
+                <span className="text-[#66736A]">Custo Tratamento Seletivo:</span>
                 <span className="text-rose-400 font-mono font-bold">
                   -R$ {ovinoMetrics.custoTratamentoSeletivoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
-              <div className="flex justify-between border-t border-slate-800 pt-2 font-bold">
+              <div className="flex justify-between border-t border-[#EAF4E7] pt-2 font-bold">
                 <span className="text-white">Faturamento Líquido:</span>
                 <span className="text-emerald-400 font-mono">
                   R$ {(ovinoMetrics.receitaTotalReais - ovinoMetrics.custoTratamentoSeletivoReais).toLocaleString('pt-BR', { maximumFractionDigits: 0 })} / ano

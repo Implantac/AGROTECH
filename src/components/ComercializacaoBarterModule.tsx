@@ -221,18 +221,18 @@ export const ComercializacaoBarterModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Banner de Comercialização e Barter */}
-      <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-white border border-[#EAF4E7] p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="px-2.5 py-0.5 bg-emerald-950 text-emerald-400 border border-emerald-800 rounded text-xs font-bold flex items-center gap-1.5">
               <Handshake className="w-3.5 h-3.5" /> Barter de Insumos & Cédula de Produto Rural (CPR Digital)
             </span>
-            <span className="text-xs text-slate-400">Safra 2025/2026 • Registro B3 & Penhor Agrícola (Lei 13.986)</span>
+            <span className="text-xs text-[#66736A]">Safra 2025/2026 • Registro B3 & Penhor Agrícola (Lei 13.986)</span>
           </div>
-          <h2 className="text-xl font-bold text-white flex items-center gap-2">
+          <h2 className="text-xl font-bold text-[#1D4B38] flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-emerald-400" /> Cockpit de Comercialização, Barter e CPR-Física
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#66736A] mt-1">
             Trava de pacotes de fertilizantes e sementes contra entrega física futura com conciliação automática de romaneios de balança.
           </p>
         </div>
@@ -240,7 +240,7 @@ export const ComercializacaoBarterModule: React.FC = () => {
         <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={() => setModalNovoOpen(true)}
-            className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg shadow-emerald-950/40 transition-all cursor-pointer"
+            className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-[#1D4B38] rounded-xl text-xs font-bold flex items-center gap-2 shadow-lg shadow-emerald-950/40 transition-all cursor-pointer"
           >
             <Plus className="w-4 h-4" /> Novo Contrato de Barter / CPR
           </button>
@@ -249,65 +249,65 @@ export const ComercializacaoBarterModule: React.FC = () => {
 
       {/* 4 Cards de Posição de Comercialização */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900 border border-slate-800 p-4 rounded-xl shadow">
-          <div className="flex justify-between items-center text-xs text-slate-400 mb-1">
+        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow">
+          <div className="flex justify-between items-center text-xs text-[#66736A] mb-1">
             <span>Produção Estimada Safra</span>
             <Scale className="w-4 h-4 text-emerald-400" />
           </div>
-          <p className="text-2xl font-black text-white">
-            {producaoEstimadaTotal.toLocaleString('pt-BR')} <span className="text-xs font-normal text-slate-400">sc</span>
+          <p className="text-2xl font-black text-[#1D4B38]">
+            {producaoEstimadaTotal.toLocaleString('pt-BR')} <span className="text-xs font-normal text-[#66736A]">sc</span>
           </p>
           <span className="text-[11px] text-slate-500 mt-1 block">Meta: 68 sc/ha em {totalAreaHa.toLocaleString('pt-BR')} ha</span>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-4 rounded-xl shadow">
-          <div className="flex justify-between items-center text-xs text-slate-400 mb-1">
+        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow">
+          <div className="flex justify-between items-center text-xs text-[#66736A] mb-1">
             <span>Volume Travado (Hedge / Barter)</span>
             <span className="text-xs font-bold text-amber-400">{percentualTravado}%</span>
           </div>
           <p className="text-2xl font-black text-amber-400">
-            {sacasContratadas.toLocaleString('pt-BR')} <span className="text-xs font-normal text-slate-400">sc</span>
+            {sacasContratadas.toLocaleString('pt-BR')} <span className="text-xs font-normal text-[#66736A]">sc</span>
           </p>
           <span className="text-[11px] text-slate-500 mt-1 block">Valor Travado: R$ {valorTotalContratos.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-4 rounded-xl shadow">
-          <div className="flex justify-between items-center text-xs text-slate-400 mb-1">
+        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow">
+          <div className="flex justify-between items-center text-xs text-[#66736A] mb-1">
             <span>Sacas Entregues (Armazém)</span>
             <Truck className="w-4 h-4 text-blue-400" />
           </div>
           <p className="text-2xl font-black text-blue-400">
-            {sacasEntreguesTotal.toLocaleString('pt-BR')} <span className="text-xs font-normal text-slate-400">sc</span>
+            {sacasEntreguesTotal.toLocaleString('pt-BR')} <span className="text-xs font-normal text-[#66736A]">sc</span>
           </p>
           <span className="text-[11px] text-emerald-400 mt-1 block font-semibold">
             {sacasContratadas > 0 ? ((sacasEntreguesTotal / sacasContratadas) * 100).toFixed(1) : 0}% amortizado em armazém
           </span>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 p-4 rounded-xl shadow">
-          <div className="flex justify-between items-center text-xs text-slate-400 mb-1">
+        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow">
+          <div className="flex justify-between items-center text-xs text-[#66736A] mb-1">
             <span>Disponível Mercado Spot</span>
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
           </div>
           <p className="text-2xl font-black text-emerald-400">
-            {sacasDisponiveisSpot.toLocaleString('pt-BR')} <span className="text-xs font-normal text-slate-400">sc</span>
+            {sacasDisponiveisSpot.toLocaleString('pt-BR')} <span className="text-xs font-normal text-[#66736A]">sc</span>
           </p>
           <span className="text-[11px] text-slate-500 mt-1 block">Sacas livres para captura de altas</span>
         </div>
       </div>
 
       {/* Painel de Indicador de Risco e Paridade Barter */}
-      <div className="bg-slate-950 border border-slate-800 p-4 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="bg-[#F7F9F5] border border-[#EAF4E7] p-4 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-emerald-950 text-emerald-400 border border-emerald-800 flex items-center justify-center shrink-0">
             <ShieldCheck className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="text-xs font-bold text-white flex items-center gap-2">
+            <h4 className="text-xs font-bold text-[#1D4B38] flex items-center gap-2">
               Proteção de Margem Agro (Hedge Ratio Saudável)
               <span className="px-2 py-0.5 rounded text-[10px] bg-emerald-900/60 text-emerald-300 font-mono">CONFORME</span>
             </h4>
-            <p className="text-[11px] text-slate-400">
+            <p className="text-[11px] text-[#66736A]">
               Taxa de travamento recomendada para custeio: entre 40% e 65%. Posição atual em <strong>{percentualTravado}%</strong> da safra prevista.
             </p>
           </div>
@@ -315,11 +315,11 @@ export const ComercializacaoBarterModule: React.FC = () => {
         <div className="flex items-center gap-4 text-xs font-mono shrink-0">
           <div className="text-right">
             <span className="text-slate-500 block text-[10px]">PREÇO MÉDIO TRAVADO</span>
-            <span className="text-white font-bold">
+            <span className="text-[#1D4B38] font-bold">
               R$ {sacasContratadas > 0 ? (valorTotalContratos / sacasContratadas).toFixed(2) : '0.00'} / sc
             </span>
           </div>
-          <div className="h-8 w-px bg-slate-800"></div>
+          <div className="h-8 w-px bg-[#F7F9F5]"></div>
           <div className="text-right">
             <span className="text-slate-500 block text-[10px]">SALDO PENDENTE ENTREGA</span>
             <span className="text-amber-400 font-bold">
@@ -330,23 +330,23 @@ export const ComercializacaoBarterModule: React.FC = () => {
       </div>
 
       {/* Tabela de Contratos Futuros e Barter */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl shadow-xl overflow-hidden">
-        <div className="p-4 border-b border-slate-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+      <div className="bg-white border border-[#EAF4E7] rounded-2xl shadow-xl overflow-hidden">
+        <div className="p-4 border-b border-[#EAF4E7] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
           <div>
-            <h3 className="text-sm font-bold text-white flex items-center gap-2">
+            <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
               <FileCheck className="w-4 h-4 text-emerald-400" />
               Contratos de Comercialização e Operações de Barter Registradas
             </h3>
-            <p className="text-xs text-slate-400">Cédulas de Produto Rural (CPR-Física) custodiadas na B3 / Cerc</p>
+            <p className="text-xs text-[#66736A]">Cédulas de Produto Rural (CPR-Física) custodiadas na B3 / Cerc</p>
           </div>
-          <span className="text-xs font-mono font-bold text-emerald-400 bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800">
+          <span className="text-xs font-mono font-bold text-emerald-400 bg-[#F7F9F5] px-3 py-1.5 rounded-xl border border-[#EAF4E7]">
             Total Contratado: R$ {valorTotalContratos.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
           </span>
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-xs text-left text-slate-300">
-            <thead className="bg-slate-950 text-slate-400 uppercase text-[10px] tracking-wider">
+          <table className="w-full text-xs text-left text-[#26332A]">
+            <thead className="bg-[#F7F9F5] text-[#66736A] uppercase text-[10px] tracking-wider">
               <tr>
                 <th className="px-4 py-3">Contrato / CPR B3</th>
                 <th className="px-4 py-3">Trading & Armazém</th>
@@ -359,21 +359,21 @@ export const ComercializacaoBarterModule: React.FC = () => {
                 <th className="px-4 py-3 text-right">Ações</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800 font-sans">
+            <tbody className="divide-y divide-[#EAF4E7] font-sans">
               {contratos.map((ct) => {
                 const progressoPct = Math.min(100, (ct.sacasEntregues / ct.quantidadeSacas60kg) * 100);
 
                 return (
-                  <tr key={ct.id} className="hover:bg-slate-800/50 transition-colors">
+                  <tr key={ct.id} className="hover:bg-[#F7F9F5] transition-colors">
                     <td className="px-4 py-3">
-                      <span className="font-mono font-bold text-white block">{ct.numeroContrato}</span>
+                      <span className="font-mono font-bold text-[#1D4B38] block">{ct.numeroContrato}</span>
                       <span className="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
                         <Landmark className="w-3 h-3 text-slate-500" /> {ct.cprVinculadaNumero}
                       </span>
                     </td>
                     <td className="px-4 py-3">
-                      <span className="font-semibold text-slate-200 block">{ct.compradorTrader}</span>
-                      <span className="text-[10px] text-slate-400 flex items-center gap-1">
+                      <span className="font-semibold text-[#26332A] block">{ct.compradorTrader}</span>
+                      <span className="text-[10px] text-[#66736A] flex items-center gap-1">
                         <Truck className="w-3 h-3 text-slate-500" /> {ct.localEntregaArmazem}
                       </span>
                     </td>
@@ -389,26 +389,26 @@ export const ComercializacaoBarterModule: React.FC = () => {
                           {ct.tipoOperacao === 'BARTER_INSUMOS' ? 'Barter Insumos' : 'Venda Futura Fixa'}
                         </span>
                       </div>
-                      <span className="text-[10px] text-slate-400 line-clamp-1" title={ct.pacoteInsumos}>
+                      <span className="text-[10px] text-[#66736A] line-clamp-1" title={ct.pacoteInsumos}>
                         {ct.pacoteInsumos || ct.cultura}
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-right font-mono font-bold text-slate-200">
+                    <td className="px-4 py-3 text-right font-mono font-bold text-[#26332A]">
                       {ct.quantidadeSacas60kg.toLocaleString('pt-BR')} sc
                     </td>
                     <td className="px-4 py-3 text-right font-mono font-bold text-emerald-400">
                       R$ {ct.precoUnitarioSaca.toFixed(2)} / sc
                     </td>
-                    <td className="px-4 py-3 text-right font-mono text-slate-300 font-semibold">
+                    <td className="px-4 py-3 text-right font-mono text-[#26332A] font-semibold">
                       R$ {ct.valorTotalContrato.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                     </td>
                     <td className="px-4 py-3">
                       <div className="w-36 space-y-1">
-                        <div className="flex justify-between text-[10px] text-slate-400">
-                          <span className="font-bold text-white">{ct.sacasEntregues.toLocaleString('pt-BR')} sc</span>
+                        <div className="flex justify-between text-[10px] text-[#66736A]">
+                          <span className="font-bold text-[#1D4B38]">{ct.sacasEntregues.toLocaleString('pt-BR')} sc</span>
                           <span className="font-mono text-emerald-400">{progressoPct.toFixed(0)}%</span>
                         </div>
-                        <div className="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+                        <div className="w-full h-1.5 rounded-full bg-[#F7F9F5] overflow-hidden">
                           <div
                             className={`h-full rounded-full transition-all ${
                               progressoPct >= 100 ? 'bg-emerald-500' : 'bg-blue-500'
@@ -440,7 +440,7 @@ export const ComercializacaoBarterModule: React.FC = () => {
                         <button
                           onClick={() => setModalCprImpressao(ct)}
                           title="Visualizar CPR Oficial e Termo de Barter"
-                          className="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-[11px] font-semibold flex items-center gap-1 transition-all border border-slate-700 cursor-pointer"
+                          className="px-2.5 py-1 bg-[#F7F9F5] hover:bg-slate-700 text-[#26332A] rounded-lg text-[11px] font-semibold flex items-center gap-1 transition-all border border-[#8FBF88] cursor-pointer"
                         >
                           <FileText className="w-3.5 h-3.5 text-emerald-400" /> CPR
                         </button>
@@ -454,8 +454,8 @@ export const ComercializacaoBarterModule: React.FC = () => {
                           title="Amortizar entrega de sacas via Romaneio"
                           className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold flex items-center gap-1 transition-all cursor-pointer ${
                             ct.statusEntrega === 'LIQUIDADO'
-                              ? 'bg-slate-800/40 text-slate-600 border border-slate-800 cursor-not-allowed'
-                              : 'bg-blue-600 hover:bg-blue-500 text-white shadow-sm'
+                              ? 'bg-[#F7F9F5]/40 text-slate-600 border border-[#EAF4E7] cursor-not-allowed'
+                              : 'bg-blue-600 hover:bg-blue-500 text-[#1D4B38] shadow-sm'
                           }`}
                         >
                           <Truck className="w-3.5 h-3.5" /> Baixar
@@ -473,20 +473,20 @@ export const ComercializacaoBarterModule: React.FC = () => {
       {/* Modal de Cadastro de Novo Contrato de Barter & Emissão de CPR */}
       {modalNovoOpen && (
         <div className="fixed inset-0 z-[1000] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-slate-900 border border-slate-700 p-6 rounded-2xl max-w-2xl w-full shadow-2xl text-slate-200 space-y-4 my-8">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div className="bg-slate-900 border border-[#8FBF88] p-6 rounded-2xl max-w-2xl w-full shadow-2xl text-[#26332A] space-y-4 my-8">
+            <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-3">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-emerald-950 text-emerald-400 border border-emerald-800 flex items-center justify-center">
                   <Handshake className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white">Cadastrar Contrato de Barter & CPR Digital</h3>
-                  <p className="text-xs text-slate-400">Formalização de Cédula de Produto Rural com Registro B3 / Cerc</p>
+                  <h3 className="text-base font-bold text-[#1D4B38]">Cadastrar Contrato de Barter & CPR Digital</h3>
+                  <p className="text-xs text-[#66736A]">Formalização de Cédula de Produto Rural com Registro B3 / Cerc</p>
                 </div>
               </div>
               <button
                 onClick={() => setModalNovoOpen(false)}
-                className="text-slate-400 hover:text-white p-1 rounded-lg"
+                className="text-[#66736A] hover:text-[#1D4B38] p-1 rounded-lg"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -496,11 +496,11 @@ export const ComercializacaoBarterModule: React.FC = () => {
               {/* Seletor de Tipo e Trading */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-300 block mb-1 font-semibold">Trading / Credor Financiador</label>
+                  <label className="text-[#26332A] block mb-1 font-semibold">Trading / Credor Financiador</label>
                   <select
                     value={compradorTrader}
                     onChange={(e) => setCompradorTrader(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-white font-medium"
+                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2.5 text-[#1D4B38] font-medium"
                   >
                     <option value="Cargill Agrícola S.A.">Cargill Agrícola S.A. (Sorriso/MT)</option>
                     <option value="Bunge Alimentos S.A.">Bunge Alimentos S.A.</option>
@@ -513,11 +513,11 @@ export const ComercializacaoBarterModule: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="text-slate-300 block mb-1 font-semibold">Tipo de Operação</label>
+                  <label className="text-[#26332A] block mb-1 font-semibold">Tipo de Operação</label>
                   <select
                     value={tipoOperacao}
                     onChange={(e) => setTipoOperacao(e.target.value as any)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-white font-medium"
+                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2.5 text-[#1D4B38] font-medium"
                   >
                     <option value="BARTER_INSUMOS">Barter Insumos (Adubos, Químicos e Sementes)</option>
                     <option value="VENDA_FUTURA_FIXA">Venda Futura com Preço Fixo Travado</option>
@@ -528,11 +528,11 @@ export const ComercializacaoBarterModule: React.FC = () => {
               {/* Pacote de Insumos & Cultura */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-300 block mb-1 font-semibold">Cultura / Commodity de Pagamento</label>
+                  <label className="text-[#26332A] block mb-1 font-semibold">Cultura / Commodity de Pagamento</label>
                   <select
                     value={cultura}
                     onChange={(e) => setCultura(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-white font-medium"
+                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2.5 text-[#1D4B38] font-medium"
                   >
                     <option value="Soja em Grãos Padrão Exportação (CONAB Tipo 1)">Soja em Grãos Padrão Exportação (CONAB Tipo 1)</option>
                     <option value="Milho Grão Safrinha Padrão B3">Milho Grão Safrinha Padrão B3</option>
@@ -542,70 +542,70 @@ export const ComercializacaoBarterModule: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="text-slate-300 block mb-1 font-semibold">Descrição do Pacote Tecnológico</label>
+                  <label className="text-[#26332A] block mb-1 font-semibold">Descrição do Pacote Tecnológico</label>
                   <input
                     type="text"
                     value={pacoteInsumos}
                     onChange={(e) => setPacoteInsumos(e.target.value)}
                     placeholder="Ex: NPK Yara + Sementes Intacta + Fungicidas"
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-white"
+                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2.5 text-[#1D4B38]"
                     required
                   />
                 </div>
               </div>
 
               {/* Valores Financeiros e Razão de Troca */}
-              <div className="p-3.5 bg-slate-950 border border-slate-800 rounded-xl space-y-3">
+              <div className="p-3.5 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-emerald-400 flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5" /> Razão de Troca (Barter Exchange Ratio)
                   </span>
-                  <span className="text-[11px] text-slate-400">Cálculo Instantâneo</span>
+                  <span className="text-[11px] text-[#66736A]">Cálculo Instantâneo</span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <div>
-                    <label className="text-slate-400 block mb-1">Custo Insumos (R$)</label>
+                    <label className="text-[#66736A] block mb-1">Custo Insumos (R$)</label>
                     <input
                       type="number"
                       step="1000"
                       value={valorPacoteInsumos}
                       onChange={(e) => setValorPacoteInsumos(Number(e.target.value))}
-                      className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white font-bold font-mono"
+                      className="w-full bg-slate-900 border border-[#8FBF88] rounded-lg p-2 text-[#1D4B38] font-bold font-mono"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="text-slate-400 block mb-1">Preço Travado (R$/sc)</label>
+                    <label className="text-[#66736A] block mb-1">Preço Travado (R$/sc)</label>
                     <input
                       type="number"
                       step="0.5"
                       value={precoTravadoSaca}
                       onChange={(e) => setPrecoTravadoSaca(Number(e.target.value))}
-                      className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-emerald-400 font-bold font-mono"
+                      className="w-full bg-slate-900 border border-[#8FBF88] rounded-lg p-2 text-emerald-400 font-bold font-mono"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="text-slate-400 block mb-1">Sacas a Entregar</label>
+                    <label className="text-[#66736A] block mb-1">Sacas a Entregar</label>
                     <div className="w-full bg-slate-900 border border-emerald-800/80 rounded-lg p-2 text-amber-400 font-black font-mono text-sm">
                       {sacasCalculadas.toLocaleString('pt-BR')} sc
                     </div>
                   </div>
                 </div>
 
-                <div className="text-[11px] text-slate-400 flex justify-between pt-1 border-t border-slate-800/80">
-                  <span>Compromisso por hectare: <strong className="text-white font-mono">{sacasPorHaCalculadas} sc/ha</strong></span>
-                  <span>Impacto na produtividade: <strong className="text-white font-mono">{((sacasPorHaCalculadas / 68) * 100).toFixed(1)}% do teto</strong></span>
+                <div className="text-[11px] text-[#66736A] flex justify-between pt-1 border-t border-[#EAF4E7]/80">
+                  <span>Compromisso por hectare: <strong className="text-[#1D4B38] font-mono">{sacasPorHaCalculadas} sc/ha</strong></span>
+                  <span>Impacto na produtividade: <strong className="text-[#1D4B38] font-mono">{((sacasPorHaCalculadas / 68) * 100).toFixed(1)}% do teto</strong></span>
                 </div>
               </div>
 
               {/* Garantia Real / Penhor da Safra Futura */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-300 block mb-1 font-semibold">Talhão em Penhor Agrícola</label>
+                  <label className="text-[#26332A] block mb-1 font-semibold">Talhão em Penhor Agrícola</label>
                   <select
                     value={talhaoPenhor}
                     onChange={(e) => {
@@ -613,7 +613,7 @@ export const ComercializacaoBarterModule: React.FC = () => {
                       const talhaoEncontrado = TALHOES_INICIAIS.find(t => t.nome === e.target.value);
                       if (talhaoEncontrado) setAreaVinculadaHa(talhaoEncontrado.areaHa);
                     }}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-white"
+                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2.5 text-[#1D4B38]"
                   >
                     {TALHOES_INICIAIS.map((t) => (
                       <option key={t.id} value={t.nome}>
@@ -624,12 +624,12 @@ export const ComercializacaoBarterModule: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="text-slate-300 block mb-1 font-semibold">Matrícula no Cartório (CRI)</label>
+                  <label className="text-[#26332A] block mb-1 font-semibold">Matrícula no Cartório (CRI)</label>
                   <input
                     type="text"
                     value={matriculaCRI}
                     onChange={(e) => setMatriculaCRI(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-white font-mono"
+                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2.5 text-[#1D4B38] font-mono"
                     required
                   />
                 </div>
@@ -638,40 +638,40 @@ export const ComercializacaoBarterModule: React.FC = () => {
               {/* Armazém de Destino e Prazo de Entrega */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-300 block mb-1 font-semibold">Data Limite de Entrega Física</label>
+                  <label className="text-[#26332A] block mb-1 font-semibold">Data Limite de Entrega Física</label>
                   <input
                     type="date"
                     value={dataEntregaLimite}
                     onChange={(e) => setDataEntregaLimite(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-white"
+                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2.5 text-[#1D4B38]"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="text-slate-300 block mb-1 font-semibold">Armazém / Terminal Credenciado</label>
+                  <label className="text-[#26332A] block mb-1 font-semibold">Armazém / Terminal Credenciado</label>
                   <input
                     type="text"
                     value={localEntregaArmazem}
                     onChange={(e) => setLocalEntregaArmazem(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-white"
+                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2.5 text-[#1D4B38]"
                     required
                   />
                 </div>
               </div>
 
-              <div className="flex justify-end gap-2 pt-3 border-t border-slate-800">
+              <div className="flex justify-end gap-2 pt-3 border-t border-[#EAF4E7]">
                 <button
                   type="button"
                   onClick={() => setModalNovoOpen(false)}
-                  className="px-4 py-2 rounded-xl text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold cursor-pointer"
+                  className="px-4 py-2 rounded-xl text-xs bg-[#F7F9F5] hover:bg-slate-700 text-[#26332A] font-semibold cursor-pointer"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="px-5 py-2 rounded-xl text-xs bg-emerald-600 hover:bg-emerald-500 text-white font-bold shadow-lg shadow-emerald-950/40 flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-2 rounded-xl text-xs bg-emerald-600 hover:bg-emerald-500 text-[#1D4B38] font-bold shadow-lg shadow-emerald-950/40 flex items-center gap-2 cursor-pointer"
                 >
                   {loading ? 'Registrando na B3...' : 'Emitir CPR & Formalizar Barter'}
                 </button>
@@ -698,7 +698,7 @@ export const ComercializacaoBarterModule: React.FC = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => window.print()}
-                  className="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs rounded-xl flex items-center gap-2 shadow-sm transition-all cursor-pointer"
+                  className="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-[#1D4B38] font-bold text-xs rounded-xl flex items-center gap-2 shadow-sm transition-all cursor-pointer"
                 >
                   <Printer className="w-4 h-4" /> Imprimir CPR (A4)
                 </button>
@@ -832,32 +832,32 @@ export const ComercializacaoBarterModule: React.FC = () => {
       {/* Modal de Amortização de Carga / Baixa de Romaneio */}
       {modalAmortizar && (
         <div className="fixed inset-0 z-[1050] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-700 p-6 rounded-2xl max-w-md w-full shadow-2xl text-slate-200 space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div className="bg-slate-900 border border-[#8FBF88] p-6 rounded-2xl max-w-md w-full shadow-2xl text-[#26332A] space-y-4">
+            <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-3">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-blue-950 text-blue-400 border border-blue-800 flex items-center justify-center">
                   <Truck className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white">Amortizar Entrega Física</h3>
-                  <p className="text-xs text-slate-400">Contrato: {modalAmortizar.numeroContrato}</p>
+                  <h3 className="text-base font-bold text-[#1D4B38]">Amortizar Entrega Física</h3>
+                  <p className="text-xs text-[#66736A]">Contrato: {modalAmortizar.numeroContrato}</p>
                 </div>
               </div>
               <button
                 onClick={() => setModalAmortizar(null)}
-                className="text-slate-400 hover:text-white"
+                className="text-[#66736A] hover:text-[#1D4B38]"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <form onSubmit={handleAmortizarCarga} className="space-y-3 text-xs">
-              <div className="p-3 bg-slate-950 border border-slate-800 rounded-xl space-y-1">
-                <div className="flex justify-between text-slate-400">
+              <div className="p-3 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-1">
+                <div className="flex justify-between text-[#66736A]">
                   <span>Trading:</span>
-                  <span className="font-semibold text-white">{modalAmortizar.compradorTrader}</span>
+                  <span className="font-semibold text-[#1D4B38]">{modalAmortizar.compradorTrader}</span>
                 </div>
-                <div className="flex justify-between text-slate-400">
+                <div className="flex justify-between text-[#66736A]">
                   <span>Saldo Pendente:</span>
                   <span className="font-bold font-mono text-amber-400">
                     {(modalAmortizar.quantidadeSacas60kg - modalAmortizar.sacasEntregues).toLocaleString('pt-BR')} sc
@@ -866,35 +866,35 @@ export const ComercializacaoBarterModule: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-slate-300 block mb-1 font-semibold">Número do Romaneio da Balança</label>
+                <label className="text-[#26332A] block mb-1 font-semibold">Número do Romaneio da Balança</label>
                 <input
                   type="text"
                   value={amortizarRomaneio}
                   onChange={(e) => setAmortizarRomaneio(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-white font-mono"
+                  className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2.5 text-[#1D4B38] font-mono"
                   required
                 />
               </div>
 
               <div>
-                <label className="text-slate-300 block mb-1 font-semibold">Placa do Caminhão / Bitrem</label>
+                <label className="text-[#26332A] block mb-1 font-semibold">Placa do Caminhão / Bitrem</label>
                 <input
                   type="text"
                   value={amortizarPlaca}
                   onChange={(e) => setAmortizarPlaca(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-white font-mono"
+                  className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2.5 text-[#1D4B38] font-mono"
                   required
                 />
               </div>
 
               <div>
-                <label className="text-slate-300 block mb-1 font-semibold">Volume Amortizado (Sacas 60kg Líquidas)</label>
+                <label className="text-[#26332A] block mb-1 font-semibold">Volume Amortizado (Sacas 60kg Líquidas)</label>
                 <input
                   type="number"
                   value={amortizarSacas}
                   onChange={(e) => setAmortizarSacas(Number(e.target.value))}
                   max={modalAmortizar.quantidadeSacas60kg - modalAmortizar.sacasEntregues}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-emerald-400 font-bold font-mono text-sm"
+                  className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg p-2.5 text-emerald-400 font-bold font-mono text-sm"
                   required
                 />
                 <span className="text-[10px] text-slate-500 mt-1 block">
@@ -902,18 +902,18 @@ export const ComercializacaoBarterModule: React.FC = () => {
                 </span>
               </div>
 
-              <div className="flex justify-end gap-2 pt-3 border-t border-slate-800">
+              <div className="flex justify-end gap-2 pt-3 border-t border-[#EAF4E7]">
                 <button
                   type="button"
                   onClick={() => setModalAmortizar(null)}
-                  className="px-4 py-2 rounded-xl text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold cursor-pointer"
+                  className="px-4 py-2 rounded-xl text-xs bg-[#F7F9F5] hover:bg-slate-700 text-[#26332A] font-semibold cursor-pointer"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="px-5 py-2 rounded-xl text-xs bg-blue-600 hover:bg-blue-500 text-white font-bold shadow-lg flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-2 rounded-xl text-xs bg-blue-600 hover:bg-blue-500 text-[#1D4B38] font-bold shadow-lg flex items-center gap-2 cursor-pointer"
                 >
                   {loading ? 'Averbando...' : 'Confirmar Amortização'}
                 </button>

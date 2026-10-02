@@ -304,7 +304,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/90 border border-slate-800 p-6 rounded-2xl backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-[#EAF4E7] p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 rounded-xl text-amber-400">
@@ -312,7 +312,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-xl font-bold text-slate-100">DRE por Talhão & Gestão de Combustível</h1>
+                <h1 className="text-xl font-bold text-[#1D4B38]">DRE por Talhão & Gestão de Combustível</h1>
                 <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
                   Margem R$/sc & ha
                 </span>
@@ -320,7 +320,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
                   Melosa & Comboio
                 </span>
               </div>
-              <p className="text-sm text-slate-400 mt-0.5">
+              <p className="text-sm text-[#66736A] mt-0.5">
                 Demonstrativo de Resultado do Exercício individualizado por hectare e auditoria antifraude de óleo diesel do comboio.
               </p>
             </div>
@@ -328,13 +328,13 @@ export const DRECombustivelComboioModule: React.FC = () => {
         </div>
 
         {/* Seletor de Sub-Abas */}
-        <div className="flex items-center bg-slate-950 border border-slate-800 rounded-xl p-1 text-xs">
+        <div className="flex items-center bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-1 text-xs">
           <button
             onClick={() => setSubAba('DRE')}
             className={`flex items-center gap-2 px-3 py-1.5 rounded-lg transition-all cursor-pointer font-medium ${
               subAba === 'DRE'
                 ? 'bg-emerald-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-[#66736A] hover:text-[#26332A]'
             }`}
           >
             <BarChart3 className="w-3.5 h-3.5" />
@@ -345,7 +345,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
             className={`flex items-center gap-2 px-3 py-1.5 rounded-lg transition-all cursor-pointer font-medium ${
               subAba === 'COMBUSTIVEL'
                 ? 'bg-amber-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-[#66736A] hover:text-[#26332A]'
             }`}
           >
             <Fuel className="w-3.5 h-3.5" />
@@ -356,7 +356,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
             className={`flex items-center gap-2 px-3 py-1.5 rounded-lg transition-all cursor-pointer font-medium ${
               subAba === 'OEE'
                 ? 'bg-indigo-600 text-white shadow-md'
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-[#66736A] hover:text-[#26332A]'
             }`}
           >
             <Gauge className="w-3.5 h-3.5" />
@@ -382,32 +382,32 @@ export const DRECombustivelComboioModule: React.FC = () => {
         <div className="space-y-6">
           {/* Cards Executivos Consolidados */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-xl">
-              <div className="flex items-center justify-between text-slate-400 mb-1">
+            <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
+              <div className="flex items-center justify-between text-[#66736A] mb-1">
                 <span className="text-xs font-medium uppercase tracking-wider">Área Consolidada</span>
                 <Layers className="w-4 h-4 text-emerald-400" />
               </div>
-              <div className="text-2xl font-bold text-slate-100 font-mono">{totalAreaHa.toFixed(1)} ha</div>
+              <div className="text-2xl font-bold text-[#1D4B38] font-mono">{totalAreaHa.toFixed(1)} ha</div>
               <p className="text-xs text-slate-500 mt-1">5 talhões agrícolas ativos na safra</p>
             </div>
 
-            <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-xl">
-              <div className="flex items-center justify-between text-slate-400 mb-1">
+            <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
+              <div className="flex items-center justify-between text-[#66736A] mb-1">
                 <span className="text-xs font-medium uppercase tracking-wider">Receita Líquida Total</span>
                 <TrendingUp className="w-4 h-4 text-indigo-400" />
               </div>
-              <div className="text-2xl font-bold text-slate-100 font-mono">
+              <div className="text-2xl font-bold text-[#1D4B38] font-mono">
                 R$ {(totalReceitaLiquida / 1_000_000).toFixed(2)}M
               </div>
               <p className="text-xs text-slate-500 mt-1">Após descontos técnicos de balança</p>
             </div>
 
-            <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-xl">
-              <div className="flex items-center justify-between text-slate-400 mb-1">
+            <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
+              <div className="flex items-center justify-between text-[#66736A] mb-1">
                 <span className="text-xs font-medium uppercase tracking-wider">Custo Absorvido Total</span>
                 <PieChart className="w-4 h-4 text-amber-400" />
               </div>
-              <div className="text-2xl font-bold text-slate-100 font-mono">
+              <div className="text-2xl font-bold text-[#1D4B38] font-mono">
                 R$ {(totalCustoAbsorvido / 1_000_000).toFixed(2)}M
               </div>
               <p className="text-xs text-slate-500 mt-1">Insumos + Diesel + Horas + Fixos</p>
@@ -443,13 +443,13 @@ export const DRECombustivelComboioModule: React.FC = () => {
                       {campeaoMargem.codigo} - {campeaoMargem.nome}
                     </span>
                   </div>
-                  <div className="text-sm text-slate-200 font-medium mt-0.5">
+                  <div className="text-sm text-[#26332A] font-medium mt-0.5">
                     Margem Líquida de <strong className="text-emerald-300 font-mono">R$ {campeaoMargem.margemLiquidaPorSaca.toFixed(2)} / sc</strong> (R$ {campeaoMargem.margemLiquidaHa.toFixed(2)} / ha)
                   </div>
                 </div>
               </div>
               <div className="text-right">
-                <span className="text-xs text-slate-400">Lucro Líquido Gerado pelo Talhão:</span>
+                <span className="text-xs text-[#66736A]">Lucro Líquido Gerado pelo Talhão:</span>
                 <div className="text-lg font-bold font-mono text-emerald-300">
                   R$ {campeaoMargem.lucroLiquidoTalhao.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </div>
@@ -458,14 +458,14 @@ export const DRECombustivelComboioModule: React.FC = () => {
           )}
 
           {/* Tabela DRE Analítica por Talhão */}
-          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden">
-            <div className="p-5 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl overflow-hidden">
+            <div className="p-5 border-b border-[#EAF4E7] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
-                <h2 className="text-base font-semibold text-slate-100 flex items-center gap-2">
+                <h2 className="text-base font-semibold text-[#1D4B38] flex items-center gap-2">
                   <BarChart3 className="w-5 h-5 text-emerald-400" />
                   DRE Detalhado Talhão a Talhão
                 </h2>
-                <p className="text-xs text-slate-400">
+                <p className="text-xs text-[#66736A]">
                   Apurado por absorção direta de custos agronômicos, mecânicos e descontos de balança
                 </p>
               </div>
@@ -473,7 +473,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="bg-slate-950/60 text-slate-400 uppercase tracking-wider font-semibold border-b border-slate-800">
+                <thead className="bg-[#F7F9F5] text-[#66736A] uppercase tracking-wider font-semibold border-b border-[#EAF4E7]">
                   <tr>
                     <th className="px-4 py-3.5">Talhão & Cultura</th>
                     <th className="px-4 py-3.5">Área & Produtividade</th>
@@ -493,14 +493,14 @@ export const DRECombustivelComboioModule: React.FC = () => {
                     return (
                       <tr key={item.talhaoId} className="hover:bg-slate-800/40 transition-colors">
                         <td className="px-4 py-3.5">
-                          <div className="font-bold text-slate-200">{item.codigo}</div>
-                          <div className="text-slate-400 text-[11px]">{item.nome}</div>
+                          <div className="font-bold text-[#26332A]">{item.codigo}</div>
+                          <div className="text-[#66736A] text-[11px]">{item.nome}</div>
                           <div className="text-[10px] text-emerald-400 font-medium mt-0.5">{item.cultura}</div>
                         </td>
 
                         <td className="px-4 py-3.5">
-                          <div className="font-semibold text-slate-200 font-mono">{item.areaHa} ha</div>
-                          <div className="text-[11px] text-slate-400 font-mono">
+                          <div className="font-semibold text-[#26332A] font-mono">{item.areaHa} ha</div>
+                          <div className="text-[11px] text-[#66736A] font-mono">
                             {item.produtividadeScHa} sc/ha @ R$ {item.precoVendaSaca}/sc
                           </div>
                           <div className="text-[10px] text-amber-400 mt-0.5">
@@ -509,7 +509,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
                         </td>
 
                         <td className="px-4 py-3.5">
-                          <div className="font-mono font-bold text-slate-100">
+                          <div className="font-mono font-bold text-[#1D4B38]">
                             R$ {item.receitaLiquidaHa.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                           </div>
                           <div className="text-[10px] text-slate-500">
@@ -518,7 +518,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
                         </td>
 
                         <td className="px-4 py-3.5">
-                          <div className="font-mono text-slate-200 font-medium">
+                          <div className="font-mono text-[#26332A] font-medium">
                             R$ {insumosHa.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                           </div>
                           <div className="text-[10px] text-slate-500">
@@ -527,7 +527,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
                         </td>
 
                         <td className="px-4 py-3.5">
-                          <div className="font-mono text-slate-200 font-medium">
+                          <div className="font-mono text-[#26332A] font-medium">
                             R$ {frotaHa.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                           </div>
                           <div className="text-[10px] text-slate-500">
@@ -552,7 +552,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
                           >
                             R$ {item.margemLiquidaPorSaca.toFixed(2)}
                           </div>
-                          <div className="text-[10px] text-slate-400">
+                          <div className="text-[10px] text-[#66736A]">
                             R$ {item.margemLiquidaHa.toFixed(2)} / ha
                           </div>
                         </td>
@@ -579,66 +579,66 @@ export const DRECombustivelComboioModule: React.FC = () => {
           {/* Níveis dos Tanques Fixo e Comboios Móveis */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Tanque Sede */}
-            <div className="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
+            <div className="bg-white border border-[#EAF4E7] p-5 rounded-2xl">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#66736A]">
                   Tanque Central Fixo (Sede)
                 </span>
                 <Fuel className="w-5 h-5 text-amber-400" />
               </div>
               <div className="flex items-baseline justify-between mb-2">
-                <div className="text-2xl font-bold font-mono text-slate-100">
+                <div className="text-2xl font-bold font-mono text-[#1D4B38]">
                   {tanqueSedeLitros.toLocaleString('pt-BR')} L
                 </div>
-                <div className="text-xs text-slate-400 font-mono">
+                <div className="text-xs text-[#66736A] font-mono">
                   Cap: {tanqueSedeCapacidade.toLocaleString('pt-BR')} L
                 </div>
               </div>
               {/* Barra de Progresso */}
-              <div className="w-full bg-slate-950 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div className="w-full bg-[#F7F9F5] rounded-full h-3 overflow-hidden border border-[#EAF4E7]">
                 <div
                   className="bg-amber-500 h-full rounded-full transition-all"
                   style={{ width: `${(tanqueSedeLitros / tanqueSedeCapacidade) * 100}%` }}
                 ></div>
               </div>
-              <div className="flex items-center justify-between text-[11px] text-slate-400 mt-2">
+              <div className="flex items-center justify-between text-[11px] text-[#66736A] mt-2">
                 <span>Nível: {((tanqueSedeLitros / tanqueSedeCapacidade) * 100).toFixed(1)}%</span>
                 <span className="text-emerald-400">Autonomia: ~18 dias de safra</span>
               </div>
             </div>
 
             {/* Melosa 01 */}
-            <div className="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
+            <div className="bg-white border border-[#EAF4E7] p-5 rounded-2xl">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#66736A]">
                   Caminhão Melosa 01 (Campo)
                 </span>
                 <Truck className="w-5 h-5 text-indigo-400" />
               </div>
               <div className="flex items-baseline justify-between mb-2">
-                <div className="text-2xl font-bold font-mono text-slate-100">
+                <div className="text-2xl font-bold font-mono text-[#1D4B38]">
                   {comboio01Litros.toLocaleString('pt-BR')} L
                 </div>
-                <div className="text-xs text-slate-400 font-mono">
+                <div className="text-xs text-[#66736A] font-mono">
                   Cap: {comboio01Capacidade.toLocaleString('pt-BR')} L
                 </div>
               </div>
-              <div className="w-full bg-slate-950 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div className="w-full bg-[#F7F9F5] rounded-full h-3 overflow-hidden border border-[#EAF4E7]">
                 <div
                   className="bg-indigo-500 h-full rounded-full transition-all"
                   style={{ width: `${(comboio01Litros / comboio01Capacidade) * 100}%` }}
                 ></div>
               </div>
-              <div className="flex items-center justify-between text-[11px] text-slate-400 mt-2">
+              <div className="flex items-center justify-between text-[11px] text-[#66736A] mt-2">
                 <span>Nível: {((comboio01Litros / comboio01Capacidade) * 100).toFixed(1)}%</span>
                 <span className="text-indigo-400">Em operação no TAL-01/02</span>
               </div>
             </div>
 
             {/* Melosa 02 */}
-            <div className="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
+            <div className="bg-white border border-[#EAF4E7] p-5 rounded-2xl">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#66736A]">
                   Caminhão Melosa 02 (Campo)
                 </span>
                 <AlertTriangle className="w-5 h-5 text-rose-400" />
@@ -647,17 +647,17 @@ export const DRECombustivelComboioModule: React.FC = () => {
                 <div className="text-2xl font-bold font-mono text-rose-300">
                   {comboio02Litros.toLocaleString('pt-BR')} L
                 </div>
-                <div className="text-xs text-slate-400 font-mono">
+                <div className="text-xs text-[#66736A] font-mono">
                   Cap: {comboio02Capacidade.toLocaleString('pt-BR')} L
                 </div>
               </div>
-              <div className="w-full bg-slate-950 rounded-full h-3 overflow-hidden border border-slate-800">
+              <div className="w-full bg-[#F7F9F5] rounded-full h-3 overflow-hidden border border-[#EAF4E7]">
                 <div
                   className="bg-rose-500 h-full rounded-full transition-all"
                   style={{ width: `${(comboio02Litros / comboio02Capacidade) * 100}%` }}
                 ></div>
               </div>
-              <div className="flex items-center justify-between text-[11px] text-slate-400 mt-2">
+              <div className="flex items-center justify-between text-[11px] text-[#66736A] mt-2">
                 <span className="text-rose-400 font-semibold">Nível: 30.0% (Crítico)</span>
                 <span className="text-amber-400 hover:underline cursor-pointer">Solicitar Recarga Sede</span>
               </div>
@@ -665,14 +665,14 @@ export const DRECombustivelComboioModule: React.FC = () => {
           </div>
 
           {/* Registro de Abastecimentos no Campo & Auditoria de Desvios */}
-          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden">
-            <div className="p-5 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl overflow-hidden">
+            <div className="p-5 border-b border-[#EAF4E7] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
-                <h2 className="text-base font-semibold text-slate-100 flex items-center gap-2">
+                <h2 className="text-base font-semibold text-[#1D4B38] flex items-center gap-2">
                   <Fuel className="w-5 h-5 text-amber-400" />
                   Auditoria de Abastecimentos & Detecção de Desvios de Diesel
                 </h2>
-                <p className="text-xs text-slate-400">
+                <p className="text-xs text-[#66736A]">
                   Cruzamento automático de Litros Abastecidos × Horas Trabalhadas × Consumo Padrão de Fábrica (L/h)
                 </p>
               </div>
@@ -688,7 +688,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="bg-slate-950/60 text-slate-400 uppercase tracking-wider font-semibold border-b border-slate-800">
+                <thead className="bg-[#F7F9F5] text-[#66736A] uppercase tracking-wider font-semibold border-b border-[#EAF4E7]">
                   <tr>
                     <th className="px-4 py-3.5">Data & Máquina</th>
                     <th className="px-4 py-3.5">Origem / Comboio</th>
@@ -724,35 +724,35 @@ export const DRECombustivelComboioModule: React.FC = () => {
                     return (
                       <tr key={abs.id} className="hover:bg-slate-800/40 transition-colors">
                         <td className="px-4 py-3.5">
-                          <div className="font-bold text-slate-200">{abs.maquinaNome}</div>
-                          <div className="text-[11px] text-slate-400">{abs.dataHora}</div>
+                          <div className="font-bold text-[#26332A]">{abs.maquinaNome}</div>
+                          <div className="text-[11px] text-[#66736A]">{abs.dataHora}</div>
                         </td>
 
-                        <td className="px-4 py-3.5 text-slate-300 font-medium">
+                        <td className="px-4 py-3.5 text-[#26332A] font-medium">
                           {abs.origemComboio}
                         </td>
 
                         <td className="px-4 py-3.5">
-                          <div className="text-slate-200 font-medium">{abs.operadorNome}</div>
-                          <div className="text-[11px] text-slate-400">{abs.talhaoLocal}</div>
+                          <div className="text-[#26332A] font-medium">{abs.operadorNome}</div>
+                          <div className="text-[11px] text-[#66736A]">{abs.talhaoLocal}</div>
                         </td>
 
                         <td className="px-4 py-3.5">
                           <div className="font-bold text-amber-300 font-mono text-sm">
                             {abs.litrosAbastecidos} Litros
                           </div>
-                          <div className="text-[11px] text-slate-400 font-mono">
+                          <div className="text-[11px] text-[#66736A] font-mono">
                             Horímetro: {abs.horimetroMomento} h ({abs.horasTrabalhadasPeriodo}h trab.)
                           </div>
                         </td>
 
                         <td className="px-4 py-3.5">
-                          <div className="font-mono font-bold text-slate-200">
+                          <div className="font-mono font-bold text-[#26332A]">
                             {abs.consumoRealLh.toFixed(2)} L/h
                           </div>
                         </td>
 
-                        <td className="px-4 py-3.5 text-slate-400 font-mono">
+                        <td className="px-4 py-3.5 text-[#66736A] font-mono">
                           {abs.metaFabricanteLh.toFixed(1)} L/h
                         </td>
 
@@ -771,24 +771,24 @@ export const DRECombustivelComboioModule: React.FC = () => {
       {subAba === 'OEE' && (
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-xl">
-              <span className="text-xs text-slate-400 uppercase tracking-wider block mb-1">
+            <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
+              <span className="text-xs text-[#66736A] uppercase tracking-wider block mb-1">
                 Disponibilidade Mecânica
               </span>
               <div className="text-2xl font-bold text-emerald-400 font-mono">91.4%</div>
               <p className="text-xs text-slate-500 mt-1">Horas operando / horas totais de escala</p>
             </div>
 
-            <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-xl">
-              <span className="text-xs text-slate-400 uppercase tracking-wider block mb-1">
+            <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
+              <span className="text-xs text-[#66736A] uppercase tracking-wider block mb-1">
                 Eficiência Operacional
               </span>
               <div className="text-2xl font-bold text-indigo-400 font-mono">84.2%</div>
               <p className="text-xs text-slate-500 mt-1">Tempo efetivo na linha vs manobras</p>
             </div>
 
-            <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-xl">
-              <span className="text-xs text-slate-400 uppercase tracking-wider block mb-1">
+            <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
+              <span className="text-xs text-[#66736A] uppercase tracking-wider block mb-1">
                 Qualidade de Execução
               </span>
               <div className="text-2xl font-bold text-cyan-400 font-mono">88.5%</div>
@@ -806,51 +806,51 @@ export const DRECombustivelComboioModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-5 bg-slate-900/80 border border-slate-800 rounded-2xl">
-            <h3 className="text-base font-bold text-slate-100 mb-2">
+          <div className="p-5 bg-white border border-[#EAF4E7] rounded-2xl">
+            <h3 className="text-base font-bold text-[#1D4B38] mb-2">
               Composição das Horas de Trabalho de Frota (CAN Bus)
             </h3>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               Distribuição percentual do horímetro das máquinas em operação durante a janela de plantio e pulverização:
             </p>
 
             <div className="space-y-3 text-xs">
               <div>
-                <div className="flex justify-between text-slate-300 mb-1">
+                <div className="flex justify-between text-[#26332A] mb-1">
                   <span>Trabalho Efetivo Produtivo (Linha de Plantio / Pulverização)</span>
                   <span className="font-mono font-bold text-emerald-400">68.1% (545h)</span>
                 </div>
-                <div className="w-full bg-slate-950 rounded-full h-2">
+                <div className="w-full bg-[#F7F9F5] rounded-full h-2">
                   <div className="bg-emerald-500 h-2 rounded-full" style={{ width: '68.1%' }}></div>
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-slate-300 mb-1">
+                <div className="flex justify-between text-[#26332A] mb-1">
                   <span>Manobra em Cabeceira de Talhão</span>
                   <span className="font-mono font-bold text-indigo-400">14.3% (114h)</span>
                 </div>
-                <div className="w-full bg-slate-950 rounded-full h-2">
+                <div className="w-full bg-[#F7F9F5] rounded-full h-2">
                   <div className="bg-indigo-500 h-2 rounded-full" style={{ width: '14.3%' }}></div>
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-slate-300 mb-1">
+                <div className="flex justify-between text-[#26332A] mb-1">
                   <span>Deslocamento entre Talhões / Estradas Internas</span>
                   <span className="font-mono font-bold text-amber-400">8.9% (71h)</span>
                 </div>
-                <div className="w-full bg-slate-950 rounded-full h-2">
+                <div className="w-full bg-[#F7F9F5] rounded-full h-2">
                   <div className="bg-amber-500 h-2 rounded-full" style={{ width: '8.9%' }}></div>
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-slate-300 mb-1">
+                <div className="flex justify-between text-[#26332A] mb-1">
                   <span>Ocioso com Motor Ligado (Parado em Abastecimento/Espera de Caminhão)</span>
                   <span className="font-mono font-bold text-rose-400">8.7% (70h)</span>
                 </div>
-                <div className="w-full bg-slate-950 rounded-full h-2">
+                <div className="w-full bg-[#F7F9F5] rounded-full h-2">
                   <div className="bg-rose-500 h-2 rounded-full" style={{ width: '8.7%' }}></div>
                 </div>
               </div>
@@ -861,16 +861,16 @@ export const DRECombustivelComboioModule: React.FC = () => {
 
       {/* Modal de Novo Abastecimento */}
       {mostrarModalNovoAbs && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-              <h3 className="text-base font-bold text-slate-100 flex items-center gap-2">
+        <div className="fixed inset-0 z-50 bg-[#F7F9F5] backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl max-w-lg w-full p-6 shadow-2xl">
+            <div className="flex items-center justify-between pb-4 border-b border-[#EAF4E7]">
+              <h3 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
                 <Fuel className="w-5 h-5 text-amber-400" />
                 Registrar Abastecimento de Comboio
               </h3>
               <button
                 onClick={() => setMostrarModalNovoAbs(false)}
-                className="text-slate-400 hover:text-slate-200 text-sm font-bold"
+                className="text-[#66736A] hover:text-[#26332A] text-sm font-bold"
               >
                 ✕
               </button>
@@ -878,7 +878,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
 
             <form onSubmit={handleSalvarAbastecimento} className="mt-4 space-y-3.5 text-xs">
               <div>
-                <label className="text-slate-300 block mb-1 font-medium">Máquina Abastecida:</label>
+                <label className="text-[#26332A] block mb-1 font-medium">Máquina Abastecida:</label>
                 <select
                   value={formMaquina}
                   onChange={(e) => {
@@ -889,7 +889,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
                     else if (m.includes('S790')) setFormMeta(52.0);
                     else setFormMeta(31.0);
                   }}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-200"
+                  className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A]"
                 >
                   <option value="Trator John Deere 8370R (Frota #01)">Trator John Deere 8370R (Frota #01)</option>
                   <option value="Pulverizador Case Patriot 350 (Frota #04)">Pulverizador Case Patriot 350 (Frota #04)</option>
@@ -900,66 +900,66 @@ export const DRECombustivelComboioModule: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-300 block mb-1 font-medium">Operador:</label>
+                  <label className="text-[#26332A] block mb-1 font-medium">Operador:</label>
                   <input
                     type="text"
                     value={formOperador}
                     onChange={(e) => setFormOperador(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-200"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A]"
                   />
                 </div>
                 <div>
-                  <label className="text-slate-300 block mb-1 font-medium">Talhão da Operação:</label>
+                  <label className="text-[#26332A] block mb-1 font-medium">Talhão da Operação:</label>
                   <input
                     type="text"
                     value={formTalhao}
                     onChange={(e) => setFormTalhao(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-200"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A]"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-3 gap-3">
                 <div>
-                  <label className="text-slate-300 block mb-1 font-medium">Litros:</label>
+                  <label className="text-[#26332A] block mb-1 font-medium">Litros:</label>
                   <input
                     type="number"
                     value={formLitros}
                     onChange={(e) => setFormLitros(Number(e.target.value))}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-200 font-mono"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A] font-mono"
                   />
                 </div>
                 <div>
-                  <label className="text-slate-300 block mb-1 font-medium">Horas Trab.:</label>
+                  <label className="text-[#26332A] block mb-1 font-medium">Horas Trab.:</label>
                   <input
                     type="number"
                     step="0.5"
                     value={formHoras}
                     onChange={(e) => setFormHoras(Number(e.target.value))}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-200 font-mono"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A] font-mono"
                   />
                 </div>
                 <div>
-                  <label className="text-slate-300 block mb-1 font-medium">Meta Fábrica:</label>
+                  <label className="text-[#26332A] block mb-1 font-medium">Meta Fábrica:</label>
                   <input
                     type="number"
                     step="0.5"
                     value={formMeta}
                     onChange={(e) => setFormMeta(Number(e.target.value))}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-200 font-mono"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A] font-mono"
                   />
                 </div>
               </div>
 
-              <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] text-slate-400">
+              <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] text-[11px] text-[#66736A]">
                 Consumo estimado: <strong>{((formLitros / (formHoras || 1))).toFixed(2)} L/h</strong>. Desvios acima de +15% disparam alerta de auditoria de combustível.
               </div>
 
-              <div className="pt-2 flex items-center justify-end gap-3 border-t border-slate-800">
+              <div className="pt-2 flex items-center justify-end gap-3 border-t border-[#EAF4E7]">
                 <button
                   type="button"
                   onClick={() => setMostrarModalNovoAbs(false)}
-                  className="px-4 py-2 rounded-xl text-slate-400 hover:text-slate-200 cursor-pointer"
+                  className="px-4 py-2 rounded-xl text-[#66736A] hover:text-[#26332A] cursor-pointer"
                 >
                   Cancelar
                 </button>

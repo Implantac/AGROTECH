@@ -126,7 +126,7 @@ export const BovinoculturaLeiteModule: React.FC = () => {
   }, [lotes, precoBaseLitroReais, bonusQualidadeReais]);
 
   return (
-    <div className="space-y-6 animate-fade-in text-slate-100">
+    <div className="space-y-6 animate-fade-in text-[#1D4B38]">
       {/* Cabeçalho */}
       <div className="bg-gradient-to-r from-sky-950/40 via-slate-900 to-slate-900 border border-sky-800/40 rounded-2xl p-6 shadow-xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -143,7 +143,7 @@ export const BovinoculturaLeiteModule: React.FC = () => {
                     IN 76/77 MAPA • IOFC • Compost Barn • Lely
                   </span>
                 </h2>
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-[#66736A]">
                   Rastreabilidade por quarto mamário, contagem de células somáticas (CCS), CBT e margem sobre o custo alimentar (IOFC).
                 </p>
               </div>
@@ -162,14 +162,14 @@ export const BovinoculturaLeiteModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: Produção Diária */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Produção Diária</span>
             <TrendingUp className="w-4 h-4 text-sky-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-sky-400">
             {leiteMetrics.producaoDiariaLitros.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
-            <span className="text-xs font-normal text-slate-400">L/dia</span>
+            <span className="text-xs font-normal text-[#66736A]">L/dia</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Média: {leiteMetrics.mediaLitrosPorVaca.toFixed(1)} L/vaca/dia em {leiteMetrics.totalVacasLactacao} vacas em lactação.
@@ -177,14 +177,14 @@ export const BovinoculturaLeiteModule: React.FC = () => {
         </div>
 
         {/* KPI 2: IOFC */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>IOFC (Margem / Dieta)</span>
             <Award className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
             R$ {leiteMetrics.iofcVacaDia.toFixed(2)}{' '}
-            <span className="text-xs font-normal text-slate-400">/ vaca / dia</span>
+            <span className="text-xs font-normal text-[#66736A]">/ vaca / dia</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Receita: R$ {(leiteMetrics.mediaLitrosPorVaca * leiteMetrics.precoEfetivoLitro).toFixed(2)} vs R$ {leiteMetrics.custoMedioVacaDia.toFixed(2)} ração.
@@ -192,8 +192,8 @@ export const BovinoculturaLeiteModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Faturamento Mensal */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Faturamento Mensal</span>
             <Coins className="w-4 h-4 text-amber-400" />
           </div>
@@ -206,14 +206,14 @@ export const BovinoculturaLeiteModule: React.FC = () => {
         </div>
 
         {/* KPI 4: Qualidade Sanitária */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Qualidade IN 76/77</span>
             <HeartPulse className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
             {Math.round(leiteMetrics.mediaCcs / 1000)}k{' '}
-            <span className="text-xs font-normal text-slate-400">CCS • {Math.round(leiteMetrics.mediaCbt / 1000)}k CBT</span>
+            <span className="text-xs font-normal text-[#66736A]">CCS • {Math.round(leiteMetrics.mediaCbt / 1000)}k CBT</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             100% conforme: CCS &lt; 400k cel/mL e CBT &lt; 100k UFC/mL.
@@ -224,18 +224,18 @@ export const BovinoculturaLeiteModule: React.FC = () => {
       {/* Grid de Lotes e Painel de Simulação */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Lotes Leiteiros */}
-        <div className="lg:col-span-2 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <Layers className="w-5 h-5 text-sky-400" />
                 Lotes de Lactação & Telemetria do Robô
               </h3>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-[#66736A]">
                 Acompanhamento individual de condutividade elétrica, tempo de ruminação e pesagem de leite.
               </p>
             </div>
-            <span className="text-xs font-mono text-slate-400">
+            <span className="text-xs font-mono text-[#66736A]">
               {lotes.length} Lotes Ativos
             </span>
           </div>
@@ -248,7 +248,7 @@ export const BovinoculturaLeiteModule: React.FC = () => {
               return (
                 <div
                   key={l.id}
-                  className="p-4 bg-slate-950 border border-slate-800 rounded-xl hover:border-slate-700 transition-all space-y-2"
+                  className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl hover:border-slate-700 transition-all space-y-2"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
@@ -256,14 +256,14 @@ export const BovinoculturaLeiteModule: React.FC = () => {
                         {l.id}
                       </span>
                       <h4 className="text-xs font-bold text-white">{l.nome}</h4>
-                      <span className="text-[11px] text-slate-400 font-mono">({l.raca})</span>
+                      <span className="text-[11px] text-[#66736A] font-mono">({l.raca})</span>
                     </div>
                     <span className="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 text-[10px] font-mono border border-cyan-500/30">
                       {l.sistemaOrdenha.replace(/_/g, ' ')}
                     </span>
                   </div>
 
-                  <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-400">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-[#66736A]">
                     <span>Vacas: <strong className="text-white">{l.vacasLactacao} cab</strong> (DEL {l.delMedioDias}d)</span>
                     <span>Produção: <strong className="text-sky-400">{l.producaoMediaLitroDia} L/vaca</strong></span>
                     <span>Sólidos: <strong className="text-amber-400">{l.gorduraPct}% Gord • {l.proteinaPct}% Prot</strong></span>
@@ -276,12 +276,12 @@ export const BovinoculturaLeiteModule: React.FC = () => {
           </div>
 
           {/* Banner Técnico de Boas Práticas Leiteiras */}
-          <div className="p-4 bg-slate-950/60 border border-slate-800 rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-sky-400 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes de Qualidade do Leite e Gestão IOFC (Embrapa Gado de Leite & MAPA):
             </div>
-            <ul className="list-disc list-inside text-slate-400 space-y-1">
+            <ul className="list-disc list-inside text-[#66736A] space-y-1">
               <li>
                 <strong>Indicador IOFC (Income Over Feed Cost):</strong> Representa o valor líquido disponível por vaca após pagar a ração para cobrir mão de obra, maquinário, instalações e lucro do pecuarista.
               </li>
@@ -296,7 +296,7 @@ export const BovinoculturaLeiteModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Parâmetros Comerciais */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Coins className="w-5 h-5 text-amber-400" />
             Parâmetros Comerciais do Leite
@@ -304,42 +304,42 @@ export const BovinoculturaLeiteModule: React.FC = () => {
 
           <div className="space-y-4 text-xs">
             <div>
-              <label className="text-slate-400 font-medium block mb-1">Preço Base do Litro de Leite (R$)</label>
+              <label className="text-[#66736A] font-medium block mb-1">Preço Base do Litro de Leite (R$)</label>
               <input
                 type="number"
                 step="0.05"
                 value={precoBaseLitroReais}
                 onChange={(e) => setPrecoBaseLitroReais(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-slate-400 font-medium block mb-1">Bônus por Qualidade CCS/CBT e Sólidos (R$/L)</label>
+              <label className="text-[#66736A] font-medium block mb-1">Bônus por Qualidade CCS/CBT e Sólidos (R$/L)</label>
               <input
                 type="number"
                 step="0.05"
                 value={bonusQualidadeReais}
                 onChange={(e) => setBonusQualidadeReais(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             {/* Resumo Consolidado */}
-            <div className="pt-3 border-t border-slate-800 space-y-2">
+            <div className="pt-3 border-t border-[#EAF4E7] space-y-2">
               <div className="flex justify-between">
-                <span className="text-slate-400">Preço Efetivo Faturado:</span>
+                <span className="text-[#66736A]">Preço Efetivo Faturado:</span>
                 <span className="text-sky-400 font-mono font-bold">
                   R$ {leiteMetrics.precoEfetivoLitro.toFixed(2)} / L
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Faturamento Mensal (30d):</span>
+                <span className="text-[#66736A]">Faturamento Mensal (30d):</span>
                 <span className="text-amber-400 font-mono font-bold">
                   R$ {leiteMetrics.faturamentoMensalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
-              <div className="flex justify-between border-t border-slate-800 pt-2 font-bold">
+              <div className="flex justify-between border-t border-[#EAF4E7] pt-2 font-bold">
                 <span className="text-white">Margem sobre a Dieta (Mês):</span>
                 <span className="text-emerald-400 font-mono">
                   R$ {leiteMetrics.margemAlimentarMensalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })} / mês

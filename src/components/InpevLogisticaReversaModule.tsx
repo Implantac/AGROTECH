@@ -104,7 +104,7 @@ export const InpevLogisticaReversaModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/90 border border-slate-800 p-6 rounded-2xl backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-[#EAF4E7] p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400">
@@ -112,7 +112,7 @@ export const InpevLogisticaReversaModule: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-xl font-bold text-slate-100">inpEV & Logística Reversa de Embalagens</h1>
+                <h1 className="text-xl font-bold text-[#1D4B38]">inpEV & Logística Reversa de Embalagens</h1>
                 <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
                   Sistema Campo Limpo
                 </span>
@@ -120,7 +120,7 @@ export const InpevLogisticaReversaModule: React.FC = () => {
                   Lei 14.785/2023
                 </span>
               </div>
-              <p className="text-sm text-slate-400 mt-0.5">
+              <p className="text-sm text-[#66736A] mt-0.5">
                 Controle de tríplice lavagem, inutilização por perfuração, prazos legais de devolução (365 dias) e comprovantes fiscais INDEA/MAPA.
               </p>
             </div>
@@ -138,12 +138,12 @@ export const InpevLogisticaReversaModule: React.FC = () => {
 
       {/* Cards de Métricas de Logística Reversa */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-slate-400 mb-1">
+        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
+          <div className="flex items-center justify-between text-[#66736A] mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Volume de Embalagens</span>
             <Trash2 className="w-4 h-4 text-emerald-400" />
           </div>
-          <div className="text-2xl font-bold text-slate-100 font-mono">{totalEmbalagens} unidades</div>
+          <div className="text-2xl font-bold text-[#1D4B38] font-mono">{totalEmbalagens} unidades</div>
           <p className="text-xs text-slate-500 mt-1">Galões 5L, 20L e sacos aluminizados</p>
         </div>
 
@@ -165,8 +165,8 @@ export const InpevLogisticaReversaModule: React.FC = () => {
           <p className="text-xs text-amber-400/80 mt-1">Vencimento em &lt; 30 dias (Alerta)</p>
         </div>
 
-        <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-slate-400 mb-1">
+        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
+          <div className="flex items-center justify-between text-[#66736A] mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Tríplice Lavagem Efetuada</span>
             <ShieldCheck className="w-4 h-4 text-indigo-400" />
           </div>
@@ -176,14 +176,14 @@ export const InpevLogisticaReversaModule: React.FC = () => {
       </div>
 
       {/* Tabela de Lotes de Embalagens e Vencimentos */}
-      <div className="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden">
-        <div className="p-5 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div className="bg-white border border-[#EAF4E7] rounded-2xl overflow-hidden">
+        <div className="p-5 border-b border-[#EAF4E7] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h2 className="text-base font-bold text-slate-100 flex items-center gap-2">
+            <h2 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
               <PackageCheck className="w-5 h-5 text-emerald-400" />
               Controle de Lotes de Embalagens Vazias & Prazos Legais (1 Ano)
             </h2>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Conformidade com a fiscalização do INDEA-MT e Ministério da Agricultura (MAPA)
             </p>
           </div>
@@ -191,7 +191,7 @@ export const InpevLogisticaReversaModule: React.FC = () => {
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-slate-950/60 text-slate-400 uppercase tracking-wider font-semibold border-b border-slate-800">
+            <thead className="bg-[#F7F9F5] text-[#66736A] uppercase tracking-wider font-semibold border-b border-[#EAF4E7]">
               <tr>
                 <th className="px-4 py-3.5">Produto & Nota Fiscal</th>
                 <th className="px-4 py-3.5">Data Compra & Limite</th>
@@ -204,7 +204,7 @@ export const InpevLogisticaReversaModule: React.FC = () => {
             <tbody className="divide-y divide-slate-800/60">
               {embalagens.map((emb) => {
                 let prazoBadge = (
-                  <span className="text-slate-300 font-mono font-medium">
+                  <span className="text-[#26332A] font-mono font-medium">
                     {emb.diasRestantes} dias restantes
                   </span>
                 );
@@ -224,7 +224,7 @@ export const InpevLogisticaReversaModule: React.FC = () => {
                 }
 
                 let statusBadge = (
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-800 text-slate-300 border border-slate-700">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-800 text-[#26332A] border border-slate-700">
                     Galpão da Fazenda
                   </span>
                 );
@@ -246,11 +246,11 @@ export const InpevLogisticaReversaModule: React.FC = () => {
                 return (
                   <tr key={emb.id} className="hover:bg-slate-800/40 transition-colors">
                     <td className="px-4 py-3.5">
-                      <div className="font-bold text-slate-200">{emb.produtoComercial}</div>
+                      <div className="font-bold text-[#26332A]">{emb.produtoComercial}</div>
                       <div className="text-[11px] text-slate-500 font-mono">{emb.notaFiscalCompra}</div>
                     </td>
 
-                    <td className="px-4 py-3.5 font-mono text-slate-300">
+                    <td className="px-4 py-3.5 font-mono text-[#26332A]">
                       <div>Compra: {emb.dataCompra}</div>
                       <div className="text-[11px] text-slate-500">Limite: {emb.dataLimiteDevolucao}</div>
                     </td>
@@ -258,7 +258,7 @@ export const InpevLogisticaReversaModule: React.FC = () => {
                     <td className="px-4 py-3.5">{prazoBadge}</td>
 
                     <td className="px-4 py-3.5">
-                      <div className="font-bold text-slate-200 font-mono">{emb.quantidadeTotal} unidades</div>
+                      <div className="font-bold text-[#26332A] font-mono">{emb.quantidadeTotal} unidades</div>
                       <div className="text-[10px] text-slate-500 uppercase">{emb.tipoEmbalagem.replace(/_/g, ' ')}</div>
                     </td>
 
@@ -280,18 +280,18 @@ export const InpevLogisticaReversaModule: React.FC = () => {
 
       {/* Modal do Comprovante de Devolução Oficial inpEV */}
       {mostrarModalComprovante && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 shadow-2xl overflow-y-auto max-h-[90vh]">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+        <div className="fixed inset-0 z-50 bg-[#F7F9F5] backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl max-w-2xl w-full p-6 shadow-2xl overflow-y-auto max-h-[90vh]">
+            <div className="flex items-center justify-between pb-4 border-b border-[#EAF4E7]">
               <div className="flex items-center gap-2">
                 <Recycle className="w-5 h-5 text-emerald-400" />
-                <h3 className="text-base font-bold text-slate-100">
+                <h3 className="text-base font-bold text-[#1D4B38]">
                   Comprovante Oficial de Devolução de Embalagens Vazias (inpEV)
                 </h3>
               </div>
               <button
                 onClick={() => setMostrarModalComprovante(false)}
-                className="text-slate-400 hover:text-slate-200 text-sm font-bold cursor-pointer"
+                className="text-[#66736A] hover:text-[#26332A] text-sm font-bold cursor-pointer"
               >
                 ✕
               </button>
@@ -305,34 +305,34 @@ export const InpevLogisticaReversaModule: React.FC = () => {
                 <h4 className="text-sm font-bold text-white">
                   Recibo de Entrega nº DEV-INPEV-2026-MT-09412
                 </h4>
-                <p className="text-[11px] text-slate-300">
+                <p className="text-[11px] text-[#26332A]">
                   Atestamos para os devidos fins legais e comprovação fiscal perante o INDEA-MT e MAPA que a propriedade <strong>FAZENDA SANTA HELENA (CAR: MT-5107909-E8192841029)</strong> realizou a entrega regular de embalagens vazias lavadas e perfuradas.
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-3 text-slate-300">
-                <div className="p-3 bg-slate-950 rounded-xl border border-slate-800">
+              <div className="grid grid-cols-2 gap-3 text-[#26332A]">
+                <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]">
                   <span className="text-slate-500 text-[10px] uppercase font-bold block">Central de Recolhimento:</span>
-                  <span className="font-semibold text-slate-200">Posto de Recebimento inpEV Sorriso</span>
+                  <span className="font-semibold text-[#26332A]">Posto de Recebimento inpEV Sorriso</span>
                   <span className="text-[10px] text-slate-500 block">Rodovia BR-163, km 745 - Zona Rural</span>
                 </div>
 
-                <div className="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]">
                   <span className="text-slate-500 text-[10px] uppercase font-bold block">Volume Entregue:</span>
                   <span className="font-bold text-emerald-300 font-mono text-sm">150 Galões de 20L + 80 Galões de 5L</span>
                   <span className="text-[10px] text-slate-500 block">100% Inutilizados com laudo de vistoria</span>
                 </div>
               </div>
 
-              <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] text-slate-400">
+              <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] text-[11px] text-[#66736A]">
                 Este recibo possui validade jurídica para fins de renovação de licença ambiental estadual (SEMA-MT) e certificação socioambiental RTRS / Proterra.
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-slate-800 flex justify-end gap-3">
+            <div className="mt-5 pt-3 border-t border-[#EAF4E7] flex justify-end gap-3">
               <button
                 onClick={() => setMostrarModalComprovante(false)}
-                className="px-4 py-2 text-slate-400 hover:text-slate-200 cursor-pointer"
+                className="px-4 py-2 text-[#66736A] hover:text-[#26332A] cursor-pointer"
               >
                 Fechar
               </button>

@@ -105,7 +105,7 @@ export const SuinoculturaMaternidadeModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-800 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-pink-600 to-rose-600 flex items-center justify-center shadow-lg shadow-pink-600/20">
             <Heart className="w-7 h-7 text-white" />
@@ -119,7 +119,7 @@ export const SuinoculturaMaternidadeModule: React.FC = () => {
                 Módulo 117 • Hiperprolificidade, Anti-Esmagamento & Creep Feeding
               </span>
             </div>
-            <p className="text-sm text-slate-400 mt-1">
+            <p className="text-sm text-[#66736A] mt-1">
               Escamoteadores aquecidos por sensores térmicos, redução de mortalidade perinatal para menos de 4% e desmame vigoroso aos 21 dias.
             </p>
           </div>
@@ -138,9 +138,9 @@ export const SuinoculturaMaternidadeModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Nascidos Vivos / Parto</span>
+            <span className="text-xs font-medium text-[#66736A]">Nascidos Vivos / Parto</span>
             <Heart className="w-5 h-5 text-pink-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -151,9 +151,9 @@ export const SuinoculturaMaternidadeModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Leitões Salvos (Sensores)</span>
+            <span className="text-xs font-medium text-[#66736A]">Leitões Salvos (Sensores)</span>
             <ShieldCheck className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -164,9 +164,9 @@ export const SuinoculturaMaternidadeModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Faturamento Mensal Lote</span>
+            <span className="text-xs font-medium text-[#66736A]">Faturamento Mensal Lote</span>
             <TrendingUp className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -177,9 +177,9 @@ export const SuinoculturaMaternidadeModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Receita Salva / Mês</span>
+            <span className="text-xs font-medium text-[#66736A]">Receita Salva / Mês</span>
             <Award className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -192,13 +192,13 @@ export const SuinoculturaMaternidadeModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-800 pb-2">
+      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('salas')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'salas'
               ? 'bg-pink-500/10 text-pink-400 border border-pink-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -210,7 +210,7 @@ export const SuinoculturaMaternidadeModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'esmagamento'
               ? 'bg-pink-500/10 text-pink-400 border border-pink-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <ShieldCheck className="w-4 h-4" />
@@ -222,7 +222,7 @@ export const SuinoculturaMaternidadeModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'creep_feeding'
               ? 'bg-pink-500/10 text-pink-400 border border-pink-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Thermometer className="w-4 h-4" />
@@ -234,7 +234,7 @@ export const SuinoculturaMaternidadeModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-pink-500/10 text-pink-400 border border-pink-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -244,15 +244,15 @@ export const SuinoculturaMaternidadeModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'salas' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-slate-800 p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Heart className="w-5 h-5 text-pink-400" />
             Salas de Parição Climatizadas com Escamoteadores Automatizados
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-300">
-              <thead className="text-xs uppercase bg-slate-950/60 text-slate-400">
+            <table className="w-full text-left text-sm text-[#26332A]">
+              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
                 <tr>
                   <th className="px-4 py-3">Sala / Linhagem</th>
                   <th className="px-4 py-3">Matrizes</th>
@@ -287,44 +287,44 @@ export const SuinoculturaMaternidadeModule: React.FC = () => {
 
       {activeTab === 'esmagamento' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Cpu className="w-5 h-5 text-pink-400" />
               <h4 className="text-sm font-semibold text-white">Câmera Térmica & Visão Computacional</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Sensor óptico detecta quando a matriz inicia movimento de deitar e emite sinal sonoro de alerta ou ativação de jato de ar para afastar os leitões da zona de risco.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Eficácia Anti-Esmagamento:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Eficácia Anti-Esmagamento:</span>
               <span className="text-sm font-bold text-emerald-400 block">-66.7% nas mortes nas primeiras 72h</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Thermometer className="w-5 h-5 text-yellow-400" />
               <h4 className="text-sm font-semibold text-white">Escamoteador com Piso Aquecido</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               O leitão recém-nascido necessita de 32°C a 34°C, enquanto a porca necessita de 18°C a 20°C. O microclima do ninho atrai o leitão para longe do corpo da matriz.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Temperatura Ideal do Ninho:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Temperatura Ideal do Ninho:</span>
               <span className="text-sm font-bold text-yellow-400 block">33.0°C nas primeiras 48h</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Gaiola com Barra de Proteção Inclinada</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Barras laterais tubulares que desaceleram a descida da matriz ao chão, permitindo tempo de fuga e reação dos leitões menores.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Meta Zootécnica:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Meta Zootécnica:</span>
               <span className="text-sm font-bold text-emerald-400 block">taxa menor que 4.0% de esmagamento</span>
             </div>
           </div>
@@ -332,30 +332,30 @@ export const SuinoculturaMaternidadeModule: React.FC = () => {
       )}
 
       {activeTab === 'creep_feeding' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Thermometer className="w-5 h-5 text-pink-400" />
             Manejo do Colostro nas Primeiras 6 Horas & Ração Pré-Inicial
           </h3>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-[#66736A]">
             A ingestão mínima de 250g de colostro por leitão garante imunoglobulinas maternas essenciais. O fornecimento de ração peletizada com plasma a partir do 7º dia treina o trato gastrointestinal para o desmame sem quebra de curva.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Ingestão Mínima de Colostro</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Ingestão Mínima de Colostro</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">superior a 250g / leitão</p>
               <span className="text-[11px] text-emerald-500/80">Nas primeiras 6 horas pós-parto</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Início do Creep Feeding</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Início do Creep Feeding</span>
               <p className="text-lg font-bold text-yellow-400 mt-1">7º dia de vida</p>
               <span className="text-[11px] text-slate-500">Ração altamente palatável em comedouro raso</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Peso Meta de Desmame (21d)</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Peso Meta de Desmame (21d)</span>
               <p className="text-lg font-bold text-white mt-1">superior a 6.5 kg</p>
               <span className="text-[11px] text-slate-500">Garante ganho compensatório na creche</span>
             </div>
@@ -364,7 +364,7 @@ export const SuinoculturaMaternidadeModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-pink-400" />
             Simulador de Sobrevivência & Receita de Leitões Salvos por Tecnologia
@@ -372,58 +372,58 @@ export const SuinoculturaMaternidadeModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-slate-400">Matrizes Paridas / Mês</label>
+              <label className="text-xs font-medium text-[#66736A]">Matrizes Paridas / Mês</label>
               <input
                 type="number"
                 value={matrizesParidasMes}
                 onChange={(e) => setMatrizesParidasMes(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-pink-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-pink-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Nascidos Vivos / Parto</label>
+              <label className="text-xs font-medium text-[#66736A]">Nascidos Vivos / Parto</label>
               <input
                 type="number"
                 step="0.1"
                 value={nascidosVivosPorParto}
                 onChange={(e) => setNascidosVivosPorParto(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-pink-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-pink-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Esmagamento Sensorizado (%)</label>
+              <label className="text-xs font-medium text-[#66736A]">Esmagamento Sensorizado (%)</label>
               <input
                 type="number"
                 step="0.1"
                 value={taxaEsmagamentoSensorizadaPct}
                 onChange={(e) => setTaxaEsmagamentoSensorizadaPct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-pink-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-pink-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Preço Leitão Desmamado (R$/kg)</label>
+              <label className="text-xs font-medium text-[#66736A]">Preço Leitão Desmamado (R$/kg)</label>
               <input
                 type="number"
                 step="0.1"
                 value={precoKgLeitaoDesmamadoReais}
                 onChange={(e) => setPrecoKgLeitaoDesmamadoReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-pink-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-pink-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-slate-950/60 rounded-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-slate-400 block">Impacto da Tecnologia IoT no Mês:</span>
+              <span className="text-xs text-[#66736A] block">Impacto da Tecnologia IoT no Mês:</span>
               <span className="text-base font-bold text-emerald-400">
                 +{metricas.leitoesSalvosPorTecnologia} leitões preservados com vida
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-slate-400 block">Receita Adicional Gerada no Mês:</span>
+              <span className="text-xs text-[#66736A] block">Receita Adicional Gerada no Mês:</span>
               <span className="text-xl font-bold text-emerald-400">
                 +R$ {metricas.receitaAdicionalSalvaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

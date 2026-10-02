@@ -114,19 +114,19 @@ export const CebolaAlhoCuraModule: React.FC = () => {
             <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
               🧅 Cebolicultura & Alho Nobre: Cura Térmica & Frigoconservação
             </h2>
-            <p className="text-sm text-slate-300 max-w-3xl leading-relaxed">
+            <p className="text-sm text-[#26332A] max-w-3xl leading-relaxed">
               Manejo de precisão para Allium: indução fotoperiódica para bulbificação, cura acelerada em túneis de ar aquecido a 34°C para cicatrização do pescoço (pseudocaule) e vernalização de alho-semente a 4°C para superação de dormência.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Bulbos Curados</span>
+            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
+              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Bulbos Curados</span>
               <span className="text-xl font-black text-amber-400">999.6 ton</span>
-              <span className="text-[10px] text-slate-400 block mt-0.5">30 ha Cebola</span>
+              <span className="text-[10px] text-[#66736A] block mt-0.5">30 ha Cebola</span>
             </div>
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Faturamento</span>
+            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
+              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Faturamento</span>
               <span className="text-xl font-black text-emerald-400">R$ 2,40M</span>
               <span className="text-[10px] text-emerald-400/80 block mt-0.5">52.5% Margem</span>
             </div>
@@ -136,8 +136,8 @@ export const CebolaAlhoCuraModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Temperatura de Cura</span>
             <Flame className="w-4 h-4 text-orange-400" />
           </div>
@@ -148,48 +148,48 @@ export const CebolaAlhoCuraModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Cicatrização do Pescoço</span>
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">100% Selado</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             Zero Podridão Bacteriana (Pectobacterium)
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Vernalização do Alho</span>
             <ThermometerSnowflake className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black text-cyan-400">4.0°C / 40 Dias</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             Indução Floral & Dentes Nobres
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
             <DollarSign className="w-4 h-4 text-teal-400" />
           </div>
           <div className="text-2xl font-black text-teal-400">R$ 1.259.040,00</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             R$ 41.968,00 por hectare
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-slate-800 pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('lotes')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'lotes'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Leaf className="w-4 h-4" />
@@ -201,7 +201,7 @@ export const CebolaAlhoCuraModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'cura'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Flame className="w-4 h-4" />
@@ -213,7 +213,7 @@ export const CebolaAlhoCuraModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'vernalizacao'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <ThermometerSnowflake className="w-4 h-4" />
@@ -225,7 +225,7 @@ export const CebolaAlhoCuraModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -236,19 +236,19 @@ export const CebolaAlhoCuraModule: React.FC = () => {
       {/* Conteúdo Aba 1: Lotes */}
       {activeTab === 'lotes' && (
         <div className="space-y-4">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Leaf className="w-5 h-5 text-amber-400" />
               Lotes em Cultivo e Classificação Comercial
             </h3>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               Cebolas Classe 3 (calibre 50-70 mm) e Alho Roxo Nobre Classe 6/7 alcançam cotações máximas nos entrepostos de abastecimento (CEAGESP / CEASA).
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-slate-800 text-slate-400 font-bold uppercase tracking-wider">
+                  <tr className="border-b border-[#EAF4E7] text-[#66736A] font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Lote / Local</th>
                     <th className="py-3 px-3">Cultura / Padrão</th>
                     <th className="py-3 px-3">Área (ha)</th>
@@ -263,11 +263,11 @@ export const CebolaAlhoCuraModule: React.FC = () => {
                     <tr key={l.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-white">{l.identificacao}</div>
-                        <div className="text-[11px] text-slate-400 font-mono">{l.id}</div>
+                        <div className="text-[11px] text-[#66736A] font-mono">{l.id}</div>
                       </td>
                       <td className="py-3.5 px-3 text-amber-300 font-semibold">{l.cultura}</td>
                       <td className="py-3.5 px-3 font-mono text-white">{l.areaHa} ha</td>
-                      <td className="py-3.5 px-3 font-mono text-slate-300">{l.massaVerdeTon} ton</td>
+                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{l.massaVerdeTon} ton</td>
                       <td className="py-3.5 px-3 font-mono text-orange-400 font-bold">{l.temperaturaCuraC}°C ({l.diasCura}d)</td>
                       <td className="py-3.5 px-3 font-mono text-emerald-400 font-bold">{l.massaCuradaTon} ton</td>
                       <td className="py-3.5 px-3">
@@ -287,47 +287,47 @@ export const CebolaAlhoCuraModule: React.FC = () => {
       {/* Conteúdo Aba 2: Cura */}
       {activeTab === 'cura' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Flame className="w-5 h-5 text-orange-400" />
               Túneis de Cura Térmica Forçada
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               A cura adequada é a chave para transformar um bulbo perecível em um produto capaz de durar até 6 meses em prateleira:
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <span className="font-bold text-white block">Fechamento do Pescoço (Pescocinho)</span>
-                <span className="text-slate-400 text-[11px] block mt-0.5">
+                <span className="text-[#66736A] text-[11px] block mt-0.5">
                   Desidrata o tecido vascular esponjoso do pseudocaule, impedindo a penetração de fungos de solo como Aspergillus niger e Botrytis aclada.
                 </span>
               </div>
-              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <span className="font-bold text-white block">Formação de Escamas Douradas Firmes</span>
-                <span className="text-slate-400 text-[11px] block mt-0.5">
+                <span className="text-[#66736A] text-[11px] block mt-0.5">
                   Oxidação enzimática dos polifenóis na túnica externa formando coloração amarelo-ouro brilhante e retenção osmótica.
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               Parâmetros de Operação dos Sopradores
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Controle termo-aerodinâmico no galpão de cura:
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <span className="text-slate-400">Velocidade do Ar na Massa de Bulbos:</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+                <span className="text-[#66736A]">Velocidade do Ar na Massa de Bulbos:</span>
                 <span className="font-mono font-bold text-emerald-400">1.2 a 1.8 m/s</span>
               </div>
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <span className="text-slate-400">Umidade Relativa do Ar Insulflado:</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+                <span className="text-[#66736A]">Umidade Relativa do Ar Insulflado:</span>
                 <span className="font-mono font-bold text-cyan-400">60% a 65% UR</span>
               </div>
             </div>
@@ -338,32 +338,32 @@ export const CebolaAlhoCuraModule: React.FC = () => {
       {/* Conteúdo Aba 3: Vernalização */}
       {activeTab === 'vernalizacao' && (
         <div className="space-y-4">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <ThermometerSnowflake className="w-5 h-5 text-cyan-400" />
               Frigoconservação & Vernalização do Alho-Semente
             </h3>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               O alho nobre (*Allium sativum*) exige acúmulo de horas de frio para induzir a diferenciação dos bulbilhos (dentes). O tratamento térmico a 4°C por 35 a 50 dias quebra a dormência natural e garante 100% de plantas com cabeças graúdas e dentes bem definidos.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Temperatura de Câmara</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Temperatura de Câmara</span>
                 <span className="text-2xl font-black text-white font-mono">4.0°C ± 0.5°C</span>
                 <span className="text-[11px] text-cyan-400 block">Precisão PID</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Índice Visual de Superação (IVS)</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Índice Visual de Superação (IVS)</span>
                 <span className="text-2xl font-black text-emerald-400 font-mono">75% a 80%</span>
-                <span className="text-[11px] text-slate-400 block">Ponto exato de plantio</span>
+                <span className="text-[11px] text-[#66736A] block">Ponto exato de plantio</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Prevenção de Charutos</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Prevenção de Charutos</span>
                 <span className="text-2xl font-black text-emerald-400 font-mono">99.8% Eficácia</span>
-                <span className="text-[11px] text-slate-400 block">Bulbos com 8 a 12 dentes</span>
+                <span className="text-[11px] text-[#66736A] block">Bulbos com 8 a 12 dentes</span>
               </div>
             </div>
           </div>
@@ -373,14 +373,14 @@ export const CebolaAlhoCuraModule: React.FC = () => {
       {/* Conteúdo Aba 4: Simulador */}
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-amber-400" />
               Parâmetros da Safra de Cebola/Alho
             </h3>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Área Plantada (ha)</span>
                 <span className="font-mono text-amber-400">{areaCebolaHa} hectares</span>
               </div>
@@ -396,7 +396,7 @@ export const CebolaAlhoCuraModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Produtividade Bruta (t/ha)</span>
                 <span className="font-mono text-cyan-400">{produtividadeTonHa} t/ha</span>
               </div>
@@ -412,7 +412,7 @@ export const CebolaAlhoCuraModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Preço Comercial Curada (R$/ton)</span>
                 <span className="font-mono text-emerald-400">R$ {precoTonComercialReais.toFixed(2)}</span>
               </div>
@@ -428,7 +428,7 @@ export const CebolaAlhoCuraModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Custo de Manejo e Cura por Ha</span>
                 <span className="font-mono text-rose-400">R$ {custoTotalHaReais.toFixed(2)}</span>
               </div>
@@ -444,39 +444,39 @@ export const CebolaAlhoCuraModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               Retorno Financeiro da Cebolicultura Curada
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Massa Verde</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Massa Verde</span>
                 <span className="font-mono font-bold text-white text-base">
                   {metricas.massaVerdeTotalTon.toLocaleString()} ton
                 </span>
-                <span className="text-[10px] text-slate-400 block">{areaCebolaHa} ha colhidos</span>
+                <span className="text-[10px] text-[#66736A] block">{areaCebolaHa} ha colhidos</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Bulbos Comerciais</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Bulbos Comerciais</span>
                 <span className="font-mono font-bold text-amber-400 text-base">
                   {metricas.massaComercialCuradaTon.toLocaleString()} ton
                 </span>
                 <span className="text-[10px] text-amber-400/80 block">4.8% quebra cura</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Receita Bruta</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Receita Bruta</span>
                 <span className="font-mono font-bold text-white text-base">
                   R$ {(metricas.receitaBrutaReais / 1000000).toFixed(2)}M
                 </span>
-                <span className="text-[10px] text-slate-400 block">Classe 3 Selecionada</span>
+                <span className="text-[10px] text-[#66736A] block">Classe 3 Selecionada</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Lucro Líquido</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Lucro Líquido</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {(metricas.lucroLiquidoReais / 1000000).toFixed(2)}M
                 </span>
@@ -484,15 +484,15 @@ export const CebolaAlhoCuraModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Receita Bruta com Bulbos Curados ({metricas.massaComercialCuradaTon.toLocaleString()} t @ R$ {precoTonComercialReais.toFixed(2)}):</span>
+            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Receita Bruta com Bulbos Curados ({metricas.massaComercialCuradaTon.toLocaleString()} t @ R$ {precoTonComercialReais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-white">
                   R$ {metricas.receitaBrutaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Custos Totais de Sementes Híbridas, Irrigação e Cura Térmica:</span>
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Custos Totais de Sementes Híbridas, Irrigação e Cura Térmica:</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {metricas.custoTotalReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>

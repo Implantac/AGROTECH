@@ -142,19 +142,19 @@ export const CuniculturaIndustrialModule: React.FC = () => {
             <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
               🐇 Cunicultura de Precisão, Carne Nobre & Peles
             </h2>
-            <p className="text-sm text-slate-300 max-w-3xl leading-relaxed">
+            <p className="text-sm text-[#26332A] max-w-3xl leading-relaxed">
               Manejo zootécnico intensivo em gaiolas suspensas climatizadas com bandas de Inseminação Artificial (IA), nutrição de alta fibra digestível, desmame precoce aos 32 dias e aproveitamento integral: carcaça com altíssimo valor biológico e peles curtidas.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Matrizes Ativas</span>
+            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
+              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Matrizes Ativas</span>
               <span className="text-xl font-black text-amber-400">400 cab</span>
-              <span className="text-[10px] text-slate-400 block mt-0.5">Nova Zelândia & Calif.</span>
+              <span className="text-[10px] text-[#66736A] block mt-0.5">Nova Zelândia & Calif.</span>
             </div>
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Abate Anual</span>
+            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
+              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Abate Anual</span>
               <span className="text-xl font-black text-emerald-400">19.552 cab</span>
               <span className="text-[10px] text-emerald-400/80 block mt-0.5">29,4 ton carcaça</span>
             </div>
@@ -164,8 +164,8 @@ export const CuniculturaIndustrialModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Produtividade Matriz</span>
             <Activity className="w-4 h-4 text-emerald-400" />
           </div>
@@ -176,48 +176,48 @@ export const CuniculturaIndustrialModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Rendimento de Carcaça</span>
             <Scale className="w-4 h-4 text-amber-400" />
           </div>
           <div className="text-2xl font-black text-amber-400">58.0%</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             1,51 kg carcaça limpa por animal
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Conversão Alimentar</span>
             <Box className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black text-cyan-400">2.85 kg/kg</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             Ração Peletizada com Alfafa
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
             <DollarSign className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">R$ 817.351,20</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             Margem Líquida de 58.6%
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-slate-800 pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('plantel')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'plantel'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Heart className="w-4 h-4" />
@@ -229,7 +229,7 @@ export const CuniculturaIndustrialModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'reproducao'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Calendar className="w-4 h-4" />
@@ -241,7 +241,7 @@ export const CuniculturaIndustrialModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'carcaca_peles'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Scale className="w-4 h-4" />
@@ -253,7 +253,7 @@ export const CuniculturaIndustrialModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -264,19 +264,19 @@ export const CuniculturaIndustrialModule: React.FC = () => {
       {/* Conteúdo Aba 1: Plantel */}
       {activeTab === 'plantel' && (
         <div className="space-y-4">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Heart className="w-5 h-5 text-amber-400" />
               Lotes de Coelhos e Monitoramento de Ambiência dos Galpões
             </h3>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               Gaiolas de arame galvanizado suspensas com sistema automático de bebedouros tipo nipple, raspadores mecânicos de dejetos e ventilação evaporativa para manter temperatura entre 18°C e 22°C.
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-slate-800 text-slate-400 font-bold uppercase tracking-wider">
+                  <tr className="border-b border-[#EAF4E7] text-[#66736A] font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Lote / Setor</th>
                     <th className="py-3 px-3">Raça / Linhagem</th>
                     <th className="py-3 px-3">Estágio</th>
@@ -291,9 +291,9 @@ export const CuniculturaIndustrialModule: React.FC = () => {
                     <tr key={l.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-white">{l.identificacao}</div>
-                        <div className="text-[11px] text-slate-400 font-mono">{l.id}</div>
+                        <div className="text-[11px] text-[#66736A] font-mono">{l.id}</div>
                       </td>
-                      <td className="py-3.5 px-3 text-slate-300">{l.raca}</td>
+                      <td className="py-3.5 px-3 text-[#26332A]">{l.raca}</td>
                       <td className="py-3.5 px-3">
                         <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
                           {l.estagio}
@@ -321,67 +321,67 @@ export const CuniculturaIndustrialModule: React.FC = () => {
       {/* Conteúdo Aba 2: Reprodução */}
       {activeTab === 'reproducao' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Calendar className="w-5 h-5 text-amber-400" />
               Cronograma de Banda Única (IA a Cada 42 Dias)
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               O manejo em bandas permite sincronizar todas as fêmeas com indução de ovulação por GnRH e inseminação artificial com sêmen heterospérmico diluído em lote único:
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <span className="font-bold text-white block">Dia 0: Inseminação Artificial (IA)</span>
-                <span className="text-slate-400 text-[11px] block mt-0.5">
+                <span className="text-[#66736A] text-[11px] block mt-0.5">
                   Inseminação simultânea das matrizes 11 dias pós-parto anterior (ritmo semi-intensivo).
                 </span>
               </div>
-              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <span className="font-bold text-white block">Dia 12 a 14: Palpação Abdominal</span>
-                <span className="text-slate-400 text-[11px] block mt-0.5">
+                <span className="text-[#66736A] text-[11px] block mt-0.5">
                   Diagnóstico precoce de gestação com acurácia superior a 95%.
                 </span>
               </div>
-              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <span className="font-bold text-white block">Dia 28: Instalação do Ninho com Maravalha</span>
-                <span className="text-slate-400 text-[11px] block mt-0.5">
+                <span className="text-[#66736A] text-[11px] block mt-0.5">
                   A coelha arranca os próprios pelos para forrar o ninho antes do parto no dia 31.
                 </span>
               </div>
-              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <span className="font-bold text-white block">Dia 32 a 35: Desmame dos Láparos</span>
-                <span className="text-slate-400 text-[11px] block mt-0.5">
+                <span className="text-[#66736A] text-[11px] block mt-0.5">
                   Transferência dos láparos para galpão de engorda com peso de 850 a 950g.
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               Índices Zootécnicos Médios Obtidos
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Desempenho com matrizes F1 selecionadas para prolificidade e habilidade materna:
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <span className="text-slate-400">Taxa de Fertilidade à IA:</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+                <span className="text-[#66736A]">Taxa de Fertilidade à IA:</span>
                 <span className="font-mono font-bold text-emerald-400">86.5%</span>
               </div>
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <span className="text-slate-400">Láparos Nascidos Vivos por Parto:</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+                <span className="text-[#66736A]">Láparos Nascidos Vivos por Parto:</span>
                 <span className="font-mono font-bold text-amber-400">9.2 cabeças</span>
               </div>
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <span className="text-slate-400">Idade ao Abate:</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+                <span className="text-[#66736A]">Idade ao Abate:</span>
                 <span className="font-mono font-bold text-cyan-400">70 a 75 dias</span>
               </div>
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <span className="text-slate-400">Peso Vivo Final:</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+                <span className="text-[#66736A]">Peso Vivo Final:</span>
                 <span className="font-mono font-bold text-white">2.50 a 2.70 kg</span>
               </div>
             </div>
@@ -392,32 +392,32 @@ export const CuniculturaIndustrialModule: React.FC = () => {
       {/* Conteúdo Aba 3: Carcaça & Peles */}
       {activeTab === 'carcaca_peles' && (
         <div className="space-y-4">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Scale className="w-5 h-5 text-amber-400" />
               Características Nutricionais da Carne de Coelho e Agregação de Valor
             </h3>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               A carne de coelho é classificada pela FAO/OMS como a proteína animal mais saudável para consumo humano:
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Proteína Bruta</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Proteína Bruta</span>
                 <span className="text-2xl font-black text-white font-mono">22.0%</span>
                 <span className="text-[11px] text-amber-400 block">Superior a frango e bovino</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Gordura Total</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Gordura Total</span>
                 <span className="text-2xl font-black text-emerald-400 font-mono">3.8%</span>
-                <span className="text-[11px] text-slate-400 block">Altamente magra e digestível</span>
+                <span className="text-[11px] text-[#66736A] block">Altamente magra e digestível</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Colesterol</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Colesterol</span>
                 <span className="text-2xl font-black text-cyan-400 font-mono">50 mg / 100g</span>
-                <span className="text-[11px] text-slate-400 block">Recomendada para dietas cardíacas</span>
+                <span className="text-[11px] text-[#66736A] block">Recomendada para dietas cardíacas</span>
               </div>
             </div>
           </div>
@@ -427,14 +427,14 @@ export const CuniculturaIndustrialModule: React.FC = () => {
       {/* Conteúdo Aba 4: Simulador */}
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-amber-400" />
               Parâmetros Zootécnicos do Plantel
             </h3>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Matrizes Ativas</span>
                 <span className="font-mono text-amber-400">{matrizesAtivas} matrizes</span>
               </div>
@@ -450,7 +450,7 @@ export const CuniculturaIndustrialModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Partos por Matriz / Ano</span>
                 <span className="font-mono text-amber-400">{partosPorMatrizAno} partos</span>
               </div>
@@ -466,7 +466,7 @@ export const CuniculturaIndustrialModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Preço Carcaça (R$/kg)</span>
                 <span className="font-mono text-emerald-400">R$ {precoKgCarcacaReais.toFixed(2)}</span>
               </div>
@@ -482,7 +482,7 @@ export const CuniculturaIndustrialModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Preço Pele Curtida (R$/pele)</span>
                 <span className="font-mono text-emerald-400">R$ {precoPeleCurtidaReais.toFixed(2)}</span>
               </div>
@@ -498,39 +498,39 @@ export const CuniculturaIndustrialModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               DRE Econômico da Cunicultura Comercial
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Abates Anuais</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Abates Anuais</span>
                 <span className="font-mono font-bold text-white text-base">
                   {metricas.coelhosAbatidosAno.toLocaleString()} cab
                 </span>
-                <span className="text-[10px] text-slate-400 block">{taxaSobrevivenciaEngordaPct}% engorda</span>
+                <span className="text-[10px] text-[#66736A] block">{taxaSobrevivenciaEngordaPct}% engorda</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Carne Limpa</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Carne Limpa</span>
                 <span className="font-mono font-bold text-amber-400 text-base">
                   {(metricas.carneCarcacaKgAno / 1000).toFixed(1)} ton
                 </span>
                 <span className="text-[10px] text-amber-400/80 block">{rendimentoCarcacaPct}% rendimento</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Receita Bruta</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Receita Bruta</span>
                 <span className="font-mono font-bold text-white text-base">
                   R$ {(metricas.receitaBrutaTotalReais / 1000).toFixed(0)}k
                 </span>
-                <span className="text-[10px] text-slate-400 block">Carne + Peles</span>
+                <span className="text-[10px] text-[#66736A] block">Carne + Peles</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Lucro Líquido</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Lucro Líquido</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {(metricas.lucroLiquidoAnoReais / 1000).toFixed(0)}k
                 </span>
@@ -538,21 +538,21 @@ export const CuniculturaIndustrialModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Venda de Carne de Coelho ({metricas.carneCarcacaKgAno.toLocaleString()} kg @ R$ {precoKgCarcacaReais.toFixed(2)}):</span>
+            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Venda de Carne de Coelho ({metricas.carneCarcacaKgAno.toLocaleString()} kg @ R$ {precoKgCarcacaReais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-white">
                   R$ {metricas.receitaCarneReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Venda de Peles Curtidas ({metricas.coelhosAbatidosAno.toLocaleString()} peles @ R$ {precoPeleCurtidaReais.toFixed(2)}):</span>
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Venda de Peles Curtidas ({metricas.coelhosAbatidosAno.toLocaleString()} peles @ R$ {precoPeleCurtidaReais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-amber-400">
                   + R$ {metricas.receitaPelesReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Custo Total de Alimentação, Sanidade e Ambiência:</span>
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Custo Total de Alimentação, Sanidade e Ambiência:</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {metricas.custoTotalAnoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>

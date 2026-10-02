@@ -235,7 +235,7 @@ export const DaninhasResistentesModule: React.FC = () => {
                       {item.ingredienteAtivo}
                     </div>
                   </div>
-                  <span className="px-2 py-1 bg-slate-800 text-slate-300 border border-slate-700 rounded text-[10px] font-bold shrink-0">
+                  <span className="px-2 py-1 bg-slate-800 text-[#26332A] border border-slate-700 rounded text-[10px] font-bold shrink-0">
                     {item.momento === 'DESSECACAO_1' ? '1ª Aplicação (-14 dias)' : item.momento === 'DESSECACAO_2' ? '2ª Aplicação (-2 dias)' : 'Plante-Aplique'}
                   </span>
                 </div>

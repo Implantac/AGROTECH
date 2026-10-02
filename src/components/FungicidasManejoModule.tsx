@@ -145,7 +145,7 @@ export const FungicidasManejoModule: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6 animate-fade-in text-slate-100">
+    <div className="space-y-6 animate-fade-in text-[#1D4B38]">
       {/* Cabeçalho */}
       <div className="bg-gradient-to-r from-emerald-950/40 via-slate-900 to-slate-900 border border-emerald-800/40 rounded-2xl p-6 shadow-xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -162,7 +162,7 @@ export const FungicidasManejoModule: React.FC = () => {
                     Diretrizes FRAC Brasil
                   </span>
                 </h2>
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-[#66736A]">
                   Proteção de área foliar contra Ferrugem Asiática e Mancha-Alvo, rotação de sítio-específicos e adição mandatória de multissítios.
                 </p>
               </div>
@@ -189,8 +189,8 @@ export const FungicidasManejoModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: Eficácia Projetada */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Eficácia de Controle</span>
             <Sparkles className="w-4 h-4 text-emerald-400" />
           </div>
@@ -203,14 +203,14 @@ export const FungicidasManejoModule: React.FC = () => {
         </div>
 
         {/* KPI 2: Sacas Salvas da Desfolha */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Sacas Salvas da Desfolha</span>
             <TrendingUp className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
             +{auditMetrics.sacasPreservadasHa.toFixed(1)}{' '}
-            <span className="text-xs font-normal text-slate-400">sc/ha</span>
+            <span className="text-xs font-normal text-[#66736A]">sc/ha</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             R$ {auditMetrics.receitaProtegidaHa.toFixed(2)}/ha em grãos preservados.
@@ -218,8 +218,8 @@ export const FungicidasManejoModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Cobertura Multissítio */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Blindagem Multissítio</span>
             <Layers className="w-4 h-4 text-amber-400" />
           </div>
@@ -232,8 +232,8 @@ export const FungicidasManejoModule: React.FC = () => {
         </div>
 
         {/* KPI 4: ROI Econômico */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Retorno Econômico (ROI)</span>
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
           </div>
@@ -252,18 +252,18 @@ export const FungicidasManejoModule: React.FC = () => {
       {/* Grid Principal: Timeline de Aplicações e Rotação FRAC */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Linha do Tempo e Configuração das Aplicações */}
-        <div className="lg:col-span-2 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-emerald-400" />
                 Programa Sequencial de Fungicidas da Safra
               </h3>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-[#66736A]">
                 Auditoria de sítios específicos (FRAC) e inclusão de multissítios em cada entrada.
               </p>
             </div>
-            <span className="text-xs font-mono text-slate-400">
+            <span className="text-xs font-mono text-[#66736A]">
               {aplicacoes.length} Entradas Programadas
             </span>
           </div>
@@ -272,7 +272,7 @@ export const FungicidasManejoModule: React.FC = () => {
             {aplicacoes.map((app, idx) => (
               <div
                 key={app.id}
-                className="p-4 bg-slate-950 border border-slate-800 rounded-xl hover:border-slate-700 transition-all space-y-3"
+                className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl hover:border-slate-700 transition-all space-y-3"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
@@ -281,7 +281,7 @@ export const FungicidasManejoModule: React.FC = () => {
                     </span>
                     <div>
                       <h4 className="text-xs font-bold text-white">{app.estadioFenologico}</h4>
-                      <p className="text-[11px] text-slate-400 font-mono">
+                      <p className="text-[11px] text-[#66736A] font-mono">
                         {app.diasAposSemeadura} DAE • {app.produtoComercial}
                       </p>
                     </div>
@@ -291,7 +291,7 @@ export const FungicidasManejoModule: React.FC = () => {
                     <span
                       className={`text-[11px] font-mono px-2 py-0.5 rounded border self-start sm:self-auto ${
                         app.intervaloAposUltimaDias <= 16
-                          ? 'bg-slate-800 text-slate-300 border-slate-700'
+                          ? 'bg-slate-800 text-[#26332A] border-slate-700'
                           : 'bg-rose-500/20 text-rose-300 border-rose-500/30'
                       }`}
                     >
@@ -308,7 +308,7 @@ export const FungicidasManejoModule: React.FC = () => {
                     {app.sitiosEspecificos.map((frac) => (
                       <span
                         key={frac}
-                        className="px-2 py-0.5 rounded bg-slate-900 text-cyan-300 font-mono text-[10px] border border-slate-800"
+                        className="px-2 py-0.5 rounded bg-slate-900 text-cyan-300 font-mono text-[10px] border border-[#EAF4E7]"
                       >
                         {frac}
                       </span>
@@ -317,7 +317,7 @@ export const FungicidasManejoModule: React.FC = () => {
 
                   {/* Seletor de Multissítio Protetor */}
                   <div className="flex items-center gap-1.5">
-                    <span className="text-[10px] text-slate-400">Multissítio:</span>
+                    <span className="text-[10px] text-[#66736A]">Multissítio:</span>
                     {(['MANCOZEB', 'CLOROTALONIL', 'COBRE', 'NENHUM'] as const).map((ms) => (
                       <button
                         key={ms}
@@ -327,7 +327,7 @@ export const FungicidasManejoModule: React.FC = () => {
                             ? ms === 'NENHUM'
                               ? 'bg-rose-500/20 text-rose-300 border-rose-500/40'
                               : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
-                            : 'bg-slate-900 text-slate-500 border-slate-800 hover:text-white'
+                            : 'bg-slate-900 text-slate-500 border-[#EAF4E7] hover:text-white'
                         }`}
                       >
                         {ms === 'MANCOZEB'
@@ -346,12 +346,12 @@ export const FungicidasManejoModule: React.FC = () => {
           </div>
 
           {/* Banner Técnico FRAC Brasil */}
-          <div className="p-4 bg-slate-950/60 border border-slate-800 rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-emerald-400 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes Oficiais do Comitê de Ação a Resistência a Fungicidas (FRAC):
             </div>
-            <ul className="list-disc list-inside text-slate-400 space-y-1">
+            <ul className="list-disc list-inside text-[#66736A] space-y-1">
               <li>
                 <strong>Nunca aplique sítio-específicos isolados:</strong> Triazóis (FRAC 3), Estrobilurinas (FRAC 11) e Carboxamidas (FRAC 7) devem ser sempre associados a protetores multissítios.
               </li>
@@ -366,7 +366,7 @@ export const FungicidasManejoModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Parâmetros do Talhão e Simulador de Proteção */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Bug className="w-5 h-5 text-emerald-400" />
             Parâmetros da Lavoura
@@ -374,56 +374,56 @@ export const FungicidasManejoModule: React.FC = () => {
 
           <div className="space-y-4 text-xs">
             <div>
-              <label className="text-slate-400 font-medium block mb-1">
+              <label className="text-[#66736A] font-medium block mb-1">
                 Produtividade Alvo do Talhão (sc/ha)
               </label>
               <input
                 type="number"
                 value={produtividadeMetaScHa}
                 onChange={(e) => setProdutividadeMetaScHa(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-slate-400 font-medium block mb-1">
+              <label className="text-[#66736A] font-medium block mb-1">
                 Área do Talhão Auditado (ha)
               </label>
               <input
                 type="number"
                 value={areaTalhaoHa}
                 onChange={(e) => setAreaTalhaoHa(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-slate-400 font-medium block mb-1">
+              <label className="text-[#66736A] font-medium block mb-1">
                 Preço da Soja Comercial (R$/saca)
               </label>
               <input
                 type="number"
                 value={precoSojaSc}
                 onChange={(e) => setPrecoSojaSc(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             {/* Quadro Resumo Econômico */}
-            <div className="pt-3 border-t border-slate-800 space-y-2">
+            <div className="pt-3 border-t border-[#EAF4E7] space-y-2">
               <div className="flex justify-between">
-                <span className="text-slate-400">Investimento Multissítio:</span>
-                <span className="text-slate-200 font-mono">
+                <span className="text-[#66736A]">Investimento Multissítio:</span>
+                <span className="text-[#26332A] font-mono">
                   R$ {auditMetrics.custoMultissitioHa.toFixed(2)}/ha
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Receita Bruta Protegida:</span>
+                <span className="text-[#66736A]">Receita Bruta Protegida:</span>
                 <span className="text-emerald-400 font-mono font-bold">
                   +R$ {auditMetrics.receitaProtegidaHa.toFixed(2)}/ha
                 </span>
               </div>
-              <div className="flex justify-between border-t border-slate-800 pt-2 font-bold">
+              <div className="flex justify-between border-t border-[#EAF4E7] pt-2 font-bold">
                 <span className="text-white">Lucro Líquido Preservado:</span>
                 <span className="text-cyan-400 font-mono">
                   +R$ {auditMetrics.beneficioLiquidoHa.toFixed(2)}/ha

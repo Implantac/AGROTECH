@@ -110,7 +110,7 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-800 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-500 flex items-center justify-center shadow-lg shadow-amber-500/20">
             <Egg className="w-7 h-7 text-slate-950" />
@@ -124,7 +124,7 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
                 Módulo 122 • Cage-Free, Conversão kg/dz & Gema Roche 14
               </span>
             </div>
-            <p className="text-sm text-slate-400 mt-1">
+            <p className="text-sm text-[#66736A] mt-1">
               Controle zootécnico de taxa de postura, conversão alimentar por dúzia, espessura de casca e agregação de valor em ovos especiais.
             </p>
           </div>
@@ -143,9 +143,9 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Produção Anual</span>
+            <span className="text-xs font-medium text-[#66736A]">Produção Anual</span>
             <Egg className="w-5 h-5 text-amber-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -156,9 +156,9 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Conversão Alimentar</span>
+            <span className="text-xs font-medium text-[#66736A]">Conversão Alimentar</span>
             <Scale className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -169,9 +169,9 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Faturamento Anual</span>
+            <span className="text-xs font-medium text-[#66736A]">Faturamento Anual</span>
             <TrendingUp className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -182,9 +182,9 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Lucro Líquido Anual</span>
+            <span className="text-xs font-medium text-[#66736A]">Lucro Líquido Anual</span>
             <Award className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -197,13 +197,13 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-800 pb-2">
+      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('galpoes')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'galpoes'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -215,7 +215,7 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'qualidade'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -227,7 +227,7 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'nutricao'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Scale className="w-4 h-4" />
@@ -239,7 +239,7 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -249,15 +249,15 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'galpoes' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-slate-800 p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Egg className="w-5 h-5 text-amber-400" />
             Galpões Automatizados & Monitoramento de Postura Diária
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-300">
-              <thead className="text-xs uppercase bg-slate-950/60 text-slate-400">
+            <table className="w-full text-left text-sm text-[#26332A]">
+              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
                 <tr>
                   <th className="px-4 py-3">Galpão / Município</th>
                   <th className="px-4 py-3">Linhagem</th>
@@ -274,7 +274,7 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
                     <td className="px-4 py-3 font-medium text-white">{g.galpao}</td>
                     <td className="px-4 py-3 text-amber-400 font-semibold">{g.linhagem}</td>
                     <td className="px-4 py-3">
-                      <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-slate-800 text-slate-300">
+                      <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-slate-800 text-[#26332A]">
                         {g.sistemaAlojamento}
                       </span>
                     </td>
@@ -296,44 +296,44 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
 
       {activeTab === 'qualidade' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Award className="w-5 h-5 text-amber-400" />
               <h4 className="text-sm font-semibold text-white">Espessura de Casca</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Fornecimento de carbonato de cálcio particulado graúdo no período vespertino garantindo espessura superior a 0.35 mm e resistência à trinca no transporte.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Meta Zootécnica:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Meta Zootécnica:</span>
               <span className="text-sm font-bold text-amber-400 block">superior a 0.36 mm de espessura</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Ovoscopia Eletrônica</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Varredura óptica por LED para descarte automático de microfissuras, manchas de sangue internas e ovos deformados antes da embalagem final.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Índice de Quebra:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Índice de Quebra:</span>
               <span className="text-sm font-bold text-emerald-400 block">menor que 1.2% total</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Sparkles className="w-5 h-5 text-yellow-400" />
               <h4 className="text-sm font-semibold text-white">Classificação por Tipo</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Ovo Tipo Extra (60g a 65g) e Tipo Jumbo (acima de 66g) com câmara de ar intacta e unidade Haugh superior a 75 (frescor máximo).
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Unidade Haugh (Albumen):</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Unidade Haugh (Albumen):</span>
               <span className="text-sm font-bold text-yellow-400 block">superior a 80 UH (Classe AA)</span>
             </div>
           </div>
@@ -341,30 +341,30 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
       )}
 
       {activeTab === 'nutricao' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Scale className="w-5 h-5 text-yellow-400" />
             Nutrição com Carotenóides Naturais & Pigmentação de Gema (Leque Roche)
           </h3>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-[#66736A]">
             A inclusão de extratos naturais de urucum e tagetes na ração intensifica a coloração amarelo-alaranjada da gema, atendendo à preferência do consumidor e agregando valor nas gôndolas.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Coloração de Gema</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Coloração de Gema</span>
               <p className="text-lg font-bold text-amber-400 mt-1">Leque DSM 13 a 14</p>
               <span className="text-[11px] text-slate-500">Laranja intenso natural</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Enriquecimento Ômega-3</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Enriquecimento Ômega-3</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">+180 mg DHA/ovo</p>
               <span className="text-[11px] text-emerald-500/80">Adição de farelo de linhaça</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Certificação Cage-Free</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Certificação Cage-Free</span>
               <p className="text-lg font-bold text-white mt-1">HFAC / Certified Humane</p>
               <span className="text-[11px] text-slate-500">Prêmio de R$ 1,80 a R$ 2,50 por dúzia</span>
             </div>
@@ -373,7 +373,7 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-amber-400" />
             Simulador de Eficiência Alimentar & Margem por Dúzia
@@ -381,58 +381,58 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-slate-400">Aves Alojadas</label>
+              <label className="text-xs font-medium text-[#66736A]">Aves Alojadas</label>
               <input
                 type="number"
                 value={avesAlojadas}
                 onChange={(e) => setAvesAlojadas(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Taxa de Postura (%)</label>
+              <label className="text-xs font-medium text-[#66736A]">Taxa de Postura (%)</label>
               <input
                 type="number"
                 step="0.5"
                 value={taxaPosturaDiariaPct}
                 onChange={(e) => setTaxaPosturaDiariaPct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Preço Dúzia (R$)</label>
+              <label className="text-xs font-medium text-[#66736A]">Preço Dúzia (R$)</label>
               <input
                 type="number"
                 step="0.1"
                 value={precoDuziaOvosReais}
                 onChange={(e) => setPrecoDuziaOvosReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Custo Ração (R$/kg)</label>
+              <label className="text-xs font-medium text-[#66736A]">Custo Ração (R$/kg)</label>
               <input
                 type="number"
                 step="0.05"
                 value={custoKgRacaoReais}
                 onChange={(e) => setCustoKgRacaoReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-slate-950/60 rounded-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-slate-400 block">Eficiência de Conversão Calculada:</span>
+              <span className="text-xs text-[#66736A] block">Eficiência de Conversão Calculada:</span>
               <span className="text-base font-bold text-emerald-400">
                 {metricas.conversaoKgPorDuzia} kg de ração / dúzia produzida
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-slate-400 block">Lucro Líquido Anual Projetado:</span>
+              <span className="text-xs text-[#66736A] block">Lucro Líquido Anual Projetado:</span>
               <span className="text-xl font-bold text-emerald-400">
                 R$ {metricas.lucroLiquidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

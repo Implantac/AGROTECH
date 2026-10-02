@@ -96,7 +96,7 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-800 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
             <Recycle className="w-7 h-7 text-slate-950" />
@@ -110,7 +110,7 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
                 Módulo 135 • Calculadora RenovaCalc & Custódia B3
               </span>
             </div>
-            <p className="text-sm text-slate-400 mt-1">
+            <p className="text-sm text-[#66736A] mt-1">
               Avaliação de ciclo de vida (ACV) do poço à roda, elegibilidade territorial CAR sem desmatamento pós-2018 e emissão de títulos CBIO escriturados na B3.
             </p>
           </div>
@@ -129,9 +129,9 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">CBIOs Emitidos</span>
+            <span className="text-xs font-medium text-[#66736A]">CBIOs Emitidos</span>
             <Award className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -142,9 +142,9 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Receita Bruta B3</span>
+            <span className="text-xs font-medium text-[#66736A]">Receita Bruta B3</span>
             <DollarSign className="w-5 h-5 text-teal-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -155,9 +155,9 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Adicional por Litro</span>
+            <span className="text-xs font-medium text-[#66736A]">Adicional por Litro</span>
             <TrendingUp className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -168,9 +168,9 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Elegibilidade CAR</span>
+            <span className="text-xs font-medium text-[#66736A]">Elegibilidade CAR</span>
             <ShieldCheck className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -183,13 +183,13 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-800 pb-2">
+      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('certificados')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'certificados'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -201,7 +201,7 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'renovacalc'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Sliders className="w-4 h-4" />
@@ -213,7 +213,7 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'b3mercado'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Landmark className="w-4 h-4" />
@@ -225,7 +225,7 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -235,15 +235,15 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'certificados' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-slate-800 p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Recycle className="w-5 h-5 text-emerald-400" />
             Certificados ANP Homologados para Comercialização
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-300">
-              <thead className="text-xs uppercase bg-slate-950/60 text-slate-400">
+            <table className="w-full text-left text-sm text-[#26332A]">
+              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
                 <tr>
                   <th className="px-4 py-3">Certificado / Usina</th>
                   <th className="px-4 py-3">Biocombustível</th>
@@ -259,7 +259,7 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
                   <tr key={c.id} className="hover:bg-slate-800/30">
                     <td className="px-4 py-3 font-semibold text-white">
                       <span>{c.usinaEmissora}</span>
-                      <span className="text-[11px] block font-mono text-slate-400">{c.id}</span>
+                      <span className="text-[11px] block font-mono text-[#66736A]">{c.id}</span>
                     </td>
                     <td className="px-4 py-3 text-emerald-400 font-bold">{c.biocombustivel}</td>
                     <td className="px-4 py-3 font-mono">{c.volumeProduzidoM3.toLocaleString('pt-BR')} m³</td>
@@ -281,44 +281,44 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
 
       {activeTab === 'renovacalc' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Sliders className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Nota de Eficiência (NEEA)</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Diferença entre a intensidade de carbono da gasolina fóssil (87.4 gCO2/MJ) e do etanol produzido pela usina. Quanto menor a emissão industrial, maior a geração de CBIOs.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">NEEA Homologada:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">NEEA Homologada:</span>
               <span className="text-sm font-bold text-emerald-400 block">62.8 gCO2eq/MJ de energia limpa</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <ShieldCheck className="w-5 h-5 text-teal-400" />
               <h4 className="text-sm font-semibold text-white">Fração Elegível da Biomassa</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Auditoria geoespacial de cada talhão de fornecedor de cana. Talhões sem CAR ativo ou com desmatamento após 2018 são expurgados do cômputo da elegibilidade.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Índice de Elegibilidade:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Índice de Elegibilidade:</span>
               <span className="text-sm font-bold text-teal-400 block">93.5% da cana entregue</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-yellow-400" />
               <h4 className="text-sm font-semibold text-white">Vinhaça & Torta de Filtro</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               A substituição de adubos nitrogenados químicos pela recirculação de vinhaça concentrada e torta de filtro reduz a pegada agrícola em até 18%.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Bônus RenovaCalc:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Bônus RenovaCalc:</span>
               <span className="text-sm font-bold text-yellow-400 block">+4.2 CBIOs por mil metros cúbicos</span>
             </div>
           </div>
@@ -326,39 +326,39 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
       )}
 
       {activeTab === 'b3mercado' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Landmark className="w-5 h-5 text-emerald-400" />
             Negociação em Ambiente B3 & Metas das Distribuidoras (Compromisso Cbios)
           </h3>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-[#66736A]">
             As distribuidoras de combustíveis fósseis são obrigadas por lei a adquirir CBIOs anualmente para comprovar a descarbonização da sua matriz de vendas, garantindo demanda e liquidez perene no pregão da B3.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Cotação Atual B3</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Cotação Atual B3</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">R$ 95,00 / CBIO</p>
-              <span className="text-[11px] text-slate-400">Liquidez D+1 garantida</span>
+              <span className="text-[11px] text-[#66736A]">Liquidez D+1 garantida</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Custódia Registrada</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Custódia Registrada</span>
               <p className="text-lg font-bold text-teal-400 mt-1">Banco Escriturador</p>
-              <span className="text-[11px] text-slate-400">Emissão 100% eletrônica</span>
+              <span className="text-[11px] text-[#66736A]">Emissão 100% eletrônica</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Meta Anual Brasil</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Meta Anual Brasil</span>
               <p className="text-lg font-bold text-yellow-400 mt-1">42 Milhões de CBIOs</p>
-              <span className="text-[11px] text-slate-400">Meta compulsória estabelecida pelo CNPE</span>
+              <span className="text-[11px] text-[#66736A]">Meta compulsória estabelecida pelo CNPE</span>
             </div>
           </div>
         </div>
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-emerald-400" />
             Simulador de Faturamento RenovaBio & Impacto por Litro
@@ -366,58 +366,58 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-slate-400">Etanol Produzido (m³)</label>
+              <label className="text-xs font-medium text-[#66736A]">Etanol Produzido (m³)</label>
               <input
                 type="number"
                 value={etanolProduzidoM3}
                 onChange={(e) => setEtanolProduzidoM3(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Biomassa Elegível (%)</label>
+              <label className="text-xs font-medium text-[#66736A]">Biomassa Elegível (%)</label>
               <input
                 type="number"
                 step="0.5"
                 value={fracaoBiomassaElegivelPct}
                 onChange={(e) => setFracaoBiomassaElegivelPct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Nota NEEA (gCO2/MJ)</label>
+              <label className="text-xs font-medium text-[#66736A]">Nota NEEA (gCO2/MJ)</label>
               <input
                 type="number"
                 step="0.5"
                 value={notaEficienciaEnergeticaGCo2Mj}
                 onChange={(e) => setNotaEficienciaEnergeticaGCo2Mj(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Preço CBIO B3 (R$)</label>
+              <label className="text-xs font-medium text-[#66736A]">Preço CBIO B3 (R$)</label>
               <input
                 type="number"
                 step="1"
                 value={precoMedioCbioB3Reais}
                 onChange={(e) => setPrecoMedioCbioB3Reais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-slate-950/60 rounded-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-slate-400 block">Total de CBIOs Gerados:</span>
+              <span className="text-xs text-[#66736A] block">Total de CBIOs Gerados:</span>
               <span className="text-base font-bold text-emerald-400">
                 {metricas.cbiosGerados.toLocaleString('pt-BR')} CBIOs escriturados
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-slate-400 block">Lucro Líquido RenovaBio:</span>
+              <span className="text-xs text-[#66736A] block">Lucro Líquido RenovaBio:</span>
               <span className="text-xl font-bold text-teal-400">
                 R$ {metricas.lucroLiquidoCbiosReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

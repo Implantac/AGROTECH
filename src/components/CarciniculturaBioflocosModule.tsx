@@ -136,19 +136,19 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
             <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
               🦐 Carcinicultura BFT & Litopenaeus vannamei
             </h2>
-            <p className="text-sm text-slate-300 max-w-3xl leading-relaxed">
+            <p className="text-sm text-[#26332A] max-w-3xl leading-relaxed">
               Cultivo superintensivo de camarão marinho em estufas cobertas com tecnologia de bioflocos bacterianos (BFT): relação C:N equilibrada, conversão de amônia em alimento proteico vivo, aeração difusa contínua e biosseguridade total contra Mancha Branca.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Volume Útil</span>
+            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
+              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Volume Útil</span>
               <span className="text-xl font-black text-teal-400">1.200 m³</span>
-              <span className="text-[10px] text-slate-400 block mt-0.5">4 Tanques BFT</span>
+              <span className="text-[10px] text-[#66736A] block mt-0.5">4 Tanques BFT</span>
             </div>
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Despesca Anual</span>
+            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
+              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Despesca Anual</span>
               <span className="text-xl font-black text-emerald-400">10.986 kg</span>
               <span className="text-[10px] text-emerald-400/80 block mt-0.5">3.5 Ciclos/Ano</span>
             </div>
@@ -158,8 +158,8 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-teal-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-teal-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Relação C:N Atual</span>
             <Activity className="w-4 h-4 text-emerald-400" />
           </div>
@@ -170,48 +170,48 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-teal-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-teal-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Densidade de Povoamento</span>
             <Waves className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black text-cyan-400">220 cam / m³</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             Superintensivo em Estufa Plástica
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-teal-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-teal-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Conversão Alimentar (CA)</span>
             <Scale className="w-4 h-4 text-lime-400" />
           </div>
           <div className="text-2xl font-black text-lime-400">1.25 kg/kg</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             Biofloco Suplementa 25% da Dieta
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-teal-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-teal-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
             <DollarSign className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">R$ 170.290,75</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             Receita: R$ 373,5k • R$ 9,16/m³
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-slate-800 pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('tanques_bft')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'tanques_bft'
               ? 'bg-teal-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Waves className="w-4 h-4" />
@@ -223,7 +223,7 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'manejo_carbono'
               ? 'bg-teal-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Droplets className="w-4 h-4" />
@@ -235,7 +235,7 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'biometria'
               ? 'bg-teal-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Scale className="w-4 h-4" />
@@ -247,7 +247,7 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
               ? 'bg-teal-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -258,19 +258,19 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
       {/* Conteúdo Aba 1: Tanques BFT */}
       {activeTab === 'tanques_bft' && (
         <div className="space-y-4">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Waves className="w-5 h-5 text-teal-400" />
               Telemetria e Parâmetros Físico-Químicos dos Tanques Circulares
             </h3>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               O sistema opera sem renovação de água (circuito fechado), onde bactérias heterotróficas aeróbicas assimilam compostos nitrogenados diretamente através da suplementação de fontes de carbono orgânico.
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-slate-800 text-slate-400 font-bold uppercase tracking-wider">
+                  <tr className="border-b border-[#EAF4E7] text-[#66736A] font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Tanque / Setor</th>
                     <th className="py-3 px-3">Volume</th>
                     <th className="py-3 px-3">Dias Cultivo</th>
@@ -287,10 +287,10 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
                     <tr key={t.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-white">{t.identificacao}</div>
-                        <div className="text-[11px] text-slate-400 font-mono">{t.id}</div>
+                        <div className="text-[11px] text-[#66736A] font-mono">{t.id}</div>
                       </td>
-                      <td className="py-3.5 px-3 font-mono text-slate-200">{t.volumeM3} m³</td>
-                      <td className="py-3.5 px-3 font-mono text-slate-300">{t.diasCultivo} dias</td>
+                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{t.volumeM3} m³</td>
+                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{t.diasCultivo} dias</td>
                       <td className="py-3.5 px-3 font-mono font-bold text-white">{t.pesoMedioGramas} g</td>
                       <td className="py-3.5 px-3 font-mono font-bold text-teal-400">{t.oxigenioDissolvidoMgL} mg/L</td>
                       <td className="py-3.5 px-3 font-mono text-emerald-400">{t.amoniaTanMgL} mg/L</td>
@@ -313,59 +313,59 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
       {/* Conteúdo Aba 2: Manejo de Carbono */}
       {activeTab === 'manejo_carbono' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Droplets className="w-5 h-5 text-teal-400" />
               Cálculo Estequiométrico da Relação C:N
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Para cada grama de nitrogênio amoniacal gerado pela excreção dos camarões e sobras de ração, adiciona-se carbono orgânico (melaço de cana com 50% de carbono) para converter o nitrogênio em biomassa bacteriana celular (proteína microbiana).
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <span className="font-bold text-white block">Equação de Ebeling & Avnimelech</span>
-                <span className="text-slate-400 text-[11px] block mt-0.5">
+                <span className="text-[#66736A] text-[11px] block mt-0.5">
                   ΔC = ΔN × (Relação C:N) → Para manter C:N em 14:1, aplica-se aproximadamente 600g de melaço para cada 1 kg de ração comercial (35% PB) consumida no tanque.
                 </span>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <span className="font-bold text-white block">Aeração de Fundo com Tubos Aero-Tube</span>
-                <span className="text-slate-400 text-[11px] block mt-0.5">
+                <span className="text-[#66736A] text-[11px] block mt-0.5">
                   Microbolhas contínuas que mantêm os bioflocos em suspensão homogênea na coluna d'água sem decantação anaeróbica no fundo cônico.
                 </span>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <span className="font-bold text-white block">Alcalinidade e Carbonato de Cálcio</span>
-                <span className="text-slate-400 text-[11px] block mt-0.5">
+                <span className="text-[#66736A] text-[11px] block mt-0.5">
                   A atividade bacteriana consome bicarbonatos. Mantém-se alcalinidade &gt; 140 mg/L CaCO₃ com cal hidratada ou bicarbonato de sódio.
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               Volume de Biofloco (Cone Imhoff)
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Controle do volume de sólidos suspensos decantáveis em 15 minutos:
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <span className="text-slate-400">Faixa Ótima de Bioflocos:</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+                <span className="text-[#66736A]">Faixa Ótima de Bioflocos:</span>
                 <span className="font-mono font-bold text-emerald-400">25 a 40 mL/L</span>
               </div>
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <span className="text-slate-400">Ação se &gt; 45 mL/L:</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+                <span className="text-[#66736A]">Ação se &gt; 45 mL/L:</span>
                 <span className="font-mono font-bold text-amber-400">Acionar Clarificador / Decantador</span>
               </div>
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <span className="text-slate-400">Ação se &lt; 20 mL/L:</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+                <span className="text-[#66736A]">Ação se &lt; 20 mL/L:</span>
                 <span className="font-mono font-bold text-cyan-400">Inocular Probiótico e Melaço</span>
               </div>
             </div>
@@ -376,32 +376,32 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
       {/* Conteúdo Aba 3: Biometria */}
       {activeTab === 'biometria' && (
         <div className="space-y-4">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Scale className="w-5 h-5 text-teal-400" />
               Acompanhamento de Crescimento e Calibre Comercial
             </h3>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               Amostragens semanais com tarrafa biométrica: os camarões criados em bioflocos crescem em média 1,4 g/semana devido à suplementação contínua de ácidos graxos essenciais e microrganismos vivos.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Peso Alvo Despesca</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Peso Alvo Despesca</span>
                 <span className="text-2xl font-black text-white font-mono">14.5 gramas</span>
                 <span className="text-[11px] text-teal-400 block">Calibre 60/70 (Alta Demanda)</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Taxa de Sobrevivência</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Taxa de Sobrevivência</span>
                 <span className="text-2xl font-black text-emerald-400 font-mono">82.0%</span>
-                <span className="text-[11px] text-slate-400 block">Ambiente Fechado Protegido</span>
+                <span className="text-[11px] text-[#66736A] block">Ambiente Fechado Protegido</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Produtividade Efetiva</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Produtividade Efetiva</span>
                 <span className="text-2xl font-black text-cyan-400 font-mono">9.16 kg / m³ / ano</span>
-                <span className="text-[11px] text-slate-400 block">15x superior a viveiros de terra</span>
+                <span className="text-[11px] text-[#66736A] block">15x superior a viveiros de terra</span>
               </div>
             </div>
           </div>
@@ -411,14 +411,14 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
       {/* Conteúdo Aba 4: Simulador */}
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-teal-400" />
               Parâmetros da Carcinicultura
             </h3>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Volume Útil Total</span>
                 <span className="font-mono text-teal-400">{volumeTotalM3} m³</span>
               </div>
@@ -434,7 +434,7 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Densidade de Camarões / m³</span>
                 <span className="font-mono text-teal-400">{densidadeM3} cam/m³</span>
               </div>
@@ -450,7 +450,7 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Preço Camarão Despescado (R$/kg)</span>
                 <span className="font-mono text-emerald-400">R$ {precoKgCamaraoReais.toFixed(2)}</span>
               </div>
@@ -466,7 +466,7 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Custo Total por kg Despescado</span>
                 <span className="font-mono text-rose-400">R$ {custoTotalKgReais.toFixed(2)}</span>
               </div>
@@ -482,39 +482,39 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               DRE da Carcinicultura BFT & Margem Operacional
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Despesca/Ciclo</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Despesca/Ciclo</span>
                 <span className="font-mono font-bold text-white text-base">
                   {(metricasCarcinicultura.biomassaDespescadaCicloKg / 1000).toFixed(2)} ton
                 </span>
-                <span className="text-[10px] text-slate-400 block">{taxaSobrevivenciaPct}% sobrevivência</span>
+                <span className="text-[10px] text-[#66736A] block">{taxaSobrevivenciaPct}% sobrevivência</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Produção Anual</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Produção Anual</span>
                 <span className="font-mono font-bold text-teal-400 text-base">
                   {(metricasCarcinicultura.biomassaDespescadaAnualKg / 1000).toFixed(2)} ton
                 </span>
                 <span className="text-[10px] text-teal-400/80 block">{ciclosAno} ciclos/ano</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Receita Bruta</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Receita Bruta</span>
                 <span className="font-mono font-bold text-white text-base">
                   R$ {(metricasCarcinicultura.receitaBrutaAnual / 1000).toFixed(0)}k
                 </span>
-                <span className="text-[10px] text-slate-400 block">Camarão Fresco</span>
+                <span className="text-[10px] text-[#66736A] block">Camarão Fresco</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Lucro Líquido Anual</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Lucro Líquido Anual</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {(metricasCarcinicultura.lucroLiquidoAnual / 1000).toFixed(0)}k
                 </span>
@@ -522,15 +522,15 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Receita Bruta com Despescas ({metricasCarcinicultura.biomassaDespescadaAnualKg.toLocaleString()} kg @ R$ {precoKgCamaraoReais.toFixed(2)}):</span>
+            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Receita Bruta com Despescas ({metricasCarcinicultura.biomassaDespescadaAnualKg.toLocaleString()} kg @ R$ {precoKgCamaraoReais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-emerald-400">
                   R$ {metricasCarcinicultura.receitaBrutaAnual.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Custo Total de Operação (Ração 35% PB, Melaço, Probióticos e Energia):</span>
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Custo Total de Operação (Ração 35% PB, Melaço, Probióticos e Energia):</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {metricasCarcinicultura.custoTotalAnual.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>

@@ -319,7 +319,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
               className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition border ${
                 showHistory
                   ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
-                  : 'bg-[#EAF4E7] text-[#1D4B38] border-slate-700 hover:text-white'
+                  : 'bg-[#EAF4E7] text-[#1D4B38] border-[#8FBF88] hover:text-[#1D4B38]'
               }`}
             >
               <History className="w-3.5 h-3.5" />
@@ -327,7 +327,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 text-slate-400 hover:text-white rounded-xl hover:bg-slate-800 transition"
+              className="p-1.5 text-[#66736A] hover:text-[#1D4B38] rounded-xl hover:bg-slate-800 transition"
               title="Fechar (Esc)"
             >
               <X className="w-5 h-5" />
@@ -362,7 +362,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                 {recentLaunches.map((item) => (
                   <div
                     key={item.id}
-                    className="p-3.5 bg-[#F7F9F5] border-[#EAF4E7] rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:border-slate-700 transition"
+                    className="p-3.5 bg-[#F7F9F5] border-[#EAF4E7] rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:border-[#8FBF88] transition"
                   >
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
@@ -378,7 +378,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
 
                     <div className="flex items-center gap-3 shrink-0">
-                      <span className="text-[11px] text-slate-400 flex items-center gap-1">
+                      <span className="text-[11px] text-[#66736A] flex items-center gap-1">
                         <Clock className="w-3 h-3 text-slate-500" />
                         {item.horario}
                       </span>
@@ -403,7 +403,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'PESAGEM_PECUARIA'
                           ? 'bg-[#EAF4E7] border-[#285943] text-[#1D4B38] shadow-lg shadow-emerald-950/20'
-                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:border-[#8FBF88]'
                       }`}
                     >
                       <Scale className="w-5 h-5 text-emerald-400" />
@@ -416,7 +416,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'LEITURA_COCHO'
                           ? 'bg-rose-500/15 border-rose-500/50 text-rose-300 shadow-lg shadow-rose-950/20'
-                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:border-[#8FBF88]'
                       }`}
                     >
                       <Sparkles className="w-5 h-5 text-rose-400" />
@@ -429,7 +429,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'ABASTECIMENTO'
                           ? 'bg-amber-500/15 border-amber-500/50 text-amber-300 shadow-lg shadow-amber-950/20'
-                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:border-[#8FBF88]'
                       }`}
                     >
                       <Fuel className="w-5 h-5 text-amber-400" />
@@ -442,7 +442,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'MANUTENCAO'
                           ? 'bg-blue-500/15 border-blue-500/50 text-blue-300 shadow-lg shadow-blue-950/20'
-                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:border-[#8FBF88]'
                       }`}
                     >
                       <Wrench className="w-5 h-5 text-blue-400" />
@@ -455,7 +455,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'FINANCEIRO'
                           ? 'bg-purple-500/15 border-purple-500/50 text-purple-300 shadow-lg shadow-purple-950/20'
-                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:border-[#8FBF88]'
                       }`}
                     >
                       <DollarSign className="w-5 h-5 text-purple-400" />
@@ -470,7 +470,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'COLHEITA_HF'
                           ? 'bg-[#EAF4E7] border-[#285943] text-[#1D4B38] shadow-lg shadow-emerald-950/20'
-                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:border-[#8FBF88]'
                       }`}
                     >
                       <Sparkles className="w-5 h-5 text-emerald-400" />
@@ -483,7 +483,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'CALDA'
                           ? 'bg-cyan-500/15 border-cyan-500/50 text-cyan-300 shadow-lg shadow-cyan-950/20'
-                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:border-[#8FBF88]'
                       }`}
                     >
                       <Droplets className="w-5 h-5 text-cyan-400" />
@@ -496,7 +496,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'MIP'
                           ? 'bg-rose-500/15 border-rose-500/50 text-rose-300 shadow-lg shadow-rose-950/20'
-                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:border-[#8FBF88]'
                       }`}
                     >
                       <Bug className="w-5 h-5 text-rose-400" />
@@ -509,7 +509,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'ABASTECIMENTO'
                           ? 'bg-amber-500/15 border-amber-500/50 text-amber-300 shadow-lg shadow-amber-950/20'
-                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:border-[#8FBF88]'
                       }`}
                     >
                       <Fuel className="w-5 h-5 text-amber-400" />
@@ -522,7 +522,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'FINANCEIRO'
                           ? 'bg-purple-500/15 border-purple-500/50 text-purple-300 shadow-lg shadow-purple-950/20'
-                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:border-[#8FBF88]'
                       }`}
                     >
                       <DollarSign className="w-5 h-5 text-purple-400" />
@@ -537,7 +537,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'ABASTECIMENTO'
                           ? 'bg-amber-500/15 border-amber-500/50 text-amber-300 shadow-lg shadow-amber-950/20'
-                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:border-[#8FBF88]'
                       }`}
                     >
                       <Fuel className="w-5 h-5 text-amber-400" />
@@ -550,7 +550,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'CALDA'
                           ? 'bg-cyan-500/15 border-cyan-500/50 text-cyan-300 shadow-lg shadow-cyan-950/20'
-                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:border-[#8FBF88]'
                       }`}
                     >
                       <Droplets className="w-5 h-5 text-cyan-400" />
@@ -563,7 +563,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'MIP'
                           ? 'bg-rose-500/15 border-rose-500/50 text-rose-300 shadow-lg shadow-rose-950/20'
-                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:border-[#8FBF88]'
                       }`}
                     >
                       <Bug className="w-5 h-5 text-rose-400" />
@@ -576,7 +576,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'ROMANEIO'
                           ? 'bg-[#EAF4E7] border-[#285943] text-[#1D4B38] shadow-lg shadow-emerald-950/20'
-                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:border-[#8FBF88]'
                       }`}
                     >
                       <Scale className="w-5 h-5 text-emerald-400" />
@@ -589,7 +589,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'MANUTENCAO'
                           ? 'bg-blue-500/15 border-blue-500/50 text-blue-300 shadow-lg shadow-blue-950/20'
-                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:border-[#8FBF88]'
                       }`}
                     >
                       <Wrench className="w-5 h-5 text-blue-400" />
@@ -602,7 +602,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'FINANCEIRO'
                           ? 'bg-purple-500/15 border-purple-500/50 text-purple-300 shadow-lg shadow-purple-950/20'
-                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:border-[#8FBF88]'
                       }`}
                     >
                       <DollarSign className="w-5 h-5 text-purple-400" />
@@ -614,8 +614,8 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
               {/* 0.1 PESAGEM PECUÁRIA & GMD FORM */}
               {activeTab === 'PESAGEM_PECUARIA' && (
-                <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-2xl p-4 sm:p-5 space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#EAF4E7] pb-3">
                     <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <Scale className="w-4 h-4 text-emerald-400" />
                       Lançamento de Pesagem de Lote & Cálculo Automático de GMD
@@ -630,31 +630,31 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Curral / Lote Alvo</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Curral / Lote Alvo</label>
                       <input
                         type="text"
                         value={pesagemLote}
                         onChange={(e) => setPesagemLote(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Cabeças no Lote</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Cabeças no Lote</label>
                       <input
                         type="number"
                         value={pesagemCabecas}
                         onChange={(e) => setPesagemCabecas(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium font-mono"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium font-mono"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Destino Comercial</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Destino Comercial</label>
                       <select
                         value={pesagemDestino}
                         onChange={(e) => setPesagemDestino(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       >
                         <option value="Terminação Cota Hilton">Terminação Cota Hilton (Brinco SISBOV)</option>
                         <option value="Mercado Interno B3">Mercado Interno (Arroba B3)</option>
@@ -663,56 +663,56 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Peso Médio Atual (kg)</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Peso Médio Atual (kg)</label>
                       <input
                         type="number"
                         step="0.5"
                         value={pesagemPesoMedio}
                         onChange={(e) => setPesagemPesoMedio(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-emerald-400 font-mono font-bold text-sm"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-emerald-400 font-mono font-bold text-sm"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Peso Médio Anterior (kg)</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Peso Médio Anterior (kg)</label>
                       <input
                         type="number"
                         step="0.5"
                         value={pesagemPesoAnterior}
                         onChange={(e) => setPesagemPesoAnterior(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-300 font-mono"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-mono"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Intervalo de Dias</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Intervalo de Dias</label>
                       <input
                         type="number"
                         value={pesagemDias}
                         onChange={(e) => setPesagemDias(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium font-mono"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium font-mono"
                       />
                     </div>
                   </div>
 
                   {/* Resumo da Pesagem */}
-                  <div className="p-3.5 bg-slate-900 rounded-xl border border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
+                  <div className="p-3.5 bg-slate-900 rounded-xl border border-[#EAF4E7] flex flex-wrap items-center justify-between gap-3 text-xs">
                     <div className="flex items-center gap-2">
-                      <span className="text-slate-400">Ganho Médio:</span>
+                      <span className="text-[#66736A]">Ganho Médio:</span>
                       <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold font-mono">
                         +{gmdCalculado} kg/animal/dia
                       </span>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <span className="text-slate-400">Total Produzido no Lote:</span>
+                      <span className="text-[#66736A]">Total Produzido no Lote:</span>
                       <span className="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-bold font-mono">
                         +{ganhoArrobasTotal} @ líquidas
                       </span>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <span className="text-slate-400">Peso Total Lote:</span>
+                      <span className="text-[#66736A]">Peso Total Lote:</span>
                       <span className="text-white font-mono font-bold">
                         {((pesagemCabecas * pesagemPesoMedio) / 1000).toFixed(1)} toneladas
                       </span>
@@ -723,8 +723,8 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
               {/* 0.2 LEITURA DE COCHO FORM */}
               {activeTab === 'LEITURA_COCHO' && (
-                <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-2xl p-4 sm:p-5 space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#EAF4E7] pb-3">
                     <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <Sparkles className="w-4 h-4 text-rose-400" />
                       Apontamento de Leitura de Cocho & Fornecimento de Matéria Seca
@@ -733,17 +733,17 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Curral / Confinamento</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Curral / Confinamento</label>
                       <input
                         type="text"
                         value={cochoCurral}
                         onChange={(e) => setCochoCurral(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Nota de Cocho</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Nota de Cocho</label>
                       <select
                         value={cochoNota}
                         onChange={(e) => {
@@ -754,7 +754,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                           else if (val === 1) setCochoAjustePct(0);
                           else if (val === 2) setCochoAjustePct(-10);
                         }}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       >
                         <option value={-1}>-1 (Cocho Rapado / Fome)</option>
                         <option value={0}>0 (Cocho Limpo com Lambida - Ideal)</option>
@@ -764,19 +764,19 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Fornecimento (kg MS/cab/dia)</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Fornecimento (kg MS/cab/dia)</label>
                       <input
                         type="number"
                         step="0.2"
                         value={cochoFornecimentoKg}
                         onChange={(e) => setCochoFornecimentoKg(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-rose-400 font-mono font-bold text-sm"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-rose-400 font-mono font-bold text-sm"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Ajuste de Trato Recomendado</label>
-                      <div className="px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 font-mono font-bold text-emerald-400">
+                      <label className="text-[#66736A] font-medium block mb-1">Ajuste de Trato Recomendado</label>
+                      <div className="px-3 py-2 rounded-xl bg-white border border-[#EAF4E7] font-mono font-bold text-emerald-400">
                         {cochoAjustePct > 0 ? `+${cochoAjustePct}% (Aumentar Trato)` : cochoAjustePct < 0 ? `${cochoAjustePct}% (Reduzir Trato)` : 'Manter Fornecimento'}
                       </div>
                     </div>
@@ -786,8 +786,8 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
               {/* 0.3 COLHEITA HF FORM */}
               {activeTab === 'COLHEITA_HF' && (
-                <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-2xl p-4 sm:p-5 space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#EAF4E7] pb-3">
                     <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <Sparkles className="w-4 h-4 text-emerald-400" />
                       Lançamento de Colheita de Hortifrúti & Controle de Grau Brix
@@ -796,17 +796,17 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Estufa / Gleba HF</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Estufa / Gleba HF</label>
                       <input
                         type="text"
                         value={hfGleba}
                         onChange={(e) => setHfGleba(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Caixas Colhidas</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Caixas Colhidas</label>
                       <input
                         type="number"
                         value={hfCaixas}
@@ -815,27 +815,27 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                           setHfCaixas(val);
                           setHfPesoTotalTon(Number(((val * 20) / 1000).toFixed(2)));
                         }}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono font-bold text-sm"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-mono font-bold text-sm"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Teor de Brix Médio (°Bx)</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Teor de Brix Médio (°Bx)</label>
                       <input
                         type="number"
                         step="0.1"
                         value={hfBrix}
                         onChange={(e) => setHfBrix(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-amber-400 font-mono font-bold text-sm"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-amber-400 font-mono font-bold text-sm"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Classificação Comercial</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Classificação Comercial</label>
                       <select
                         value={hfClassificacao}
                         onChange={(e) => setHfClassificacao(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       >
                         <option value="Classe Extra Gourmet">Classe Extra Gourmet (Alto Brix)</option>
                         <option value="Classe Especial">Classe Especial (Mercado Livre)</option>
@@ -848,8 +848,8 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
               {/* 1. ABASTECIMENTO FORM */}
               {activeTab === 'ABASTECIMENTO' && (
-                <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-2xl p-4 sm:p-5 space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#EAF4E7] pb-3">
                     <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <Fuel className="w-4 h-4 text-amber-400" />
                       Lançamento de Abastecimento & Horímetro CAN Bus
@@ -875,11 +875,11 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Máquina / Equipamento</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Máquina / Equipamento</label>
                       <select
                         value={abastMaquinaId}
                         onChange={(e) => setAbastMaquinaId(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       >
                         {MAQUINAS_INICIAIS.map((m) => (
                           <option key={m.id} value={m.id}>
@@ -890,11 +890,11 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Ponto de Abastecimento</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Ponto de Abastecimento</label>
                       <select
                         value={abastTanque}
                         onChange={(e) => setAbastTanque(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       >
                         <option value="Comboio Móvel 01">Comboio Móvel 01 (Caminhão Mercedes Axor)</option>
                         <option value="Comboio Móvel 02">Comboio Móvel 02 (Caminhão VW Constellation)</option>
@@ -903,61 +903,61 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Motorista / Abastecedor</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Motorista / Abastecedor</label>
                       <input
                         type="text"
                         value={abastOperador}
                         onChange={(e) => setAbastOperador(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Horímetro Anterior (h)</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Horímetro Anterior (h)</label>
                       <input
                         type="number"
                         step="0.1"
                         value={abastHorimetroAnterior}
                         onChange={(e) => setAbastHorimetroAnterior(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-300 font-mono"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-mono"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Horímetro Atual no Abastecimento (h)</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Horímetro Atual no Abastecimento (h)</label>
                       <input
                         type="number"
                         step="0.1"
                         value={abastHorimetro}
                         onChange={(e) => setAbastHorimetro(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono font-bold"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-mono font-bold"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Volume Abastecido (Litros)</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Volume Abastecido (Litros)</label>
                       <input
                         type="number"
                         value={abastLitros}
                         onChange={(e) => setAbastLitros(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-amber-400 font-mono font-bold text-sm"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-amber-400 font-mono font-bold text-sm"
                       />
                     </div>
                   </div>
 
                   {/* Resumo da Telemetria Calculada */}
-                  <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs">
+                  <div className="p-3 bg-slate-900 rounded-xl border border-[#EAF4E7] flex flex-wrap items-center justify-between gap-4 text-xs">
                     <div>
-                      <span className="text-slate-400">Horas Trabalhadas:</span>
+                      <span className="text-[#66736A]">Horas Trabalhadas:</span>
                       <strong className="text-white font-mono ml-1.5">{horasTrabalhadas} h</strong>
                     </div>
                     <div>
-                      <span className="text-slate-400">Consumo Efetivo:</span>
+                      <span className="text-[#66736A]">Consumo Efetivo:</span>
                       <strong className="text-amber-400 font-mono ml-1.5 text-sm">{consumoMedioLh} L/h</strong>
                     </div>
                     <div>
-                      <span className="text-slate-400">Meta Estabelecida:</span>
-                      <span className="text-slate-300 font-mono ml-1.5">28.00 L/h</span>
+                      <span className="text-[#66736A]">Meta Estabelecida:</span>
+                      <span className="text-[#26332A] font-mono ml-1.5">28.00 L/h</span>
                     </div>
                     <span
                       className={`px-2.5 py-1 rounded-full text-xs font-bold font-mono border ${
@@ -974,8 +974,8 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
               {/* 2. CALDA & PULVERIZAÇÃO FORM */}
               {activeTab === 'CALDA' && (
-                <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-2xl p-4 sm:p-5 space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#EAF4E7] pb-3">
                     <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <Droplets className="w-4 h-4 text-cyan-400" />
                       Apontamento de Calda & Janela de Aplicação
@@ -993,11 +993,11 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Talhão de Destino</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Talhão de Destino</label>
                       <select
                         value={caldaTalhaoId}
                         onChange={(e) => setCaldaTalhaoId(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       >
                         {TALHOES_INICIAIS.map((t) => (
                           <option key={t.id} value={t.id}>
@@ -1008,11 +1008,11 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Insumo / Receita da Calda</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Insumo / Receita da Calda</label>
                       <select
                         value={caldaInsumoId}
                         onChange={(e) => setCaldaInsumoId(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       >
                         {INSUMOS_INICIAIS.map((ins) => (
                           <option key={ins.id} value={ins.id}>
@@ -1023,11 +1023,11 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Pulverizador</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Pulverizador</label>
                       <select
                         value={caldaMaquinaId}
                         onChange={(e) => setCaldaMaquinaId(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       >
                         <option value="maq-03">PULV-01 - Case Patriot 3330 (Barra 36m)</option>
                         <option value="maq-04">DRONE-01 - DJI Agras T40 (Tanque 40L)</option>
@@ -1035,47 +1035,47 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Taxa de Aplicação (L/ha)</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Taxa de Aplicação (L/ha)</label>
                       <input
                         type="number"
                         value={caldaTaxaLha}
                         onChange={(e) => setCaldaTaxaLha(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono font-bold"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-mono font-bold"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Temperatura Atual (°C)</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Temperatura Atual (°C)</label>
                       <input
                         type="number"
                         value={caldaTemp}
                         onChange={(e) => setCaldaTemp(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-mono"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Umidade Relativa (%)</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Umidade Relativa (%)</label>
                       <input
                         type="number"
                         value={caldaUR}
                         onChange={(e) => setCaldaUR(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-mono"
                       />
                     </div>
                   </div>
 
-                  <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 flex items-center justify-between text-xs">
+                  <div className="p-3 bg-slate-900 rounded-xl border border-[#EAF4E7] flex items-center justify-between text-xs">
                     <div>
-                      <span className="text-slate-400">Volume Total de Calda:</span>
+                      <span className="text-[#66736A]">Volume Total de Calda:</span>
                       <strong className="text-cyan-400 font-mono text-sm ml-2">
                         {volumeTotalCaldaLitros.toLocaleString('pt-BR')} Litros
                       </strong>
                     </div>
-                    <div className="text-slate-400">
+                    <div className="text-[#66736A]">
                       Área Coberta: <strong className="text-white">{selectedCaldaTalhao.areaHa} ha</strong>
                     </div>
-                    <div className="text-slate-400">
+                    <div className="text-[#66736A]">
                       Tanques Estimados (3.000 L): <strong className="text-white font-mono">{(volumeTotalCaldaLitros / 3000).toFixed(1)} recargas</strong>
                     </div>
                   </div>
@@ -1084,8 +1084,8 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
               {/* 3. MIP & BATIDA DE PANO FORM */}
               {activeTab === 'MIP' && (
-                <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-2xl p-4 sm:p-5 space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#EAF4E7] pb-3">
                     <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <Bug className="w-4 h-4 text-rose-400" />
                       Amostragem Fitossanitária MIP (Batida de Pano Embrapa)
@@ -1097,11 +1097,11 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Talhão Amostrado</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Talhão Amostrado</label>
                       <select
                         value={mipTalhaoId}
                         onChange={(e) => setMipTalhaoId(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       >
                         {TALHOES_INICIAIS.map((t) => (
                           <option key={t.id} value={t.id}>
@@ -1112,11 +1112,11 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Praga Alvo Monitorada</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Praga Alvo Monitorada</label>
                       <select
                         value={mipPraga}
                         onChange={(e) => setMipPraga(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       >
                         <option value="Percevejo Marrom (Euschistus heros)">Percevejo Marrom (Euschistus heros)</option>
                         <option value="Lagarta Falsa-Medideira (Chrysodeixis includens)">Lagarta Falsa-Medideira (Chrysodeixis)</option>
@@ -1127,20 +1127,20 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Estádio Fenológico da Lavoura</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Estádio Fenológico da Lavoura</label>
                       <input
                         type="text"
                         value={mipEstadioCultura}
                         onChange={(e) => setMipEstadioCultura(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       />
                     </div>
                   </div>
 
                   {/* Incremento Rápido de Contagem */}
-                  <div className="p-4 bg-slate-900 rounded-xl border border-slate-800 space-y-3">
+                  <div className="p-4 bg-slate-900 rounded-xl border border-[#EAF4E7] space-y-3">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-slate-400 font-medium">Contagem de Pragas (Alvos por Metro Linear de Pano):</span>
+                      <span className="text-[#66736A] font-medium">Contagem de Pragas (Alvos por Metro Linear de Pano):</span>
                       <span className="text-rose-400 font-mono font-bold text-lg">{mipContagem} alvos/m</span>
                     </div>
 
@@ -1153,7 +1153,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                           className={`flex-1 py-1.5 rounded-lg text-xs font-mono font-bold transition ${
                             mipContagem === val
                               ? 'bg-rose-500 text-white'
-                              : 'bg-slate-950 text-slate-300 hover:bg-slate-800 border border-slate-800'
+                              : 'bg-[#F7F9F5] text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
                           }`}
                         >
                           {val}
@@ -1166,8 +1166,8 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
               {/* 4. ROMANEIO BALANÇA FORM */}
               {activeTab === 'ROMANEIO' && (
-                <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-2xl p-4 sm:p-5 space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#EAF4E7] pb-3">
                     <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <Scale className="w-4 h-4 text-emerald-400" />
                       Entrada de Balança & Romaneio de Carga
@@ -1179,11 +1179,11 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Talhão de Origem</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Talhão de Origem</label>
                       <select
                         value={romTalhaoId}
                         onChange={(e) => setRomTalhaoId(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       >
                         {TALHOES_INICIAIS.map((t) => (
                           <option key={t.id} value={t.id}>
@@ -1194,93 +1194,93 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Placa do Caminhão</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Placa do Caminhão</label>
                       <input
                         type="text"
                         value={romPlaca}
                         onChange={(e) => setRomPlaca(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Motorista</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Motorista</label>
                       <input
                         type="text"
                         value={romMotorista}
                         onChange={(e) => setRomMotorista(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Peso Bruto (kg)</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Peso Bruto (kg)</label>
                       <input
                         type="number"
                         value={romPesoBruto}
                         onChange={(e) => setRomPesoBruto(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono font-bold"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-mono font-bold"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Tara Caminhão (kg)</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Tara Caminhão (kg)</label>
                       <input
                         type="number"
                         value={romTara}
                         onChange={(e) => setRomTara(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono font-bold"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-mono font-bold"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Armazém de Destino</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Armazém de Destino</label>
                       <input
                         type="text"
                         value={romArmazem}
                         onChange={(e) => setRomArmazem(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Umidade (%) - Padrão 14%</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Umidade (%) - Padrão 14%</label>
                       <input
                         type="number"
                         step="0.1"
                         value={romUmidade}
                         onChange={(e) => setRomUmidade(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-300 font-mono"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-mono"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Impureza (%) - Padrão 1%</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Impureza (%) - Padrão 1%</label>
                       <input
                         type="number"
                         step="0.1"
                         value={romImpureza}
                         onChange={(e) => setRomImpureza(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-slate-300 font-mono"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-mono"
                       />
                     </div>
                   </div>
 
-                  <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
+                  <div className="p-3 bg-slate-900 rounded-xl border border-[#EAF4E7] flex flex-wrap items-center justify-between gap-3 text-xs">
                     <div>
-                      <span className="text-slate-400">Peso Líquido Bruto:</span>
+                      <span className="text-[#66736A]">Peso Líquido Bruto:</span>
                       <strong className="text-white font-mono ml-1.5">{romPesoLiquidoInicial.toLocaleString('pt-BR')} kg</strong>
                     </div>
                     <div>
-                      <span className="text-slate-400">Desconto Umidade:</span>
+                      <span className="text-[#66736A]">Desconto Umidade:</span>
                       <strong className="text-rose-400 font-mono ml-1.5">-{romDescUmidadeKg.toLocaleString('pt-BR')} kg</strong>
                     </div>
                     <div>
-                      <span className="text-slate-400">Desconto Impureza:</span>
+                      <span className="text-[#66736A]">Desconto Impureza:</span>
                       <strong className="text-rose-400 font-mono ml-1.5">-{romDescImpurezaKg.toLocaleString('pt-BR')} kg</strong>
                     </div>
                     <div>
-                      <span className="text-slate-400">Peso Líquido Pago:</span>
+                      <span className="text-[#66736A]">Peso Líquido Pago:</span>
                       <strong className="text-emerald-400 font-mono text-sm ml-1.5">
                         {romPesoLiquidoFinal.toLocaleString('pt-BR')} kg
                       </strong>
@@ -1291,8 +1291,8 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
               {/* 5. MANUTENÇÃO & OFICINA FORM */}
               {activeTab === 'MANUTENCAO' && (
-                <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-2xl p-4 sm:p-5 space-y-4">
+                  <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-3">
                     <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <Wrench className="w-4 h-4 text-blue-400" />
                       Abertura de Ordem de Serviço & Oficina
@@ -1301,11 +1301,11 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Máquina</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Máquina</label>
                       <select
                         value={manutMaquinaId}
                         onChange={(e) => setManutMaquinaId(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       >
                         {MAQUINAS_INICIAIS.map((m) => (
                           <option key={m.id} value={m.id}>
@@ -1316,11 +1316,11 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Tipo de Manutenção</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Tipo de Manutenção</label>
                       <select
                         value={manutTipo}
                         onChange={(e) => setManutTipo(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       >
                         <option value="Preventiva 250h / 500h">Preventiva Programada (Filtros & Lubrificação)</option>
                         <option value="Corretiva de Campo">Corretiva Emergencial (Parada Mecânica)</option>
@@ -1330,11 +1330,11 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Criticidade</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Criticidade</label>
                       <select
                         value={manutCriticidade}
                         onChange={(e) => setManutCriticidade(e.target.value as any)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       >
                         <option value="BAIXA">Baixa (Programar para fim do turno)</option>
                         <option value="MEDIA">Média (Atenção operacional)</option>
@@ -1343,32 +1343,32 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Horímetro Atual (h)</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Horímetro Atual (h)</label>
                       <input
                         type="number"
                         value={manutHorimetro}
                         onChange={(e) => setManutHorimetro(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-mono"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Mecânico Responsável</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Mecânico Responsável</label>
                       <input
                         type="text"
                         value={manutMecanico}
                         onChange={(e) => setManutMecanico(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       />
                     </div>
 
                     <div className="sm:col-span-2 lg:col-span-3">
-                      <label className="text-slate-400 font-medium block mb-1">Descrição do Serviço / Diagnóstico</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Descrição do Serviço / Diagnóstico</label>
                       <input
                         type="text"
                         value={manutDescricao}
                         onChange={(e) => setManutDescricao(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       />
                     </div>
                   </div>
@@ -1377,8 +1377,8 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
               {/* 6. FINANCEIRO & LCDPR FORM */}
               {activeTab === 'FINANCEIRO' && (
-                <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-2xl p-4 sm:p-5 space-y-4">
+                  <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-3">
                     <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <DollarSign className="w-4 h-4 text-purple-400" />
                       Lançamento Financeiro & Fiscal LCDPR Oficial
@@ -1387,11 +1387,11 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Tipo de Operação</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Tipo de Operação</label>
                       <select
                         value={finTipo}
                         onChange={(e) => setFinTipo(e.target.value as any)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       >
                         <option value="DESPESA_CUSTEIO">Despesa de Custeio (Insumos, Diesel, Peças)</option>
                         <option value="RECEITA">Receita de Comercialização (Grãos, Pecuária)</option>
@@ -1399,42 +1399,42 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Número do Documento / NF-e</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Número do Documento / NF-e</label>
                       <input
                         type="text"
                         value={finDocumento}
                         onChange={(e) => setFinDocumento(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Valor Total (R$)</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Valor Total (R$)</label>
                       <input
                         type="number"
                         step="100.00"
                         value={finValor}
                         onChange={(e) => setFinValor(Number(e.target.value))}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-purple-400 font-mono font-bold text-sm"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-purple-400 font-mono font-bold text-sm"
                       />
                     </div>
 
                     <div className="sm:col-span-2">
-                      <label className="text-slate-400 font-medium block mb-1">Histórico Descritivo (LCDPR)</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Histórico Descritivo (LCDPR)</label>
                       <input
                         type="text"
                         value={finHistorico}
                         onChange={(e) => setFinHistorico(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       />
                     </div>
 
                     <div>
-                      <label className="text-slate-400 font-medium block mb-1">Conta Bancária Rural</label>
+                      <label className="text-[#66736A] font-medium block mb-1">Conta Bancária Rural</label>
                       <select
                         value={finConta}
                         onChange={(e) => setFinConta(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-white font-medium"
+                        className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-[#26332A] font-medium"
                       >
                         <option value="Banco do Brasil S.A.">Banco do Brasil S.A. (Ag: 1284-5 C/C: 98412-0)</option>
                         <option value="Sicredi União MT">Sicredi União MT (Ag: 0120-1 C/C: 54129-8)</option>
@@ -1443,12 +1443,12 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                   </div>
 
                   {/* Rateio Automático Condôminos */}
-                  <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs space-y-1.5">
-                    <span className="text-slate-400 font-medium block mb-1">Rateio Societário Automático (Registro Q100 LCDPR):</span>
+                  <div className="p-3 bg-slate-900 rounded-xl border border-[#EAF4E7] text-xs space-y-1.5">
+                    <span className="text-[#66736A] font-medium block mb-1">Rateio Societário Automático (Registro Q100 LCDPR):</span>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                       {CONDOMINOS_FAZENDA.map((c) => (
                         <div key={c.cpf} className="p-2 rounded bg-[#F7F9F5] border-[#EAF4E7] flex justify-between">
-                          <span className="text-slate-400">{c.nome.split(' ')[0]} ({c.percentual}%):</span>
+                          <span className="text-[#66736A]">{c.nome.split(' ')[0]} ({c.percentual}%):</span>
                           <span className="text-purple-400 font-mono font-bold">
                             R$ {(finValor * (c.percentual / 100)).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                           </span>
@@ -1463,7 +1463,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
         </div>
 
         {/* Modal Footer / Actions */}
-        <div className="p-4 sm:p-5 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-950/80">
+        <div className="p-4 sm:p-5 border-t border-[#EAF4E7] flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#F7F9F5]">
           <div className="flex items-center gap-2 text-xs text-[#66736A]">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             <span>Atalho rápido: pressione <kbd className="px-1.5 py-0.5 rounded bg-[#EAF4E7] text-[#1D4B38] font-mono text-[10px]">N</kbd> no teclado para lançar</span>
@@ -1473,7 +1473,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition"
+              className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl border border-[#8FBF88] bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition"
             >
               Cancelar
             </button>

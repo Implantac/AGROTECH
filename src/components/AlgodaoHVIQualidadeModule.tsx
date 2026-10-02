@@ -134,7 +134,7 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
   ]);
 
   return (
-    <div className="space-y-6 animate-fade-in text-slate-100">
+    <div className="space-y-6 animate-fade-in text-[#1D4B38]">
       {/* Cabeçalho */}
       <div className="bg-gradient-to-r from-amber-950/40 via-slate-900 to-slate-900 border border-amber-800/40 rounded-2xl p-6 shadow-xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -151,7 +151,7 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
                     ABRAPA • ICE Cotton #2
                   </span>
                 </h2>
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-[#66736A]">
                   Descaroçamento, comprimento de fibra (UHM), finura/maturidade (Micronaire), resistência e bônus de exportação.
                 </p>
               </div>
@@ -178,14 +178,14 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: Fardos Produzidos */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Fardos Exportação</span>
             <Layers className="w-4 h-4 text-amber-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-amber-400">
             {hviMetrics.totalFardos228Kg.toLocaleString('pt-BR')}{' '}
-            <span className="text-xs font-normal text-slate-400">fardos (228 kg)</span>
+            <span className="text-xs font-normal text-[#66736A]">fardos (228 kg)</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Rendimento: {rendimentoPlumaBasePct}% de pluma limpa.
@@ -193,8 +193,8 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
         </div>
 
         {/* KPI 2: Parâmetros HVI Médios */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>HVI: UHM & Micronaire</span>
             <Sparkles className="w-4 h-4 text-emerald-400" />
           </div>
@@ -207,14 +207,14 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Caroço de Algodão (Subproduto Nobre) */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Caroço para Confinamento</span>
             <Scale className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
             {hviMetrics.carocoTotalTon.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
-            <span className="text-xs font-normal text-slate-400">ton</span>
+            <span className="text-xs font-normal text-[#66736A]">ton</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Receita: R$ {hviMetrics.receitaCarocoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })} (@ R$ {cotacaoCarocoTonReais}/t).
@@ -222,8 +222,8 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
         </div>
 
         {/* KPI 4: Faturamento por Hectare */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Faturamento Bruto Total</span>
             <TrendingUp className="w-4 h-4 text-white" />
           </div>
@@ -240,18 +240,18 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
       {/* Grid Principal: Lotes Auditados e Parâmetros */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Fardos Classificados pelo Laboratório HVI */}
-        <div className="lg:col-span-2 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <FileCheck2 className="w-5 h-5 text-amber-400" />
                 Laudos Laboratoriais HVI dos Lotes de Algodão
               </h3>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-[#66736A]">
                 Parâmetros físicos medidos conforme padronização do USDA / ABRAPA.
               </p>
             </div>
-            <span className="text-xs font-mono text-slate-400">
+            <span className="text-xs font-mono text-[#66736A]">
               {lotesFardos.length} Lotes Homologados
             </span>
           </div>
@@ -260,7 +260,7 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
             {lotesFardos.map((f) => (
               <div
                 key={f.id}
-                className="p-4 bg-slate-950 border border-slate-800 rounded-xl hover:border-slate-700 transition-all space-y-2"
+                className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl hover:border-slate-700 transition-all space-y-2"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
@@ -269,27 +269,27 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
                     </span>
                     <h4 className="text-xs font-bold text-white">{f.classificacaoComercial}</h4>
                   </div>
-                  <span className="text-[11px] font-mono text-slate-400">
+                  <span className="text-[11px] font-mono text-[#66736A]">
                     Carga: {f.pesoBrutoCarocoKg.toLocaleString('pt-BR')} kg caroço • {f.rendimentoPlumaPct}% pluma
                   </span>
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono">
-                  <div className="p-2 rounded bg-slate-900/80 border border-slate-800">
+                  <div className="p-2 rounded bg-white border border-[#EAF4E7]">
                     <span className="text-slate-500 block text-[10px]">Comprimento (UHM)</span>
                     <span className="text-white font-bold">{f.uhmPolegadas}" ({(f.uhmPolegadas * 25.4).toFixed(1)} mm)</span>
                   </div>
-                  <div className="p-2 rounded bg-slate-900/80 border border-slate-800">
+                  <div className="p-2 rounded bg-white border border-[#EAF4E7]">
                     <span className="text-slate-500 block text-[10px]">Micronaire</span>
                     <span className={f.micronaire >= 3.8 && f.micronaire <= 4.5 ? 'text-emerald-400 font-bold' : 'text-amber-400 font-bold'}>
                       {f.micronaire.toFixed(2)}
                     </span>
                   </div>
-                  <div className="p-2 rounded bg-slate-900/80 border border-slate-800">
+                  <div className="p-2 rounded bg-white border border-[#EAF4E7]">
                     <span className="text-slate-500 block text-[10px]">Resistência</span>
                     <span className="text-cyan-400 font-bold">{f.resistenciaGtex} g/tex</span>
                   </div>
-                  <div className="p-2 rounded bg-slate-900/80 border border-slate-800">
+                  <div className="p-2 rounded bg-white border border-[#EAF4E7]">
                     <span className="text-slate-500 block text-[10px]">Uniformidade (UI)</span>
                     <span className="text-white font-bold">{f.uniformidadeUiPct}%</span>
                   </div>
@@ -299,12 +299,12 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
           </div>
 
           {/* Banner Técnico HVI */}
-          <div className="p-4 bg-slate-950/60 border border-slate-800 rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-amber-400 font-semibold">
               <Sparkles className="w-4 h-4" />
               Padrões Globais de Comercialização de Pluma:
             </div>
-            <ul className="list-disc list-inside text-slate-400 space-y-1">
+            <ul className="list-disc list-inside text-[#66736A] space-y-1">
               <li>
                 <strong>Faixa Nobre de Micronaire (3.8 a 4.5):</strong> Valores abaixo de 3.5 indicam fibras imaturas propensas a nós (neps) na fiação. Acima de 4.9 tornam a fibra grossa com deságio severo.
               </li>
@@ -319,7 +319,7 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Parâmetros Comerciais */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Scale className="w-5 h-5 text-amber-400" />
             Parâmetros da Safra
@@ -327,28 +327,28 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
 
           <div className="space-y-4 text-xs">
             <div>
-              <label className="text-slate-400 font-medium block mb-1">Área Cultivada (ha)</label>
+              <label className="text-[#66736A] font-medium block mb-1">Área Cultivada (ha)</label>
               <input
                 type="number"
                 value={areaAlgodaoHa}
                 onChange={(e) => setAreaAlgodaoHa(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-slate-400 font-medium block mb-1">Produtividade em Caroço (@/ha)</label>
+              <label className="text-[#66736A] font-medium block mb-1">Produtividade em Caroço (@/ha)</label>
               <input
                 type="number"
                 value={produtividadeCarocoArrobaHa}
                 onChange={(e) => setProdutividadeCarocoArrobaHa(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-slate-400 font-medium">Rendimento no Descaroçador</span>
+                <span className="text-[#66736A] font-medium">Rendimento no Descaroçador</span>
                 <span className="text-amber-400 font-mono font-bold">{rendimentoPlumaBasePct}%</span>
               </div>
               <input
@@ -363,40 +363,40 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-slate-400 font-medium block mb-1">Cotação da Pluma (R$/@ pluma)</label>
+              <label className="text-[#66736A] font-medium block mb-1">Cotação da Pluma (R$/@ pluma)</label>
               <input
                 type="number"
                 value={cotacaoPlumaArrobaReais}
                 onChange={(e) => setCotacaoPlumaArrobaReais(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-slate-400 font-medium block mb-1">Cotação do Caroço (R$/tonelada)</label>
+              <label className="text-[#66736A] font-medium block mb-1">Cotação do Caroço (R$/tonelada)</label>
               <input
                 type="number"
                 value={cotacaoCarocoTonReais}
                 onChange={(e) => setCotacaoCarocoTonReais(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             {/* Resumo Consolidado */}
-            <div className="pt-3 border-t border-slate-800 space-y-2">
+            <div className="pt-3 border-t border-[#EAF4E7] space-y-2">
               <div className="flex justify-between">
-                <span className="text-slate-400">Receita Bruta Pluma:</span>
+                <span className="text-[#66736A]">Receita Bruta Pluma:</span>
                 <span className="text-emerald-400 font-mono font-bold">
                   R$ {hviMetrics.receitaPlumaReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Receita Bruta Caroço:</span>
+                <span className="text-[#66736A]">Receita Bruta Caroço:</span>
                 <span className="text-cyan-400 font-mono font-bold">
                   R$ {hviMetrics.receitaCarocoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
-              <div className="flex justify-between border-t border-slate-800 pt-2 font-bold">
+              <div className="flex justify-between border-t border-[#EAF4E7] pt-2 font-bold">
                 <span className="text-white">Faturamento Global:</span>
                 <span className="text-amber-400 font-mono">
                   R$ {hviMetrics.receitaBrutaTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}

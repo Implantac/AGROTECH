@@ -143,19 +143,19 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
             <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
               🐑 Terminação Intensiva de Cordeiros de Corte
             </h2>
-            <p className="text-sm text-slate-300 max-w-3xl leading-relaxed">
+            <p className="text-sm text-[#26332A] max-w-3xl leading-relaxed">
               Manejo zootécnico e nutricional de precisão para ovinos: dietas de grão inteiro (15:85 volumoso/concentrado), prevenção de acidose ruminal com tamponantes e monensina, controle seletivo FAMACHA© e tipificação de cortes nobres (French Rack e T-Bone).
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Rebanho em Giro</span>
+            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
+              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Rebanho em Giro</span>
               <span className="text-xl font-black text-orange-400">1.200 cab</span>
-              <span className="text-[10px] text-slate-400 block mt-0.5">3 Baias Cobertas</span>
+              <span className="text-[10px] text-[#66736A] block mt-0.5">3 Baias Cobertas</span>
             </div>
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Margem do Giro</span>
+            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
+              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Margem do Giro</span>
               <span className="text-xl font-black text-emerald-400">R$ 408k</span>
               <span className="text-[10px] text-emerald-400/80 block mt-0.5">R$ 340,02 / cab</span>
             </div>
@@ -165,8 +165,8 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-orange-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-orange-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Ganho Médio Diário (GMD)</span>
             <Activity className="w-4 h-4 text-orange-400" />
           </div>
@@ -177,8 +177,8 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-orange-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-orange-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Conversão Alimentar (CA)</span>
             <Scale className="w-4 h-4 text-cyan-400" />
           </div>
@@ -188,37 +188,37 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-orange-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-orange-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Rendimento Carcaça (RCQ)</span>
             <Award className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">49.5% (20.54 kg)</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             EGS 3.2 mm • Gordura Cobertura Grau 3
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-orange-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-orange-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Período de Confinamento</span>
             <Calendar className="w-4 h-4 text-amber-400" />
           </div>
           <div className="text-2xl font-black text-amber-400">69 dias</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             Entrada 19.5 kg ➔ Abate 41.5 kg
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-slate-800 pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('lotes')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'lotes'
               ? 'bg-orange-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Scale className="w-4 h-4" />
@@ -230,7 +230,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'nutricao_dieta'
               ? 'bg-orange-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Flame className="w-4 h-4" />
@@ -242,7 +242,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'carcaca_cortes'
               ? 'bg-orange-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -254,7 +254,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
               ? 'bg-orange-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -265,19 +265,19 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
       {/* Conteúdo Aba 1: Baias & Lotes */}
       {activeTab === 'lotes' && (
         <div className="space-y-4">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Scale className="w-5 h-5 text-orange-400" />
               Acompanhamento Biométrico e Sanitário por Baia
             </h3>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               Monitoramento individual e por lote: pesagens a cada 14 dias em balança digital com RFID, escore corporal (ECC) e avaliação ocular FAMACHA© contra hemoncose.
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-slate-800 text-slate-400 font-bold uppercase tracking-wider">
+                  <tr className="border-b border-[#EAF4E7] text-[#66736A] font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Baia / Identificação</th>
                     <th className="py-3 px-3">Genética</th>
                     <th className="py-3 px-3">Cabeças</th>
@@ -294,15 +294,15 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
                     <tr key={lote.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-white">{lote.identificacao}</div>
-                        <div className="text-[11px] text-slate-400 font-mono">{lote.id}</div>
+                        <div className="text-[11px] text-[#66736A] font-mono">{lote.id}</div>
                       </td>
                       <td className="py-3.5 px-3">
                         <span className="px-2 py-0.5 rounded font-bold text-orange-300 bg-orange-950/50 border border-orange-800/50">
                           {lote.racaPredominante}
                         </span>
                       </td>
-                      <td className="py-3.5 px-3 font-mono text-slate-200">{lote.totalAnimais} cab</td>
-                      <td className="py-3.5 px-3 font-mono text-slate-300">{lote.diasConfinados} dias</td>
+                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{lote.totalAnimais} cab</td>
+                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{lote.diasConfinados} dias</td>
                       <td className="py-3.5 px-3 font-mono font-bold text-white">
                         {lote.pesoAtualKg.toFixed(1)} kg
                       </td>
@@ -350,86 +350,86 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
       {/* Conteúdo Aba 2: Nutrição & Dieta Alto Grão */}
       {activeTab === 'nutricao_dieta' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Flame className="w-5 h-5 text-orange-400" />
               Protocolo de Alimentação & Dieta Alto Grão
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Formulação baseada nas exigências do NRC Ovinos para cordeiros de desmame precoce (16% PB e 78% NDT).
             </p>
 
             <div className="space-y-3">
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center text-xs">
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center text-xs">
                 <div>
                   <span className="font-bold text-white block">Milho Grão Inteiro Seco (ou Quebrado)</span>
-                  <span className="text-slate-400">Aporte de amido de fermentação ruminal lenta</span>
+                  <span className="text-[#66736A]">Aporte de amido de fermentação ruminal lenta</span>
                 </div>
                 <span className="font-mono font-bold text-amber-400 text-sm">68.0%</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center text-xs">
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center text-xs">
                 <div>
                   <span className="font-bold text-white block">Farelo de Soja 46% PB</span>
-                  <span className="text-slate-400">Aporte de proteína verdadeira de alto valor biológico</span>
+                  <span className="text-[#66736A]">Aporte de proteína verdadeira de alto valor biológico</span>
                 </div>
                 <span className="font-mono font-bold text-amber-400 text-sm">14.0%</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center text-xs">
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center text-xs">
                 <div>
                   <span className="font-bold text-white block">Feno Triturado (Tifton 85 / Coastcross)</span>
-                  <span className="text-slate-400">Fibra efetiva (FDNe) para motilidade e ruminação</span>
+                  <span className="text-[#66736A]">Fibra efetiva (FDNe) para motilidade e ruminação</span>
                 </div>
                 <span className="font-mono font-bold text-emerald-400 text-sm">15.0%</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center text-xs">
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center text-xs">
                 <div>
                   <span className="font-bold text-white block">Núcleo Peletizado Mineral + Monensina + Bicarbonato</span>
-                  <span className="text-slate-400">Tamponante anti-acidose, ionóforo e minerais orgânicos</span>
+                  <span className="text-[#66736A]">Tamponante anti-acidose, ionóforo e minerais orgânicos</span>
                 </div>
                 <span className="font-mono font-bold text-cyan-400 text-sm">3.0%</span>
               </div>
             </div>
           </div>
 
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <ShieldAlert className="w-5 h-5 text-rose-400" />
               Manejo de Transição & Adaptação Ruminal (14 Dias)
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Adaptação em degraus para colonização das bactérias amilolíticas sem risco de acidose láctica ou timpanismo.
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <div className="flex justify-between items-center mb-1">
                   <span className="font-bold text-white">Fase 1: Dias 1 ao 5 (Início da Adaptação)</span>
                   <span className="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-mono font-bold">50% Concentrado</span>
                 </div>
-                <p className="text-slate-400 text-[11px]">
+                <p className="text-[#66736A] text-[11px]">
                   50% de feno picado + 50% de concentrado. Vacinação preventiva com toxoide de *Clostridium perfringens* tipo D (Enterotoxemia / Doença do Rim Polposo).
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <div className="flex justify-between items-center mb-1">
                   <span className="font-bold text-white">Fase 2: Dias 6 ao 10 (Transição Média)</span>
                   <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono font-bold">70% Concentrado</span>
                 </div>
-                <p className="text-slate-400 text-[11px]">
+                <p className="text-[#66736A] text-[11px]">
                   30% de volumoso + 70% de concentrado. Monitoramento da consistência fecal (escore fecal 3 pastoso a normal).
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <div className="flex justify-between items-center mb-1">
                   <span className="font-bold text-white">Fase 3: Do 11º Dia até o Abate (Dieta Plena)</span>
                   <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono font-bold">85% Concentrado</span>
                 </div>
-                <p className="text-slate-400 text-[11px]">
+                <p className="text-[#66736A] text-[11px]">
                   15% de feno + 85% de concentrado alto grão. Fornecimento parcelado em 3 tratos diários para evitar consumo excessivo em binga.
                 </p>
               </div>
@@ -441,44 +441,44 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
       {/* Conteúdo Aba 3: Carcaça & Cortes */}
       {activeTab === 'carcaca_cortes' && (
         <div className="space-y-6">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Award className="w-5 h-5 text-orange-400" />
               Tipificação de Carcaça e Rendimento de Cortes Especiais
             </h3>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               Padrão frigorífico de exportação e açougues boutique: peso de carcaça entre 18 e 22 kg, cobertura de gordura uniforme grau 3 (2,5 a 4,0 mm) sem excesso de gordura pélvico-renal.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2">
                 <span className="text-xs font-bold text-amber-400 block">Carré Francês (French Rack)</span>
                 <div className="text-xl font-black text-white">12.5% da carcaça</div>
-                <p className="text-[11px] text-slate-400">
+                <p className="text-[11px] text-[#66736A]">
                   Corte ícone da alta gastronomia. Cotação média: R$ 85,00 a R$ 110,00/kg fracionado.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2">
                 <span className="text-xs font-bold text-amber-400 block">Pernil Desossado / Inteiro</span>
                 <div className="text-xl font-black text-white">33.5% da carcaça</div>
-                <p className="text-[11px] text-slate-400">
+                <p className="text-[11px] text-[#66736A]">
                   Principal corte em massa muscular magra. Cotação média: R$ 48,00 a R$ 56,00/kg.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2">
                 <span className="text-xs font-bold text-amber-400 block">Paleta Especial com Osso</span>
                 <div className="text-xl font-black text-white">19.0% da carcaça</div>
-                <p className="text-[11px] text-slate-400">
+                <p className="text-[11px] text-[#66736A]">
                   Maciez e sabor característico de animais jovens (&lt; 5 meses). Cotação: R$ 44,00 a R$ 52,00/kg.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2">
                 <span className="text-xs font-bold text-amber-400 block">T-Bone & Costela Prime</span>
                 <div className="text-xl font-black text-white">18.0% da carcaça</div>
-                <p className="text-[11px] text-slate-400">
+                <p className="text-[11px] text-[#66736A]">
                   Lombo com contrafilé e filé mignon ovino. Cotação: R$ 75,00 a R$ 90,00/kg.
                 </p>
               </div>
@@ -490,14 +490,14 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
       {/* Conteúdo Aba 4: Simulador Zootécnico & DRE */}
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Scale className="w-5 h-5 text-orange-400" />
               Parâmetros Zootécnicos do Lote
             </h3>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Número de Cabeças</span>
                 <span className="font-mono text-orange-400">{totalCabecas} ovinos</span>
               </div>
@@ -513,7 +513,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Peso de Entrada (Desmame)</span>
                 <span className="font-mono text-orange-400">{pesoEntradaKg.toFixed(1)} kg vivo</span>
               </div>
@@ -529,7 +529,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Peso Meta de Abate</span>
                 <span className="font-mono text-orange-400">{pesoMetaAbateKg.toFixed(1)} kg vivo</span>
               </div>
@@ -545,7 +545,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>GMD Meta (Ganho Diário)</span>
                 <span className="font-mono text-emerald-400">{gmdGramas} g/dia</span>
               </div>
@@ -561,7 +561,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Conversão Alimentar (MS/Ganho)</span>
                 <span className="font-mono text-cyan-400">{conversaoAlimentar.toFixed(2)}</span>
               </div>
@@ -577,7 +577,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Custo Dieta (R$ / kg MS)</span>
                 <span className="font-mono text-amber-400">R$ {custoKgMsDieta.toFixed(2)}</span>
               </div>
@@ -593,7 +593,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Cotação Carcaça Gourmet</span>
                 <span className="font-mono text-emerald-400">R$ {precoKgCarcacaGourmet.toFixed(2)} / kg</span>
               </div>
@@ -609,39 +609,39 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               DRE Zootécnica & Margem do Confinamento
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Dias no Cocho</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Dias no Cocho</span>
                 <span className="font-mono font-bold text-white text-base">
                   {metricasConfinamento.diasConfinamento} dias
                 </span>
-                <span className="text-[10px] text-slate-400 block">Giro Rápido</span>
+                <span className="text-[10px] text-[#66736A] block">Giro Rápido</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Peso Carcaça</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Peso Carcaça</span>
                 <span className="font-mono font-bold text-amber-400 text-base">
                   {metricasConfinamento.pesoCarcacaFriaKg} kg
                 </span>
                 <span className="text-[10px] text-amber-400/80 block">{rendimentoCarcacaPct}% RCQ</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Receita Bruta/Cab</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Receita Bruta/Cab</span>
                 <span className="font-mono font-bold text-white text-base">
                   R$ {metricasConfinamento.receitaBrutaCabeca.toFixed(2)}
                 </span>
-                <span className="text-[10px] text-slate-400 block">Frigorífico Gourmet</span>
+                <span className="text-[10px] text-[#66736A] block">Frigorífico Gourmet</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Lucro Líquido Lote</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Lucro Líquido Lote</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {metricasConfinamento.margemLiquidaLote.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
@@ -649,28 +649,28 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Preço Compra Cordeiro Magro ({pesoEntradaKg} kg @ R$ {precoAquisicaoKgVivo.toFixed(2)}/kg):</span>
+            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Preço Compra Cordeiro Magro ({pesoEntradaKg} kg @ R$ {precoAquisicaoKgVivo.toFixed(2)}/kg):</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {metricasConfinamento.custoAquisicaoCabeca.toFixed(2)} / cab
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Custo Alimentação Alto Grão ({metricasConfinamento.consumoMsCabecaKg} kg MS):</span>
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Custo Alimentação Alto Grão ({metricasConfinamento.consumoMsCabecaKg} kg MS):</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {metricasConfinamento.custoAlimentarCabeca.toFixed(2)} / cab
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Custo Sanitário & Manejo (Vacinas Clostridioses e Vermífugo):</span>
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Custo Sanitário & Manejo (Vacinas Clostridioses e Vermífugo):</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ 18,00 / cab
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Custo Total de Produção por Cabeça:</span>
-                <span className="font-mono font-bold text-slate-200">
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Custo Total de Produção por Cabeça:</span>
+                <span className="font-mono font-bold text-[#26332A]">
                   R$ {metricasConfinamento.custoTotalCabeca.toFixed(2)} / cab
                 </span>
               </div>

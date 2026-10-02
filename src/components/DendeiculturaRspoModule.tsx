@@ -120,19 +120,19 @@ export const DendeiculturaRspoModule: React.FC = () => {
             <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
               🌴 Dendeicultura de Precisão, CFF & Extração de Óleo (OER)
             </h2>
-            <p className="text-sm text-slate-300 max-w-3xl leading-relaxed">
+            <p className="text-sm text-[#26332A] max-w-3xl leading-relaxed">
               Cultivo sustentável de palma de óleo no bioma amazônico em áreas de pastagem degradada pré-2008 (ZAE-Dendê). Monitoramento de Cachos de Frutos Frescos (CFF), taxa de extração OER na usina e rastreabilidade total com certificação internacional RSPO.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Óleo Bruto (CPO)</span>
+            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
+              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Óleo Bruto (CPO)</span>
               <span className="text-xl font-black text-amber-400">1.125 ton</span>
-              <span className="text-[10px] text-slate-400 block mt-0.5">22.5% OER</span>
+              <span className="text-[10px] text-[#66736A] block mt-0.5">22.5% OER</span>
             </div>
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Faturamento</span>
+            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
+              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Faturamento</span>
               <span className="text-xl font-black text-emerald-400">R$ 6,34M</span>
               <span className="text-[10px] text-emerald-400/80 block mt-0.5">Prêmio RSPO Ativo</span>
             </div>
@@ -142,8 +142,8 @@ export const DendeiculturaRspoModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Produtividade de CFF</span>
             <Activity className="w-4 h-4 text-emerald-400" />
           </div>
@@ -154,48 +154,48 @@ export const DendeiculturaRspoModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Taxa de Extração (OER)</span>
             <Droplets className="w-4 h-4 text-amber-400" />
           </div>
           <div className="text-2xl font-black text-amber-400">22.5% CPO</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             + 2.5% Óleo de Palmiste (PKO)
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Prêmio Verde RSPO</span>
             <Award className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black text-cyan-400">+ R$ 220 / ton</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             Bônus para Usinas Sustentáveis
           </div>
         </div>
 
-        <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
+          <div className="flex items-center justify-between text-[#66736A] mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
             <DollarSign className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">R$ 3.387.500,00</div>
-          <div className="text-[11px] text-slate-400 font-medium mt-1">
+          <div className="text-[11px] text-[#66736A] font-medium mt-1">
             Margem Líquida de 53.4%
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-slate-800 pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('plantios')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'plantios'
               ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Trees className="w-4 h-4" />
@@ -207,7 +207,7 @@ export const DendeiculturaRspoModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'extracao'
               ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <Droplets className="w-4 h-4" />
@@ -219,7 +219,7 @@ export const DendeiculturaRspoModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'rspo'
               ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <ShieldCheck className="w-4 h-4" />
@@ -231,7 +231,7 @@ export const DendeiculturaRspoModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
               ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
+              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -242,19 +242,19 @@ export const DendeiculturaRspoModule: React.FC = () => {
       {/* Conteúdo Aba 1: Plantios */}
       {activeTab === 'plantios' && (
         <div className="space-y-4">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Trees className="w-5 h-5 text-emerald-400" />
               Lotes de Dendezeiros e Manejo em Áreas de Pastagem Recuperada
             </h3>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               O dendê é a oleaginosa mais produtiva do planeta por hectare (produz até 10x mais óleo por hectare que a soja). O plantio no Brasil é estritamente regulamentado pelo Decreto 7.172/2010 (ZAE-Dendê), permitindo plantio apenas em solos antropizados.
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-slate-800 text-slate-400 font-bold uppercase tracking-wider">
+                  <tr className="border-b border-[#EAF4E7] text-[#66736A] font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Lote / Setor</th>
                     <th className="py-3 px-3">Ano Plantio</th>
                     <th className="py-3 px-3">CFF Colhido</th>
@@ -269,9 +269,9 @@ export const DendeiculturaRspoModule: React.FC = () => {
                     <tr key={l.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-white">{l.identificacao}</div>
-                        <div className="text-[11px] text-slate-400 font-mono">{l.id}</div>
+                        <div className="text-[11px] text-[#66736A] font-mono">{l.id}</div>
                       </td>
-                      <td className="py-3.5 px-3 font-mono text-slate-300">{l.anoPlantio}</td>
+                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{l.anoPlantio}</td>
                       <td className="py-3.5 px-3 font-mono font-bold text-white">{l.cffColhidoTon.toLocaleString()} ton</td>
                       <td className="py-3.5 px-3 font-mono text-amber-400 font-bold">{l.taxaOerPct}%</td>
                       <td className="py-3.5 px-3 font-mono text-emerald-400 font-bold">{l.oleoBrutoTon} ton</td>
@@ -293,47 +293,47 @@ export const DendeiculturaRspoModule: React.FC = () => {
       {/* Conteúdo Aba 2: Extração */}
       {activeTab === 'extracao' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Droplets className="w-5 h-5 text-amber-400" />
               Processo Industrial de Extração na Usina
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Etapas contínuas de esterilização sob vapor a 140°C para inativar enzimas que degradam a acidez do óleo:
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <span className="font-bold text-white block">Esterilização & Debulha</span>
-                <span className="text-slate-400 text-[11px] block mt-0.5">
+                <span className="text-[#66736A] text-[11px] block mt-0.5">
                   Separação mecânica dos frutos das ráquis (cachos vazios retornam como adubo orgânico ao campo).
                 </span>
               </div>
-              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
                 <span className="font-bold text-white block">Digestão & Prensagem Contínua</span>
-                <span className="text-slate-400 text-[11px] block mt-0.5">
+                <span className="text-[#66736A] text-[11px] block mt-0.5">
                   Prensas de rosca sem-fim extraem o óleo da polpa carnuda (mesocarpo) e liberam as nozes para quebra.
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               Acidez Livre (AGL)
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Critério máximo para óleo de palma cru (CPO) Tipo Exportação:
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <span className="text-slate-400">Acidez Livre Atual:</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+                <span className="text-[#66736A]">Acidez Livre Atual:</span>
                 <span className="font-mono font-bold text-emerald-400">2.8% AGL (&lt; 5.0% limite)</span>
               </div>
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex justify-between items-center">
-                <span className="text-slate-400">Tempo Máximo Colheita-Usina:</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+                <span className="text-[#66736A]">Tempo Máximo Colheita-Usina:</span>
                 <span className="font-mono font-bold text-cyan-400">Menos de 24 horas</span>
               </div>
             </div>
@@ -344,32 +344,32 @@ export const DendeiculturaRspoModule: React.FC = () => {
       {/* Conteúdo Aba 3: RSPO */}
       {activeTab === 'rspo' && (
         <div className="space-y-4">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <ShieldCheck className="w-5 h-5 text-emerald-400" />
               Critérios Globais RSPO (Roundtable on Sustainable Palm Oil)
             </h3>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               Garantia de que o óleo produzido não provém de desmatamento de florestas primárias, não utilizou queima na preparação do solo e respeitou comunidades tradicionais e direitos trabalhistas (zero trabalho análogo à escravidão).
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Auditoria Satelital</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Auditoria Satelital</span>
                 <span className="text-2xl font-black text-white font-mono">100% Conforme</span>
                 <span className="text-[11px] text-emerald-400 block">Marco temporal pré-2008</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Balanço de Carbono</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Balanço de Carbono</span>
                 <span className="text-2xl font-black text-cyan-400 font-mono">-68% CO₂eq</span>
-                <span className="text-[11px] text-slate-400 block">Captura de metano do efluente POME</span>
+                <span className="text-[11px] text-[#66736A] block">Captura de metano do efluente POME</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Destino Comercial</span>
+              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Destino Comercial</span>
                 <span className="text-2xl font-black text-amber-400 font-mono">Indústria de Alimentos</span>
-                <span className="text-[11px] text-slate-400 block">Cosméticos e Biocombustíveis</span>
+                <span className="text-[11px] text-[#66736A] block">Cosméticos e Biocombustíveis</span>
               </div>
             </div>
           </div>
@@ -379,14 +379,14 @@ export const DendeiculturaRspoModule: React.FC = () => {
       {/* Conteúdo Aba 4: Simulador */}
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-emerald-400" />
               Parâmetros da Dendeicultura
             </h3>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Área Plantada (ha)</span>
                 <span className="font-mono text-emerald-400">{areaHa} hectares</span>
               </div>
@@ -402,7 +402,7 @@ export const DendeiculturaRspoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Preço Óleo de Palma (R$/ton)</span>
                 <span className="font-mono text-amber-400">R$ {precoTonOleoPalmaReais.toFixed(2)}</span>
               </div>
@@ -418,7 +418,7 @@ export const DendeiculturaRspoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Bônus Sustentável RSPO (R$/ton)</span>
                 <span className="font-mono text-cyan-400">+ R$ {premioCertificacaoRspoReaisTon.toFixed(2)}</span>
               </div>
@@ -434,7 +434,7 @@ export const DendeiculturaRspoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-slate-300 font-semibold mb-1">
+              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
                 <span>Custo de Manejo e Colheita por Ha</span>
                 <span className="font-mono text-rose-400">R$ {custoPorHaReais.toFixed(2)}</span>
               </div>
@@ -450,39 +450,39 @@ export const DendeiculturaRspoModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 bg-slate-900/90 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               Retorno Financeiro da Dendeicultura RSPO
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Cachos CFF</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Cachos CFF</span>
                 <span className="font-mono font-bold text-white text-base">
                   {(metricas.producaoTotalCffTon / 1000).toFixed(1)}k ton
                 </span>
-                <span className="text-[10px] text-slate-400 block">{areaHa} ha plantados</span>
+                <span className="text-[10px] text-[#66736A] block">{areaHa} ha plantados</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Óleo Bruto CPO</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Óleo Bruto CPO</span>
                 <span className="font-mono font-bold text-amber-400 text-base">
                   {metricas.oleoPalmaBrutoTon.toFixed(0)} ton
                 </span>
                 <span className="text-[10px] text-amber-400/80 block">{taxaExtracaoOerPct}% OER</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Receita Bruta</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Receita Bruta</span>
                 <span className="font-mono font-bold text-white text-base">
                   R$ {(metricas.receitaBrutaTotalReais / 1000000).toFixed(2)}M
                 </span>
-                <span className="text-[10px] text-slate-400 block">Com Bônus RSPO</span>
+                <span className="text-[10px] text-[#66736A] block">Com Bônus RSPO</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Lucro Líquido</span>
+              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Lucro Líquido</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {(metricas.lucroLiquidoReais / 1000000).toFixed(2)}M
                 </span>
@@ -490,21 +490,21 @@ export const DendeiculturaRspoModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Receita com Óleo de Palma Bruto CPO + Bônus RSPO:</span>
+            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Receita com Óleo de Palma Bruto CPO + Bônus RSPO:</span>
                 <span className="font-mono font-bold text-white">
                   R$ {(metricas.oleoPalmaBrutoTon * (precoTonOleoPalmaReais + premioCertificacaoRspoReaisTon)).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Receita com Óleo de Palmiste PKO ({metricas.oleoPalmisteTon} t @ R$ {precoTonOleoPalmisteReais.toFixed(2)}):</span>
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Receita com Óleo de Palmiste PKO ({metricas.oleoPalmisteTon} t @ R$ {precoTonOleoPalmisteReais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-amber-400">
                   + R$ {(metricas.oleoPalmisteTon * precoTonOleoPalmisteReais).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-slate-800/80">
-                <span className="text-slate-400">Custo Total de Manejo, Coroamento e Colheita:</span>
+              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
+                <span className="text-[#66736A]">Custo Total de Manejo, Coroamento e Colheita:</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {(areaHa * custoPorHaReais).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>

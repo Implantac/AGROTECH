@@ -97,7 +97,7 @@ export const MicorrizasBioinsumosModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-800 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20">
             <Microscope className="w-7 h-7 text-slate-950" />
@@ -111,7 +111,7 @@ export const MicorrizasBioinsumosModule: React.FC = () => {
                 Módulo 129 • Ciclagem Biológica de Fósforo & Glomalina
               </span>
             </div>
-            <p className="text-sm text-slate-400 mt-1">
+            <p className="text-sm text-[#66736A] mt-1">
               Simbiose micorrízica com expansão do volume radicular em até 100x, solubilização de fósforo fixado no solo tropical e agregação estrutural de carbono com glomalina.
             </p>
           </div>
@@ -130,9 +130,9 @@ export const MicorrizasBioinsumosModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Economia Total da Gleba</span>
+            <span className="text-xs font-medium text-[#66736A]">Economia Total da Gleba</span>
             <DollarSign className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -143,9 +143,9 @@ export const MicorrizasBioinsumosModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Adubo P Poupado</span>
+            <span className="text-xs font-medium text-[#66736A]">Adubo P Poupado</span>
             <Scale className="w-5 h-5 text-teal-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -156,9 +156,9 @@ export const MicorrizasBioinsumosModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Retorno do Bioinsumo</span>
+            <span className="text-xs font-medium text-[#66736A]">Retorno do Bioinsumo</span>
             <TrendingUp className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -169,9 +169,9 @@ export const MicorrizasBioinsumosModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Colonização Radicular</span>
+            <span className="text-xs font-medium text-[#66736A]">Colonização Radicular</span>
             <Award className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -184,13 +184,13 @@ export const MicorrizasBioinsumosModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-800 pb-2">
+      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('lotes')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'lotes'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -202,7 +202,7 @@ export const MicorrizasBioinsumosModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'fisiologia'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Sprout className="w-4 h-4" />
@@ -214,7 +214,7 @@ export const MicorrizasBioinsumosModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'glomalina'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <ShieldCheck className="w-4 h-4" />
@@ -226,7 +226,7 @@ export const MicorrizasBioinsumosModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -236,15 +236,15 @@ export const MicorrizasBioinsumosModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'lotes' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-slate-800 p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Microscope className="w-5 h-5 text-emerald-400" />
             Lotes Formulados de Inoculantes Micorrízicos (FMA)
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-300">
-              <thead className="text-xs uppercase bg-slate-950/60 text-slate-400">
+            <table className="w-full text-left text-sm text-[#26332A]">
+              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
                 <tr>
                   <th className="px-4 py-3">Inoculante / Produto</th>
                   <th className="px-4 py-3">Espécies Fúngicas</th>
@@ -260,9 +260,9 @@ export const MicorrizasBioinsumosModule: React.FC = () => {
                   <tr key={l.id} className="hover:bg-slate-800/30">
                     <td className="px-4 py-3 font-semibold text-white">{l.lote}</td>
                     <td className="px-4 py-3 text-emerald-400 font-mono text-xs">{l.especiesMicorrizicas}</td>
-                    <td className="px-4 py-3 text-xs text-slate-400">{l.veiculoSuporte}</td>
+                    <td className="px-4 py-3 text-xs text-[#66736A]">{l.veiculoSuporte}</td>
                     <td className="px-4 py-3 font-bold text-white">{l.esporosPorGrama}</td>
-                    <td className="px-4 py-3 text-slate-300">{l.glebaAplicacao}</td>
+                    <td className="px-4 py-3 text-[#26332A]">{l.glebaAplicacao}</td>
                     <td className="px-4 py-3">{l.areaHa} ha</td>
                     <td className="px-4 py-3">
                       <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
@@ -279,44 +279,44 @@ export const MicorrizasBioinsumosModule: React.FC = () => {
 
       {activeTab === 'fisiologia' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Sprout className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Extensão da Riçosfera</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               As hifas extrarradiculares penetram em microporos do solo inacessíveis aos pelos radiculares da planta, aumentando o volume de absorção em até 100 vezes.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Comprimento de Hifas:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Comprimento de Hifas:</span>
               <span className="text-sm font-bold text-emerald-400 block">superior a 25 metros de hifas por cm³ de solo</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Scale className="w-5 h-5 text-teal-400" />
               <h4 className="text-sm font-semibold text-white">Solubilização de Fósforo (P)</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Exsudação de fosfatases e ácidos orgânicos pelas hifas fúngicas que rompem a ligação do fosfato com óxidos de ferro e alumínio em latossolos vermelhos.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Eficiência de Aproveitamento:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Eficiência de Aproveitamento:</span>
               <span className="text-sm font-bold text-teal-400 block">Elevação de 18% para 42% do P aplicado</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <ShieldCheck className="w-5 h-5 text-yellow-400" />
               <h4 className="text-sm font-semibold text-white">Tolerância a Veranicos</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Aumento da síntese de aquaporinas nas membranas celulares das raízes, mantendo a turgidez foliar mesmo sob déficit hídrico transitório de até 14 dias.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Condutância Estomática:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Condutância Estomática:</span>
               <span className="text-sm font-bold text-yellow-400 block">Manutenção da fotossíntese em seca</span>
             </div>
           </div>
@@ -324,39 +324,39 @@ export const MicorrizasBioinsumosModule: React.FC = () => {
       )}
 
       {activeTab === 'glomalina' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-emerald-400" />
             Produção de Glomalina & Agregação Estável de Matéria Orgânica
           </h3>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-[#66736A]">
             A glomalina é uma glicoproteína hidrofóbica secretada pelas micorrizas que atua como uma &quot;cola biológica&quot;, unindo partículas de argila e silte em macroagregados estáveis à água, protegendo o carbono orgânico por décadas.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Glomalina no Solo</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Glomalina no Solo</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">4.2 mg/g solo</p>
-              <span className="text-[11px] text-slate-400">Resistente à degradação térmica</span>
+              <span className="text-[11px] text-[#66736A]">Resistente à degradação térmica</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Macroagregados Estáveis</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Macroagregados Estáveis</span>
               <p className="text-lg font-bold text-teal-400 mt-1">superior a 82%</p>
-              <span className="text-[11px] text-slate-400">Aumento da aeração e infiltração</span>
+              <span className="text-[11px] text-[#66736A]">Aumento da aeração e infiltração</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Créditos de Carbono</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Créditos de Carbono</span>
               <p className="text-lg font-bold text-yellow-400 mt-1">+1.4 t CO2eq/ha/ano</p>
-              <span className="text-[11px] text-slate-400">Elegível para CPR Verde</span>
+              <span className="text-[11px] text-[#66736A]">Elegível para CPR Verde</span>
             </div>
           </div>
         </div>
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-emerald-400" />
             Simulador de Redução de Adubo Fosfatado & ROI de Bioinsumo
@@ -364,58 +364,58 @@ export const MicorrizasBioinsumosModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-slate-400">Área Inoculada (ha)</label>
+              <label className="text-xs font-medium text-[#66736A]">Área Inoculada (ha)</label>
               <input
                 type="number"
                 value={areaInoculadaHa}
                 onChange={(e) => setAreaInoculadaHa(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Custo Inoculante (R$/ha)</label>
+              <label className="text-xs font-medium text-[#66736A]">Custo Inoculante (R$/ha)</label>
               <input
                 type="number"
                 step="2"
                 value={custoInoculanteHaReais}
                 onChange={(e) => setCustoInoculanteHaReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Redução de Adubo P (%)</label>
+              <label className="text-xs font-medium text-[#66736A]">Redução de Adubo P (%)</label>
               <input
                 type="number"
                 step="5"
                 value={reducaoAduboFosfatadoPct}
                 onChange={(e) => setReducaoAduboFosfatadoPct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Preço Adubo P (R$/kg)</label>
+              <label className="text-xs font-medium text-[#66736A]">Preço Adubo P (R$/kg)</label>
               <input
                 type="number"
                 step="0.2"
                 value={precoKgAduboFosfatadoReais}
                 onChange={(e) => setPrecoKgAduboFosfatadoReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-slate-950/60 rounded-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-slate-400 block">Economia Líquida por Hectare:</span>
+              <span className="text-xs text-[#66736A] block">Economia Líquida por Hectare:</span>
               <span className="text-base font-bold text-emerald-400">
                 R$ {metricas.ganhoLiquidoHaReais.toFixed(2)} / ha líquido poupado
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-slate-400 block">Economia Total na Safra:</span>
+              <span className="text-xs text-[#66736A] block">Economia Total na Safra:</span>
               <span className="text-xl font-bold text-emerald-400">
                 R$ {metricas.economiaTotalGlebaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

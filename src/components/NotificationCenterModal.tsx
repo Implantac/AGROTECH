@@ -325,8 +325,8 @@ export const NotificationCenterModal: React.FC<NotificationCenterModalProps> = (
                   key={alert.id}
                   className={`pt-3 first:pt-0 flex items-start justify-between gap-3 p-3 rounded-xl transition-all ${
                     alert.lido
-                      ? 'opacity-60 bg-transparent hover:opacity-100 hover:bg-slate-950/40'
-                      : 'bg-slate-950/70 border border-slate-800/80 shadow-md'
+                      ? 'opacity-60 bg-transparent hover:opacity-100 hover:bg-[#F7F9F5]'
+                      : 'bg-[#F7F9F5] border border-[#EAF4E7] shadow-xs'
                   }`}
                 >
                   <div className="flex items-start gap-3 flex-1 min-w-0">
@@ -339,7 +339,7 @@ export const NotificationCenterModal: React.FC<NotificationCenterModalProps> = (
                         <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full border ${badgeBg}`}>
                           {alert.tipo}
                         </span>
-                        <span className="text-[10px] text-slate-500 flex items-center gap-1 font-mono">
+                        <span className="text-[10px] text-[#66736A] flex items-center gap-1 font-mono">
                           <Clock className="w-3 h-3" /> {alert.timestamp}
                         </span>
                       </div>
@@ -356,7 +356,7 @@ export const NotificationCenterModal: React.FC<NotificationCenterModalProps> = (
                               if (onClose) onClose();
                             }
                           }}
-                          className="text-[11px] font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 hover:underline cursor-pointer"
+                          className="text-[11px] font-bold text-[#285943] hover:text-[#1D4B38] flex items-center gap-1 hover:underline cursor-pointer"
                         >
                           Ver no Módulo <ExternalLink className="w-3 h-3" />
                         </button>
@@ -366,7 +366,7 @@ export const NotificationCenterModal: React.FC<NotificationCenterModalProps> = (
 
                   <button
                     onClick={() => clearAlert(alert.id)}
-                    className="text-slate-500 hover:text-rose-400 p-1.5 rounded-lg hover:bg-slate-800 transition-colors shrink-0 cursor-pointer"
+                    className="text-[#66736A] hover:text-rose-600 p-1.5 rounded-lg hover:bg-rose-50 transition-colors shrink-0 cursor-pointer"
                     title="Dispensar alerta"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
@@ -378,11 +378,11 @@ export const NotificationCenterModal: React.FC<NotificationCenterModalProps> = (
         </div>
 
         {/* Rodapé da Central */}
-        <div className="p-3 border-t border-slate-800 bg-slate-950 flex items-center justify-between text-xs text-[#66736A]">
+        <div className="p-3.5 border-t border-[#EAF4E7] bg-[#F7F9F5] flex items-center justify-between text-xs text-[#66736A]">
           <span>{alerts.length} alertas monitorados em tempo real</span>
           <button
             onClick={onClose}
-            className="px-4 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-bold transition-colors cursor-pointer"
+            className="px-4 py-1.5 bg-[#285943] hover:bg-[#1D4B38] text-white rounded-xl font-bold transition-colors cursor-pointer shadow-xs"
           >
             Fechar
           </button>

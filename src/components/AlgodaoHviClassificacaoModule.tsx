@@ -111,7 +111,7 @@ export const AlgodaoHviClassificacaoModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-800 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-sky-400 to-indigo-500 flex items-center justify-center shadow-lg shadow-sky-500/20">
             <Sparkles className="w-7 h-7 text-slate-950" />
@@ -125,7 +125,7 @@ export const AlgodaoHviClassificacaoModule: React.FC = () => {
                 Módulo 126 • Padrão ABRAPA / ABR & BCI Sustentável
               </span>
             </div>
-            <p className="text-sm text-slate-400 mt-1">
+            <p className="text-sm text-[#66736A] mt-1">
               Análise instrumental fardo a fardo: Micronaire, Resistência à Tração (g/tex), Comprimento de Fibra (UHML), Uniformidade e Índice de Fibras Curtas (SFI).
             </p>
           </div>
@@ -144,9 +144,9 @@ export const AlgodaoHviClassificacaoModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Volume Total em Pluma</span>
+            <span className="text-xs font-medium text-[#66736A]">Volume Total em Pluma</span>
             <Scale className="w-5 h-5 text-sky-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -157,9 +157,9 @@ export const AlgodaoHviClassificacaoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Preço Efetivo / @</span>
+            <span className="text-xs font-medium text-[#66736A]">Preço Efetivo / @</span>
             <TrendingUp className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -170,9 +170,9 @@ export const AlgodaoHviClassificacaoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Prêmio HVI Agregado</span>
+            <span className="text-xs font-medium text-[#66736A]">Prêmio HVI Agregado</span>
             <Award className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -183,9 +183,9 @@ export const AlgodaoHviClassificacaoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Faturamento da Safra</span>
+            <span className="text-xs font-medium text-[#66736A]">Faturamento da Safra</span>
             <DollarSign className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -198,13 +198,13 @@ export const AlgodaoHviClassificacaoModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-800 pb-2">
+      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('fardos')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'fardos'
               ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -216,7 +216,7 @@ export const AlgodaoHviClassificacaoModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'hvi'
               ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Sliders className="w-4 h-4" />
@@ -228,7 +228,7 @@ export const AlgodaoHviClassificacaoModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'certificacoes'
               ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <ShieldCheck className="w-4 h-4" />
@@ -240,7 +240,7 @@ export const AlgodaoHviClassificacaoModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -250,15 +250,15 @@ export const AlgodaoHviClassificacaoModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'fardos' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-slate-800 p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-sky-400" />
             Leitura Óptica e Instrumental por Código de Barras Único (ABRAPA)
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-300">
-              <thead className="text-xs uppercase bg-slate-950/60 text-slate-400">
+            <table className="w-full text-left text-sm text-[#26332A]">
+              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
                 <tr>
                   <th className="px-4 py-3">Código do Fardo</th>
                   <th className="px-4 py-3">Talhão</th>
@@ -273,7 +273,7 @@ export const AlgodaoHviClassificacaoModule: React.FC = () => {
                 {fardos.map((f) => (
                   <tr key={f.id} className="hover:bg-slate-800/30">
                     <td className="px-4 py-3 font-semibold text-white">{f.codigoFardo}</td>
-                    <td className="px-4 py-3 text-xs text-slate-400">{f.talhaoOrigem}</td>
+                    <td className="px-4 py-3 text-xs text-[#66736A]">{f.talhaoOrigem}</td>
                     <td className="px-4 py-3">{f.pesoLiquidoKg} kg</td>
                     <td className="px-4 py-3 font-bold text-sky-400">{f.micronaire}</td>
                     <td className="px-4 py-3 font-bold text-emerald-400">{f.resistenciaGPerTex} g/tex</td>
@@ -293,44 +293,44 @@ export const AlgodaoHviClassificacaoModule: React.FC = () => {
 
       {activeTab === 'hvi' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Sliders className="w-5 h-5 text-sky-400" />
               <h4 className="text-sm font-semibold text-white">Micronaire (Finura e Maturidade)</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Faixa base de comercialização sem desconto entre 3.5 e 4.9. Abaixo de 3.5 indica fibras imaturas (propensas a neps); acima de 4.9 indica fibras excessivamente grosseiras.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Faixa Premium Ideal:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Faixa Premium Ideal:</span>
               <span className="text-sm font-bold text-sky-400 block">3.8 a 4.5 Micronaire</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Scale className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Resistência de Fibra (Strength)</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Mede a tenacidade à ruptura em gramas por tex. Valores acima de 30.0 g/tex são exigidos pela indústria têxtil de fiação open-end e vortex de alta rotação.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Classificação ABRAPA:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Classificação ABRAPA:</span>
               <span className="text-sm font-bold text-emerald-400 block">superior a 30.0 g/tex (Muito Forte)</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <FileCheck className="w-5 h-5 text-yellow-400" />
               <h4 className="text-sm font-semibold text-white">Comprimento de Fibra (UHML)</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Upper Half Mean Length expressa em polegadas. Fibras superiores a 1.18 polegadas (30 mm) recebem ágio imediato nas trades globais asiáticas.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Padrão Exportação:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Padrão Exportação:</span>
               <span className="text-sm font-bold text-yellow-400 block">UHML superior a 1.18 pol</span>
             </div>
           </div>
@@ -338,39 +338,39 @@ export const AlgodaoHviClassificacaoModule: React.FC = () => {
       )}
 
       {activeTab === 'certificacoes' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-sky-400" />
             Certificação Socioambiental ABR (Algodão Brasileiro Responsável) & BCI
           </h3>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-[#66736A]">
             A conformidade com o protocolo ABR unifica auditorias trabalhistas, ambientais e de rastreabilidade com equivalência direta ao Better Cotton Initiative (BCI), viabilizando exportações prioritárias para Europa e Ásia.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Conformidade ABR</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Conformidade ABR</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">100% Auditado</p>
-              <span className="text-[11px] text-slate-400">Critérios de saúde, segurança e CLT</span>
+              <span className="text-[11px] text-[#66736A]">Critérios de saúde, segurança e CLT</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Benchmark BCI Global</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Benchmark BCI Global</span>
               <p className="text-lg font-bold text-sky-400 mt-1">Better Cotton Licenciado</p>
-              <span className="text-[11px] text-slate-400">Reconhecido pelas maiores marcas</span>
+              <span className="text-[11px] text-[#66736A]">Reconhecido pelas maiores marcas</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Rastreabilidade em Nuvem</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Rastreabilidade em Nuvem</span>
               <p className="text-lg font-bold text-yellow-400 mt-1">QR Code por Fardo</p>
-              <span className="text-[11px] text-slate-400">Histórico de talhão e colheita</span>
+              <span className="text-[11px] text-[#66736A]">Histórico de talhão e colheita</span>
             </div>
           </div>
         </div>
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-sky-400" />
             Simulador de Prêmios HVI & Balanço Financeiro da Pluma
@@ -378,58 +378,58 @@ export const AlgodaoHviClassificacaoModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-slate-400">Total de Fardos</label>
+              <label className="text-xs font-medium text-[#66736A]">Total de Fardos</label>
               <input
                 type="number"
                 value={totalFardosSafra}
                 onChange={(e) => setTotalFardosSafra(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-sky-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-sky-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Preço Base (R$/@)</label>
+              <label className="text-xs font-medium text-[#66736A]">Preço Base (R$/@)</label>
               <input
                 type="number"
                 step="1"
                 value={precoBaseArrobaReais}
                 onChange={(e) => setPrecoBaseArrobaReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-sky-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-sky-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Prêmio HVI (%)</label>
+              <label className="text-xs font-medium text-[#66736A]">Prêmio HVI (%)</label>
               <input
                 type="number"
                 step="0.5"
                 value={premioHviQualidadePct}
                 onChange={(e) => setPremioHviQualidadePct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-sky-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-sky-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Descaroçamento (R$/kg)</label>
+              <label className="text-xs font-medium text-[#66736A]">Descaroçamento (R$/kg)</label>
               <input
                 type="number"
                 step="0.05"
                 value={custoDescarocamentoPorKg}
                 onChange={(e) => setCustoDescarocamentoPorKg(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-sky-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-sky-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-slate-950/60 rounded-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-slate-400 block">Preço Final com Prêmio HVI:</span>
+              <span className="text-xs text-[#66736A] block">Preço Final com Prêmio HVI:</span>
               <span className="text-base font-bold text-sky-400">
                 R$ {metricas.precoEfetivoArroba.toFixed(2)} por @ de pluma
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-slate-400 block">Margem Líquida da Pluma:</span>
+              <span className="text-xs text-[#66736A] block">Margem Líquida da Pluma:</span>
               <span className="text-xl font-bold text-emerald-400">
                 R$ {metricas.margemLiquidaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

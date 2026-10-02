@@ -128,7 +128,7 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/90 border border-slate-800 p-6 rounded-2xl backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-[#EAF4E7] p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400">
@@ -136,7 +136,7 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-xl font-bold text-slate-100">Crédito Rural & Financiamentos (Plano Safra)</h1>
+                <h1 className="text-xl font-bold text-[#1D4B38]">Crédito Rural & Financiamentos (Plano Safra)</h1>
                 <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
                   Taxas Equalizadas
                 </span>
@@ -144,7 +144,7 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
                   Garantias Reais B3
                 </span>
               </div>
-              <p className="text-sm text-slate-400 mt-0.5">
+              <p className="text-sm text-[#66736A] mt-0.5">
                 Gestão de Custeio Agrícola, Moderfrota, PCA Armazenagem, CPRs Financeiras e amortização de Pagamentos Balão.
               </p>
             </div>
@@ -154,19 +154,19 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
 
       {/* Cards de Métricas de Crédito */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-slate-400 mb-1">
+        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
+          <div className="flex items-center justify-between text-[#66736A] mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Volume Total Contratado</span>
             <Banknote className="w-4 h-4 text-emerald-400" />
           </div>
-          <div className="text-2xl font-bold text-slate-100 font-mono">
+          <div className="text-2xl font-bold text-[#1D4B38] font-mono">
             R$ {(totalTomado / 1_000_000).toFixed(2)}M
           </div>
           <p className="text-xs text-slate-500 mt-1">4 operações ativas de longo/médio prazo</p>
         </div>
 
-        <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-slate-400 mb-1">
+        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
+          <div className="flex items-center justify-between text-[#66736A] mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Saldo Devedor Atual</span>
             <DollarSign className="w-4 h-4 text-amber-400" />
           </div>
@@ -176,8 +176,8 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
           <p className="text-xs text-slate-500 mt-1">Com amortizações semestrais em dia</p>
         </div>
 
-        <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-slate-400 mb-1">
+        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
+          <div className="flex items-center justify-between text-[#66736A] mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Taxa Média Ponderada</span>
             <Percent className="w-4 h-4 text-indigo-400" />
           </div>
@@ -200,20 +200,20 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
       {/* Grid: Tabela de Operações de Crédito + Simulador de Custeio */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Tabela de Contratos Ativos (2 colunas) */}
-        <div className="lg:col-span-2 bg-slate-900/80 border border-slate-800 p-5 rounded-2xl space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] p-5 rounded-2xl space-y-4">
+          <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-3">
             <div>
-              <h2 className="text-base font-bold text-slate-100 flex items-center gap-2">
+              <h2 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
                 <Scale className="w-5 h-5 text-emerald-400" />
                 Operações de Crédito Rural & Garantias Reais
               </h2>
-              <p className="text-xs text-slate-400">Contratos vinculados a matrículas, máquinas e penhor de safra</p>
+              <p className="text-xs text-[#66736A]">Contratos vinculados a matrículas, máquinas e penhor de safra</p>
             </div>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead className="bg-slate-950/60 text-slate-400 uppercase tracking-wider font-semibold border-b border-slate-800">
+              <thead className="bg-[#F7F9F5] text-[#66736A] uppercase tracking-wider font-semibold border-b border-[#EAF4E7]">
                 <tr>
                   <th className="px-3.5 py-3">Linha & Banco</th>
                   <th className="px-3.5 py-3">Principal & Saldo</th>
@@ -226,13 +226,13 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
                 {contratos.map((c) => (
                   <tr key={c.id} className="hover:bg-slate-800/40 transition-colors">
                     <td className="px-3.5 py-3.5">
-                      <div className="font-bold text-slate-200">{c.linhaCredito}</div>
+                      <div className="font-bold text-[#26332A]">{c.linhaCredito}</div>
                       <div className="text-[11px] text-emerald-400 font-medium">{c.instituicaoFinanceira}</div>
                       <div className="text-[10px] text-slate-500 font-mono mt-0.5">Op: {c.numeroOperacao}</div>
                     </td>
 
                     <td className="px-3.5 py-3.5">
-                      <div className="font-mono font-bold text-slate-100">
+                      <div className="font-mono font-bold text-[#1D4B38]">
                         R$ {c.valorPrincipal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                       </div>
                       <div className="text-[11px] text-amber-400 font-mono mt-0.5">
@@ -242,19 +242,19 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
 
                     <td className="px-3.5 py-3.5">
                       <div className="font-bold text-indigo-300 font-mono">{c.taxaJurosAnualPct}% a.a.</div>
-                      <span className="text-[10px] text-slate-400 block uppercase">
+                      <span className="text-[10px] text-[#66736A] block uppercase">
                         {c.tipoAmortizacao.replace(/_/g, ' ')}
                       </span>
                     </td>
 
-                    <td className="px-3.5 py-3.5 font-mono text-slate-300">
+                    <td className="px-3.5 py-3.5 font-mono text-[#26332A]">
                       <div>{c.dataVencimentoFinal}</div>
                       <span className="text-[10px] text-emerald-400 font-semibold">Em Dia</span>
                     </td>
 
                     <td className="px-3.5 py-3.5 space-y-1">
                       {c.garantiasVinculadas.map((gar, idx) => (
-                        <div key={idx} className="text-[11px] text-slate-300 flex items-start gap-1">
+                        <div key={idx} className="text-[11px] text-[#26332A] flex items-start gap-1">
                           <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1 shrink-0"></span>
                           <span>{gar}</span>
                         </div>
@@ -268,60 +268,60 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
         </div>
 
         {/* Simulador de Custeio / Pagamento Balão (1 coluna) */}
-        <div className="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl flex flex-col justify-between space-y-4">
+        <div className="bg-white border border-[#EAF4E7] p-5 rounded-2xl flex flex-col justify-between space-y-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
               <Sparkles className="w-5 h-5 text-emerald-400" />
-              <h2 className="text-base font-bold text-slate-100">Simulador de Custeio Rural</h2>
+              <h2 className="text-base font-bold text-[#1D4B38]">Simulador de Custeio Rural</h2>
             </div>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               Calcule o montante final e juros devidos para liquidação única pós-colheita (Pagamento Balão):
             </p>
 
             <div className="space-y-3 text-xs">
               <div>
-                <label className="text-slate-300 block mb-1">Valor Principal Desejado (R$):</label>
+                <label className="text-[#26332A] block mb-1">Valor Principal Desejado (R$):</label>
                 <input
                   type="number"
                   step="50000"
                   value={simPrincipal}
                   onChange={(e) => setSimPrincipal(Number(e.target.value))}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-200 font-mono"
+                  className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A] font-mono"
                 />
               </div>
 
               <div>
-                <label className="text-slate-300 block mb-1">Taxa Equalizada Plano Safra (% a.a.):</label>
+                <label className="text-[#26332A] block mb-1">Taxa Equalizada Plano Safra (% a.a.):</label>
                 <input
                   type="number"
                   step="0.5"
                   value={simTaxaAnual}
                   onChange={(e) => setSimTaxaAnual(Number(e.target.value))}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-200 font-mono"
+                  className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A] font-mono"
                 />
               </div>
 
               <div>
-                <label className="text-slate-300 block mb-1">Prazo de Amortização (Meses):</label>
+                <label className="text-[#26332A] block mb-1">Prazo de Amortização (Meses):</label>
                 <input
                   type="number"
                   value={simPrazoMeses}
                   onChange={(e) => setSimPrazoMeses(Number(e.target.value))}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-200 font-mono"
+                  className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A] font-mono"
                 />
               </div>
             </div>
           </div>
 
           <div className="p-4 bg-emerald-950/30 border border-emerald-800/40 rounded-xl text-xs space-y-2">
-            <div className="flex justify-between items-center text-slate-300">
+            <div className="flex justify-between items-center text-[#26332A]">
               <span>Juros Devidos no Período:</span>
               <span className="font-mono font-bold text-amber-300">
                 + R$ {simJuros.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>
             </div>
             <div className="border-t border-emerald-900/50 pt-2 flex justify-between items-center">
-              <span className="font-bold text-slate-100">Pagamento Balão no Vencimento:</span>
+              <span className="font-bold text-[#1D4B38]">Pagamento Balão no Vencimento:</span>
               <span className="font-mono font-extrabold text-sm text-emerald-300">
                 R$ {simMontanteFinalBalao.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

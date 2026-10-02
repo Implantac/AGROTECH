@@ -109,7 +109,7 @@ export const CanadeAcucarATRModule: React.FC = () => {
   }, [talhoes, precoKgAtrReais, doseVinhacaM3Ha, custoKclKgReais]);
 
   return (
-    <div className="space-y-6 animate-fade-in text-slate-100">
+    <div className="space-y-6 animate-fade-in text-[#1D4B38]">
       {/* Cabeçalho */}
       <div className="bg-gradient-to-r from-emerald-950/40 via-slate-900 to-slate-900 border border-emerald-800/40 rounded-2xl p-6 shadow-xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -126,7 +126,7 @@ export const CanadeAcucarATRModule: React.FC = () => {
                     ATR Consecana • CETESB P4.231
                   </span>
                 </h2>
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-[#66736A]">
                   Açúcar Total Recuperável (ATR), curvas de maturação, TCH e reciclagem agronômica de vinhaça localizada.
                 </p>
               </div>
@@ -145,14 +145,14 @@ export const CanadeAcucarATRModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: ATR Médio */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>ATR Consecana</span>
             <Sparkles className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
             {canaMetrics.atrMedioKgTon.toFixed(1)}{' '}
-            <span className="text-xs font-normal text-slate-400">kg ATR/t cana</span>
+            <span className="text-xs font-normal text-[#66736A]">kg ATR/t cana</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Pol média: 14.6% • Açúcares Redutores: 0.84%.
@@ -160,14 +160,14 @@ export const CanadeAcucarATRModule: React.FC = () => {
         </div>
 
         {/* KPI 2: Produtividade TCH */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Produtividade Canavial</span>
             <Scale className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
             {canaMetrics.tchMedio.toFixed(1)}{' '}
-            <span className="text-xs font-normal text-slate-400">TCH (t/ha)</span>
+            <span className="text-xs font-normal text-[#66736A]">TCH (t/ha)</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Total: {canaMetrics.toneladasCanaTotais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })} t cana colhidas.
@@ -175,8 +175,8 @@ export const CanadeAcucarATRModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Economia de Potássio (Vinhaça) */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Economia de KCl (Vinhaça)</span>
             <Leaf className="w-4 h-4 text-amber-400" />
           </div>
@@ -189,8 +189,8 @@ export const CanadeAcucarATRModule: React.FC = () => {
         </div>
 
         {/* KPI 4: Faturamento Consecana / ha */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-medium">
+        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
             <span>Receita Consecana</span>
             <TrendingUp className="w-4 h-4 text-white" />
           </div>
@@ -207,18 +207,18 @@ export const CanadeAcucarATRModule: React.FC = () => {
       {/* Grid Principal: Talhões de Cana e Parâmetros Consecana */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Lista de Talhões de Cana */}
-        <div className="lg:col-span-2 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <Layers className="w-5 h-5 text-emerald-400" />
                 Talhões do Canavial & Rastreabilidade de Maturação
               </h3>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-[#66736A]">
                 Pol do caldo, estágios de corte e cronograma de descarregamento na usina.
               </p>
             </div>
-            <span className="text-xs font-mono text-slate-400">
+            <span className="text-xs font-mono text-[#66736A]">
               {talhoes.length} Talhões Monitorados
             </span>
           </div>
@@ -229,7 +229,7 @@ export const CanadeAcucarATRModule: React.FC = () => {
               return (
                 <div
                   key={t.id}
-                  className="p-4 bg-slate-950 border border-slate-800 rounded-xl hover:border-slate-700 transition-all space-y-2"
+                  className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl hover:border-slate-700 transition-all space-y-2"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
@@ -250,19 +250,19 @@ export const CanadeAcucarATRModule: React.FC = () => {
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono">
-                    <div className="p-2 rounded bg-slate-900/80 border border-slate-800">
+                    <div className="p-2 rounded bg-white border border-[#EAF4E7]">
                       <span className="text-slate-500 block text-[10px]">ATR Calculado</span>
                       <span className="text-emerald-400 font-bold">{atrTalhao} kg/t</span>
                     </div>
-                    <div className="p-2 rounded bg-slate-900/80 border border-slate-800">
+                    <div className="p-2 rounded bg-white border border-[#EAF4E7]">
                       <span className="text-slate-500 block text-[10px]">TCH Estimado</span>
                       <span className="text-cyan-400 font-bold">{t.tchEstimadoTonHa} t/ha</span>
                     </div>
-                    <div className="p-2 rounded bg-slate-900/80 border border-slate-800">
+                    <div className="p-2 rounded bg-white border border-[#EAF4E7]">
                       <span className="text-slate-500 block text-[10px]">Área & Corte</span>
                       <span className="text-white font-bold">{t.areaHa} ha • {t.estagioCorte}</span>
                     </div>
-                    <div className="p-2 rounded bg-slate-900/80 border border-slate-800">
+                    <div className="p-2 rounded bg-white border border-[#EAF4E7]">
                       <span className="text-slate-500 block text-[10px]">Variedade</span>
                       <span className="text-amber-300 font-bold truncate">{t.variedade.split(' ')[0]}</span>
                     </div>
@@ -273,12 +273,12 @@ export const CanadeAcucarATRModule: React.FC = () => {
           </div>
 
           {/* Banner Técnico Consecana e Vinhaça */}
-          <div className="p-4 bg-slate-950/60 border border-slate-800 rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-emerald-400 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes Técnicas Consecana & Vinhaça Sustentável:
             </div>
-            <ul className="list-disc list-inside text-slate-400 space-y-1">
+            <ul className="list-disc list-inside text-[#66736A] space-y-1">
               <li>
                 <strong>Fórmula Oficial Consecana:</strong> O ATR reflete os quilogramas de açúcares cristalizáveis por tonelada de cana líquida moída.
               </li>
@@ -293,7 +293,7 @@ export const CanadeAcucarATRModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Parâmetros de Mercado Consecana */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Scale className="w-5 h-5 text-emerald-400" />
             Parâmetros Consecana
@@ -301,19 +301,19 @@ export const CanadeAcucarATRModule: React.FC = () => {
 
           <div className="space-y-4 text-xs">
             <div>
-              <label className="text-slate-400 font-medium block mb-1">Preço do kg de ATR (R$/kg ATR)</label>
+              <label className="text-[#66736A] font-medium block mb-1">Preço do kg de ATR (R$/kg ATR)</label>
               <input
                 type="number"
                 step="0.01"
                 value={precoKgAtrReais}
                 onChange={(e) => setPrecoKgAtrReais(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-slate-400 font-medium">Dose de Vinhaça Localizada</span>
+                <span className="text-[#66736A] font-medium">Dose de Vinhaça Localizada</span>
                 <span className="text-amber-400 font-mono font-bold">{doseVinhacaM3Ha} m³/ha</span>
               </div>
               <input
@@ -328,31 +328,31 @@ export const CanadeAcucarATRModule: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-slate-400 font-medium block mb-1">Cotação do KCl Mineral (R$/kg)</label>
+              <label className="text-[#66736A] font-medium block mb-1">Cotação do KCl Mineral (R$/kg)</label>
               <input
                 type="number"
                 step="0.10"
                 value={custoKclKgReais}
                 onChange={(e) => setCustoKclKgReais(Number(e.target.value))}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-1.5 text-white font-mono"
+                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-1.5 text-white font-mono"
               />
             </div>
 
             {/* Quadro Resumo */}
-            <div className="pt-3 border-t border-slate-800 space-y-2">
+            <div className="pt-3 border-t border-[#EAF4E7] space-y-2">
               <div className="flex justify-between">
-                <span className="text-slate-400">Total de ATR Entregue:</span>
-                <span className="text-slate-200 font-mono">
+                <span className="text-[#66736A]">Total de ATR Entregue:</span>
+                <span className="text-[#26332A] font-mono">
                   {(canaMetrics.totalAtrKg / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 0 })} t ATR
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Substituição de KCl:</span>
+                <span className="text-[#66736A]">Substituição de KCl:</span>
                 <span className="text-amber-400 font-mono font-bold">
                   {canaMetrics.kclSubstituidoHaKg.toFixed(0)} kg KCl/ha
                 </span>
               </div>
-              <div className="flex justify-between border-t border-slate-800 pt-2 font-bold">
+              <div className="flex justify-between border-t border-[#EAF4E7] pt-2 font-bold">
                 <span className="text-white">Receita Líquida Estimada:</span>
                 <span className="text-emerald-400 font-mono">
                   R$ {canaMetrics.receitaBrutaTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}

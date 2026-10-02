@@ -39,13 +39,13 @@ export const RelatorioSafraModule: React.FC<RelatorioSafraModuleProps> = ({ prof
   return (
     <div className="space-y-6">
       {/* Top Banner do Relatório */}
-      <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 print:hidden">
+      <div className="bg-white border border-[#EAF4E7] p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 print:hidden">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="px-2 py-0.5 bg-emerald-950 text-emerald-400 border border-emerald-800 rounded text-xs font-bold flex items-center gap-1.5">
               <FileText className="w-3.5 h-3.5" /> Auditoria & Caderno Oficial
             </span>
-            <span className="text-xs text-slate-400">Prestação de Contas Bancárias & Seguro Agrícola / Pecuário</span>
+            <span className="text-xs text-[#66736A]">Prestação de Contas Bancárias & Seguro Agrícola / Pecuário</span>
           </div>
           <h2 className="text-xl font-bold text-white flex items-center gap-2">
             <FileText className="w-5 h-5 text-emerald-400" />
@@ -57,7 +57,7 @@ export const RelatorioSafraModule: React.FC<RelatorioSafraModuleProps> = ({ prof
               ? 'Relatório Consolidado de Moagem, ATR & Certificação RenovaBio'
               : 'Relatório Executivo de Fechamento de Safra 2025/2026'}
           </h2>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-[#66736A] mt-1">
             Documento consolidado exigido por bancos (Banco do Brasil, Sicredi, Bradesco Agro) para comprovação de crédito rural (Proagro, CPR) e auditorias de conformidade.
           </p>
         </div>

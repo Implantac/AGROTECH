@@ -323,7 +323,7 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-800 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-red-500 flex items-center justify-center shadow-lg shadow-amber-500/20">
             <Radio className="w-7 h-7 text-slate-950" />
@@ -337,7 +337,7 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
                 Módulo 132 • ISO 11784/11785 & Cota Hilton União Europeia
               </span>
             </div>
-            <p className="text-sm text-slate-400 mt-1">
+            <p className="text-sm text-[#66736A] mt-1">
               Controle individual de cada animal desde a desmama, permanência em Estabelecimento Rural Aprovado (ERB ≥ 90 dias) e habilitação sanitária para frigoríficos exportadores.
             </p>
           </div>
@@ -366,9 +366,9 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Total de Arrobas no Lote</span>
+            <span className="text-xs font-medium text-[#66736A]">Total de Arrobas no Lote</span>
             <Scale className="w-5 h-5 text-amber-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -379,9 +379,9 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Prêmio Cota Hilton</span>
+            <span className="text-xs font-medium text-[#66736A]">Prêmio Cota Hilton</span>
             <Award className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -392,9 +392,9 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Faturamento Previsto</span>
+            <span className="text-xs font-medium text-[#66736A]">Faturamento Previsto</span>
             <TrendingUp className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -405,9 +405,9 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">ROI do Brinco RFID</span>
+            <span className="text-xs font-medium text-[#66736A]">ROI do Brinco RFID</span>
             <ShieldCheck className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -420,13 +420,13 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-slate-800 pb-2">
+      <div className="flex flex-wrap items-center gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('animais')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'animais'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -438,7 +438,7 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'balanca'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Scale className="w-4 h-4" />
@@ -450,7 +450,7 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'gta'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Truck className="w-4 h-4" />
@@ -462,7 +462,7 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'protocolos'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <ShieldCheck className="w-4 h-4" />
@@ -474,7 +474,7 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'sisbov'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <QrCode className="w-4 h-4" />
@@ -486,7 +486,7 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -496,14 +496,14 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
 
       {/* Aba Animais no SISBOV */}
       {activeTab === 'animais' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-slate-800 p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h3 className="text-base font-semibold text-white flex items-center gap-2">
                 <Radio className="w-5 h-5 text-amber-400" />
                 Lotes Habilitados na Base Oficial do MAPA
               </h3>
-              <p className="text-xs text-slate-400 mt-0.5">Identificação Individual e Rastreamento Eletrônico FDX/HDX</p>
+              <p className="text-xs text-[#66736A] mt-0.5">Identificação Individual e Rastreamento Eletrônico FDX/HDX</p>
             </div>
             <button
               onClick={() => setActiveTab('balanca')}
@@ -514,8 +514,8 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-300">
-              <thead className="text-xs uppercase bg-slate-950/60 text-slate-400">
+            <table className="w-full text-left text-sm text-[#26332A]">
+              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
                 <tr>
                   <th className="px-4 py-3">Brinco / Chip RFID</th>
                   <th className="px-4 py-3">Raça</th>
@@ -531,10 +531,10 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
                   <tr key={a.id} className="hover:bg-slate-800/30">
                     <td className="px-4 py-3">
                       <span className="font-bold text-white block">{a.brincoVisual}</span>
-                      <span className="text-[11px] font-mono text-slate-400">{a.chipRfidUhf}</span>
+                      <span className="text-[11px] font-mono text-[#66736A]">{a.chipRfidUhf}</span>
                     </td>
-                    <td className="px-4 py-3 text-slate-300">{a.raca}</td>
-                    <td className="px-4 py-3 text-xs text-slate-400">{a.lotePasto}</td>
+                    <td className="px-4 py-3 text-[#26332A]">{a.raca}</td>
+                    <td className="px-4 py-3 text-xs text-[#66736A]">{a.lotePasto}</td>
                     <td className="px-4 py-3 font-bold text-amber-400">{a.pesoAtualKg} kg</td>
                     <td className="px-4 py-3 font-semibold text-white">{a.diasNoErb} dias</td>
                     <td className="px-4 py-3 text-emerald-400 font-semibold">{a.diasQuarentena} dias</td>
@@ -556,15 +556,15 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
         <div className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Display da Balança Digital */}
-            <div className="lg:col-span-2 bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl relative overflow-hidden">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+            <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl relative overflow-hidden">
+              <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-4 mb-4">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 bg-amber-500/10 rounded-xl border border-amber-500/20 text-amber-400">
                     <Scale className="w-6 h-6" />
                   </div>
                   <div>
                     <h3 className="text-base font-bold text-white">Balança Eletrônica Tru-Test & Antena UHF Tronco</h3>
-                    <p className="text-xs text-slate-400">Pesagem Estática/Dinâmica com Captura Automática sem Contato</p>
+                    <p className="text-xs text-[#66736A]">Pesagem Estática/Dinâmica com Captura Automática sem Contato</p>
                   </div>
                 </div>
 
@@ -581,24 +581,24 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
               </div>
 
               {/* Display de Peso Digital Fluorescente */}
-              <div className="bg-slate-950 rounded-2xl p-6 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-inner">
+              <div className="bg-[#F7F9F5] rounded-2xl p-6 border border-[#EAF4E7] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-inner">
                 <div>
-                  <span className="text-xs font-mono uppercase text-slate-400 tracking-wider">Peso Líquido do Animal</span>
+                  <span className="text-xs font-mono uppercase text-[#66736A] tracking-wider">Peso Líquido do Animal</span>
                   <div className="text-5xl sm:text-6xl font-black font-mono tracking-tight text-amber-400 mt-1 flex items-baseline gap-2">
                     {pesoInstantaneoBalanca.toFixed(1)} <span className="text-2xl text-slate-500 font-normal">kg</span>
                   </div>
-                  <div className="text-xs text-slate-400 mt-1">
+                  <div className="text-xs text-[#66736A] mt-1">
                     Equivalente a: <b className="text-emerald-400 font-mono">{(pesoInstantaneoBalanca / 30).toFixed(2)} @</b> (@ líquida 50% rendimento de carcaça)
                   </div>
                 </div>
 
                 {/* Status do Animal Lido */}
-                <div className="bg-slate-900 p-4 rounded-xl border border-slate-800 min-w-[240px]">
-                  <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Animal no Tronco</span>
+                <div className="bg-slate-900 p-4 rounded-xl border border-[#EAF4E7] min-w-[240px]">
+                  <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Animal no Tronco</span>
                   <p className="text-base font-bold text-white">{animalNaBalanca?.brincoVisual || 'Aguardando animal...'}</p>
-                  <p className="text-xs font-mono text-slate-400 mt-0.5">{animalNaBalanca?.chipRfidUhf}</p>
-                  <div className="mt-2 pt-2 border-t border-slate-800 flex justify-between text-xs">
-                    <span className="text-slate-400">GMD Calculado:</span>
+                  <p className="text-xs font-mono text-[#66736A] mt-0.5">{animalNaBalanca?.chipRfidUhf}</p>
+                  <div className="mt-2 pt-2 border-t border-[#EAF4E7] flex justify-between text-xs">
+                    <span className="text-[#66736A]">GMD Calculado:</span>
                     <span className="font-bold text-emerald-400">
                       +{(animalNaBalanca ? (pesoInstantaneoBalanca - animalNaBalanca.pesoEntradaKg) / animalNaBalanca.diasNoErb : 1.45).toFixed(2)} kg/dia
                     </span>
@@ -607,7 +607,7 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
               </div>
 
               {/* Portão de Apartação Automática */}
-              <div className="mt-6 p-4 bg-slate-950/60 rounded-xl border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="mt-6 p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className={`p-3 rounded-xl border ${
                     portaoApartacao === 'A_HILTON'
@@ -617,7 +617,7 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs text-slate-400">Portão Pneumático de Apartação</span>
+                    <span className="text-xs text-[#66736A]">Portão Pneumático de Apartação</span>
                     <p className="text-sm font-bold text-white">
                       {portaoApartacao === 'A_HILTON'
                         ? 'PORTÃO A: Habilitado Cota Hilton (Abate Imediato UE)'
@@ -636,23 +636,23 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
             </div>
 
             {/* Histórico das Últimas Leituras */}
-            <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 space-y-4">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
+            <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 space-y-4">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#66736A] flex items-center gap-2">
                 <Check className="w-4 h-4 text-emerald-400" /> Histórico de Passagem na Sessão
               </h4>
 
               <div className="space-y-2.5 max-h-[320px] overflow-y-auto pr-1">
                 {pesagensHistorico.map((p, idx) => (
-                  <div key={idx} className="p-3 bg-slate-950/80 rounded-xl border border-slate-800/80 text-xs flex flex-col gap-1">
+                  <div key={idx} className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80 text-xs flex flex-col gap-1">
                     <div className="flex justify-between items-center">
                       <span className="font-bold text-white">{p.brinco}</span>
-                      <span className="font-mono text-[11px] text-slate-400">{p.hora}</span>
+                      <span className="font-mono text-[11px] text-[#66736A]">{p.hora}</span>
                     </div>
                     <div className="flex justify-between items-center text-[11px]">
                       <span className="text-amber-400 font-bold">{p.peso} kg</span>
                       <span className="text-emerald-400 font-semibold">+{p.gmd} kg/dia</span>
                     </div>
-                    <span className="text-[10px] text-slate-400 truncate">{p.destino}</span>
+                    <span className="text-[10px] text-[#66736A] truncate">{p.destino}</span>
                   </div>
                 ))}
               </div>
@@ -664,7 +664,7 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
       {/* Aba e-GTA Defesa Agropecuária */}
       {activeTab === 'gta' && (
         <div className="space-y-6">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 mb-1">
                 <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
@@ -675,7 +675,7 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
                 <Truck className="w-5 h-5 text-emerald-400" />
                 Guias de Trânsito Animal (e-GTA) Homologadas
               </h3>
-              <p className="text-xs text-slate-400 mt-1">
+              <p className="text-xs text-[#66736A] mt-1">
                 Documento sanitário oficial e obrigatório para movimentação de animais vivos entre estabelecimentos rurais e frigoríficos.
               </p>
             </div>
@@ -690,7 +690,7 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {gtas.map((g) => (
-              <div key={g.id} className="bg-slate-900/60 border border-slate-800 hover:border-emerald-500/40 transition-all rounded-2xl p-5 space-y-3">
+              <div key={g.id} className="bg-white border border-[#EAF4E7] hover:border-emerald-500/40 transition-all rounded-2xl p-5 space-y-3">
                 <div className="flex justify-between items-start">
                   <div>
                     <span className="text-[10px] uppercase font-mono tracking-wider text-emerald-400">{g.serie}</span>
@@ -701,7 +701,7 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 text-xs bg-slate-950 p-3 rounded-xl border border-slate-800">
+                <div className="grid grid-cols-2 gap-2 text-xs bg-[#F7F9F5] p-3 rounded-xl border border-[#EAF4E7]">
                   <div>
                     <span className="text-[10px] text-slate-500 block">Qtd. Cabeças</span>
                     <b className="text-white text-sm">{g.quantidadeCabecas} Bois</b>
@@ -710,12 +710,12 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
                     <span className="text-[10px] text-slate-500 block">Finalidade</span>
                     <b className="text-amber-400">{g.finalidade}</b>
                   </div>
-                  <div className="col-span-2 pt-1 border-t border-slate-800">
+                  <div className="col-span-2 pt-1 border-t border-[#EAF4E7]">
                     <span className="text-[10px] text-slate-500 block">Destino (Frigorífico)</span>
-                    <span className="text-slate-300 truncate block font-medium">{g.destino}</span>
+                    <span className="text-[#26332A] truncate block font-medium">{g.destino}</span>
                   </div>
-                  <div className="col-span-2 text-[10px] text-slate-400">
-                    <span>Lacre Veículo: <b className="text-slate-200">{g.lacreVeiculo}</b> • Placa: <b className="text-slate-200">{g.placaVeiculo}</b></span>
+                  <div className="col-span-2 text-[10px] text-[#66736A]">
+                    <span>Lacre Veículo: <b className="text-[#26332A]">{g.lacreVeiculo}</b> • Placa: <b className="text-[#26332A]">{g.placaVeiculo}</b></span>
                   </div>
                 </div>
 
@@ -723,9 +723,9 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
                   <span className="text-[10px] text-slate-500">Emitido por: {g.emitenteCrmv}</span>
                   <button
                     onClick={() => setGtaSelecionadaParaImpressao(g)}
-                    className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-semibold flex items-center gap-1.5 border border-slate-700"
+                    className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-[#26332A] rounded-lg text-xs font-semibold flex items-center gap-1.5 border border-slate-700"
                   >
-                    <Printer className="w-3.5 h-3.5 text-slate-400" /> Visualizar / Imprimir GTA
+                    <Printer className="w-3.5 h-3.5 text-[#66736A]" /> Visualizar / Imprimir GTA
                   </button>
                 </div>
               </div>
@@ -737,44 +737,44 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
       {/* Protocolos */}
       {activeTab === 'protocolos' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Award className="w-5 h-5 text-amber-400" />
               <h4 className="text-sm font-semibold text-white">Permanência no ERB</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               O animal deve permanecer ininterruptamente por pelo menos 90 dias em Estabelecimento Rural Aprovado no SISBOV antes do abate para atender aos critérios da UE.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Regra MAPA:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Regra MAPA:</span>
               <span className="text-sm font-bold text-amber-400 block">mínimo 90 dias de rastreamento no ERB</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Quarentena Pré-Embarque</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Os últimos 40 dias de engorda antes do abate devem ocorrer na mesma propriedade, com alimentação monitorada e zero uso de promotores de crescimento proibidos.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Período de Carência:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Período de Carência:</span>
               <span className="text-sm font-bold text-emerald-400 block">40 dias livres de trânsito externo</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <ShieldCheck className="w-5 h-5 text-yellow-400" />
               <h4 className="text-sm font-semibold text-white">Idade de Abate Jovem</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Animais de até 30 meses (dentes de leite ou no máximo 2 dentes permanentes) para garantia de maciez, coloração viva e marmoreio exigido na Cota Hilton.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Dentição Máxima:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Dentição Máxima:</span>
               <span className="text-sm font-bold text-yellow-400 block">Até 2 dentes permanentes</span>
             </div>
           </div>
@@ -783,32 +783,32 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
 
       {/* Normas ISO SISBOV */}
       {activeTab === 'sisbov' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <QrCode className="w-5 h-5 text-amber-400" />
             Pesagem Automática no Tronco com Antenas RFID UHF & Certificação ISO
           </h3>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-[#66736A]">
             A passagem do animal pelo brete aciona a leitura sem contato do brinco eletrônico a até 2 metros de distância, vinculando o peso da balança digital diretamente à base de dados sem digitação humana.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Frequência ISO</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Frequência ISO</span>
               <p className="text-lg font-bold text-amber-400 mt-1">134.2 kHz FDX/HDX</p>
-              <span className="text-[11px] text-slate-400">Compatível com leitores universais</span>
+              <span className="text-[11px] text-[#66736A]">Compatível com leitores universais</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">GMD Automático</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">GMD Automático</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">+1.45 kg/dia</p>
-              <span className="text-[11px] text-slate-400">Curva individual de ganho diário</span>
+              <span className="text-[11px] text-[#66736A]">Curva individual de ganho diário</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Guia GTA Eletrônica</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Guia GTA Eletrônica</span>
               <p className="text-lg font-bold text-yellow-400 mt-1">e-GTA Integrada</p>
-              <span className="text-[11px] text-slate-400">Emissão expressa junto ao INDEA/Defesa</span>
+              <span className="text-[11px] text-[#66736A]">Emissão expressa junto ao INDEA/Defesa</span>
             </div>
           </div>
         </div>
@@ -816,7 +816,7 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
 
       {/* Simulador Econômico */}
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-amber-400" />
             Simulador de Prêmios de Exportação & Retorno do RFID
@@ -824,58 +824,58 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-slate-400">Bois no Lote</label>
+              <label className="text-xs font-medium text-[#66736A]">Bois no Lote</label>
               <input
                 type="number"
                 value={totalAnimaisLote}
                 onChange={(e) => setTotalAnimaisLote(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Peso Médio (@)</label>
+              <label className="text-xs font-medium text-[#66736A]">Peso Médio (@)</label>
               <input
                 type="number"
                 step="0.5"
                 value={pesoMedioArrobas}
                 onChange={(e) => setPesoMedioArrobas(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Preço Base (R$/@)</label>
+              <label className="text-xs font-medium text-[#66736A]">Preço Base (R$/@)</label>
               <input
                 type="number"
                 step="1"
                 value={precoBaseArrobaReais}
                 onChange={(e) => setPrecoBaseArrobaReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Prêmio Hilton / Boi (R$)</label>
+              <label className="text-xs font-medium text-[#66736A]">Prêmio Hilton / Boi (R$)</label>
               <input
                 type="number"
                 step="10"
                 value={premioHiltonPorBoiReais}
                 onChange={(e) => setPremioHiltonPorBoiReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-slate-950/60 rounded-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-slate-400 block">Prêmio Total de Exportação:</span>
+              <span className="text-xs text-[#66736A] block">Prêmio Total de Exportação:</span>
               <span className="text-base font-bold text-emerald-400">
                 R$ {metricas.premioTotalHiltonReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-slate-400 block">Faturamento Bruto com Rastreabilidade:</span>
+              <span className="text-xs text-[#66736A] block">Faturamento Bruto com Rastreabilidade:</span>
               <span className="text-xl font-bold text-amber-400">
                 R$ {metricas.faturamentoTotalReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>
@@ -887,52 +887,52 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
       {/* Modal Formulário Emissão de Nova e-GTA */}
       {modalGtaAberto && (
         <div className="fixed inset-0 z-[1000] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-700 p-6 rounded-2xl max-w-xl w-full shadow-2xl text-slate-200 space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div className="bg-slate-900 border border-slate-700 p-6 rounded-2xl max-w-xl w-full shadow-2xl text-[#26332A] space-y-4">
+            <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-3">
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <Truck className="w-5 h-5 text-emerald-400" />
                 Emissão Eletrônica de GTA (INDEA / MAPA)
               </h3>
-              <button onClick={() => setModalGtaAberto(false)} className="text-slate-400 hover:text-white">✕</button>
+              <button onClick={() => setModalGtaAberto(false)} className="text-[#66736A] hover:text-white">✕</button>
             </div>
 
             <div className="space-y-3 text-xs">
               <div>
-                <label className="text-slate-400 block mb-1 font-semibold">Estabelecimento Rural de Origem</label>
+                <label className="text-[#66736A] block mb-1 font-semibold">Estabelecimento Rural de Origem</label>
                 <input
                   type="text"
                   value={gtaForm.origem}
                   onChange={(e) => setGtaForm({ ...gtaForm, origem: e.target.value })}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
+                  className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
                 />
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1 font-semibold">Estabelecimento de Destino (Frigorífico)</label>
+                <label className="text-[#66736A] block mb-1 font-semibold">Estabelecimento de Destino (Frigorífico)</label>
                 <input
                   type="text"
                   value={gtaForm.destino}
                   onChange={(e) => setGtaForm({ ...gtaForm, destino: e.target.value })}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
+                  className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-400 block mb-1 font-semibold">Quantidade de Cabeças</label>
+                  <label className="text-[#66736A] block mb-1 font-semibold">Quantidade de Cabeças</label>
                   <input
                     type="number"
                     value={gtaForm.quantidadeCabecas}
                     onChange={(e) => setGtaForm({ ...gtaForm, quantidadeCabecas: Number(e.target.value) })}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
                   />
                 </div>
                 <div>
-                  <label className="text-slate-400 block mb-1 font-semibold">Finalidade do Trânsito</label>
+                  <label className="text-[#66736A] block mb-1 font-semibold">Finalidade do Trânsito</label>
                   <select
                     value={gtaForm.finalidade}
                     onChange={(e) => setGtaForm({ ...gtaForm, finalidade: e.target.value })}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
                   >
                     <option>Abate Imediato - Cota Hilton / UE</option>
                     <option>Abate Imediato - Mercado Doméstico</option>
@@ -944,21 +944,21 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-400 block mb-1 font-semibold">Placa do Veículo Boiadeiro</label>
+                  <label className="text-[#66736A] block mb-1 font-semibold">Placa do Veículo Boiadeiro</label>
                   <input
                     type="text"
                     value={gtaForm.placaVeiculo}
                     onChange={(e) => setGtaForm({ ...gtaForm, placaVeiculo: e.target.value })}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
                   />
                 </div>
                 <div>
-                  <label className="text-slate-400 block mb-1 font-semibold">Lacre do INDEA</label>
+                  <label className="text-[#66736A] block mb-1 font-semibold">Lacre do INDEA</label>
                   <input
                     type="text"
                     value={gtaForm.lacreVeiculo}
                     onChange={(e) => setGtaForm({ ...gtaForm, lacreVeiculo: e.target.value })}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
                   />
                 </div>
               </div>
@@ -969,10 +969,10 @@ export const BovinoculturaSisbovRfidModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex justify-end gap-2 pt-3 border-t border-slate-800">
+            <div className="flex justify-end gap-2 pt-3 border-t border-[#EAF4E7]">
               <button
                 onClick={() => setModalGtaAberto(false)}
-                className="px-3.5 py-1.5 rounded-lg text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium"
+                className="px-3.5 py-1.5 rounded-lg text-xs bg-slate-800 hover:bg-slate-700 text-[#26332A] font-medium"
               >
                 Cancelar
               </button>

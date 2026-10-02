@@ -265,7 +265,7 @@ export const MIPManejoPragasModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho do Módulo */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/90 border border-slate-800 p-6 rounded-2xl backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-[#EAF4E7] p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-rose-500/10 border border-rose-500/30 rounded-xl text-rose-400">
@@ -273,7 +273,7 @@ export const MIPManejoPragasModule: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-xl font-bold text-slate-100">MIP & Proteção de Culturas</h1>
+                <h1 className="text-xl font-bold text-[#1D4B38]">MIP & Proteção de Culturas</h1>
                 <span className="px-2 py-0.5 text-[11px] font-semibold bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full">
                   Embrapa Soja / NDE
                 </span>
@@ -281,7 +281,7 @@ export const MIPManejoPragasModule: React.FC = () => {
                   GPS Geolocalizado
                 </span>
               </div>
-              <p className="text-sm text-slate-400 mt-0.5">
+              <p className="text-sm text-[#66736A] mt-0.5">
                 Manejo Integrado de Pragas, Doenças e Plantas Daninhas com cálculo de Nível de Dano Econômico (NDE) e gatilho de pulverização.
               </p>
             </div>
@@ -313,12 +313,12 @@ export const MIPManejoPragasModule: React.FC = () => {
 
       {/* Cards de Resumo Epidemiológico / Monitoramento */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/80 border border-slate-800 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-slate-400 mb-1">
+        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
+          <div className="flex items-center justify-between text-[#66736A] mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Pontos Monitorados</span>
             <MapPin className="w-4 h-4 text-emerald-400" />
           </div>
-          <div className="text-2xl font-bold text-slate-100">{totalAmostragens} pontos</div>
+          <div className="text-2xl font-bold text-[#1D4B38]">{totalAmostragens} pontos</div>
           <p className="text-xs text-slate-500 mt-1">Grade regular de 1 ponto a cada 10 ha</p>
         </div>
 
@@ -353,14 +353,14 @@ export const MIPManejoPragasModule: React.FC = () => {
       {/* Grid de 2 Colunas: Matriz de Calor por Talhão + Calculadora Interativa NDE */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Mapa de Risco de Infestação dos Talhões (2 cols) */}
-        <div className="lg:col-span-2 bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
+        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] p-5 rounded-2xl">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h2 className="text-base font-semibold text-slate-100 flex items-center gap-2">
+              <h2 className="text-base font-semibold text-[#1D4B38] flex items-center gap-2">
                 <Layers className="w-5 h-5 text-indigo-400" />
                 Mapa de Risco de Infestação por Talhão (Status MIP)
               </h2>
-              <p className="text-xs text-slate-400">Classificação agronômica baseada no ponto mais crítico do talhão</p>
+              <p className="text-xs text-[#66736A]">Classificação agronômica baseada no ponto mais crítico do talhão</p>
             </div>
             <span className="text-[11px] font-mono text-slate-500 bg-slate-800 px-2 py-1 rounded">
               Safra 2025/2026
@@ -373,7 +373,7 @@ export const MIPManejoPragasModule: React.FC = () => {
               const temCritico = amostragensDoTalhao.some((a) => a.status === 'CRITICO');
               const temAtencao = amostragensDoTalhao.some((a) => a.status === 'ATENCAO');
 
-              let cardBg = 'bg-slate-950 border-emerald-700/40 hover:border-emerald-500';
+              let cardBg = 'bg-[#F7F9F5] border-emerald-700/40 hover:border-emerald-500';
               let badgeColor = 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30';
               let badgeText = 'SEGURO';
 
@@ -396,21 +396,21 @@ export const MIPManejoPragasModule: React.FC = () => {
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-bold text-slate-200 text-sm">{talhao.codigo}</span>
+                    <span className="font-bold text-[#26332A] text-sm">{talhao.codigo}</span>
                     <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${badgeColor}`}>
                       {badgeText}
                     </span>
                   </div>
-                  <div className="text-xs text-slate-300 font-medium truncate">{talhao.nome}</div>
-                  <div className="text-[11px] text-slate-400 mt-1">{talhao.cultura} • {talhao.areaHa} ha</div>
+                  <div className="text-xs text-[#26332A] font-medium truncate">{talhao.nome}</div>
+                  <div className="text-[11px] text-[#66736A] mt-1">{talhao.cultura} • {talhao.areaHa} ha</div>
 
-                  <div className="mt-3 pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs">
-                    <span className="text-slate-400">Amostragens:</span>
-                    <span className="font-semibold text-slate-200">{amostragensDoTalhao.length} pontos</span>
+                  <div className="mt-3 pt-2 border-t border-[#EAF4E7]/80 flex items-center justify-between text-xs">
+                    <span className="text-[#66736A]">Amostragens:</span>
+                    <span className="font-semibold text-[#26332A]">{amostragensDoTalhao.length} pontos</span>
                   </div>
                   {amostragensDoTalhao.length > 0 && (
-                    <div className="text-[11px] text-slate-400 mt-1 truncate">
-                      Alvo: <span className="text-slate-200 font-medium">{amostragensDoTalhao[0].alvoPraga}</span>
+                    <div className="text-[11px] text-[#66736A] mt-1 truncate">
+                      Alvo: <span className="text-[#26332A] font-medium">{amostragensDoTalhao[0].alvoPraga}</span>
                     </div>
                   )}
                 </div>
@@ -420,71 +420,71 @@ export const MIPManejoPragasModule: React.FC = () => {
         </div>
 
         {/* Calculadora Interativa NDE (1 col) */}
-        <div className="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl flex flex-col justify-between">
+        <div className="bg-white border border-[#EAF4E7] p-5 rounded-2xl flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <Sparkles className="w-5 h-5 text-amber-400" />
-              <h2 className="text-base font-semibold text-slate-100">Calculadora de NDE</h2>
+              <h2 className="text-base font-semibold text-[#1D4B38]">Calculadora de NDE</h2>
             </div>
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               Ajuste as variáveis de mercado e custo para calcular o Nível de Dano Econômico exato pela fórmula da Embrapa:
             </p>
 
-            <div className="p-3 bg-slate-950/80 rounded-xl border border-slate-800 font-mono text-center text-xs text-amber-300 mb-4">
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] font-mono text-center text-xs text-amber-300 mb-4">
               NDE = Custo / (Preço × Produtividade × Dano)
             </div>
 
             <div className="space-y-3 text-xs">
               <div>
-                <label className="text-slate-300 block mb-1">Custo do Controle (Defensivo + Aplicação):</label>
+                <label className="text-[#26332A] block mb-1">Custo do Controle (Defensivo + Aplicação):</label>
                 <div className="flex items-center gap-2">
                   <input
                     type="number"
                     value={calcCustoControle}
                     onChange={(e) => setCalcCustoControle(Number(e.target.value))}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-1.5 text-slate-200"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-1.5 text-[#26332A]"
                   />
-                  <span className="text-slate-400 font-mono">R$/ha</span>
+                  <span className="text-[#66736A] font-mono">R$/ha</span>
                 </div>
               </div>
 
               <div>
-                <label className="text-slate-300 block mb-1">Preço da Saca (Soja/Milho):</label>
+                <label className="text-[#26332A] block mb-1">Preço da Saca (Soja/Milho):</label>
                 <div className="flex items-center gap-2">
                   <input
                     type="number"
                     value={calcPrecoSaca}
                     onChange={(e) => setCalcPrecoSaca(Number(e.target.value))}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-1.5 text-slate-200"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-1.5 text-[#26332A]"
                   />
-                  <span className="text-slate-400 font-mono">R$/sc</span>
+                  <span className="text-[#66736A] font-mono">R$/sc</span>
                 </div>
               </div>
 
               <div>
-                <label className="text-slate-300 block mb-1">Produtividade Esperada:</label>
+                <label className="text-[#26332A] block mb-1">Produtividade Esperada:</label>
                 <div className="flex items-center gap-2">
                   <input
                     type="number"
                     value={calcProdutividade}
                     onChange={(e) => setCalcProdutividade(Number(e.target.value))}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-1.5 text-slate-200"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-1.5 text-[#26332A]"
                   />
-                  <span className="text-slate-400 font-mono">sc/ha</span>
+                  <span className="text-[#66736A] font-mono">sc/ha</span>
                 </div>
               </div>
 
               <div>
-                <label className="text-slate-300 block mb-1">Dano Físico por Inseto/m:</label>
+                <label className="text-[#26332A] block mb-1">Dano Físico por Inseto/m:</label>
                 <div className="flex items-center gap-2">
                   <input
                     type="number"
                     step="0.001"
                     value={calcDanoUnitario}
                     onChange={(e) => setCalcDanoUnitario(Number(e.target.value))}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-1.5 text-slate-200"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-1.5 text-[#26332A]"
                   />
-                  <span className="text-slate-400 font-mono">sc/m</span>
+                  <span className="text-[#66736A] font-mono">sc/m</span>
                 </div>
               </div>
             </div>
@@ -492,14 +492,14 @@ export const MIPManejoPragasModule: React.FC = () => {
 
           <div className="mt-4 p-4 bg-emerald-950/40 border border-emerald-800/60 rounded-xl">
             <div className="flex items-center justify-between mb-1">
-              <span className="text-xs text-slate-300 font-medium">NDE Calculado:</span>
+              <span className="text-xs text-[#26332A] font-medium">NDE Calculado:</span>
               <span className="text-lg font-bold text-emerald-300 font-mono">{calcNDE.toFixed(2)} insetos/m</span>
             </div>
-            <div className="flex items-center justify-between text-xs text-slate-400">
+            <div className="flex items-center justify-between text-xs text-[#66736A]">
               <span>Nível de Ação Preventivo (85%):</span>
               <span className="font-mono text-amber-300 font-semibold">{calcNA.toFixed(2)} insetos/m</span>
             </div>
-            <div className="mt-2 text-[11px] text-slate-400 border-t border-emerald-900/50 pt-2">
+            <div className="mt-2 text-[11px] text-[#66736A] border-t border-emerald-900/50 pt-2">
               Se amostragem &ge; {calcNDE.toFixed(2)} insetos/m, o prejuízo da praga supera o custo de entrar com o pulverizador.
             </div>
           </div>
@@ -507,27 +507,27 @@ export const MIPManejoPragasModule: React.FC = () => {
       </div>
 
       {/* Tabela de Amostragens de Campo com Filtros e Ações */}
-      <div className="bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden">
-        <div className="p-5 border-b border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-white border border-[#EAF4E7] rounded-2xl overflow-hidden">
+        <div className="p-5 border-b border-[#EAF4E7] flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h2 className="text-base font-semibold text-slate-100 flex items-center gap-2">
+            <h2 className="text-base font-semibold text-[#1D4B38] flex items-center gap-2">
               <ShieldAlert className="w-5 h-5 text-rose-400" />
               Registro de Amostragens Georreferenciadas & Diagnóstico
             </h2>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Histórico de coletas com cálculo de gatilho NDE e recomendação agronômica imediata
             </p>
           </div>
 
           {/* Filtros */}
           <div className="flex flex-wrap items-center gap-3">
-            <div className="flex items-center gap-2 bg-slate-950 border border-slate-800 rounded-xl px-3 py-1.5 text-xs text-slate-300">
-              <Filter className="w-3.5 h-3.5 text-slate-400" />
+            <div className="flex items-center gap-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-1.5 text-xs text-[#26332A]">
+              <Filter className="w-3.5 h-3.5 text-[#66736A]" />
               <span>Talhão:</span>
               <select
                 value={talhaoFiltro}
                 onChange={(e) => setTalhaoFiltro(e.target.value)}
-                className="bg-transparent text-slate-200 focus:outline-none cursor-pointer"
+                className="bg-transparent text-[#26332A] focus:outline-none cursor-pointer"
               >
                 <option value="TODOS" className="bg-slate-900">Todos os Talhões</option>
                 {TALHOES_INICIAIS.map((t) => (
@@ -536,12 +536,12 @@ export const MIPManejoPragasModule: React.FC = () => {
               </select>
             </div>
 
-            <div className="flex items-center gap-2 bg-slate-950 border border-slate-800 rounded-xl px-3 py-1.5 text-xs text-slate-300">
+            <div className="flex items-center gap-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-1.5 text-xs text-[#26332A]">
               <span>Status:</span>
               <select
                 value={statusFiltro}
                 onChange={(e) => setStatusFiltro(e.target.value)}
-                className="bg-transparent text-slate-200 focus:outline-none cursor-pointer"
+                className="bg-transparent text-[#26332A] focus:outline-none cursor-pointer"
               >
                 <option value="TODOS" className="bg-slate-900">Todos os Status</option>
                 <option value="CRITICO" className="bg-slate-900 text-rose-400">Crítico (Pulverizar)</option>
@@ -554,7 +554,7 @@ export const MIPManejoPragasModule: React.FC = () => {
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-slate-950/60 text-slate-400 uppercase tracking-wider font-semibold border-b border-slate-800">
+            <thead className="bg-[#F7F9F5] text-[#66736A] uppercase tracking-wider font-semibold border-b border-[#EAF4E7]">
               <tr>
                 <th className="px-4 py-3.5">Talhão & Ponto</th>
                 <th className="px-4 py-3.5">Alvo / Praga</th>
@@ -592,10 +592,10 @@ export const MIPManejoPragasModule: React.FC = () => {
                 return (
                   <tr key={amostra.id} className="hover:bg-slate-800/40 transition-colors">
                     <td className="px-4 py-3.5">
-                      <div className="font-semibold text-slate-200">
+                      <div className="font-semibold text-[#26332A]">
                         {talhao ? `${talhao.codigo} - ${talhao.nome}` : amostra.talhaoId}
                       </div>
-                      <div className="text-[11px] text-slate-400 flex items-center gap-1 mt-0.5">
+                      <div className="text-[11px] text-[#66736A] flex items-center gap-1 mt-0.5">
                         <MapPin className="w-3 h-3 text-indigo-400" />
                         {amostra.pontoNome}
                       </div>
@@ -605,29 +605,29 @@ export const MIPManejoPragasModule: React.FC = () => {
                     </td>
 
                     <td className="px-4 py-3.5">
-                      <div className="font-bold text-slate-200">{amostra.alvoPraga}</div>
-                      <div className="text-[11px] text-slate-400 italic">{amostra.alvoCientifico}</div>
+                      <div className="font-bold text-[#26332A]">{amostra.alvoPraga}</div>
+                      <div className="text-[11px] text-[#66736A] italic">{amostra.alvoCientifico}</div>
                       <div className="text-[10px] text-slate-500 mt-0.5 uppercase tracking-wide">
                         {amostra.metodoAmostragem.replace(/_/g, ' ')}
                       </div>
                     </td>
 
-                    <td className="px-4 py-3.5 text-slate-300">
+                    <td className="px-4 py-3.5 text-[#26332A]">
                       <div className="font-medium">{amostra.estadioFenologico}</div>
-                      <div className="text-[11px] text-slate-400">{amostra.cultura}</div>
+                      <div className="text-[11px] text-[#66736A]">{amostra.cultura}</div>
                     </td>
 
                     <td className="px-4 py-3.5">
-                      <div className="font-mono text-sm font-bold text-slate-100">
+                      <div className="font-mono text-sm font-bold text-[#1D4B38]">
                         {amostra.valorEncontrado} {amostra.unidadeMedida}
                       </div>
                     </td>
 
                     <td className="px-4 py-3.5">
-                      <div className="text-slate-300 font-mono">
+                      <div className="text-[#26332A] font-mono">
                         NDE: <span className="font-bold text-rose-400">{amostra.ndeReferencia}</span>
                       </div>
-                      <div className="text-slate-400 font-mono text-[11px]">
+                      <div className="text-[#66736A] font-mono text-[11px]">
                         Ação: <span className="text-amber-400">{amostra.nivelAcao}</span>
                       </div>
                     </td>
@@ -635,8 +635,8 @@ export const MIPManejoPragasModule: React.FC = () => {
                     <td className="px-4 py-3.5">{statusBadge}</td>
 
                     <td className="px-4 py-3.5">
-                      <div className="text-slate-200 font-medium">{amostra.recomendacaoQuimica}</div>
-                      <div className="text-[11px] text-slate-400">
+                      <div className="text-[#26332A] font-medium">{amostra.recomendacaoQuimica}</div>
+                      <div className="text-[11px] text-[#66736A]">
                         {amostra.principioAtivoSugerido} • {amostra.doseSugerida}
                       </div>
                       <div className="text-[10px] text-emerald-400 mt-0.5">
@@ -653,16 +653,16 @@ export const MIPManejoPragasModule: React.FC = () => {
 
       {/* Modal de Nova Amostragem */}
       {mostrarModalNova && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-              <h3 className="text-base font-bold text-slate-100 flex items-center gap-2">
+        <div className="fixed inset-0 z-50 bg-[#F7F9F5] backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white border border-[#EAF4E7] rounded-2xl max-w-lg w-full p-6 shadow-2xl">
+            <div className="flex items-center justify-between pb-4 border-b border-[#EAF4E7]">
+              <h3 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
                 <Bug className="w-5 h-5 text-rose-400" />
                 Registrar Amostragem de Campo (MIP)
               </h3>
               <button
                 onClick={() => setMostrarModalNova(false)}
-                className="text-slate-400 hover:text-slate-200 text-sm font-bold"
+                className="text-[#66736A] hover:text-[#26332A] text-sm font-bold"
               >
                 ✕
               </button>
@@ -670,11 +670,11 @@ export const MIPManejoPragasModule: React.FC = () => {
 
             <form onSubmit={handleSalvarAmostragem} className="mt-4 space-y-3.5 text-xs">
               <div>
-                <label className="text-slate-300 block mb-1 font-medium">Talhão Amostrado:</label>
+                <label className="text-[#26332A] block mb-1 font-medium">Talhão Amostrado:</label>
                 <select
                   value={formTalhaoId}
                   onChange={(e) => setFormTalhaoId(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-200"
+                  className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A]"
                 >
                   {TALHOES_INICIAIS.map((t) => (
                     <option key={t.id} value={t.id}>
@@ -685,18 +685,18 @@ export const MIPManejoPragasModule: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-slate-300 block mb-1 font-medium">Identificação do Ponto:</label>
+                <label className="text-[#26332A] block mb-1 font-medium">Identificação do Ponto:</label>
                 <input
                   type="text"
                   value={formPontoNome}
                   onChange={(e) => setFormPontoNome(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-200"
+                  className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A]"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-300 block mb-1 font-medium">Praga / Alvo:</label>
+                  <label className="text-[#26332A] block mb-1 font-medium">Praga / Alvo:</label>
                   <select
                     value={formAlvoPraga}
                     onChange={(e) => {
@@ -716,7 +716,7 @@ export const MIPManejoPragasModule: React.FC = () => {
                         setFormMetodo('CONTAGEM_VISUAL');
                       }
                     }}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-200"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A]"
                   >
                     <option value="Percevejo-marrom">Percevejo-marrom (E. heros)</option>
                     <option value="Lagarta-falsa-medideira">Lagarta-falsa-medideira</option>
@@ -727,48 +727,48 @@ export const MIPManejoPragasModule: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="text-slate-300 block mb-1 font-medium">Estádio Fenológico:</label>
+                  <label className="text-[#26332A] block mb-1 font-medium">Estádio Fenológico:</label>
                   <input
                     type="text"
                     value={formEstadio}
                     onChange={(e) => setFormEstadio(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-200"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A]"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-300 block mb-1 font-medium">Contagem / Densidade:</label>
+                  <label className="text-[#26332A] block mb-1 font-medium">Contagem / Densidade:</label>
                   <input
                     type="number"
                     step="0.1"
                     value={formValor}
                     onChange={(e) => setFormValor(Number(e.target.value))}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-200 font-mono"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A] font-mono"
                   />
                 </div>
 
                 <div>
-                  <label className="text-slate-300 block mb-1 font-medium">Unidade de Medida:</label>
+                  <label className="text-[#26332A] block mb-1 font-medium">Unidade de Medida:</label>
                   <input
                     type="text"
                     value={formUnidade}
                     onChange={(e) => setFormUnidade(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-slate-200"
+                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A]"
                   />
                 </div>
               </div>
 
-              <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] text-slate-400">
+              <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] text-[11px] text-[#66736A]">
                 O sistema calculará automaticamente o NDE em relação ao custo de controle e indicará se o ponto exige emissão imediata de ordem de pulverização.
               </div>
 
-              <div className="pt-2 flex items-center justify-end gap-3 border-t border-slate-800">
+              <div className="pt-2 flex items-center justify-end gap-3 border-t border-[#EAF4E7]">
                 <button
                   type="button"
                   onClick={() => setMostrarModalNova(false)}
-                  className="px-4 py-2 rounded-xl text-slate-400 hover:text-slate-200 cursor-pointer"
+                  className="px-4 py-2 rounded-xl text-[#66736A] hover:text-[#26332A] cursor-pointer"
                 >
                   Cancelar
                 </button>

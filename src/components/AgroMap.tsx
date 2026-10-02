@@ -262,7 +262,7 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
     // Se a camada de frotas estiver ativa, desenha as máquinas com GPS e telemetria instantânea
     if (activeLayer === 'FROTA') {
       MAQUINAS_INICIAIS.forEach((maq) => {
-        const iconHtml = `<div class="bg-slate-950 text-emerald-400 p-1.5 rounded-xl border-2 border-emerald-400 shadow-2xl flex items-center justify-center w-8 h-8 font-black text-xs hover:scale-125 transition-transform"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m10 11 11 .9c.6 0 .9.5.8 1.1l-.8 5c-.1.5-.6.9-1.1.9H7.6"/><path d="M14 11V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h2"/><circle cx="8" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></div>`;
+        const iconHtml = `<div class="bg-[#1D4B38] text-white p-1.5 rounded-xl border-2 border-[#5F8F52] shadow-2xl flex items-center justify-center w-8 h-8 font-black text-xs hover:scale-125 transition-transform"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m10 11 11 .9c.6 0 .9.5.8 1.1l-.8 5c-.1.5-.6.9-1.1.9H7.6"/><path d="M14 11V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h2"/><circle cx="8" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></div>`;
         const machineIcon = L.divIcon({
           html: iconHtml,
           className: 'tractor-gps-marker',

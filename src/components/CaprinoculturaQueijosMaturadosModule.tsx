@@ -99,7 +99,7 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-800 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/20">
             <Milk className="w-7 h-7 text-slate-950" />
@@ -113,7 +113,7 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
                 Módulo 128 • Raças Saanen/Anglo & Cura em Câmara de Afinamento
               </span>
             </div>
-            <p className="text-sm text-slate-400 mt-1">
+            <p className="text-sm text-[#66736A] mt-1">
               Rastreabilidade do rebanho leiteiro, rendimento de coagulação enzimática e controle de afinamento com mofos brancos naturais.
             </p>
           </div>
@@ -132,9 +132,9 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Produção de Leite</span>
+            <span className="text-xs font-medium text-[#66736A]">Produção de Leite</span>
             <Milk className="w-5 h-5 text-amber-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -145,9 +145,9 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Queijo Produzido</span>
+            <span className="text-xs font-medium text-[#66736A]">Queijo Produzido</span>
             <Scale className="w-5 h-5 text-orange-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -158,9 +158,9 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Faturamento da Queijaria</span>
+            <span className="text-xs font-medium text-[#66736A]">Faturamento da Queijaria</span>
             <TrendingUp className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -171,9 +171,9 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-400">Margem Operacional</span>
+            <span className="text-xs font-medium text-[#66736A]">Margem Operacional</span>
             <Award className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -186,13 +186,13 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-800 pb-2">
+      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
         <button
           onClick={() => setActiveTab('lotes')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'lotes'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -204,7 +204,7 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'rebanho'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Heart className="w-4 h-4" />
@@ -216,7 +216,7 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'maturacao'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Sparkles className="w-4 h-4" />
@@ -228,7 +228,7 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-400 hover:text-white hover:bg-slate-800/40'
+              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -238,15 +238,15 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'lotes' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-slate-800 p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Milk className="w-5 h-5 text-amber-400" />
             Lotes em Maturação na Queijaria Artesanal
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-300">
-              <thead className="text-xs uppercase bg-slate-950/60 text-slate-400">
+            <table className="w-full text-left text-sm text-[#26332A]">
+              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
                 <tr>
                   <th className="px-4 py-3">Lote / Denominação</th>
                   <th className="px-4 py-3">Tipo</th>
@@ -281,44 +281,44 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
 
       {activeTab === 'rebanho' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Heart className="w-5 h-5 text-rose-400" />
               <h4 className="text-sm font-semibold text-white">Genética Leiteira Selecionada</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Plantel composto por matrizes Saanen puras de origem e Anglo-Nubianas para elevação do teor de gordura e sólidos totais no leite.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Teor de Gordura:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Teor de Gordura:</span>
               <span className="text-sm font-bold text-amber-400 block">3.8% a 4.2% de gordura</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Sanidade & Qualidade do Leite</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Controle rigoroso de Linfadenite Caseosa e Artrite Encefalite Caprina (CAE) com Contagem de Células Somáticas (CCS) monitorada quinzenalmente.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">CCS Média do Rebanho:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">CCS Média do Rebanho:</span>
               <span className="text-sm font-bold text-emerald-400 block">inferior a 650.000 cél/ml</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
             <div className="flex items-center gap-3">
               <Sliders className="w-5 h-5 text-yellow-400" />
               <h4 className="text-sm font-semibold text-white">Dieta de Alta Densidade</h4>
             </div>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#66736A]">
               Fornecimento de feno de alfafa peletizado, silagem de milho grão úmido e suplementação mineral quelatada garantindo lactação contínua de 280 dias.
             </p>
-            <div className="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
-              <span className="text-xs text-slate-400">Persistência de Lactação:</span>
+            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
+              <span className="text-xs text-[#66736A]">Persistência de Lactação:</span>
               <span className="text-sm font-bold text-yellow-400 block">superior a 88% no 7º mês</span>
             </div>
           </div>
@@ -326,39 +326,39 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
       )}
 
       {activeTab === 'maturacao' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-amber-400" />
             Câmara Fria Climatizada de Afinamento (12°C & 85% UR)
           </h3>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-[#66736A]">
             A inoculação de Geotrichum candidum e Penicillium candidum em ambiente controlado forma uma casca rugosa branca e aveludada, quebrando as proteínas da massa e gerando textura cremosa untuosa com notas de avelã.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Temperatura da Câmara</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Temperatura da Câmara</span>
               <p className="text-lg font-bold text-amber-400 mt-1">11°C a 13°C</p>
-              <span className="text-[11px] text-slate-400">Proteólise lenta e controlada</span>
+              <span className="text-[11px] text-[#66736A]">Proteólise lenta e controlada</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Umidade Relativa</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Umidade Relativa</span>
               <p className="text-lg font-bold text-orange-400 mt-1">85% a 90% UR</p>
-              <span className="text-[11px] text-slate-400">Sem ressecamento da crosta</span>
+              <span className="text-[11px] text-[#66736A]">Sem ressecamento da crosta</span>
             </div>
 
-            <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800">
-              <span className="text-xs text-slate-400">Prêmio Queijo Brasil</span>
+            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
+              <span className="text-xs text-[#66736A]">Prêmio Queijo Brasil</span>
               <p className="text-lg font-bold text-yellow-400 mt-1">Medalha de Ouro</p>
-              <span className="text-[11px] text-slate-400">Chèvre Nival com Cinza</span>
+              <span className="text-[11px] text-[#66736A]">Chèvre Nival com Cinza</span>
             </div>
           </div>
         </div>
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800 space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-amber-400" />
             Simulador de Eficiência Leiteira & Margem do Queijo Maturado
@@ -366,58 +366,58 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-slate-400">Cabras em Lactação</label>
+              <label className="text-xs font-medium text-[#66736A]">Cabras em Lactação</label>
               <input
                 type="number"
                 value={cabrasLactacao}
                 onChange={(e) => setCabrasLactacao(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Leite / Cabra / Dia (L)</label>
+              <label className="text-xs font-medium text-[#66736A]">Leite / Cabra / Dia (L)</label>
               <input
                 type="number"
                 step="0.1"
                 value={producaoLeiteCabraDiaLitros}
                 onChange={(e) => setProducaoLeiteCabraDiaLitros(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Preço do Queijo (R$/kg)</label>
+              <label className="text-xs font-medium text-[#66736A]">Preço do Queijo (R$/kg)</label>
               <input
                 type="number"
                 step="5"
                 value={precoKgQueijoMaturadoReais}
                 onChange={(e) => setPrecoKgQueijoMaturadoReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-slate-400">Custo Alimentar Ano (R$)</label>
+              <label className="text-xs font-medium text-[#66736A]">Custo Alimentar Ano (R$)</label>
               <input
                 type="number"
                 step="10000"
                 value={custoAlimentarAnoReais}
                 onChange={(e) => setCustoAlimentarAnoReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-slate-950/60 rounded-xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-slate-400 block">Custo de Alimentação por kg de Queijo:</span>
+              <span className="text-xs text-[#66736A] block">Custo de Alimentação por kg de Queijo:</span>
               <span className="text-base font-bold text-amber-400">
                 R$ {metricas.custoAlimentarPorKgQueijo.toFixed(2)} / kg queijo
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-slate-400 block">Lucro Operacional Líquido:</span>
+              <span className="text-xs text-[#66736A] block">Lucro Operacional Líquido:</span>
               <span className="text-xl font-bold text-emerald-400">
                 R$ {metricas.lucroOperacionalReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>
