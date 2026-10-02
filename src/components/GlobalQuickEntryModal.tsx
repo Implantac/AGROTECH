@@ -290,24 +290,24 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md animate-fade-in">
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-4xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+      <div className="bg-white border border-[#EAF4E7] rounded-2xl w-full max-w-4xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden text-[#26332A]">
         {/* Modal Header */}
-        <div className="p-4 sm:p-5 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
+        <div className="p-4 sm:p-5 border-b border-[#EAF4E7] flex items-center justify-between bg-[#F7F9F5]">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-950/50">
               <Plus className="w-6 h-6 text-white stroke-[2.5]" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="text-lg font-bold text-white tracking-tight">
+                <h2 className="text-lg font-bold text-[#1D4B38] tracking-tight">
                   Central de Lançamentos Rápidos
                 </h2>
                 <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
                   Offline-First & Validação Instantânea
                 </span>
               </div>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-[#66736A]">
                 Apontamento ágil de campo com cálculos automáticos, telemetria integrada e histórico da sessão.
               </p>
             </div>
@@ -319,7 +319,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
               className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition border ${
                 showHistory
                   ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
-                  : 'bg-slate-800 text-slate-300 border-slate-700 hover:text-white'
+                  : 'bg-[#EAF4E7] text-[#1D4B38] border-slate-700 hover:text-white'
               }`}
             >
               <History className="w-3.5 h-3.5" />
@@ -342,17 +342,17 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
             <div className="space-y-4 animate-fade-in">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                  <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                     <History className="w-4 h-4 text-amber-400" />
                     Lançamentos Realizados Nesta Sessão
                   </h3>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-[#66736A]">
                     Registros salvos localmente e propagados para os módulos da plataforma.
                   </p>
                 </div>
                 <button
                   onClick={() => setRecentLaunches([])}
-                  className="text-xs text-slate-400 hover:text-rose-400 flex items-center gap-1 transition"
+                  className="text-xs text-[#66736A] hover:text-rose-400 flex items-center gap-1 transition"
                 >
                   <Trash2 className="w-3.5 h-3.5" /> Limpar Histórico
                 </button>
@@ -362,19 +362,19 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                 {recentLaunches.map((item) => (
                   <div
                     key={item.id}
-                    className="p-3.5 bg-slate-950 border border-slate-800 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:border-slate-700 transition"
+                    className="p-3.5 bg-[#F7F9F5] border-[#EAF4E7] rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 hover:border-slate-700 transition"
                   >
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
                         <span className="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                           {item.id}
                         </span>
-                        <h4 className="text-xs font-bold text-white">{item.titulo}</h4>
-                        <span className="px-1.5 py-0.5 rounded text-[9px] font-semibold bg-slate-800 text-slate-300">
+                        <h4 className="text-xs font-bold text-[#1D4B38]">{item.titulo}</h4>
+                        <span className="px-1.5 py-0.5 rounded text-[9px] font-semibold bg-[#EAF4E7] text-[#1D4B38]">
                           {item.tag}
                         </span>
                       </div>
-                      <p className="text-xs text-slate-400">{item.detalhes}</p>
+                      <p className="text-xs text-[#66736A]">{item.detalhes}</p>
                     </div>
 
                     <div className="flex items-center gap-3 shrink-0">
@@ -402,8 +402,8 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       onClick={() => setActiveTab('PESAGEM_PECUARIA')}
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'PESAGEM_PECUARIA'
-                          ? 'bg-emerald-500/15 border-emerald-500/50 text-emerald-300 shadow-lg shadow-emerald-950/20'
-                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                          ? 'bg-[#EAF4E7] border-[#285943] text-[#1D4B38] shadow-lg shadow-emerald-950/20'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
                       }`}
                     >
                       <Scale className="w-5 h-5 text-emerald-400" />
@@ -416,7 +416,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'LEITURA_COCHO'
                           ? 'bg-rose-500/15 border-rose-500/50 text-rose-300 shadow-lg shadow-rose-950/20'
-                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
                       }`}
                     >
                       <Sparkles className="w-5 h-5 text-rose-400" />
@@ -429,7 +429,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'ABASTECIMENTO'
                           ? 'bg-amber-500/15 border-amber-500/50 text-amber-300 shadow-lg shadow-amber-950/20'
-                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
                       }`}
                     >
                       <Fuel className="w-5 h-5 text-amber-400" />
@@ -442,7 +442,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'MANUTENCAO'
                           ? 'bg-blue-500/15 border-blue-500/50 text-blue-300 shadow-lg shadow-blue-950/20'
-                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
                       }`}
                     >
                       <Wrench className="w-5 h-5 text-blue-400" />
@@ -455,7 +455,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'FINANCEIRO'
                           ? 'bg-purple-500/15 border-purple-500/50 text-purple-300 shadow-lg shadow-purple-950/20'
-                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
                       }`}
                     >
                       <DollarSign className="w-5 h-5 text-purple-400" />
@@ -469,8 +469,8 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       onClick={() => setActiveTab('COLHEITA_HF')}
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'COLHEITA_HF'
-                          ? 'bg-emerald-500/15 border-emerald-500/50 text-emerald-300 shadow-lg shadow-emerald-950/20'
-                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                          ? 'bg-[#EAF4E7] border-[#285943] text-[#1D4B38] shadow-lg shadow-emerald-950/20'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
                       }`}
                     >
                       <Sparkles className="w-5 h-5 text-emerald-400" />
@@ -483,7 +483,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'CALDA'
                           ? 'bg-cyan-500/15 border-cyan-500/50 text-cyan-300 shadow-lg shadow-cyan-950/20'
-                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
                       }`}
                     >
                       <Droplets className="w-5 h-5 text-cyan-400" />
@@ -496,7 +496,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'MIP'
                           ? 'bg-rose-500/15 border-rose-500/50 text-rose-300 shadow-lg shadow-rose-950/20'
-                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
                       }`}
                     >
                       <Bug className="w-5 h-5 text-rose-400" />
@@ -509,7 +509,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'ABASTECIMENTO'
                           ? 'bg-amber-500/15 border-amber-500/50 text-amber-300 shadow-lg shadow-amber-950/20'
-                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
                       }`}
                     >
                       <Fuel className="w-5 h-5 text-amber-400" />
@@ -522,7 +522,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'FINANCEIRO'
                           ? 'bg-purple-500/15 border-purple-500/50 text-purple-300 shadow-lg shadow-purple-950/20'
-                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
                       }`}
                     >
                       <DollarSign className="w-5 h-5 text-purple-400" />
@@ -537,7 +537,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'ABASTECIMENTO'
                           ? 'bg-amber-500/15 border-amber-500/50 text-amber-300 shadow-lg shadow-amber-950/20'
-                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
                       }`}
                     >
                       <Fuel className="w-5 h-5 text-amber-400" />
@@ -550,7 +550,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'CALDA'
                           ? 'bg-cyan-500/15 border-cyan-500/50 text-cyan-300 shadow-lg shadow-cyan-950/20'
-                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
                       }`}
                     >
                       <Droplets className="w-5 h-5 text-cyan-400" />
@@ -563,7 +563,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'MIP'
                           ? 'bg-rose-500/15 border-rose-500/50 text-rose-300 shadow-lg shadow-rose-950/20'
-                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
                       }`}
                     >
                       <Bug className="w-5 h-5 text-rose-400" />
@@ -575,8 +575,8 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       onClick={() => setActiveTab('ROMANEIO')}
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'ROMANEIO'
-                          ? 'bg-emerald-500/15 border-emerald-500/50 text-emerald-300 shadow-lg shadow-emerald-950/20'
-                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                          ? 'bg-[#EAF4E7] border-[#285943] text-[#1D4B38] shadow-lg shadow-emerald-950/20'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
                       }`}
                     >
                       <Scale className="w-5 h-5 text-emerald-400" />
@@ -589,7 +589,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'MANUTENCAO'
                           ? 'bg-blue-500/15 border-blue-500/50 text-blue-300 shadow-lg shadow-blue-950/20'
-                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
                       }`}
                     >
                       <Wrench className="w-5 h-5 text-blue-400" />
@@ -602,7 +602,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                       className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-2 text-center transition cursor-pointer ${
                         activeTab === 'FINANCEIRO'
                           ? 'bg-purple-500/15 border-purple-500/50 text-purple-300 shadow-lg shadow-purple-950/20'
-                          : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-white hover:border-slate-700'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] text-slate-400 hover:text-white hover:border-slate-700'
                       }`}
                     >
                       <DollarSign className="w-5 h-5 text-purple-400" />
@@ -616,12 +616,12 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
               {activeTab === 'PESAGEM_PECUARIA' && (
                 <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
-                    <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                    <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <Scale className="w-4 h-4 text-emerald-400" />
                       Lançamento de Pesagem de Lote & Cálculo Automático de GMD
                     </h3>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs text-slate-400 font-mono">
+                      <span className="text-xs text-[#66736A] font-mono">
                         GMD Calculado:{' '}
                         <strong className="text-emerald-400 text-sm">{gmdCalculado} kg/dia</strong>
                       </span>
@@ -725,7 +725,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
               {activeTab === 'LEITURA_COCHO' && (
                 <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
-                    <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                    <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <Sparkles className="w-4 h-4 text-rose-400" />
                       Apontamento de Leitura de Cocho & Fornecimento de Matéria Seca
                     </h3>
@@ -788,7 +788,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
               {activeTab === 'COLHEITA_HF' && (
                 <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
-                    <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                    <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <Sparkles className="w-4 h-4 text-emerald-400" />
                       Lançamento de Colheita de Hortifrúti & Controle de Grau Brix
                     </h3>
@@ -850,12 +850,12 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
               {activeTab === 'ABASTECIMENTO' && (
                 <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
-                    <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                    <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <Fuel className="w-4 h-4 text-amber-400" />
                       Lançamento de Abastecimento & Horímetro CAN Bus
                     </h3>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs text-slate-400">Presets de Litros:</span>
+                      <span className="text-xs text-[#66736A]">Presets de Litros:</span>
                       {[150, 250, 320, 450].map((qtd) => (
                         <button
                           key={qtd}
@@ -864,7 +864,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                           className={`px-2 py-1 rounded-lg text-xs font-mono font-bold transition ${
                             abastLitros === qtd
                               ? 'bg-amber-500 text-slate-950'
-                              : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                              : 'bg-[#EAF4E7] text-[#1D4B38] hover:bg-slate-700'
                           }`}
                         >
                           +{qtd}L
@@ -976,7 +976,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
               {activeTab === 'CALDA' && (
                 <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
-                    <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                    <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <Droplets className="w-4 h-4 text-cyan-400" />
                       Apontamento de Calda & Janela de Aplicação
                     </h3>
@@ -1086,7 +1086,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
               {activeTab === 'MIP' && (
                 <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
-                    <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                    <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <Bug className="w-4 h-4 text-rose-400" />
                       Amostragem Fitossanitária MIP (Batida de Pano Embrapa)
                     </h3>
@@ -1168,7 +1168,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
               {activeTab === 'ROMANEIO' && (
                 <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
-                    <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                    <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <Scale className="w-4 h-4 text-emerald-400" />
                       Entrada de Balança & Romaneio de Carga
                     </h3>
@@ -1293,7 +1293,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
               {activeTab === 'MANUTENCAO' && (
                 <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
                   <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                    <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                    <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <Wrench className="w-4 h-4 text-blue-400" />
                       Abertura de Ordem de Serviço & Oficina
                     </h3>
@@ -1379,7 +1379,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
               {activeTab === 'FINANCEIRO' && (
                 <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
                   <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                    <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                    <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                       <DollarSign className="w-4 h-4 text-purple-400" />
                       Lançamento Financeiro & Fiscal LCDPR Oficial
                     </h3>
@@ -1447,7 +1447,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     <span className="text-slate-400 font-medium block mb-1">Rateio Societário Automático (Registro Q100 LCDPR):</span>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                       {CONDOMINOS_FAZENDA.map((c) => (
-                        <div key={c.cpf} className="p-2 rounded bg-slate-950 border border-slate-800 flex justify-between">
+                        <div key={c.cpf} className="p-2 rounded bg-[#F7F9F5] border-[#EAF4E7] flex justify-between">
                           <span className="text-slate-400">{c.nome.split(' ')[0]} ({c.percentual}%):</span>
                           <span className="text-purple-400 font-mono font-bold">
                             R$ {(finValor * (c.percentual / 100)).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
@@ -1464,9 +1464,9 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
 
         {/* Modal Footer / Actions */}
         <div className="p-4 sm:p-5 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-950/80">
-          <div className="flex items-center gap-2 text-xs text-slate-400">
+          <div className="flex items-center gap-2 text-xs text-[#66736A]">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Atalho rápido: pressione <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">N</kbd> no teclado para lançar</span>
+            <span>Atalho rápido: pressione <kbd className="px-1.5 py-0.5 rounded bg-[#EAF4E7] text-[#1D4B38] font-mono text-[10px]">N</kbd> no teclado para lançar</span>
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto">

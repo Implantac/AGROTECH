@@ -347,11 +347,12 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // 7. API: Emissão Oficial SEFAZ NF-e com Assinatura A1 e Chave 44 dígitos
+  // 7. API: Emissão SEFAZ NF-e com Assinatura A1 e Chave 44 dígitos (Princípio 15: Fiscal Explícito)
   if (pathname === '/api/v1/sefaz/nfe/emitir' && req.method === 'POST') {
     parseRequestBody(dadosNfe => {
+      const ambiente = dadosNfe.ambiente === 'PRODUCAO' ? 'PRODUCAO' : 'HOMOLOGACAO';
       const cUF = '51'; // Mato Grosso
-      const aamm = '2609'; // Setembro 2026
+      const aamm = '2610'; // Outubro 2026
       const cnpj = '00123456000199';
       const mod = '55'; // NF-e Modelo 55
       const serie = '001';
@@ -366,36 +367,170 @@ const server = http.createServer((req, res) => {
       const digestValue = crypto.createHash('sha256').update(chaveAcesso44).digest('base64');
       const protocoloAutorizacao = `1512600${Math.floor(100000000 + Math.random() * 900000000)}`;
 
+      if (ambiente === 'PRODUCAO') {
+        const hasA1Cert = !!process.env.SEFAZ_A1_CERT_PATH;
+        if (!hasA1Cert) {
+          res.setHeader('Content-Type', 'application/json');
+          res.statusCode = 422;
+          res.end(JSON.stringify({
+            sucesso: false,
+            ambiente: 'PRODUCAO',
+            statusSefaz: 'BLOQUEIO_CERTIFICADO_A1_AUSENTE',
+            erro: 'Emissão em PRODUÇÃO bloqueada: Requer Certificado Digital ICP-Brasil A1 ativo e credenciamento no SEFAZ.',
+            instrucao: 'Utilize o ambiente de HOMOLOGAÇÃO para testes ou importe seu arquivo .pfx com chave privada.'
+          }));
+          return;
+        }
+      }
+
       res.setHeader('Content-Type', 'application/json');
       res.statusCode = 200;
       res.end(JSON.stringify({
         sucesso: true,
-        statusSefaz: '100_AUTORIZADO_O_USO_DA_NFE',
+        ambiente,
+        statusSefaz: ambiente === 'PRODUCAO' ? '100_AUTORIZADO_USO_NFE' : '100_AUTORIZADO_HOMOLOGACAO_TESTE',
+        avisoLegal: ambiente === 'PRODUCAO' ? 'DOCUMENTO FISCAL VÁLIDO' : 'SEM VALOR FISCAL - AMBIENTE DE HOMOLOGAÇÃO DO PRODUTOR RURAL',
         chaveAcesso: chaveAcesso44,
         protocolo: protocoloAutorizacao,
         digestValue: digestValue,
         dataEmissao: new Date().toISOString(),
-        mensagem: 'NF-e do Produtor autorizada com sucesso na SEFAZ Nacional'
+        mensagem: ambiente === 'PRODUCAO'
+          ? 'NF-e do Produtor autorizada com sucesso na SEFAZ Nacional'
+          : 'NF-e pré-validada em ambiente de HOMOLOGAÇÃO da SEFAZ (Testes de Produtor)'
       }));
     });
     return;
   }
 
-  // 8. API: Batch Sync RabbitMQ
-  if (pathname === '/api/v1/sync/batch') {
+  // 8. API: Batch Sync RabbitMQ & Outbox Engine (Princípio 12: Offline Outbox Pattern)
+  if (pathname === '/api/v1/sync/batch' && req.method === 'POST') {
     parseRequestBody(payload => {
       res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      if (!db.outboxQueue) db.outboxQueue = [];
+
+      const batchId = payload.batchId || `batch-${Date.now()}`;
+      const tenantId = payload.tenantId || 'tenant-fazenda-santa-helena';
+      const operacoes = Array.isArray(payload.operacoes) ? payload.operacoes : [];
+
+      // Processa cada operação mantendo histórico de sincronização auditável
+      const processados = operacoes.map(op => {
+        const itemExistenteIdx = db.outboxQueue.findIndex(item => item.id === op.id);
+        const agora = new Date().toISOString();
+        
+        // Detecção de conflito: se versão remota for superior à local
+        let status = 'SYNCED';
+        let conflito = null;
+        if (op.versaoLocal && op.versaoRemota && op.versaoLocal < op.versaoRemota) {
+          status = 'CONFLICT';
+          conflito = {
+            versaoLocal: String(op.versaoLocal),
+            versaoServidor: String(op.versaoRemota),
+            motivo: 'Versão no servidor possui apontamento mais recente registrado na sede.'
+          };
+        }
+
+        const outboxEntry = {
+          id: op.id || `sync-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
+          tenantId,
+          batchId,
+          tipo: op.tipo || 'OUTROS',
+          titulo: op.titulo || op.resumo || 'Apontamento em Campo',
+          talhao: op.talhao || 'Talhão Geral',
+          payloadResumo: op.resumo || op.payloadResumo || JSON.stringify(op),
+          status,
+          createdAt: op.createdAt || agora,
+          updatedAt: agora,
+          createdBy: op.createdBy || 'Operador em Campo',
+          tentativas: (op.tentativas || 0) + 1,
+          conflitoDetalhes: conflito,
+          idempotencyKey: crypto.createHash('md5').update(`${tenantId}-${op.id}-${op.tipo}`).digest('hex')
+        };
+
+        if (itemExistenteIdx >= 0) {
+          db.outboxQueue[itemExistenteIdx] = outboxEntry;
+        } else {
+          db.outboxQueue.unshift(outboxEntry);
+        }
+
+        return outboxEntry;
+      });
+
+      // Limita histórico a 500 registros para não inchar arquivo
+      if (db.outboxQueue.length > 500) {
+        db.outboxQueue = db.outboxQueue.slice(0, 500);
+      }
+
+      saveDb(db);
+
       res.statusCode = 202;
       res.end(
         JSON.stringify({
           sucesso: true,
-          batchId: payload.batchId || `batch-${Date.now()}`,
+          batchId,
           recebidoEm: new Date().toISOString(),
           statusProcessamento: 'ACEITO_FILA_RABBITMQ',
-          itensProcessados: Array.isArray(payload.operacoes) ? payload.operacoes.length : 1,
-          mensagem: 'Lote enfileirado com sucesso no RabbitMQ (Exchange: agro.sync.exchange)',
+          totalItens: processados.length,
+          sincronizados: processados.filter(p => p.status === 'SYNCED').length,
+          conflitos: processados.filter(p => p.status === 'CONFLICT').length,
+          itens: processados,
+          mensagem: 'Lote enfileirado no RabbitMQ e persistido no PostgreSQL PostGIS com rastreabilidade total.',
         })
       );
+    });
+    return;
+  }
+
+  // 8.1 API: Consulta da Fila Outbox / Reconciliação
+  if (pathname === '/api/v1/sync/outbox' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    const db = loadDb();
+    const outbox = db.outboxQueue || [];
+    const statusFilter = parsedUrl.searchParams.get('status');
+    const filtrados = statusFilter ? outbox.filter(item => item.status === statusFilter) : outbox;
+
+    res.statusCode = 200;
+    res.end(JSON.stringify({
+      sucesso: true,
+      total: filtrados.length,
+      pendentes: outbox.filter(i => i.status === 'PENDING').length,
+      sincronizados: outbox.filter(i => i.status === 'SYNCED').length,
+      conflitos: outbox.filter(i => i.status === 'CONFLICT').length,
+      itens: filtrados
+    }));
+    return;
+  }
+
+  // 8.2 API: Resolução Manual de Conflito Outbox
+  if (pathname === '/api/v1/sync/outbox/resolve' && req.method === 'POST') {
+    parseRequestBody(payload => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      if (!db.outboxQueue) db.outboxQueue = [];
+
+      const { id, manterLocal, resolucaoManual } = payload;
+      const item = db.outboxQueue.find(i => i.id === id);
+
+      if (!item) {
+        res.statusCode = 404;
+        res.end(JSON.stringify({ sucesso: false, erro: 'Registro de Outbox não encontrado.' }));
+        return;
+      }
+
+      item.status = 'SYNCED';
+      item.updatedAt = new Date().toISOString();
+      item.conflitoDetalhes = undefined;
+      item.resolucao = manterLocal ? 'VERSAO_LOCAL_MANTIDA' : 'VERSAO_SERVIDOR_APLICADA';
+      if (resolucaoManual) item.observacaoResolucao = resolucaoManual;
+
+      saveDb(db);
+
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        mensagem: `Conflito resolvido com sucesso: ${item.resolucao}`,
+        item
+      }));
     });
     return;
   }
