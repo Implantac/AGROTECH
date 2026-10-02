@@ -263,22 +263,34 @@ export const App: React.FC = () => {
   // Controle de Visualização Global: Landing Page Institucional | Tela de Login | Cockpit da Plataforma
   const [currentAppView, setCurrentAppView] = useState<'LANDING' | 'LOGIN' | 'PLATFORM'>(() => {
     try {
-      if (typeof window !== 'undefined' && window.localStorage) {
-        const saved = localStorage.getItem('agtech_current_app_view');
-        if (saved === 'LANDING' || saved === 'LOGIN' || saved === 'PLATFORM') {
+      if (typeof window !== 'undefined') {
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlView = urlParams.get('view');
+        if (urlView === 'platform') return 'PLATFORM';
+        if (urlView === 'login') return 'LOGIN';
+        if (urlView === 'landing') return 'LANDING';
+
+        const hash = window.location.hash;
+        if (hash.includes('cockpit') || hash.includes('platform')) return 'PLATFORM';
+        if (hash.includes('login')) return 'LOGIN';
+        if (hash.includes('landing') || hash.includes('planos') || hash.includes('calculadora')) return 'LANDING';
+
+        const saved = sessionStorage.getItem('agtech_current_app_view');
+        if (saved === 'LOGIN' || saved === 'PLATFORM' || saved === 'LANDING') {
           return saved;
         }
       }
     } catch {
       // fallback
     }
-    return 'PLATFORM';
+    return 'LANDING';
   });
 
   const handleNavigateView = (view: 'LANDING' | 'LOGIN' | 'PLATFORM') => {
     setCurrentAppView(view);
     try {
-      if (typeof window !== 'undefined' && window.localStorage) {
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem('agtech_current_app_view', view);
         localStorage.setItem('agtech_current_app_view', view);
       }
     } catch {
@@ -550,7 +562,7 @@ export const App: React.FC = () => {
             addToast('Bem-vindo ao Cockpit Super AgTech Enterprise!', 'success');
           }}
         />
-        <ToastNotification toasts={toasts} onCloseToast={removeToast} />
+        <ToastNotification toasts={toasts} onDismiss={removeToast} />
       </div>
     );
   }
@@ -566,7 +578,7 @@ export const App: React.FC = () => {
           }}
           onBackToLanding={() => handleNavigateView('LANDING')}
         />
-        <ToastNotification toasts={toasts} onCloseToast={removeToast} />
+        <ToastNotification toasts={toasts} onDismiss={removeToast} />
       </div>
     );
   }
@@ -1430,6 +1442,16 @@ export const App: React.FC = () => {
           </React.Suspense>
         </ModuleErrorBoundary>
       </main>
+
+      {/* Botão Flutuante Rápido para Alternar para Landing Page Comercial */}
+      <button
+        onClick={() => handleNavigateView('LANDING')}
+        className="fixed bottom-6 left-6 z-40 bg-slate-900/90 hover:bg-slate-800 text-amber-400 border border-amber-500/40 p-3 sm:px-4 sm:py-2.5 rounded-2xl shadow-xl flex items-center gap-2 font-bold text-xs transition-all transform hover:scale-105 active:scale-95 print:hidden cursor-pointer backdrop-blur-md"
+        title="Ver a Landing Page Institucional de Alta Conversão e Comparativo"
+      >
+        <Globe className="w-4 h-4 text-amber-400" />
+        <span className="hidden sm:inline">Portal Comercial & Planos</span>
+      </button>
 
       {/* Botão Flutuante (FAB) de Lançamento Rápido em Campo */}
       <button
