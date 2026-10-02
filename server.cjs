@@ -1685,8 +1685,26 @@ const server = http.createServer((req, res) => {
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
-      // Se for asset estático inexistente, retorna 404 em vez de index.html para não quebrar MIME types
-      if (
+      // Fallback inteligente para requisições de assets com hash antigo em cache de navegadores
+      if (pathname.startsWith('/assets/index-') && pathname.endsWith('.js')) {
+        const files = fs.readdirSync(path.join(STATIC_DIR, 'assets')).filter(f => f.startsWith('index-') && f.endsWith('.js'));
+        if (files.length > 0) {
+          filePath = path.join(STATIC_DIR, 'assets', files[0]);
+        } else {
+          res.statusCode = 404;
+          res.end('Asset não encontrado');
+          return;
+        }
+      } else if (pathname.startsWith('/assets/index-') && pathname.endsWith('.css')) {
+        const files = fs.readdirSync(path.join(STATIC_DIR, 'assets')).filter(f => f.startsWith('index-') && f.endsWith('.css'));
+        if (files.length > 0) {
+          filePath = path.join(STATIC_DIR, 'assets', files[0]);
+        } else {
+          res.statusCode = 404;
+          res.end('Asset CSS não encontrado');
+          return;
+        }
+      } else if (
         pathname.startsWith('/assets/') ||
         pathname.endsWith('.js') ||
         pathname.endsWith('.css') ||
@@ -1698,15 +1716,22 @@ const server = http.createServer((req, res) => {
         res.statusCode = 404;
         res.end('Arquivo não encontrado: ' + pathname);
         return;
+      } else {
+        filePath = path.join(STATIC_DIR, 'index.html');
       }
-      filePath = path.join(STATIC_DIR, 'index.html');
     }
 
     const ext = path.extname(filePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
     res.setHeader('Content-Type', contentType);
-    res.setHeader('Cache-Control', ext === '.html' ? 'no-cache' : 'public, max-age=31536000, immutable');
+    if (ext === '.html') {
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
+    } else {
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    }
 
     const stream = fs.createReadStream(filePath);
     stream.on('error', streamErr => {

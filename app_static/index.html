@@ -15,19 +15,33 @@
     <link rel="stylesheet" crossorigin href="/assets/index-DJs_c6H5.css">
   </head>
   <body class="bg-[#F7F9F5] text-[#26332A] antialiased selection:bg-[#285943] selection:text-white">
-    <div id="root"></div>
+    <div id="root">
+      <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #F7F9F5; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #285943; padding: 20px; text-align: center;">
+        <div style="width: 52px; height: 52px; border: 4px solid #EAF4E7; border-top-color: #285943; border-radius: 50%; animation: agtechSpin 0.9s cubic-bezier(0.5, 0, 0.5, 1) infinite; margin-bottom: 20px;"></div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+          <span style="font-weight: 900; font-size: 20px; letter-spacing: -0.03em; color: #285943;">AGROTECH</span>
+          <span style="font-size: 11px; font-weight: 700; background-color: #EAF4E7; color: #285943; padding: 2px 8px; border-radius: 9999px; border: 1px solid rgba(95, 143, 82, 0.3);">v9.5.1 Enterprise</span>
+        </div>
+        <p style="font-size: 13px; font-weight: 600; color: #5F8F52; margin: 0; max-width: 380px;">O sistema operacional da empresa rural</p>
+        <p style="font-size: 11px; color: #66736A; margin-top: 8px;">Carregando módulos de gestão, telemetria e inteligência agronômica...</p>
+        <style>
+          @keyframes agtechSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+        </style>
+      </div>
+    </div>
     <script>
-      // Registro do Service Worker para Operação 100% Offline no Campo (Apenas fora de iframes)
-      if ('serviceWorker' in navigator && window.location.protocol.startsWith('http') && window.self === window.top) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then((reg) => {
-              console.log('[PWA] Service Worker registrado com sucesso no escopo:', reg.scope);
-            })
-            .catch((err) => {
-              console.log('[PWA] Falha ao registrar Service Worker:', err);
-            });
-        });
+      // Desregistrar Service Workers legados ou conflitantes em ambientes de iframe/sandbox
+      if ('serviceWorker' in navigator) {
+        if (window.self !== window.top) {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for (var i = 0; i < registrations.length; i++) {
+              registrations[i].unregister();
+            }
+          });
+        }
       }
     </script>
   </body>
