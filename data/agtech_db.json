@@ -58,6 +58,23 @@
         "DRE",
         "CONTRATOS"
       ]
+    },
+    {
+      "id": "usr-1790945618821",
+      "tenantId": "tenant-1790945618821",
+      "nome": "Lucas Rezende",
+      "email": "lucas@agroempresa.com",
+      "senhaHash": "54ecc37406dd639fa1d382997102751820fec30b3570578646c508ba54a9f470",
+      "perfil": "PRODUTOR",
+      "fazenda": "Fazenda Boa Vista",
+      "permissoes": [
+        "ALL",
+        "FINANCEIRO",
+        "AGRONOMICO",
+        "FROTA",
+        "FISCAL"
+      ],
+      "createdAt": "2026-10-02T12:53:38.822Z"
     }
   ],
   "fazendas": [
@@ -72,6 +89,22 @@
       "reservaLegalHa": 650,
       "car": "MT-5107909-E4D2.32A1.889C.4501.992B.7744.112A.F012",
       "sigef": "89201928374"
+    },
+    {
+      "id": "faz-1790945618821",
+      "tenantId": "tenant-1790945618821",
+      "nome": "Fazenda Boa Vista",
+      "cnpj": "00.000.000/0001-00",
+      "municipio": "A Definir",
+      "uf": "BR",
+      "areaTotalHa": 1200,
+      "areaAgricultavelHa": 950,
+      "reservaLegalHa": 250,
+      "culturas": [
+        "SOJA",
+        "MILHO"
+      ],
+      "createdAt": "2026-10-02T12:53:38.821Z"
     }
   ],
   "talhoes": [
