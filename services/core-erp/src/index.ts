@@ -7,3 +7,6 @@ export * from './barter-cpr.service';
 export * from './frete-antt.service';
 export * from './irrigacao-manejo-hidrico.service';
 export * from './analise-solo-recomendacao.service';
+export * from './sentinel-copernicus.service';
+export * from './cnab240-bancario.service';
+export * from './canbus-j1939.service';

@@ -1,0 +1,23 @@
+name: agtech_mobile
+description: "Super AgTech Mobile - Operação 100% Offline no Campo com Drift SQLite & Outbox Pattern"
+version: 2.5.0+1
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  drift: ^2.14.0
+  sqlite3_flutter_libs: ^0.5.18
+  path_provider: ^2.1.1
+  path: ^1.8.3
+  uuid: ^4.2.1
+  http: ^1.1.0
+  connectivity_plus: ^5.0.2
+  workmanager: ^0.5.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  drift_dev: ^2.14.0
+  build_runner: ^2.4.6

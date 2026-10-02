@@ -481,6 +481,129 @@ assert.strictEqual(resultadoSolo.classificacaoAcidez, 'ALTA');
 assert.strictEqual(resultadoSolo.alertaToxidezAluminio, true);
 console.log(`   ✓ Laudo interpretado: SB ${resultadoSolo.somaBasesSB} cmolc/dm³, V1% ${resultadoSolo.saturacaoBasesV1Pct}%, NC ${resultadoSolo.necessidadeCalagemTonHa} t/ha calcário e NG ${resultadoSolo.necessidadeGessoKgHa} kg/ha gesso.`);
 
+// 10. Teste do Processamento Multiespectral Sentinel-2 (NDVI, NDWI, EVI e SCL)
+import { SentinelCopernicusService } from '../services/core-erp/src/sentinel-copernicus.service.ts';
+
+const sentinelService = new SentinelCopernicusService();
+
+console.log('\n[10/12] Testando Processamento de Satélite Sentinel-2 (Copernicus)...');
+const indicesSojaVigorosa = sentinelService.calcularIndicesVegetacao({
+  b02Azul: 0.035,
+  b04Vermelho: 0.048,
+  b08Nir: 0.582,
+  b11Swir: 0.165,
+  sclClassificacao: 4 // Vegetação límpida sem nuvens
+});
+
+// NDVI = (0.582 - 0.048) / (0.582 + 0.048) = 0.534 / 0.630 = 0.8476
+assert.strictEqual(indicesSojaVigorosa.ndvi, 0.8476);
+// NDWI = (0.582 - 0.165) / (0.582 + 0.165) = 0.417 / 0.747 = 0.5582
+assert.strictEqual(indicesSojaVigorosa.ndwi, 0.5582);
+assert.strictEqual(indicesSojaVigorosa.biomassaStatus, 'MUITO_ALTA');
+assert.strictEqual(indicesSojaVigorosa.estresseHidricoStatus, 'SEM_ESTRESSE');
+assert.strictEqual(indicesSojaVigorosa.pixelValidoSemNuvem, true);
+
+// Testar detecção de pixel com nuvem (SCL 9)
+const pixelComNuvem = sentinelService.calcularIndicesVegetacao({
+  b02Azul: 0.45,
+  b04Vermelho: 0.42,
+  b08Nir: 0.49,
+  b11Swir: 0.28,
+  sclClassificacao: 9 // Nuvem alta densidade
+});
+assert.strictEqual(pixelComNuvem.pixelValidoSemNuvem, false);
+assert.strictEqual(pixelComNuvem.classificacaoSclNome, 'COBERTURA_DE_NUVEM');
+console.log(`   ✓ Índices Sentinel-2 calculados: NDVI ${indicesSojaVigorosa.ndvi} (Biomassa: ${indicesSojaVigorosa.biomassaStatus}) e NDWI ${indicesSojaVigorosa.ndwi} com filtro de nuvens SCL.`);
+
+// 11. Teste da Remessa Bancária CNAB 240 (FEBRABAN)
+import { CNAB240BancarioService } from '../services/core-erp/src/cnab240-bancario.service.ts';
+
+const cnabService = new CNAB240BancarioService();
+
+console.log('\n[11/12] Testando Geração de Remessa CNAB 240 FEBRABAN...');
+const remessaTxt = cnabService.gerarArquivoRemessaPagamentos(
+  {
+    codigoBanco: '001',
+    nomeBanco: 'BANCO DO BRASIL S.A.',
+    cnpjEmpresa: '00123456000199',
+    nomeEmpresa: 'AGROPECUARIA SANTA MARIA LTDA',
+    numeroAgencia: '1234',
+    digitoAgencia: '5',
+    numeroConta: '98765',
+    digitoConta: '0',
+    convenioCobranca: '1234567'
+  },
+  [
+    {
+      sequencialRegistro: 1,
+      tipoInscricaoFavorecido: '2',
+      cpfCnpjFavorecido: '33222111000100',
+      nomeFavorecido: 'YARA FERTILIZANTES S.A.',
+      chavePixOuBancoFavorecido: '001',
+      agenciaFavorecido: '4321',
+      contaFavorecido: '112233',
+      numeroNotaFiscal: 'NF-10892',
+      dataVencimento: '20261015',
+      valorPagamentoReais: 450000.0, // R$ 450.000,00
+      finalidadePagamento: 'ADUBACAO_SAFRA_2026'
+    }
+  ]
+);
+
+const linhasRemessa = remessaTxt.split('\r\n').filter(l => l.length > 0);
+assert.strictEqual(linhasRemessa.length, 5); // Header Arquivo + Header Lote + Segmento A + Trailer Lote + Trailer Arquivo
+linhasRemessa.forEach(linha => {
+  assert.strictEqual(linha.length, 240); // Todo registro CNAB 240 deve ter rigorosamente 240 colunas
+});
+assert.ok(linhasRemessa[0].startsWith('00100000'));
+assert.ok(linhasRemessa[2].includes('YARA FERTILIZANTES S.A.'));
+assert.ok(linhasRemessa[2].includes('000000045000000')); // 45000000 centavos
+console.log(`   ✓ Arquivo CNAB 240 gerado com 5 registros de 240 colunas cada (Padrão FEBRABAN validado).`);
+
+// 12. Teste do Decodificador de Telemetria CAN Bus J1939 / ISOBUS
+import { CanBusJ1939DecoderService } from '../services/core-erp/src/canbus-j1939.service.ts';
+
+const canDecoder = new CanBusJ1939DecoderService();
+
+console.log('\n[12/12] Testando Decodificação de Telemetria CAN Bus J1939 / ISOBUS...');
+
+// Quadro 1: PGN 61444 (EEC1) - RPM do Motor
+// CAN-ID 0x0CF00400 (Prioridade 3, PGN 61444, Origem 0 = Motor)
+// Bytes 3 e 4: 0xE0, 0x3A = 0x3AE0 = 15072 * 0.125 = 1884 RPM
+const frameRpm = {
+  canId: 0x0cf00400,
+  data: [0xf0, 0x7d, 0x82, 0xe0, 0x3a, 0x00, 0xf0, 0xf0],
+  timestampMs: 1790956000000
+};
+const telemetriaRpm = canDecoder.decodificarQuadro(frameRpm);
+assert.strictEqual(telemetriaRpm.pgn, 61444);
+assert.strictEqual(telemetriaRpm.rpmMotor, 1884);
+
+// Quadro 2: PGN 65266 (LFE) - Consumo de Combustível em L/h
+// CAN-ID 0x18FEF200
+// Bytes 0 e 1: 0xB0, 0x02 = 0x02B0 = 688 * 0.05 = 34.40 L/h
+const frameFuel = {
+  canId: 0x18fef200,
+  data: [0xb0, 0x02, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff],
+  timestampMs: 1790956001000
+};
+const telemetriaFuel = canDecoder.decodificarQuadro(frameFuel);
+assert.strictEqual(telemetriaFuel.pgn, 65266);
+assert.strictEqual(telemetriaFuel.consumoCombustivelLPorHora, 34.4);
+
+// Quadro 3: PGN 65265 (CCVS) - Velocidade de Deslocamento
+// CAN-ID 0x18FEF100
+// Bytes 1 e 2: 0x00, 0x12 = 0x1200 = 4608 / 256 = 18.0 km/h
+const frameSpeed = {
+  canId: 0x18fef100,
+  data: [0x00, 0x00, 0x12, 0x00, 0x00, 0x00, 0x00, 0x00],
+  timestampMs: 1790956002000
+};
+const telemetriaSpeed = canDecoder.decodificarQuadro(frameSpeed);
+assert.strictEqual(telemetriaSpeed.pgn, 65265);
+assert.strictEqual(telemetriaSpeed.velocidadeKmH, 18.0);
+console.log(`   ✓ CAN Bus decodificado: ${telemetriaRpm.rpmMotor} RPM, ${telemetriaFuel.consumoCombustivelLPorHora} L/h e ${telemetriaSpeed.velocidadeKmH} km/h (Padrão J1939/ISOBUS 11783 validado).`);
+
 console.log('\n================================================================');
-console.log('🎉 TODOS OS 9 MICROSSERVIÇOS CORE ERP FORAM VALIDADOS COM SUCESSO!');
+console.log('🎉 TODOS OS 12 MICROSSERVIÇOS CORE ERP FORAM VALIDADOS COM SUCESSO!');
 console.log('================================================================');
