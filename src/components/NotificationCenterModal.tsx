@@ -251,24 +251,24 @@ export const NotificationCenterModal: React.FC<NotificationCenterModalProps> = (
 
   return (
     <div className="fixed inset-0 z-[1100] bg-black/80 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in">
-      <div className="bg-slate-900 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
+      <div className="bg-white border border-[#EAF4E7] w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
         {/* Cabeçalho da Central */}
-        <div className="p-4 border-b border-slate-800 bg-slate-950 flex items-center justify-between">
+        <div className="p-4 border-b border-[#EAF4E7] bg-[#F7F9F5] flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center border border-amber-500/30">
               <Bell className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-base font-bold text-white tracking-tight">Central de Alertas & Notificações</h3>
+                <h3 className="text-base font-bold text-[#285943] tracking-tight">Central de Alertas & Notificações</h3>
                 {unreadCount > 0 && (
                   <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 animate-pulse">
                     {unreadCount} não lidos
                   </span>
                 )}
               </div>
-              <p className="text-xs text-slate-400">
-                Gatilhos operacionais filtrados para: <span className="text-emerald-400 font-semibold">{profileId.replace(/_/g, ' ')}</span>
+              <p className="text-xs text-[#66736A]">
+                Gatilhos operacionais filtrados para: <span className="text-[#285943] font-semibold">{profileId.replace(/_/g, ' ')}</span>
               </p>
             </div>
           </div>
@@ -277,7 +277,7 @@ export const NotificationCenterModal: React.FC<NotificationCenterModalProps> = (
             {unreadCount > 0 && (
               <button
                 onClick={markAllAsRead}
-                className="text-xs text-slate-400 hover:text-white px-2.5 py-1 rounded-lg hover:bg-slate-800 transition-colors flex items-center gap-1 cursor-pointer"
+                className="text-xs text-[#66736A] hover:text-white px-2.5 py-1 rounded-lg hover:bg-slate-800 transition-colors flex items-center gap-1 cursor-pointer"
                 title="Marcar todas como lidas"
               >
                 <Check className="w-3.5 h-3.5 text-emerald-400" />
@@ -344,9 +344,9 @@ export const NotificationCenterModal: React.FC<NotificationCenterModalProps> = (
                         </span>
                       </div>
 
-                      <h4 className="text-xs font-bold text-white tracking-tight leading-snug">{alert.titulo}</h4>
+                      <h4 className="text-xs font-bold text-[#285943] tracking-tight leading-snug">{alert.titulo}</h4>
 
-                      <p className="text-xs text-slate-300 leading-relaxed font-normal">{alert.descricao}</p>
+                      <p className="text-xs text-[#26332A] leading-relaxed font-normal">{alert.descricao}</p>
 
                       <div className="pt-1 flex items-center gap-2">
                         <button
@@ -378,7 +378,7 @@ export const NotificationCenterModal: React.FC<NotificationCenterModalProps> = (
         </div>
 
         {/* Rodapé da Central */}
-        <div className="p-3 border-t border-slate-800 bg-slate-950 flex items-center justify-between text-xs text-slate-400">
+        <div className="p-3 border-t border-slate-800 bg-slate-950 flex items-center justify-between text-xs text-[#66736A]">
           <span>{alerts.length} alertas monitorados em tempo real</span>
           <button
             onClick={onClose}

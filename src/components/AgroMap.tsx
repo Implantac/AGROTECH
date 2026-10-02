@@ -466,13 +466,13 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
   };
 
   return (
-    <div className="relative w-full h-[620px] rounded-xl overflow-hidden border border-slate-700 bg-slate-900 shadow-2xl">
+    <div className="relative w-full h-[620px] rounded-xl overflow-hidden border border-[#285943] bg-slate-900 shadow-2xl">
       {/* Contêiner Leaflet */}
       <div ref={mapContainerRef} className="w-full h-full" />
 
       {/* Controles de Camadas SIG no topo */}
-      <div className="absolute top-4 left-4 z-[500] bg-slate-900/90 backdrop-blur-md p-2 rounded-lg border border-slate-700 shadow-xl flex flex-wrap items-center gap-1.5 text-xs">
-        <span className="font-semibold text-slate-300 flex items-center gap-1.5 px-2">
+      <div className="absolute top-4 left-4 z-[500] bg-[#1D4B38]/95 backdrop-blur-md p-2 rounded-lg border border-[#285943] shadow-xl flex flex-wrap items-center gap-1.5 text-xs">
+        <span className="font-semibold text-[#EAF4E7] flex items-center gap-1.5 px-2">
           <Layers className="w-4 h-4 text-emerald-400" /> Camada SIG:
         </span>
         <button
@@ -480,7 +480,7 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
           className={`px-3 py-1.5 rounded-md font-medium transition-all ${
             activeLayer === 'OPERACIONAL'
               ? 'bg-emerald-500 text-white shadow-sm'
-              : 'text-slate-300 hover:bg-slate-800'
+              : 'text-[#EAF4E7] hover:bg-[#285943]'
           }`}
         >
           Status Operações
@@ -490,7 +490,7 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
           className={`px-3 py-1.5 rounded-md font-medium transition-all flex items-center gap-1 ${
             activeLayer === 'FROTA'
               ? 'bg-blue-600 text-white shadow-sm'
-              : 'text-slate-300 hover:bg-slate-800'
+              : 'text-[#EAF4E7] hover:bg-[#285943]'
           }`}
         >
           <Tractor className="w-3.5 h-3.5" /> Frotas (Tempo Real)
@@ -500,7 +500,7 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
           className={`px-3 py-1.5 rounded-md font-medium transition-all flex items-center gap-1 ${
             activeLayer === 'FITOSSANIDADE'
               ? 'bg-red-500 text-white shadow-sm'
-              : 'text-slate-300 hover:bg-slate-800'
+              : 'text-[#EAF4E7] hover:bg-[#285943]'
           }`}
         >
           <AlertTriangle className="w-3.5 h-3.5" /> Heatmap Pragas
@@ -510,7 +510,7 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
           className={`px-3 py-1.5 rounded-md font-medium transition-all flex items-center gap-1 ${
             activeLayer === 'NDVI'
               ? 'bg-lime-600 text-white shadow-sm'
-              : 'text-slate-300 hover:bg-slate-800'
+              : 'text-[#EAF4E7] hover:bg-[#285943]'
           }`}
         >
           <Sprout className="w-3.5 h-3.5" /> NDVI Sentinel-2
@@ -521,15 +521,15 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
       <div className="absolute top-4 right-4 z-[500] flex items-center gap-2">
         <button
           onClick={() => setImportModalOpen(true)}
-          className="bg-slate-900/90 backdrop-blur-md hover:bg-slate-800 text-slate-200 hover:text-emerald-400 border border-slate-700 px-3 py-2 rounded-lg text-xs font-semibold flex items-center gap-2 shadow-xl transition-all"
+          className="bg-[#1D4B38]/95 backdrop-blur-md hover:bg-[#285943] text-white hover:text-emerald-400 border border-[#285943] px-3 py-2 rounded-lg text-xs font-semibold flex items-center gap-2 shadow-xl transition-all"
         >
           <UploadCloud className="w-4 h-4 text-emerald-400" /> Importar GeoJSON / KML / CAR
         </button>
       </div>
 
       {/* Legenda Dinâmica no canto inferior esquerdo */}
-      <div className="absolute bottom-4 left-4 z-[500] bg-slate-900/90 backdrop-blur-md p-3 rounded-lg border border-slate-700 text-xs text-slate-300 shadow-xl max-w-xs">
-        <p className="font-semibold text-slate-200 mb-1.5">
+      <div className="absolute bottom-4 left-4 z-[500] bg-[#1D4B38]/95 backdrop-blur-md p-3 rounded-lg border border-[#285943] text-xs text-[#EAF4E7] shadow-xl max-w-xs">
+        <p className="font-semibold text-white mb-1.5">
           {activeLayer === 'OPERACIONAL' && 'Legenda de Status Operacional'}
           {activeLayer === 'FROTA' && 'Telemetria de Tratores e Pulverizadores'}
           {activeLayer === 'FITOSSANIDADE' && 'Alerta de Monitoramento Fitossanitário'}
@@ -574,9 +574,9 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
       {/* Modal de Importação com Parser Ativo GeoJSON / KML */}
       {importModalOpen && (
         <div className="absolute inset-0 z-[1000] bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-700 p-6 rounded-2xl max-w-lg w-full shadow-2xl text-slate-200">
+          <div className="bg-slate-900 border border-[#285943] p-6 rounded-2xl max-w-lg w-full shadow-2xl text-white">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="text-lg font-bold text-white flex items-center gap-2">
+              <h3 className="text-lg font-bold text-[#285943] flex items-center gap-2">
                 <UploadCloud className="w-5 h-5 text-emerald-400" /> Parser SIG: Importar Malha Geográfica
               </h3>
               <button
@@ -590,7 +590,7 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
               </button>
             </div>
 
-            <p className="text-xs text-slate-400 mb-4">
+            <p className="text-xs text-[#66736A] mb-4">
               Arraste ou selecione arquivos <strong>GeoJSON (.geojson, .json)</strong> ou <strong>KML (.kml)</strong> do CAR da fazenda ou do piloto automático do trator.
             </p>
 
@@ -622,13 +622,13 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
               className={`border-2 border-dashed rounded-xl p-6 text-center transition-all cursor-pointer mb-4 ${
                 isDragging
                   ? 'border-emerald-400 bg-emerald-950/30'
-                  : 'border-slate-700 hover:border-emerald-500/60 bg-slate-800/40'
+                  : 'border-[#285943] hover:border-emerald-500/60 bg-slate-800/40'
               }`}
             >
               <FileCode className="w-10 h-10 text-emerald-400 mx-auto mb-2 opacity-90" />
-              <p className="text-sm font-semibold text-white">Arraste seu arquivo GeoJSON ou KML aqui</p>
-              <p className="text-xs text-slate-400 mt-1">ou clique para selecionar do computador</p>
-              <div className="flex items-center justify-center gap-2 mt-3 text-[11px] text-slate-500 font-mono">
+              <p className="text-sm font-semibold text-[#285943]">Arraste seu arquivo GeoJSON ou KML aqui</p>
+              <p className="text-xs text-[#66736A] mt-1">ou clique para selecionar do computador</p>
+              <div className="flex items-center justify-center gap-2 mt-3 text-[11px] text-[#66736A] font-mono">
                 <span>EPSG:4326 (WGS 84)</span>
                 <span>•</span>
                 <span>SIRGAS 2000</span>
@@ -657,7 +657,7 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
             <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
               <button
                 onClick={handleLoadSampleGeoJSON}
-                className="w-full sm:w-auto px-3.5 py-2 rounded-xl text-xs bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-emerald-800/50 font-semibold flex items-center justify-center gap-1.5 shadow"
+                className="w-full sm:w-auto px-3.5 py-2 rounded-xl text-xs bg-[#EAF4E7] hover:bg-[#d8edd4] text-[#285943] border border-[#8FBF88] font-semibold flex items-center justify-center gap-1.5 shadow"
               >
                 <FileText className="w-3.5 h-3.5" /> Testar com Amostra (CAR 318 ha)
               </button>
@@ -668,7 +668,7 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
                     setImportModalOpen(false);
                     setImportFeedback(null);
                   }}
-                  className="px-4 py-2 rounded-xl text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium"
+                  className="px-4 py-2 rounded-xl text-xs bg-slate-800 hover:bg-slate-700 text-[#EAF4E7] font-medium"
                 >
                   Fechar
                 </button>

@@ -95,11 +95,11 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
   }, []);
 
   return (
-    <div className="bg-slate-950/90 border-b border-slate-800/80 px-4 py-1.5 flex flex-wrap items-center justify-between gap-3 text-xs">
+    <div className="bg-[#15392A] border-b border-[#245B45] px-4 py-1.5 flex flex-wrap items-center justify-between gap-3 text-xs text-[#EAF4E7]">
       {/* Ticker Financeiro e Commodities em Rolagem Elegante */}
       <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5 flex-1 min-w-0">
-        <span className="text-[10px] font-black uppercase text-slate-500 flex items-center gap-1 shrink-0 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span className="text-[10px] font-black uppercase text-[#8FBF88] flex items-center gap-1 shrink-0 bg-[#1D4B38] px-2 py-0.5 rounded-lg border border-[#285943]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#8FBF88] animate-pulse"></span>
           B3 • CBOT • CEPEA
         </span>
 
@@ -107,18 +107,18 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
           {ticker.map((item) => (
             <div
               key={item.id}
-              className="flex items-center gap-1.5 bg-slate-900/60 px-2.5 py-0.5 rounded-lg border border-slate-800/60 text-[11px] font-mono shrink-0 hover:border-slate-700 transition-all"
+              className="flex items-center gap-1.5 bg-[#1D4B38]/90 px-2.5 py-0.5 rounded-lg border border-[#285943] text-[11px] font-mono shrink-0 hover:border-[#8FBF88]/50 transition-all"
             >
-              <span className="text-slate-400 font-sans">{item.nome}:</span>
+              <span className="text-[#8FBF88] font-sans">{item.nome}:</span>
               <span className="text-white font-bold">{item.valor}</span>
-              <span className="text-[10px] text-slate-500">{item.unidade}</span>
+              <span className="text-[10px] text-[#8FBF88]/70">{item.unidade}</span>
               <span
                 className={`text-[10px] font-bold flex items-center ${
                   item.variacaoPct > 0
-                    ? 'text-emerald-400'
+                    ? 'text-[#8FBF88]'
                     : item.variacaoPct < 0
-                    ? 'text-rose-400'
-                    : 'text-slate-400'
+                    ? 'text-[#C96A5B]'
+                    : 'text-[#EAF4E7]'
                 }`}
               >
                 {item.variacaoPct > 0 ? '▲' : item.variacaoPct < 0 ? '▼' : '▬'}
@@ -136,8 +136,8 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
           onClick={() => setModalDeltaTOpen(true)}
           className={`flex items-center gap-2 px-2.5 py-1 rounded-lg border text-[11px] font-mono transition-all cursor-pointer ${
             deltaT.statusJanela === 'OPTIMAL'
-              ? 'bg-emerald-950/60 border-emerald-800/80 text-emerald-300 hover:bg-emerald-900/60'
-              : 'bg-amber-950/60 border-amber-800/80 text-amber-300 hover:bg-amber-900/60'
+              ? 'bg-[#1D4B38] border-[#285943] text-[#8FBF88] hover:bg-[#285943]'
+              : 'bg-[#422C1A] border-[#D9B65D]/60 text-[#D9B65D] hover:bg-[#523720]'
           }`}
           title="Clique para ver o relatório meteorológico detalhado de pulverização"
         >
@@ -145,20 +145,20 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
             <Droplets className="w-3.5 h-3.5" />
             <span>ΔT {deltaT.deltaTC}°C</span>
           </div>
-          <span className="h-3 w-px bg-slate-700"></span>
+          <span className="h-3 w-px bg-[#285943]"></span>
           <div className="flex items-center gap-1 text-[10px] font-sans">
-            <Thermometer className="w-3 h-3 text-slate-400" />
+            <Thermometer className="w-3 h-3 text-[#8FBF88]" />
             <span>{deltaT.tempArC}°C</span>
           </div>
           <div className="flex items-center gap-1 text-[10px] font-sans">
-            <Wind className="w-3 h-3 text-slate-400" />
+            <Wind className="w-3 h-3 text-[#8FBF88]" />
             <span>{deltaT.ventoKmH} km/h</span>
           </div>
           <span
             className={`px-1.5 py-0.2 rounded text-[9px] font-black font-sans uppercase ${
               deltaT.statusJanela === 'OPTIMAL'
-                ? 'bg-emerald-500 text-slate-950'
-                : 'bg-amber-500 text-slate-950'
+                ? 'bg-[#5F8F52] text-white'
+                : 'bg-[#D9B65D] text-[#26332A]'
             }`}
           >
             {deltaT.statusJanela === 'OPTIMAL' ? 'JANELA SEGURA' : 'ALERTA DERIVA'}
@@ -168,10 +168,10 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
         {/* Botão de Dossiê Bancário Executivo */}
         <button
           onClick={onOpenDossie}
-          className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold rounded-lg text-[11px] shadow-sm transition-all cursor-pointer"
+          className="flex items-center gap-1.5 px-3 py-1 bg-[#285943] hover:bg-[#1b4332] text-white font-bold rounded-lg text-[11px] border border-[#5F8F52]/50 shadow-sm transition-all cursor-pointer"
           title="Compilar Dossiê Executivo de Crédito Rural (Plano Safra / Bancos)"
         >
-          <FileCheck className="w-3.5 h-3.5" />
+          <FileCheck className="w-3.5 h-3.5 text-[#8FBF88]" />
           <span>Dossiê Bancário</span>
         </button>
       </div>

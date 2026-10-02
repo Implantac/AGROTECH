@@ -76,134 +76,134 @@ export const UserRoleBar: React.FC<UserRoleBarProps> = ({ onRoleChange, onOpenQu
   };
 
   return (
-    <div className="bg-slate-900/80 border-b border-slate-800/80 px-4 py-2.5 backdrop-blur-md flex flex-wrap items-center justify-between gap-3 text-xs">
+    <div className="bg-[#1D4B38] border-b border-[#245B45] px-4 py-2 backdrop-blur-md flex flex-wrap items-center justify-between gap-3 text-xs text-[#EAF4E7]">
       {/* Perfil & Seletor de Papel RBAC */}
       <div className="flex items-center gap-2">
-        <span className="text-slate-400 font-medium flex items-center gap-1.5">
-          <User className="w-3.5 h-3.5 text-emerald-400" />
+        <span className="text-[#8FBF88] font-medium flex items-center gap-1.5">
+          <User className="w-3.5 h-3.5 text-[#8FBF88]" />
           <span className="hidden sm:inline">Perfil Operacional:</span>
         </span>
 
-        <div className="flex items-center bg-slate-950 p-1 rounded-xl border border-slate-800 gap-1">
+        <div className="flex items-center bg-[#15392A] p-1 rounded-xl border border-[#245B45] gap-1">
           <button
             onClick={() => handleSelectRole('PRODUTOR')}
-            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-semibold transition-all ${
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-semibold transition-all cursor-pointer ${
               activeRole === 'PRODUTOR'
-                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-[#5F8F52] text-white shadow-sm'
+                : 'text-[#8FBF88] hover:text-white hover:bg-[#285943]'
             }`}
             title="Produtor / CEO: Acesso irrestrito a DRE, Finanças, Fazendas e Estratégia"
           >
-            <Crown className="w-3 h-3 text-yellow-400" />
+            <Crown className="w-3 h-3 text-[#D9B65D]" />
             <span>Produtor</span>
           </button>
 
           <button
             onClick={() => handleSelectRole('AGRONOMO')}
-            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-semibold transition-all ${
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-semibold transition-all cursor-pointer ${
               activeRole === 'AGRONOMO'
-                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-[#5F8F52] text-white shadow-sm'
+                : 'text-[#8FBF88] hover:text-white hover:bg-[#285943]'
             }`}
             title="Eng. Agrônomo: MIP, Adubação, BioAS, Manejo e ZARC"
           >
-            <Sprout className="w-3 h-3 text-emerald-400" />
+            <Sprout className="w-3 h-3 text-[#8FBF88]" />
             <span>Agrônomo</span>
           </button>
 
           <button
             onClick={() => handleSelectRole('OPERADOR')}
-            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-semibold transition-all ${
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-semibold transition-all cursor-pointer ${
               activeRole === 'OPERADOR'
-                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-[#5F8F52] text-white shadow-sm'
+                : 'text-[#8FBF88] hover:text-white hover:bg-[#285943]'
             }`}
             title="Operador de Máquinas: Apontamentos, Frota CAN Bus e Comboio"
           >
-            <Tractor className="w-3 h-3 text-sky-400" />
+            <Tractor className="w-3 h-3 text-[#7DA9C4]" />
             <span>Operador</span>
           </button>
 
           <button
             onClick={() => handleSelectRole('CONTADOR')}
-            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-semibold transition-all ${
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-semibold transition-all cursor-pointer ${
               activeRole === 'CONTADOR'
-                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-[#5F8F52] text-white shadow-sm'
+                : 'text-[#8FBF88] hover:text-white hover:bg-[#285943]'
             }`}
             title="Contador / Auditor Fiscal: LCDPR, NF-e, MDF-e e Retenções"
           >
-            <FileSpreadsheet className="w-3 h-3 text-purple-400" />
+            <FileSpreadsheet className="w-3 h-3 text-[#D9B65D]" />
             <span>Contador</span>
           </button>
         </div>
 
-        <span className="hidden md:inline text-slate-500 font-medium">({userName})</span>
+        <span className="hidden md:inline text-[#8FBF88]/80 font-medium">({userName})</span>
       </div>
 
       {/* Cotações em Tempo Real e Status do Banco de Dados */}
       <div className="flex items-center gap-3">
         {marketQuotes && (
-          <div className="hidden lg:flex items-center gap-3 text-[11px] text-slate-400 border-r border-slate-800 pr-3">
+          <div className="hidden lg:flex items-center gap-3 text-[11px] text-[#8FBF88] border-r border-[#245B45] pr-3">
             {profileId === 'PECUARIA_CORTE_LEITE' ? (
               <>
                 <span className="flex items-center gap-1">
-                  <span className="text-slate-500">Boi Gordo B3:</span>
-                  <strong className="text-emerald-400">R$ {marketQuotes.boiGordoB3ArrobaReais || 242.0}/@</strong>
+                  <span className="text-[#8FBF88]/70">Boi Gordo B3:</span>
+                  <strong className="text-white">R$ {marketQuotes.boiGordoB3ArrobaReais || 242.0}/@</strong>
                 </span>
                 <span className="flex items-center gap-1">
-                  <span className="text-slate-500">Bezerro Nelore:</span>
-                  <strong className="text-yellow-400">R$ 2.150/cab</strong>
+                  <span className="text-[#8FBF88]/70">Bezerro Nelore:</span>
+                  <strong className="text-[#D9B65D]">R$ 2.150/cab</strong>
                 </span>
                 <span className="flex items-center gap-1">
-                  <span className="text-slate-500">Leite CEPEA:</span>
-                  <strong className="text-cyan-400">R$ 2,78/L</strong>
+                  <span className="text-[#8FBF88]/70">Leite CEPEA:</span>
+                  <strong className="text-[#7DA9C4]">R$ 2,78/L</strong>
                 </span>
               </>
             ) : profileId === 'HORTIFRUTI_FLORICULTURA' ? (
               <>
                 <span className="flex items-center gap-1">
-                  <span className="text-slate-500">Tomate Ceagesp:</span>
-                  <strong className="text-emerald-400">R$ 68,00/cx</strong>
+                  <span className="text-[#8FBF88]/70">Tomate Ceagesp:</span>
+                  <strong className="text-white">R$ 68,00/cx</strong>
                 </span>
                 <span className="flex items-center gap-1">
-                  <span className="text-slate-500">Batata Especial:</span>
-                  <strong className="text-yellow-400">R$ 115,00/sc</strong>
+                  <span className="text-[#8FBF88]/70">Batata Especial:</span>
+                  <strong className="text-[#D9B65D]">R$ 115,00/sc</strong>
                 </span>
                 <span className="flex items-center gap-1">
-                  <span className="text-slate-500">Morango Premium:</span>
-                  <strong className="text-rose-400">R$ 24,50/kg</strong>
+                  <span className="text-[#8FBF88]/70">Morango Premium:</span>
+                  <strong className="text-[#C96A5B]">R$ 24,50/kg</strong>
                 </span>
               </>
             ) : profileId === 'BIOENERGIA_SUCROALCOOLEIRO' ? (
               <>
                 <span className="flex items-center gap-1">
-                  <span className="text-slate-500">ATR Consecana:</span>
-                  <strong className="text-emerald-400">R$ 1,22/kg</strong>
+                  <span className="text-[#8FBF88]/70">ATR Consecana:</span>
+                  <strong className="text-white">R$ 1,22/kg</strong>
                 </span>
                 <span className="flex items-center gap-1">
-                  <span className="text-slate-500">Etanol Hidratado:</span>
-                  <strong className="text-yellow-400">R$ 2,45/L</strong>
+                  <span className="text-[#8FBF88]/70">Etanol Hidratado:</span>
+                  <strong className="text-[#D9B65D]">R$ 2,45/L</strong>
                 </span>
                 <span className="flex items-center gap-1">
-                  <span className="text-slate-500">CBIO B3:</span>
-                  <strong className="text-teal-400">R$ 94,50/un</strong>
+                  <span className="text-[#8FBF88]/70">CBIO B3:</span>
+                  <strong className="text-[#8FBF88]">R$ 94,50/un</strong>
                 </span>
               </>
             ) : (
               <>
                 <span className="flex items-center gap-1">
-                  <span className="text-slate-500">Soja FOB:</span>
-                  <strong className="text-emerald-400">R$ {marketQuotes.sojaFobSantosSacaReais}/sc</strong>
+                  <span className="text-[#8FBF88]/70">Soja FOB:</span>
+                  <strong className="text-white">R$ {marketQuotes.sojaFobSantosSacaReais}/sc</strong>
                 </span>
                 <span className="flex items-center gap-1">
-                  <span className="text-slate-500">Milho B3:</span>
-                  <strong className="text-yellow-400">R$ {marketQuotes.milhoB3SacaReais}/sc</strong>
+                  <span className="text-[#8FBF88]/70">Milho B3:</span>
+                  <strong className="text-[#D9B65D]">R$ {marketQuotes.milhoB3SacaReais}/sc</strong>
                 </span>
               </>
             )}
             <span className="flex items-center gap-1">
-              <span className="text-slate-500">Dólar PTAX:</span>
+              <span className="text-[#8FBF88]/70">Dólar PTAX:</span>
               <strong className="text-white">R$ {marketQuotes.dolarPtaxBacen}</strong>
             </span>
           </div>
@@ -213,23 +213,23 @@ export const UserRoleBar: React.FC<UserRoleBarProps> = ({ onRoleChange, onOpenQu
         <button
           onClick={handleTestSefaz}
           disabled={isSyncing}
-          className="flex items-center gap-1.5 px-3 py-1 bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 rounded-lg text-xs font-medium transition-all"
+          className="flex items-center gap-1.5 px-3 py-1 bg-[#285943] hover:bg-[#1b4332] border border-[#5F8F52]/40 text-white rounded-lg text-xs font-medium transition-all cursor-pointer"
           title="Simular Emissão e Assinatura Digital A1 SEFAZ"
         >
-          <FileCheck className="w-3.5 h-3.5 text-emerald-400" />
+          <FileCheck className="w-3.5 h-3.5 text-[#8FBF88]" />
           <span className="hidden sm:inline">SEFAZ A1</span>
         </button>
 
         {sefazSuccessMsg && (
-          <span className="text-emerald-400 text-xs font-semibold animate-pulse flex items-center gap-1">
+          <span className="text-[#8FBF88] text-xs font-semibold animate-pulse flex items-center gap-1">
             <CheckCircle2 className="w-3.5 h-3.5" />
             {sefazSuccessMsg}
           </span>
         )}
 
         {/* Status do Backend & Banco de Dados */}
-        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-semibold">
-          <Database className="w-3 h-3 text-emerald-400" />
+        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#285943] border border-[#5F8F52]/50 text-[#8FBF88] text-[11px] font-semibold">
+          <Database className="w-3 h-3 text-[#8FBF88]" />
           <span>PostGIS + JSON DB</span>
         </div>
       </div>
