@@ -571,5 +571,23 @@
       "hashCertificacao": "12228c3d65118868acc3361bae0cec27cd3c3bb107364858e5c638233a630bd8",
       "status": "HOMOLOGADO_PARA_ENQUADRAMENTO"
     }
+  ],
+  "outboxQueue": [
+    {
+      "id": "test-01",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-1790954318903",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator JD 8R - 350L Diesel S10",
+      "talhao": "Talhão 01",
+      "payloadResumo": "Trator JD 8R - 350L Diesel S10",
+      "status": "SYNCED",
+      "createdAt": "2026-10-02T15:18:38.903Z",
+      "updatedAt": "2026-10-02T15:18:38.903Z",
+      "createdBy": "Operador em Campo",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "b659ae27ba03432bcd35da60362893ef"
+    }
   ]
 }
