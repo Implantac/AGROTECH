@@ -37,8 +37,14 @@ import {
   Wifi,
   Globe,
   LogOut,
-  ExternalLink
+  ExternalLink,
+  Crown,
+  Menu,
+  PanelLeftClose,
+  PanelLeft,
+  Filter
 } from 'lucide-react';
+import { agroApi } from './services/agroApiService';
 import { PublicLandingPage } from './components/PublicLandingPage';
 import { LoginScreen } from './components/LoginScreen';
 import { RegisterOnboardingScreen } from './components/RegisterOnboardingScreen';
@@ -453,6 +459,10 @@ export const App: React.FC = () => {
     });
   };
 
+  // Perfil RBAC ativo & Controle do Menu Lateral Enterprise
+  const [selectedRole, setSelectedRole] = useState<UserProfileRole>('PRODUTOR');
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
+
   // Atalho de Teclado Global: Ctrl + K (Busca) e N (Novo Lançamento Rápido)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -606,118 +616,478 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-[#8FBF88] selection:text-slate-900">
-      {/* Barra de Ticker Financeiro B3/CBOT & Cockpit Climático Delta T */}
-      <HeaderFintechBar onOpenDossie={() => setIsDossieBancarioOpen(true)} />
-
-      {/* 1. Header Principal Corporativo (Luminoso, Clean & Moderno) */}
-      <header className="sticky top-0 z-50 bg-white border-b border-slate-200/80 px-4 lg:px-8 py-2.5 print:hidden shadow-2xs">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
-          {/* Logo, Identificação e Seletor de Propriedade */}
-          <div className="flex items-center gap-3">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 flex font-sans antialiased selection:bg-[#8FBF88] selection:text-slate-900">
+      {/* 1. SIDEBAR CORPORATIVA ENTERPRISE (Deep Slate #0F172A) */}
+      <aside
+        className={`bg-[#0F172A] text-slate-300 flex flex-col h-screen sticky top-0 border-r border-slate-800 shrink-0 select-none z-30 transition-all duration-200 print:hidden ${
+          isSidebarCollapsed ? 'w-16' : 'w-64'
+        }`}
+      >
+        {/* Brand Header */}
+        <div className="h-14 px-4 flex items-center justify-between border-b border-slate-800/80">
+          {!isSidebarCollapsed ? (
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-emerald-700 text-white flex items-center justify-center shadow-xs shrink-0 font-bold">
-                <Sprout className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-xs shrink-0 font-bold">
+                <Sprout className="w-4 h-4 text-white" />
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-base font-black tracking-tight text-slate-900 leading-none">
-                  AGROTECH
-                </span>
-                <span className="hidden sm:inline px-2 py-0.5 text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full">
-                  SaaS Rural
-                </span>
+              <div className="flex flex-col">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-sm font-black tracking-tight text-white leading-none">AGROTECH</span>
+                  <span className="px-1.5 py-0.2 text-[9px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded">
+                    SaaS
+                  </span>
+                </div>
+                <span className="text-[10px] text-slate-400 font-medium">Empresa Rural</span>
               </div>
             </div>
+          ) : (
+            <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-xs mx-auto font-bold">
+              <Sprout className="w-4 h-4 text-white" />
+            </div>
+          )}
 
-            {/* Divisor vertical */}
-            <div className="h-5 w-px bg-slate-200 hidden sm:block"></div>
+          <button
+            onClick={() => setIsSidebarCollapsed((prev) => !prev)}
+            className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
+            title={isSidebarCollapsed ? 'Expandir menu lateral' : 'Recolher menu lateral'}
+          >
+            {isSidebarCollapsed ? <PanelLeft className="w-4 h-4" /> : <PanelLeftClose className="w-4 h-4" />}
+          </button>
+        </div>
 
-            {/* Seletor de Fazenda */}
-            <div className="relative">
+        {!isSidebarCollapsed ? (
+          <>
+            {/* Seletor de Propriedade Agrícola */}
+            <div className="p-3 border-b border-slate-800/80 relative">
               <button
                 onClick={() => setIsFarmDropdownOpen((prev) => !prev)}
-                className="flex items-center gap-1.5 text-xs text-slate-800 font-bold bg-slate-50 hover:bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-200 transition-all cursor-pointer shadow-2xs"
+                className="w-full p-2.5 rounded-xl bg-slate-850 hover:bg-slate-800 border border-slate-700/80 text-left transition-all cursor-pointer group shadow-2xs"
               >
-                <MapPin className="w-3.5 h-3.5 text-emerald-700" />
-                <span>{selectedFarm}</span>
-                <ChevronDown className="w-3 h-3 text-slate-400" />
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 min-w-0">
+                    <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span className="text-xs font-bold text-white truncate">
+                      {selectedFarm.split('(')[0].trim()}
+                    </span>
+                  </div>
+                  <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-white shrink-0 transition-transform" />
+                </div>
+                <div className="flex items-center justify-between mt-1 text-[10px] text-slate-400">
+                  <span className="truncate">
+                    {selectedFarm.includes('(') ? selectedFarm.split('(')[1].replace(')', '').trim() : 'Sorriso - MT'} • 2.450 ha
+                  </span>
+                  <span className="px-1.5 py-0.2 bg-emerald-950/60 text-emerald-400 rounded text-[9px] font-mono border border-emerald-800/50 shrink-0 ml-1">
+                    PostGIS
+                  </span>
+                </div>
               </button>
 
               {isFarmDropdownOpen && (
-                <div className="absolute left-0 mt-1 w-72 bg-white border border-slate-200 rounded-xl shadow-xl p-2 z-50 space-y-1 text-slate-900">
-                  <span className="text-[10px] uppercase font-bold text-slate-500 px-2 block">
+                <div className="absolute left-3 right-3 top-full mt-1 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl p-1.5 z-50 space-y-1 text-slate-200">
+                  <span className="text-[9px] uppercase font-bold text-slate-400 px-2 py-0.5 block">
                     Trocar Propriedade Agrícola:
                   </span>
                   {farmsList.map((f) => (
                     <button
                       key={f.id}
                       onClick={() => handleSelectFarm(f)}
-                      className={`w-full text-left px-3 py-2 rounded-lg text-xs transition-all flex flex-col cursor-pointer ${
+                      className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs transition-all flex flex-col cursor-pointer ${
                         selectedFarm.includes(f.nome)
-                          ? 'bg-emerald-50 text-emerald-900 font-bold border border-emerald-200'
-                          : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
+                          ? 'bg-emerald-600/30 text-emerald-300 font-bold border border-emerald-500/30'
+                          : 'text-slate-300 hover:bg-slate-800 hover:text-white'
                       }`}
                     >
                       <div className="flex items-center justify-between">
-                        <span className="font-semibold">{f.nome}</span>
-                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-slate-100 text-slate-700 font-mono font-bold">
+                        <span className="font-semibold text-white">{f.nome}</span>
+                        <span className="text-[9px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 font-mono font-bold">
                           {f.profileLabel}
                         </span>
                       </div>
-                      <span className="text-[10px] text-slate-500">{f.local} • {f.area} • {f.safra}</span>
+                      <span className="text-[10px] text-slate-400">
+                        {f.local} • {f.area}
+                      </span>
                     </button>
                   ))}
                 </div>
               )}
             </div>
 
-            {/* Atividade Ativa */}
+            {/* Perfil Operacional RBAC Switcher */}
+            <div className="px-3 py-2 border-b border-slate-800/80">
+              <div className="flex items-center justify-between text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5 px-1">
+                <span>Perfil de Acesso</span>
+                <span className="text-emerald-400 font-mono">RBAC</span>
+              </div>
+              <div className="grid grid-cols-2 gap-1 bg-slate-900/80 p-1 rounded-xl border border-slate-800">
+                {[
+                  { id: 'PRODUTOR', label: 'Produtor', icon: Crown },
+                  { id: 'AGRONOMO', label: 'Agrônomo', icon: Sprout },
+                  { id: 'OPERADOR', label: 'Operador', icon: Tractor },
+                  { id: 'CONTADOR', label: 'Contador', icon: FileSpreadsheet },
+                ].map((r) => (
+                  <button
+                    key={r.id}
+                    onClick={() => {
+                      setSelectedRole(r.id as UserProfileRole);
+                      agroApi.login(r.id as UserProfileRole);
+                      addToast(`Perfil operacional alternado para: ${r.label}`, 'info');
+                    }}
+                    className={`flex items-center gap-1.5 px-2 py-1 rounded-lg text-[11px] font-semibold transition-all cursor-pointer ${
+                      selectedRole === r.id
+                        ? 'bg-emerald-600 text-white font-bold shadow-2xs'
+                        : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                    }`}
+                  >
+                    <r.icon className="w-3 h-3 shrink-0" />
+                    <span className="truncate">{r.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Árvore de Navegação Principal (Scrollable) */}
+            <div className="flex-1 overflow-y-auto px-3 py-3 space-y-4 text-xs">
+              {/* Central Executiva */}
+              <div className="space-y-1">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2">
+                  Central Executiva
+                </span>
+                <button
+                  onClick={() => {
+                    handleSelectModule('BI');
+                    setSelectedDomain('TODOS');
+                  }}
+                  className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                    activeTab === 'BI'
+                      ? 'bg-emerald-600 text-white font-bold shadow-xs'
+                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <LayoutDashboard className="w-4 h-4 text-emerald-400" />
+                    <span>Painel Executivo (BI)</span>
+                  </div>
+                </button>
+                <button
+                  onClick={() => {
+                    handleSelectModule('SIG');
+                    setSelectedDomain('TODOS');
+                  }}
+                  className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                    activeTab === 'SIG'
+                      ? 'bg-emerald-600 text-white font-bold shadow-xs'
+                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Map className="w-4 h-4 text-sky-400" />
+                    <span>Mapas SIG & Satélite</span>
+                  </div>
+                </button>
+                <button
+                  onClick={() => {
+                    handleSelectModule('COPILOT');
+                    setSelectedDomain('TODOS');
+                  }}
+                  className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                    activeTab === 'COPILOT'
+                      ? 'bg-emerald-600 text-white font-bold shadow-xs'
+                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Sparkles className="w-4 h-4 text-amber-400" />
+                    <span>Copilot IA Safra</span>
+                  </div>
+                  <span className="px-1.5 py-0.2 rounded text-[9px] bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                    IA
+                  </span>
+                </button>
+                <button
+                  onClick={() => {
+                    handleSelectModule('MOBILE');
+                    setSelectedDomain('TODOS');
+                  }}
+                  className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                    activeTab === 'MOBILE'
+                      ? 'bg-emerald-600 text-white font-bold shadow-xs'
+                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Smartphone className="w-4 h-4 text-emerald-400" />
+                    <span>PWA Mobile Offline</span>
+                  </div>
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                </button>
+              </div>
+
+              {/* Domínios Operacionais da Fazenda */}
+              <div className="space-y-1">
+                <div className="flex items-center justify-between px-2">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                    Domínios da Fazenda
+                  </span>
+                  <span className="text-[10px] text-slate-500 font-mono">{availableModules.length} mds</span>
+                </div>
+
+                {[
+                  { id: 'CAMPO', label: 'Campo & Manejo', icon: '🌾', count: campoCount },
+                  { id: 'FROTA', label: 'Máquinas & Frotas', icon: '🚜', count: frotaCount },
+                  { id: 'MERCADO', label: 'Mercado & Finanças', icon: '📈', count: mercadoCount },
+                  { id: 'FISCAL', label: 'Fiscal & ESG', icon: '⚖️', count: fiscalCount },
+                  { id: 'PECUARIA', label: 'Pecuária & ILPF', icon: '🐂', count: pecuariaCount },
+                  { id: 'FAVORITOS', label: 'Módulos Favoritos', icon: '⭐', count: favoritos.length },
+                ].map((dom) => (
+                  <button
+                    key={dom.id}
+                    onClick={() => {
+                      setSelectedDomain(dom.id);
+                      const targetMod = availableModules.find((m) =>
+                        dom.id === 'FAVORITOS' ? favoritos.includes(m.id) : m.category === dom.id
+                      );
+                      if (targetMod) handleSelectModule(targetMod.id);
+                    }}
+                    className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${
+                      selectedDomain === dom.id &&
+                      activeTab !== 'BI' &&
+                      activeTab !== 'SIG' &&
+                      activeTab !== 'COPILOT' &&
+                      activeTab !== 'MOBILE'
+                        ? 'bg-slate-800 text-emerald-400 font-bold border border-slate-700'
+                        : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 truncate">
+                      <span>{dom.icon}</span>
+                      <span className="truncate">{dom.label}</span>
+                    </div>
+                    <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-800 text-slate-400">
+                      {dom.count}
+                    </span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Sistema & Assinatura */}
+              <div className="space-y-1">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2">
+                  Sistema & Gestão
+                </span>
+                <button
+                  onClick={() => setIsModuleConfigOpen(true)}
+                  className="w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-all cursor-pointer"
+                >
+                  <div className="flex items-center gap-2 truncate pr-1">
+                    <Sliders className="w-4 h-4 text-slate-400 shrink-0" />
+                    <span className="truncate">Configurar Módulos</span>
+                  </div>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 font-mono shrink-0 whitespace-nowrap">
+                    {activeProfile.shortLabel.split(' ')[0]}
+                  </span>
+                </button>
+                <button
+                  onClick={() => handleNavigateView('LANDING')}
+                  className="w-full flex items-center gap-2 px-2.5 py-2 rounded-xl text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-all cursor-pointer"
+                >
+                  <Globe className="w-4 h-4 text-slate-400" />
+                  <span>Portal & Planos SaaS</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Sidebar Footer */}
+            <div className="p-3 border-t border-slate-800/80 bg-slate-950/70 space-y-2.5">
+              {/* Clima & Psicrometria Delta T */}
+              <div className="flex items-center justify-between text-[11px] font-mono bg-slate-900/90 px-2.5 py-1.5 rounded-xl border border-slate-800">
+                <div className="flex items-center gap-1.5 text-slate-300">
+                  <Droplet className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>ΔT 5.2°C</span>
+                </div>
+                <span className="px-1.5 py-0.2 rounded bg-emerald-950/80 text-emerald-400 text-[9px] font-sans font-bold border border-emerald-800">
+                  IDEAL
+                </span>
+              </div>
+
+              {/* Status SEFAZ & DB */}
+              <div className="flex items-center justify-between text-[10px] text-slate-400 px-1 font-mono">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  SEFAZ A1 Conectado
+                </span>
+                <span>DB 18ms</span>
+              </div>
+
+              {/* Perfil do Usuário & Logout */}
+              <div className="flex items-center justify-between pt-1 border-t border-slate-800/80">
+                <div className="flex items-center gap-2 min-w-0">
+                  <div className="w-7 h-7 rounded-full bg-emerald-700 text-white font-bold flex items-center justify-center text-xs shrink-0">
+                    FS
+                  </div>
+                  <div className="truncate">
+                    <p className="text-xs font-bold text-white truncate">Dr. Fernando Silveira</p>
+                    <p className="text-[10px] text-emerald-400">Produtor Titular</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => handleNavigateView('LOGIN')}
+                  className="p-1.5 text-slate-400 hover:text-rose-400 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
+                  title="Sair do sistema"
+                >
+                  <LogOut className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          </>
+        ) : (
+          /* Sidebar Recolhida (Ícones Apenas) */
+          <div className="flex-1 py-4 flex flex-col items-center gap-3">
             <button
-              onClick={() => setIsModuleConfigOpen(true)}
-              className="hidden md:flex items-center gap-1.5 text-xs text-slate-700 font-medium bg-slate-50 hover:bg-slate-100 px-2.5 py-1.5 rounded-xl border border-slate-200 transition-all cursor-pointer group shadow-2xs"
-              title="Configuração de Módulos e Atividades Contratadas"
+              onClick={() => {
+                handleSelectModule('BI');
+                setSelectedDomain('TODOS');
+              }}
+              className={`p-2.5 rounded-xl transition cursor-pointer ${
+                activeTab === 'BI'
+                  ? 'bg-emerald-600 text-white'
+                  : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+              }`}
+              title="Painel Executivo BI"
             >
-              <span className="text-xs">{activeProfile.icon}</span>
-              <strong className="text-slate-900 font-bold">{activeProfile.shortLabel}</strong>
-              <Sliders className="w-3 h-3 text-slate-400 group-hover:text-emerald-700 transition-colors" />
+              <LayoutDashboard className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => {
+                handleSelectModule('SIG');
+                setSelectedDomain('TODOS');
+              }}
+              className={`p-2.5 rounded-xl transition cursor-pointer ${
+                activeTab === 'SIG'
+                  ? 'bg-emerald-600 text-white'
+                  : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+              }`}
+              title="Mapas SIG & Satélite"
+            >
+              <Map className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => {
+                handleSelectModule('COPILOT');
+                setSelectedDomain('TODOS');
+              }}
+              className={`p-2.5 rounded-xl transition cursor-pointer ${
+                activeTab === 'COPILOT'
+                  ? 'bg-emerald-600 text-white'
+                  : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+              }`}
+              title="Copilot IA Safra"
+            >
+              <Sparkles className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => {
+                handleSelectModule('MOBILE');
+                setSelectedDomain('TODOS');
+              }}
+              className={`p-2.5 rounded-xl transition cursor-pointer ${
+                activeTab === 'MOBILE'
+                  ? 'bg-emerald-600 text-white'
+                  : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+              }`}
+              title="PWA Mobile Offline"
+            >
+              <Smartphone className="w-5 h-5" />
+            </button>
+            <div className="h-px w-8 bg-slate-800 my-1"></div>
+            <button
+              onClick={() => setIsQuickAccessOpen(true)}
+              className="p-2.5 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition cursor-pointer"
+              title="Busca Rápida (Ctrl+K)"
+            >
+              <Search className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => handleNavigateView('LOGIN')}
+              className="mt-auto p-2.5 rounded-xl text-slate-400 hover:text-rose-400 hover:bg-slate-800 transition cursor-pointer"
+              title="Sair"
+            >
+              <LogOut className="w-5 h-5" />
             </button>
           </div>
+        )}
+      </aside>
 
-          {/* Centro: Busca Rápida Ctrl+K */}
+      {/* 2. ÁREA DE TRABALHO PRINCIPAL */}
+      <div className="flex-1 flex flex-col min-w-0 min-h-screen">
+        {/* Top Navbar Corporativo (56px) */}
+        <header className="h-14 bg-white border-b border-slate-200/80 px-6 flex items-center justify-between shrink-0 shadow-2xs sticky top-0 z-20 print:hidden">
+          {/* Breadcrumb Executivo */}
+          <div className="flex items-center gap-2 text-xs shrink-0">
+            <span className="font-bold text-slate-800 shrink-0">
+              {selectedFarm.split('(')[0].trim()}
+            </span>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+            <span className="text-slate-500 font-medium shrink-0">
+              {activeTab === 'BI'
+                ? 'Painel Executivo Safra 2026/27'
+                : activeTab === 'SIG'
+                ? 'Geointeligência'
+                : activeTab === 'COPILOT'
+                ? 'Inteligência Artificial'
+                : activeTab === 'MOBILE'
+                ? 'Dispositivos de Campo'
+                : activeModuleObj.category}
+            </span>
+            {activeTab !== 'BI' && (
+              <>
+                <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <span className="text-emerald-800 font-bold bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200 shrink-0">
+                  {activeModuleObj.fullName}
+                </span>
+              </>
+            )}
+          </div>
+
+          {/* Centro: Barra de Comando Ctrl+K */}
           <button
             onClick={() => setIsQuickAccessOpen(true)}
-            className="hidden sm:flex items-center gap-2.5 px-3.5 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-500 rounded-xl border border-slate-200 text-xs font-medium shadow-2xs transition-all cursor-pointer w-48 md:w-64"
+            className="hidden md:flex items-center gap-2.5 px-3 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-500 rounded-xl border border-slate-200 text-xs font-medium shadow-2xs transition-all cursor-pointer w-64 lg:w-80"
             title="Pressione Ctrl + K para abrir o Command Palette"
           >
-            <Search className="w-3.5 h-3.5 text-slate-400" />
-            <span className="truncate">Buscar módulo ou comando...</span>
-            <kbd className="ml-auto px-1.5 py-0.5 text-[9px] font-mono bg-white text-slate-500 rounded border border-slate-200">
+            <Search className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+            <span className="truncate">Buscar módulo, talhão ou comando...</span>
+            <kbd className="ml-auto px-1.5 py-0.5 text-[9px] font-mono bg-white text-slate-500 rounded border border-slate-200 shrink-0">
               Ctrl K
             </kbd>
           </button>
 
-          {/* Direita: Perfil RBAC, Ações & Sair */}
-          <div className="flex items-center gap-2">
-            {/* Seletor de Papel RBAC */}
-            <div className="hidden xl:flex items-center bg-slate-100 p-0.5 rounded-xl border border-slate-200 text-xs">
-              {(['PRODUTOR', 'AGRONOMO', 'OPERADOR', 'CONTADOR'] as UserProfileRole[]).map((r) => (
-                <button
-                  key={r}
-                  onClick={() => {
-                    agroApi.login(r);
-                  }}
-                  className="px-2.5 py-1 rounded-lg text-[11px] font-semibold text-slate-600 hover:text-slate-900 transition-all cursor-pointer hover:bg-white/60"
-                >
-                  {r === 'PRODUTOR' ? 'Produtor' : r === 'AGRONOMO' ? 'Agrônomo' : r === 'OPERADOR' ? 'Operador' : 'Contador'}
-                </button>
-              ))}
+          {/* Ações Rápidas: Cotações, Dossiê, Alertas, Novo Lançamento */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            {/* Cotação B3/CBOT */}
+            <div className="hidden xl:flex items-center gap-2 text-xs font-mono bg-slate-50 px-2.5 py-1 rounded-xl border border-slate-200 text-slate-700">
+              <span className="text-[11px] font-sans font-medium text-slate-500">Soja B3:</span>
+              <span className="font-bold text-slate-900">R$ 130,00</span>
+              <span className="text-emerald-700 font-bold text-[10px]">▲ +1.2%</span>
+              <span className="text-slate-300">|</span>
+              <span className="text-[11px] font-sans font-medium text-slate-500">Dólar:</span>
+              <span className="font-bold text-slate-900">R$ 5,42</span>
             </div>
 
-            {/* Central de Alertas */}
+            {/* Dossiê Bancário Executivo */}
+            <button
+              onClick={() => setIsDossieBancarioOpen(true)}
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-700 rounded-xl border border-slate-200 text-xs font-semibold shadow-2xs transition-all cursor-pointer"
+              title="Dossiê Executivo de Crédito Rural (Plano Safra / Bancos)"
+            >
+              <FileCheck className="w-3.5 h-3.5 text-emerald-700" />
+              <span className="hidden lg:inline">Dossiê Bancário</span>
+            </button>
+
+            {/* Central de Notificações */}
             <button
               onClick={() => setIsNotificationOpen(true)}
               className="relative p-2 bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-slate-900 rounded-xl border border-slate-200 text-xs transition-all cursor-pointer shadow-2xs"
-              title="Abrir Central de Notificações"
+              title="Central de Alertas e Notificações"
             >
               <Bell className="w-4 h-4" />
               <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-600 text-white text-[9px] font-bold flex items-center justify-center">
@@ -729,190 +1099,59 @@ export const App: React.FC = () => {
             <button
               onClick={() => setIsQuickEntryOpen(true)}
               className="flex items-center gap-1.5 px-3.5 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl text-xs shadow-xs transition-all cursor-pointer"
-              title="Abrir Central de Lançamentos Rápidos (Pressione N)"
+              title="Novo Lançamento Operacional (Tecla N)"
             >
               <Plus className="w-4 h-4 stroke-[3]" />
               <span className="hidden sm:inline">Novo Lançamento</span>
             </button>
-
-            {/* Portal Comercial */}
-            <button
-              onClick={() => handleNavigateView('LANDING')}
-              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-700 rounded-xl border border-slate-200 text-xs font-semibold shadow-2xs transition-all cursor-pointer"
-              title="Ver Landing Page Institucional e Planos"
-            >
-              <Globe className="w-3.5 h-3.5 text-slate-600" />
-              <span>Portal</span>
-            </button>
-
-            {/* Botão Sair */}
-            <button
-              onClick={() => handleNavigateView('LOGIN')}
-              className="flex items-center gap-1 px-2.5 py-1.5 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-xl text-xs font-semibold border border-transparent transition-all cursor-pointer"
-              title="Trocar de Conta / Tela de Login"
-            >
-              <LogOut className="w-3.5 h-3.5" />
-              <span className="hidden xl:inline">Sair</span>
-            </button>
           </div>
-        </div>
-      </header>
+        </header>
 
-      {/* 3. Navegador de Categorias & Faixa de Módulos (Domain Ribbon) */}
-      <div className="bg-white border-b border-slate-200 px-4 lg:px-8 py-2.5 shadow-xs print:hidden">
-        <div className="max-w-7xl mx-auto space-y-2">
-          {/* Seletor de Categorias */}
-          <div className="flex items-center justify-between gap-2 overflow-x-auto text-xs pb-1">
-            <div className="flex items-center gap-1.5">
-              <span className="text-slate-500 font-bold uppercase text-[10px] tracking-wider pr-1">
-                Domínio:
-              </span>
-              <button
-                onClick={() => setSelectedDomain('TODOS')}
-                className={`px-3 py-1 rounded-lg font-bold transition-all whitespace-nowrap cursor-pointer border ${
-                  selectedDomain === 'TODOS'
-                    ? 'bg-emerald-700 text-white border-emerald-700 shadow-xs'
-                    : 'text-slate-600 bg-transparent border-transparent hover:bg-slate-100 hover:text-slate-900'
-                }`}
-              >
-                Habilitados ({availableModules.length})
-              </button>
-              <button
-                onClick={() => setSelectedDomain('FAVORITOS')}
-                className={`px-3 py-1 rounded-lg font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer border ${
-                  selectedDomain === 'FAVORITOS'
-                    ? 'bg-emerald-700 text-white border-emerald-700 shadow-2xs'
-                    : 'text-slate-700 bg-white border-slate-200 hover:bg-slate-50 hover:text-slate-900'
-                }`}
-              >
-                <Star className="w-3.5 h-3.5 fill-current text-amber-500" />
-                <span>Favoritos ({favoritos.length})</span>
-              </button>
-              <button
-                onClick={() => setSelectedDomain('CAMPO')}
-                className={`px-3 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer border ${
-                  selectedDomain === 'CAMPO'
-                    ? 'bg-emerald-700 text-white font-bold border-emerald-700 shadow-2xs'
-                    : 'text-slate-700 bg-white border-slate-200 hover:bg-slate-50 hover:text-slate-900'
-                }`}
-              >
-                🌾 Campo & Manejo ({campoCount})
-              </button>
-              <button
-                onClick={() => setSelectedDomain('FROTA')}
-                className={`px-3 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer border ${
-                  selectedDomain === 'FROTA'
-                    ? 'bg-emerald-700 text-white font-bold border-emerald-700 shadow-2xs'
-                    : 'text-slate-700 bg-white border-slate-200 hover:bg-slate-50 hover:text-slate-900'
-                }`}
-              >
-                🚜 Máquinas & Frotas ({frotaCount})
-              </button>
-              <button
-                onClick={() => setSelectedDomain('MERCADO')}
-                className={`px-3 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer border ${
-                  selectedDomain === 'MERCADO'
-                    ? 'bg-emerald-700 text-white font-bold border-emerald-700 shadow-2xs'
-                    : 'text-slate-700 bg-white border-slate-200 hover:bg-slate-50 hover:text-slate-900'
-                }`}
-              >
-                📈 Mercado & Finanças ({mercadoCount})
-              </button>
-              <button
-                onClick={() => setSelectedDomain('FISCAL')}
-                className={`px-3 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer border ${
-                  selectedDomain === 'FISCAL'
-                    ? 'bg-emerald-700 text-white font-bold border-emerald-700 shadow-2xs'
-                    : 'text-slate-700 bg-white border-slate-200 hover:bg-slate-50 hover:text-slate-900'
-                }`}
-              >
-                ⚖️ Fiscal & ESG ({fiscalCount})
-              </button>
-              <button
-                onClick={() => setSelectedDomain('PECUARIA')}
-                className={`px-3 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer border ${
-                  selectedDomain === 'PECUARIA'
-                    ? 'bg-emerald-700 text-white font-bold border-emerald-700 shadow-2xs'
-                    : 'text-slate-700 bg-white border-slate-200 hover:bg-slate-50 hover:text-slate-900'
-                }`}
-              >
-                🐂 Pecuária & ILPF ({pecuariaCount})
-              </button>
-            </div>
-
-            {/* Barra de Pesquisa Rápida na Fita & Botão para Configuração Modular */}
-            <div className="flex items-center gap-2 ml-auto">
-              <div className="relative flex items-center">
-                <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 pointer-events-none" />
-                <input
-                  type="text"
-                  placeholder="Filtrar módulos..."
-                  value={ribbonFilter}
-                  onChange={(e) => setRibbonFilter(e.target.value)}
-                  className="bg-slate-50 border border-slate-200 focus:border-emerald-600 focus:ring-1 focus:ring-emerald-500 rounded-lg pl-7 pr-6 py-1 text-xs text-slate-900 placeholder-slate-400 w-36 sm:w-44 focus:outline-none transition-all"
-                />
-                {ribbonFilter && (
-                  <button
-                    onClick={() => setRibbonFilter('')}
-                    className="absolute right-2 text-slate-400 hover:text-slate-700 text-xs cursor-pointer"
-                  >
-                    ✕
-                  </button>
-                )}
-              </div>
-
-              <button
-                onClick={() => setIsModuleConfigOpen(true)}
-                className="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold text-emerald-800 hover:bg-emerald-50 border border-emerald-300 transition-all cursor-pointer whitespace-nowrap shadow-2xs"
-                title="Personalizar Módulos Contratados de Acordo com a Atividade"
-              >
-                <Sliders className="w-3.5 h-3.5 text-emerald-700" />
-                <span>Configurar ({activeProfile.shortLabel})</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Fita Horizontal de Módulos do Domínio Selecionado */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs">
-            {ribbonModules.map((m: ModuleItem) => {
-              const Icon = m.icon;
-              const isActive = activeTab === m.id;
-              const isFav = favoritos.includes(m.id);
-
-              return (
-                <button
-                  key={m.id}
-                  onClick={() => handleSelectModule(m.id)}
-                  className={`px-3 py-1.5 rounded-lg flex items-center gap-2 transition-all whitespace-nowrap cursor-pointer border ${
-                    isActive
-                      ? 'bg-emerald-800 border-emerald-800 text-white font-bold shadow-2xs'
-                      : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-slate-900 hover:border-slate-300'
-                  }`}
-                >
-                  <Icon className="w-3.5 h-3.5 shrink-0" />
-                  <span>{m.name}</span>
-                  {m.badge && (
-                    <span
-                      className={`px-1.5 py-0.2 text-[9px] rounded font-bold ${
+        {/* Faixa Contextual de Submódulos (Aparece se o usuário estiver explorando um domínio específico) */}
+        {selectedDomain !== 'TODOS' &&
+          activeTab !== 'BI' &&
+          activeTab !== 'SIG' &&
+          activeTab !== 'COPILOT' &&
+          activeTab !== 'MOBILE' && (
+            <div className="bg-white border-b border-slate-200 px-6 py-2 shadow-2xs flex items-center justify-between gap-3 overflow-x-auto text-xs shrink-0 print:hidden">
+              <div className="flex items-center gap-1.5 overflow-x-auto">
+                <span className="text-slate-500 font-bold text-[10px] uppercase tracking-wider pr-1 shrink-0">
+                  Módulos de {selectedDomain}:
+                </span>
+                {ribbonModules.map((m: ModuleItem) => {
+                  const isActive = activeTab === m.id;
+                  return (
+                    <button
+                      key={m.id}
+                      onClick={() => handleSelectModule(m.id)}
+                      className={`px-3 py-1 rounded-lg flex items-center gap-1.5 text-xs font-medium transition-all whitespace-nowrap cursor-pointer border ${
                         isActive
-                          ? 'bg-black/20 text-white'
-                          : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                          ? 'bg-emerald-800 text-white font-bold border-emerald-800 shadow-2xs'
+                          : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
                       }`}
                     >
-                      {m.badge}
-                    </span>
-                  )}
-                  {isFav && <Star className="w-2.5 h-2.5 text-amber-500 fill-current ml-0.5 shrink-0" />}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+                      <span>{m.name}</span>
+                    </button>
+                  );
+                })}
+              </div>
 
-      {/* Conteúdo Principal Dinâmico */}
-      <main className="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-8 space-y-6">
-        {/* Active Module Header & Quick Actions */}
+              <div className="flex items-center gap-2 shrink-0">
+                <button
+                  onClick={() => handleSelectModule('BI')}
+                  className="text-xs text-emerald-800 hover:underline font-bold"
+                >
+                  ← Voltar ao BI
+                </button>
+              </div>
+            </div>
+          )}
+
+        {/* Conteúdo Principal Dinâmico */}
+        <main className="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-8 space-y-6">
+
+        {/* Active Module Header (Exibido apenas em módulos especializados, omitido no BI para maximizar altura útil) */}
+        {activeTab !== 'BI' && (
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 pb-3 border-b border-slate-200/80">
           <div className="flex items-center gap-3">
             <span className="w-9 h-9 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl flex items-center justify-center shrink-0 shadow-2xs font-bold">
@@ -1007,6 +1246,7 @@ export const App: React.FC = () => {
             </button>
           </div>
         </div>
+        )}
 
         <ModuleErrorBoundary key={activeTab}>
           <React.Suspense fallback={<ModuleFallback />}>
@@ -1365,7 +1605,34 @@ export const App: React.FC = () => {
             {activeTab === 'ZOOTECNIA' && <ZootecniaModule />}
           </React.Suspense>
         </ModuleErrorBoundary>
-      </main>
+        </main>
+
+        {/* Footer com Arquitetura, Atalhos e Indicadores de Sistema */}
+        <footer className="border-t border-slate-200/80 bg-white px-6 py-3 mt-auto text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-3 print:hidden">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span className="font-semibold text-slate-700">AGROTECH Enterprise • Sistema Operacional Rural</span>
+            <span className="text-[10px] text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-mono">
+              PostGIS 3.4 Spatial • Safra 2026/27
+            </span>
+          </div>
+          <div className="flex items-center gap-3 text-[11px] text-slate-500">
+            <span>Atalhos de Teclado:</span>
+            <span className="flex items-center gap-1 font-mono">
+              <kbd className="px-1.5 py-0.5 text-[10px] bg-slate-100 text-slate-700 rounded border border-slate-200">
+                Ctrl K
+              </kbd>{' '}
+              Busca
+            </span>
+            <span className="flex items-center gap-1 font-mono">
+              <kbd className="px-1.5 py-0.5 text-[10px] bg-slate-100 text-slate-700 rounded border border-slate-200">
+                N
+              </kbd>{' '}
+              Novo Lançamento
+            </span>
+          </div>
+        </footer>
+      </div>
 
       {/* Central Unificada de Lançamentos Rápidos */}
       <GlobalQuickEntryModal
@@ -1428,42 +1695,7 @@ export const App: React.FC = () => {
         activeProfileName={activeProfile.name}
       />
 
-      {/* Footer com Arquitetura, Atalhos e Indicadores de Sistema */}
-      <footer className="border-t border-slate-200 bg-white px-6 py-3.5 mt-auto text-xs text-slate-600 flex flex-col md:flex-row items-center justify-between gap-3 print:hidden">
-        <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center gap-2">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#5F8F52] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#285943]"></span>
-            </span>
-            <span className="text-slate-900 font-bold">AGROTECH Enterprise • Sistema Operacional Rural</span>
-            <span className="text-[10px] text-[#285943] bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-300 font-mono">
-              PostGIS 3.4 Spatial • Online
-            </span>
-          </div>
-
-          <div className="hidden lg:flex items-center gap-2 text-[11px] text-slate-600 border-l border-slate-200 pl-3">
-            <span>SEFAZ A1: <b className="text-[#285943]">Válido (248 dias)</b></span>
-            <span>•</span>
-            <span>GPS RTK: <b className="text-[#7DA9C4]">Precisão 2cm</b></span>
-            <span>•</span>
-            <span>Sincronização: <b className="text-[#285943]">Ativa (12ms)</b></span>
-          </div>
-        </div>
-
-        {/* Atalhos de Teclado */}
-        <div className="flex items-center gap-3 text-[11px]">
-          <span className="text-slate-600 hidden sm:inline">Atalhos Globais:</span>
-          <span className="flex items-center gap-1">
-            <kbd className="px-1.5 py-0.5 text-[10px] font-mono bg-slate-50 text-slate-900 rounded border border-slate-200">Ctrl K</kbd>
-            <span className="text-slate-600">Buscar</span>
-          </span>
-          <span className="flex items-center gap-1">
-            <kbd className="px-1.5 py-0.5 text-[10px] font-mono bg-slate-50 text-slate-900 rounded border border-slate-200">N</kbd>
-            <span className="text-slate-600">Lançamento</span>
-          </span>
-        </div>
-      </footer>
+      
     </div>
   );
 };
