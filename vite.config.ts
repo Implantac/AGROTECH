@@ -105,6 +105,7 @@ const apiMiddlewarePlugin = (): Plugin => ({
 });
 
 export default defineConfig({
+  base: './',
   plugins: [react(), tailwindcss(), apiMiddlewarePlugin()],
   server: {
     host: '0.0.0.0',

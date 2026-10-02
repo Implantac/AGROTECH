@@ -2,22 +2,22 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="theme-color" content="#1D4B38" />
     <meta name="description" content="Super AgTech - O sistema operacional da empresa rural: Gestão de Fazendas, Telemetria CAN Bus, MIP, DRE e LCDPR Oficial" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="SuperAgTech" />
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="./manifest.json" />
     <title>AGROTECH • O Sistema Operacional da Empresa Rural</title>
-    <script type="module" crossorigin src="/assets/index-TYR0O1ii.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DJs_c6H5.css">
+    <script type="module" crossorigin src="./assets/index-BCVDXzFF.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DJs_c6H5.css">
   </head>
   <body class="bg-[#F7F9F5] text-[#26332A] antialiased selection:bg-[#285943] selection:text-white">
     <div id="root">
       <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #F7F9F5; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #285943; padding: 20px; text-align: center;">
-        <div style="width: 52px; height: 52px; border: 4px solid #EAF4E7; border-top-color: #285943; border-radius: 50%; animation: agtechSpin 0.9s cubic-bezier(0.5, 0, 0.5, 1) infinite; margin-bottom: 20px;"></div>
+        <div style="width: 50px; height: 50px; border: 4px solid #EAF4E7; border-top-color: #285943; border-radius: 50%; animation: agtechSpin 0.9s cubic-bezier(0.5, 0, 0.5, 1) infinite; margin-bottom: 20px;"></div>
         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
           <span style="font-weight: 900; font-size: 20px; letter-spacing: -0.03em; color: #285943;">AGROTECH</span>
           <span style="font-size: 11px; font-weight: 700; background-color: #EAF4E7; color: #285943; padding: 2px 8px; border-radius: 9999px; border: 1px solid rgba(95, 143, 82, 0.3);">v9.5.1 Enterprise</span>
@@ -33,15 +33,17 @@
       </div>
     </div>
     <script>
-      // Desregistrar Service Workers legados ou conflitantes em ambientes de iframe/sandbox
-      if ('serviceWorker' in navigator) {
-        if (window.self !== window.top) {
-          navigator.serviceWorker.getRegistrations().then(function(registrations) {
-            for (var i = 0; i < registrations.length; i++) {
-              registrations[i].unregister();
-            }
-          });
-        }
+      // Registro do Service Worker para Operação 100% Offline no Campo (Apenas fora de iframes)
+      if ('serviceWorker' in navigator && window.location.protocol.startsWith('http') && window.self === window.top) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((reg) => {
+              console.log('[PWA] Service Worker registrado com sucesso no escopo:', reg.scope);
+            })
+            .catch((err) => {
+              console.log('[PWA] Falha ao registrar Service Worker:', err);
+            });
+        });
       }
     </script>
   </body>
