@@ -557,7 +557,7 @@ export const App: React.FC = () => {
   // Renderização Condicional: Landing Page Institucional
   if (currentAppView === 'LANDING') {
     return (
-      <div className="min-h-screen bg-[#F7F9F5] text-[#26332A] font-sans selection:bg-[#8FBF88] selection:text-[#26332A]">
+      <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-[#8FBF88] selection:text-slate-900">
         <PublicLandingPage
           onGoToLogin={() => handleNavigateView('LOGIN')}
           onGoToRegister={() => handleNavigateView('REGISTER')}
@@ -574,7 +574,7 @@ export const App: React.FC = () => {
   // Renderização Condicional: Tela de Cadastro e Onboarding Progressivo
   if (currentAppView === 'REGISTER') {
     return (
-      <div className="min-h-screen bg-[#F7F9F5] text-[#26332A] font-sans selection:bg-[#8FBF88] selection:text-[#26332A]">
+      <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-[#8FBF88] selection:text-slate-900">
         <RegisterOnboardingScreen
           onRegisterSuccess={(data) => {
             handleNavigateView('PLATFORM');
@@ -591,7 +591,7 @@ export const App: React.FC = () => {
   // Renderização Condicional: Tela de Login Segura
   if (currentAppView === 'LOGIN') {
     return (
-      <div className="min-h-screen bg-[#F7F9F5] text-[#26332A] font-sans selection:bg-[#8FBF88] selection:text-[#26332A]">
+      <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-[#8FBF88] selection:text-slate-900">
         <LoginScreen
           onLoginSuccess={(profile) => {
             handleNavigateView('PLATFORM');
@@ -606,23 +606,23 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#F7F9F5] text-[#26332A] flex flex-col font-sans selection:bg-[#8FBF88] selection:text-[#26332A]">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-[#8FBF88] selection:text-slate-900">
       {/* Barra de Ticker Financeiro B3/CBOT & Cockpit Climático Delta T */}
       <HeaderFintechBar onOpenDossie={() => setIsDossieBancarioOpen(true)} />
 
       {/* 1. Barra de Navegação Superior (Header Principal Modernizado) */}
-      <header className="sticky top-0 z-50 bg-[#1D4B38] border-b border-[#245B45] px-4 lg:px-8 py-2.5 print:hidden shadow-md text-white">
+      <header className="sticky top-0 z-50 bg-[#0E291C] border-b border-[#1A4B34] px-4 lg:px-8 py-2.5 print:hidden shadow-md text-white">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-3">
           {/* Logo, Identificação e Seletor de Propriedade */}
           <div className="flex items-center justify-between w-full lg:w-auto gap-4">
             <div className="flex items-center gap-3">
               <div className="relative">
-                <div className="w-10 h-10 rounded-2xl bg-[#285943] border border-[#5F8F52]/60 flex items-center justify-center shadow-md shrink-0">
-                  <Sprout className="w-5 h-5 text-[#8FBF88]" />
+                <div className="w-10 h-10 rounded-2xl bg-[#17452F] border border-emerald-500/50 flex items-center justify-center shadow-md shrink-0">
+                  <Sprout className="w-5 h-5 text-emerald-300" />
                 </div>
                 <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8FBF88] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#8FBF88]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
                 </span>
               </div>
               <div>
@@ -630,8 +630,8 @@ export const App: React.FC = () => {
                   <h1 className="text-lg font-black tracking-tight text-white leading-none">
                     AGROTECH
                   </h1>
-                  <span className="px-2 py-0.5 text-[10px] font-bold bg-[#285943] text-[#8FBF88] border border-[#5F8F52]/50 rounded-full flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#8FBF88]"></span>
+                  <span className="px-2 py-0.5 text-[10px] font-bold bg-[#17452F] text-emerald-300 border border-emerald-500/40 rounded-full flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                     O Sistema Operacional da Empresa Rural
                   </span>
                 </div>
@@ -641,16 +641,16 @@ export const App: React.FC = () => {
                   <div className="relative">
                     <button
                       onClick={() => setIsFarmDropdownOpen((prev) => !prev)}
-                      className="flex items-center gap-1.5 text-xs text-[#EAF4E7] hover:text-white font-medium bg-[#15392A] hover:bg-[#285943] px-2 py-0.5 rounded-md border border-[#245B45] transition-all cursor-pointer"
+                      className="flex items-center gap-1.5 text-xs text-emerald-100 hover:text-white font-medium bg-[#143D2A] hover:bg-[#1B5238] px-2.5 py-1 rounded-md border border-[#235F42] transition-all cursor-pointer shadow-2xs"
                     >
-                      <MapPin className="w-3 h-3 text-[#8FBF88]" />
-                      <span>{selectedFarm}</span>
-                      <ChevronDown className="w-3 h-3 text-[#8FBF88]/70" />
+                      <MapPin className="w-3.5 h-3.5 text-emerald-300" />
+                      <span className="font-semibold text-white">{selectedFarm}</span>
+                      <ChevronDown className="w-3 h-3 text-emerald-300/80" />
                     </button>
 
                     {isFarmDropdownOpen && (
-                      <div className="absolute left-0 mt-1 w-72 bg-[#1D4B38] border border-[#285943] rounded-xl shadow-2xl p-2 z-50 space-y-1 text-white">
-                        <span className="text-[10px] uppercase font-bold text-[#8FBF88] px-2 block">
+                      <div className="absolute left-0 mt-1 w-72 bg-[#0E291C] border border-[#235F42] rounded-xl shadow-2xl p-2 z-50 space-y-1 text-white">
+                        <span className="text-[10px] uppercase font-bold text-emerald-300 px-2 block">
                           Trocar Propriedade Agrícola:
                         </span>
                         {farmsList.map((f) => (
@@ -659,17 +659,17 @@ export const App: React.FC = () => {
                             onClick={() => handleSelectFarm(f)}
                             className={`w-full text-left px-3 py-2 rounded-lg text-xs transition-all flex flex-col cursor-pointer ${
                               selectedFarm.includes(f.nome)
-                                ? 'bg-[#285943] text-[#8FBF88] font-bold border border-[#5F8F52]'
-                                : 'text-[#EAF4E7] hover:bg-[#285943] hover:text-white'
+                                ? 'bg-[#17452F] text-emerald-300 font-bold border border-emerald-500/50'
+                                : 'text-slate-200 hover:bg-[#17452F] hover:text-white'
                             }`}
                           >
                             <div className="flex items-center justify-between">
                               <span className="font-semibold text-white">{f.nome}</span>
-                              <span className="text-[10px] px-1.5 py-0.2 rounded bg-[#15392A] text-[#8FBF88] font-mono">
+                              <span className="text-[10px] px-1.5 py-0.2 rounded bg-[#0E291C] text-emerald-300 font-mono font-bold">
                                 {f.profileLabel}
                               </span>
                             </div>
-                            <span className="text-[10px] text-[#8FBF88]/70">{f.local} • {f.area} • {f.safra}</span>
+                            <span className="text-[10px] text-slate-300">{f.local} • {f.area} • {f.safra}</span>
                           </button>
                         ))}
                       </div>
@@ -679,16 +679,16 @@ export const App: React.FC = () => {
                   {/* Seletor de Atividade Contratada & Gestão Modular */}
                   <button
                     onClick={() => setIsModuleConfigOpen(true)}
-                    className="flex items-center gap-1.5 text-xs text-[#EAF4E7] hover:text-white font-medium bg-[#15392A] hover:bg-[#285943] px-2 py-0.5 rounded-md border border-[#245B45] transition-all cursor-pointer group"
+                    className="flex items-center gap-1.5 text-xs text-emerald-100 hover:text-white font-medium bg-[#143D2A] hover:bg-[#1B5238] px-2.5 py-1 rounded-md border border-[#235F42] transition-all cursor-pointer group shadow-2xs"
                     title="Configuração de Módulos e Atividades Contratadas"
                   >
                     <span className="text-xs">{activeProfile.icon}</span>
-                    <span className="text-[#8FBF88]">Atividade:</span>
-                    <strong className="text-white">{activeProfile.shortLabel}</strong>
-                    <span className="text-[10px] text-[#8FBF88] bg-[#285943] px-1 rounded font-mono">
+                    <span className="text-emerald-300 font-medium">Atividade:</span>
+                    <strong className="text-white font-bold">{activeProfile.shortLabel}</strong>
+                    <span className="text-[10px] text-emerald-300 bg-[#0E291C] px-1.5 py-0.2 rounded font-mono font-bold border border-[#235F42]">
                       {availableModules.length}/{ALL_MODULES.length}
                     </span>
-                    <Sliders className="w-3 h-3 text-[#8FBF88] group-hover:text-white transition-colors" />
+                    <Sliders className="w-3 h-3 text-emerald-300 group-hover:text-white transition-colors" />
                   </button>
                 </div>
               </div>
@@ -699,12 +699,12 @@ export const App: React.FC = () => {
               {/* Botão de Busca Rápida (Ctrl+K) */}
               <button
                 onClick={() => setIsQuickAccessOpen(true)}
-                className="flex items-center gap-2 px-3 py-1.5 bg-[#15392A] hover:bg-[#285943] text-[#EAF4E7] rounded-xl border border-[#245B45] text-xs font-semibold shadow-sm transition-all cursor-pointer"
+                className="flex items-center gap-2 px-3 py-1.5 bg-[#143D2A] hover:bg-[#1B5238] text-white rounded-xl border border-[#235F42] text-xs font-semibold shadow-2xs transition-all cursor-pointer"
                 title="Pressione Ctrl + K para abrir o Command Palette"
               >
-                <Search className="w-3.5 h-3.5 text-[#8FBF88]" />
-                <span className="hidden sm:inline">Buscar Módulo</span>
-                <kbd className="hidden md:inline-block px-1.5 py-0.5 text-[10px] font-mono bg-[#1D4B38] text-[#8FBF88] rounded border border-[#285943]">
+                <Search className="w-3.5 h-3.5 text-emerald-300" />
+                <span className="hidden sm:inline font-medium">Buscar Módulo</span>
+                <kbd className="hidden md:inline-block px-1.5 py-0.5 text-[10px] font-mono bg-[#0E291C] text-emerald-300 rounded border border-[#235F42]">
                   Ctrl K
                 </kbd>
               </button>
@@ -712,11 +712,11 @@ export const App: React.FC = () => {
               {/* Botão de Central de Alertas e Notificações com Badge */}
               <button
                 onClick={() => setIsNotificationOpen(true)}
-                className="relative p-2 bg-[#15392A] hover:bg-[#285943] text-[#D9B65D] hover:text-white rounded-xl border border-[#245B45] text-xs font-semibold shadow-sm transition-all cursor-pointer"
+                className="relative p-2 bg-[#143D2A] hover:bg-[#1B5238] text-amber-400 hover:text-white rounded-xl border border-[#235F42] text-xs font-semibold shadow-2xs transition-all cursor-pointer"
                 title="Abrir Central de Notificações Operacionais"
               >
-                <Bell className="w-4 h-4 text-[#D9B65D]" />
-                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#C96A5B] text-white text-[9px] font-black flex items-center justify-center">
+                <Bell className="w-4 h-4 text-amber-400" />
+                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-600 text-white text-[9px] font-black flex items-center justify-center">
                   3
                 </span>
               </button>
@@ -724,12 +724,12 @@ export const App: React.FC = () => {
               {/* Botão de Lançamento Rápido de Campo (+ Lançar) */}
               <button
                 onClick={() => setIsQuickEntryOpen(true)}
-                className="flex items-center gap-2 px-3.5 py-1.5 bg-[#5F8F52] hover:bg-[#4d7542] text-white font-black rounded-xl text-xs shadow-md transition-all cursor-pointer transform hover:scale-105 active:scale-95"
+                className="flex items-center gap-2 px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold rounded-xl text-xs shadow-md transition-all cursor-pointer transform hover:scale-105 active:scale-95"
                 title="Abrir Central de Lançamentos Rápidos (Pressione N)"
               >
                 <Plus className="w-4 h-4 stroke-[3]" />
                 <span className="hidden sm:inline">Novo Lançamento</span>
-                <kbd className="hidden md:inline-block px-1.5 py-0.2 text-[9px] font-mono bg-[#1D4B38] text-white rounded border border-[#285943]">
+                <kbd className="hidden md:inline-block px-1.5 py-0.2 text-[9px] font-mono bg-[#0E291C] text-white rounded border border-[#235F42]">
                   N
                 </kbd>
               </button>
@@ -737,29 +737,29 @@ export const App: React.FC = () => {
               {/* Botão para Portal Institucional / Planos */}
               <button
                 onClick={() => handleNavigateView('LANDING')}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 bg-[#F4F0E6] hover:bg-[#ece5d5] text-[#285943] rounded-xl border border-[#D9B65D]/40 text-xs font-bold shadow-sm transition-all cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-100 hover:bg-amber-200 text-amber-950 rounded-xl border border-amber-300 text-xs font-bold shadow-2xs transition-all cursor-pointer"
                 title="Ver Landing Page Institucional e Planos"
               >
-                <Globe className="w-3.5 h-3.5 text-[#285943]" />
+                <Globe className="w-3.5 h-3.5 text-amber-900" />
                 <span className="hidden xl:inline">Portal Comercial</span>
               </button>
 
               {/* Botão de Trocar Conta / Login */}
               <button
                 onClick={() => handleNavigateView('LOGIN')}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 bg-white/10 hover:bg-white/20 text-[#EAF4E7] hover:text-white rounded-xl border border-white/10 text-xs font-semibold shadow-sm transition-all cursor-pointer"
+                className="flex items-center gap-1.5 px-2.5 py-1.5 bg-white/10 hover:bg-white/20 text-white rounded-xl border border-white/20 text-xs font-semibold shadow-2xs transition-all cursor-pointer"
                 title="Trocar de Conta / Tela de Login"
               >
-                <LogOut className="w-3.5 h-3.5 text-[#8FBF88]" />
+                <LogOut className="w-3.5 h-3.5 text-emerald-300" />
                 <span className="hidden xl:inline">Sair</span>
               </button>
             </div>
           </div>
 
           {/* Atalhos Rápidos Favoritos */}
-          <nav className="flex items-center gap-1.5 bg-[#15392A] p-1.5 rounded-xl border border-[#245B45] text-xs font-semibold overflow-x-auto max-w-full">
-            <span className="text-[10px] text-[#8FBF88] font-bold uppercase tracking-wider px-2 hidden sm:inline flex items-center gap-1">
-              <Star className="w-3 h-3 text-[#D9B65D] fill-current" /> Favoritos:
+          <nav className="flex items-center gap-1.5 bg-[#143D2A] p-1.5 rounded-xl border border-[#235F42] text-xs font-semibold overflow-x-auto max-w-full">
+            <span className="text-[10px] text-emerald-300 font-bold uppercase tracking-wider px-2 hidden sm:inline flex items-center gap-1">
+              <Star className="w-3 h-3 text-amber-400 fill-current" /> Favoritos:
             </span>
 
             {modulosBarraSuperior.map((mod: ModuleItem) => {
@@ -774,7 +774,7 @@ export const App: React.FC = () => {
                   className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all whitespace-nowrap cursor-pointer ${
                     isActive
                       ? 'bg-[#285943] text-white shadow-sm border border-[#5F8F52]'
-                      : 'text-[#8FBF88] hover:text-white hover:bg-[#1D4B38]'
+                      : 'text-emerald-600 hover:text-white hover:bg-[#1D4B38]'
                   }`}
                   title={mod.fullName}
                 >
@@ -789,7 +789,7 @@ export const App: React.FC = () => {
 
             <button
               onClick={() => setSelectedDomain('TODOS')}
-              className="px-2.5 py-1 text-[#8FBF88] hover:text-white rounded-lg text-xs font-bold transition-all ml-1 cursor-pointer"
+              className="px-2.5 py-1 text-emerald-600 hover:text-white rounded-lg text-xs font-bold transition-all ml-1 cursor-pointer"
             >
               <span>Ativos ({availableModules.length})</span>
             </button>
@@ -802,23 +802,23 @@ export const App: React.FC = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-6 whitespace-nowrap">
           {/* Clima & Janela Delta T */}
           <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1.5 text-[#8FBF88]">
+            <span className="flex items-center gap-1.5 text-emerald-600">
               <CloudRain className="w-3.5 h-3.5 text-[#7DA9C4]" />
               Sorriso/MT: <strong className="text-white">29.4°C</strong> • 62% UR • Vento: 7 km/h SE
             </span>
-            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#1D4B38] text-[#8FBF88] border border-[#285943] flex items-center gap-1">
-              <CheckCircle2 className="w-3 h-3 text-[#8FBF88]" />
+            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#1D4B38] text-emerald-600 border border-[#285943] flex items-center gap-1">
+              <CheckCircle2 className="w-3 h-3 text-emerald-600" />
               Delta T: 4.8°C (Pulverização Segura)
             </span>
           </div>
 
           {/* Cotações de Mercado */}
-          <div className="flex items-center gap-4 text-[#8FBF88]">
+          <div className="flex items-center gap-4 text-emerald-600">
             <span>
               Soja Física: <strong className="text-white">R$ 130,00/sc</strong>
             </span>
             <span>
-              Milho: <strong className="text-[#D9B65D]">R$ 55,00/sc</strong>
+              Milho: <strong className="text-amber-700">R$ 55,00/sc</strong>
             </span>
             <span>
               Boi China: <strong className="text-white">R$ 245,00/@</strong>
@@ -835,10 +835,10 @@ export const App: React.FC = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={() => setIsNotificationOpen(true)}
-              className="flex items-center gap-1.5 text-[11px] text-[#D9B65D] hover:text-white font-semibold bg-[#285943] hover:bg-[#1D4B38] px-2.5 py-1 rounded-lg border border-[#5F8F52]/40 transition-all cursor-pointer shadow-sm"
+              className="flex items-center gap-1.5 text-[11px] text-amber-700 hover:text-white font-semibold bg-[#285943] hover:bg-[#1D4B38] px-2.5 py-1 rounded-lg border border-[#5F8F52]/40 transition-all cursor-pointer shadow-sm"
               title="Clique para ver os alertas detalhados"
             >
-              <AlertCircle className="w-3.5 h-3.5 text-[#D9B65D] animate-pulse" />
+              <AlertCircle className="w-3.5 h-3.5 text-amber-700 animate-pulse" />
               <span>3 Alertas Pendentes</span>
             </button>
             <button
@@ -846,7 +846,7 @@ export const App: React.FC = () => {
               className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#1D4B38] hover:bg-[#285943] text-[#EAF4E7] border border-[#285943] flex items-center gap-1.5 transition-all cursor-pointer group"
               title="Central Offline-First & Sincronização PWA"
             >
-              <Wifi className="w-3.5 h-3.5 text-[#8FBF88] group-hover:scale-110 transition-transform" />
+              <Wifi className="w-3.5 h-3.5 text-emerald-600 group-hover:scale-110 transition-transform" />
               <span>18ms • Fila PWA Sync</span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#8FBF88] animate-pulse"></span>
             </button>
@@ -858,12 +858,12 @@ export const App: React.FC = () => {
       <UserRoleBar onOpenQuickAccess={() => setIsQuickAccessOpen(true)} profileId={subscriptionConfig.profileId} />
 
       {/* 3. Navegador de Categorias & Faixa de Módulos (Domain Ribbon) */}
-      <div className="bg-white border-b border-[#EAF4E7] px-4 lg:px-8 py-2.5 shadow-sm print:hidden">
+      <div className="bg-white border-b border-slate-200 px-4 lg:px-8 py-2.5 shadow-sm print:hidden">
         <div className="max-w-7xl mx-auto space-y-2">
           {/* Seletor de Categorias */}
           <div className="flex items-center justify-between gap-2 overflow-x-auto text-xs pb-1">
             <div className="flex items-center gap-1.5">
-              <span className="text-[#66736A] font-bold uppercase text-[10px] tracking-wider pr-1">
+              <span className="text-slate-600 font-bold uppercase text-[10px] tracking-wider pr-1">
                 Domínio:
               </span>
               <button
@@ -871,7 +871,7 @@ export const App: React.FC = () => {
                 className={`px-2.5 py-1 rounded-lg font-bold transition-all whitespace-nowrap cursor-pointer ${
                   selectedDomain === 'TODOS'
                     ? 'bg-[#285943] text-white shadow-sm'
-                    : 'text-[#26332A] bg-[#F7F9F5] border border-[#EAF4E7] hover:bg-[#EAF4E7]'
+                    : 'text-slate-900 bg-slate-50 border border-slate-200 hover:bg-emerald-50'
                 }`}
               >
                 🌐 Habilitados ({availableModules.length})
@@ -880,18 +880,18 @@ export const App: React.FC = () => {
                 onClick={() => setSelectedDomain('FAVORITOS')}
                 className={`px-2.5 py-1 rounded-lg font-bold transition-all whitespace-nowrap flex items-center gap-1 cursor-pointer ${
                   selectedDomain === 'FAVORITOS'
-                    ? 'bg-[#D9B65D] text-[#26332A] font-black shadow-sm'
-                    : 'text-[#26332A] bg-[#F7F9F5] border border-[#EAF4E7] hover:bg-[#EAF4E7]'
+                    ? 'bg-[#D9B65D] text-slate-900 font-black shadow-sm'
+                    : 'text-slate-900 bg-slate-50 border border-slate-200 hover:bg-emerald-50'
                 }`}
               >
-                <Star className="w-3 h-3 fill-current text-[#D9B65D]" /> Favoritos ({favoritos.length})
+                <Star className="w-3 h-3 fill-current text-amber-700" /> Favoritos ({favoritos.length})
               </button>
               <button
                 onClick={() => setSelectedDomain('CAMPO')}
                 className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
                   selectedDomain === 'CAMPO'
                     ? 'bg-[#285943] text-white font-bold shadow-sm'
-                    : 'text-[#26332A] bg-[#F7F9F5] border border-[#EAF4E7] hover:bg-[#EAF4E7]'
+                    : 'text-slate-900 bg-slate-50 border border-slate-200 hover:bg-emerald-50'
                 }`}
               >
                 🌾 Campo & Manejo ({campoCount})
@@ -901,7 +901,7 @@ export const App: React.FC = () => {
                 className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
                   selectedDomain === 'FROTA'
                     ? 'bg-[#285943] text-white font-bold shadow-sm'
-                    : 'text-[#26332A] bg-[#F7F9F5] border border-[#EAF4E7] hover:bg-[#EAF4E7]'
+                    : 'text-slate-900 bg-slate-50 border border-slate-200 hover:bg-emerald-50'
                 }`}
               >
                 🚜 Máquinas & Frotas ({frotaCount})
@@ -911,7 +911,7 @@ export const App: React.FC = () => {
                 className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
                   selectedDomain === 'MERCADO'
                     ? 'bg-[#285943] text-white font-bold shadow-sm'
-                    : 'text-[#26332A] bg-[#F7F9F5] border border-[#EAF4E7] hover:bg-[#EAF4E7]'
+                    : 'text-slate-900 bg-slate-50 border border-slate-200 hover:bg-emerald-50'
                 }`}
               >
                 📈 Mercado & Finanças ({mercadoCount})
@@ -921,7 +921,7 @@ export const App: React.FC = () => {
                 className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
                   selectedDomain === 'FISCAL'
                     ? 'bg-[#285943] text-white font-bold shadow-sm'
-                    : 'text-[#26332A] bg-[#F7F9F5] border border-[#EAF4E7] hover:bg-[#EAF4E7]'
+                    : 'text-slate-900 bg-slate-50 border border-slate-200 hover:bg-emerald-50'
                 }`}
               >
                 ⚖️ Fiscal & ESG ({fiscalCount})
@@ -931,7 +931,7 @@ export const App: React.FC = () => {
                 className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
                   selectedDomain === 'PECUARIA'
                     ? 'bg-[#285943] text-white font-bold shadow-sm'
-                    : 'text-[#26332A] bg-[#F7F9F5] border border-[#EAF4E7] hover:bg-[#EAF4E7]'
+                    : 'text-slate-900 bg-slate-50 border border-slate-200 hover:bg-emerald-50'
                 }`}
               >
                 🐂 Pecuária & ILPF ({pecuariaCount})
@@ -941,18 +941,18 @@ export const App: React.FC = () => {
             {/* Barra de Pesquisa Rápida na Fita & Botão para Configuração Modular */}
             <div className="flex items-center gap-2 ml-auto">
               <div className="relative flex items-center">
-                <Search className="w-3 h-3 text-[#66736A] absolute left-2.5 pointer-events-none" />
+                <Search className="w-3 h-3 text-slate-600 absolute left-2.5 pointer-events-none" />
                 <input
                   type="text"
                   placeholder="Filtrar módulos..."
                   value={ribbonFilter}
                   onChange={(e) => setRibbonFilter(e.target.value)}
-                  className="bg-[#F7F9F5] border border-[#EAF4E7] focus:border-[#285943] rounded-lg pl-7 pr-6 py-1 text-xs text-[#26332A] placeholder-[#66736A] w-36 sm:w-44 focus:outline-none transition-all"
+                  className="bg-slate-50 border border-slate-200 focus:border-[#285943] rounded-lg pl-7 pr-6 py-1 text-xs text-slate-900 placeholder-[#66736A] w-36 sm:w-44 focus:outline-none transition-all"
                 />
                 {ribbonFilter && (
                   <button
                     onClick={() => setRibbonFilter('')}
-                    className="absolute right-2 text-[#66736A] hover:text-[#26332A] text-xs cursor-pointer"
+                    className="absolute right-2 text-slate-600 hover:text-slate-900 text-xs cursor-pointer"
                   >
                     ✕
                   </button>
@@ -961,10 +961,10 @@ export const App: React.FC = () => {
 
               <button
                 onClick={() => setIsModuleConfigOpen(true)}
-                className="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold text-[#285943] hover:bg-[#EAF4E7] border border-[#8FBF88] transition-all cursor-pointer whitespace-nowrap"
+                className="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold text-[#285943] hover:bg-emerald-50 border border-emerald-300 transition-all cursor-pointer whitespace-nowrap"
                 title="Personalizar Módulos Contratados de Acordo com a Atividade"
               >
-                <Sliders className="w-3.5 h-3.5 text-[#5F8F52]" />
+                <Sliders className="w-3.5 h-3.5 text-emerald-700" />
                 <span>Configurar ({activeProfile.shortLabel})</span>
               </button>
             </div>
@@ -984,7 +984,7 @@ export const App: React.FC = () => {
                   className={`px-3 py-1.5 rounded-lg flex items-center gap-2 transition-all whitespace-nowrap cursor-pointer border ${
                     isActive
                       ? 'bg-[#285943] border-[#285943] text-white font-bold shadow-sm'
-                      : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#26332A] hover:bg-[#EAF4E7] hover:border-[#8FBF88]'
+                      : 'bg-slate-50 border-slate-200 text-slate-900 hover:bg-emerald-50 hover:border-emerald-300'
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5 shrink-0" />
@@ -994,13 +994,13 @@ export const App: React.FC = () => {
                       className={`px-1.5 py-0.2 text-[9px] rounded font-bold ${
                         isActive
                           ? 'bg-black/20 text-white'
-                          : 'bg-[#EAF4E7] text-[#285943]'
+                          : 'bg-emerald-50 text-[#285943]'
                       }`}
                     >
                       {m.badge}
                     </span>
                   )}
-                  {isFav && <Star className="w-2.5 h-2.5 text-[#D9B65D] fill-current ml-0.5 shrink-0" />}
+                  {isFav && <Star className="w-2.5 h-2.5 text-amber-700 fill-current ml-0.5 shrink-0" />}
                 </button>
               );
             })}
@@ -1011,14 +1011,14 @@ export const App: React.FC = () => {
       {/* Conteúdo Principal Dinâmico */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-8 space-y-6">
         {/* Active Module Header & Quick Star Action */}
-        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-4 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
           <div className="flex items-center gap-3">
-            <span className="p-2.5 bg-[#EAF4E7] text-[#285943] border border-[#8FBF88]/50 rounded-xl shadow-sm shrink-0">
+            <span className="p-2.5 bg-emerald-50 text-[#285943] border border-emerald-300/50 rounded-xl shadow-sm shrink-0">
               <activeModuleObj.icon className="w-5 h-5 text-[#285943]" />
             </span>
             <div>
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-[#EAF4E7] text-[#285943] border border-[#8FBF88]/50">
+                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-emerald-50 text-[#285943] border border-emerald-300/50">
                   {activeModuleObj.category === 'CAMPO'
                     ? 'Agronomia & Manejo'
                     : activeModuleObj.category === 'FROTA'
@@ -1031,22 +1031,22 @@ export const App: React.FC = () => {
                 </span>
                 <span className="text-sm font-bold text-[#285943]">{activeModuleObj.fullName}</span>
                 {activeModuleObj.badge && (
-                  <span className="text-[10px] px-2 py-0.5 bg-[#EAF4E7] text-[#285943] border border-[#8FBF88] rounded-full font-bold">
+                  <span className="text-[10px] px-2 py-0.5 bg-emerald-50 text-[#285943] border border-emerald-300 rounded-full font-bold">
                     {activeModuleObj.badge}
                   </span>
                 )}
               </div>
-              <p className="text-xs text-[#66736A] mt-0.5">{activeModuleObj.description}</p>
+              <p className="text-xs text-slate-600 mt-0.5">{activeModuleObj.description}</p>
             </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-2 shrink-0">
             {/* Atalhos Rápidos Operacionais do Módulo */}
-            <div className="hidden sm:flex items-center gap-1 bg-[#F7F9F5] p-1 rounded-xl border border-[#EAF4E7]">
+            <div className="hidden sm:flex items-center gap-1 bg-slate-50 p-1 rounded-xl border border-slate-200">
               {activeTab !== 'BI' && (
                 <button
                   onClick={() => handleSelectModule('BI')}
-                  className="px-2.5 py-1 text-[11px] font-semibold text-[#66736A] hover:text-[#285943] hover:bg-[#EAF4E7] rounded-lg transition-all cursor-pointer"
+                  className="px-2.5 py-1 text-[11px] font-semibold text-slate-600 hover:text-[#285943] hover:bg-emerald-50 rounded-lg transition-all cursor-pointer"
                   title="Painel Executivo BI"
                 >
                   Cockpit BI
@@ -1055,7 +1055,7 @@ export const App: React.FC = () => {
               {activeTab !== 'SIG' && (
                 <button
                   onClick={() => handleSelectModule('SIG')}
-                  className="px-2.5 py-1 text-[11px] font-semibold text-[#66736A] hover:text-[#285943] hover:bg-[#EAF4E7] rounded-lg transition-all cursor-pointer"
+                  className="px-2.5 py-1 text-[11px] font-semibold text-slate-600 hover:text-[#285943] hover:bg-emerald-50 rounded-lg transition-all cursor-pointer"
                   title="Central SIG de Mapas"
                 >
                   Mapa SIG
@@ -1064,16 +1064,16 @@ export const App: React.FC = () => {
               {activeTab !== 'COPILOT' && (
                 <button
                   onClick={() => handleSelectModule('COPILOT')}
-                  className="px-2.5 py-1 text-[11px] font-semibold text-[#5F8F52] hover:text-[#285943] hover:bg-[#EAF4E7] rounded-lg transition-all flex items-center gap-1 cursor-pointer"
+                  className="px-2.5 py-1 text-[11px] font-semibold text-emerald-700 hover:text-[#285943] hover:bg-emerald-50 rounded-lg transition-all flex items-center gap-1 cursor-pointer"
                   title="Copilot IA Safra"
                 >
-                  <Sparkles className="w-3 h-3 text-[#5F8F52]" /> Copilot IA
+                  <Sparkles className="w-3 h-3 text-emerald-700" /> Copilot IA
                 </button>
               )}
               {activeTab !== 'MOBILE' && (
                 <button
                   onClick={() => handleSelectModule('MOBILE')}
-                  className="px-2.5 py-1 text-[11px] font-semibold text-[#7DA9C4] hover:text-[#285943] hover:bg-[#EAF4E7] rounded-lg transition-all flex items-center gap-1 cursor-pointer"
+                  className="px-2.5 py-1 text-[11px] font-semibold text-[#7DA9C4] hover:text-[#285943] hover:bg-emerald-50 rounded-lg transition-all flex items-center gap-1 cursor-pointer"
                   title="Simulador de Aplicativo Mobile Offline"
                 >
                   <Smartphone className="w-3 h-3 text-[#7DA9C4]" /> Mobile
@@ -1085,20 +1085,20 @@ export const App: React.FC = () => {
               onClick={() => handleToggleFavorito(activeModuleObj.id)}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-semibold transition cursor-pointer ${
                 favoritos.includes(activeModuleObj.id)
-                  ? 'bg-[#F4F0E6] border-[#D9B65D] text-[#285943]'
-                  : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:text-[#285943]'
+                  ? 'bg-amber-50 border-[#D9B65D] text-[#285943]'
+                  : 'bg-slate-50 border-slate-200 text-slate-600 hover:text-[#285943]'
               }`}
             >
               <Star
                 className={`w-3.5 h-3.5 ${
-                  favoritos.includes(activeModuleObj.id) ? 'fill-current text-[#D9B65D]' : ''
+                  favoritos.includes(activeModuleObj.id) ? 'fill-current text-amber-700' : ''
                 }`}
               />
               <span className="hidden sm:inline">{favoritos.includes(activeModuleObj.id) ? 'Favoritado' : 'Favoritar'}</span>
             </button>
             <button
               onClick={() => setIsQuickAccessOpen(true)}
-              className="p-1.5 bg-[#F7F9F5] hover:bg-[#EAF4E7] border border-[#EAF4E7] rounded-xl text-[#285943] transition cursor-pointer"
+              className="p-1.5 bg-slate-50 hover:bg-emerald-50 border border-slate-200 rounded-xl text-[#285943] transition cursor-pointer"
               title="Abrir Command Palette (Ctrl+K)"
             >
               <Search className="w-4 h-4" />
@@ -1125,9 +1125,9 @@ export const App: React.FC = () => {
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                 <div>
                   <h2 className="text-xl font-bold text-[#1D4B38] flex items-center gap-2">
-                    <Map className="w-5 h-5 text-[#5F8F52]" /> Central Geográfica SIG (PostGIS + Mapbox/Leaflet)
+                    <Map className="w-5 h-5 text-emerald-700" /> Central Geográfica SIG (PostGIS + Mapbox/Leaflet)
                   </h2>
-                  <p className="text-xs text-[#66736A]">
+                  <p className="text-xs text-slate-600">
                     Polígonos vetoriais com dados agronômicos, fitossanidade em tempo real, telemetria de frotas e índice NDVI Sentinel-2.
                   </p>
                 </div>
@@ -1141,44 +1141,44 @@ export const App: React.FC = () => {
 
               {/* Painel do Talhão Selecionado */}
               {selectedTalhao && (
-                <div className="bg-white border border-[#EAF4E7] p-5 rounded-2xl shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative animate-fade-in text-[#26332A]">
+                <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative animate-fade-in text-slate-900">
                   <button
                     onClick={() => setSelectedTalhao(null)}
-                    className="absolute top-3 right-3 p-1.5 rounded-lg text-[#66736A] hover:text-[#1D4B38] hover:bg-[#F7F9F5] transition cursor-pointer"
+                    className="absolute top-3 right-3 p-1.5 rounded-lg text-slate-600 hover:text-[#1D4B38] hover:bg-slate-50 transition cursor-pointer"
                   >
                     <X className="w-4 h-4" />
                   </button>
 
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs px-2.5 py-0.5 bg-[#EAF4E7] text-[#1D4B38] border border-[#8FBF88] rounded-md font-bold">
+                      <span className="font-mono text-xs px-2.5 py-0.5 bg-emerald-50 text-[#1D4B38] border border-emerald-300 rounded-md font-bold">
                         {selectedTalhao.codigo}
                       </span>
                       <h3 className="text-base font-bold text-[#1D4B38]">{selectedTalhao.nome}</h3>
-                      <span className="text-xs text-[#66736A]">({selectedTalhao.areaHa} ha)</span>
+                      <span className="text-xs text-slate-600">({selectedTalhao.areaHa} ha)</span>
                     </div>
-                    <p className="text-xs text-[#66736A]">
+                    <p className="text-xs text-slate-600">
                       Cultura: <span className="font-semibold text-[#285943]">{selectedTalhao.cultura}</span> • Variedade: {selectedTalhao.variedade} • Plantado em {selectedTalhao.dataPlantio}
                     </p>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-4 text-xs">
-                    <div className="bg-[#F7F9F5] p-3 rounded-xl border border-[#EAF4E7]">
-                      <span className="text-[#66736A] text-[10px] block uppercase font-bold">Custo ABC Acumulado</span>
+                    <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                      <span className="text-slate-600 text-[10px] block uppercase font-bold">Custo ABC Acumulado</span>
                       <span className="text-[#1D4B38] font-mono font-bold text-sm">
                         R$ {selectedTalhao.custoTotalABC.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                       </span>
                     </div>
 
-                    <div className="bg-[#F7F9F5] p-3 rounded-xl border border-[#EAF4E7]">
-                      <span className="text-[#66736A] text-[10px] block uppercase font-bold">Break-Even</span>
+                    <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                      <span className="text-slate-600 text-[10px] block uppercase font-bold">Break-Even</span>
                       <span className="text-[#A67C1E] font-mono font-bold text-sm">
                         {selectedTalhao.breakEvenScHa.toFixed(1)} sc/ha
                       </span>
                     </div>
 
-                    <div className="bg-[#F7F9F5] p-3 rounded-xl border border-[#EAF4E7]">
-                      <span className="text-[#66736A] text-[10px] block uppercase font-bold">Vigor NDVI (Satélite)</span>
+                    <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                      <span className="text-slate-600 text-[10px] block uppercase font-bold">Vigor NDVI (Satélite)</span>
                       <span className="text-[#285943] font-mono font-bold text-sm">
                         {selectedTalhao.ndviMedio.toFixed(2)} (Alta biomassa)
                       </span>
@@ -1468,7 +1468,7 @@ export const App: React.FC = () => {
       {/* Botão Flutuante Rápido para Alternar para Landing Page Comercial */}
       <button
         onClick={() => handleNavigateView('LANDING')}
-        className="fixed bottom-6 left-6 z-40 bg-white/95 hover:bg-[#F4F0E6] text-[#285943] border border-[#EAF4E7] p-3 sm:px-4 sm:py-2.5 rounded-2xl shadow-xl flex items-center gap-2 font-bold text-xs transition-all transform hover:scale-105 active:scale-95 print:hidden cursor-pointer backdrop-blur-md"
+        className="fixed bottom-6 left-6 z-40 bg-white/95 hover:bg-amber-50 text-[#285943] border border-slate-200 p-3 sm:px-4 sm:py-2.5 rounded-2xl shadow-xl flex items-center gap-2 font-bold text-xs transition-all transform hover:scale-105 active:scale-95 print:hidden cursor-pointer backdrop-blur-md"
         title="Ver a Landing Page Institucional e Planos"
       >
         <Globe className="w-4 h-4 text-[#285943]" />
@@ -1547,20 +1547,20 @@ export const App: React.FC = () => {
       />
 
       {/* Footer com Arquitetura, Atalhos e Indicadores de Sistema */}
-      <footer className="border-t border-[#EAF4E7] bg-white px-6 py-3.5 mt-auto text-xs text-[#66736A] flex flex-col md:flex-row items-center justify-between gap-3 print:hidden">
+      <footer className="border-t border-slate-200 bg-white px-6 py-3.5 mt-auto text-xs text-slate-600 flex flex-col md:flex-row items-center justify-between gap-3 print:hidden">
         <div className="flex flex-wrap items-center gap-3">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#5F8F52] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#285943]"></span>
             </span>
-            <span className="text-[#26332A] font-bold">AGROTECH Enterprise • Sistema Operacional Rural</span>
-            <span className="text-[10px] text-[#285943] bg-[#EAF4E7] px-2 py-0.5 rounded-full border border-[#8FBF88] font-mono">
+            <span className="text-slate-900 font-bold">AGROTECH Enterprise • Sistema Operacional Rural</span>
+            <span className="text-[10px] text-[#285943] bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-300 font-mono">
               PostGIS 3.4 Spatial • Online
             </span>
           </div>
 
-          <div className="hidden lg:flex items-center gap-2 text-[11px] text-[#66736A] border-l border-[#EAF4E7] pl-3">
+          <div className="hidden lg:flex items-center gap-2 text-[11px] text-slate-600 border-l border-slate-200 pl-3">
             <span>SEFAZ A1: <b className="text-[#285943]">Válido (248 dias)</b></span>
             <span>•</span>
             <span>GPS RTK: <b className="text-[#7DA9C4]">Precisão 2cm</b></span>
@@ -1571,14 +1571,14 @@ export const App: React.FC = () => {
 
         {/* Atalhos de Teclado */}
         <div className="flex items-center gap-3 text-[11px]">
-          <span className="text-[#66736A] hidden sm:inline">Atalhos Globais:</span>
+          <span className="text-slate-600 hidden sm:inline">Atalhos Globais:</span>
           <span className="flex items-center gap-1">
-            <kbd className="px-1.5 py-0.5 text-[10px] font-mono bg-[#F7F9F5] text-[#26332A] rounded border border-[#EAF4E7]">Ctrl K</kbd>
-            <span className="text-[#66736A]">Buscar</span>
+            <kbd className="px-1.5 py-0.5 text-[10px] font-mono bg-slate-50 text-slate-900 rounded border border-slate-200">Ctrl K</kbd>
+            <span className="text-slate-600">Buscar</span>
           </span>
           <span className="flex items-center gap-1">
-            <kbd className="px-1.5 py-0.5 text-[10px] font-mono bg-[#F7F9F5] text-[#26332A] rounded border border-[#EAF4E7]">N</kbd>
-            <span className="text-[#66736A]">Lançamento</span>
+            <kbd className="px-1.5 py-0.5 text-[10px] font-mono bg-slate-50 text-slate-900 rounded border border-slate-200">N</kbd>
+            <span className="text-slate-600">Lançamento</span>
           </span>
         </div>
       </footer>

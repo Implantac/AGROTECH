@@ -103,7 +103,7 @@ export const AzeitonasDeMesaProcessamentoModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
             <Droplets className="w-7 h-7 text-slate-950" />
@@ -117,7 +117,7 @@ export const AzeitonasDeMesaProcessamentoModule: React.FC = () => {
                 Módulo 124 • Método Sevilhano & Fermentação Lática
               </span>
             </div>
-            <p className="text-sm text-[#66736A] mt-1">
+            <p className="text-sm text-slate-600 mt-1">
               Controle de desamargamento alcalino da oleuropeína, controle microbiológico com bactérias ácido-láticas e conservação em salmoura equilibrada.
             </p>
           </div>
@@ -136,9 +136,9 @@ export const AzeitonasDeMesaProcessamentoModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Processamento Anual</span>
+            <span className="text-xs font-medium text-slate-600">Processamento Anual</span>
             <Scale className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -149,9 +149,9 @@ export const AzeitonasDeMesaProcessamentoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Custo Médio / kg</span>
+            <span className="text-xs font-medium text-slate-600">Custo Médio / kg</span>
             <Sliders className="w-5 h-5 text-teal-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -162,9 +162,9 @@ export const AzeitonasDeMesaProcessamentoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Faturamento Anual</span>
+            <span className="text-xs font-medium text-slate-600">Faturamento Anual</span>
             <TrendingUp className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -175,9 +175,9 @@ export const AzeitonasDeMesaProcessamentoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Margem Líquida</span>
+            <span className="text-xs font-medium text-slate-600">Margem Líquida</span>
             <Award className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -190,13 +190,13 @@ export const AzeitonasDeMesaProcessamentoModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('tanques')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'tanques'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -208,7 +208,7 @@ export const AzeitonasDeMesaProcessamentoModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'metodos'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <FlaskConical className="w-4 h-4" />
@@ -220,7 +220,7 @@ export const AzeitonasDeMesaProcessamentoModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'qualidade'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -232,7 +232,7 @@ export const AzeitonasDeMesaProcessamentoModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -242,15 +242,15 @@ export const AzeitonasDeMesaProcessamentoModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'tanques' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Droplets className="w-5 h-5 text-emerald-400" />
             Lotes em Fermentação & Monitoramento Físico-Químico
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-[#26332A]">
-              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
+            <table className="w-full text-left text-sm text-slate-900">
+              <thead className="text-xs uppercase bg-slate-50 text-slate-600">
                 <tr>
                   <th className="px-4 py-3">Tanque / Unidade</th>
                   <th className="px-4 py-3">Cultivar</th>
@@ -266,7 +266,7 @@ export const AzeitonasDeMesaProcessamentoModule: React.FC = () => {
                   <tr key={t.id} className="hover:bg-slate-800/30">
                     <td className="px-4 py-3 font-semibold text-white">{t.tanque}</td>
                     <td className="px-4 py-3 text-emerald-400 font-medium">{t.cultivar}</td>
-                    <td className="px-4 py-3 text-xs text-[#66736A]">{t.metodoCura}</td>
+                    <td className="px-4 py-3 text-xs text-slate-600">{t.metodoCura}</td>
                     <td className="px-4 py-3">{t.volumeKg.toLocaleString('pt-BR')} kg</td>
                     <td className="px-4 py-3 font-bold text-teal-400">{t.phSalmoura}</td>
                     <td className="px-4 py-3">{t.salinidadePct}% NaCl</td>
@@ -285,44 +285,44 @@ export const AzeitonasDeMesaProcessamentoModule: React.FC = () => {
 
       {activeTab === 'metodos' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <FlaskConical className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Estilo Sevilhano (Verdes)</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Tratamento com solução de NaOH (1.8% a 2.2%) por 6 a 9 horas para penetração de 2/3 da polpa, hidrólise da oleuropeína amarga e lavagens com água filtrada.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Tempo de Processamento:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Tempo de Processamento:</span>
               <span className="text-sm font-bold text-emerald-400 block">30 a 60 dias de fermentação lática</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Droplets className="w-5 h-5 text-teal-400" />
               <h4 className="text-sm font-semibold text-white">Método Natural em Salmoura</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Sem uso de soda cáustica. Os frutos (verdes-amarelados ou pretos) sofrem fermentação espontânea direta em salmoura a 8-10% de sal, preservando antioxidantes.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Tempo de Processamento:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Tempo de Processamento:</span>
               <span className="text-sm font-bold text-teal-400 block">6 a 10 meses de cura lenta</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Sparkles className="w-5 h-5 text-yellow-400" />
               <h4 className="text-sm font-semibold text-white">Método Californiano (Pretas)</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Tratamentos alcalinos múltiplos intercalados com injeção de ar comprimido para oxidação forçada de compostos fenólicos e fixação com gluconato ferroso.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Acabamento:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Acabamento:</span>
               <span className="text-sm font-bold text-yellow-400 block">Coloração preta azeviche uniforme</span>
             </div>
           </div>
@@ -330,36 +330,36 @@ export const AzeitonasDeMesaProcessamentoModule: React.FC = () => {
       )}
 
       {activeTab === 'qualidade' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Award className="w-5 h-5 text-emerald-400" />
             Parâmetros de Estabilidade Microbiológica e Textura
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">pH Seguro de Conservação</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">pH Seguro de Conservação</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">pH inferior a 4.0</p>
-              <span className="text-[11px] text-[#66736A]">Inibição de Clostridium botulinum</span>
+              <span className="text-[11px] text-slate-600">Inibição de Clostridium botulinum</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Concentração de NaCl</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Concentração de NaCl</span>
               <p className="text-lg font-bold text-teal-400 mt-1">6.0% a 7.5%</p>
-              <span className="text-[11px] text-[#66736A]">Equilíbrio osmótico e palatabilidade</span>
+              <span className="text-[11px] text-slate-600">Equilíbrio osmótico e palatabilidade</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Firmeza de Textura</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Firmeza de Textura</span>
               <p className="text-lg font-bold text-yellow-400 mt-1">superior a 650 g/cm²</p>
-              <span className="text-[11px] text-[#66736A]">Crocância sem amolecimento péctico</span>
+              <span className="text-[11px] text-slate-600">Crocância sem amolecimento péctico</span>
             </div>
           </div>
         </div>
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-emerald-400" />
             Simulador de Envase & Margem de Valor Agregado
@@ -367,58 +367,58 @@ export const AzeitonasDeMesaProcessamentoModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Fruto In Natura (kg)</label>
+              <label className="text-xs font-medium text-slate-600">Fruto In Natura (kg)</label>
               <input
                 type="number"
                 value={kgProcessadosAno}
                 onChange={(e) => setKgProcessadosAno(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Custo Fruto (R$/kg)</label>
+              <label className="text-xs font-medium text-slate-600">Custo Fruto (R$/kg)</label>
               <input
                 type="number"
                 step="0.5"
                 value={custoKgAzeitonaInNatura}
                 onChange={(e) => setCustoKgAzeitonaInNatura(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Preço Venda Envasada (R$/kg)</label>
+              <label className="text-xs font-medium text-slate-600">Preço Venda Envasada (R$/kg)</label>
               <input
                 type="number"
                 step="1"
                 value={precoKgAzeitonaEnvasada}
                 onChange={(e) => setPrecoKgAzeitonaEnvasada(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Rendimento Drenado (%)</label>
+              <label className="text-xs font-medium text-slate-600">Rendimento Drenado (%)</label>
               <input
                 type="number"
                 step="1"
                 value={rendimentoFinalDrenadoPct}
                 onChange={(e) => setRendimentoFinalDrenadoPct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-[#66736A] block">Custo Total Envasado:</span>
+              <span className="text-xs text-slate-600 block">Custo Total Envasado:</span>
               <span className="text-base font-bold text-teal-400">
                 R$ {metricas.custoMedioPorKgEnvasado.toFixed(2)} / kg
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-[#66736A] block">Lucro Líquido Anual:</span>
+              <span className="text-xs text-slate-600 block">Lucro Líquido Anual:</span>
               <span className="text-xl font-bold text-emerald-400">
                 R$ {metricas.lucroLiquidoAno.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

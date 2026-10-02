@@ -137,7 +137,7 @@ export const OliviculturaAzeiteModule: React.FC = () => {
                     Olea europaea • Acidez &lt; 0.20% • Polifenóis Totais
                   </span>
                 </h2>
-                <p className="text-sm text-[#66736A]">
+                <p className="text-sm text-slate-600">
                   Extração contínua a frio (&lt; 27°C), índice de maturação de Jaén, laudo físico-químico e agregação de valor gourmet.
                 </p>
               </div>
@@ -156,14 +156,14 @@ export const OliviculturaAzeiteModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: Produção de Azeite */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Azeite Extraído a Frio</span>
             <Droplet className="w-4 h-4 text-lime-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-lime-400">
             {olivalMetrics.producaoTotalAzeiteLitros.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
-            <span className="text-xs font-normal text-[#66736A]">Litros</span>
+            <span className="text-xs font-normal text-slate-600">Litros</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             {olivalMetrics.garrafas500mlTotal.toLocaleString('pt-BR')} garrafas de 500ml envasadas.
@@ -171,14 +171,14 @@ export const OliviculturaAzeiteModule: React.FC = () => {
         </div>
 
         {/* KPI 2: Pureza & Polifenóis */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Polifenóis Totais</span>
             <Award className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
             {Math.round(olivalMetrics.polifenoisMedios)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">mg/kg</span>
+            <span className="text-xs font-normal text-slate-600">mg/kg</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Alta estabilidade oxidativa e propriedades nutracêuticas comprovadas.
@@ -186,8 +186,8 @@ export const OliviculturaAzeiteModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Faturamento Bruto */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Faturamento da Safra</span>
             <Coins className="w-4 h-4 text-amber-400" />
           </div>
@@ -200,8 +200,8 @@ export const OliviculturaAzeiteModule: React.FC = () => {
         </div>
 
         {/* KPI 4: Retorno por Hectare */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Rentabilidade / Hectare</span>
             <TrendingUp className="w-4 h-4 text-white" />
           </div>
@@ -218,18 +218,18 @@ export const OliviculturaAzeiteModule: React.FC = () => {
       {/* Grid de Parcelas e Painel de Lagar */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Parcelas de Olival */}
-        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <Layers className="w-5 h-5 text-lime-400" />
                 Talhões de Olival & Laudo Físico-Químico
               </h3>
-              <p className="text-xs text-[#66736A]">
+              <p className="text-xs text-slate-600">
                 Monitoramento da colheita manual/vibratória e índice de viragem de cor Jaén.
               </p>
             </div>
-            <span className="text-xs font-mono text-[#66736A]">
+            <span className="text-xs font-mono text-slate-600">
               {parcelas.length} Talhões em Produção
             </span>
           </div>
@@ -244,7 +244,7 @@ export const OliviculturaAzeiteModule: React.FC = () => {
               return (
                 <div
                   key={p.id}
-                  className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl hover:border-slate-700 transition-all space-y-2"
+                  className="p-4 bg-slate-50 border border-slate-200 rounded-xl hover:border-slate-700 transition-all space-y-2"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
@@ -252,14 +252,14 @@ export const OliviculturaAzeiteModule: React.FC = () => {
                         {p.id}
                       </span>
                       <h4 className="text-xs font-bold text-white">{p.nome}</h4>
-                      <span className="text-[11px] text-[#66736A] font-mono">({p.cultivar})</span>
+                      <span className="text-[11px] text-slate-600 font-mono">({p.cultivar})</span>
                     </div>
                     <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono border border-emerald-500/30">
                       Acidez {p.acidezLivrePct}% • {p.polifenoisMgKg} mg/kg
                     </span>
                   </div>
 
-                  <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-[#66736A]">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-600">
                     <span>Área: <strong className="text-white">{p.areaHa} ha</strong> ({p.densidadeArvoresHa} pl/ha)</span>
                     <span>Azeitonas: <strong className="text-white">{(azeitonaLoteKg / 1000).toFixed(1)} ton</strong></span>
                     <span>Rendimento: <strong className="text-lime-400">{p.rendimentoAzeitePct}%</strong> ({azeiteLitros.toFixed(0)} L)</span>
@@ -272,12 +272,12 @@ export const OliviculturaAzeiteModule: React.FC = () => {
           </div>
 
           {/* Banner Técnico de Boas Práticas Oleícolas */}
-          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-lime-400 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes de Extração e Qualidade COI (Conselho Oleícola Internacional):
             </div>
-            <ul className="list-disc list-inside text-[#66736A] space-y-1">
+            <ul className="list-disc list-inside text-slate-600 space-y-1">
               <li>
                 <strong>Velocidade de Processamento:</strong> A extração das azeitonas no lagar deve ocorrer em no máximo 4 a 6 horas após a colheita para impedir fermentações anaeróbicas indesejadas e oxidação.
               </li>
@@ -292,7 +292,7 @@ export const OliviculturaAzeiteModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Parâmetros Comerciais */}
-        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Coins className="w-5 h-5 text-amber-400" />
             Parâmetros Comerciais & Lagar
@@ -300,42 +300,42 @@ export const OliviculturaAzeiteModule: React.FC = () => {
 
           <div className="space-y-4 text-xs">
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Preço de Venda da Garrafa 500ml (R$)</label>
+              <label className="text-slate-600 font-medium block mb-1">Preço de Venda da Garrafa 500ml (R$)</label>
               <input
                 type="number"
                 step="1.00"
                 value={precoGarrafa500mlReais}
                 onChange={(e) => setPrecoGarrafa500mlReais(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Custo de Extração, Garrafa e Rotulagem (R$/L)</label>
+              <label className="text-slate-600 font-medium block mb-1">Custo de Extração, Garrafa e Rotulagem (R$/L)</label>
               <input
                 type="number"
                 step="0.50"
                 value={custoExtracaoEnvasePorLitro}
                 onChange={(e) => setCustoExtracaoEnvasePorLitro(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             {/* Resumo Consolidado */}
-            <div className="pt-3 border-t border-[#EAF4E7] space-y-2">
+            <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Faturamento da Safra:</span>
+                <span className="text-slate-600">Faturamento da Safra:</span>
                 <span className="text-amber-400 font-mono font-bold">
                   R$ {olivalMetrics.faturamentoBrutoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Custo Total de Lagar:</span>
+                <span className="text-slate-600">Custo Total de Lagar:</span>
                 <span className="text-rose-400 font-mono font-bold">
                   -R$ {olivalMetrics.custoTotalProcessamentoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
-              <div className="flex justify-between border-t border-[#EAF4E7] pt-2 font-bold">
+              <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Lucro Líquido Oleícola:</span>
                 <span className="text-emerald-400 font-mono">
                   R$ {olivalMetrics.margemLiquidaReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })} / safra

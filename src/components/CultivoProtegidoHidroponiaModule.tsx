@@ -142,19 +142,19 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
             <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
               🥬 Estufas Hidropônicas NFT & Soluções Nutritivas
             </h2>
-            <p className="text-sm text-[#26332A] max-w-3xl leading-relaxed">
+            <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
               Automação completa de cultivo protegido em fluxo laminar de nutrientes (NFT): monitoramento contínuo de Condutividade Elétrica (CE), pH, oxigênio dissolvido, microclima térmico e Déficit de Pressão de Vapor (VPD) para prevenção de <em>tip burn</em>.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Área Coberta</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Área Coberta</span>
               <span className="text-xl font-black text-emerald-400">2.500 m²</span>
-              <span className="text-[10px] text-[#66736A] block mt-0.5">Arcos Geminados</span>
+              <span className="text-[10px] text-slate-600 block mt-0.5">Arcos Geminados</span>
             </div>
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Produção Anual</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Produção Anual</span>
               <span className="text-xl font-black text-cyan-400">662k maços</span>
               <span className="text-[10px] text-emerald-400/80 block mt-0.5">11.5 Ciclos/Ano</span>
             </div>
@@ -164,8 +164,8 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">CE & pH da Calda</span>
             <Droplets className="w-4 h-4 text-emerald-400" />
           </div>
@@ -176,8 +176,8 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">VPD & Climatização</span>
             <Wind className="w-4 h-4 text-cyan-400" />
           </div>
@@ -188,37 +188,37 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Oxigênio Dissolvido</span>
             <Activity className="w-4 h-4 text-blue-400" />
           </div>
           <div className="text-2xl font-black text-white">6.8 mg/L</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Temp. Calda 22.4°C • Prevenção de Pythium
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Margem Líquida / m²</span>
             <DollarSign className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">R$ 437,18 / m²</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Lucro Anual: R$ 1.092.960,00
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('solucao_iot')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'solucao_iot'
               ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Droplets className="w-4 h-4" />
@@ -230,7 +230,7 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'ambianca_vpd'
               ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Wind className="w-4 h-4" />
@@ -242,7 +242,7 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'bancadas'
               ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -254,7 +254,7 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
               ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -265,47 +265,47 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
       {/* Conteúdo Aba 1: Solução Nutritiva IoT */}
       {activeTab === 'solucao_iot' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Droplets className="w-5 h-5 text-emerald-400" />
               Telemetria dos Reservatórios de Recirculação (Solução Furlani / Castellane)
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Controle automático de dosagem A/B com bombas peristálticas industriais, injeção de ácido fosfórico para neutralização de bicarbonatos da água de poço e aeração forçada Venturi.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Condutividade Elétrica</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Condutividade Elétrica</span>
                 <span className="text-2xl font-black text-emerald-400 font-mono">1.62 dS/m</span>
-                <span className="text-[11px] text-[#66736A] block">Alvo: 1.40 a 1.80 dS/m</span>
+                <span className="text-[11px] text-slate-600 block">Alvo: 1.40 a 1.80 dS/m</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Potencial Hidrogeniônico (pH)</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Potencial Hidrogeniônico (pH)</span>
                 <span className="text-2xl font-black text-cyan-400 font-mono">5.85 pH</span>
-                <span className="text-[11px] text-[#66736A] block">Alvo: 5.50 a 6.20 pH</span>
+                <span className="text-[11px] text-slate-600 block">Alvo: 5.50 a 6.20 pH</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Temperatura da Água</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Temperatura da Água</span>
                 <span className="text-2xl font-black text-white font-mono">22.4°C</span>
                 <span className="text-[11px] text-emerald-400 block">&lt; 24°C Seguro contra Pythium</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Oxigenação Dissolvida</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Oxigenação Dissolvida</span>
                 <span className="text-2xl font-black text-blue-400 font-mono">6.8 mg/L</span>
                 <span className="text-[11px] text-blue-400/80 block">Super saturado (&gt;6 mg/L)</span>
               </div>
             </div>
 
-            <div className="mt-5 p-4 rounded-xl bg-[#F7F9F5]/70 border border-[#EAF4E7] text-xs text-[#26332A] space-y-2">
+            <div className="mt-5 p-4 rounded-xl bg-slate-50/70 border border-slate-200 text-xs text-slate-900 space-y-2">
               <div className="font-bold text-white flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-emerald-400" />
                 Composição Macro e Micronutrientes (Solução Padrão Alface)
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px] text-[#26332A]">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px] text-slate-900">
                 <div className="p-2 rounded bg-slate-900">Nitrogênio (N): 180 ppm</div>
                 <div className="p-2 rounded bg-slate-900">Fósforo (P): 45 ppm</div>
                 <div className="p-2 rounded bg-slate-900">Potássio (K): 220 ppm</div>
@@ -323,26 +323,26 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
       {/* Conteúdo Aba 2: Ambiência & VPD */}
       {activeTab === 'ambianca_vpd' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Wind className="w-5 h-5 text-cyan-400" />
               Equilíbrio do VPD (Déficit de Pressão de Vapor)
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               O VPD governa a taxa transpiratória e a absorção de cálcio pelo xilema até as folhas mais jovens. Valores &lt; 0.4 kPa provocam queima apical (*tip burn*) e podridão mole; valores &gt; 1.5 kPa forçam fechamento estomático.
             </p>
 
-            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-3">
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
               <div className="flex justify-between items-center text-xs">
-                <span className="text-[#66736A]">Temperatura Interna Estufa:</span>
+                <span className="text-slate-600">Temperatura Interna Estufa:</span>
                 <span className="font-mono font-bold text-white text-sm">26.5°C</span>
               </div>
               <div className="flex justify-between items-center text-xs">
-                <span className="text-[#66736A]">Umidade Relativa do Ar (UR):</span>
+                <span className="text-slate-600">Umidade Relativa do Ar (UR):</span>
                 <span className="font-mono font-bold text-cyan-400 text-sm">72%</span>
               </div>
               <div className="flex justify-between items-center text-xs">
-                <span className="text-[#66736A]">Radiação Fotossinteticamente Ativa (PAR):</span>
+                <span className="text-slate-600">Radiação Fotossinteticamente Ativa (PAR):</span>
                 <span className="font-mono font-bold text-amber-400 text-sm">850 µmol/m²/s</span>
               </div>
               <div className="p-3 rounded-lg bg-emerald-950/40 border border-emerald-800/60 flex justify-between items-center text-xs font-bold text-emerald-300">
@@ -352,38 +352,38 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Sun className="w-5 h-5 text-amber-400" />
               Atuadores & Climatização Automatizada
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Controle eletrônico conectado ao microclima:
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <div>
                   <span className="font-bold text-white block">Tela Termorrefletora Aluminet (50%)</span>
-                  <span className="text-[#66736A] text-[11px]">Acionamento automático com radiação &gt; 900 W/m²</span>
+                  <span className="text-slate-600 text-[11px]">Acionamento automático com radiação &gt; 900 W/m²</span>
                 </div>
                 <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">ATIVA (FECHADA)</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <div>
                   <span className="font-bold text-white block">Painel Evaporativo Pad & Fan</span>
-                  <span className="text-[#66736A] text-[11px]">Resfriamento adiabático de ar com exaustores axiais</span>
+                  <span className="text-slate-600 text-[11px]">Resfriamento adiabático de ar com exaustores axiais</span>
                 </div>
                 <span className="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 font-bold">VELOCIDADE 2</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <div>
                   <span className="font-bold text-white block">Nebulizadores de Alta Pressão (Foggers)</span>
-                  <span className="text-[#66736A] text-[11px]">Gotas de 20 micras para rápida evaporação sem molhar folhas</span>
+                  <span className="text-slate-600 text-[11px]">Gotas de 20 micras para rápida evaporação sem molhar folhas</span>
                 </div>
-                <span className="px-2 py-0.5 rounded bg-slate-800 text-[#66736A] font-bold">STANDBY</span>
+                <span className="px-2 py-0.5 rounded bg-slate-800 text-slate-600 font-bold">STANDBY</span>
               </div>
             </div>
           </div>
@@ -393,19 +393,19 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
       {/* Conteúdo Aba 3: Bancadas & Cultivares */}
       {activeTab === 'bancadas' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Layers className="w-5 h-5 text-emerald-400" />
               Gestão de Canais de Cultivo NFT & Ciclos Escalonados
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Controle de colheita contínua 365 dias por ano: transplante da maternidade para as bancadas definitivas com espaçamento de 25x25 cm.
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#EAF4E7] text-[#66736A] font-bold uppercase tracking-wider">
+                  <tr className="border-b border-slate-200 text-slate-600 font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Bancada / Identificação</th>
                     <th className="py-3 px-3">Cultivar</th>
                     <th className="py-3 px-3">Estágio</th>
@@ -421,7 +421,7 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
                     <tr key={b.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-white">{b.identificacao}</div>
-                        <div className="text-[11px] text-[#66736A] font-mono">{b.id}</div>
+                        <div className="text-[11px] text-slate-600 font-mono">{b.id}</div>
                       </td>
                       <td className="py-3.5 px-3">
                         <span className="px-2 py-0.5 rounded font-bold text-emerald-300 bg-emerald-950/50 border border-emerald-800/50">
@@ -429,12 +429,12 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
                         </span>
                       </td>
                       <td className="py-3.5 px-3">
-                        <span className="font-mono text-[#26332A]">{b.estagio}</span>
+                        <span className="font-mono text-slate-900">{b.estagio}</span>
                       </td>
                       <td className="py-3.5 px-3 font-mono font-bold text-white">
                         {b.totalPlantas.toLocaleString()} un
                       </td>
-                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{b.diasNoCanal} dias</td>
+                      <td className="py-3.5 px-3 font-mono text-slate-900">{b.diasNoCanal} dias</td>
                       <td className="py-3.5 px-3 font-mono font-bold text-emerald-400">{b.ceDsM.toFixed(2)}</td>
                       <td className="py-3.5 px-3 font-mono font-bold text-cyan-400">{b.phAtual.toFixed(2)}</td>
                       <td className="py-3.5 px-3">
@@ -454,14 +454,14 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
       {/* Conteúdo Aba 4: Simulador Econômico & DRE */}
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-emerald-400" />
               Parâmetros da Estufa & Custos
             </h3>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Área Total da Estufa</span>
                 <span className="font-mono text-emerald-400">{areaEstufaM2.toLocaleString()} m²</span>
               </div>
@@ -477,7 +477,7 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Densidade de Plantas</span>
                 <span className="font-mono text-emerald-400">{densidadeM2} plantas/m²</span>
               </div>
@@ -493,7 +493,7 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Ciclos Produtivos por Ano</span>
                 <span className="font-mono text-cyan-400">{ciclosAno} giros/ano</span>
               </div>
@@ -509,7 +509,7 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Médio por Maço Embalado</span>
                 <span className="font-mono text-emerald-400">R$ {precoMacoReais.toFixed(2)}</span>
               </div>
@@ -525,7 +525,7 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Custo Unitário de Produção</span>
                 <span className="font-mono text-rose-400">R$ {custoProducaoMacoReais.toFixed(2)}</span>
               </div>
@@ -541,39 +541,39 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               DRE Hidropônica Anual & Margem por Metro Quadrado
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Capacidade Estática</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Capacidade Estática</span>
                 <span className="font-mono font-bold text-white text-base">
                   {metricasSimuladas.capacidadeBancadas.toLocaleString()} pl
                 </span>
-                <span className="text-[10px] text-[#66736A] block">{areaEstufaM2} m²</span>
+                <span className="text-[10px] text-slate-600 block">{areaEstufaM2} m²</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Produção Comercial</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Produção Comercial</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   {metricasSimuladas.producaoComercial.toLocaleString()} un
                 </span>
                 <span className="text-[10px] text-emerald-400/80 block">96% Aproveitamento</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Faturamento Bruto</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Faturamento Bruto</span>
                 <span className="font-mono font-bold text-white text-base">
                   R$ {(metricasSimuladas.receitaBruta / 1000000).toFixed(2)}M
                 </span>
-                <span className="text-[10px] text-[#66736A] block">Venda Direta / Super</span>
+                <span className="text-[10px] text-slate-600 block">Venda Direta / Super</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Lucro Líquido Anual</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido Anual</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {(metricasSimuladas.margemLiquidaTotal / 1000000).toFixed(2)}M
                 </span>
@@ -581,15 +581,15 @@ export const CultivoProtegidoHidroponiaModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Receita Bruta Total ({metricasSimuladas.producaoComercial.toLocaleString()} maços @ R$ {precoMacoReais.toFixed(2)}):</span>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Receita Bruta Total ({metricasSimuladas.producaoComercial.toLocaleString()} maços @ R$ {precoMacoReais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-emerald-400">
                   R$ {metricasSimuladas.receitaBruta.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Custo Total de Produção (Insumos, Fertilizantes e Energia):</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Custo Total de Produção (Insumos, Fertilizantes e Energia):</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {metricasSimuladas.custoTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>

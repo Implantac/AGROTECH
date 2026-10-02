@@ -590,7 +590,7 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
               </button>
             </div>
 
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Arraste ou selecione arquivos <strong>GeoJSON (.geojson, .json)</strong> ou <strong>KML (.kml)</strong> do CAR da fazenda ou do piloto automático do trator.
             </p>
 
@@ -627,8 +627,8 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
             >
               <FileCode className="w-10 h-10 text-emerald-400 mx-auto mb-2 opacity-90" />
               <p className="text-sm font-semibold text-[#285943]">Arraste seu arquivo GeoJSON ou KML aqui</p>
-              <p className="text-xs text-[#66736A] mt-1">ou clique para selecionar do computador</p>
-              <div className="flex items-center justify-center gap-2 mt-3 text-[11px] text-[#66736A] font-mono">
+              <p className="text-xs text-slate-600 mt-1">ou clique para selecionar do computador</p>
+              <div className="flex items-center justify-center gap-2 mt-3 text-[11px] text-slate-600 font-mono">
                 <span>EPSG:4326 (WGS 84)</span>
                 <span>•</span>
                 <span>SIRGAS 2000</span>
@@ -657,7 +657,7 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
             <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
               <button
                 onClick={handleLoadSampleGeoJSON}
-                className="w-full sm:w-auto px-3.5 py-2 rounded-xl text-xs bg-[#EAF4E7] hover:bg-[#d8edd4] text-[#285943] border border-[#8FBF88] font-semibold flex items-center justify-center gap-1.5 shadow"
+                className="w-full sm:w-auto px-3.5 py-2 rounded-xl text-xs bg-emerald-50 hover:bg-[#d8edd4] text-[#285943] border border-emerald-300 font-semibold flex items-center justify-center gap-1.5 shadow"
               >
                 <FileText className="w-3.5 h-3.5" /> Testar com Amostra (CAR 318 ha)
               </button>

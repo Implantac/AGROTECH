@@ -114,7 +114,7 @@ export const CastanhaBrasilExtrativismoModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-700 to-lime-600 flex items-center justify-center shadow-lg shadow-emerald-600/20">
             <Trees className="w-7 h-7 text-white" />
@@ -128,7 +128,7 @@ export const CastanhaBrasilExtrativismoModule: React.FC = () => {
                 Módulo 113 • Bertholletia excelsa & Aflatoxina Livre
               </span>
             </div>
-            <p className="text-sm text-[#66736A] mt-1">
+            <p className="text-sm text-slate-600 mt-1">
               Rastreabilidade georreferenciada em Reservas Extrativistas (Resex), controle de umidade crítica e certificação de exportação UE/MAPA.
             </p>
           </div>
@@ -147,9 +147,9 @@ export const CastanhaBrasilExtrativismoModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Castanha em Casca</span>
+            <span className="text-xs font-medium text-slate-600">Castanha em Casca</span>
             <Trees className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -160,9 +160,9 @@ export const CastanhaBrasilExtrativismoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Amêndoas Inteiras Export</span>
+            <span className="text-xs font-medium text-slate-600">Amêndoas Inteiras Export</span>
             <Sparkles className="w-5 h-5 text-lime-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -173,9 +173,9 @@ export const CastanhaBrasilExtrativismoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Faturamento Bruto</span>
+            <span className="text-xs font-medium text-slate-600">Faturamento Bruto</span>
             <TrendingUp className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -186,9 +186,9 @@ export const CastanhaBrasilExtrativismoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Lucro Líquido Cooperativa</span>
+            <span className="text-xs font-medium text-slate-600">Lucro Líquido Cooperativa</span>
             <Award className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -201,13 +201,13 @@ export const CastanhaBrasilExtrativismoModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('lotes')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'lotes'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <FileCheck className="w-4 h-4" />
@@ -219,7 +219,7 @@ export const CastanhaBrasilExtrativismoModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'sanidade'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <ShieldCheck className="w-4 h-4" />
@@ -231,7 +231,7 @@ export const CastanhaBrasilExtrativismoModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'resex'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <MapPin className="w-4 h-4" />
@@ -243,7 +243,7 @@ export const CastanhaBrasilExtrativismoModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -253,15 +253,15 @@ export const CastanhaBrasilExtrativismoModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'lotes' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Trees className="w-5 h-5 text-emerald-400" />
             Lotes Rastreáveis de Castanhais Centenários
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-[#26332A]">
-              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
+            <table className="w-full text-left text-sm text-slate-900">
+              <thead className="text-xs uppercase bg-slate-50 text-slate-600">
                 <tr>
                   <th className="px-4 py-3">Código do Lote</th>
                   <th className="px-4 py-3">Resex / Comunidade</th>
@@ -302,44 +302,44 @@ export const CastanhaBrasilExtrativismoModule: React.FC = () => {
 
       {activeTab === 'sanidade' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Secagem Rápida Pós-Coleta</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Desencasque dos ouriços na mata em menos de 48h e lavagem superficial para inibição de esporos de Aspergillus flavus e parasiticus.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Tempo Máximo no Chão:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Tempo Máximo no Chão:</span>
               <span className="text-sm font-bold text-emerald-400 block">menor que 5 dias pós-queda</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <ShieldCheck className="w-5 h-5 text-lime-400" />
               <h4 className="text-sm font-semibold text-white">Padrão Sanitário UE / MAPA</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Aflatoxina total controlada por cromatografia líquida HPLC. Limite europeu rígido para desembaraço aduaneiro sem bloqueio sanitário.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Teto Máximo Permitido:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Teto Máximo Permitido:</span>
               <span className="text-sm font-bold text-lime-400 block">menor ou igual a 4.0 ppb total</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <AlertTriangle className="w-5 h-5 text-yellow-400" />
               <h4 className="text-sm font-semibold text-white">Umidade da Amêndoa</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Desidratação final das amêndoas para 4.5% a 5.5% e envase a vácuo aluminizado para preservar o perfil lipídico nobre rico em selênio.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Atividade de Água (aw):</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Atividade de Água (aw):</span>
               <span className="text-sm font-bold text-yellow-400 block">menor que 0.65 aw</span>
             </div>
           </div>
@@ -347,30 +347,30 @@ export const CastanhaBrasilExtrativismoModule: React.FC = () => {
       )}
 
       {activeTab === 'resex' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Compass className="w-5 h-5 text-emerald-400" />
             Polígonos de Coleta & Manejo Sustentável em Floresta Nativa
           </h3>
-          <p className="text-sm text-[#66736A]">
+          <p className="text-sm text-slate-600">
             A colheita de castanha-do-brasil é a espinha dorsal da bioeconomia amazônica. A preservação da castanheira centenária garante floresta em pé, proteção de bacias hidrográficas e sustento direto para comunidades tradicionais.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Polinização Natural</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Polinização Natural</span>
               <p className="text-lg font-bold text-white mt-1">Abelhas Bombus & Euglossa</p>
               <span className="text-[11px] text-slate-500">Dependência estrita da floresta nativa</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Teor Natural de Selênio</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Teor Natural de Selênio</span>
               <p className="text-lg font-bold text-lime-400 mt-1">superior a 2.500 mcg/100g</p>
               <span className="text-[11px] text-lime-500/80">Superalimento antioxidante</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Selos de Origem</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Selos de Origem</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">FSC & Orgânico Brasil</p>
               <span className="text-[11px] text-slate-500">Prêmio de R$ 15,00/kg no mercado externo</span>
             </div>
@@ -379,7 +379,7 @@ export const CastanhaBrasilExtrativismoModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-emerald-400" />
             Simulador de Beneficiamento & Receita de Exportação
@@ -387,56 +387,56 @@ export const CastanhaBrasilExtrativismoModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Ouriços Coletados (kg)</label>
+              <label className="text-xs font-medium text-slate-600">Ouriços Coletados (kg)</label>
               <input
                 type="number"
                 value={ouricosTotalKg}
                 onChange={(e) => setOuricosTotalKg(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Rendimento Inteiras (%)</label>
+              <label className="text-xs font-medium text-slate-600">Rendimento Inteiras (%)</label>
               <input
                 type="number"
                 value={rendimentoInteiraPct}
                 onChange={(e) => setRendimentoInteiraPct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Aflatoxina Total (ppb)</label>
+              <label className="text-xs font-medium text-slate-600">Aflatoxina Total (ppb)</label>
               <input
                 type="number"
                 step="0.1"
                 value={teorAflatoxinaInputPpb}
                 onChange={(e) => setTeorAflatoxinaInputPpb(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Preço Inteira (R$/kg)</label>
+              <label className="text-xs font-medium text-slate-600">Preço Inteira (R$/kg)</label>
               <input
                 type="number"
                 value={precoKgAmendoaInteiraReais}
                 onChange={(e) => setPrecoKgAmendoaInteiraReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-[#66736A] block">Classificação de Exportação:</span>
+              <span className="text-xs text-slate-600 block">Classificação de Exportação:</span>
               <span className={`text-base font-bold ${metricas.isConformeExportacao ? 'text-emerald-400' : 'text-rose-400'}`}>
                 {metricas.isConformeExportacao ? '✓ CONFORME PADRÃO UE / MAPA (ELEGÍVEL EXPORTAÇÃO)' : '⚠ RESTRITO A MERCADO INTERNO'}
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-[#66736A] block">Lucro Líquido Projetado:</span>
+              <span className="text-xs text-slate-600 block">Lucro Líquido Projetado:</span>
               <span className="text-xl font-bold text-emerald-400">
                 R$ {metricas.lucroLiquidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

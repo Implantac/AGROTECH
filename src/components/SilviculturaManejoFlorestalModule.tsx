@@ -137,7 +137,7 @@ export const SilviculturaManejoFlorestalModule: React.FC = () => {
                     FSC • PEFC Certificado
                   </span>
                 </h2>
-                <p className="text-sm text-[#66736A]">
+                <p className="text-sm text-slate-600">
                   Inventário dendrométrico (DAP e Altura), Incremento Médio Anual (IMA m³/ha/ano) e corte raso/desbaste para celulose.
                 </p>
               </div>
@@ -156,14 +156,14 @@ export const SilviculturaManejoFlorestalModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: IMA */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Incremento Médio (IMA)</span>
             <Sparkles className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
             {silviMetrics.imaM3HaAno.toFixed(1)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">m³/ha/ano</span>
+            <span className="text-xs font-normal text-slate-600">m³/ha/ano</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Meta celulose: &gt; 42.0 m³/ha/ano aos 7 anos.
@@ -171,14 +171,14 @@ export const SilviculturaManejoFlorestalModule: React.FC = () => {
         </div>
 
         {/* KPI 2: Volume em Pé por Hectare */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Volume em Pé</span>
             <Layers className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
             {silviMetrics.volumePorHaM3.toFixed(1)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">m³/ha</span>
+            <span className="text-xs font-normal text-slate-600">m³/ha</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Total do talhão: {silviMetrics.volumeTotalTalhaoM3.toLocaleString('pt-BR', { maximumFractionDigits: 0 })} m³ ({talhaoAtivo.areaHa} ha).
@@ -186,14 +186,14 @@ export const SilviculturaManejoFlorestalModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Carbono Sequestrado */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Estoque de Carbono</span>
             <Leaf className="w-4 h-4 text-amber-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-amber-400">
             {silviMetrics.co2SequestradoHaTon.toFixed(0)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">t CO₂eq/ha</span>
+            <span className="text-xs font-normal text-slate-600">t CO₂eq/ha</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Total sequestrado: {silviMetrics.co2SequestradoTotalTon.toLocaleString('pt-BR', { maximumFractionDigits: 0 })} t CO₂eq.
@@ -201,8 +201,8 @@ export const SilviculturaManejoFlorestalModule: React.FC = () => {
         </div>
 
         {/* KPI 4: Faturamento por Hectare */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Receita Florestal / ha</span>
             <TrendingUp className="w-4 h-4 text-white" />
           </div>
@@ -219,18 +219,18 @@ export const SilviculturaManejoFlorestalModule: React.FC = () => {
       {/* Grid Principal: Talhões Florestais e Parâmetros */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Lista de Talhões de Eucalipto */}
-        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <Trees className="w-5 h-5 text-emerald-400" />
                 Macronúcleos Florestais & Inventário Contínuo
               </h3>
-              <p className="text-xs text-[#66736A]">
+              <p className="text-xs text-slate-600">
                 Idade, clones de alta performance e diâmetro à altura do peito (DAP 1,30m).
               </p>
             </div>
-            <span className="text-xs font-mono text-[#66736A]">
+            <span className="text-xs font-mono text-slate-600">
               {talhoes.length} Talhões Cadastrados
             </span>
           </div>
@@ -245,7 +245,7 @@ export const SilviculturaManejoFlorestalModule: React.FC = () => {
                   className={`p-4 rounded-xl border cursor-pointer transition-all space-y-2 ${
                     isSelected
                       ? 'bg-emerald-950/30 border-emerald-500/50 shadow-lg'
-                      : 'bg-[#F7F9F5] border-[#EAF4E7] hover:border-slate-700'
+                      : 'bg-slate-50 border-slate-200 hover:border-slate-700'
                   }`}
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -255,7 +255,7 @@ export const SilviculturaManejoFlorestalModule: React.FC = () => {
                       </span>
                       <h4 className="text-xs font-bold text-white">{t.nome}</h4>
                     </div>
-                    <span className="text-[11px] font-mono text-[#66736A]">
+                    <span className="text-[11px] font-mono text-slate-600">
                       {t.areaHa} ha • {t.idadeAnos} anos • {t.finalidade.replace(/_/g, ' ')}
                     </span>
                   </div>
@@ -265,21 +265,21 @@ export const SilviculturaManejoFlorestalModule: React.FC = () => {
                   </p>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono">
-                    <div className="p-2 rounded bg-white border border-[#EAF4E7]">
+                    <div className="p-2 rounded bg-white border border-slate-200">
                       <span className="text-slate-500 block text-[10px]">DAP Médio</span>
                       <span className="text-white font-bold">{t.dapCm.toFixed(1)} cm</span>
                     </div>
-                    <div className="p-2 rounded bg-white border border-[#EAF4E7]">
+                    <div className="p-2 rounded bg-white border border-slate-200">
                       <span className="text-slate-500 block text-[10px]">Altura Média</span>
                       <span className="text-cyan-400 font-bold">{t.alturaMediaM.toFixed(1)} m</span>
                     </div>
-                    <div className="p-2 rounded bg-white border border-[#EAF4E7]">
+                    <div className="p-2 rounded bg-white border border-slate-200">
                       <span className="text-slate-500 block text-[10px]">Densidade</span>
                       <span className="text-amber-400 font-bold">{t.arvoresPorHa} árv/ha</span>
                     </div>
-                    <div className="p-2 rounded bg-white border border-[#EAF4E7]">
+                    <div className="p-2 rounded bg-white border border-slate-200">
                       <span className="text-slate-500 block text-[10px]">Status de Corte</span>
-                      <span className={t.idadeAnos >= 6.5 ? 'text-emerald-400 font-bold' : 'text-[#66736A] font-bold'}>
+                      <span className={t.idadeAnos >= 6.5 ? 'text-emerald-400 font-bold' : 'text-slate-600 font-bold'}>
                         {t.idadeAnos >= 6.5 ? 'Apto Corte Raso' : 'Em Crescimento'}
                       </span>
                     </div>
@@ -290,12 +290,12 @@ export const SilviculturaManejoFlorestalModule: React.FC = () => {
           </div>
 
           {/* Banner Técnico da Silvicultura */}
-          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-emerald-400 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes de Manejo Silvicultural no Cerrado:
             </div>
-            <ul className="list-disc list-inside text-[#66736A] space-y-1">
+            <ul className="list-disc list-inside text-slate-600 space-y-1">
               <li>
                 <strong>Ponto de Inflexão do IMA:</strong> O corte raso para celulose deve ser executado quando o Incremento Corrente Anual (ICA) cruza o Incremento Médio Anual (IMA), tipicamente aos 6,5 a 7,2 anos.
               </li>
@@ -310,7 +310,7 @@ export const SilviculturaManejoFlorestalModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Parâmetros Financeiros e Mercadológicos */}
-        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Scale className="w-5 h-5 text-emerald-400" />
             Parâmetros Comerciais
@@ -318,40 +318,40 @@ export const SilviculturaManejoFlorestalModule: React.FC = () => {
 
           <div className="space-y-4 text-xs">
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Preço da Madeira em Pé (R$/m³)</label>
+              <label className="text-slate-600 font-medium block mb-1">Preço da Madeira em Pé (R$/m³)</label>
               <input
                 type="number"
                 value={precoM3MadeiraReais}
                 onChange={(e) => setPrecoM3MadeiraReais(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Custo de Implantação e Condução (R$/ha)</label>
+              <label className="text-slate-600 font-medium block mb-1">Custo de Implantação e Condução (R$/ha)</label>
               <input
                 type="number"
                 value={custoPlantioPorHaReais}
                 onChange={(e) => setCustoPlantioPorHaReais(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             {/* Quadro Resumo Financeiro */}
-            <div className="pt-3 border-t border-[#EAF4E7] space-y-2">
+            <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Volume por Árvore:</span>
-                <span className="text-[#26332A] font-mono">
+                <span className="text-slate-600">Volume por Árvore:</span>
+                <span className="text-slate-900 font-mono">
                   {silviMetrics.volumeArvoreM3.toFixed(3)} m³ / árvore
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Lucro Líquido por Hectare:</span>
+                <span className="text-slate-600">Lucro Líquido por Hectare:</span>
                 <span className="text-emerald-400 font-mono font-bold">
                   +R$ {silviMetrics.lucroLiquidoHaReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })} / ha
                 </span>
               </div>
-              <div className="flex justify-between border-t border-[#EAF4E7] pt-2 font-bold">
+              <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Retorno sobre Investimento:</span>
                 <span className="text-cyan-400 font-mono">
                   {silviMetrics.roiFlorestal.toFixed(1)}x ({((silviMetrics.roiFlorestal - 1) * 100).toFixed(0)}% ROI)

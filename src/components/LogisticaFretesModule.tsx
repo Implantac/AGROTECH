@@ -291,18 +291,18 @@ export const LogisticaFretesModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Banner Logística & MDF-e */}
-      <div className="bg-white border border-[#EAF4E7] p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="px-2.5 py-0.5 bg-blue-950 text-blue-400 border border-blue-800 rounded text-xs font-bold flex items-center gap-1.5">
               <Truck className="w-3.5 h-3.5" /> Logística de Escoamento & Emissão MDF-e (Mod. 58 SEFAZ)
             </span>
-            <span className="text-xs text-[#66736A]">Piso Mínimo ANTT (Res. 5.867) • CIOT Obrigatório & Seguro RCTR-C</span>
+            <span className="text-xs text-slate-600">Piso Mínimo ANTT (Res. 5.867) • CIOT Obrigatório & Seguro RCTR-C</span>
           </div>
           <h2 className="text-xl font-bold text-[#1D4B38] flex items-center gap-2">
             <Route className="w-5 h-5 text-blue-400" /> Expedição de Cargas, Balança e Manifesto Eletrônico
           </h2>
-          <p className="text-xs text-[#66736A] mt-1">
+          <p className="text-xs text-slate-600 mt-1">
             Acompanhamento de filas de carregamento no pátio, emissão do DAMDFE e liquidação de fretes rodoviários.
           </p>
         </div>
@@ -317,8 +317,8 @@ export const LogisticaFretesModule: React.FC = () => {
 
       {/* 4 Cards de Métricas da Expedição */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow">
-          <div className="flex justify-between items-center text-xs text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl shadow">
+          <div className="flex justify-between items-center text-xs text-slate-600 mb-1">
             <span>Cargas Expedidas</span>
             <Truck className="w-4 h-4 text-blue-400" />
           </div>
@@ -326,21 +326,21 @@ export const LogisticaFretesModule: React.FC = () => {
           <span className="text-[11px] text-slate-500 mt-1 block">Bitrens & Rodotrens rastreados</span>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow">
-          <div className="flex justify-between items-center text-xs text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl shadow">
+          <div className="flex justify-between items-center text-xs text-slate-600 mb-1">
             <span>Volume Escoado (Safra)</span>
             <Scale className="w-4 h-4 text-emerald-400" />
           </div>
           <p className="text-2xl font-black text-emerald-400">
-            {totalVolumeTransportadoTon.toLocaleString('pt-BR')} <span className="text-xs font-normal text-[#66736A]">t</span>
+            {totalVolumeTransportadoTon.toLocaleString('pt-BR')} <span className="text-xs font-normal text-slate-600">t</span>
           </p>
           <span className="text-[11px] text-slate-500 mt-1 block">
             {((totalVolumeTransportadoTon * 1000) / 60).toLocaleString('pt-BR', { maximumFractionDigits: 0 })} sacas 60kg
           </span>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow">
-          <div className="flex justify-between items-center text-xs text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl shadow">
+          <div className="flex justify-between items-center text-xs text-slate-600 mb-1">
             <span>Gasto Total com Fretes</span>
             <DollarSign className="w-4 h-4 text-amber-400" />
           </div>
@@ -350,13 +350,13 @@ export const LogisticaFretesModule: React.FC = () => {
           <span className="text-[11px] text-slate-500 mt-1 block">Inclui pedágio e CIOT bancário</span>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow">
-          <div className="flex justify-between items-center text-xs text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl shadow">
+          <div className="flex justify-between items-center text-xs text-slate-600 mb-1">
             <span>Frete Médio / Saca</span>
             <Sparkles className="w-4 h-4 text-purple-400" />
           </div>
           <p className="text-2xl font-black text-purple-400">
-            R$ {mediaFreteSaca.toFixed(2)} <span className="text-xs font-normal text-[#66736A]">/sc</span>
+            R$ {mediaFreteSaca.toFixed(2)} <span className="text-xs font-normal text-slate-600">/sc</span>
           </p>
           <span className="text-[11px] text-slate-500 mt-1 block">Média ponderada das rotas</span>
         </div>
@@ -365,23 +365,23 @@ export const LogisticaFretesModule: React.FC = () => {
       {/* Grid: Tabela de Viagens & Calculadora ANTT */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Tabela de Manifestos de Carga (MDF-e) */}
-        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl shadow-xl overflow-hidden flex flex-col">
-          <div className="p-4 border-b border-[#EAF4E7] flex justify-between items-center">
+        <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl shadow-xl overflow-hidden flex flex-col">
+          <div className="p-4 border-b border-slate-200 flex justify-between items-center">
             <div>
               <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
                 <FileCheck2 className="w-4 h-4 text-blue-400" />
                 Manifestos Eletrônicos (MDF-e Modelo 58) & Veículos em Rota
               </h3>
-              <p className="text-xs text-[#66736A]">Averbação eletrônica SEFAZ-MT / ANTT com Seguro RCTR-C</p>
+              <p className="text-xs text-slate-600">Averbação eletrônica SEFAZ-MT / ANTT com Seguro RCTR-C</p>
             </div>
-            <span className="text-xs font-mono font-bold text-blue-400 bg-[#F7F9F5] px-3 py-1.5 rounded-xl border border-[#EAF4E7]">
+            <span className="text-xs font-mono font-bold text-blue-400 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200">
               {viagens.filter(v => v.statusFila === 'EXPEDIDO_EM_TRANSITO').length} em trânsito
             </span>
           </div>
 
           <div className="overflow-x-auto flex-1">
-            <table className="w-full text-xs text-left text-[#26332A]">
-              <thead className="bg-[#F7F9F5] text-[#66736A] uppercase text-[10px] tracking-wider">
+            <table className="w-full text-xs text-left text-slate-900">
+              <thead className="bg-slate-50 text-slate-600 uppercase text-[10px] tracking-wider">
                 <tr>
                   <th className="px-4 py-3">MDF-e / Chave SEFAZ</th>
                   <th className="px-4 py-3">Veículo & Motorista</th>
@@ -394,7 +394,7 @@ export const LogisticaFretesModule: React.FC = () => {
               </thead>
               <tbody className="divide-y divide-[#EAF4E7] font-sans">
                 {viagens.map((v) => (
-                  <tr key={v.id} className="hover:bg-[#F7F9F5] transition-colors">
+                  <tr key={v.id} className="hover:bg-slate-50 transition-colors">
                     <td className="px-4 py-3">
                       <span className="font-mono font-bold text-[#1D4B38] block">{v.numeroMdfe}</span>
                       <span className="text-[10px] font-mono text-blue-400 flex items-center gap-1">
@@ -402,14 +402,14 @@ export const LogisticaFretesModule: React.FC = () => {
                       </span>
                     </td>
                     <td className="px-4 py-3">
-                      <span className="font-semibold text-[#26332A] block">{v.placaCavalo} ({v.motoristaNome})</span>
-                      <span className="text-[10px] text-[#66736A]">{v.transportadora}</span>
+                      <span className="font-semibold text-slate-900 block">{v.placaCavalo} ({v.motoristaNome})</span>
+                      <span className="text-[10px] text-slate-600">{v.transportadora}</span>
                     </td>
                     <td className="px-4 py-3 max-w-xs">
-                      <span className="font-medium text-[#26332A] block line-clamp-1">{v.rotaDestino}</span>
+                      <span className="font-medium text-slate-900 block line-clamp-1">{v.rotaDestino}</span>
                       <span className="text-[10px] text-slate-500 font-mono">{v.distanciaKm} km</span>
                     </td>
-                    <td className="px-4 py-3 text-right font-mono font-bold text-[#26332A]">
+                    <td className="px-4 py-3 text-right font-mono font-bold text-slate-900">
                       {v.pesoCargaTon.toFixed(1)} t
                       <span className="text-[10px] text-slate-500 block">
                         {((v.pesoCargaTon * 1000) / 60).toFixed(0)} sc
@@ -417,7 +417,7 @@ export const LogisticaFretesModule: React.FC = () => {
                     </td>
                     <td className="px-4 py-3 text-right font-mono font-bold text-emerald-400">
                       R$ {v.custoTotalFrete.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
-                      <span className="text-[10px] text-[#66736A] block font-normal">
+                      <span className="text-[10px] text-slate-600 block font-normal">
                         R$ {v.fretePorSaca.toFixed(2)}/sc
                       </span>
                     </td>
@@ -425,7 +425,7 @@ export const LogisticaFretesModule: React.FC = () => {
                       <span
                         className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
                           v.statusFila === 'ENCERRADO'
-                            ? 'bg-[#F7F9F5] text-[#66736A] border border-[#8FBF88]'
+                            ? 'bg-slate-50 text-slate-600 border border-emerald-300'
                             : v.statusFila === 'EXPEDIDO_EM_TRANSITO'
                             ? 'bg-emerald-950 text-emerald-400 border border-emerald-800 animate-pulse'
                             : 'bg-blue-950 text-blue-400 border border-blue-800'
@@ -443,7 +443,7 @@ export const LogisticaFretesModule: React.FC = () => {
                         <button
                           onClick={() => setModalDamdfe(v)}
                           title="Imprimir DAMDFE Oficial"
-                          className="px-2.5 py-1 bg-[#F7F9F5] hover:bg-slate-700 text-[#26332A] rounded-lg text-[11px] font-semibold flex items-center gap-1 transition-all border border-[#8FBF88] cursor-pointer"
+                          className="px-2.5 py-1 bg-slate-50 hover:bg-slate-700 text-slate-900 rounded-lg text-[11px] font-semibold flex items-center gap-1 transition-all border border-emerald-300 cursor-pointer"
                         >
                           <Printer className="w-3.5 h-3.5 text-blue-400" /> DAMDFE
                         </button>
@@ -466,70 +466,70 @@ export const LogisticaFretesModule: React.FC = () => {
         </div>
 
         {/* Simulador da Tabela de Piso Mínimo ANTT */}
-        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-xl space-y-4">
-          <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-3">
+        <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xl space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-3">
             <h3 className="text-sm font-bold text-[#1D4B38] flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-amber-400" />
               Calculadora ANTT (Res. 5.867)
             </h3>
-            <span className="text-[10px] font-mono bg-[#F7F9F5] px-2 py-0.5 rounded text-amber-400 border border-[#EAF4E7]">
+            <span className="text-[10px] font-mono bg-slate-50 px-2 py-0.5 rounded text-amber-400 border border-slate-200">
               Piso Obrigatório
             </span>
           </div>
 
           <div className="space-y-3 text-xs">
             <div>
-              <label className="text-[#66736A] block mb-1">Distância de Transporte (km):</label>
+              <label className="text-slate-600 block mb-1">Distância de Transporte (km):</label>
               <input
                 type="number"
                 value={calcDistancia}
                 onChange={(e) => setCalcDistancia(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
+                className="w-full bg-slate-50 border border-emerald-300 rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
               />
             </div>
 
             <div>
-              <label className="text-[#66736A] block mb-1">Peso da Carga (toneladas):</label>
+              <label className="text-slate-600 block mb-1">Peso da Carga (toneladas):</label>
               <input
                 type="number"
                 step="0.5"
                 value={calcPesoTon}
                 onChange={(e) => setCalcPesoTon(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
+                className="w-full bg-slate-50 border border-emerald-300 rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
               />
             </div>
 
             <div>
-              <label className="text-[#66736A] block mb-1">Tarifa Piso ANTT (R$/ton.km):</label>
+              <label className="text-slate-600 block mb-1">Tarifa Piso ANTT (R$/ton.km):</label>
               <input
                 type="number"
                 step="0.005"
                 value={calcTarifaTonKm}
                 onChange={(e) => setCalcTarifaTonKm(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg px-3 py-2 text-emerald-400 font-mono font-bold"
+                className="w-full bg-slate-50 border border-emerald-300 rounded-lg px-3 py-2 text-emerald-400 font-mono font-bold"
               />
             </div>
 
             <div>
-              <label className="text-[#66736A] block mb-1">Vale-Pedágio Obrigatório (R$):</label>
+              <label className="text-slate-600 block mb-1">Vale-Pedágio Obrigatório (R$):</label>
               <input
                 type="number"
                 value={calcPedagio}
                 onChange={(e) => setCalcPedagio(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
+                className="w-full bg-slate-50 border border-emerald-300 rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-xs space-y-2">
-            <div className="flex justify-between items-center text-[#26332A]">
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs space-y-2">
+            <div className="flex justify-between items-center text-slate-900">
               <span>Custo Total do Frete:</span>
               <span className="font-mono font-bold text-[#1D4B38] text-sm">
                 R$ {calcFreteTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>
             </div>
-            <div className="border-t border-[#EAF4E7] pt-2 flex justify-between items-center">
-              <span className="font-bold text-[#26332A]">Custo do Frete por Saca:</span>
+            <div className="border-t border-slate-200 pt-2 flex justify-between items-center">
+              <span className="font-bold text-slate-900">Custo do Frete por Saca:</span>
               <span className="font-mono font-extrabold text-base text-emerald-400">
                 R$ {calcFreteSaca.toFixed(2)} / sc
               </span>
@@ -544,15 +544,15 @@ export const LogisticaFretesModule: React.FC = () => {
       {/* Modal Novo MDF-e & Entrada no Pátio */}
       {mostrarModalNovo && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-slate-900 border border-[#8FBF88] rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-4 my-8">
-            <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-3">
+          <div className="bg-slate-900 border border-emerald-300 rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-4 my-8">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <h3 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
                 <Truck className="w-5 h-5 text-blue-400" />
                 Emitir MDF-e (Modelo 58 SEFAZ) & Registrar Entrada
               </h3>
               <button
                 onClick={() => setMostrarModalNovo(false)}
-                className="text-[#66736A] hover:text-[#1D4B38] text-sm font-bold cursor-pointer"
+                className="text-slate-600 hover:text-[#1D4B38] text-sm font-bold cursor-pointer"
               >
                 ✕
               </button>
@@ -561,88 +561,88 @@ export const LogisticaFretesModule: React.FC = () => {
             <form onSubmit={handleSalvarViagem} className="space-y-3.5 text-xs">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
-                  <label className="text-[#26332A] block mb-1 font-medium">Placa Cavalo Mecânico:</label>
+                  <label className="text-slate-900 block mb-1 font-medium">Placa Cavalo Mecânico:</label>
                   <input
                     type="text"
                     required
                     value={formPlacaCavalo}
                     onChange={(e) => setFormPlacaCavalo(e.target.value)}
-                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
+                    className="w-full bg-slate-50 border border-emerald-300 rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
                   />
                 </div>
                 <div>
-                  <label className="text-[#26332A] block mb-1 font-medium">Placa 1ª Carreta:</label>
+                  <label className="text-slate-900 block mb-1 font-medium">Placa 1ª Carreta:</label>
                   <input
                     type="text"
                     required
                     value={formPlacaCarreta1}
                     onChange={(e) => setFormPlacaCarreta1(e.target.value)}
-                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
+                    className="w-full bg-slate-50 border border-emerald-300 rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
                   />
                 </div>
                 <div>
-                  <label className="text-[#26332A] block mb-1 font-medium">Placa 2ª Carreta:</label>
+                  <label className="text-slate-900 block mb-1 font-medium">Placa 2ª Carreta:</label>
                   <input
                     type="text"
                     required
                     value={formPlacaCarreta2}
                     onChange={(e) => setFormPlacaCarreta2(e.target.value)}
-                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
+                    className="w-full bg-slate-50 border border-emerald-300 rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="text-[#26332A] block mb-1 font-medium">Motorista Responsável:</label>
+                  <label className="text-slate-900 block mb-1 font-medium">Motorista Responsável:</label>
                   <input
                     type="text"
                     required
                     value={formMotorista}
                     onChange={(e) => setFormMotorista(e.target.value)}
-                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg px-3 py-2 text-[#1D4B38]"
+                    className="w-full bg-slate-50 border border-emerald-300 rounded-lg px-3 py-2 text-[#1D4B38]"
                   />
                 </div>
                 <div>
-                  <label className="text-[#26332A] block mb-1 font-medium">CPF do Motorista:</label>
+                  <label className="text-slate-900 block mb-1 font-medium">CPF do Motorista:</label>
                   <input
                     type="text"
                     required
                     value={formCpf}
                     onChange={(e) => setFormCpf(e.target.value)}
-                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
+                    className="w-full bg-slate-50 border border-emerald-300 rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="text-[#26332A] block mb-1 font-medium">Transportadora / Operador:</label>
+                  <label className="text-slate-900 block mb-1 font-medium">Transportadora / Operador:</label>
                   <input
                     type="text"
                     value={formTransportadora}
                     onChange={(e) => setFormTransportadora(e.target.value)}
-                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg px-3 py-2 text-[#1D4B38]"
+                    className="w-full bg-slate-50 border border-emerald-300 rounded-lg px-3 py-2 text-[#1D4B38]"
                   />
                 </div>
                 <div>
-                  <label className="text-[#26332A] block mb-1 font-medium">RNTRC da Transportadora:</label>
+                  <label className="text-slate-900 block mb-1 font-medium">RNTRC da Transportadora:</label>
                   <input
                     type="text"
                     value={formRntrc}
                     onChange={(e) => setFormRntrc(e.target.value)}
-                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
+                    className="w-full bg-slate-50 border border-emerald-300 rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="text-[#26332A] block mb-1 font-medium">Composição Veicular:</label>
+                  <label className="text-slate-900 block mb-1 font-medium">Composição Veicular:</label>
                   <select
                     value={formTipoVeiculo}
                     onChange={(e) => setFormTipoVeiculo(e.target.value as any)}
-                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg px-3 py-2 text-[#1D4B38]"
+                    className="w-full bg-slate-50 border border-emerald-300 rounded-lg px-3 py-2 text-[#1D4B38]"
                   >
                     <option value="RODOTREM_9_EIXOS">Rodotrem 9 Eixos (Capacidade 49.5t)</option>
                     <option value="BITREM_7_EIXOS">Bitrem 7 Eixos (Capacidade 37.0t)</option>
@@ -650,23 +650,23 @@ export const LogisticaFretesModule: React.FC = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="text-[#26332A] block mb-1 font-medium">Peso Líquido Estimado (toneladas):</label>
+                  <label className="text-slate-900 block mb-1 font-medium">Peso Líquido Estimado (toneladas):</label>
                   <input
                     type="number"
                     step="0.5"
                     value={formPeso}
                     onChange={(e) => setFormPeso(Number(e.target.value))}
-                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg px-3 py-2 text-[#1D4B38] font-mono font-bold"
+                    className="w-full bg-slate-50 border border-emerald-300 rounded-lg px-3 py-2 text-[#1D4B38] font-mono font-bold"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-[#26332A] block mb-1 font-medium">Rota & Destino da Safra:</label>
+                <label className="text-slate-900 block mb-1 font-medium">Rota & Destino da Safra:</label>
                 <select
                   value={formDestino}
                   onChange={(e) => setFormDestino(e.target.value)}
-                  className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg px-3 py-2 text-[#1D4B38]"
+                  className="w-full bg-slate-50 border border-emerald-300 rounded-lg px-3 py-2 text-[#1D4B38]"
                 >
                   <option value="Sorriso/MT ➔ Terminal Ferroviário Rondonópolis/MT">
                     Sorriso/MT ➔ Terminal Ferroviário Rondonópolis (820 km)
@@ -682,34 +682,34 @@ export const LogisticaFretesModule: React.FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="text-[#26332A] block mb-1 font-medium">Romaneio de Balança Vinculado:</label>
+                  <label className="text-slate-900 block mb-1 font-medium">Romaneio de Balança Vinculado:</label>
                   <input
                     type="text"
                     value={formRomaneio}
                     onChange={(e) => setFormRomaneio(e.target.value)}
-                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
+                    className="w-full bg-slate-50 border border-emerald-300 rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
                   />
                 </div>
                 <div>
-                  <label className="text-[#26332A] block mb-1 font-medium">NF-e do Produtor Vinculada:</label>
+                  <label className="text-slate-900 block mb-1 font-medium">NF-e do Produtor Vinculada:</label>
                   <input
                     type="text"
                     value={formNfe}
                     onChange={(e) => setFormNfe(e.target.value)}
-                    className="w-full bg-[#F7F9F5] border border-[#8FBF88] rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
+                    className="w-full bg-slate-50 border border-emerald-300 rounded-lg px-3 py-2 text-[#1D4B38] font-mono"
                   />
                 </div>
               </div>
 
-              <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] text-[11px] text-[#66736A]">
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-600">
                 O MDF-e será transmitido com averbação automática do seguro RCTR-C, registro do CIOT e autorização SEFAZ-MT.
               </div>
 
-              <div className="pt-2 flex justify-end gap-3 border-t border-[#EAF4E7]">
+              <div className="pt-2 flex justify-end gap-3 border-t border-slate-200">
                 <button
                   type="button"
                   onClick={() => setMostrarModalNovo(false)}
-                  className="px-4 py-2 text-[#66736A] hover:text-[#1D4B38] cursor-pointer"
+                  className="px-4 py-2 text-slate-600 hover:text-[#1D4B38] cursor-pointer"
                 >
                   Cancelar
                 </button>

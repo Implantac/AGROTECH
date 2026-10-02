@@ -140,7 +140,7 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
                     Tilápia & Tambaqui
                   </span>
                 </h2>
-                <p className="text-sm text-[#66736A]">
+                <p className="text-sm text-slate-600">
                   Biomassa em tanques-rede, oxigênio dissolvido em tempo real, arraçoamento automático e Conversão Alimentar (FCR).
                 </p>
               </div>
@@ -166,14 +166,14 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: Biomassa Estocada */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Biomassa Total</span>
             <Layers className="w-4 h-4 text-blue-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-blue-400">
             {aquaMetrics.biomassaTotalTon.toFixed(1)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">toneladas</span>
+            <span className="text-xs font-normal text-slate-600">toneladas</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             {tanqueAtivo.numeroPeixes.toLocaleString('pt-BR')} peixes • {tanqueAtivo.pesoMedioG}g médio.
@@ -181,14 +181,14 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
         </div>
 
         {/* KPI 2: Densidade de Estocagem */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Densidade de Carga</span>
             <Gauge className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
             {aquaMetrics.densidadeEstocagemKgM3.toFixed(1)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">kg/m³</span>
+            <span className="text-xs font-normal text-slate-600">kg/m³</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Volume: {tanqueAtivo.volumeM3} m³ (Tanques-Rede 7x7m).
@@ -196,14 +196,14 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Ração Diária & Custo */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Ração Fornecida</span>
             <TrendingUp className="w-4 h-4 text-amber-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-amber-400">
             {aquaMetrics.racaoDiariaKg.toFixed(0)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">kg/dia ({aquaMetrics.taxaArracoamentoPct}%)</span>
+            <span className="text-xs font-normal text-slate-600">kg/dia ({aquaMetrics.taxaArracoamentoPct}%)</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Custo: R$ {aquaMetrics.custoRacaoDiariaReais.toFixed(2)}/dia em ração 32% PB.
@@ -211,8 +211,8 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
         </div>
 
         {/* KPI 4: Margem Líquida */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Margem no Lote</span>
             <Sparkles className="w-4 h-4 text-emerald-400" />
           </div>
@@ -231,18 +231,18 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
       {/* Grid Principal: Lista de Baterias e Configuração Zootécnica */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Lista de Tanques e Sensores de Água */}
-        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <Waves className="w-5 h-5 text-blue-400" />
                 Baterias de Tanques & Monitoramento Hidroquímico
               </h3>
-              <p className="text-xs text-[#66736A]">
+              <p className="text-xs text-slate-600">
                 Sondas multiparâmetros (O₂, pH, Temperatura) com automação de aeradores de emergência.
               </p>
             </div>
-            <span className="text-xs font-mono text-[#66736A]">
+            <span className="text-xs font-mono text-slate-600">
               {tanques.length} Baterias Operando
             </span>
           </div>
@@ -257,7 +257,7 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
                   className={`p-4 rounded-xl border cursor-pointer transition-all space-y-2 ${
                     isSelected
                       ? 'bg-blue-950/30 border-blue-500/50 shadow-lg'
-                      : 'bg-[#F7F9F5] border-[#EAF4E7] hover:border-slate-700'
+                      : 'bg-slate-50 border-slate-200 hover:border-slate-700'
                   }`}
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -270,7 +270,7 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
                     <span
                       className={`text-[10px] font-mono px-2 py-0.5 rounded border self-start sm:self-auto ${
                         t.statusAerador === 'STANDBY_OK'
-                          ? 'bg-slate-800 text-[#66736A] border-slate-700'
+                          ? 'bg-slate-800 text-slate-600 border-slate-700'
                           : 'bg-amber-500/20 text-amber-300 border-amber-500/30 animate-pulse'
                       }`}
                     >
@@ -279,21 +279,21 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono">
-                    <div className="p-2 rounded bg-white border border-[#EAF4E7]">
+                    <div className="p-2 rounded bg-white border border-slate-200">
                       <span className="text-slate-500 block text-[10px]">Oxigênio (O₂)</span>
                       <span className={t.oxigenioMgL >= 4.5 ? 'text-emerald-400 font-bold' : 'text-rose-400 font-bold'}>
                         {t.oxigenioMgL.toFixed(1)} mg/L
                       </span>
                     </div>
-                    <div className="p-2 rounded bg-white border border-[#EAF4E7]">
+                    <div className="p-2 rounded bg-white border border-slate-200">
                       <span className="text-slate-500 block text-[10px]">pH da Água</span>
                       <span className="text-cyan-400 font-bold">{t.phAgua.toFixed(1)}</span>
                     </div>
-                    <div className="p-2 rounded bg-white border border-[#EAF4E7]">
+                    <div className="p-2 rounded bg-white border border-slate-200">
                       <span className="text-slate-500 block text-[10px]">Temperatura</span>
                       <span className="text-amber-400 font-bold">{t.temperaturaAguaC}°C</span>
                     </div>
-                    <div className="p-2 rounded bg-white border border-[#EAF4E7]">
+                    <div className="p-2 rounded bg-white border border-slate-200">
                       <span className="text-slate-500 block text-[10px]">Biomassa Estimada</span>
                       <span className="text-white font-bold">
                         {((t.numeroPeixes * t.pesoMedioG) / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 0 })} kg
@@ -306,12 +306,12 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
           </div>
 
           {/* Banner de Boas Práticas Aquícolas */}
-          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-blue-400 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes de Manejo Zootécnico & Sanidade Aquícola:
             </div>
-            <ul className="list-disc list-inside text-[#66736A] space-y-1">
+            <ul className="list-disc list-inside text-slate-600 space-y-1">
               <li>
                 <strong>Oxigênio Dissolvido Crítico:</strong> Quando o O₂ cai abaixo de 3.5 mg/L (especialmente na madrugada), a conversão alimentar é suspensa e os aeradores de pás ligam automaticamente.
               </li>
@@ -326,7 +326,7 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Parâmetros Zootécnicos e Financeiros */}
-        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Fish className="w-5 h-5 text-blue-400" />
             Parâmetros do Lote
@@ -334,28 +334,28 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
 
           <div className="space-y-4 text-xs">
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Preço de Venda do Peixe Vivo (R$/kg)</label>
+              <label className="text-slate-600 font-medium block mb-1">Preço de Venda do Peixe Vivo (R$/kg)</label>
               <input
                 type="number"
                 value={precoKgPeixeReais}
                 onChange={(e) => setPrecoKgPeixeReais(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Custo da Ração Peixe (R$/kg)</label>
+              <label className="text-slate-600 font-medium block mb-1">Custo da Ração Peixe (R$/kg)</label>
               <input
                 type="number"
                 value={custoRacaoKgReais}
                 onChange={(e) => setCustoRacaoKgReais(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-[#66736A] font-medium">Conversão Alimentar (FCR)</span>
+                <span className="text-slate-600 font-medium">Conversão Alimentar (FCR)</span>
                 <span className="text-blue-400 font-mono font-bold">{fcrZootecnico.toFixed(2)}</span>
               </div>
               <input
@@ -370,20 +370,20 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
             </div>
 
             {/* Quadro de Resumo de Custos e Margens */}
-            <div className="pt-3 border-t border-[#EAF4E7] space-y-2">
+            <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Custo Total por kg:</span>
-                <span className="text-[#26332A] font-mono font-bold">
+                <span className="text-slate-600">Custo Total por kg:</span>
+                <span className="text-slate-900 font-mono font-bold">
                   R$ {aquaMetrics.custoPorKgVivoReais.toFixed(2)} / kg
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Margem Líquida por kg:</span>
+                <span className="text-slate-600">Margem Líquida por kg:</span>
                 <span className="text-emerald-400 font-mono font-bold">
                   +R$ {aquaMetrics.margemLiquidaKgReais.toFixed(2)} / kg
                 </span>
               </div>
-              <div className="flex justify-between border-t border-[#EAF4E7] pt-2 font-bold">
+              <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Lucro Líquido no Lote:</span>
                 <span className="text-cyan-400 font-mono">
                   R$ {aquaMetrics.lucroEstimadoLoteReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}

@@ -131,7 +131,7 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
                     Apis mellifera • Bee-Safe Window • Embrapa
                   </span>
                 </h2>
-                <p className="text-sm text-[#66736A]">
+                <p className="text-sm text-slate-600">
                   Aumento de produtividade vegetal via polinização entomófila, proteção contra deriva de agroquímicos e safra de mel sustentável.
                 </p>
               </div>
@@ -165,14 +165,14 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: Ganho de Produtividade */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Incremento Agronômico</span>
             <TrendingUp className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
             +{metrics.incrementoScHa.toFixed(2)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">sc/ha (+{ganhoPolinizacaoPct}%)</span>
+            <span className="text-xs font-normal text-slate-600">sc/ha (+{ganhoPolinizacaoPct}%)</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Passa de {produtividadeBaseScHa.toFixed(1)} para {metrics.produtividadeComAbelhasScHa.toFixed(1)} sc/ha na área de voo.
@@ -180,8 +180,8 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
         </div>
 
         {/* KPI 2: Valor Agregado na Lavoura */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Ganho Grãos/Café Polinizado</span>
             <Coins className="w-4 h-4 text-amber-400" />
           </div>
@@ -194,14 +194,14 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Produção de Mel & Própolis */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Safra de Mel Anual</span>
             <Flower2 className="w-4 h-4 text-yellow-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-yellow-400">
             {metrics.producaoMelTotalKg.toLocaleString('pt-BR')}{' '}
-            <span className="text-xs font-normal text-[#66736A]">kg (R$ {metrics.receitaMelReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })})</span>
+            <span className="text-xs font-normal text-slate-600">kg (R$ {metrics.receitaMelReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })})</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Média de {(metrics.producaoMelTotalKg / metrics.totalColmeias).toFixed(1)} kg/colmeia/ano em {metrics.totalColmeias} caixas.
@@ -209,8 +209,8 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
         </div>
 
         {/* KPI 4: Benefício Econômico Total */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Retorno Integrado Total</span>
             <Sparkles className="w-4 h-4 text-white" />
           </div>
@@ -227,18 +227,18 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
       {/* Grid de Apiários e Simulador Bee-Safe */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Lista de Apiários Georreferenciados */}
-        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-amber-400" />
                 Mapeamento de Apiários & Raio de Ação
               </h3>
-              <p className="text-xs text-[#66736A]">
+              <p className="text-xs text-slate-600">
                 Colmeias instaladas estrategicamente nas bordas de talhões e reservas legais.
               </p>
             </div>
-            <span className="text-xs font-mono text-[#66736A]">
+            <span className="text-xs font-mono text-slate-600">
               {apiarios.length} Apiários Ativos
             </span>
           </div>
@@ -247,7 +247,7 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
             {apiarios.map((a) => (
               <div
                 key={a.id}
-                className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl hover:border-slate-700 transition-all space-y-2"
+                className="p-4 bg-slate-50 border border-slate-200 rounded-xl hover:border-slate-700 transition-all space-y-2"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
@@ -255,14 +255,14 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
                       {a.id}
                     </span>
                     <h4 className="text-xs font-bold text-white">{a.nome}</h4>
-                    <span className="text-[11px] text-[#66736A]">• {a.talhaoAlvo}</span>
+                    <span className="text-[11px] text-slate-600">• {a.talhaoAlvo}</span>
                   </div>
                   <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono border border-emerald-500/30">
                     {a.statusSanitario}
                   </span>
                 </div>
 
-                <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-[#66736A]">
+                <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-600">
                   <span>Colmeias: <strong className="text-white">{a.colmeiasAtivas} un</strong></span>
                   <span>Raio de Voo: <strong className="text-amber-400">{a.raioVooKm} km</strong></span>
                   <span>Área Atendida: <strong className="text-cyan-400">{a.areaCoberturaHa} ha</strong></span>
@@ -273,12 +273,12 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
           </div>
 
           {/* Banner de Boas Práticas Bee-Safe */}
-          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-amber-400 font-semibold">
               <ShieldCheck className="w-4 h-4" />
               Diretrizes de Proteção aos Polinizadores (Protocolo Bee-Safe MAPA/Embrapa):
             </div>
-            <ul className="list-disc list-inside text-[#66736A] space-y-1">
+            <ul className="list-disc list-inside text-slate-600 space-y-1">
               <li>
                 <strong>Comunicação Prévia:</strong> Notificar os apicultores com no mínimo 48 horas de antecedência de pulverizações de inseticidas num raio de 3 km.
               </li>
@@ -293,7 +293,7 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Simulador de Parâmetros e Pulverização */}
-        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Clock className="w-5 h-5 text-amber-400" />
             Simulador de Manejo & Alerta
@@ -302,14 +302,14 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
           <div className="space-y-4 text-xs">
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-[#66736A] font-medium">Horário da Pulverização Programada</span>
+                <span className="text-slate-600 font-medium">Horário da Pulverização Programada</span>
                 <span className="text-amber-400 font-mono font-bold">{horaAtualPulverizacao}h</span>
               </div>
               <input
                 type="time"
                 value={horaAtualPulverizacao}
                 onChange={(e) => setHoraAtualPulverizacao(e.target.value)}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
               {!metrics.isJanelaSegura ? (
                 <p className="text-[11px] text-rose-400 mt-1 flex items-center gap-1">
@@ -325,18 +325,18 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Produtividade Base da Lavoura (sc/ha)</label>
+              <label className="text-slate-600 font-medium block mb-1">Produtividade Base da Lavoura (sc/ha)</label>
               <input
                 type="number"
                 value={produtividadeBaseScHa}
                 onChange={(e) => setProdutividadeBaseScHa(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-[#66736A] font-medium">Ganho Agronômico Estimado (%)</span>
+                <span className="text-slate-600 font-medium">Ganho Agronômico Estimado (%)</span>
                 <span className="text-emerald-400 font-mono font-bold">+{ganhoPolinizacaoPct}%</span>
               </div>
               <input
@@ -351,40 +351,40 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Preço da Saca (R$)</label>
+              <label className="text-slate-600 font-medium block mb-1">Preço da Saca (R$)</label>
               <input
                 type="number"
                 value={precoSacaReais}
                 onChange={(e) => setPrecoSacaReais(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Preço do Mel Comercializado (R$/kg)</label>
+              <label className="text-slate-600 font-medium block mb-1">Preço do Mel Comercializado (R$/kg)</label>
               <input
                 type="number"
                 value={precoMelKgReais}
                 onChange={(e) => setPrecoMelKgReais(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             {/* Resumo Consolidado */}
-            <div className="pt-3 border-t border-[#EAF4E7] space-y-2">
+            <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Ganho na Safra (+{metrics.incrementoScHa.toFixed(2)} sc/ha):</span>
+                <span className="text-slate-600">Ganho na Safra (+{metrics.incrementoScHa.toFixed(2)} sc/ha):</span>
                 <span className="text-amber-400 font-mono font-bold">
                   R$ {metrics.ganhoAgroTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Venda do Mel:</span>
+                <span className="text-slate-600">Venda do Mel:</span>
                 <span className="text-yellow-400 font-mono font-bold">
                   R$ {metrics.receitaMelReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
-              <div className="flex justify-between border-t border-[#EAF4E7] pt-2 font-bold">
+              <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Retorno Econômico Global:</span>
                 <span className="text-emerald-400 font-mono">
                   R$ {metrics.beneficioTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}

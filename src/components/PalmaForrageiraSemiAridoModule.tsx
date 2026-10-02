@@ -128,19 +128,19 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
             <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
               🌵 Palma Forrageira, Água Biológica & Segurança Forrageira
             </h2>
-            <p className="text-sm text-[#26332A] max-w-3xl leading-relaxed">
+            <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
               Gestão agronômica e nutricional de cactáceas forrageiras (Orelha de Elefante Mexicana e IPA Sertânia): blindagem contra Cochonilha-do-Carmim, balanceamento de fibra e nitrogênio (ureia 1%) e suprimento de água metabólica em secas extremas.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Área Implantada</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Área Implantada</span>
               <span className="text-xl font-black text-lime-400">20 ha</span>
-              <span className="text-[10px] text-[#66736A] block mt-0.5">Superadensado</span>
+              <span className="text-[10px] text-slate-600 block mt-0.5">Superadensado</span>
             </div>
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Segurança Hídrica</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Segurança Hídrica</span>
               <span className="text-xl font-black text-cyan-400">3,22M Litros</span>
               <span className="text-[10px] text-cyan-400/80 block mt-0.5">Água Vegetal Nativa</span>
             </div>
@@ -150,8 +150,8 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-lime-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-lime-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Massa Verde Disponível</span>
             <Leaf className="w-4 h-4 text-lime-400" />
           </div>
@@ -162,19 +162,19 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-lime-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-lime-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Autonomia do Rebanho</span>
             <Calendar className="w-4 h-4 text-amber-400" />
           </div>
           <div className="text-2xl font-black text-amber-400">857 dias</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Garantia para 120 vacas @ 35 kg/dia
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-lime-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-lime-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Cochonilha-do-Carmim</span>
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
           </div>
@@ -184,26 +184,26 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-lime-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-lime-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Economia Forragem</span>
             <DollarSign className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">R$ 622.000,00</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             vs Compra Externa de Silagem de Milho
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('talhoes')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'talhoes'
               ? 'bg-lime-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Leaf className="w-4 h-4" />
@@ -215,7 +215,7 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'dieta_nutricao'
               ? 'bg-lime-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Scale className="w-4 h-4" />
@@ -227,7 +227,7 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'agua_biologica'
               ? 'bg-lime-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Droplets className="w-4 h-4" />
@@ -239,7 +239,7 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
               ? 'bg-lime-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -250,19 +250,19 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
       {/* Conteúdo Aba 1: Talhões */}
       {activeTab === 'talhoes' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Leaf className="w-5 h-5 text-lime-400" />
               Talhões de Palma & Resistência à Cochonilha-do-Carmim (*Dactylopius opuntiae*)
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               A substituição da antiga Palma Gigante pelos clones geneticamente resistentes desenvolvidos e validados pela Embrapa Semiárido e IPA salvou a bacia leiteira nordestina.
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#EAF4E7] text-[#66736A] font-bold uppercase tracking-wider">
+                  <tr className="border-b border-slate-200 text-slate-600 font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Talhão / Identificação</th>
                     <th className="py-3 px-3">Clone / Cultivar</th>
                     <th className="py-3 px-3">Área (ha)</th>
@@ -279,12 +279,12 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
                     <tr key={t.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-white">{t.identificacao}</div>
-                        <div className="text-[11px] text-[#66736A] font-mono">{t.id}</div>
+                        <div className="text-[11px] text-slate-600 font-mono">{t.id}</div>
                       </td>
                       <td className="py-3.5 px-3 font-bold text-lime-300">{t.cultivar}</td>
-                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{t.areaHa} ha</td>
-                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{t.densidadeCladodiosHa.toLocaleString()} cladódios/ha</td>
-                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{t.idadeMeses} meses</td>
+                      <td className="py-3.5 px-3 font-mono text-slate-900">{t.areaHa} ha</td>
+                      <td className="py-3.5 px-3 font-mono text-slate-900">{t.densidadeCladodiosHa.toLocaleString()} cladódios/ha</td>
+                      <td className="py-3.5 px-3 font-mono text-slate-900">{t.idadeMeses} meses</td>
                       <td className="py-3.5 px-3 font-mono font-bold text-white">{t.produtividadeEstimadaTonHa} ton/ha</td>
                       <td className="py-3.5 px-3">
                         <span className="px-2 py-0.5 rounded font-bold text-[10px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
@@ -307,68 +307,68 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
       {/* Conteúdo Aba 2: Dieta & Nutrição */}
       {activeTab === 'dieta_nutricao' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Scale className="w-5 h-5 text-lime-400" />
               Equilíbrio Ruminal com Fibra & Nitrogênio
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               A palma forrageira é rica em água e carboidratos não-fibrosos de rápida digestão (semelhante ao milho moído), mas possui baixa proteína (4%) e pouca fibra efetiva. Fornecer palma isolada provoca acidose e diarreia profusa no gado.
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <div>
                   <span className="font-bold text-white block">Palma Forrageira Picada no Cocho</span>
-                  <span className="text-[#66736A] text-[11px]">Aporte de energia (NDT 65%) e água biológica</span>
+                  <span className="text-slate-600 text-[11px]">Aporte de energia (NDT 65%) e água biológica</span>
                 </div>
                 <span className="font-mono font-bold text-lime-400 text-sm">65% da Dieta</span>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <div>
                   <span className="font-bold text-white block">Fonte de Fibra Efetiva (Feno Buffel / Silagem Sorgo)</span>
-                  <span className="text-[#66736A] text-[11px]">Estímulo à ruminação e motilidade do rúmen</span>
+                  <span className="text-slate-600 text-[11px]">Estímulo à ruminação e motilidade do rúmen</span>
                 </div>
                 <span className="font-mono font-bold text-amber-400 text-sm">25% da Dieta</span>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <div>
                   <span className="font-bold text-white block">Mistura Ureia Agrícola + Sulfato de Amônio (9:1)</span>
-                  <span className="text-[#66736A] text-[11px]">Correção da proteína bruta (eleva de 4% para 12% PB)</span>
+                  <span className="text-slate-600 text-[11px]">Correção da proteína bruta (eleva de 4% para 12% PB)</span>
                 </div>
                 <span className="font-mono font-bold text-cyan-400 text-sm">1.0% Mistura</span>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <div>
                   <span className="font-bold text-white block">Farelo Proteico (Soja ou Algodão) + Sal Mineral</span>
-                  <span className="text-[#66736A] text-[11px]">Nutrição completa para vacas leiteiras de 18 L/dia</span>
+                  <span className="text-slate-600 text-[11px]">Nutrição completa para vacas leiteiras de 18 L/dia</span>
                 </div>
                 <span className="font-mono font-bold text-emerald-400 text-sm">9.0% da Dieta</span>
               </div>
             </div>
           </div>
 
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               Recomendações Práticas do Cocho
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Protocolo validado para evitar perdas e intoxicação por ureia:
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">Corte e Picagem Imediata</span>
-                <span className="text-[#66736A] text-[11px]">Picar a palma em picadeira mecânica no dia do fornecimento. Evitar deixar a massa verde fermentando em pilhas expostas ao sol forte do Sertão.</span>
+                <span className="text-slate-600 text-[11px]">Picar a palma em picadeira mecânica no dia do fornecimento. Evitar deixar a massa verde fermentando em pilhas expostas ao sol forte do Sertão.</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">Homogeneização da Ureia</span>
-                <span className="text-[#66736A] text-[11px]">Dissolver a ureia prévia em água e regar sobre o feno triturado antes de misturar à palma, garantindo ingestão uniforme por todos os animais da baia.</span>
+                <span className="text-slate-600 text-[11px]">Dissolver a ureia prévia em água e regar sobre o feno triturado antes de misturar à palma, garantindo ingestão uniforme por todos os animais da baia.</span>
               </div>
             </div>
           </div>
@@ -378,32 +378,32 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
       {/* Conteúdo Aba 3: Água Biológica */}
       {activeTab === 'agua_biologica' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Droplets className="w-5 h-5 text-cyan-400" />
               O "Açude Verde": Armazenamento Biológico de Água nos Cladódios
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Com mais de 89% de água em sua composição de massa verde, a palma transforma o solo semiárido em uma cisterna viva de alta eficiência fisiológica (fotossíntese CAM que abre estômatos apenas à noite).
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Água Total Armazenada</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Água Total Armazenada</span>
                 <span className="text-2xl font-black text-cyan-400 font-mono">3.222.000 L</span>
-                <span className="text-[11px] text-[#66736A] block">Equivalente a 200 caminhões-pipa</span>
+                <span className="text-[11px] text-slate-600 block">Equivalente a 200 caminhões-pipa</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Água Ingerida / Vaca / Dia</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Água Ingerida / Vaca / Dia</span>
                 <span className="text-2xl font-black text-white font-mono">31.3 Litros</span>
                 <span className="text-[11px] text-emerald-400 block">Redução de 45% na ida ao bebedouro</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Eficiência de Uso da Chuva</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Eficiência de Uso da Chuva</span>
                 <span className="text-2xl font-black text-lime-400 font-mono">18.5 kg MS/mm</span>
-                <span className="text-[11px] text-[#66736A] block">3x mais eficiente que gramíneas</span>
+                <span className="text-[11px] text-slate-600 block">3x mais eficiente que gramíneas</span>
               </div>
             </div>
           </div>
@@ -413,14 +413,14 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
       {/* Conteúdo Aba 4: Simulador */}
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-lime-400" />
               Parâmetros da Área & Rebanho
             </h3>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Área de Palma Cultivada</span>
                 <span className="font-mono text-lime-400">{areaCultivadaHa} hectares</span>
               </div>
@@ -436,7 +436,7 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Produtividade Bienal (ton MV/ha)</span>
                 <span className="font-mono text-lime-400">{produtividadeTonHa} ton/ha</span>
               </div>
@@ -452,7 +452,7 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Tamanho do Rebanho Atendido</span>
                 <span className="font-mono text-amber-400">{rebanhoBovino} vacas</span>
               </div>
@@ -468,7 +468,7 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Consumo Médio por Vaca / Dia</span>
                 <span className="font-mono text-cyan-400">{consumoDiarioKg} kg MV/dia</span>
               </div>
@@ -484,7 +484,7 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Volumoso Substituto (Silagem)</span>
                 <span className="font-mono text-emerald-400">R$ {precoEquivalenteKgForragemReais.toFixed(2)} / kg</span>
               </div>
@@ -500,39 +500,39 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               DRE da Reserva Forrageira & Economia em Época de Seca
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Massa Verde Total</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Massa Verde Total</span>
                 <span className="font-mono font-bold text-white text-base">
                   {metricasPalma.producaoMassaVerdeTon.toLocaleString()} ton
                 </span>
-                <span className="text-[10px] text-[#66736A] block">{metricasPalma.producaoMateriaSecaTon} t MS</span>
+                <span className="text-[10px] text-slate-600 block">{metricasPalma.producaoMateriaSecaTon} t MS</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Autonomia Seca</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Autonomia Seca</span>
                 <span className="font-mono font-bold text-amber-400 text-base">
                   {metricasPalma.diasSegurancaForrageira} dias
                 </span>
                 <span className="text-[10px] text-amber-400/80 block">Segurança Total</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Valor da Forragem</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Valor da Forragem</span>
                 <span className="font-mono font-bold text-white text-base">
                   R$ {(metricasPalma.valorEconomicoBiomassa / 1000).toFixed(0)}k
                 </span>
-                <span className="text-[10px] text-[#66736A] block">Equivalente Silagem</span>
+                <span className="text-[10px] text-slate-600 block">Equivalente Silagem</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Economia Líquida</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Economia Líquida</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {(metricasPalma.economiaLiquidaForragem / 1000).toFixed(0)}k
                 </span>
@@ -540,15 +540,15 @@ export const PalmaForrageiraSemiAridoModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Valor Econômico da Biomassa Gerada ({metricasPalma.producaoMassaVerdeTon.toLocaleString()} t @ R$ {precoEquivalenteKgForragemReais.toFixed(2)}/kg):</span>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Valor Econômico da Biomassa Gerada ({metricasPalma.producaoMassaVerdeTon.toLocaleString()} t @ R$ {precoEquivalenteKgForragemReais.toFixed(2)}/kg):</span>
                 <span className="font-mono font-bold text-emerald-400">
                   R$ {metricasPalma.valorEconomicoBiomassa.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Custo Total de Implantação e Condução ({areaCultivadaHa} ha @ R$ {custoImplantacaoHaReais.toFixed(2)}/ha):</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Custo Total de Implantação e Condução ({areaCultivadaHa} ha @ R$ {custoImplantacaoHaReais.toFixed(2)}/ha):</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {metricasPalma.custoTotalPalma.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>

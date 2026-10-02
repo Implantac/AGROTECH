@@ -132,7 +132,7 @@ export const CafeiculturaEspecialModule: React.FC = () => {
                     SCA &gt; 80 Pts • Q-Grader
                   </span>
                 </h2>
-                <p className="text-sm text-[#66736A]">
+                <p className="text-sm text-slate-600">
                   Maturação pré-colheita (cereja/verde), perfil sensorial, terreiro suspenso e ágio comercial sobre a cotação de bolsa.
                 </p>
               </div>
@@ -157,14 +157,14 @@ export const CafeiculturaEspecialModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: Pontuação Média SCA */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Pontuação Média (SCA)</span>
             <Award className="w-4 h-4 text-amber-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-amber-400">
             {cafeMetrics.mediaPontuacaoSca.toFixed(1)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">pontos SCA</span>
+            <span className="text-xs font-normal text-slate-600">pontos SCA</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Classificação: Bebida Especial (+{cafeMetrics.agioEspecialPct}% ágio).
@@ -172,14 +172,14 @@ export const CafeiculturaEspecialModule: React.FC = () => {
         </div>
 
         {/* KPI 2: Preço Médio da Saca */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Preço da Saca Especial</span>
             <TrendingUp className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
             R$ {cafeMetrics.precoFinalSacaEspecial.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}{' '}
-            <span className="text-xs font-normal text-[#66736A]">/ sc 60kg</span>
+            <span className="text-xs font-normal text-slate-600">/ sc 60kg</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Base comercial: R$ {precoCommoditySacaReais.toFixed(2)}/sc.
@@ -187,8 +187,8 @@ export const CafeiculturaEspecialModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Valor Agregado Extra */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Valor Agregado da Qualidade</span>
             <Sparkles className="w-4 h-4 text-cyan-400" />
           </div>
@@ -201,8 +201,8 @@ export const CafeiculturaEspecialModule: React.FC = () => {
         </div>
 
         {/* KPI 4: Faturamento por Hectare */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Faturamento Global / ha</span>
             <Scale className="w-4 h-4 text-white" />
           </div>
@@ -219,18 +219,18 @@ export const CafeiculturaEspecialModule: React.FC = () => {
       {/* Grid Principal: Lotes Especiais e Parâmetros de Maturação */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Lotes Homologados e Notas de Prova */}
-        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <Coffee className="w-5 h-5 text-amber-400" />
                 Microlotes & Laudos Sensoriais de Prova (Q-Grader)
               </h3>
-              <p className="text-xs text-[#66736A]">
+              <p className="text-xs text-slate-600">
                 Rastreabilidade de gleba, variedade, altitude e perfil aromático na xícara.
               </p>
             </div>
-            <span className="text-xs font-mono text-[#66736A]">
+            <span className="text-xs font-mono text-slate-600">
               {lotes.length} Lotes Certificados
             </span>
           </div>
@@ -239,7 +239,7 @@ export const CafeiculturaEspecialModule: React.FC = () => {
             {lotes.map((l) => (
               <div
                 key={l.id}
-                className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl hover:border-slate-700 transition-all space-y-2"
+                className="p-4 bg-slate-50 border border-slate-200 rounded-xl hover:border-slate-700 transition-all space-y-2"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
@@ -248,7 +248,7 @@ export const CafeiculturaEspecialModule: React.FC = () => {
                     </span>
                     <h4 className="text-xs font-bold text-white">{l.glebaNome}</h4>
                   </div>
-                  <span className="text-[11px] font-mono text-[#66736A]">
+                  <span className="text-[11px] font-mono text-slate-600">
                     {l.sacasLote} sacas • {l.variedade} • {l.altitudeMetros}m altitude
                   </span>
                 </div>
@@ -257,8 +257,8 @@ export const CafeiculturaEspecialModule: React.FC = () => {
                   "{l.perfilSensorial}"
                 </p>
 
-                <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-[11px] font-mono text-[#66736A]">
-                  <span>Processo: <strong className="text-[#26332A]">{l.processoPosColheita.replace(/_/g, ' ')}</strong></span>
+                <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-[11px] font-mono text-slate-600">
+                  <span>Processo: <strong className="text-slate-900">{l.processoPosColheita.replace(/_/g, ' ')}</strong></span>
                   <span>Secagem: <strong className="text-cyan-400">{l.statusSecagem.replace(/_/g, ' ')}</strong></span>
                   <span>Ágio estimado: <strong className="text-emerald-400">+35% a +60%</strong></span>
                 </div>
@@ -267,12 +267,12 @@ export const CafeiculturaEspecialModule: React.FC = () => {
           </div>
 
           {/* Banner Técnico de Boas Práticas da Cafeicultura */}
-          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-amber-400 font-semibold">
               <Sparkles className="w-4 h-4" />
               Protocolos de Qualidade no Pós-Colheita:
             </div>
-            <ul className="list-disc list-inside text-[#66736A] space-y-1">
+            <ul className="list-disc list-inside text-slate-600 space-y-1">
               <li>
                 <strong>Colheita no Ponto Ótimo:</strong> Colher com mais de 70% de frutos cereja evita a adstringência de grãos verdes e fermentações acéticas indesejadas de frutos bóia/chupado.
               </li>
@@ -287,7 +287,7 @@ export const CafeiculturaEspecialModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Parâmetros de Maturação e Cotação */}
-        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Sliders className="w-5 h-5 text-amber-400" />
             Parâmetros da Safra
@@ -295,28 +295,28 @@ export const CafeiculturaEspecialModule: React.FC = () => {
 
           <div className="space-y-4 text-xs">
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Área em Produção (ha)</label>
+              <label className="text-slate-600 font-medium block mb-1">Área em Produção (ha)</label>
               <input
                 type="number"
                 value={areaCafeHa}
                 onChange={(e) => setAreaCafeHa(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Produtividade Média (sc/ha)</label>
+              <label className="text-slate-600 font-medium block mb-1">Produtividade Média (sc/ha)</label>
               <input
                 type="number"
                 value={produtividadeSacasHa}
                 onChange={(e) => setProdutividadeSacasHa(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-[#66736A] font-medium">% Frutos Cereja (Maduros)</span>
+                <span className="text-slate-600 font-medium">% Frutos Cereja (Maduros)</span>
                 <span className="text-emerald-400 font-mono font-bold">{frutosCerejaPct}%</span>
               </div>
               <input
@@ -332,8 +332,8 @@ export const CafeiculturaEspecialModule: React.FC = () => {
 
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-[#66736A] font-medium">% Frutos Verdes (Adstringentes)</span>
-                <span className={frutosVerdesPct <= 10 ? 'text-[#26332A] font-mono font-bold' : 'text-rose-400 font-mono font-bold'}>
+                <span className="text-slate-600 font-medium">% Frutos Verdes (Adstringentes)</span>
+                <span className={frutosVerdesPct <= 10 ? 'text-slate-900 font-mono font-bold' : 'text-rose-400 font-mono font-bold'}>
                   {frutosVerdesPct}% (Meta &lt; 10%)
                 </span>
               </div>
@@ -349,30 +349,30 @@ export const CafeiculturaEspecialModule: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Cotação Commodity Base (R$/saca 60kg)</label>
+              <label className="text-slate-600 font-medium block mb-1">Cotação Commodity Base (R$/saca 60kg)</label>
               <input
                 type="number"
                 value={precoCommoditySacaReais}
                 onChange={(e) => setPrecoCommoditySacaReais(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-1.5 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-white font-mono"
               />
             </div>
 
             {/* Resumo Consolidado */}
-            <div className="pt-3 border-t border-[#EAF4E7] space-y-2">
+            <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Receita Padrão Commodity:</span>
-                <span className="text-[#26332A] font-mono">
+                <span className="text-slate-600">Receita Padrão Commodity:</span>
+                <span className="text-slate-900 font-mono">
                   R$ {cafeMetrics.receitaBaseCommodity.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Receita c/ Ágio Especial:</span>
+                <span className="text-slate-600">Receita c/ Ágio Especial:</span>
                 <span className="text-emerald-400 font-mono font-bold">
                   R$ {cafeMetrics.receitaComEspecial.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
-              <div className="flex justify-between border-t border-[#EAF4E7] pt-2 font-bold">
+              <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Bônus Extra de Qualidade:</span>
                 <span className="text-cyan-400 font-mono">
                   +R$ {cafeMetrics.valorAgregadoExtraReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}

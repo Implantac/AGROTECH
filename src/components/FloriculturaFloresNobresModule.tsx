@@ -109,7 +109,7 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-rose-500 to-pink-500 flex items-center justify-center shadow-lg shadow-rose-500/20">
             <Flower2 className="w-7 h-7 text-white" />
@@ -123,7 +123,7 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
                 Módulo 121 • Rosas de Corte, Phalaenopsis & Pulsagem Sacarose
               </span>
             </div>
-            <p className="text-sm text-[#66736A] mt-1">
+            <p className="text-sm text-slate-600 mt-1">
               Controle de fotoperíodo e tela termo-refletora, pulsagem pós-colheita para longevidade em vaso e classificação Botão Extra A1.
             </p>
           </div>
@@ -142,9 +142,9 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Produção Anual Total</span>
+            <span className="text-xs font-medium text-slate-600">Produção Anual Total</span>
             <Flower2 className="w-5 h-5 text-rose-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -155,9 +155,9 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Hastes Classe Extra A1</span>
+            <span className="text-xs font-medium text-slate-600">Hastes Classe Extra A1</span>
             <Sparkles className="w-5 h-5 text-pink-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -168,9 +168,9 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Receita Bruta Anual</span>
+            <span className="text-xs font-medium text-slate-600">Receita Bruta Anual</span>
             <TrendingUp className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -181,9 +181,9 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Lucro Líquido Anual</span>
+            <span className="text-xs font-medium text-slate-600">Lucro Líquido Anual</span>
             <Award className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -196,13 +196,13 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('estufas')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'estufas'
               ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -214,7 +214,7 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'pulsagem'
               ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Droplets className="w-4 h-4" />
@@ -226,7 +226,7 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'qualidade'
               ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -238,7 +238,7 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -248,15 +248,15 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'estufas' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Flower2 className="w-5 h-5 text-rose-400" />
             Monitoramento de Estufas com Telas Termo-Refletoras & Pad-Fan
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-[#26332A]">
-              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
+            <table className="w-full text-left text-sm text-slate-900">
+              <thead className="text-xs uppercase bg-slate-50 text-slate-600">
                 <tr>
                   <th className="px-4 py-3">Estufa / Região</th>
                   <th className="px-4 py-3">Espécie & Cultivar</th>
@@ -273,7 +273,7 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
                     <td className="px-4 py-3 font-medium text-white">{e.estufa}</td>
                     <td className="px-4 py-3">
                       <span className="text-rose-400 font-semibold">{e.especie}</span>
-                      <span className="block text-xs text-[#66736A]">{e.cultivar}</span>
+                      <span className="block text-xs text-slate-600">{e.cultivar}</span>
                     </td>
                     <td className="px-4 py-3">{e.areaM2} m²</td>
                     <td className="px-4 py-3 font-bold text-white">{e.hastesM2Ano} hastes/m²</td>
@@ -296,44 +296,44 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
 
       {activeTab === 'pulsagem' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Droplets className="w-5 h-5 text-rose-400" />
               <h4 className="text-sm font-semibold text-white">Solução de Pulsagem com Sacarose</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Imersão basal das hastes imediatamente após o corte em água desmineralizada com 2% a 4% de sacarose e sulfato de alumínio para acidificação (pH 3.5 a 4.0).
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Absorção Rápida:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Absorção Rápida:</span>
               <span className="text-sm font-bold text-rose-400 block">4 a 6 horas em câmara a 4°C</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Bactericida & Desobstrução</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Uso de hipoclorito ou compostos de cloro ativo para inibir proliferação bacteriana nos vasos xilemáticos, evitando o fenômeno de "pescoço caído" (*bent neck*).
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Vida Útil em Vaso:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Vida Útil em Vaso:</span>
               <span className="text-sm font-bold text-emerald-400 block">14 a 20 dias garantidos</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Calendar className="w-5 h-5 text-yellow-400" />
               <h4 className="text-sm font-semibold text-white">Sincronização de Datas Festivas</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Poda programada e ajuste de temperatura permitem concentrar 60% do faturamento nas janelas de maior valor agregado (Dia das Mães, Namorados e Fim de Ano).
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Ágio Comercial:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Ágio Comercial:</span>
               <span className="text-sm font-bold text-yellow-400 block">+80% a +150% no preço unitário</span>
             </div>
           </div>
@@ -341,30 +341,30 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
       )}
 
       {activeTab === 'qualidade' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Award className="w-5 h-5 text-pink-400" />
             Classificação Padrão Veiling Holambra (Norma Ibraflor)
           </h3>
-          <p className="text-sm text-[#66736A]">
+          <p className="text-sm text-slate-600">
             A padronização dimensional garante máxima liquidez no leilão eletrônico diário de flores. Hastes longas, retas e com botões túrgidos são comercializadas no topo da tabela.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Classe A1 Extra Longa</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Classe A1 Extra Longa</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">superior a 70 cm</p>
               <span className="text-[11px] text-emerald-500/80">Botão superior a 4.5 cm de altura</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Classe A2 Média</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Classe A2 Média</span>
               <p className="text-lg font-bold text-yellow-400 mt-1">50 a 69 cm</p>
               <span className="text-[11px] text-slate-500">Uso para buquês comerciais</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Classe B Curta</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Classe B Curta</span>
               <p className="text-lg font-bold text-white mt-1">menor que 50 cm</p>
               <span className="text-[11px] text-slate-500">Destinado a arranjos de mesa</span>
             </div>
@@ -373,7 +373,7 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-rose-400" />
             Simulador de Faturamento & Rentabilidade por m² de Estufa
@@ -381,56 +381,56 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Área Estufas (m²)</label>
+              <label className="text-xs font-medium text-slate-600">Área Estufas (m²)</label>
               <input
                 type="number"
                 value={areaEstufasM2}
                 onChange={(e) => setAreaEstufasM2(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-rose-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-rose-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Hastes / m² / ano</label>
+              <label className="text-xs font-medium text-slate-600">Hastes / m² / ano</label>
               <input
                 type="number"
                 value={hastesPorMetroAno}
                 onChange={(e) => setHastesPorMetroAno(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-rose-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-rose-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Hastes Classe A1 (%)</label>
+              <label className="text-xs font-medium text-slate-600">Hastes Classe A1 (%)</label>
               <input
                 type="number"
                 value={proporcaoClasseA1Pct}
                 onChange={(e) => setProporcaoClasseA1Pct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-rose-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-rose-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Preço Haste A1 (R$)</label>
+              <label className="text-xs font-medium text-slate-600">Preço Haste A1 (R$)</label>
               <input
                 type="number"
                 step="0.1"
                 value={precoHasteA1Reais}
                 onChange={(e) => setPrecoHasteA1Reais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-rose-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-rose-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-[#66736A] block">Volume Extra A1 Produzido:</span>
+              <span className="text-xs text-slate-600 block">Volume Extra A1 Produzido:</span>
               <span className="text-base font-bold text-rose-400">
                 {metricas.hastesA1.toLocaleString('pt-BR')} hastes nobres
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-[#66736A] block">Lucro Líquido Anual Projetado:</span>
+              <span className="text-xs text-slate-600 block">Lucro Líquido Anual Projetado:</span>
               <span className="text-xl font-bold text-emerald-400">
                 R$ {metricas.lucroLiquidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

@@ -91,7 +91,7 @@ export const IrrigacaoPivoModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-[#EAF4E7] p-6 rounded-2xl backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-slate-200 p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-cyan-500/10 border border-cyan-500/30 rounded-xl text-cyan-400">
@@ -107,7 +107,7 @@ export const IrrigacaoPivoModule: React.FC = () => {
                   Tarifa Noturna -70%
                 </span>
               </div>
-              <p className="text-sm text-[#66736A] mt-0.5">
+              <p className="text-sm text-slate-600 mt-0.5">
                 Controle angular, lâmina d'água ($ET_c$), sensores de umidade de solo TDR e automação de tarifa especial irrigante.
               </p>
             </div>
@@ -132,8 +132,8 @@ export const IrrigacaoPivoModule: React.FC = () => {
 
       {/* Cards de Monitoramento Hídrico e Energético */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
-          <div className="flex items-center justify-between text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Evapotranspiração (ETc)</span>
             <Waves className="w-4 h-4 text-cyan-400" />
           </div>
@@ -141,8 +141,8 @@ export const IrrigacaoPivoModule: React.FC = () => {
           <p className="text-xs text-slate-500 mt-1">ET₀: {et0MmDia} mm × Kc: {kcCultura}</p>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
-          <div className="flex items-center justify-between text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Lâmina Aplicada Atual</span>
             <Droplet className="w-4 h-4 text-emerald-400" />
           </div>
@@ -150,8 +150,8 @@ export const IrrigacaoPivoModule: React.FC = () => {
           <p className="text-xs text-slate-500 mt-1">Tempo de volta: {tempoVoltaHoras} horas ({velocidadeRelogioPct}%)</p>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
-          <div className="flex items-center justify-between text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Água Disponível no Solo</span>
             <CheckCircle2 className="w-4 h-4 text-indigo-400" />
           </div>
@@ -176,8 +176,8 @@ export const IrrigacaoPivoModule: React.FC = () => {
       {/* Grid Principal: Cockpit do Pivô (Posição Angular & Controles) + Sondas de Solo */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel do Pivô Central (2 colunas) */}
-        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] p-5 rounded-2xl space-y-5">
-          <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-3">
+        <div className="lg:col-span-2 bg-white border border-slate-200 p-5 rounded-2xl space-y-5">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-3">
             <div>
               <div className="flex items-center gap-2">
                 <h2 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
@@ -187,13 +187,13 @@ export const IrrigacaoPivoModule: React.FC = () => {
                 <span className={`px-2 py-0.5 rounded text-[10px] font-bold flex items-center gap-1 ${
                   iotOnline
                     ? 'bg-emerald-950 text-emerald-400 border border-emerald-800'
-                    : 'bg-slate-800 text-[#66736A]'
+                    : 'bg-slate-800 text-slate-600'
                 }`}>
                   <Radio className="w-3 h-3 text-emerald-400 animate-pulse" />
                   IoT LIVE
                 </span>
               </div>
-              <p className="text-xs text-[#66736A] mt-0.5">
+              <p className="text-xs text-slate-600 mt-0.5">
                 Bomba rio Teles Pires • Pressão: <b className="text-cyan-400 font-mono">{pressaoBar} bar</b> • Vazão: <b className="text-emerald-400 font-mono">{vazaoM3h} m³/h</b>
               </p>
             </div>
@@ -203,11 +203,11 @@ export const IrrigacaoPivoModule: React.FC = () => {
           </div>
 
           {/* Gráfico do Pivô / Visualizador Circular do Raio */}
-          <div className="p-6 bg-[#F7F9F5] rounded-2xl border border-[#EAF4E7]/80 flex flex-col md:flex-row items-center justify-around gap-6">
+          <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200/80 flex flex-col md:flex-row items-center justify-around gap-6">
             <div className="relative w-48 h-48 rounded-full border-4 border-dashed border-cyan-500/40 flex items-center justify-center bg-slate-900/60 shadow-inner">
               {/* Centro do Pivô */}
               <div className="w-6 h-6 rounded-full bg-cyan-400 border-2 border-white shadow-lg shadow-cyan-500/50 flex items-center justify-center z-10">
-                <div className="w-2 h-2 rounded-full bg-[#F7F9F5]"></div>
+                <div className="w-2 h-2 rounded-full bg-slate-50"></div>
               </div>
 
               {/* Braço Metálico Giratório */}
@@ -226,36 +226,36 @@ export const IrrigacaoPivoModule: React.FC = () => {
             </div>
 
             <div className="space-y-3 text-xs w-full max-w-xs">
-              <div className="flex justify-between border-b border-[#EAF4E7] pb-1.5">
-                <span className="text-[#66736A]">Área Irrigada:</span>
-                <span className="font-bold text-[#26332A]">510 hectares</span>
+              <div className="flex justify-between border-b border-slate-200 pb-1.5">
+                <span className="text-slate-600">Área Irrigada:</span>
+                <span className="font-bold text-slate-900">510 hectares</span>
               </div>
-              <div className="flex justify-between border-b border-[#EAF4E7] pb-1.5">
-                <span className="text-[#66736A]">Raio do Equipamento:</span>
-                <span className="font-bold text-[#26332A] font-mono">1.274 metros</span>
+              <div className="flex justify-between border-b border-slate-200 pb-1.5">
+                <span className="text-slate-600">Raio do Equipamento:</span>
+                <span className="font-bold text-slate-900 font-mono">1.274 metros</span>
               </div>
-              <div className="flex justify-between border-b border-[#EAF4E7] pb-1.5">
-                <span className="text-[#66736A]">Número de Torres:</span>
-                <span className="font-bold text-[#26332A]">18 vãos + balanço</span>
+              <div className="flex justify-between border-b border-slate-200 pb-1.5">
+                <span className="text-slate-600">Número de Torres:</span>
+                <span className="font-bold text-slate-900">18 vãos + balanço</span>
               </div>
-              <div className="flex justify-between border-b border-[#EAF4E7] pb-1.5">
-                <span className="text-[#66736A]">Sentido:</span>
+              <div className="flex justify-between border-b border-slate-200 pb-1.5">
+                <span className="text-slate-600">Sentido:</span>
                 <span className="font-bold text-emerald-400 flex items-center gap-1">
                   <RotateCw className="w-3.5 h-3.5" />
                   {sentidoRotacao === 'HORARIO' ? 'Sentido Horário' : 'Anti-horário'}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Tempo para Volta Completa:</span>
+                <span className="text-slate-600">Tempo para Volta Completa:</span>
                 <span className="font-bold text-amber-300 font-mono">{tempoVoltaHoras} horas</span>
               </div>
             </div>
           </div>
 
           {/* Controles do Percentímetro (Velocidade) */}
-          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] space-y-3 text-xs">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3 text-xs">
             <div className="flex justify-between items-center">
-              <span className="font-bold text-[#26332A] flex items-center gap-1.5">
+              <span className="font-bold text-slate-900 flex items-center gap-1.5">
                 <Sliders className="w-4 h-4 text-cyan-400" />
                 Percentímetro de Velocidade do Pivô:
               </span>
@@ -281,20 +281,20 @@ export const IrrigacaoPivoModule: React.FC = () => {
         </div>
 
         {/* Perfil de Sondas de Solo TDR & Balanço Hídrico (1 coluna) */}
-        <div className="bg-white border border-[#EAF4E7] p-5 rounded-2xl flex flex-col justify-between space-y-4">
+        <div className="bg-white border border-slate-200 p-5 rounded-2xl flex flex-col justify-between space-y-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
               <Waves className="w-5 h-5 text-indigo-400" />
               <h2 className="text-base font-bold text-[#1D4B38]">Sondas de Umidade TDR</h2>
             </div>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Leituras contínuas da matriz de umidade do solo em três profundidades radiculares:
             </p>
 
             {/* Sonda 20cm */}
             <div className="space-y-3 text-xs">
-              <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]">
-                <div className="flex justify-between text-[#26332A] mb-1">
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <div className="flex justify-between text-slate-900 mb-1">
                   <span className="font-semibold">Camada Superficial (0 - 20 cm)</span>
                   <span className="font-mono text-cyan-400 font-bold">21.8%</span>
                 </div>
@@ -305,8 +305,8 @@ export const IrrigacaoPivoModule: React.FC = () => {
               </div>
 
               {/* Sonda 40cm */}
-              <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]">
-                <div className="flex justify-between text-[#26332A] mb-1">
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <div className="flex justify-between text-slate-900 mb-1">
                   <span className="font-semibold">Camada Média (20 - 40 cm)</span>
                   <span className="font-mono text-emerald-400 font-bold">24.5%</span>
                 </div>
@@ -317,8 +317,8 @@ export const IrrigacaoPivoModule: React.FC = () => {
               </div>
 
               {/* Sonda 60cm */}
-              <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]">
-                <div className="flex justify-between text-[#26332A] mb-1">
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <div className="flex justify-between text-slate-900 mb-1">
                   <span className="font-semibold">Camada Profunda (40 - 60 cm)</span>
                   <span className="font-mono text-indigo-400 font-bold">28.0%</span>
                 </div>
@@ -334,7 +334,7 @@ export const IrrigacaoPivoModule: React.FC = () => {
             <div className="flex items-center gap-1.5 font-bold text-cyan-300">
               <Sparkles className="w-4 h-4" /> Recomendação do Algoritmo:
             </div>
-            <p className="text-[#26332A]">
+            <p className="text-slate-900">
               Lâmina de reposição hídrica calculada em <strong>{etcMmDia.toFixed(1)} mm</strong>. O sistema agendou automaticamente o acionamento para as <strong>21:30</strong> aproveitando o horário de tarifa noturna reduzida.
             </p>
           </div>

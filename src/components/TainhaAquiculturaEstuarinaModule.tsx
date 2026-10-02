@@ -112,7 +112,7 @@ export const TainhaAquiculturaEstuarinaModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-cyan-600 to-blue-500 flex items-center justify-center shadow-lg shadow-cyan-500/20">
             <Fish className="w-7 h-7 text-white" />
@@ -126,7 +126,7 @@ export const TainhaAquiculturaEstuarinaModule: React.FC = () => {
                 Módulo 112 • Mugil liza, Bottarga Nobre & Circulação Estuarina
               </span>
             </div>
-            <p className="text-sm text-[#66736A] mt-1">
+            <p className="text-sm text-slate-600 mt-1">
               Engorda em lagoas costeiras e estuários, manejo de salinidade dinâmica (5-25 ppt) e extração de ovas para cura de Bottarga a R$ 420/kg.
             </p>
           </div>
@@ -145,9 +145,9 @@ export const TainhaAquiculturaEstuarinaModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Biomassa Total Peixe</span>
+            <span className="text-xs font-medium text-slate-600">Biomassa Total Peixe</span>
             <Fish className="w-5 h-5 text-cyan-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -158,9 +158,9 @@ export const TainhaAquiculturaEstuarinaModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Bottarga Curada</span>
+            <span className="text-xs font-medium text-slate-600">Bottarga Curada</span>
             <Sparkles className="w-5 h-5 text-amber-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -171,9 +171,9 @@ export const TainhaAquiculturaEstuarinaModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Receita Integrada</span>
+            <span className="text-xs font-medium text-slate-600">Receita Integrada</span>
             <TrendingUp className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -184,9 +184,9 @@ export const TainhaAquiculturaEstuarinaModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Lucro Líquido do Ciclo</span>
+            <span className="text-xs font-medium text-slate-600">Lucro Líquido do Ciclo</span>
             <Award className="w-5 h-5 text-blue-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -199,13 +199,13 @@ export const TainhaAquiculturaEstuarinaModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('tanques')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'tanques'
               ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Fish className="w-4 h-4" />
@@ -217,7 +217,7 @@ export const TainhaAquiculturaEstuarinaModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'bottarga'
               ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Sparkles className="w-4 h-4" />
@@ -229,7 +229,7 @@ export const TainhaAquiculturaEstuarinaModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'qualidade_agua'
               ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Waves className="w-4 h-4" />
@@ -241,7 +241,7 @@ export const TainhaAquiculturaEstuarinaModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -251,15 +251,15 @@ export const TainhaAquiculturaEstuarinaModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'tanques' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Fish className="w-5 h-5 text-cyan-400" />
             Viveiros Estuarinos & Monitoramento de Maturação Gonadal
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-[#26332A]">
-              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
+            <table className="w-full text-left text-sm text-slate-900">
+              <thead className="text-xs uppercase bg-slate-50 text-slate-600">
                 <tr>
                   <th className="px-4 py-3">Viveiro / Localidade</th>
                   <th className="px-4 py-3">Área (ha)</th>
@@ -296,44 +296,44 @@ export const TainhaAquiculturaEstuarinaModule: React.FC = () => {
 
       {activeTab === 'bottarga' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-cyan-400" />
               <h4 className="text-sm font-semibold text-white">1. Extração Cirúrgica</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Abertura abdominal cuidadosa mantendo a bolsa ovariana (gônada) 100% intacta, com pedúnculo preservado para amarração.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Integridade de Bolsa:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Integridade de Bolsa:</span>
               <span className="text-sm font-bold text-cyan-400 block">superior a 98% sem fissura</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Scale className="w-5 h-5 text-amber-400" />
               <h4 className="text-sm font-semibold text-white">2. Salga Marinha & Prensagem</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Sal marinho grosso não iodado durante 2 a 4 horas com prensa de madeira sob peso gradual para extração da umidade superficial.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Perda de Umidade Inicial:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Perda de Umidade Inicial:</span>
               <span className="text-sm font-bold text-amber-400 block">15% a 20% em 24h</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Award className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">3. Maturação & Cera de Abelha</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Cura em câmara fria ventilada a 14°C e 60% UR durante 15 a 25 dias. Revestimento em cera de abelha pura para conservação e valorização nobre.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Preço Mercado Gourmet:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Preço Mercado Gourmet:</span>
               <span className="text-sm font-bold text-emerald-400 block">R$ 420,00 a R$ 600,00/kg</span>
             </div>
           </div>
@@ -341,30 +341,30 @@ export const TainhaAquiculturaEstuarinaModule: React.FC = () => {
       )}
 
       {activeTab === 'qualidade_agua' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Droplets className="w-5 h-5 text-blue-400" />
             Salinidade Estuarina & Renovação Maregráfica
           </h3>
-          <p className="text-sm text-[#66736A]">
+          <p className="text-sm text-slate-600">
             A tainha é eurialina por excelência, suportando de 0 a 35 ppt. Na fase final de maturação gonadal, o aumento da salinidade para 18–25 ppt via marés induz o enchimento lipídico da gônada feminina.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Salinidade Ideal de Maturação</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Salinidade Ideal de Maturação</span>
               <p className="text-lg font-bold text-cyan-400 mt-1">18 a 24 ppt</p>
               <span className="text-[11px] text-slate-500">Estimula vitelogênese</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Oxigênio Dissolvido Crítico</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Oxigênio Dissolvido Crítico</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">superior a 5.0 mg/L</p>
               <span className="text-[11px] text-emerald-500/80">Aeradores tipo chafariz</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Conversão Alimentar (FCR)</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Conversão Alimentar (FCR)</span>
               <p className="text-lg font-bold text-white mt-1">1.25 a 1.35 : 1</p>
               <span className="text-[11px] text-slate-500">Ração peletizada flutuante</span>
             </div>
@@ -373,7 +373,7 @@ export const TainhaAquiculturaEstuarinaModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-cyan-400" />
             Simulador de Receita Dupla: Biomassa de Tainha + Bottarga Curada
@@ -381,55 +381,55 @@ export const TainhaAquiculturaEstuarinaModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Área de Viveiros (ha)</label>
+              <label className="text-xs font-medium text-slate-600">Área de Viveiros (ha)</label>
               <input
                 type="number"
                 value={areaTanquesHa}
                 onChange={(e) => setAreaTanquesHa(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Biomassa (kg/ha)</label>
+              <label className="text-xs font-medium text-slate-600">Biomassa (kg/ha)</label>
               <input
                 type="number"
                 value={biomassaDespescaKgHa}
                 onChange={(e) => setBiomassaDespescaKgHa(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Proporção Fêmeas c/ Ova (%)</label>
+              <label className="text-xs font-medium text-slate-600">Proporção Fêmeas c/ Ova (%)</label>
               <input
                 type="number"
                 value={proporcaoFemeasPct}
                 onChange={(e) => setProporcaoFemeasPct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Preço Bottarga (R$/kg)</label>
+              <label className="text-xs font-medium text-slate-600">Preço Bottarga (R$/kg)</label>
               <input
                 type="number"
                 value={precoKgBottargaCuradaReais}
                 onChange={(e) => setPrecoKgBottargaCuradaReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-[#66736A] block">Composição da Receita Bruta:</span>
+              <span className="text-xs text-slate-600 block">Composição da Receita Bruta:</span>
               <span className="text-sm font-semibold text-white">
                 Peixe: R$ {metricas.receitaCarneReais.toLocaleString('pt-BR')} | Bottarga: R$ {metricas.receitaBottargaReais.toLocaleString('pt-BR')}
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-[#66736A] block">Lucro Líquido Projetado:</span>
+              <span className="text-xs text-slate-600 block">Lucro Líquido Projetado:</span>
               <span className="text-xl font-bold text-emerald-400">
                 R$ {metricas.lucroLiquidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

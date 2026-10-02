@@ -119,7 +119,7 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
                     Ciclo Completo • DFA {dfaLeitoesAno} • ITGH Climatizado
                   </span>
                 </h2>
-                <p className="text-sm text-[#66736A]">
+                <p className="text-sm text-slate-600">
                   Monitoramento zootécnico por lote, alimentação de precisão (Dry-Feeder), índice de conforto térmico e margem sobre ração.
                 </p>
               </div>
@@ -138,14 +138,14 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: Animais Alojados */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Plantel Ativo na Granja</span>
             <Activity className="w-4 h-4 text-pink-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-pink-400">
             {suinoculturaMetrics.totalAnimaisAlojados.toLocaleString('pt-BR')}{' '}
-            <span className="text-xs font-normal text-[#66736A]">cabeças</span>
+            <span className="text-xs font-normal text-slate-600">cabeças</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             {totalMatrizes.toLocaleString('pt-BR')} matrizes ativas em gestação/maternidade.
@@ -153,8 +153,8 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
         </div>
 
         {/* KPI 2: Faturamento Anual */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Faturamento Bruto Anual</span>
             <Coins className="w-4 h-4 text-amber-400" />
           </div>
@@ -167,8 +167,8 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Margem Nutricional */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Margem sobre Ração</span>
             <TrendingUp className="w-4 h-4 text-emerald-400" />
           </div>
@@ -181,14 +181,14 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
         </div>
 
         {/* KPI 4: Produtividade DFA */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Produtividade DFA</span>
             <Award className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
             {dfaLeitoesAno.toFixed(1)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">leitões/matriz</span>
+            <span className="text-xs font-normal text-slate-600">leitões/matriz</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Padrão internacional de alta prolificidade (Embrapa Suínos).
@@ -199,18 +199,18 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
       {/* Grid de Lotes e Painel de Gestão */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Lotes Alojados */}
-        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <Layers className="w-5 h-5 text-pink-400" />
                 Galpões de Confinamento & Ambiência Térmica
               </h3>
-              <p className="text-xs text-[#66736A]">
+              <p className="text-xs text-slate-600">
                 Índice ITGH em tempo real, telemetria de sensores de CO₂, amônia e temperatura de bulbo úmido.
               </p>
             </div>
-            <span className="text-xs font-mono text-[#66736A]">
+            <span className="text-xs font-mono text-slate-600">
               {lotes.length} Galpões Monitorados
             </span>
           </div>
@@ -222,7 +222,7 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
               return (
                 <div
                   key={l.id}
-                  className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl hover:border-slate-700 transition-all space-y-2"
+                  className="p-4 bg-slate-50 border border-slate-200 rounded-xl hover:border-slate-700 transition-all space-y-2"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
@@ -243,7 +243,7 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-[#66736A]">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-600">
                     <span>Alojados: <strong className="text-white">{l.totalAnimais.toLocaleString('pt-BR')} cab</strong></span>
                     <span>Peso Médio: <strong className="text-pink-400">{l.pesoMedioKg} kg</strong></span>
                     <span>GPD: <strong className="text-emerald-400">{l.gpdEsperadoGdia} g/dia</strong></span>
@@ -256,12 +256,12 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
           </div>
 
           {/* Diretrizes Zootécnicas de Suinocultura 4.0 */}
-          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-pink-400 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes de Manejo e Biosseguridade ABPA / MAPA:
             </div>
-            <ul className="list-disc list-inside text-[#66736A] space-y-1">
+            <ul className="list-disc list-inside text-slate-600 space-y-1">
               <li>
                 <strong>Maternidade & Colostragem:</strong> Ingestão de colostro nas primeiras 6 horas de vida (mínimo 250 g/leitão) e aquecimento em escamoteador térmico a 32°C para erradicação do esmagamento.
               </li>
@@ -276,7 +276,7 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Parâmetros Zootécnicos & Comerciais */}
-        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Scale className="w-5 h-5 text-amber-400" />
             Parâmetros Zootécnicos & Preços
@@ -284,74 +284,74 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
 
           <div className="space-y-4 text-xs">
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Matrizes Ativas no Plantel</label>
+              <label className="text-slate-600 font-medium block mb-1">Matrizes Ativas no Plantel</label>
               <input
                 type="number"
                 value={totalMatrizes}
                 onChange={(e) => setTotalMatrizes(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Desmamados / Fêmea / Ano (DFA)</label>
+              <label className="text-slate-600 font-medium block mb-1">Desmamados / Fêmea / Ano (DFA)</label>
               <input
                 type="number"
                 step="0.1"
                 value={dfaLeitoesAno}
                 onChange={(e) => setDfaLeitoesAno(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Peso Médio ao Abate (kg vivo)</label>
+              <label className="text-slate-600 font-medium block mb-1">Peso Médio ao Abate (kg vivo)</label>
               <input
                 type="number"
                 step="0.5"
                 value={pesoAbateKg}
                 onChange={(e) => setPesoAbateKg(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Preço do Kg Vivo Suíno (R$)</label>
+              <label className="text-slate-600 font-medium block mb-1">Preço do Kg Vivo Suíno (R$)</label>
               <input
                 type="number"
                 step="0.10"
                 value={precoKgVivoReais}
                 onChange={(e) => setPrecoKgVivoReais(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-emerald-400 font-mono font-bold"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-emerald-400 font-mono font-bold"
               />
             </div>
 
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Custo Nutricional por Kg Vivo (R$)</label>
+              <label className="text-slate-600 font-medium block mb-1">Custo Nutricional por Kg Vivo (R$)</label>
               <input
                 type="number"
                 step="0.05"
                 value={custoNutricaoKgVivoReais}
                 onChange={(e) => setCustoNutricaoKgVivoReais(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-rose-400 font-mono font-bold"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-rose-400 font-mono font-bold"
               />
             </div>
 
             {/* Resumo Consolidado */}
-            <div className="pt-3 border-t border-[#EAF4E7] space-y-2">
+            <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Faturamento Anual:</span>
+                <span className="text-slate-600">Faturamento Anual:</span>
                 <span className="text-amber-400 font-mono font-bold">
                   R$ {suinoculturaMetrics.faturamentoAnualReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Custo Total de Ração:</span>
+                <span className="text-slate-600">Custo Total de Ração:</span>
                 <span className="text-rose-400 font-mono font-bold">
                   -R$ {suinoculturaMetrics.custoNutricionalTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
-              <div className="flex justify-between border-t border-[#EAF4E7] pt-2 font-bold">
+              <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Margem sobre Nutrição:</span>
                 <span className="text-emerald-400 font-mono">
                   R$ {suinoculturaMetrics.margemNutricionalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}

@@ -2,40 +2,99 @@
 @import "leaflet/dist/leaflet.css";
 
 @theme {
-  --color-agro-forest: #285943;
-  --color-agro-green: #5F8F52;
-  --color-agro-soft: #8FBF88;
-  --color-agro-light: #EAF4E7;
-  --color-agro-sand: #F4F0E6;
-  --color-agro-bg: #F7F9F5;
-  --color-agro-card: #FFFFFF;
-  --color-agro-text: #26332A;
-  --color-agro-muted: #66736A;
-  --color-agro-sky: #7DA9C4;
-  --color-agro-amber: #D9B65D;
-  --color-agro-alert: #C96A5B;
+  /* Paleta Profissional AgTech Alta Visibilidade (WCAG 2.1 AAA) */
+  --color-agro-forest: #143D2B;       /* Verde Floresta Imperial / Âncora Visual */
+  --color-agro-green: #15803D;        /* Verde Agrícola Primário (Alto Contraste) */
+  --color-agro-soft: #16A34A;         /* Verde Esmeralda Acento */
+  --color-agro-light: #CBD5E1;        /* Borda / Divisor Nítido */
+  --color-agro-sand: #F1F5F9;         /* Fundo Neutro Secundário */
+  --color-agro-bg: #F8FAFC;           /* Fundo Geral Alto Contraste */
+  --color-agro-card: #FFFFFF;         /* Superfície do Card */
+  --color-agro-text: #0F172A;         /* Tipografia Principal (Preto Tinta Nítido) */
+  --color-agro-muted: #334155;        /* Tipografia Secundária Legível (Contraste 8:1) */
+  --color-agro-sky: #0369A1;          /* Azul Céu Técnico */
+  --color-agro-amber: #B45309;        /* Âmbar Safra / Soja Ouro */
+  --color-agro-alert: #B91C1C;        /* Vermelho Fiscal / Alerta */
 }
 
-/* Estilos adicionais para Mapas e componentes Agro */
+/* Tipografia e Renderização Nítida */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color: #0F172A;
+  background-color: #F8FAFC;
+}
+
+/* Utilitários Visuais de Alto Contraste */
+.card-agro-enterprise {
+  background-color: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.06);
+  border-radius: 1rem;
+}
+
+.card-agro-enterprise:hover {
+  border-color: #94A3B8;
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.06);
+}
+
+/* Garantia de Alto Contraste para Classes Antigas */
+[class*="text-[#66736A]"] {
+  color: #334155 !important;
+}
+[class*="border-[#EAF4E7]"] {
+  border-color: #CBD5E1 !important;
+}
+[class*="bg-[#F7F9F5]"] {
+  background-color: #F8FAFC !important;
+}
+[class*="text-[#5F8F52]"] {
+  color: #15803D !important;
+}
+[class*="bg-[#EAF4E7]"] {
+  background-color: #DCFCE7 !important;
+}
+[class*="border-[#8FBF88]"] {
+  border-color: #86EFAC !important;
+}
+[class*="text-[#26332A]"] {
+  color: #0F172A !important;
+}
+[class*="text-[#8FBF88]"] {
+  color: #15803D !important;
+}
+[class*="bg-[#F4F0E6]"] {
+  background-color: #FEF3C7 !important;
+}
+[class*="text-[#D9B65D]"] {
+  color: #B45309 !important;
+}
+[class*="text-[#C96A5B]"] {
+  color: #B91C1C !important;
+}
+
+/* Mapas Leaflet */
 .leaflet-container {
   width: 100%;
   height: 100%;
   border-radius: 0.75rem;
   z-index: 10;
+  border: 1px solid #CBD5E1;
 }
 
-/* Scrollbar estilizada */
+/* Scrollbars Nítidas e Modernas */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #E2E8F0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
+  background: #94A3B8;
+  border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #64748B;
 }

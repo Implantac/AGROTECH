@@ -108,7 +108,7 @@ export const TorreControleLogisticoCocModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-cyan-500 to-blue-500 flex items-center justify-center shadow-lg shadow-cyan-500/20">
             <Radio className="w-7 h-7 text-slate-950" />
@@ -122,7 +122,7 @@ export const TorreControleLogisticoCocModule: React.FC = () => {
                 Módulo 125 • Telemetria RTK & Sincronismo de Fita Logística
               </span>
             </div>
-            <p className="text-sm text-[#66736A] mt-1">
+            <p className="text-sm text-slate-600 mt-1">
               Despacho dinâmico de frotas agrícolas, eliminação de tempo ocioso em filas de moega e redução de consumo de diesel com algoritmos de roteirização.
             </p>
           </div>
@@ -141,9 +141,9 @@ export const TorreControleLogisticoCocModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Economia Anual Projetada</span>
+            <span className="text-xs font-medium text-slate-600">Economia Anual Projetada</span>
             <DollarSign className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -154,9 +154,9 @@ export const TorreControleLogisticoCocModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Diesel Economizado</span>
+            <span className="text-xs font-medium text-slate-600">Diesel Economizado</span>
             <Fuel className="w-5 h-5 text-cyan-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -167,9 +167,9 @@ export const TorreControleLogisticoCocModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Tempo Poupado</span>
+            <span className="text-xs font-medium text-slate-600">Tempo Poupado</span>
             <Clock className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -180,9 +180,9 @@ export const TorreControleLogisticoCocModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Eficiência Média da Fita</span>
+            <span className="text-xs font-medium text-slate-600">Eficiência Média da Fita</span>
             <Award className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -195,13 +195,13 @@ export const TorreControleLogisticoCocModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('torre')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'torre'
               ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Radio className="w-4 h-4" />
@@ -213,7 +213,7 @@ export const TorreControleLogisticoCocModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'telemetria'
               ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Truck className="w-4 h-4" />
@@ -225,7 +225,7 @@ export const TorreControleLogisticoCocModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'algoritmo'
               ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Cpu className="w-4 h-4" />
@@ -237,7 +237,7 @@ export const TorreControleLogisticoCocModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -247,15 +247,15 @@ export const TorreControleLogisticoCocModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'torre' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Radio className="w-5 h-5 text-cyan-400" />
             Visão Geral em Tempo Real da Fita Logística Agroindustrial
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-[#26332A]">
-              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
+            <table className="w-full text-left text-sm text-slate-900">
+              <thead className="text-xs uppercase bg-slate-50 text-slate-600">
                 <tr>
                   <th className="px-4 py-3">Prefixo / Veículo</th>
                   <th className="px-4 py-3">Tipo</th>
@@ -271,8 +271,8 @@ export const TorreControleLogisticoCocModule: React.FC = () => {
                 {frota.map((v) => (
                   <tr key={v.id} className="hover:bg-slate-800/30">
                     <td className="px-4 py-3 font-semibold text-white">{v.prefixo}</td>
-                    <td className="px-4 py-3 text-xs text-[#66736A]">{v.tipo}</td>
-                    <td className="px-4 py-3 text-[#26332A]">{v.motoristaOperador}</td>
+                    <td className="px-4 py-3 text-xs text-slate-600">{v.tipo}</td>
+                    <td className="px-4 py-3 text-slate-900">{v.motoristaOperador}</td>
                     <td className="px-4 py-3">{v.velocidadeKmH} km/h</td>
                     <td className="px-4 py-3 text-cyan-400">{v.consumoLPorHora} L/h</td>
                     <td className="px-4 py-3 font-bold text-amber-400">{v.tempoEsperaFilaMin} min</td>
@@ -292,44 +292,44 @@ export const TorreControleLogisticoCocModule: React.FC = () => {
 
       {activeTab === 'telemetria' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Navigation className="w-5 h-5 text-cyan-400" />
               <h4 className="text-sm font-semibold text-white">Geolocalização RTK Submétrica</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Antenas GNSS RTK integradas ao CAN Bus informando posicionamento preciso das frentes de colheita e estimando tempo de chegada (ETA) à moega.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Precisão Posicional:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Precisão Posicional:</span>
               <span className="text-sm font-bold text-cyan-400 block">inferior a 2.5 cm em linha de tráfego</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Fuel className="w-5 h-5 text-yellow-400" />
               <h4 className="text-sm font-semibold text-white">Gestão Energética de Diesel</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Alertas automáticos para motor ocioso acima de 5 minutos, acelerações bruscas e desvios de rota homologada em estradas vicinais.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Ociosidade de Motor:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Ociosidade de Motor:</span>
               <span className="text-sm font-bold text-yellow-400 block">reduzida de 14% para 2.8%</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Clock className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Slotting Dinâmico de Moega</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Agendamento eletrônico de descarga sincronizado com a taxa horária de esmagamento industrial, eliminando comboios e filas externas.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Tempo Médio na Moega:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Tempo Médio na Moega:</span>
               <span className="text-sm font-bold text-emerald-400 block">7.5 minutos / caminhão</span>
             </div>
           </div>
@@ -337,36 +337,36 @@ export const TorreControleLogisticoCocModule: React.FC = () => {
       )}
 
       {activeTab === 'algoritmo' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Cpu className="w-5 h-5 text-cyan-400" />
             Inteligência Artificial de Alocação e Despacho em Malha Aberta
           </h3>
-          <p className="text-sm text-[#66736A]">
+          <p className="text-sm text-slate-600">
             O algoritmo prevê a taxa de enchimento de cada transbordo na frente de colheita e despacha o rodotrem mais próximo para acoplamento pontual, evitando paradas de colheitadeira por falta de caixa de transbordo.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-2">
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">1. Taxa de Colheita</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">1. Taxa de Colheita</span>
               <p className="text-sm font-bold text-white mt-1">95 ton/h por frente</p>
               <span className="text-[11px] text-cyan-400">Leitura contínua CAN</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">2. Previsão de Chegada</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">2. Previsão de Chegada</span>
               <p className="text-sm font-bold text-white mt-1">ETA Dinâmico</p>
               <span className="text-[11px] text-cyan-400">Algoritmo Dijkstra ponderado</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">3. Moega Sincronizada</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">3. Moega Sincronizada</span>
               <p className="text-sm font-bold text-white mt-1">Capacidade 1.400 t/h</p>
               <span className="text-[11px] text-cyan-400">Slotting sem fila</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">4. Retorno ao Talhão</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">4. Retorno ao Talhão</span>
               <p className="text-sm font-bold text-white mt-1">Velocidade cruzeiro</p>
               <span className="text-[11px] text-cyan-400">Eficiência de fita máxima</span>
             </div>
@@ -375,7 +375,7 @@ export const TorreControleLogisticoCocModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-cyan-400" />
             Simulador de Redução de Ciclo Logístico & Ganhos de Escala
@@ -383,56 +383,56 @@ export const TorreControleLogisticoCocModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Viagens na Safra</label>
+              <label className="text-xs font-medium text-slate-600">Viagens na Safra</label>
               <input
                 type="number"
                 value={viagensSafra}
                 onChange={(e) => setViagensSafra(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Minutos Reduzidos / Viagem</label>
+              <label className="text-xs font-medium text-slate-600">Minutos Reduzidos / Viagem</label>
               <input
                 type="number"
                 value={reducaoCicloAlvoMinutos}
                 onChange={(e) => setReducaoCicloAlvoMinutos(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Custo Hora Caminhão (R$)</label>
+              <label className="text-xs font-medium text-slate-600">Custo Hora Caminhão (R$)</label>
               <input
                 type="number"
                 value={custoHoraCaminhaoReais}
                 onChange={(e) => setCustoHoraCaminhaoReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Diesel Poupado (L/viagem)</label>
+              <label className="text-xs font-medium text-slate-600">Diesel Poupado (L/viagem)</label>
               <input
                 type="number"
                 step="0.5"
                 value={dieselEconomizadoPorViagemLitros}
                 onChange={(e) => setDieselEconomizadoPorViagemLitros(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-cyan-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-[#66736A] block">Horas de Operação Poupadas:</span>
+              <span className="text-xs text-slate-600 block">Horas de Operação Poupadas:</span>
               <span className="text-base font-bold text-yellow-400">
                 {metricas.horasEconomizadasSafra.toLocaleString('pt-BR')} horas de frota ativa
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-[#66736A] block">Economia Financeira Líquida:</span>
+              <span className="text-xs text-slate-600 block">Economia Financeira Líquida:</span>
               <span className="text-xl font-bold text-emerald-400">
                 R$ {metricas.economiaTotalSafraReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

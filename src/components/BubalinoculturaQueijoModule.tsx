@@ -117,19 +117,19 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
             <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
               🧀 Bubalinocultura Leiteira & Laticínio Gourmet On-Farm
             </h2>
-            <p className="text-sm text-[#26332A] max-w-3xl leading-relaxed">
+            <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
               Zootecnia e agroindústria de búfalas leiteiras (Murrah e Mediterrâneo): leite super concentrado (7,8% gordura, 4,4% proteína), rendimento queijeiro de 5,2 L/kg de mozzarella, alta rusticidade em pastagens de várzea e perfil genético naturalmente A2A2.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Búfalas Ordenha</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Búfalas Ordenha</span>
               <span className="text-xl font-black text-blue-400">60 fêmeas</span>
-              <span className="text-[10px] text-[#66736A] block mt-0.5">630 L/dia</span>
+              <span className="text-[10px] text-slate-600 block mt-0.5">630 L/dia</span>
             </div>
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Lucro Líquido Anual</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Lucro Líquido Anual</span>
               <span className="text-xl font-black text-emerald-400">R$ 1,56M</span>
               <span className="text-[10px] text-emerald-400/80 block mt-0.5">R$ 9,20 / Litro Eq.</span>
             </div>
@@ -139,8 +139,8 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-blue-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-blue-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Rendimento Queijeiro</span>
             <Scale className="w-4 h-4 text-emerald-400" />
           </div>
@@ -151,19 +151,19 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-blue-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-blue-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Teor de Sólidos Nobres</span>
             <Milk className="w-4 h-4 text-blue-400" />
           </div>
           <div className="text-2xl font-black text-blue-400">7.8% Gord • 4.4% Prot</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             18.5% Sólidos Totais • Textura Cremosa
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-blue-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-blue-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Genética de Caseína</span>
             <ShieldCheck className="w-4 h-4 text-cyan-400" />
           </div>
@@ -173,26 +173,26 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-blue-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-blue-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Produção Queijo Safra</span>
             <Award className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">32.712 kg</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Mozzarella, Burrata & Bocconcini
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('rebanho')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'rebanho'
               ? 'bg-blue-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Milk className="w-4 h-4" />
@@ -204,7 +204,7 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'qualidade_leite'
               ? 'bg-blue-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Scale className="w-4 h-4" />
@@ -216,7 +216,7 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'laticinio_produtos'
               ? 'bg-blue-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -228,7 +228,7 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
               ? 'bg-blue-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -239,19 +239,19 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
       {/* Conteúdo Aba 1: Rebanho */}
       {activeTab === 'rebanho' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Milk className="w-5 h-5 text-blue-400" />
               Lotes de Búfalas em Lactação (Murrah e Mediterrâneo)
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               As búfalas apresentam longevidade reprodutiva excepcional (mais de 15 a 18 anos produtivas), alta conversão alimentar de gramíneas tropicais fibrosas e baixíssima incidência de mastite clínica (&lt; 1.5%).
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#EAF4E7] text-[#66736A] font-bold uppercase tracking-wider">
+                  <tr className="border-b border-slate-200 text-slate-600 font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Lote / Identificação</th>
                     <th className="py-3 px-3">Raça</th>
                     <th className="py-3 px-3">Búfalas</th>
@@ -267,11 +267,11 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
                     <tr key={l.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-white">{l.identificacao}</div>
-                        <div className="text-[11px] text-[#66736A] font-mono">{l.id}</div>
+                        <div className="text-[11px] text-slate-600 font-mono">{l.id}</div>
                       </td>
                       <td className="py-3.5 px-3 font-bold text-blue-300">{l.raca}</td>
-                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{l.totalCabecas} fêmeas</td>
-                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{l.diasEmLactacaoMedio} dias</td>
+                      <td className="py-3.5 px-3 font-mono text-slate-900">{l.totalCabecas} fêmeas</td>
+                      <td className="py-3.5 px-3 font-mono text-slate-900">{l.diasEmLactacaoMedio} dias</td>
                       <td className="py-3.5 px-3 font-mono font-bold text-white">
                         {l.producaoMediaLitrosDia.toFixed(1)} L/dia
                       </td>
@@ -294,42 +294,42 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
       {/* Conteúdo Aba 2: Comparativo Bromatológico */}
       {activeTab === 'qualidade_leite' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Scale className="w-5 h-5 text-blue-400" />
               Comparativo Bromatológico: Búfala vs Vaca
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               O leite de búfala é um concentrado natural de nutrientes. A cor perolada se deve à conversão completa do betacaroteno em Vitamina A pura na glândula mamária.
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Gordura Láctea:</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Gordura Láctea:</span>
                 <div className="flex gap-4 font-mono font-bold">
                   <span className="text-blue-400">Búfala: 7.8%</span>
                   <span className="text-slate-500">Vaca: 3.8%</span>
                 </div>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Proteína Bruta:</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Proteína Bruta:</span>
                 <div className="flex gap-4 font-mono font-bold">
                   <span className="text-blue-400">Búfala: 4.4%</span>
                   <span className="text-slate-500">Vaca: 3.2%</span>
                 </div>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Cálcio Mineral (mg/100g):</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Cálcio Mineral (mg/100g):</span>
                 <div className="flex gap-4 font-mono font-bold">
                   <span className="text-blue-400">Búfala: 195 mg</span>
                   <span className="text-slate-500">Vaca: 120 mg</span>
                 </div>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Rendimento Mozzarella:</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Rendimento Mozzarella:</span>
                 <div className="flex gap-4 font-mono font-bold">
                   <span className="text-emerald-400">5.2 L / kg queijo</span>
                   <span className="text-slate-500">10.0 L / kg queijo</span>
@@ -338,12 +338,12 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <ShieldCheck className="w-5 h-5 text-cyan-400" />
               Selo 100% Caseína A2A2
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               O leite de búfala é naturalmente livre do peptídeo inflamatório BCM-7 (*beta-casomorfina-7*), sendo indicado para pessoas sensíveis às caseínas convencionais bovinas (A1).
             </p>
 
@@ -363,44 +363,44 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
       {/* Conteúdo Aba 3: Laticínio & Filagem */}
       {activeTab === 'laticinio_produtos' && (
         <div className="space-y-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Award className="w-5 h-5 text-amber-400" />
               Portfólio Agroindustrial de Queijos de Massa Filada
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Processamento higiênico on-farm com filagem a quente (80°C a 85°C) que confere elasticidade, umidade e textura úmida típica da autêntica tradição italiana.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
                 <span className="text-xs font-bold text-blue-400 block">Mozzarella em Bola na Salmoura</span>
                 <div className="text-xl font-black text-white">50% do Volume</div>
-                <p className="text-[11px] text-[#66736A]">
+                <p className="text-[11px] text-slate-600">
                   Formato tradicional 150g e 250g. Preço médio: R$ 65,00 a R$ 75,00/kg.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
                 <span className="text-xs font-bold text-cyan-400 block">Burrata com Stracciatella</span>
                 <div className="text-xl font-black text-white">25% do Volume</div>
-                <p className="text-[11px] text-[#66736A]">
+                <p className="text-[11px] text-slate-600">
                   Bolsa de mozzarella recheada com fios de queijo e creme de leite. Preço: R$ 90,00 a R$ 115,00/kg.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
                 <span className="text-xs font-bold text-amber-400 block">Bocconcini (Cerejinha)</span>
                 <div className="text-xl font-black text-white">15% do Volume</div>
-                <p className="text-[11px] text-[#66736A]">
+                <p className="text-[11px] text-slate-600">
                   Pequenas esferas de 15g ideais para saladas Caprese e coquetéis. Preço: R$ 70,00 a R$ 80,00/kg.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
                 <span className="text-xs font-bold text-emerald-400 block">Ricota Cremosa de Soro</span>
                 <div className="text-xl font-black text-white">10% Subproduto</div>
-                <p className="text-[11px] text-[#66736A]">
+                <p className="text-[11px] text-slate-600">
                   Aproveitamento integral do soro doce da queijaria. Preço: R$ 38,00 a R$ 45,00/kg.
                 </p>
               </div>
@@ -412,14 +412,14 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
       {/* Conteúdo Aba 4: Simulador */}
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-blue-400" />
               Parâmetros da Queijaria & Rebanho
             </h3>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Búfalas em Lactação</span>
                 <span className="font-mono text-blue-400">{totalBufalas} fêmeas</span>
               </div>
@@ -435,7 +435,7 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Produção Média / Búfala / Dia</span>
                 <span className="font-mono text-blue-400">{producaoMediaLitros.toFixed(1)} L/dia</span>
               </div>
@@ -451,7 +451,7 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Rendimento (Litros / kg Queijo)</span>
                 <span className="font-mono text-emerald-400">{litrosPorKgQueijo.toFixed(1)} L / kg</span>
               </div>
@@ -467,7 +467,7 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Médio Queijo Gourmet (R$/kg)</span>
                 <span className="font-mono text-emerald-400">R$ {precoKgQueijoReais.toFixed(2)}</span>
               </div>
@@ -483,7 +483,7 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Custo Diário Manejo / Búfala</span>
                 <span className="font-mono text-rose-400">R$ {custoManejoDiaPorCabeca.toFixed(2)}</span>
               </div>
@@ -499,39 +499,39 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               DRE Agroindustrial Anual do Laticínio
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Volume de Leite</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Volume de Leite</span>
                 <span className="font-mono font-bold text-white text-base">
                   {(metricasBubalinas.producaoLactacaoLitros / 1000).toFixed(1)}k L
                 </span>
-                <span className="text-[10px] text-[#66736A] block">{diasLactacao} dias lactação</span>
+                <span className="text-[10px] text-slate-600 block">{diasLactacao} dias lactação</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Queijo Produzido</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Queijo Produzido</span>
                 <span className="font-mono font-bold text-blue-400 text-base">
                   {(metricasBubalinas.producaoQueijoKg / 1000).toFixed(1)} ton
                 </span>
                 <span className="text-[10px] text-blue-400/80 block">{litrosPorKgQueijo} L/kg</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Faturamento Bruto</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Faturamento Bruto</span>
                 <span className="font-mono font-bold text-white text-base">
                   R$ {(metricasBubalinas.receitaTotalQueijo / 1000000).toFixed(2)}M
                 </span>
-                <span className="text-[10px] text-[#66736A] block">Linha Artesanal</span>
+                <span className="text-[10px] text-slate-600 block">Linha Artesanal</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Lucro Líquido Anual</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido Anual</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {(metricasBubalinas.lucroLiquidoAgroindustria / 1000000).toFixed(2)}M
                 </span>
@@ -539,21 +539,21 @@ export const BubalinoculturaQueijoModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Receita Venda de Queijos ({metricasBubalinas.producaoQueijoKg.toLocaleString()} kg @ R$ {precoKgQueijoReais.toFixed(2)}):</span>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Receita Venda de Queijos ({metricasBubalinas.producaoQueijoKg.toLocaleString()} kg @ R$ {precoKgQueijoReais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-emerald-400">
                   R$ {metricasBubalinas.receitaTotalQueijo.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Custo Total de Manejo & Alimentação do Rebanho:</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Custo Total de Manejo & Alimentação do Rebanho:</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {metricasBubalinas.custoManejoTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Custo de Processamento, Filagem e Embalagens:</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Custo de Processamento, Filagem e Embalagens:</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {metricasBubalinas.custoProcessamentoTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>

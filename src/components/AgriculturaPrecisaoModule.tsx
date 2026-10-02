@@ -119,13 +119,13 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
       <div className="bg-gradient-to-r from-[#1D4B38] via-[#285943] to-[#3A6B4F] text-white p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border border-[#5F8F52]/40">
         <div className="space-y-1.5">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="px-2.5 py-1 bg-[#EAF4E7] text-[#285943] rounded-full text-xs font-bold flex items-center gap-1.5 shadow-sm">
+            <span className="px-2.5 py-1 bg-emerald-50 text-[#285943] rounded-full text-xs font-bold flex items-center gap-1.5 shadow-sm">
               <Cpu className="w-3.5 h-3.5 text-[#285943]" /> VRA & Sensoriamento Remoto
             </span>
             <span className="text-xs text-[#EAF4E7] font-medium">Amostragem Georreferenciada em Grid + Sentinel-2 Level-2A</span>
           </div>
           <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-2">
-            <Layers className="w-6 h-6 text-[#8FBF88]" /> Agricultura de Precisão & Satélite Multiespectral
+            <Layers className="w-6 h-6 text-emerald-600" /> Agricultura de Precisão & Satélite Multiespectral
           </h2>
           <p className="text-xs sm:text-sm text-[#EAF4E7] max-w-2xl leading-relaxed">
             Prescrições em taxa variável (VRA) para plantio e adubação com exportação ISO-XML e monitoramento de vigor vegetativo via Copernicus Sentinel-2.
@@ -134,7 +134,7 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
 
         <div className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 text-right min-w-[200px] shadow-sm">
           <span className="text-[10px] text-[#EAF4E7] uppercase font-bold tracking-wider block">Economia em Fertilizantes</span>
-          <p className="text-2xl font-black text-[#D9B65D] mt-0.5">
+          <p className="text-2xl font-black text-amber-700 mt-0.5">
             R$ {economiaTotalEstimada.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
           </p>
           <span className="text-[10px] text-[#EAF4E7]/80 block mt-0.5">Média -18.4% de NPK</span>
@@ -142,13 +142,13 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
       </div>
 
       {/* Tabs de Seleção */}
-      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('prescricoes')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
             activeTab === 'prescricoes'
               ? 'bg-[#285943] text-white shadow-md'
-              : 'bg-[#F7F9F5] text-[#26332A] hover:bg-[#EAF4E7] border border-[#EAF4E7]'
+              : 'bg-slate-50 text-slate-900 hover:bg-emerald-50 border border-slate-200'
           }`}
         >
           <Sliders className="w-4 h-4" />
@@ -160,7 +160,7 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
             activeTab === 'sentinel2'
               ? 'bg-[#285943] text-white shadow-md'
-              : 'bg-[#F7F9F5] text-[#26332A] hover:bg-[#EAF4E7] border border-[#EAF4E7]'
+              : 'bg-slate-50 text-slate-900 hover:bg-emerald-50 border border-slate-200'
           }`}
         >
           <Satellite className="w-4 h-4" />
@@ -178,67 +178,67 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
               return (
                 <div
                   key={presc.id}
-                  className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-sm space-y-4 hover:border-[#5F8F52]/60 transition-all"
+                  className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-4 hover:border-[#5F8F52]/60 transition-all"
                 >
                   <div className="flex justify-between items-start">
                     <div>
-                      <span className="text-[10px] font-mono text-[#285943] bg-[#EAF4E7] px-2 py-0.5 rounded border border-[#5F8F52]/30 font-bold">
+                      <span className="text-[10px] font-mono text-[#285943] bg-emerald-50 px-2 py-0.5 rounded border border-[#5F8F52]/30 font-bold">
                         {presc.gradeAmostragem}
                       </span>
                       <h3 className="text-base font-bold text-[#285943] mt-1.5">{presc.nomePrescricao}</h3>
-                      <p className="text-xs text-[#66736A]">
-                        Talhão: <span className="font-semibold text-[#26332A]">{talhao?.codigo} - {talhao?.nome}</span> ({talhao?.areaHa} ha)
+                      <p className="text-xs text-slate-600">
+                        Talhão: <span className="font-semibold text-slate-900">{talhao?.codigo} - {talhao?.nome}</span> ({talhao?.areaHa} ha)
                       </p>
                     </div>
 
-                    <span className="px-2.5 py-0.5 bg-[#EAF4E7] text-[#285943] border border-[#5F8F52]/40 rounded-full text-[10px] font-bold">
+                    <span className="px-2.5 py-0.5 bg-emerald-50 text-[#285943] border border-[#5F8F52]/40 rounded-full text-[10px] font-bold">
                       {presc.statusExportacaoPiloto}
                     </span>
                   </div>
 
                   {/* Informações da Dosagem Variável */}
                   <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                    <div className="bg-[#F7F9F5] p-2.5 rounded-xl border border-[#EAF4E7]">
-                      <span className="text-[10px] text-[#66736A] block font-medium">Dose Mínima</span>
-                      <span className="text-sm font-black text-[#D9B65D] font-mono mt-0.5 block">
+                    <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                      <span className="text-[10px] text-slate-600 block font-medium">Dose Mínima</span>
+                      <span className="text-sm font-black text-amber-700 font-mono mt-0.5 block">
                         {presc.doseMinimaKgHa}
                       </span>
-                      <span className="text-[9px] text-[#66736A]">kg / ha</span>
+                      <span className="text-[9px] text-slate-600">kg / ha</span>
                     </div>
 
-                    <div className="bg-[#F7F9F5] p-2.5 rounded-xl border border-[#EAF4E7]">
-                      <span className="text-[10px] text-[#66736A] block font-medium">Dose Média</span>
-                      <span className="text-sm font-black text-[#5F8F52] font-mono mt-0.5 block">
+                    <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                      <span className="text-[10px] text-slate-600 block font-medium">Dose Média</span>
+                      <span className="text-sm font-black text-emerald-700 font-mono mt-0.5 block">
                         {presc.doseMediaKgHa}
                       </span>
-                      <span className="text-[9px] text-[#66736A]">kg / ha</span>
+                      <span className="text-[9px] text-slate-600">kg / ha</span>
                     </div>
 
-                    <div className="bg-[#F7F9F5] p-2.5 rounded-xl border border-[#EAF4E7]">
-                      <span className="text-[10px] text-[#66736A] block font-medium">Dose Máxima</span>
+                    <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                      <span className="text-[10px] text-slate-600 block font-medium">Dose Máxima</span>
                       <span className="text-sm font-black text-[#285943] font-mono mt-0.5 block">
                         {presc.doseMaximaKgHa}
                       </span>
-                      <span className="text-[9px] text-[#66736A]">kg / ha</span>
+                      <span className="text-[9px] text-slate-600">kg / ha</span>
                     </div>
                   </div>
 
                   {/* Insumo Recomendado */}
-                  <div className="bg-[#F7F9F5] p-3 rounded-xl border border-[#EAF4E7] text-xs flex justify-between items-center">
+                  <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs flex justify-between items-center">
                     <div>
-                      <span className="text-[10px] text-[#66736A] block">Adubo / Corretivo Recomendado:</span>
-                      <span className="font-bold text-[#26332A]">{presc.aduboRecomendado}</span>
+                      <span className="text-[10px] text-slate-600 block">Adubo / Corretivo Recomendado:</span>
+                      <span className="font-bold text-slate-900">{presc.aduboRecomendado}</span>
                     </div>
                     <div className="text-right">
-                      <span className="text-[10px] text-[#66736A] block">Economia Gerada:</span>
-                      <span className="font-mono font-bold text-[#5F8F52]">
+                      <span className="text-[10px] text-slate-600 block">Economia Gerada:</span>
+                      <span className="font-mono font-bold text-emerald-700">
                         +R$ {presc.economiaFinanceiraEstimada.toLocaleString('pt-BR')}
                       </span>
                     </div>
                   </div>
 
                   {/* Botões de Ação para o Piloto */}
-                  <div className="flex gap-2 pt-1 border-t border-[#EAF4E7]">
+                  <div className="flex gap-2 pt-1 border-t border-slate-200">
                     <button
                       onClick={() => handleExportarIsoXml(presc)}
                       className="flex-1 py-2 bg-[#285943] hover:bg-[#1D4B38] text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm transition-all cursor-pointer"
@@ -247,7 +247,7 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
                     </button>
                     <button
                       onClick={() => alert(`Shapefile vetorial (.shp) do grid de fertilidade gerado para o talhão ${talhao?.codigo}.`)}
-                      className="px-3 py-2 bg-[#F7F9F5] hover:bg-[#EAF4E7] text-[#285943] rounded-xl text-xs font-bold border border-[#EAF4E7] cursor-pointer"
+                      className="px-3 py-2 bg-slate-50 hover:bg-emerald-50 text-[#285943] rounded-xl text-xs font-bold border border-slate-200 cursor-pointer"
                     >
                       <Download className="w-3.5 h-3.5" />
                     </button>
@@ -258,11 +258,11 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
           </div>
 
           {/* Comparativo Econômico */}
-          <div className="bg-white border border-[#EAF4E7] p-6 rounded-2xl shadow-sm space-y-3">
+          <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm space-y-3">
             <h3 className="text-sm font-bold text-[#285943] flex items-center gap-2">
-              <Target className="w-4 h-4 text-[#5F8F52]" /> Comparativo: Taxa Fixa Convencional vs Taxa Variável (VRA)
+              <Target className="w-4 h-4 text-emerald-700" /> Comparativo: Taxa Fixa Convencional vs Taxa Variável (VRA)
             </h3>
-            <p className="text-xs text-[#26332A] leading-relaxed">
+            <p className="text-xs text-slate-900 leading-relaxed">
               Na aplicação convencional com dose única uniforme, zonas de alta fertilidade natural recebem adubo desnecessário gerando saturação e lixiviação, enquanto manchas de solo pobre continuam deficientes, derrubando a produtividade. A agricultura de precisão distribui o fertilizante exatamente onde a planta necessita, gerando até <b>22% de economia direta de insumos</b> e elevando o teto produtivo da safra.
             </p>
           </div>
@@ -272,20 +272,20 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
       {/* Aba 2: Copernicus Sentinel-2 Pipeline */}
       {activeTab === 'sentinel2' && (
         <div className="space-y-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-sm space-y-5">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#EAF4E7] pb-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-5">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-4">
               <div>
                 <h3 className="text-base font-bold text-[#285943] flex items-center gap-2">
-                  <Satellite className="w-5 h-5 text-[#5F8F52]" />
+                  <Satellite className="w-5 h-5 text-emerald-700" />
                   Processamento de Índices Espectrais de Vegetação Sentinel-2 (BOA Level-2A)
                 </h3>
-                <p className="text-xs text-[#66736A] mt-0.5">
+                <p className="text-xs text-slate-600 mt-0.5">
                   Cálculo rigoroso de NDVI (vigor), NDWI (teor de água na folha), EVI (biomassa ajustada ao solo) e SCL (máscara de nuvens e sombras).
                 </p>
               </div>
 
-              <span className="px-3 py-1 bg-[#EAF4E7] text-[#285943] text-xs font-bold rounded-full border border-[#5F8F52]/40 flex items-center gap-1.5">
-                <Sun className="w-3.5 h-3.5 text-[#5F8F52]" /> API REST: /api/v1/erp/satelite/sentinel
+              <span className="px-3 py-1 bg-emerald-50 text-[#285943] text-xs font-bold rounded-full border border-[#5F8F52]/40 flex items-center gap-1.5">
+                <Sun className="w-3.5 h-3.5 text-emerald-700" /> API REST: /api/v1/erp/satelite/sentinel
               </span>
             </div>
 
@@ -301,12 +301,12 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
                     onClick={() => handleSelectTalhaoAmostra(idx)}
                     className={`p-3 rounded-xl text-left text-xs transition-all border cursor-pointer ${
                       selectedTalhaoIndex === idx
-                        ? 'bg-[#EAF4E7] border-[#285943] text-[#285943] font-bold shadow-sm'
-                        : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:bg-white'
+                        ? 'bg-emerald-50 border-[#285943] text-[#285943] font-bold shadow-sm'
+                        : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-white'
                     }`}
                   >
-                    <span className="block font-semibold text-[#26332A]">{talhao.nome}</span>
-                    <span className="font-mono text-[11px] text-[#5F8F52] mt-0.5 block">
+                    <span className="block font-semibold text-slate-900">{talhao.nome}</span>
+                    <span className="font-mono text-[11px] text-emerald-700 mt-0.5 block">
                       NIR: {talhao.b08} • RED: {talhao.b04} • SCL: {talhao.scl}
                     </span>
                   </button>
@@ -317,7 +317,7 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
             {/* Configuração de Bandas de Reflectância */}
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 pt-2">
               <div>
-                <label className="text-xs font-semibold text-[#66736A] block mb-1">
+                <label className="text-xs font-semibold text-slate-600 block mb-1">
                   B02 Azul (490nm):
                 </label>
                 <input
@@ -325,12 +325,12 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
                   step="0.005"
                   value={b02Azul}
                   onChange={(e) => setB02Azul(parseFloat(e.target.value) || 0)}
-                  className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#285943] focus:outline-none focus:border-[#285943]"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#285943] focus:outline-none focus:border-[#285943]"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-[#66736A] block mb-1">
+                <label className="text-xs font-semibold text-slate-600 block mb-1">
                   B04 Vermelho (665nm):
                 </label>
                 <input
@@ -338,12 +338,12 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
                   step="0.005"
                   value={b04Vermelho}
                   onChange={(e) => setB04Vermelho(parseFloat(e.target.value) || 0)}
-                  className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#285943] focus:outline-none focus:border-[#285943]"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#285943] focus:outline-none focus:border-[#285943]"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-[#66736A] block mb-1">
+                <label className="text-xs font-semibold text-slate-600 block mb-1">
                   B08 NIR (842nm):
                 </label>
                 <input
@@ -351,12 +351,12 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
                   step="0.005"
                   value={b08Nir}
                   onChange={(e) => setB08Nir(parseFloat(e.target.value) || 0)}
-                  className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#285943] focus:outline-none focus:border-[#285943]"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#285943] focus:outline-none focus:border-[#285943]"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-[#66736A] block mb-1">
+                <label className="text-xs font-semibold text-slate-600 block mb-1">
                   B11 SWIR (1610nm):
                 </label>
                 <input
@@ -364,18 +364,18 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
                   step="0.005"
                   value={b11Swir}
                   onChange={(e) => setB11Swir(parseFloat(e.target.value) || 0)}
-                  className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#285943] focus:outline-none focus:border-[#285943]"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#285943] focus:outline-none focus:border-[#285943]"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-[#66736A] block mb-1">
+                <label className="text-xs font-semibold text-slate-600 block mb-1">
                   SCL (Filtro Nuvem):
                 </label>
                 <select
                   value={sclClass}
                   onChange={(e) => setSclClass(parseInt(e.target.value, 10))}
-                  className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-2 py-2 text-xs font-semibold text-[#285943] focus:outline-none focus:border-[#285943]"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-2 py-2 text-xs font-semibold text-[#285943] focus:outline-none focus:border-[#285943]"
                 >
                   <option value={4}>4 - Vegetação Saudável</option>
                   <option value={5}>5 - Solo Exposto</option>
@@ -399,42 +399,42 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
 
             {/* Resultado do Processamento */}
             {sentinelResult && (
-              <div className="bg-[#F7F9F5] border border-[#8FBF88]/50 rounded-xl p-5 space-y-4">
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#EAF4E7] pb-3">
+              <div className="bg-slate-50 border border-emerald-300/50 rounded-xl p-5 space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-3">
                   <div className="flex items-center gap-2">
-                    <span className="px-2.5 py-0.5 bg-[#EAF4E7] text-[#285943] font-bold text-xs rounded border border-[#5F8F52]/40">
+                    <span className="px-2.5 py-0.5 bg-emerald-50 text-[#285943] font-bold text-xs rounded border border-[#5F8F52]/40">
                       SCL: {sentinelResult.classificacaoSclNome}
                     </span>
-                    <span className={`text-xs font-bold ${sentinelResult.pixelValidoSemNuvem ? 'text-[#5F8F52]' : 'text-red-600'}`}>
+                    <span className={`text-xs font-bold ${sentinelResult.pixelValidoSemNuvem ? 'text-emerald-700' : 'text-red-600'}`}>
                       {sentinelResult.pixelValidoSemNuvem ? '✓ Pixel Válido para Análise' : '⚠️ Pixel Obstruído por Nuvem / Sombra'}
                     </span>
                   </div>
-                  <span className="text-[11px] font-mono text-[#66736A]">
+                  <span className="text-[11px] font-mono text-slate-600">
                     {sentinelResult.fonte}
                   </span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-                  <div className="bg-white p-4 rounded-xl border border-[#EAF4E7] space-y-1">
-                    <span className="text-[11px] text-[#66736A] uppercase font-bold block">NDVI (Índice de Vigor)</span>
+                  <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-1">
+                    <span className="text-[11px] text-slate-600 uppercase font-bold block">NDVI (Índice de Vigor)</span>
                     <span className="text-3xl font-black font-mono text-[#285943] block">{sentinelResult.ndvi}</span>
-                    <span className="text-[10px] font-bold text-[#5F8F52] block">
+                    <span className="text-[10px] font-bold text-emerald-700 block">
                       Biomassa: {sentinelResult.biomassaStatus}
                     </span>
                   </div>
 
-                  <div className="bg-white p-4 rounded-xl border border-[#EAF4E7] space-y-1">
-                    <span className="text-[11px] text-[#66736A] uppercase font-bold block">NDWI (Teor de Água)</span>
-                    <span className="text-3xl font-black font-mono text-[#5F8F52] block">{sentinelResult.ndwi}</span>
+                  <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-1">
+                    <span className="text-[11px] text-slate-600 uppercase font-bold block">NDWI (Teor de Água)</span>
+                    <span className="text-3xl font-black font-mono text-emerald-700 block">{sentinelResult.ndwi}</span>
                     <span className="text-[10px] font-bold text-[#285943] block">
                       Status Hídrico: {sentinelResult.estresseHidricoStatus}
                     </span>
                   </div>
 
-                  <div className="bg-white p-4 rounded-xl border border-[#EAF4E7] space-y-1">
-                    <span className="text-[11px] text-[#66736A] uppercase font-bold block">EVI (Biomassa Ajustada)</span>
-                    <span className="text-3xl font-black font-mono text-[#D9B65D] block">{sentinelResult.evi}</span>
-                    <span className="text-[10px] text-[#66736A] block">
+                  <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-1">
+                    <span className="text-[11px] text-slate-600 uppercase font-bold block">EVI (Biomassa Ajustada)</span>
+                    <span className="text-3xl font-black font-mono text-amber-700 block">{sentinelResult.evi}</span>
+                    <span className="text-[10px] text-slate-600 block">
                       Sem saturação de dossel denso
                     </span>
                   </div>

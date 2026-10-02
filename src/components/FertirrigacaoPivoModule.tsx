@@ -159,7 +159,7 @@ export const FertirrigacaoPivoModule: React.FC = () => {
                     Quimigação 4.0
                   </span>
                 </h2>
-                <p className="text-sm text-[#66736A]">
+                <p className="text-sm text-slate-600">
                   Calibração da bomba injetora (L/h), condutividade elétrica da calda (CE) e eliminação do amassamento de plantas.
                 </p>
               </div>
@@ -185,14 +185,14 @@ export const FertirrigacaoPivoModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: Taxa de Injeção da Bomba */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Taxa Injeção Bomba</span>
             <Gauge className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
             {fertiMetrics.taxaInjecaoBombaLH.toFixed(1)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">L/h</span>
+            <span className="text-xs font-normal text-slate-600">L/h</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Volume total: {fertiMetrics.volumeTotalSolucaoLitros.toFixed(0)} L em {pivoAtivo.tempoRotacaoHoras}h.
@@ -200,8 +200,8 @@ export const FertirrigacaoPivoModule: React.FC = () => {
         </div>
 
         {/* KPI 2: Condutividade Elétrica da Calda */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Condutividade (CE Calda)</span>
             <Zap className="w-4 h-4 text-amber-400" />
           </div>
@@ -217,7 +217,7 @@ export const FertirrigacaoPivoModule: React.FC = () => {
             >
               {fertiMetrics.ceCaldaDsM.toFixed(2)}
             </span>
-            <span className="text-xs font-normal text-[#66736A]">dS/m</span>
+            <span className="text-xs font-normal text-slate-600">dS/m</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Meta segura: &lt; 1.80 dS/m (sem risco de queima).
@@ -225,14 +225,14 @@ export const FertirrigacaoPivoModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Amassamento Evitado */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Amassamento Evitado</span>
             <TrendingUp className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
             +{fertiMetrics.amassamentoEvitadoSacas.toFixed(0)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">sacas (+2.2 sc/ha)</span>
+            <span className="text-xs font-normal text-slate-600">sacas (+2.2 sc/ha)</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Economia: +R$ {fertiMetrics.economiaAmassamentoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })} sem trator.
@@ -240,8 +240,8 @@ export const FertirrigacaoPivoModule: React.FC = () => {
         </div>
 
         {/* KPI 4: Investimento Nutricional */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Custo da Operação</span>
             <Droplets className="w-4 h-4 text-white" />
           </div>
@@ -257,18 +257,18 @@ export const FertirrigacaoPivoModule: React.FC = () => {
       {/* Grid Principal: Seletor de Pivô e Parâmetros de Injeção */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Lista de Pivôs e Detalhes Hidráulicos */}
-        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <RotateCw className="w-5 h-5 text-cyan-400" />
                 Pivôs Centrais Cadastrados & Regime Hidráulico
               </h3>
-              <p className="text-xs text-[#66736A]">
+              <p className="text-xs text-slate-600">
                 Selecione o equipamento para sincronizar a taxa de injeção da bomba com o tempo de giro.
               </p>
             </div>
-            <span className="text-xs font-mono text-[#66736A]">
+            <span className="text-xs font-mono text-slate-600">
               {pivos.length} Pivôs Conectados
             </span>
           </div>
@@ -283,7 +283,7 @@ export const FertirrigacaoPivoModule: React.FC = () => {
                   className={`p-4 rounded-xl border cursor-pointer transition-all ${
                     isSelected
                       ? 'bg-cyan-950/30 border-cyan-500/50 shadow-lg'
-                      : 'bg-[#F7F9F5] border-[#EAF4E7] hover:border-slate-700'
+                      : 'bg-slate-50 border-slate-200 hover:border-slate-700'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
@@ -292,7 +292,7 @@ export const FertirrigacaoPivoModule: React.FC = () => {
                       {p.cultura}
                     </span>
                   </div>
-                  <div className="grid grid-cols-2 gap-2 text-[11px] font-mono text-[#66736A]">
+                  <div className="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-600">
                     <div>Área: <span className="text-white">{p.areaHa} ha</span></div>
                     <div>Vazão: <span className="text-white">{p.vazaoAguaM3H} m³/h</span></div>
                     <div>Giro: <span className="text-white">{p.tempoRotacaoHoras}h (100%)</span></div>
@@ -304,12 +304,12 @@ export const FertirrigacaoPivoModule: React.FC = () => {
           </div>
 
           {/* Banner de Boas Práticas Agronômicas de Quimigação */}
-          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-cyan-400 font-semibold">
               <Sparkles className="w-4 h-4" />
               Recomendações Técnicas de Fertirrigação:
             </div>
-            <ul className="list-disc list-inside text-[#66736A] space-y-1">
+            <ul className="list-disc list-inside text-slate-600 space-y-1">
               <li>
                 <strong>Tempo de Limpeza da Tubulação (Flushing):</strong> Deixe o pivô funcionar apenas com água pura por 20 a 30 minutos após o término da injeção do adubo para purgar resíduos dos bocais.
               </li>
@@ -324,7 +324,7 @@ export const FertirrigacaoPivoModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Parâmetros do Insumo e Bomba Injetora */}
-        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Sliders className="w-5 h-5 text-cyan-400" />
             Configuração da Calda
@@ -333,11 +333,11 @@ export const FertirrigacaoPivoModule: React.FC = () => {
           <div className="space-y-4 text-xs">
             {/* Seletor de Fertilizante Líquido */}
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Fonte Solúvel / Líquida</label>
+              <label className="text-slate-600 font-medium block mb-1">Fonte Solúvel / Líquida</label>
               <select
                 value={fertilizanteLiquido}
                 onChange={(e) => setFertilizanteLiquido(e.target.value as any)}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white focus:outline-none focus:border-cyan-500"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-cyan-500"
               >
                 <option value="UAN_32">UAN 32% (Nitrato + Ureia Líquida)</option>
                 <option value="KCL_SOLUVEL">KCl Branco Solúvel 60%</option>
@@ -349,7 +349,7 @@ export const FertirrigacaoPivoModule: React.FC = () => {
             {/* Dose Alvo */}
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-[#66736A] font-medium">Dose Desejada (kg/ha)</span>
+                <span className="text-slate-600 font-medium">Dose Desejada (kg/ha)</span>
                 <span className="text-cyan-400 font-mono font-bold">{doseAlvoKgHa} kg/ha</span>
               </div>
               <input
@@ -366,7 +366,7 @@ export const FertirrigacaoPivoModule: React.FC = () => {
             {/* Lâmina d'água */}
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-[#66736A] font-medium">Lâmina de Irrigação</span>
+                <span className="text-slate-600 font-medium">Lâmina de Irrigação</span>
                 <span className="text-cyan-400 font-mono font-bold">{laminaAguaMm} mm</span>
               </div>
               <input
@@ -383,7 +383,7 @@ export const FertirrigacaoPivoModule: React.FC = () => {
             {/* Condutividade da água do poço */}
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-[#66736A] font-medium">CE Água Bruta do Poço</span>
+                <span className="text-slate-600 font-medium">CE Água Bruta do Poço</span>
                 <span className="text-amber-400 font-mono font-bold">{ceAguaPocoDsM} dS/m</span>
               </div>
               <input
@@ -399,30 +399,30 @@ export const FertirrigacaoPivoModule: React.FC = () => {
 
             {/* Custo do Adubo por kg */}
             <div>
-              <label className="text-[#66736A] block mb-1">Custo Insumo (R$/kg nutriente)</label>
+              <label className="text-slate-600 block mb-1">Custo Insumo (R$/kg nutriente)</label>
               <input
                 type="number"
                 value={custoAduboReaisKg}
                 onChange={(e) => setCustoAduboReaisKg(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-1.5 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-white font-mono"
               />
             </div>
 
             {/* Resumo da Regulagem */}
-            <div className="pt-3 border-t border-[#EAF4E7] space-y-2">
+            <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Concentração na Calda:</span>
-                <span className="text-[#26332A] font-mono">
+                <span className="text-slate-600">Concentração na Calda:</span>
+                <span className="text-slate-900 font-mono">
                   {fertiMetrics.concentracaoPct.toFixed(3)}%
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Regulagem da Bomba:</span>
+                <span className="text-slate-600">Regulagem da Bomba:</span>
                 <span className="text-cyan-400 font-mono font-bold">
                   {fertiMetrics.taxaInjecaoBombaLH.toFixed(1)} L/hora
                 </span>
               </div>
-              <div className="flex justify-between border-t border-[#EAF4E7] pt-2 font-bold">
+              <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Condutividade Final:</span>
                 <span
                   className={

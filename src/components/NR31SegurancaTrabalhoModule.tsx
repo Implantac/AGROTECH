@@ -181,7 +181,7 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-[#EAF4E7] p-6 rounded-2xl backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-slate-200 p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 rounded-xl text-amber-400">
@@ -197,7 +197,7 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
                   eSocial S-2220 / S-2240
                 </span>
               </div>
-              <p className="text-sm text-[#66736A] mt-0.5">
+              <p className="text-sm text-slate-600 mt-0.5">
                 Gestão de ASO, Ficha de EPI com CA, Treinamentos Obrigatórios e Bloqueio Operacional Preventivo no campo.
               </p>
             </div>
@@ -227,8 +227,8 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
 
       {/* Cards de Conformidade NR-31 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
-          <div className="flex items-center justify-between text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Efetivo de Campo</span>
             <Users className="w-4 h-4 text-emerald-400" />
           </div>
@@ -265,36 +265,36 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
       </div>
 
       {/* Tabela de Colaboradores e Matriz de Segurança */}
-      <div className="bg-white border border-[#EAF4E7] rounded-2xl overflow-hidden">
-        <div className="p-5 border-b border-[#EAF4E7] flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden">
+        <div className="p-5 border-b border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <h2 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
               <FileBadge className="w-5 h-5 text-amber-400" />
               Matriz de Conformidade NR-31 & ASO Periódico
             </h2>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Operadores com ASO ou treinamentos vencidos são bloqueados automaticamente no app de cabine
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            <div className="flex items-center gap-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-1.5 text-xs">
-              <Search className="w-3.5 h-3.5 text-[#66736A]" />
+            <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs">
+              <Search className="w-3.5 h-3.5 text-slate-600" />
               <input
                 type="text"
                 placeholder="Buscar por nome ou CPF..."
                 value={busca}
                 onChange={(e) => setBusca(e.target.value)}
-                className="bg-transparent text-[#26332A] focus:outline-none w-40"
+                className="bg-transparent text-slate-900 focus:outline-none w-40"
               />
             </div>
 
-            <div className="flex items-center gap-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-1.5 text-xs text-[#26332A]">
+            <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-900">
               <span>Status:</span>
               <select
                 value={filtroStatus}
                 onChange={(e) => setFiltroStatus(e.target.value)}
-                className="bg-transparent text-[#26332A] focus:outline-none cursor-pointer"
+                className="bg-transparent text-slate-900 focus:outline-none cursor-pointer"
               >
                 <option value="TODOS" className="bg-slate-900">Todos</option>
                 <option value="APTO" className="bg-slate-900 text-emerald-400">Aptos</option>
@@ -307,7 +307,7 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-[#F7F9F5] text-[#66736A] uppercase tracking-wider font-semibold border-b border-[#EAF4E7]">
+            <thead className="bg-slate-50 text-slate-600 uppercase tracking-wider font-semibold border-b border-slate-200">
               <tr>
                 <th className="px-4 py-3.5">Colaborador & CPF</th>
                 <th className="px-4 py-3.5">Cargo & Setor</th>
@@ -342,17 +342,17 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
                 return (
                   <tr key={colab.id} className="hover:bg-slate-800/40 transition-colors">
                     <td className="px-4 py-3.5">
-                      <div className="font-bold text-[#26332A]">{colab.nome}</div>
+                      <div className="font-bold text-slate-900">{colab.nome}</div>
                       <div className="text-[11px] text-slate-500 font-mono">{colab.cpf}</div>
                     </td>
 
                     <td className="px-4 py-3.5">
-                      <div className="text-[#26332A] font-medium">{colab.cargo}</div>
+                      <div className="text-slate-900 font-medium">{colab.cargo}</div>
                       <div className="text-[10px] text-emerald-400 uppercase font-semibold">{colab.setor}</div>
                     </td>
 
                     <td className="px-4 py-3.5">
-                      <div className={`font-mono font-semibold ${colab.asoValido ? 'text-[#26332A]' : 'text-rose-400'}`}>
+                      <div className={`font-mono font-semibold ${colab.asoValido ? 'text-slate-900' : 'text-rose-400'}`}>
                         Venc: {colab.validadeASO}
                       </div>
                       <div className="text-[10px] text-slate-500">
@@ -362,7 +362,7 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
 
                     <td className="px-4 py-3.5 space-y-1">
                       {colab.treinamentos.map((t, idx) => (
-                        <div key={idx} className="text-[11px] text-[#26332A] flex items-center gap-1">
+                        <div key={idx} className="text-[11px] text-slate-900 flex items-center gap-1">
                           <span className={`w-1.5 h-1.5 rounded-full ${t.valido ? 'bg-emerald-400' : 'bg-rose-400'}`}></span>
                           <span>{t.norma}</span>
                           <span className="text-[10px] text-slate-500 font-mono">({t.validade})</span>
@@ -372,7 +372,7 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
 
                     <td className="px-4 py-3.5 space-y-1">
                       {colab.episEntregues.map((epi, idx) => (
-                        <div key={idx} className="text-[11px] text-[#26332A]">
+                        <div key={idx} className="text-[11px] text-slate-900">
                           <span>{epi.item}</span>
                           <span className="text-[10px] text-indigo-400 font-mono ml-1 font-bold">[{epi.caNumero}]</span>
                         </div>
@@ -390,16 +390,16 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
 
       {/* Modal Novo Colaborador */}
       {mostrarModalNovo && (
-        <div className="fixed inset-0 z-50 bg-[#F7F9F5] backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl max-w-lg w-full p-6 shadow-2xl">
-            <div className="flex items-center justify-between pb-3 border-b border-[#EAF4E7] mb-4">
+        <div className="fixed inset-0 z-50 bg-slate-50 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white border border-slate-200 rounded-2xl max-w-lg w-full p-6 shadow-2xl">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200 mb-4">
               <h3 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
                 <HardHat className="w-5 h-5 text-amber-400" />
                 Cadastrar Colaborador & Ficha NR-31
               </h3>
               <button
                 onClick={() => setMostrarModalNovo(false)}
-                className="text-[#66736A] hover:text-[#26332A] text-sm font-bold cursor-pointer"
+                className="text-slate-600 hover:text-slate-900 text-sm font-bold cursor-pointer"
               >
                 ✕
               </button>
@@ -407,36 +407,36 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
 
             <form onSubmit={handleSalvarColaborador} className="space-y-3.5 text-xs">
               <div>
-                <label className="text-[#26332A] block mb-1 font-medium">Nome Completo:</label>
+                <label className="text-slate-900 block mb-1 font-medium">Nome Completo:</label>
                 <input
                   type="text"
                   required
                   value={formNome}
                   onChange={(e) => setFormNome(e.target.value)}
                   placeholder="Ex: João Ferreira da Silva"
-                  className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A]"
+                  className="w-full bg-slate-50 border border-slate-700 rounded-lg px-3 py-2 text-slate-900"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-[#26332A] block mb-1 font-medium">CPF:</label>
+                  <label className="text-slate-900 block mb-1 font-medium">CPF:</label>
                   <input
                     type="text"
                     required
                     value={formCpf}
                     onChange={(e) => setFormCpf(e.target.value)}
                     placeholder="000.000.000-00"
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A] font-mono"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg px-3 py-2 text-slate-900 font-mono"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[#26332A] block mb-1 font-medium">Setor de Alocação:</label>
+                  <label className="text-slate-900 block mb-1 font-medium">Setor de Alocação:</label>
                   <select
                     value={formSetor}
                     onChange={(e) => setFormSetor(e.target.value as ColaboradorRural['setor'])}
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A]"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg px-3 py-2 text-slate-900"
                   >
                     <option value="LAVOURA">Lavoura (Plantio/Colheita)</option>
                     <option value="OFICINA">Oficina Mecânica</option>
@@ -448,35 +448,35 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-[#26332A] block mb-1 font-medium">Função / Cargo:</label>
+                  <label className="text-slate-900 block mb-1 font-medium">Função / Cargo:</label>
                   <input
                     type="text"
                     value={formCargo}
                     onChange={(e) => setFormCargo(e.target.value)}
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A]"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg px-3 py-2 text-slate-900"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[#26332A] block mb-1 font-medium">Data do Exame ASO:</label>
+                  <label className="text-slate-900 block mb-1 font-medium">Data do Exame ASO:</label>
                   <input
                     type="date"
                     value={formDataAso}
                     onChange={(e) => setFormDataAso(e.target.value)}
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-2 text-[#26332A]"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg px-3 py-2 text-slate-900"
                   />
                 </div>
               </div>
 
-              <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] text-[11px] text-[#66736A]">
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-600">
                 O colaborador será incluído com vigência de ASO de 12 meses e treinamento de integração NR-31.12 cadastrado para envio automático ao eSocial Rural.
               </div>
 
-              <div className="pt-2 flex justify-end gap-3 border-t border-[#EAF4E7]">
+              <div className="pt-2 flex justify-end gap-3 border-t border-slate-200">
                 <button
                   type="button"
                   onClick={() => setMostrarModalNovo(false)}
-                  className="px-4 py-2 text-[#66736A] hover:text-[#26332A] cursor-pointer"
+                  className="px-4 py-2 text-slate-600 hover:text-slate-900 cursor-pointer"
                 >
                   Cancelar
                 </button>

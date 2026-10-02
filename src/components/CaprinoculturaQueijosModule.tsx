@@ -115,19 +115,19 @@ export const CaprinoculturaQueijosModule: React.FC = () => {
             <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
               🐐 Caprinocultura de Precisão, Queijaria Artesanal & Chèvre
             </h2>
-            <p className="text-sm text-[#26332A] max-w-3xl leading-relaxed">
+            <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
               Manejo intensivo de cabras leiteiras em aprisco suspenso ripado, controle fotoperiódico para quebra de estacionalidade reprodutiva, sanidade da secreção apócrina do leite e maturação de queijos finos artesanais (Chèvre, Crottin de Chavignol e Boursin).
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Queijo Chèvre</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Queijo Chèvre</span>
               <span className="text-xl font-black text-amber-400">14.336 kg</span>
-              <span className="text-[10px] text-[#66736A] block mt-0.5">120 Matrizes</span>
+              <span className="text-[10px] text-slate-600 block mt-0.5">120 Matrizes</span>
             </div>
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Faturamento</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Faturamento</span>
               <span className="text-xl font-black text-emerald-400">R$ 1,36M</span>
               <span className="text-[10px] text-emerald-400/80 block mt-0.5">57.4% Margem</span>
             </div>
@@ -137,8 +137,8 @@ export const CaprinoculturaQueijosModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Produção Média</span>
             <Activity className="w-4 h-4 text-amber-400" />
           </div>
@@ -149,48 +149,48 @@ export const CaprinoculturaQueijosModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Rendimento Queijeiro</span>
             <Milk className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black text-cyan-400">7.5 L / kg Chèvre</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Massa Lática com Drenagem Lenta
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Preço Médio do Queijo</span>
             <Award className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">R$ 95,00 / kg</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Mercado Gastronômico e Empórios
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
             <DollarSign className="w-4 h-4 text-teal-400" />
           </div>
           <div className="text-2xl font-black text-teal-400">R$ 781.920,00</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             R$ 6.516,00 por matriz ao ano
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('rebanho')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'rebanho'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Milk className="w-4 h-4" />
@@ -202,7 +202,7 @@ export const CaprinoculturaQueijosModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'queijaria'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -214,7 +214,7 @@ export const CaprinoculturaQueijosModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'sanidade'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <ShieldCheck className="w-4 h-4" />
@@ -226,7 +226,7 @@ export const CaprinoculturaQueijosModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -237,19 +237,19 @@ export const CaprinoculturaQueijosModule: React.FC = () => {
       {/* Conteúdo Aba 1: Rebanho */}
       {activeTab === 'rebanho' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Milk className="w-5 h-5 text-amber-400" />
               Lotes de Matrizes em Aprisco Suspenso Climatizado
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Aprisco com piso ripado elevado evita contato com fezes e umidade, reduzindo drasticamente verminoses e pododermatite. O manejo alimentar baseia-se em feno de Tifton 85, silagem de milho de alta energia e concentrado com 18% PB balanceado.
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#EAF4E7] text-[#66736A] font-bold uppercase tracking-wider">
+                  <tr className="border-b border-slate-200 text-slate-600 font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Lote / Aprisco</th>
                     <th className="py-3 px-3">Raça</th>
                     <th className="py-3 px-3">Matrizes</th>
@@ -265,13 +265,13 @@ export const CaprinoculturaQueijosModule: React.FC = () => {
                     <tr key={l.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-white">{l.identificacao}</div>
-                        <div className="text-[11px] text-[#66736A] font-mono">{l.id}</div>
+                        <div className="text-[11px] text-slate-600 font-mono">{l.id}</div>
                       </td>
                       <td className="py-3.5 px-3 text-amber-300 font-semibold">{l.raca}</td>
                       <td className="py-3.5 px-3 font-mono text-white">{l.matrizesLactacao} cab</td>
                       <td className="py-3.5 px-3 font-mono text-emerald-400 font-bold">{l.producaoLitrosDiaMatriz} L/dia</td>
                       <td className="py-3.5 px-3 font-mono text-cyan-300">{l.teorGorduraPct}% / {l.teorProteinaPct}%</td>
-                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{l.ccsMilCelulasMl} mil</td>
+                      <td className="py-3.5 px-3 font-mono text-slate-900">{l.ccsMilCelulasMl} mil</td>
                       <td className="py-3.5 px-3 text-amber-300 font-semibold">{l.destinoLeite}</td>
                       <td className="py-3.5 px-3">
                         <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
@@ -290,47 +290,47 @@ export const CaprinoculturaQueijosModule: React.FC = () => {
       {/* Conteúdo Aba 2: Queijaria */}
       {activeTab === 'queijaria' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Award className="w-5 h-5 text-amber-400" />
               Tipificação de Queijos Nobres de Cabra
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Transformação do leite na queijaria própria da fazenda com pasteurização lenta a 65°C por 30 minutos:
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">Chèvre Tradicional em Tronco</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5">
+                <span className="text-slate-600 text-[11px] block mt-0.5">
                   Coagulação predominantemente lática (24 horas), textura aveludada e cobertura com carvão vegetal alimentício ou cinzas nobres.
                 </span>
               </div>
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">Crottin de Chavignol Maturado</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5">
+                <span className="text-slate-600 text-[11px] block mt-0.5">
                   Maturado por 3 a 6 semanas sob umidade de 85% e temperatura de 11°C, desenvolvendo mofo branco Geotrichum candidum.
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               Digestibilidade e Hipoalergenicidade
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Vantagens nutricionais do leite caprino:
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Globulos de Gordura Menores:</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Globulos de Gordura Menores:</span>
                 <span className="font-mono font-bold text-emerald-400">Digestão em 20 min (vs 2h vaca)</span>
               </div>
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Fração de Proteína Alfa-S1 Caseína:</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Fração de Proteína Alfa-S1 Caseína:</span>
                 <span className="font-mono font-bold text-cyan-400">Quase Nula (Não inflamatório)</span>
               </div>
             </div>
@@ -341,32 +341,32 @@ export const CaprinoculturaQueijosModule: React.FC = () => {
       {/* Conteúdo Aba 3: Sanidade */}
       {activeTab === 'sanidade' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <ShieldCheck className="w-5 h-5 text-emerald-400" />
               Fisiologia Apócrina & Contagem de Células Somáticas (CCS)
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Ao contrário da vaca (que possui secreção merócrina), a glândula mamária da cabra desprende fragmentos citoplasmáticos celulares apicais normais no leite durante a ordenha. Por isso, a CCS normal em cabras sadias pode atingir até 1.000.000 células/mL sem indicar mastite clínica, exigindo equipamento calibrado com corante de DNA (como brometo de etídio) para não falsificar mastite.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Calibração Específica</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Calibração Específica</span>
                 <span className="text-2xl font-black text-white font-mono">Fluoro-Óptica</span>
                 <span className="text-[11px] text-emerald-400 block">Distingue glóbulos de leucócitos</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Controle de CAE</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Controle de CAE</span>
                 <span className="text-2xl font-black text-emerald-400 font-mono">100% Negativo</span>
-                <span className="text-[11px] text-[#66736A] block">Artrite Encefalite Caprina (Livre)</span>
+                <span className="text-[11px] text-slate-600 block">Artrite Encefalite Caprina (Livre)</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Linha de Ordenha</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Linha de Ordenha</span>
                 <span className="text-2xl font-black text-amber-400 font-mono">Circuito Fechado</span>
-                <span className="text-[11px] text-[#66736A] block">Inox 316L sanitário</span>
+                <span className="text-[11px] text-slate-600 block">Inox 316L sanitário</span>
               </div>
             </div>
           </div>
@@ -376,14 +376,14 @@ export const CaprinoculturaQueijosModule: React.FC = () => {
       {/* Conteúdo Aba 4: Simulador */}
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-amber-400" />
               Parâmetros da Caprinocultura
             </h3>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Matrizes em Lactação</span>
                 <span className="font-mono text-amber-400">{matrizesTotais} cabras</span>
               </div>
@@ -399,7 +399,7 @@ export const CaprinoculturaQueijosModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Produção por Matriz (L/dia)</span>
                 <span className="font-mono text-cyan-400">{producaoLeiteDiaMatriz} L/dia</span>
               </div>
@@ -415,7 +415,7 @@ export const CaprinoculturaQueijosModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço do Queijo Chèvre (R$/kg)</span>
                 <span className="font-mono text-emerald-400">R$ {precoKgQueijoChevreReais.toFixed(2)}</span>
               </div>
@@ -431,7 +431,7 @@ export const CaprinoculturaQueijosModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Custo Operacional Total / Ano</span>
                 <span className="font-mono text-rose-400">R$ {custoOperacionalAnoReais.toFixed(2)}</span>
               </div>
@@ -447,39 +447,39 @@ export const CaprinoculturaQueijosModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               Retorno Financeiro da Queijaria Caprina
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Leite Coletado</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Leite Coletado</span>
                 <span className="font-mono font-bold text-white text-base">
                   {(metricas.volumeTotalLeiteAnoLitros / 1000).toFixed(0)}k L
                 </span>
-                <span className="text-[10px] text-[#66736A] block">{matrizesTotais} matrizes</span>
+                <span className="text-[10px] text-slate-600 block">{matrizesTotais} matrizes</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Queijo Produzido</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Queijo Produzido</span>
                 <span className="font-mono font-bold text-amber-400 text-base">
                   {metricas.queijoProduzidoKg.toLocaleString()} kg
                 </span>
                 <span className="text-[10px] text-amber-400/80 block">7.5 L/kg rendimento</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Receita Bruta</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Bruta</span>
                 <span className="font-mono font-bold text-white text-base">
                   R$ {(metricas.receitaBrutaReais / 1000000).toFixed(2)}M
                 </span>
-                <span className="text-[10px] text-[#66736A] block">Venda Boutique</span>
+                <span className="text-[10px] text-slate-600 block">Venda Boutique</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Lucro Líquido</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {(metricas.lucroLiquidoReais / 1000).toFixed(0)}k
                 </span>
@@ -487,15 +487,15 @@ export const CaprinoculturaQueijosModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Receita com Venda de Queijos Finos ({metricas.queijoProduzidoKg.toLocaleString()} kg @ R$ {precoKgQueijoChevreReais.toFixed(2)}):</span>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Receita com Venda de Queijos Finos ({metricas.queijoProduzidoKg.toLocaleString()} kg @ R$ {precoKgQueijoChevreReais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-white">
                   R$ {metricas.receitaBrutaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Custos Totais de Nutrição (Feno/Concentrado), Veterinária e Queijaria:</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Custos Totais de Nutrição (Feno/Concentrado), Veterinária e Queijaria:</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {custoOperacionalAnoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>

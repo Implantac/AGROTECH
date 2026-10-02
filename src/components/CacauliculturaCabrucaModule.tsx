@@ -127,7 +127,7 @@ export const CacauliculturaCabrucaModule: React.FC = () => {
                     Theobroma cacao • Cacau Fino Bean-to-Bar • IG Sul da Bahia
                   </span>
                 </h2>
-                <p className="text-sm text-[#66736A]">
+                <p className="text-sm text-slate-600">
                   Agroflorestas conservacionistas de cacau sob sombra nativa, curvas térmicas de fermentação e agregação de valor sensorial.
                 </p>
               </div>
@@ -146,14 +146,14 @@ export const CacauliculturaCabrucaModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: Produtividade */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Produtividade Média</span>
             <TrendingUp className="w-4 h-4 text-amber-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-amber-400">
             {cacauMetrics.produtividadeMediaKgHa.toFixed(0)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">kg/ha seco</span>
+            <span className="text-xs font-normal text-slate-600">kg/ha seco</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Produção de {(cacauMetrics.producaoTotalKg / 1000).toFixed(1)} ton em {cacauMetrics.areaTotalHa} ha agroflorestais.
@@ -161,14 +161,14 @@ export const CacauliculturaCabrucaModule: React.FC = () => {
         </div>
 
         {/* KPI 2: Preço com Ágio Gourmet */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Preço Especial Bean-to-Bar</span>
             <Coins className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
             R$ {cacauMetrics.precoFinoKgReais.toFixed(2)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">/ kg (+{agioCacauFinoPct}%)</span>
+            <span className="text-xs font-normal text-slate-600">/ kg (+{agioCacauFinoPct}%)</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Preço commodity base: R$ {precoCommodityKgReais.toFixed(2)}/kg.
@@ -176,8 +176,8 @@ export const CacauliculturaCabrucaModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Faturamento Bruto */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Faturamento da Safra</span>
             <Coins className="w-4 h-4 text-yellow-400" />
           </div>
@@ -190,8 +190,8 @@ export const CacauliculturaCabrucaModule: React.FC = () => {
         </div>
 
         {/* KPI 4: Margem Líquida */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Resultado Operacional</span>
             <Award className="w-4 h-4 text-white" />
           </div>
@@ -208,18 +208,18 @@ export const CacauliculturaCabrucaModule: React.FC = () => {
       {/* Grid de Parcelas e Manejo de Barcaças */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Parcelas de Cacaueiros */}
-        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <Layers className="w-5 h-5 text-amber-400" />
                 Glebas Cabruca & Fermentação em Cochos
               </h3>
-              <p className="text-xs text-[#66736A]">
+              <p className="text-xs text-slate-600">
                 Pico térmico da fermentação aeróbica e teste de corte de amêndoas na secagem em barcaça.
               </p>
             </div>
-            <span className="text-xs font-mono text-[#66736A]">
+            <span className="text-xs font-mono text-slate-600">
               {parcelas.length} Glebas Cadastradas
             </span>
           </div>
@@ -232,7 +232,7 @@ export const CacauliculturaCabrucaModule: React.FC = () => {
               return (
                 <div
                   key={p.id}
-                  className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl hover:border-slate-700 transition-all space-y-2"
+                  className="p-4 bg-slate-50 border border-slate-200 rounded-xl hover:border-slate-700 transition-all space-y-2"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
@@ -240,14 +240,14 @@ export const CacauliculturaCabrucaModule: React.FC = () => {
                         {p.id}
                       </span>
                       <h4 className="text-xs font-bold text-white">{p.nome}</h4>
-                      <span className="text-[11px] text-[#66736A] font-mono">({p.variedadeClone})</span>
+                      <span className="text-[11px] text-slate-600 font-mono">({p.variedadeClone})</span>
                     </div>
                     <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono border border-emerald-500/30">
                       {p.sistema.replace(/_/g, ' ')}
                     </span>
                   </div>
 
-                  <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-[#66736A]">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-600">
                     <span>Área: <strong className="text-white">{p.areaHa} ha</strong></span>
                     <span>Fermentação: <strong className="text-emerald-400">{p.percentualFermentacaoPct}%</strong></span>
                     <span>Pico Cocho: <strong className="text-amber-400">{p.temperaturaMaximaPicoCocho}°C</strong></span>
@@ -260,12 +260,12 @@ export const CacauliculturaCabrucaModule: React.FC = () => {
           </div>
 
           {/* Banner Técnico de Boas Práticas Cacaueiras */}
-          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-amber-400 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes de Pós-Colheita de Cacau Fino (CEPLAC & CIC):
             </div>
-            <ul className="list-disc list-inside text-[#66736A] space-y-1">
+            <ul className="list-disc list-inside text-slate-600 space-y-1">
               <li>
                 <strong>Cochos de Madeira com Revolvimentos:</strong> A fermentação dura de 6 a 7 dias em cochos de madeira furados, revolvendo as amêndoas a cada 24 horas para oxigenação das bactérias acéticas.
               </li>
@@ -280,7 +280,7 @@ export const CacauliculturaCabrucaModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Parâmetros Comerciais */}
-        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Coins className="w-5 h-5 text-amber-400" />
             Parâmetros Comerciais & Ágio
@@ -288,19 +288,19 @@ export const CacauliculturaCabrucaModule: React.FC = () => {
 
           <div className="space-y-4 text-xs">
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Preço Base da Amêndoa de Cacau (R$/kg)</label>
+              <label className="text-slate-600 font-medium block mb-1">Preço Base da Amêndoa de Cacau (R$/kg)</label>
               <input
                 type="number"
                 step="0.50"
                 value={precoCommodityKgReais}
                 onChange={(e) => setPrecoCommodityKgReais(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-[#66736A] font-medium">Ágio de Cacau Fino Bean-to-Bar (%)</span>
+                <span className="text-slate-600 font-medium">Ágio de Cacau Fino Bean-to-Bar (%)</span>
                 <span className="text-emerald-400 font-mono font-bold">+{agioCacauFinoPct}%</span>
               </div>
               <input
@@ -315,31 +315,31 @@ export const CacauliculturaCabrucaModule: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Custo de Manejo Agroflorestal (R$/ha)</label>
+              <label className="text-slate-600 font-medium block mb-1">Custo de Manejo Agroflorestal (R$/ha)</label>
               <input
                 type="number"
                 step="200"
                 value={custoManejoCabrucaHa}
                 onChange={(e) => setCustoManejoCabrucaHa(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             {/* Resumo Consolidado */}
-            <div className="pt-3 border-t border-[#EAF4E7] space-y-2">
+            <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Preço Faturado / kg:</span>
+                <span className="text-slate-600">Preço Faturado / kg:</span>
                 <span className="text-emerald-400 font-mono font-bold">
                   R$ {cacauMetrics.precoFinoKgReais.toFixed(2)} / kg
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Faturamento da Safra:</span>
+                <span className="text-slate-600">Faturamento da Safra:</span>
                 <span className="text-amber-400 font-mono font-bold">
                   R$ {cacauMetrics.faturamentoBrutoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
-              <div className="flex justify-between border-t border-[#EAF4E7] pt-2 font-bold">
+              <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Lucro Líquido Cabruca:</span>
                 <span className="text-emerald-400 font-mono">
                   R$ {cacauMetrics.margemLiquidaReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })} / safra

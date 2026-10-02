@@ -130,18 +130,18 @@ export const ReceituarioAgronomicoModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Banner do Receituário */}
-      <div className="bg-white border border-[#EAF4E7] p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="px-2 py-0.5 bg-emerald-950 text-emerald-400 border border-emerald-800 rounded text-xs font-bold flex items-center gap-1.5">
               <Award className="w-3.5 h-3.5" /> Responsabilidade Técnica CREA-MT / MAPA
             </span>
-            <span className="text-xs text-[#66736A]">Em conformidade com a Lei Federal nº 7.802 / Decreto 4.074</span>
+            <span className="text-xs text-slate-600">Em conformidade com a Lei Federal nº 7.802 / Decreto 4.074</span>
           </div>
           <h2 className="text-xl font-bold text-white flex items-center gap-2">
             <FileCheck className="w-5 h-5 text-emerald-400" /> Receituário Agronômico & Anotação de Responsabilidade (ART)
           </h2>
-          <p className="text-xs text-[#66736A] mt-1">
+          <p className="text-xs text-slate-600 mt-1">
             Toda aplicação de defensivo no campo é validada contra o receituário do engenheiro agrônomo, com travas de carência e logística reversa do inpEV.
           </p>
         </div>
@@ -152,7 +152,7 @@ export const ReceituarioAgronomicoModule: React.FC = () => {
             className={`px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 border transition-all ${
               abaAtiva === 'calculadora'
                 ? 'bg-blue-600 text-white border-blue-500 shadow-lg shadow-blue-950/40'
-                : 'bg-slate-800 hover:bg-slate-700 text-[#26332A] border-slate-700'
+                : 'bg-slate-800 hover:bg-slate-700 text-slate-900 border-slate-700'
             }`}
           >
             <Calculator className="w-4 h-4 text-blue-400" /> Calculadora de Calda & Pontas
@@ -167,13 +167,13 @@ export const ReceituarioAgronomicoModule: React.FC = () => {
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setAbaAtiva('receitas')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             abaAtiva === 'receitas'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <FileText className="w-4 h-4" />
@@ -185,7 +185,7 @@ export const ReceituarioAgronomicoModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             abaAtiva === 'calculadora'
               ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Droplets className="w-4 h-4" />
@@ -202,16 +202,16 @@ export const ReceituarioAgronomicoModule: React.FC = () => {
             return (
               <div
                 key={rec.id}
-                className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-xl space-y-4 hover:border-slate-700 transition-all"
+                className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xl space-y-4 hover:border-slate-700 transition-all"
               >
                 <div className="flex justify-between items-start">
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="font-mono text-xs font-bold text-emerald-400">{rec.numeroReceita}</span>
-                      <span className="text-[10px] font-mono text-[#66736A]">({rec.numeroArt})</span>
+                      <span className="text-[10px] font-mono text-slate-600">({rec.numeroArt})</span>
                     </div>
                     <h3 className="text-base font-bold text-white mt-1">{rec.produtoComercial}</h3>
-                    <p className="text-xs text-[#66736A] font-medium">Alvo: <span className="text-[#26332A]">{rec.alvoBiologico}</span></p>
+                    <p className="text-xs text-slate-600 font-medium">Alvo: <span className="text-slate-900">{rec.alvoBiologico}</span></p>
                   </div>
 
                   <span
@@ -227,46 +227,46 @@ export const ReceituarioAgronomicoModule: React.FC = () => {
 
                 {/* Informações Agronômicas da Bula */}
                 <div className="grid grid-cols-2 gap-2 text-xs">
-                  <div className="bg-[#F7F9F5] p-2.5 rounded-xl border border-[#EAF4E7]">
-                    <span className="text-[10px] text-[#66736A] block font-semibold">Talhão Destino</span>
+                  <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                    <span className="text-[10px] text-slate-600 block font-semibold">Talhão Destino</span>
                     <span className="font-bold text-white">
                       {talhao?.codigo || 'TAL-04'} - {talhao?.nome || 'Talhão Pivô 01'}
                     </span>
                   </div>
-                  <div className="bg-[#F7F9F5] p-2.5 rounded-xl border border-[#EAF4E7]">
-                    <span className="text-[10px] text-[#66736A] block font-semibold">Dose Prescrita</span>
+                  <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                    <span className="text-[10px] text-slate-600 block font-semibold">Dose Prescrita</span>
                     <span className="font-bold text-emerald-400">{rec.doseRecomendada}</span>
                   </div>
-                  <div className="bg-[#F7F9F5] p-2.5 rounded-xl border border-[#EAF4E7]">
-                    <span className="text-[10px] text-[#66736A] block font-semibold">Carência / Intervalo</span>
+                  <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                    <span className="text-[10px] text-slate-600 block font-semibold">Carência / Intervalo</span>
                     <span className="font-bold text-amber-400">{rec.intervaloSegurancaDias} dias p/ colheita</span>
                   </div>
-                  <div className="bg-[#F7F9F5] p-2.5 rounded-xl border border-[#EAF4E7]">
-                    <span className="text-[10px] text-[#66736A] block font-semibold">Reentrada na Lavoura</span>
-                    <span className="font-bold text-[#26332A]">{rec.periodoReentradaHoras} horas</span>
+                  <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                    <span className="text-[10px] text-slate-600 block font-semibold">Reentrada na Lavoura</span>
+                    <span className="font-bold text-slate-900">{rec.periodoReentradaHoras} horas</span>
                   </div>
                 </div>
 
                 {/* Logística Reversa inpEV */}
-                <div className="bg-[#F7F9F5] p-3 rounded-xl border border-[#EAF4E7] text-xs text-[#66736A] flex items-start gap-2.5">
+                <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-600 flex items-start gap-2.5">
                   <RotateCcw className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                   <p className="text-[11px] leading-relaxed">
-                    <b className="text-[#26332A]">Logística Reversa (inpEV):</b> {rec.instrucoesInpev}
+                    <b className="text-slate-900">Logística Reversa (inpEV):</b> {rec.instrucoesInpev}
                   </p>
                 </div>
 
                 {/* Rodapé com Assinatura Técnica do Agrônomo */}
-                <div className="flex justify-between items-center text-xs pt-2 border-t border-[#EAF4E7]">
+                <div className="flex justify-between items-center text-xs pt-2 border-t border-slate-200">
                   <div>
                     <span className="text-[10px] text-slate-500 block">Responsável Técnico</span>
-                    <span className="font-semibold text-[#26332A]">{rec.agronomoResponsavel}</span>
+                    <span className="font-semibold text-slate-900">{rec.agronomoResponsavel}</span>
                     <span className="text-[10px] text-slate-500 ml-1">({rec.creaNumero})</span>
                   </div>
                   <button
                     onClick={() => setSelectedReceitaParaImprimir(rec)}
-                    className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-[#26332A] rounded-lg text-xs font-semibold flex items-center gap-1.5 border border-slate-700 shadow"
+                    className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-900 rounded-lg text-xs font-semibold flex items-center gap-1.5 border border-slate-700 shadow"
                   >
-                    <Printer className="w-3.5 h-3.5 text-[#66736A]" /> Imprimir Bula / ART Oficial
+                    <Printer className="w-3.5 h-3.5 text-slate-600" /> Imprimir Bula / ART Oficial
                   </button>
                 </div>
               </div>
@@ -280,81 +280,81 @@ export const ReceituarioAgronomicoModule: React.FC = () => {
         <div className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Parâmetros do Formulário de Preparo de Calda */}
-            <div className="lg:col-span-1 bg-white border border-[#EAF4E7] rounded-2xl p-6 space-y-4 shadow-xl">
-              <h3 className="text-base font-bold text-white flex items-center gap-2 border-b border-[#EAF4E7] pb-3">
+            <div className="lg:col-span-1 bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-xl">
+              <h3 className="text-base font-bold text-white flex items-center gap-2 border-b border-slate-200 pb-3">
                 <Sliders className="w-5 h-5 text-blue-400" /> Parâmetros Operacionais
               </h3>
 
               <div className="space-y-3 text-xs">
                 <div>
-                  <label className="text-[#66736A] font-semibold block mb-1">Área Alvo da Aplicação (ha)</label>
+                  <label className="text-slate-600 font-semibold block mb-1">Área Alvo da Aplicação (ha)</label>
                   <input
                     type="number"
                     value={calcAreaHa}
                     onChange={(e) => setCalcAreaHa(Number(e.target.value))}
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2.5 text-white font-mono"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg p-2.5 text-white font-mono"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[#66736A] font-semibold block mb-1">Taxa de Aplicação de Calda (L/ha)</label>
+                  <label className="text-slate-600 font-semibold block mb-1">Taxa de Aplicação de Calda (L/ha)</label>
                   <input
                     type="number"
                     value={calcTaxaLha}
                     onChange={(e) => setCalcTaxaLha(Number(e.target.value))}
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2.5 text-white font-mono"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg p-2.5 text-white font-mono"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[#66736A] font-semibold block mb-1">Capacidade do Tanque do Pulverizador (L)</label>
+                  <label className="text-slate-600 font-semibold block mb-1">Capacidade do Tanque do Pulverizador (L)</label>
                   <input
                     type="number"
                     value={calcCapacidadeTanqueL}
                     onChange={(e) => setCalcCapacidadeTanqueL(Number(e.target.value))}
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2.5 text-white font-mono"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg p-2.5 text-white font-mono"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[#66736A] font-semibold block mb-1">Dose do Defensivo (L/ha ou kg/ha)</label>
+                  <label className="text-slate-600 font-semibold block mb-1">Dose do Defensivo (L/ha ou kg/ha)</label>
                   <input
                     type="number"
                     step="0.05"
                     value={calcDoseLha}
                     onChange={(e) => setCalcDoseLha(Number(e.target.value))}
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2.5 text-white font-mono"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg p-2.5 text-white font-mono"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[#66736A] font-semibold block mb-1">Adjuvante Óleo Mineral (% v/v)</label>
+                  <label className="text-slate-600 font-semibold block mb-1">Adjuvante Óleo Mineral (% v/v)</label>
                   <input
                     type="number"
                     step="0.05"
                     value={calcAdjuvantePct}
                     onChange={(e) => setCalcAdjuvantePct(Number(e.target.value))}
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2.5 text-white font-mono"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg p-2.5 text-white font-mono"
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-[#EAF4E7]">
+                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-200">
                   <div>
-                    <label className="text-[#66736A] font-semibold block mb-1">Velocidade (km/h)</label>
+                    <label className="text-slate-600 font-semibold block mb-1">Velocidade (km/h)</label>
                     <input
                       type="number"
                       value={calcVelocidadeKmh}
                       onChange={(e) => setCalcVelocidadeKmh(Number(e.target.value))}
-                      className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2 text-white font-mono"
+                      className="w-full bg-slate-50 border border-slate-700 rounded-lg p-2 text-white font-mono"
                     />
                   </div>
                   <div>
-                    <label className="text-[#66736A] font-semibold block mb-1">Espaç. Bicos (cm)</label>
+                    <label className="text-slate-600 font-semibold block mb-1">Espaç. Bicos (cm)</label>
                     <input
                       type="number"
                       value={calcEspacamentoBicosCm}
                       onChange={(e) => setCalcEspacamentoBicosCm(Number(e.target.value))}
-                      className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2 text-white font-mono"
+                      className="w-full bg-slate-50 border border-slate-700 rounded-lg p-2 text-white font-mono"
                     />
                   </div>
                 </div>
@@ -363,39 +363,39 @@ export const ReceituarioAgronomicoModule: React.FC = () => {
 
             {/* Painel de Resultados do Dimensionamento */}
             <div className="lg:col-span-2 space-y-4">
-              <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-6">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-6">
                 <div>
                   <h3 className="text-lg font-bold text-white flex items-center gap-2">
                     <Droplets className="w-5 h-5 text-blue-400" /> Prescrição Exata de Mistura por Tanque
                   </h3>
-                  <p className="text-xs text-[#66736A] mt-1">
+                  <p className="text-xs text-slate-600 mt-1">
                     Ordem de abastecimento recomendada: 1º Água (50%), 2º Condicionadores de Calda, 3º Defensivo (SC/EC), 4º Adjuvante, 5º Completar água.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="bg-[#F7F9F5] p-4 rounded-xl border border-[#EAF4E7]">
-                    <span className="text-[10px] text-[#66736A] uppercase font-semibold">Volume Total de Calda</span>
+                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <span className="text-[10px] text-slate-600 uppercase font-semibold">Volume Total de Calda</span>
                     <p className="text-2xl font-bold font-mono text-blue-400 mt-1">
-                      {volumeTotalCaldaLitros.toLocaleString('pt-BR')} <span className="text-xs font-normal text-[#66736A]">Litros</span>
+                      {volumeTotalCaldaLitros.toLocaleString('pt-BR')} <span className="text-xs font-normal text-slate-600">Litros</span>
                     </p>
-                    <span className="text-[11px] text-[#66736A] mt-1 block">Para os {calcAreaHa} ha planejados</span>
+                    <span className="text-[11px] text-slate-600 mt-1 block">Para os {calcAreaHa} ha planejados</span>
                   </div>
 
-                  <div className="bg-[#F7F9F5] p-4 rounded-xl border border-[#EAF4E7]">
-                    <span className="text-[10px] text-[#66736A] uppercase font-semibold">Total de Tanques</span>
+                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <span className="text-[10px] text-slate-600 uppercase font-semibold">Total de Tanques</span>
                     <p className="text-2xl font-bold font-mono text-amber-400 mt-1">
-                      {totalTanquesExatos.toFixed(2)} <span className="text-xs font-normal text-[#66736A]">cargas</span>
+                      {totalTanquesExatos.toFixed(2)} <span className="text-xs font-normal text-slate-600">cargas</span>
                     </p>
-                    <span className="text-[11px] text-[#66736A] mt-1 block">
+                    <span className="text-[11px] text-slate-600 mt-1 block">
                       {tanquesCompletos} cheios + 1 com {caldaRestanteLitros} L
                     </span>
                   </div>
 
-                  <div className="bg-[#F7F9F5] p-4 rounded-xl border border-[#EAF4E7]">
-                    <span className="text-[10px] text-[#66736A] uppercase font-semibold">Vazão Requerida / Bico</span>
+                  <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <span className="text-[10px] text-slate-600 uppercase font-semibold">Vazão Requerida / Bico</span>
                     <p className="text-2xl font-bold font-mono text-emerald-400 mt-1">
-                      {vazaoBicoLmin} <span className="text-xs font-normal text-[#66736A]">L/min</span>
+                      {vazaoBicoLmin} <span className="text-xs font-normal text-slate-600">L/min</span>
                     </p>
                     <span className="text-[11px] text-emerald-400/80 mt-1 block">Ponta recomendada: TTJ60-11003</span>
                   </div>
@@ -408,16 +408,16 @@ export const ReceituarioAgronomicoModule: React.FC = () => {
                   </h4>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                    <div className="bg-slate-900/80 p-3 rounded-lg border border-[#EAF4E7]">
-                      <span className="text-[#66736A] block text-[11px]">Defensivo Comercial</span>
+                    <div className="bg-slate-900/80 p-3 rounded-lg border border-slate-200">
+                      <span className="text-slate-600 block text-[11px]">Defensivo Comercial</span>
                       <b className="text-emerald-400 text-base">{produtoPorTanqueCheioLitros.toFixed(2)} L</b>
                     </div>
-                    <div className="bg-slate-900/80 p-3 rounded-lg border border-[#EAF4E7]">
-                      <span className="text-[#66736A] block text-[11px]">Adjuvante Óleo Mineral</span>
+                    <div className="bg-slate-900/80 p-3 rounded-lg border border-slate-200">
+                      <span className="text-slate-600 block text-[11px]">Adjuvante Óleo Mineral</span>
                       <b className="text-amber-400 text-base">{adjuvantePorTanqueCheioLitros.toFixed(2)} L</b>
                     </div>
-                    <div className="bg-slate-900/80 p-3 rounded-lg border border-[#EAF4E7]">
-                      <span className="text-[#66736A] block text-[11px]">Água Limpa (pH 5.5 - 6.5)</span>
+                    <div className="bg-slate-900/80 p-3 rounded-lg border border-slate-200">
+                      <span className="text-slate-600 block text-[11px]">Água Limpa (pH 5.5 - 6.5)</span>
                       <b className="text-blue-400 text-base">{(calcCapacidadeTanqueL - produtoPorTanqueCheioLitros - adjuvantePorTanqueCheioLitros).toFixed(1)} L</b>
                     </div>
                   </div>
@@ -431,18 +431,18 @@ export const ReceituarioAgronomicoModule: React.FC = () => {
       {/* Modal de Emissão de Novo Receituário */}
       {modalNovoOpen && (
         <div className="fixed inset-0 z-[1000] bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-700 p-6 rounded-2xl max-w-lg w-full shadow-2xl text-[#26332A] space-y-4">
+          <div className="bg-slate-900 border border-slate-700 p-6 rounded-2xl max-w-lg w-full shadow-2xl text-slate-900 space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Award className="w-5 h-5 text-emerald-400" /> Emitir Receituário Agronômico (CREA-MT)
             </h3>
 
             <div className="space-y-3 text-xs">
               <div>
-                <label className="text-[#66736A] block mb-1 font-semibold">Produto Comercial (Defensivo)</label>
+                <label className="text-slate-600 block mb-1 font-semibold">Produto Comercial (Defensivo)</label>
                 <select
                   value={produto}
                   onChange={(e) => setProduto(e.target.value)}
-                  className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
+                  className="w-full bg-slate-50 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
                 >
                   <option>Fox Xpro (Bayer) - Fungicida Sistêmico</option>
                   <option>Engeo Pleno S (Syngenta) - Inseticida</option>
@@ -453,31 +453,31 @@ export const ReceituarioAgronomicoModule: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-[#66736A] block mb-1 font-semibold">Alvo Biológico (Praga / Fitopatógeno)</label>
+                <label className="text-slate-600 block mb-1 font-semibold">Alvo Biológico (Praga / Fitopatógeno)</label>
                 <input
                   type="text"
                   value={alvo}
                   onChange={(e) => setAlvo(e.target.value)}
-                  className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
+                  className="w-full bg-slate-50 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="text-[#66736A] block mb-1 font-semibold">Dose Recomendada / ha</label>
+                  <label className="text-slate-600 block mb-1 font-semibold">Dose Recomendada / ha</label>
                   <input
                     type="text"
                     value={dose}
                     onChange={(e) => setDose(e.target.value)}
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
                   />
                 </div>
                 <div>
-                  <label className="text-[#66736A] block mb-1 font-semibold">Talhão de Aplicação</label>
+                  <label className="text-slate-600 block mb-1 font-semibold">Talhão de Aplicação</label>
                   <select
                     value={talhaoId}
                     onChange={(e) => setTalhaoId(e.target.value)}
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
                   >
                     {TALHOES_INICIAIS.map((t) => (
                       <option key={t.id} value={t.id}>
@@ -490,20 +490,20 @@ export const ReceituarioAgronomicoModule: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="text-[#66736A] block mb-1 font-semibold">Volume de Calda (L/ha)</label>
+                  <label className="text-slate-600 block mb-1 font-semibold">Volume de Calda (L/ha)</label>
                   <input
                     type="number"
                     value={volumeCaldaLha}
                     onChange={(e) => setVolumeCaldaLha(Number(e.target.value))}
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
                   />
                 </div>
                 <div>
-                  <label className="text-[#66736A] block mb-1 font-semibold">Classificação Toxicológica</label>
+                  <label className="text-slate-600 block mb-1 font-semibold">Classificação Toxicológica</label>
                   <select
                     value={classeTox}
                     onChange={(e) => setClasseTox(e.target.value)}
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs"
                   >
                     <option>Classe IV - Pouco Tóxico (Faixa Azul)</option>
                     <option>Classe III - Moderadamente Tóxico (Faixa Amarela)</option>
@@ -514,10 +514,10 @@ export const ReceituarioAgronomicoModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex justify-end gap-2 pt-2 border-t border-[#EAF4E7]">
+            <div className="flex justify-end gap-2 pt-2 border-t border-slate-200">
               <button
                 onClick={() => setModalNovoOpen(false)}
-                className="px-3.5 py-1.5 rounded-lg text-xs bg-slate-800 hover:bg-slate-700 text-[#26332A] font-medium"
+                className="px-3.5 py-1.5 rounded-lg text-xs bg-slate-800 hover:bg-slate-700 text-slate-900 font-medium"
               >
                 Cancelar
               </button>

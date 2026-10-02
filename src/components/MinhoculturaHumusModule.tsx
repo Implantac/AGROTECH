@@ -133,19 +133,19 @@ export const MinhoculturaHumusModule: React.FC = () => {
             <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
               🪱 Vermicompostagem Industrial & Ácidos Húmicos
             </h2>
-            <p className="text-sm text-[#26332A] max-w-3xl leading-relaxed">
+            <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
               Reciclagem biológica acelerada de dejetos agropecuários e biomassas vegetais através da minhoca vermelha da Califórnia (*Eisenia fetida*). Produção simultânea de condicionador micropenetrável de solo e biofertilizante foliar enzimático de alta assimilação.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Húmus Peneirado</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Húmus Peneirado</span>
               <span className="text-xl font-black text-amber-400">300 ton</span>
-              <span className="text-[10px] text-[#66736A] block mt-0.5">50% Rendimento Seco</span>
+              <span className="text-[10px] text-slate-600 block mt-0.5">50% Rendimento Seco</span>
             </div>
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Biofertilizante</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Biofertilizante</span>
               <span className="text-xl font-black text-emerald-400">90.000 L</span>
               <span className="text-[10px] text-emerald-400/80 block mt-0.5">Extrato Purificado</span>
             </div>
@@ -155,8 +155,8 @@ export const MinhoculturaHumusModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">População nos Canteiros</span>
             <Activity className="w-4 h-4 text-emerald-400" />
           </div>
@@ -167,48 +167,48 @@ export const MinhoculturaHumusModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Teor de Matéria Orgânica</span>
             <Layers className="w-4 h-4 text-amber-400" />
           </div>
           <div className="text-2xl font-black text-amber-400">54.0%</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Rico em Ácidos Fúlvicos e Húmicos
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Faturamento Anual</span>
             <DollarSign className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">R$ 1.305.000,00</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Húmus Sólido + Líquido
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
             <Award className="w-4 h-4 text-teal-400" />
           </div>
           <div className="text-2xl font-black text-teal-400">R$ 925.000,00</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Margem Líquida de 70.9%
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('canteiros')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'canteiros'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -220,7 +220,7 @@ export const MinhoculturaHumusModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'biologia'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Activity className="w-4 h-4" />
@@ -232,7 +232,7 @@ export const MinhoculturaHumusModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'acidos_humicos'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Filter className="w-4 h-4" />
@@ -244,7 +244,7 @@ export const MinhoculturaHumusModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -255,19 +255,19 @@ export const MinhoculturaHumusModule: React.FC = () => {
       {/* Conteúdo Aba 1: Canteiros */}
       {activeTab === 'canteiros' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Layers className="w-5 h-5 text-amber-400" />
               Monitoramento dos Canteiros em Galpões Cobertos
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Canteiros de alvenaria ou solo com leito drenante impermeabilizado para captação contínua de chorume enriquecido. Umidade mantida por microaspersores entre 70% e 80% e temperatura inferior a 28°C.
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#EAF4E7] text-[#66736A] font-bold uppercase tracking-wider">
+                  <tr className="border-b border-slate-200 text-slate-600 font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Canteiro / Setor</th>
                     <th className="py-3 px-3">Substrato Processado</th>
                     <th className="py-3 px-3">Dias Cultivo</th>
@@ -283,9 +283,9 @@ export const MinhoculturaHumusModule: React.FC = () => {
                     <tr key={c.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-white">{c.identificacao}</div>
-                        <div className="text-[11px] text-[#66736A] font-mono">{c.id}</div>
+                        <div className="text-[11px] text-slate-600 font-mono">{c.id}</div>
                       </td>
-                      <td className="py-3.5 px-3 text-[#26332A]">{c.substratoBase}</td>
+                      <td className="py-3.5 px-3 text-slate-900">{c.substratoBase}</td>
                       <td className="py-3.5 px-3 font-mono text-white">{c.diasProcessamento} dias</td>
                       <td className="py-3.5 px-3 font-mono font-bold text-amber-400">{c.temperaturaC}°C • {c.umidadePct}%</td>
                       <td className="py-3.5 px-3 font-mono text-cyan-400 font-bold">{c.ph}</td>
@@ -308,47 +308,47 @@ export const MinhoculturaHumusModule: React.FC = () => {
       {/* Conteúdo Aba 2: Biologia */}
       {activeTab === 'biologia' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Activity className="w-5 h-5 text-amber-400" />
               Fisiologia e Digestão da Eisenia fetida
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Cada minhoca ingere diariamente o equivalente ao seu próprio peso corporal (0,5 a 1,0g), excretando coprólitos com flora microbiana ativa e minerais quelatizados:
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">Pré-Compostagem Térmica Obrigatória</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5">
+                <span className="text-slate-600 text-[11px] block mt-0.5">
                   Os dejetos passam por 15 dias de fermentação aeróbica a 60°C para eliminar sementes de invasoras e patógenos entéricos antes de serem fornecidos às minhocas.
                 </span>
               </div>
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">Reprodução Hermafrodita e Casulos</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5">
+                <span className="text-slate-600 text-[11px] block mt-0.5">
                   Cada casulo eclode em 21 dias gerando de 2 a 4 novas minhocas, dobrando a biomassa do canteiro a cada 60 a 90 dias.
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               Peneiramento e Separação
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Técnica de raspagem de luz ou peneiras rotativas trommel de 4mm:
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Fotofobia da Minhoca:</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Fotofobia da Minhoca:</span>
                 <span className="font-mono font-bold text-amber-400">Fuga para o fundo facilitando colheita</span>
               </div>
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Peneira Cilíndrica Trommel:</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Peneira Cilíndrica Trommel:</span>
                 <span className="font-mono font-bold text-emerald-400">Separação de 99% dos casulos e matrizes</span>
               </div>
             </div>
@@ -359,32 +359,32 @@ export const MinhoculturaHumusModule: React.FC = () => {
       {/* Conteúdo Aba 3: Ácidos Húmicos */}
       {activeTab === 'acidos_humicos' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Filter className="w-5 h-5 text-cyan-400" />
               Composição Bioquímica e Quelação de Nutrientes no Solo
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               O húmus de minhoca possui alta capacidade de troca catiônica (CTC superior a 200 cmol/kg), funcionando como um banco biológico de retenção hídrica e liberação gradual de fósforo e micronutrientes.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Ácidos Fúlvicos</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Ácidos Fúlvicos</span>
                 <span className="text-2xl font-black text-white font-mono">18.5%</span>
                 <span className="text-[11px] text-amber-400 block">Absorção foliar ultra-rápida</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Ácidos Húmicos</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Ácidos Húmicos</span>
                 <span className="text-2xl font-black text-emerald-400 font-mono">24.2%</span>
-                <span className="text-[11px] text-[#66736A] block">Estruturação de agregados de solo</span>
+                <span className="text-[11px] text-slate-600 block">Estruturação de agregados de solo</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Carga Microbiana Viva</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Carga Microbiana Viva</span>
                 <span className="text-2xl font-black text-cyan-400 font-mono">10⁹ UFC / g</span>
-                <span className="text-[11px] text-[#66736A] block">Antagonismo a fungos de raiz</span>
+                <span className="text-[11px] text-slate-600 block">Antagonismo a fungos de raiz</span>
               </div>
             </div>
           </div>
@@ -394,14 +394,14 @@ export const MinhoculturaHumusModule: React.FC = () => {
       {/* Conteúdo Aba 4: Simulador */}
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-amber-400" />
               Parâmetros de Vermicompostagem
             </h3>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Esterco Processado Anual</span>
                 <span className="font-mono text-amber-400">{estercoProcessadoTonAno} toneladas</span>
               </div>
@@ -417,7 +417,7 @@ export const MinhoculturaHumusModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Húmus Sólido (R$/kg)</span>
                 <span className="font-mono text-white">R$ {precoKgHumusSolidoReais.toFixed(2)}</span>
               </div>
@@ -433,7 +433,7 @@ export const MinhoculturaHumusModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Biofertilizante Líquido (R$/L)</span>
                 <span className="font-mono text-emerald-400">R$ {precoLitroBiofertilizanteReais.toFixed(2)}</span>
               </div>
@@ -449,7 +449,7 @@ export const MinhoculturaHumusModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Custo Operacional Total Anual</span>
                 <span className="font-mono text-rose-400">R$ {custoTotalOperacaoAnoReais.toFixed(2)}</span>
               </div>
@@ -465,39 +465,39 @@ export const MinhoculturaHumusModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               Retorno Financeiro e Economia Circular
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Húmus Peneirado</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Húmus Peneirado</span>
                 <span className="font-mono font-bold text-white text-base">
                   {(metricas.humusSolidoKgAno / 1000).toFixed(0)} ton
                 </span>
-                <span className="text-[10px] text-[#66736A] block">{taxaConversaoHumusSolidoPct}% rendimento</span>
+                <span className="text-[10px] text-slate-600 block">{taxaConversaoHumusSolidoPct}% rendimento</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Biofertilizante</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Biofertilizante</span>
                 <span className="font-mono font-bold text-amber-400 text-base">
                   {(metricas.biofertilizanteLiquidoLitrosAno / 1000).toFixed(0)}k L
                 </span>
                 <span className="text-[10px] text-amber-400/80 block">Extrato Concentrado</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Receita Bruta</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Bruta</span>
                 <span className="font-mono font-bold text-white text-base">
                   R$ {(metricas.receitaBrutaTotalReais / 1000).toFixed(0)}k
                 </span>
-                <span className="text-[10px] text-[#66736A] block">Sólido + Líquido</span>
+                <span className="text-[10px] text-slate-600 block">Sólido + Líquido</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Lucro Líquido</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {(metricas.lucroLiquidoAnoReais / 1000).toFixed(0)}k
                 </span>
@@ -505,21 +505,21 @@ export const MinhoculturaHumusModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Venda de Húmus Sólido ({metricas.humusSolidoKgAno.toLocaleString()} kg @ R$ {precoKgHumusSolidoReais.toFixed(2)}):</span>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Venda de Húmus Sólido ({metricas.humusSolidoKgAno.toLocaleString()} kg @ R$ {precoKgHumusSolidoReais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-white">
                   R$ {metricas.receitaHumusSolidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Venda de Biofertilizante Líquido ({metricas.biofertilizanteLiquidoLitrosAno.toLocaleString()} L @ R$ {precoLitroBiofertilizanteReais.toFixed(2)}):</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Venda de Biofertilizante Líquido ({metricas.biofertilizanteLiquidoLitrosAno.toLocaleString()} L @ R$ {precoLitroBiofertilizanteReais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-amber-400">
                   + R$ {metricas.receitaBiofertilizanteReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Custo Total de Operação, Peneiramento e Ensacamento:</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Custo Total de Operação, Peneiramento e Ensacamento:</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {custoTotalOperacaoAnoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>

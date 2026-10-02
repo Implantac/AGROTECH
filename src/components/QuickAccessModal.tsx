@@ -1508,9 +1508,9 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-[1000] bg-black/80 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in">
-      <div className="bg-white border border-[#EAF4E7] w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
+      <div className="bg-white border border-slate-200 w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
         {/* Barra de Pesquisa Rápida (Command Palette) */}
-        <div className="p-4 border-b border-[#EAF4E7] flex items-center gap-3 bg-[#F7F9F5]">
+        <div className="p-4 border-b border-slate-200 flex items-center gap-3 bg-slate-50">
           <Search className="w-5 h-5 text-emerald-400 shrink-0" />
           <input
             type="text"
@@ -1518,7 +1518,7 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             autoFocus
-            className="w-full bg-transparent text-sm text-[#26332A] placeholder-[#66736A] focus:outline-none"
+            className="w-full bg-transparent text-sm text-slate-900 placeholder-[#66736A] focus:outline-none"
           />
           <button
             onClick={onClose}
@@ -1530,7 +1530,7 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
 
         {/* Faixa de Atividade Contratada & Filtro Modular */}
         {enabledModuleIds && (
-          <div className="px-4 py-2 bg-white border-b border-[#EAF4E7] flex items-center justify-between text-xs gap-3">
+          <div className="px-4 py-2 bg-white border-b border-slate-200 flex items-center justify-between text-xs gap-3">
             <div className="flex items-center gap-2">
               <span className="text-[11px] text-slate-400">Atividade Contratada:</span>
               <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold border border-emerald-500/30 text-[11px]">
@@ -1565,12 +1565,12 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
         )}
 
         {/* Filtros de Categoria */}
-        <div className="px-4 py-2 bg-[#F7F9F5] border-b border-[#EAF4E7] flex items-center gap-1.5 overflow-x-auto text-xs">
+        <div className="px-4 py-2 bg-slate-50 border-b border-slate-200 flex items-center gap-1.5 overflow-x-auto text-xs">
           <button
             onClick={() => setSelectedCategory('TODOS')}
             className={`px-3 py-1 rounded-lg font-bold transition-all whitespace-nowrap cursor-pointer ${
               selectedCategory === 'TODOS'
-                ? 'bg-[#285943] text-white'
+                ? 'bg-emerald-700 text-white'
                 : 'text-slate-400 hover:bg-slate-800 hover:text-white'
             }`}
           >
@@ -1651,14 +1651,14 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
                   className={`p-3.5 rounded-xl border flex items-center justify-between gap-4 cursor-pointer transition-all ${
                     isActive
                       ? 'bg-emerald-950/40 border-emerald-500 shadow-md'
-                      : 'bg-[#F7F9F5] border-[#EAF4E7] hover:border-[#8FBF88] hover:bg-[#EAF4E7]'
+                      : 'bg-slate-50 border-slate-200 hover:border-emerald-300 hover:bg-emerald-50'
                   }`}
                 >
                   <div className="flex items-center gap-3.5 min-w-0">
                     <div
                       className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
                         isActive
-                          ? 'bg-[#285943] text-white'
+                          ? 'bg-emerald-700 text-white'
                           : 'bg-slate-800 text-emerald-400 border border-slate-700'
                       }`}
                     >
@@ -1667,14 +1667,14 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
 
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
-                        <h4 className="text-xs font-bold text-[#285943] truncate">{mod.fullName}</h4>
+                        <h4 className="text-xs font-bold text-emerald-800 truncate">{mod.fullName}</h4>
                         {mod.badge && (
                           <span className="px-1.5 py-0.2 bg-slate-800 text-emerald-400 text-[10px] font-mono rounded border border-slate-700 shrink-0">
                             {mod.badge}
                           </span>
                         )}
                       </div>
-                      <p className="text-[11px] text-[#66736A] line-clamp-1 mt-0.5">
+                      <p className="text-[11px] text-slate-600 line-clamp-1 mt-0.5">
                         {mod.description}
                       </p>
                     </div>
@@ -1706,9 +1706,9 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
         </div>
 
         {/* Rodapé com Atalhos de Teclado */}
-        <div className="p-3 bg-[#F7F9F5] border-t border-[#EAF4E7] flex justify-between items-center text-[11px] text-[#66736A]">
+        <div className="p-3 bg-slate-50 border-t border-slate-200 flex justify-between items-center text-[11px] text-slate-600">
           <span>Dica: Use a estrela (⭐) para fixar os módulos que você mais utiliza no topo da tela.</span>
-          <span className="font-mono bg-white border border-[#EAF4E7] px-2 py-0.5 rounded text-[#285943]">ESC para fechar</span>
+          <span className="font-mono bg-white border border-slate-200 px-2 py-0.5 rounded text-emerald-800">ESC para fechar</span>
         </div>
       </div>
     </div>

@@ -251,9 +251,9 @@ export const NotificationCenterModal: React.FC<NotificationCenterModalProps> = (
 
   return (
     <div className="fixed inset-0 z-[1100] bg-black/80 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in">
-      <div className="bg-white border border-[#EAF4E7] w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
+      <div className="bg-white border border-slate-200 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
         {/* Cabeçalho da Central */}
-        <div className="p-4 border-b border-[#EAF4E7] bg-[#F7F9F5] flex items-center justify-between">
+        <div className="p-4 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center border border-amber-500/30">
               <Bell className="w-5 h-5" />
@@ -267,7 +267,7 @@ export const NotificationCenterModal: React.FC<NotificationCenterModalProps> = (
                   </span>
                 )}
               </div>
-              <p className="text-xs text-[#66736A]">
+              <p className="text-xs text-slate-600">
                 Gatilhos operacionais filtrados para: <span className="text-[#285943] font-semibold">{profileId.replace(/_/g, ' ')}</span>
               </p>
             </div>
@@ -277,7 +277,7 @@ export const NotificationCenterModal: React.FC<NotificationCenterModalProps> = (
             {unreadCount > 0 && (
               <button
                 onClick={markAllAsRead}
-                className="text-xs text-[#66736A] hover:text-white px-2.5 py-1 rounded-lg hover:bg-slate-800 transition-colors flex items-center gap-1 cursor-pointer"
+                className="text-xs text-slate-600 hover:text-white px-2.5 py-1 rounded-lg hover:bg-slate-800 transition-colors flex items-center gap-1 cursor-pointer"
                 title="Marcar todas como lidas"
               >
                 <Check className="w-3.5 h-3.5 text-emerald-400" />
@@ -325,8 +325,8 @@ export const NotificationCenterModal: React.FC<NotificationCenterModalProps> = (
                   key={alert.id}
                   className={`pt-3 first:pt-0 flex items-start justify-between gap-3 p-3 rounded-xl transition-all ${
                     alert.lido
-                      ? 'opacity-60 bg-transparent hover:opacity-100 hover:bg-[#F7F9F5]'
-                      : 'bg-[#F7F9F5] border border-[#EAF4E7] shadow-xs'
+                      ? 'opacity-60 bg-transparent hover:opacity-100 hover:bg-slate-50'
+                      : 'bg-slate-50 border border-slate-200 shadow-xs'
                   }`}
                 >
                   <div className="flex items-start gap-3 flex-1 min-w-0">
@@ -339,14 +339,14 @@ export const NotificationCenterModal: React.FC<NotificationCenterModalProps> = (
                         <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full border ${badgeBg}`}>
                           {alert.tipo}
                         </span>
-                        <span className="text-[10px] text-[#66736A] flex items-center gap-1 font-mono">
+                        <span className="text-[10px] text-slate-600 flex items-center gap-1 font-mono">
                           <Clock className="w-3 h-3" /> {alert.timestamp}
                         </span>
                       </div>
 
                       <h4 className="text-xs font-bold text-[#285943] tracking-tight leading-snug">{alert.titulo}</h4>
 
-                      <p className="text-xs text-[#26332A] leading-relaxed font-normal">{alert.descricao}</p>
+                      <p className="text-xs text-slate-900 leading-relaxed font-normal">{alert.descricao}</p>
 
                       <div className="pt-1 flex items-center gap-2">
                         <button
@@ -366,7 +366,7 @@ export const NotificationCenterModal: React.FC<NotificationCenterModalProps> = (
 
                   <button
                     onClick={() => clearAlert(alert.id)}
-                    className="text-[#66736A] hover:text-rose-600 p-1.5 rounded-lg hover:bg-rose-50 transition-colors shrink-0 cursor-pointer"
+                    className="text-slate-600 hover:text-rose-600 p-1.5 rounded-lg hover:bg-rose-50 transition-colors shrink-0 cursor-pointer"
                     title="Dispensar alerta"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
@@ -378,7 +378,7 @@ export const NotificationCenterModal: React.FC<NotificationCenterModalProps> = (
         </div>
 
         {/* Rodapé da Central */}
-        <div className="p-3.5 border-t border-[#EAF4E7] bg-[#F7F9F5] flex items-center justify-between text-xs text-[#66736A]">
+        <div className="p-3.5 border-t border-slate-200 bg-slate-50 flex items-center justify-between text-xs text-slate-600">
           <span>{alerts.length} alertas monitorados em tempo real</span>
           <button
             onClick={onClose}

@@ -157,7 +157,7 @@ export const DistribuicaoAduboModule: React.FC = () => {
                     ASAE S341 • ABNT
                   </span>
                 </h2>
-                <p className="text-sm text-[#66736A]">
+                <p className="text-sm text-slate-600">
                   Auditoria de uniformidade transversal, regulagem de aletas e eliminação do efeito zebrado na lavoura.
                 </p>
               </div>
@@ -186,8 +186,8 @@ export const DistribuicaoAduboModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: CV% Transversal */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg relative overflow-hidden">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg relative overflow-hidden">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Coeficiente Variação (CV%)</span>
             <Sliders className="w-4 h-4 text-amber-400" />
           </div>
@@ -203,7 +203,7 @@ export const DistribuicaoAduboModule: React.FC = () => {
             >
               {metrics.cvPct.toFixed(1)}%
             </span>
-            <span className="text-xs font-normal text-[#66736A]">
+            <span className="text-xs font-normal text-slate-600">
               {metrics.cvPct <= 12 ? 'Excelente' : metrics.cvPct <= 18 ? 'Aceitável' : 'Crítico'}
             </span>
           </div>
@@ -213,14 +213,14 @@ export const DistribuicaoAduboModule: React.FC = () => {
         </div>
 
         {/* KPI 2: Vazão Requerida */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Vazão Requerida</span>
             <Zap className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
             {metrics.vazaoRequeridaKgMin.toFixed(1)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">kg/min</span>
+            <span className="text-xs font-normal text-slate-600">kg/min</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             {doseAlvoKgHa} kg/ha a {velocidadeOperacaoKmH} km/h em {larguraFaixaMetros}m.
@@ -228,8 +228,8 @@ export const DistribuicaoAduboModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Quebra Estimada por Zebrado */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Perda Estimada</span>
             <TrendingDown className="w-4 h-4 text-rose-400" />
           </div>
@@ -246,14 +246,14 @@ export const DistribuicaoAduboModule: React.FC = () => {
         </div>
 
         {/* KPI 4: Volume no Talhão */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Adubo Total no Talhão</span>
             <Layers className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-white">
             {metrics.aduboTotalToneladas.toFixed(1)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">t ({areaTalhaoHa} ha)</span>
+            <span className="text-xs font-normal text-slate-600">t ({areaTalhaoHa} ha)</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             {metrics.prejuizoTotalTalhao > 0
@@ -266,14 +266,14 @@ export const DistribuicaoAduboModule: React.FC = () => {
       {/* Grid Principal: Gráfico do Perfil Transversal e Painel de Calibração */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Gráfico de Barras Transversal das Bandejas Coletoras */}
-        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <Sliders className="w-5 h-5 text-amber-400" />
                 Perfil de Deposição Transversal (Faixa de {larguraFaixaMetros} metros)
               </h3>
-              <p className="text-xs text-[#66736A]">
+              <p className="text-xs text-slate-600">
                 Massa coletada em cada bandeja graduada ao longo do vão de trabalho do distribuidor.
               </p>
             </div>
@@ -291,7 +291,7 @@ export const DistribuicaoAduboModule: React.FC = () => {
           </div>
 
           {/* Gráfico Visual de Barras com Amostras */}
-          <div className="bg-[#F7F9F5] p-4 rounded-xl border border-[#EAF4E7]">
+          <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
             <div className="h-56 flex items-end justify-between gap-1.5 pt-6 pb-2">
               {amostrasBandejas.map((b) => {
                 const alturaPct = Math.min(100, (b.massaColetadaG / 80) * 100);
@@ -325,7 +325,7 @@ export const DistribuicaoAduboModule: React.FC = () => {
             </div>
 
             {/* Linha de Referência da Média */}
-            <div className="border-t border-dashed border-amber-400/50 pt-2 flex justify-between text-xs text-[#66736A]">
+            <div className="border-t border-dashed border-amber-400/50 pt-2 flex justify-between text-xs text-slate-600">
               <span className="flex items-center gap-1">
                 <span className="w-2.5 h-0.5 bg-amber-400 inline-block" />
                 Média Amostral: {metrics.mediaMassaG.toFixed(1)} g / bandeja
@@ -335,12 +335,12 @@ export const DistribuicaoAduboModule: React.FC = () => {
           </div>
 
           {/* Dicas de Regulagem Mecânica */}
-          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-amber-400 font-semibold">
               <Sparkles className="w-4 h-4" />
               Recomendações de Regulagem de Aletas e Ponto de Queda:
             </div>
-            <ul className="list-disc list-inside text-[#66736A] space-y-1">
+            <ul className="list-disc list-inside text-slate-600 space-y-1">
               {metrics.cvPct > 18 ? (
                 <>
                   <li className="text-rose-300">
@@ -365,7 +365,7 @@ export const DistribuicaoAduboModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Parâmetros de Simulação e Configuração de Máquina */}
-        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Tractor className="w-5 h-5 text-amber-400" />
             Parâmetros da Operação
@@ -374,11 +374,11 @@ export const DistribuicaoAduboModule: React.FC = () => {
           <div className="space-y-4 text-xs">
             {/* Modelo do Distribuidor */}
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Equipamento Distribuidor</label>
+              <label className="text-slate-600 font-medium block mb-1">Equipamento Distribuidor</label>
               <select
                 value={modeloDistribuidor}
                 onChange={(e) => setModeloDistribuidor(e.target.value)}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white focus:outline-none focus:border-amber-500"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-amber-500"
               >
                 <option value="Autopropelido Duplo Disco Centrífugo (Hércules 6.0)">
                   Autopropelido Duplo Disco (Hércules 6.0 / Tellus 10.000)
@@ -394,7 +394,7 @@ export const DistribuicaoAduboModule: React.FC = () => {
 
             {/* Tipo de Fertilizante */}
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">Insumo Aplicado</label>
+              <label className="text-slate-600 font-medium block mb-1">Insumo Aplicado</label>
               <div className="grid grid-cols-2 gap-2">
                 {(['KCL', 'UREIA', 'MAP_NPK', 'CALCARIO'] as const).map((tipo) => (
                   <button
@@ -403,7 +403,7 @@ export const DistribuicaoAduboModule: React.FC = () => {
                     className={`py-1.5 px-2 rounded-lg font-bold text-xs border transition-all ${
                       tipoFertilizante === tipo
                         ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
-                        : 'bg-[#F7F9F5] text-[#66736A] border-[#EAF4E7] hover:text-white'
+                        : 'bg-slate-50 text-slate-600 border-slate-200 hover:text-white'
                     }`}
                   >
                     {tipo === 'KCL'
@@ -421,7 +421,7 @@ export const DistribuicaoAduboModule: React.FC = () => {
             {/* Dose Alvo (kg/ha) */}
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-[#66736A] font-medium">Dose Desejada (kg/ha)</span>
+                <span className="text-slate-600 font-medium">Dose Desejada (kg/ha)</span>
                 <span className="text-amber-400 font-mono font-bold">{doseAlvoKgHa} kg/ha</span>
               </div>
               <input
@@ -438,7 +438,7 @@ export const DistribuicaoAduboModule: React.FC = () => {
             {/* Largura de Faixa (m) */}
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-[#66736A] font-medium">Largura de Faixa (Passada)</span>
+                <span className="text-slate-600 font-medium">Largura de Faixa (Passada)</span>
                 <span className="text-amber-400 font-mono font-bold">{larguraFaixaMetros} metros</span>
               </div>
               <input
@@ -455,7 +455,7 @@ export const DistribuicaoAduboModule: React.FC = () => {
             {/* Velocidade de Operação (km/h) */}
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-[#66736A] font-medium">Velocidade de Trabalho</span>
+                <span className="text-slate-600 font-medium">Velocidade de Trabalho</span>
                 <span className="text-amber-400 font-mono font-bold">{velocidadeOperacaoKmH} km/h</span>
               </div>
               <input
@@ -472,21 +472,21 @@ export const DistribuicaoAduboModule: React.FC = () => {
             {/* Área do Talhão e Preço da Soja */}
             <div className="grid grid-cols-2 gap-3 pt-2">
               <div>
-                <label className="text-[#66736A] block mb-1">Área do Talhão (ha)</label>
+                <label className="text-slate-600 block mb-1">Área do Talhão (ha)</label>
                 <input
                   type="number"
                   value={areaTalhaoHa}
                   onChange={(e) => setAreaTalhaoHa(Number(e.target.value))}
-                  className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-1.5 text-white font-mono"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-white font-mono"
                 />
               </div>
               <div>
-                <label className="text-[#66736A] block mb-1">Preço Soja (R$/sc)</label>
+                <label className="text-slate-600 block mb-1">Preço Soja (R$/sc)</label>
                 <input
                   type="number"
                   value={precoSojaSc}
                   onChange={(e) => setPrecoSojaSc(Number(e.target.value))}
-                  className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-1.5 text-white font-mono"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-white font-mono"
                 />
               </div>
             </div>

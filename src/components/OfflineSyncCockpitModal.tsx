@@ -333,7 +333,7 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
     switch (status) {
       case 'PENDING':
         return (
-          <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#F4F0E6] text-[#A67C1E] border border-[#D9B65D] flex items-center gap-1 font-mono">
+          <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-50 text-[#A67C1E] border border-[#D9B65D] flex items-center gap-1 font-mono">
             <Clock className="w-3 h-3" /> PENDING
           </span>
         );
@@ -345,7 +345,7 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
         );
       case 'SYNCED':
         return (
-          <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#EAF4E7] text-[#1D4B38] border border-[#5F8F52]/40 flex items-center gap-1 font-mono">
+          <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-[#1D4B38] border border-[#5F8F52]/40 flex items-center gap-1 font-mono">
             <CheckCircle2 className="w-3 h-3 text-[#285943]" /> SYNCED
           </span>
         );
@@ -366,11 +366,11 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
 
   return (
     <div className="fixed inset-0 z-[1250] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto animate-fade-in">
-      <div className="bg-white border border-[#EAF4E7] p-6 rounded-2xl max-w-3xl w-full shadow-2xl text-[#26332A] space-y-4 my-8">
+      <div className="bg-white border border-slate-200 p-6 rounded-2xl max-w-3xl w-full shadow-2xl text-slate-900 space-y-4 my-8">
         {/* Cabeçalho */}
-        <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-3">
+        <div className="flex items-center justify-between border-b border-slate-200 pb-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#EAF4E7] text-[#1D4B38] border border-[#8FBF88]/40 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[#1D4B38] border border-emerald-300/40 flex items-center justify-center">
               <Database className="w-5 h-5" />
             </div>
             <div>
@@ -378,49 +378,49 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
                 <h3 className="text-base font-bold text-[#1D4B38] tracking-tight">
                   Central Offline-First & Outbox Pattern
                 </h3>
-                <span className="px-2 py-0.5 rounded text-[10px] bg-[#EAF4E7] text-[#1D4B38] font-bold border border-[#5F8F52]/30 font-mono">
+                <span className="px-2 py-0.5 rounded text-[10px] bg-emerald-50 text-[#1D4B38] font-bold border border-[#5F8F52]/30 font-mono">
                   Tenant: Fazenda Santa Helena
                 </span>
               </div>
-              <p className="text-xs text-[#66736A]">
+              <p className="text-xs text-slate-600">
                 Conformidade com Princípio 12: Local DB → Outbox → Sync → API → Queue (RabbitMQ) → PostgreSQL
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="text-[#66736A] hover:text-[#1D4B38] p-1.5 rounded-lg hover:bg-[#EAF4E7] transition cursor-pointer"
+            className="text-slate-600 hover:text-[#1D4B38] p-1.5 rounded-lg hover:bg-emerald-50 transition cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Diagrama de Pipeline Outbox (Princípio 12) */}
-        <div className="p-3 bg-[#F4F0E6] border border-[#EAF4E7] rounded-xl">
+        <div className="p-3 bg-amber-50 border border-slate-200 rounded-xl">
           <span className="text-[10px] font-bold uppercase tracking-wider text-[#1D4B38] block mb-2">
             Fluxo Transacional com Tolerância a Desconexões:
           </span>
           <div className="flex flex-wrap items-center justify-between gap-1 text-[11px] font-mono">
-            <span className="px-2.5 py-1 rounded bg-white border border-[#EAF4E7] text-[#1D4B38] font-bold shadow-xs">1. Local DB (IndexedDB)</span>
-            <ArrowRight className="w-3.5 h-3.5 text-[#5F8F52]" />
-            <span className="px-2.5 py-1 rounded bg-[#EAF4E7] border border-[#8FBF88] text-[#1D4B38] font-bold">2. Outbox Queue</span>
-            <ArrowRight className="w-3.5 h-3.5 text-[#5F8F52]" />
-            <span className="px-2.5 py-1 rounded bg-white border border-[#EAF4E7] text-sky-800 font-bold shadow-xs">3. Sync Gateway (Go)</span>
-            <ArrowRight className="w-3.5 h-3.5 text-[#5F8F52]" />
-            <span className="px-2.5 py-1 rounded bg-white border border-[#EAF4E7] text-purple-800 font-bold shadow-xs">4. RabbitMQ Topic</span>
-            <ArrowRight className="w-3.5 h-3.5 text-[#5F8F52]" />
+            <span className="px-2.5 py-1 rounded bg-white border border-slate-200 text-[#1D4B38] font-bold shadow-xs">1. Local DB (IndexedDB)</span>
+            <ArrowRight className="w-3.5 h-3.5 text-emerald-700" />
+            <span className="px-2.5 py-1 rounded bg-emerald-50 border border-emerald-300 text-[#1D4B38] font-bold">2. Outbox Queue</span>
+            <ArrowRight className="w-3.5 h-3.5 text-emerald-700" />
+            <span className="px-2.5 py-1 rounded bg-white border border-slate-200 text-sky-800 font-bold shadow-xs">3. Sync Gateway (Go)</span>
+            <ArrowRight className="w-3.5 h-3.5 text-emerald-700" />
+            <span className="px-2.5 py-1 rounded bg-white border border-slate-200 text-purple-800 font-bold shadow-xs">4. RabbitMQ Topic</span>
+            <ArrowRight className="w-3.5 h-3.5 text-emerald-700" />
             <span className="px-2.5 py-1 rounded bg-[#285943] text-white font-bold shadow-xs">5. PostGIS Oficial</span>
           </div>
         </div>
 
         {/* Status de Conexão e Simulação de Campo */}
-        <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <div
               className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border ${
                 isSimulatedOffline
                   ? 'bg-rose-50 text-rose-600 border-rose-200'
-                  : 'bg-[#EAF4E7] text-[#1D4B38] border-[#8FBF88]/50'
+                  : 'bg-emerald-50 text-[#1D4B38] border-emerald-300/50'
               }`}
             >
               {isSimulatedOffline ? <WifiOff className="w-5 h-5" /> : <Wifi className="w-5 h-5" />}
@@ -436,7 +436,7 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
                   }`}
                 ></span>
               </div>
-              <p className="text-[11px] text-[#66736A] mt-0.5">
+              <p className="text-[11px] text-slate-600 mt-0.5">
                 {isSimulatedOffline
                   ? 'Apontamentos sendo salvos localmente na Outbox com garantia transacional ACID.'
                   : 'Sincronizador ativo com reconciliação bidirecional e detecção de conflitos.'}
@@ -449,8 +449,8 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
               onClick={() => setIsSimulatedOffline(!isSimulatedOffline)}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer border ${
                 isSimulatedOffline
-                  ? 'bg-[#EAF4E7] border-[#8FBF88] text-[#1D4B38] hover:bg-[#d8edd3]'
-                  : 'bg-white border-[#EAF4E7] text-[#66736A] hover:text-[#1D4B38] hover:bg-[#F7F9F5]'
+                  ? 'bg-emerald-50 border-emerald-300 text-[#1D4B38] hover:bg-[#d8edd3]'
+                  : 'bg-white border-slate-200 text-slate-600 hover:text-[#1D4B38] hover:bg-slate-50'
               }`}
             >
               {isSimulatedOffline ? 'Restabelecer Conexão' : 'Simular Perda de Sinal'}
@@ -472,15 +472,15 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
             onSubmit={handleAdicionarApontamento}
             className="p-4 bg-white border-2 border-[#5F8F52]/30 rounded-xl space-y-3 shadow-md animate-fade-in"
           >
-            <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-2">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-2">
               <span className="text-xs font-bold text-[#1D4B38] flex items-center gap-1.5">
-                <Plus className="w-4 h-4 text-[#5F8F52]" />
+                <Plus className="w-4 h-4 text-emerald-700" />
                 Registrar Apontamento Operacional no Campo
               </span>
               <button
                 type="button"
                 onClick={() => setShowNovoModal(false)}
-                className="text-[#66736A] hover:text-[#1D4B38] cursor-pointer"
+                className="text-slate-600 hover:text-[#1D4B38] cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -488,11 +488,11 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
               <div>
-                <label className="block text-[11px] font-bold text-[#66736A] mb-1">Tipo de Operação</label>
+                <label className="block text-[11px] font-bold text-slate-600 mb-1">Tipo de Operação</label>
                 <select
                   value={novoTipo}
                   onChange={(e: any) => setNovoTipo(e.target.value)}
-                  className="w-full px-2.5 py-1.5 rounded-lg bg-[#F7F9F5] border border-[#EAF4E7] text-[#26332A] focus:outline-none focus:border-[#285943]"
+                  className="w-full px-2.5 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:border-[#285943]"
                 >
                   <option value="ABASTECIMENTO_COMBOIO">⛽ Abastecimento de Máquina / Comboio</option>
                   <option value="MONITORAMENTO_MIP">🐛 Monitoramento MIP / Pragas</option>
@@ -502,11 +502,11 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
               </div>
 
               <div>
-                <label className="block text-[11px] font-bold text-[#66736A] mb-1">Talhão de Aplicação</label>
+                <label className="block text-[11px] font-bold text-slate-600 mb-1">Talhão de Aplicação</label>
                 <select
                   value={novoTalhao}
                   onChange={(e) => setNovoTalhao(e.target.value)}
-                  className="w-full px-2.5 py-1.5 rounded-lg bg-[#F7F9F5] border border-[#EAF4E7] text-[#26332A] focus:outline-none focus:border-[#285943]"
+                  className="w-full px-2.5 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:border-[#285943]"
                 >
                   <option value="Talhão 01 - Norte (420 ha)">Talhão 01 - Norte (420 ha)</option>
                   <option value="Talhão 02 - Pivô Central (120 ha)">Talhão 02 - Pivô Central (120 ha)</option>
@@ -517,13 +517,13 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
             </div>
 
             <div>
-              <label className="block text-[11px] font-bold text-[#66736A] mb-1">Detalhes e Apontamento Técnico</label>
+              <label className="block text-[11px] font-bold text-slate-600 mb-1">Detalhes e Apontamento Técnico</label>
               <input
                 type="text"
                 placeholder="Ex: Trator JD 8R • 350 L Diesel S10 • Horímetro 3.510h"
                 value={novoDetalhes}
                 onChange={(e) => setNovoDetalhes(e.target.value)}
-                className="w-full px-3 py-1.5 rounded-lg bg-[#F7F9F5] border border-[#EAF4E7] text-xs text-[#26332A] placeholder-[#66736A] focus:outline-none focus:border-[#285943]"
+                className="w-full px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-900 placeholder-[#66736A] focus:outline-none focus:border-[#285943]"
               />
             </div>
 
@@ -531,7 +531,7 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
               <button
                 type="button"
                 onClick={() => setShowNovoModal(false)}
-                className="px-3 py-1.5 rounded-lg text-xs font-semibold text-[#66736A] hover:bg-[#F7F9F5] cursor-pointer"
+                className="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-50 cursor-pointer"
               >
                 Cancelar
               </button>
@@ -551,7 +551,7 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
             <span className="font-bold text-[#1D4B38]">
               Fila de Apontamentos Outbox ({itensFila.length})
             </span>
-            <div className="flex items-center gap-2 text-[11px] text-[#66736A]">
+            <div className="flex items-center gap-2 text-[11px] text-slate-600">
               <span>Pendentes: <b className="text-[#A67C1E]">{itensPendentes.length}</b></span>
               <span>•</span>
               <span>Sincronizados: <b className="text-[#285943]">{itensSincronizados.length}</b></span>
@@ -568,16 +568,16 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
             {itensFila.map((item) => (
               <div
                 key={item.id}
-                className="p-3 bg-[#F7F9F5] border border-[#EAF4E7] hover:border-[#8FBF88] rounded-xl flex items-center justify-between gap-3 text-xs transition"
+                className="p-3 bg-slate-50 border border-slate-200 hover:border-emerald-300 rounded-xl flex items-center justify-between gap-3 text-xs transition"
               >
                 <div className="space-y-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <span className="font-bold text-[#1D4B38] truncate">{item.titulo}</span>
-                    <span className="text-[10px] text-[#285943] bg-white px-2 py-0.5 rounded border border-[#EAF4E7] font-semibold shrink-0">
+                    <span className="text-[10px] text-[#285943] bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold shrink-0">
                       {item.talhao}
                     </span>
                   </div>
-                  <p className="text-[11px] text-[#66736A] line-clamp-1">{item.payloadResumo}</p>
+                  <p className="text-[11px] text-slate-600 line-clamp-1">{item.payloadResumo}</p>
                   
                   {item.erroContextual && (
                     <div className="text-[10px] text-rose-700 bg-rose-50 px-2 py-1 rounded border border-rose-200 font-mono mt-1">
@@ -619,7 +619,7 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
                       </button>
                       <button
                         onClick={() => handleResolverConflito(item.id, false)}
-                        className="px-2.5 py-1 rounded-lg bg-white border border-[#EAF4E7] text-[#26332A] text-[10px] font-semibold cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-slate-900 text-[10px] font-semibold cursor-pointer"
                       >
                         Aceitar Sede
                       </button>
@@ -632,8 +632,8 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
         </div>
 
         {/* Rodapé & Ações da Fila */}
-        <div className="pt-3 border-t border-[#EAF4E7] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-          <span className="text-[#66736A]">
+        <div className="pt-3 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+          <span className="text-slate-600">
             Última sincronização completa: <b className="text-[#1D4B38]">{ultimoSyncTimestamp}</b>
           </span>
 
@@ -641,7 +641,7 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
             {itensSincronizados.length > 0 && (
               <button
                 onClick={handleLimparSincronizados}
-                className="px-3 py-2 bg-white hover:bg-[#F7F9F5] border border-[#EAF4E7] text-[#66736A] rounded-xl transition cursor-pointer font-semibold"
+                className="px-3 py-2 bg-white hover:bg-slate-50 border border-slate-200 text-slate-600 rounded-xl transition cursor-pointer font-semibold"
               >
                 Limpar Concluídos
               </button>

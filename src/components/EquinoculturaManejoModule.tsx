@@ -127,19 +127,19 @@ export const EquinoculturaManejoModule: React.FC = () => {
             <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
               🐎 Gestão Zootécnica de Haras & Biotécnicas Equinas
             </h2>
-            <p className="text-sm text-[#26332A] max-w-3xl leading-relaxed">
+            <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
               Manejo reprodutivo de alta linhagem: transferência de embriões (TE), inseminação com sêmen fresco/resfriado, escore Henneke (1 a 9), nutrição balanceada (NRC Equinos) e controle sorológico obrigatório de AIE e Mormo.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Plantel Ativo</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Plantel Ativo</span>
               <span className="text-xl font-black text-amber-400">85 equinos</span>
-              <span className="text-[10px] text-[#66736A] block mt-0.5">35 Matrizes TE</span>
+              <span className="text-[10px] text-slate-600 block mt-0.5">35 Matrizes TE</span>
             </div>
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Faturamento Haras</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Faturamento Haras</span>
               <span className="text-xl font-black text-emerald-400">R$ 938k</span>
               <span className="text-[10px] text-emerald-400/80 block mt-0.5">Potros & Coberturas</span>
             </div>
@@ -149,8 +149,8 @@ export const EquinoculturaManejoModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Taxa de Prenhez (TE/IA)</span>
             <Activity className="w-4 h-4 text-emerald-400" />
           </div>
@@ -161,8 +161,8 @@ export const EquinoculturaManejoModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Escore Henneke Médio</span>
             <Award className="w-4 h-4 text-amber-400" />
           </div>
@@ -173,37 +173,37 @@ export const EquinoculturaManejoModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Sanidade MAPA Oficial</span>
             <ShieldCheck className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black text-cyan-400">100% Negativo</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             AIE (Coggins) & Mormo • GTA Liberada
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Margem Líquida Haras</span>
             <DollarSign className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">R$ 71.000,00</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Custeio Anual: R$ 867k coberto
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('plantel')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'plantel'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -215,7 +215,7 @@ export const EquinoculturaManejoModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'reproducao_te'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Activity className="w-4 h-4" />
@@ -227,7 +227,7 @@ export const EquinoculturaManejoModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'nutricao_sanidade'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <ShieldCheck className="w-4 h-4" />
@@ -239,7 +239,7 @@ export const EquinoculturaManejoModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -250,19 +250,19 @@ export const EquinoculturaManejoModule: React.FC = () => {
       {/* Conteúdo Aba 1: Plantel */}
       {activeTab === 'plantel' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Award className="w-5 h-5 text-amber-400" />
               Animais Registrados & Categoria Zootécnica
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Controle individual por microchip ISO 11784/11785, filiação por DNA genotipado e controle de validade de exames oficiais de trânsito interestadual.
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#EAF4E7] text-[#66736A] font-bold uppercase tracking-wider">
+                  <tr className="border-b border-slate-200 text-slate-600 font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Nome do Animal</th>
                     <th className="py-3 px-3">Registro Associação</th>
                     <th className="py-3 px-3">Raça</th>
@@ -278,16 +278,16 @@ export const EquinoculturaManejoModule: React.FC = () => {
                     <tr key={eq.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-white">{eq.nome}</div>
-                        <div className="text-[11px] text-[#66736A] font-mono">{eq.id}</div>
+                        <div className="text-[11px] text-slate-600 font-mono">{eq.id}</div>
                       </td>
                       <td className="py-3.5 px-3 font-mono text-amber-400 font-bold">{eq.registro}</td>
-                      <td className="py-3.5 px-3 text-[#26332A]">{eq.raca}</td>
+                      <td className="py-3.5 px-3 text-slate-900">{eq.raca}</td>
                       <td className="py-3.5 px-3">
-                        <span className="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-slate-800 text-[#26332A]">
+                        <span className="px-2 py-0.5 rounded font-mono text-[10px] font-bold bg-slate-800 text-slate-900">
                           {eq.categoria}
                         </span>
                       </td>
-                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{eq.idadeAnos} anos</td>
+                      <td className="py-3.5 px-3 font-mono text-slate-900">{eq.idadeAnos} anos</td>
                       <td className="py-3.5 px-3 font-mono font-bold text-emerald-400">{eq.escoreHenneke.toFixed(1)}/9</td>
                       <td className="py-3.5 px-3">
                         <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
@@ -309,66 +309,66 @@ export const EquinoculturaManejoModule: React.FC = () => {
       {/* Conteúdo Aba 2: Reprodução & TE */}
       {activeTab === 'reproducao_te' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Activity className="w-5 h-5 text-amber-400" />
               Protocolo de Transferência de Embriões (TE)
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Sincronização estral entre Doadora de Elite e Éguas Receptoras com prostaglandina F2α e indução de ovulação com Acetato de Deslorelina ou hCG.
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">1. Monitoramento Folicular por Ultrassom</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5">
+                <span className="text-slate-600 text-[11px] block mt-0.5">
                   Identificação de folículo pré-ovulatório &gt; 35 mm e padrão de edema endometrial grau 3 ("roda de carroça").
                 </span>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">2. Inseminação Artificial (IA) com Sêmen Certificado</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5">
+                <span className="text-slate-600 text-[11px] block mt-0.5">
                   Dose inseminante com &gt; 500 milhões de espermatozoides móveis progressivos no corpo do útero.
                 </span>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">3. Lavagem Uterina (Flushing) no D8</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5">
+                <span className="text-slate-600 text-[11px] block mt-0.5">
                   Colheita do blastocisto expandido com filtro de embrião de 75 µm em solução Ringer Lactato com BSA.
                 </span>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">4. Inovulação Transcervical na Receptora</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5">
+                <span className="text-slate-600 text-[11px] block mt-0.5">
                   Deposição suave no corno ipsilateral à ovulação da receptora perfeitamente sincronizada (D6 a D8 pós-ovulação).
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Award className="w-5 h-5 text-emerald-400" />
               Taxa de Sucesso da Estação de Monta
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Desempenho da central de reprodução na temporada atual:
             </p>
 
             <div className="grid grid-cols-2 gap-3 text-center text-xs">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Coletas Realizadas</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Coletas Realizadas</span>
                 <span className="font-mono font-bold text-white text-lg">42 flushings</span>
                 <span className="text-[10px] text-emerald-400 block">36 embriões (85.7%)</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Prenhezes Confirmadas</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Prenhezes Confirmadas</span>
                 <span className="font-mono font-bold text-emerald-400 text-lg">29 receptoras</span>
-                <span className="text-[10px] text-[#66736A] block">Diagnóstico precoce D14</span>
+                <span className="text-[10px] text-slate-600 block">Diagnóstico precoce D14</span>
               </div>
             </div>
           </div>
@@ -378,72 +378,72 @@ export const EquinoculturaManejoModule: React.FC = () => {
       {/* Conteúdo Aba 3: Nutrição & Sanidade */}
       {activeTab === 'nutricao_sanidade' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Leaf className="w-5 h-5 text-emerald-400" />
               Nutrição Equina de Precisão (NRC Equinos)
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Respeito estrito à fisiologia digestiva de herbívoro monogástrico com fermentação cecocólica:
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <div>
                   <span className="font-bold text-white block">Aporte Mínimo de Volumoso</span>
-                  <span className="text-[#66736A] text-[11px]">&gt; 1.5% do peso vivo em matéria seca de feno Coastcross</span>
+                  <span className="text-slate-600 text-[11px]">&gt; 1.5% do peso vivo em matéria seca de feno Coastcross</span>
                 </div>
                 <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">ANTI-CÓLICA</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <div>
                   <span className="font-bold text-white block">Fracionamento do Concentrado</span>
-                  <span className="text-[#66736A] text-[11px]">Máximo de 2.0 kg por trato para evitar sobrecarga de amido no ceco</span>
+                  <span className="text-slate-600 text-[11px]">Máximo de 2.0 kg por trato para evitar sobrecarga de amido no ceco</span>
                 </div>
                 <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-bold">3 TRATOS/DIA</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <div>
                   <span className="font-bold text-white block">Suplementação Mineral & Biotina</span>
-                  <span className="text-[#66736A] text-[11px]">Fortalecimento do estojo córneo do casco e pelagem</span>
+                  <span className="text-slate-600 text-[11px]">Fortalecimento do estojo córneo do casco e pelagem</span>
                 </div>
                 <span className="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 font-bold">QUELATADOS</span>
               </div>
             </div>
           </div>
 
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <ShieldCheck className="w-5 h-5 text-cyan-400" />
               Calendário Sanitário & Emissão de GTA MAPA
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Protocolo para competições hípicas, leilões e trânsito interestadual:
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <div>
                   <span className="font-bold text-white block">Anemia Infecciosa Equina (AIE - Coggins)</span>
-                  <span className="text-[#66736A] text-[11px]">Validade de 60 dias (laboratório credenciado MAPA)</span>
+                  <span className="text-slate-600 text-[11px]">Validade de 60 dias (laboratório credenciado MAPA)</span>
                 </div>
                 <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">100% REGULAR</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <div>
                   <span className="font-bold text-white block">Mormo (Fixação de Complemento / ELISA)</span>
-                  <span className="text-[#66736A] text-[11px]">Validade de 60 dias</span>
+                  <span className="text-slate-600 text-[11px]">Validade de 60 dias</span>
                 </div>
                 <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">100% REGULAR</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <div>
                   <span className="font-bold text-white block">Vacinação Quíntupla Equina</span>
-                  <span className="text-[#66736A] text-[11px]">Tétano, Encefalomielite, Raiva, Influenza e Rinopneumonite</span>
+                  <span className="text-slate-600 text-[11px]">Tétano, Encefalomielite, Raiva, Influenza e Rinopneumonite</span>
                 </div>
                 <span className="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 font-bold">IMUNIZADOS</span>
               </div>
@@ -455,14 +455,14 @@ export const EquinoculturaManejoModule: React.FC = () => {
       {/* Conteúdo Aba 4: Simulador Financeiro */}
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-amber-400" />
               Parâmetros Zootécnicos & Comerciais
             </h3>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Plantel Total Mantido</span>
                 <span className="font-mono text-amber-400">{totalEquinos} animais</span>
               </div>
@@ -478,7 +478,7 @@ export const EquinoculturaManejoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Éguas em Reprodução (Matrizes)</span>
                 <span className="font-mono text-amber-400">{eguasReproducao} éguas</span>
               </div>
@@ -494,7 +494,7 @@ export const EquinoculturaManejoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Taxa de Prenhez TE</span>
                 <span className="font-mono text-emerald-400">{taxaPrenhezPct}%</span>
               </div>
@@ -510,7 +510,7 @@ export const EquinoculturaManejoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Valor Médio do Potro Desmamado</span>
                 <span className="font-mono text-emerald-400">R$ {valorMedioPotroDesmamado.toLocaleString()}</span>
               </div>
@@ -526,7 +526,7 @@ export const EquinoculturaManejoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Receita com Coberturas Garanhão</span>
                 <span className="font-mono text-amber-400">R$ {receitaCoberturasGaranhao.toLocaleString()}</span>
               </div>
@@ -542,7 +542,7 @@ export const EquinoculturaManejoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Custo de Manutenção / Cabeça / Mês</span>
                 <span className="font-mono text-rose-400">R$ {custoManutencaoCabecaMes.toFixed(2)}</span>
               </div>
@@ -558,39 +558,39 @@ export const EquinoculturaManejoModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               DRE Zootécnica & Equilíbrio Econômico do Haras
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Potros Nascidos</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Potros Nascidos</span>
                 <span className="font-mono font-bold text-white text-base">
                   {metricasHaras.potrosNascidos} potros
                 </span>
-                <span className="text-[10px] text-[#66736A] block">{taxaPrenhezPct}% Prenhez</span>
+                <span className="text-[10px] text-slate-600 block">{taxaPrenhezPct}% Prenhez</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Receita Potros</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Potros</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {(metricasHaras.receitaAnualPotros / 1000).toFixed(0)}k
                 </span>
                 <span className="text-[10px] text-emerald-400/80 block">Leilão & Venda</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Receita Total Haras</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Total Haras</span>
                 <span className="font-mono font-bold text-white text-base">
                   R$ {(metricasHaras.receitaTotalAnual / 1000).toFixed(0)}k
                 </span>
-                <span className="text-[10px] text-[#66736A] block">Potros + Sêmen</span>
+                <span className="text-[10px] text-slate-600 block">Potros + Sêmen</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Lucro Líquido Anual</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido Anual</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {(metricasHaras.margemLiquidaHarasAnual / 1000).toFixed(0)}k
                 </span>
@@ -598,21 +598,21 @@ export const EquinoculturaManejoModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Receita com Venda de Potros ({metricasHaras.potrosNascidos} un @ R$ {valorMedioPotroDesmamado.toLocaleString()}):</span>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Receita com Venda de Potros ({metricasHaras.potrosNascidos} un @ R$ {valorMedioPotroDesmamado.toLocaleString()}):</span>
                 <span className="font-mono font-bold text-emerald-400">
                   R$ {metricasHaras.receitaAnualPotros.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Receita com Coberturas e Doses de Sêmen do Garanhão Chefe:</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Receita com Coberturas e Doses de Sêmen do Garanhão Chefe:</span>
                 <span className="font-mono font-bold text-amber-400">
                   R$ {receitaCoberturasGaranhao.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Custo Total de Manutenção do Plantel ({totalEquinos} equinos @ R$ {custoManutencaoCabecaMes.toFixed(2)}/mês):</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Custo Total de Manutenção do Plantel ({totalEquinos} equinos @ R$ {custoManutencaoCabecaMes.toFixed(2)}/mês):</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {metricasHaras.custoTotalPlantelAnual.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>

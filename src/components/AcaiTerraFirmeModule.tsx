@@ -103,7 +103,7 @@ export const AcaiTerraFirmeModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-800 to-indigo-900 flex items-center justify-center shadow-lg shadow-purple-900/30">
             <Trees className="w-7 h-7 text-purple-300" />
@@ -117,7 +117,7 @@ export const AcaiTerraFirmeModule: React.FC = () => {
                 Módulo 118 • BRS Pai d’Égua, Safra na Entressafra & Açaí Grosso
               </span>
             </div>
-            <p className="text-sm text-[#66736A] mt-1">
+            <p className="text-sm text-slate-600 mt-1">
               Microaspersão subcopa de 120 L/planta/dia, quebra da sazonalidade de várzea e extração de Açaí Especial com mais de 14% de sólidos totais.
             </p>
           </div>
@@ -136,9 +136,9 @@ export const AcaiTerraFirmeModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Produção de Frutos</span>
+            <span className="text-xs font-medium text-slate-600">Produção de Frutos</span>
             <Trees className="w-5 h-5 text-purple-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -149,9 +149,9 @@ export const AcaiTerraFirmeModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Volume de Polpa Pura</span>
+            <span className="text-xs font-medium text-slate-600">Volume de Polpa Pura</span>
             <Droplets className="w-5 h-5 text-indigo-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -162,9 +162,9 @@ export const AcaiTerraFirmeModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Receita Bruta Entressafra</span>
+            <span className="text-xs font-medium text-slate-600">Receita Bruta Entressafra</span>
             <TrendingUp className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -175,9 +175,9 @@ export const AcaiTerraFirmeModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Lucro Líquido Safra</span>
+            <span className="text-xs font-medium text-slate-600">Lucro Líquido Safra</span>
             <Award className="w-5 h-5 text-purple-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -190,13 +190,13 @@ export const AcaiTerraFirmeModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('talhoes')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'talhoes'
               ? 'bg-purple-500/10 text-purple-400 border border-purple-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Trees className="w-4 h-4" />
@@ -208,7 +208,7 @@ export const AcaiTerraFirmeModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'despolpamento'
               ? 'bg-purple-500/10 text-purple-400 border border-purple-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -220,7 +220,7 @@ export const AcaiTerraFirmeModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'irrigacao'
               ? 'bg-purple-500/10 text-purple-400 border border-purple-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Droplets className="w-4 h-4" />
@@ -232,7 +232,7 @@ export const AcaiTerraFirmeModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-purple-500/10 text-purple-400 border border-purple-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -242,15 +242,15 @@ export const AcaiTerraFirmeModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'talhoes' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Trees className="w-5 h-5 text-purple-400" />
             Glebas sob Manejo Técnico em Terra Firme (Solo Latossolo Amarelo)
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-[#26332A]">
-              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
+            <table className="w-full text-left text-sm text-slate-900">
+              <thead className="text-xs uppercase bg-slate-50 text-slate-600">
                 <tr>
                   <th className="px-4 py-3">Gleba / Município</th>
                   <th className="px-4 py-3">Cultivar Embrapa</th>
@@ -285,44 +285,44 @@ export const AcaiTerraFirmeModule: React.FC = () => {
 
       {activeTab === 'despolpamento' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Award className="w-5 h-5 text-purple-400" />
               <h4 className="text-sm font-semibold text-white">Açaí Grosso / Especial</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Concentração máxima de sólidos totais (fibra, antocianinas e lipídios nobres), com adição mínima de água purificada no despolpamento industrial.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Teor de Sólidos:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Teor de Sólidos:</span>
               <span className="text-sm font-bold text-purple-400 block">superior a 14.0% de sólidos totais</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Droplets className="w-5 h-5 text-indigo-400" />
               <h4 className="text-sm font-semibold text-white">Açaí Médio (Padrão Comercial)</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Polpa de consistência aveludada, pasteurizada a 85°C por 15 segundos para eliminação do Trypanosoma cruzi e congelamento rápido a -35°C.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Faixa de Sólidos:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Faixa de Sólidos:</span>
               <span className="text-sm font-bold text-indigo-400 block">11.0% a 14.0% de sólidos</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Quebra de Sazonalidade</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Enquanto o açaí nativo de várzea produz apenas entre agosto e dezembro, a terra firme irrigada produz no primeiro semestre com ágio de até 80%.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Janela Nobre:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Janela Nobre:</span>
               <span className="text-sm font-bold text-emerald-400 block">Fevereiro a Julho (Entressafra)</span>
             </div>
           </div>
@@ -330,30 +330,30 @@ export const AcaiTerraFirmeModule: React.FC = () => {
       )}
 
       {activeTab === 'irrigacao' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Droplets className="w-5 h-5 text-sky-400" />
             Manejo Hídrico por Microaspersão Subcopa Automatizada
           </h3>
-          <p className="text-sm text-[#66736A]">
+          <p className="text-sm text-slate-600">
             O açaizeiro necessita de 100 a 140 litros de água por touceira ao dia para manter emissão contínua de cachos. Sensores de umidade de solo (TDR) acionam as bombas durante a noite para reduzir perdas por evapotranspiração.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Vazão Média por Touceira</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Vazão Média por Touceira</span>
               <p className="text-lg font-bold text-sky-400 mt-1">120 L / dia</p>
               <span className="text-[11px] text-slate-500">Microaspersor autocompensante</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Fertirrigação Nitrogênio/Potássio</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Fertirrigação Nitrogênio/Potássio</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">Relação N:K 1:1.5</p>
               <span className="text-[11px] text-emerald-500/80">Injeção semanal via Venturi</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Densidade de Plantio</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Densidade de Plantio</span>
               <p className="text-lg font-bold text-purple-400 mt-1">400 touceiras / ha</p>
               <span className="text-[11px] text-slate-500">Espaçamento 5×5m com 3 a 4 estipes</span>
             </div>
@@ -362,7 +362,7 @@ export const AcaiTerraFirmeModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-purple-400" />
             Simulador de Rentabilidade na Entressafra de Terra Firme
@@ -370,57 +370,57 @@ export const AcaiTerraFirmeModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Área de Cultivo (ha)</label>
+              <label className="text-xs font-medium text-slate-600">Área de Cultivo (ha)</label>
               <input
                 type="number"
                 value={areaCultivoHa}
                 onChange={(e) => setAreaCultivoHa(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-purple-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-purple-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Produtividade Frutos (kg/ha)</label>
+              <label className="text-xs font-medium text-slate-600">Produtividade Frutos (kg/ha)</label>
               <input
                 type="number"
                 value={produtividadeFrutosKgHa}
                 onChange={(e) => setProdutividadeFrutosKgHa(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-purple-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-purple-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Sólidos Totais (%)</label>
+              <label className="text-xs font-medium text-slate-600">Sólidos Totais (%)</label>
               <input
                 type="number"
                 step="0.1"
                 value={teorSolidosTotaisInputPct}
                 onChange={(e) => setTeorSolidosTotaisInputPct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-purple-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-purple-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Preço Polpa Entressafra (R$/L)</label>
+              <label className="text-xs font-medium text-slate-600">Preço Polpa Entressafra (R$/L)</label>
               <input
                 type="number"
                 step="0.5"
                 value={precoLitroPolpaReais}
                 onChange={(e) => setPrecoLitroPolpaReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-purple-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-purple-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-[#66736A] block">Classificação da Polpa Produzida:</span>
+              <span className="text-xs text-slate-600 block">Classificação da Polpa Produzida:</span>
               <span className={`text-base font-bold ${metricas.isAcaiGrossoEspecial ? 'text-purple-400' : 'text-indigo-400'}`}>
                 {metricas.isAcaiGrossoEspecial ? '✓ AÇAI GROSSO ESPECIAL (> 14.0% SÓLIDOS TOTAIS)' : 'AÇAÍ MÉDIO COMERCIAL'}
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-[#66736A] block">Lucro Líquido Safra:</span>
+              <span className="text-xs text-slate-600 block">Lucro Líquido Safra:</span>
               <span className="text-xl font-bold text-emerald-400">
                 R$ {metricas.lucroLiquidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

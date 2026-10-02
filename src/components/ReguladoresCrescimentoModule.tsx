@@ -91,7 +91,7 @@ export const ReguladoresCrescimentoModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-teal-600 to-emerald-600 flex items-center justify-center shadow-lg shadow-teal-600/20">
             <FlaskConical className="w-7 h-7 text-white" />
@@ -105,7 +105,7 @@ export const ReguladoresCrescimentoModule: React.FC = () => {
                 Módulo 119 • PBZ, Giberelinas, Mepiquat & Indução Floral
               </span>
             </div>
-            <p className="text-sm text-[#66736A] mt-1">
+            <p className="text-sm text-slate-600 mt-1">
               Controle hormonal do vigor vegetativo, raleio de bagas, quebra de dormência e sincronização de colheita em fruteiras nobres e grãos.
             </p>
           </div>
@@ -124,9 +124,9 @@ export const ReguladoresCrescimentoModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Ganho Produtivo Estimado</span>
+            <span className="text-xs font-medium text-slate-600">Ganho Produtivo Estimado</span>
             <Sprout className="w-5 h-5 text-teal-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -137,9 +137,9 @@ export const ReguladoresCrescimentoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Benefício Líquido / ha</span>
+            <span className="text-xs font-medium text-slate-600">Benefício Líquido / ha</span>
             <DollarSign className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -150,9 +150,9 @@ export const ReguladoresCrescimentoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Retorno sobre Tratamento (ROI)</span>
+            <span className="text-xs font-medium text-slate-600">Retorno sobre Tratamento (ROI)</span>
             <TrendingUp className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -163,9 +163,9 @@ export const ReguladoresCrescimentoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Benefício Total na Área</span>
+            <span className="text-xs font-medium text-slate-600">Benefício Total na Área</span>
             <Award className="w-5 h-5 text-teal-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -178,13 +178,13 @@ export const ReguladoresCrescimentoModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('tratamentos')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'tratamentos'
               ? 'bg-teal-500/10 text-teal-400 border border-teal-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -196,7 +196,7 @@ export const ReguladoresCrescimentoModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'fisiologia'
               ? 'bg-teal-500/10 text-teal-400 border border-teal-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <FlaskConical className="w-4 h-4" />
@@ -208,7 +208,7 @@ export const ReguladoresCrescimentoModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'culturas'
               ? 'bg-teal-500/10 text-teal-400 border border-teal-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Sprout className="w-4 h-4" />
@@ -220,7 +220,7 @@ export const ReguladoresCrescimentoModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-teal-500/10 text-teal-400 border border-teal-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -230,15 +230,15 @@ export const ReguladoresCrescimentoModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'tratamentos' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <FlaskConical className="w-5 h-5 text-teal-400" />
             Tratamentos Hormonais Monitorados por Estádio Fenológico
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-[#26332A]">
-              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
+            <table className="w-full text-left text-sm text-slate-900">
+              <thead className="text-xs uppercase bg-slate-50 text-slate-600">
                 <tr>
                   <th className="px-4 py-3">Cultura & Local</th>
                   <th className="px-4 py-3">Princípio Ativo</th>
@@ -253,7 +253,7 @@ export const ReguladoresCrescimentoModule: React.FC = () => {
                   <tr key={t.id} className="hover:bg-slate-800/30">
                     <td className="px-4 py-3 font-medium text-white">{t.cultura}</td>
                     <td className="px-4 py-3 text-teal-400 font-semibold">{t.principioAtivo}</td>
-                    <td className="px-4 py-3 text-[#66736A] text-xs">{t.funcaoFisiologica}</td>
+                    <td className="px-4 py-3 text-slate-600 text-xs">{t.funcaoFisiologica}</td>
                     <td className="px-4 py-3 font-mono text-xs">{t.dosagemRecomendada}</td>
                     <td className="px-4 py-3 font-bold text-emerald-400">+{t.incrementoEsperadoPct}%</td>
                     <td className="px-4 py-3">
@@ -271,44 +271,44 @@ export const ReguladoresCrescimentoModule: React.FC = () => {
 
       {activeTab === 'fisiologia' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <FlaskConical className="w-5 h-5 text-teal-400" />
               <h4 className="text-sm font-semibold text-white">Inibidores de Giberelinas</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Paclobutrazol e Uniconazol bloqueiam a rota do ent-caureno, paralisando brotações vegetativas indesejadas e redirecionando reservas de carboidratos para gemas florais.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Efeito Principal:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Efeito Principal:</span>
               <span className="text-sm font-bold text-teal-400 block">Indução floral sincronizada em manga</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Sprout className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Giberelinas e Citocininas</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               O ácido giberélico estimula a divisão celular na parede do ovário e o relaxamento do engaço, permitindo que bagas de uva atinjam calibre de exportação sem deformidades.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Efeito Principal:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Efeito Principal:</span>
               <span className="text-sm font-bold text-emerald-400 block">Alongamento e raleio de cachos</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Leaf className="w-5 h-5 text-yellow-400" />
               <h4 className="text-sm font-semibold text-white">Geradores de Etileno (Etefon)</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Liberação lenta de etileno gasoso nos tecidos vegetais, induzindo senescência de folhas no algodão e uniformização de maturação em cana-de-açúcar e café.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Efeito Principal:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Efeito Principal:</span>
               <span className="text-sm font-bold text-yellow-400 block">Desfolha pré-colheita mecânica</span>
             </div>
           </div>
@@ -316,30 +316,30 @@ export const ReguladoresCrescimentoModule: React.FC = () => {
       )}
 
       {activeTab === 'culturas' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Sprout className="w-5 h-5 text-emerald-400" />
             Protocolos Validados pela Embrapa Semiárido & CNPAF
           </h3>
-          <p className="text-sm text-[#66736A]">
+          <p className="text-sm text-slate-600">
             O uso de reguladores de crescimento exige monitoramento rigoroso de estresse hídrico e temperatura do solo para evitar fitotoxicidade irreversível nas plantas.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Manga no São Francisco</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Manga no São Francisco</span>
               <p className="text-lg font-bold text-teal-400 mt-1">Colheita em 120 dias</p>
               <span className="text-[11px] text-slate-500">Programação precisa de embarques marítimos</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Uva de Mesa sem Semente</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Uva de Mesa sem Semente</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">Baga de 22 a 26 mm</p>
               <span className="text-[11px] text-emerald-500/80">Atende ao mercado exigente da Europa</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Algodão Safra Cheia</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Algodão Safra Cheia</span>
               <p className="text-lg font-bold text-white mt-1">Porte de 1.10 a 1.20 m</p>
               <span className="text-[11px] text-slate-500">Evita acamamento e apodrecimento de maçãs</span>
             </div>
@@ -348,7 +348,7 @@ export const ReguladoresCrescimentoModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-teal-400" />
             Simulador de Retorno Econômico do Manejo Fisiológico
@@ -356,56 +356,56 @@ export const ReguladoresCrescimentoModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Área Tratada (ha)</label>
+              <label className="text-xs font-medium text-slate-600">Área Tratada (ha)</label>
               <input
                 type="number"
                 value={areaTratadaHa}
                 onChange={(e) => setAreaTratadaHa(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-teal-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-teal-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Receita Base (R$/ha)</label>
+              <label className="text-xs font-medium text-slate-600">Receita Base (R$/ha)</label>
               <input
                 type="number"
                 value={receitaBaseHaReais}
                 onChange={(e) => setReceitaBaseHaReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-teal-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-teal-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Ganho Produtivo (%)</label>
+              <label className="text-xs font-medium text-slate-600">Ganho Produtivo (%)</label>
               <input
                 type="number"
                 step="0.5"
                 value={incrementoProdutividadePct}
                 onChange={(e) => setIncrementoProdutividadePct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-teal-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-teal-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Custo Tratamento (R$/ha)</label>
+              <label className="text-xs font-medium text-slate-600">Custo Tratamento (R$/ha)</label>
               <input
                 type="number"
                 value={custoAplicacaoHaReais}
                 onChange={(e) => setCustoAplicacaoHaReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-teal-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-teal-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-[#66736A] block">Eficiência do Investimento Fisiológico:</span>
+              <span className="text-xs text-slate-600 block">Eficiência do Investimento Fisiológico:</span>
               <span className="text-base font-bold text-teal-400">
                 ROI de {metricas.roiTratamento}x (R$ {metricas.beneficioLiquidoHaReais.toLocaleString('pt-BR')}/ha líquido)
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-[#66736A] block">Lucro Adicional Total na Área:</span>
+              <span className="text-xs text-slate-600 block">Lucro Adicional Total na Área:</span>
               <span className="text-xl font-bold text-emerald-400">
                 +R$ {metricas.beneficioTotalGeralReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

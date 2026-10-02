@@ -127,19 +127,19 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
             <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
               🥜 Cajucultura de Precisão, Castanhas Nobres & Cajuína
             </h2>
-            <p className="text-sm text-[#26332A] max-w-3xl leading-relaxed">
+            <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
               Manejo agronômico de clones de caju-anão-precoce irrigados e beneficiamento duplo integral: despeliculagem e classificação de amêndoas inteiras (W1 a W4) para exportação e clarificação do pedúnculo para produção de Cajuína artesanal e LCC industrial.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Amêndoa W1</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Amêndoa W1</span>
               <span className="text-xl font-black text-amber-400">4.032 kg</span>
-              <span className="text-[10px] text-[#66736A] block mt-0.5">24% Rendimento</span>
+              <span className="text-[10px] text-slate-600 block mt-0.5">24% Rendimento</span>
             </div>
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Cajuína Clarificada</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Cajuína Clarificada</span>
               <span className="text-xl font-black text-emerald-400">42.000 L</span>
               <span className="text-[10px] text-emerald-400/80 block mt-0.5">Sem Conservantes</span>
             </div>
@@ -149,8 +149,8 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Produtividade de Castanha</span>
             <Activity className="w-4 h-4 text-emerald-400" />
           </div>
@@ -161,48 +161,48 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Aproveitamento Pedúnculo</span>
             <Droplets className="w-4 h-4 text-amber-400" />
           </div>
           <div className="text-2xl font-black text-amber-400">10,0 t / ha</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Gelatina Alimentícia para Clarificação
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Faturamento Anual</span>
             <DollarSign className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">R$ 862.176,00</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Amêndoas Nobres + Cajuína
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
             <Award className="w-4 h-4 text-teal-400" />
           </div>
           <div className="text-2xl font-black text-teal-400">R$ 640.176,00</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Margem Líquida de 74.2%
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('safra')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'safra'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Sun className="w-4 h-4" />
@@ -214,7 +214,7 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'amendoa'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Box className="w-4 h-4" />
@@ -226,7 +226,7 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'cajuina'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Droplets className="w-4 h-4" />
@@ -238,7 +238,7 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
               ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -249,19 +249,19 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
       {/* Conteúdo Aba 1: Safra */}
       {activeTab === 'safra' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Sun className="w-5 h-5 text-amber-400" />
               Lotes de Caju-Anão-Precoce e Rendimento Agroindustrial
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Colheita diária no ponto de maturação fisiológica: a castanha cai junto com o pseudofruto turgido. Processamento em até 24 horas para preservar a cor dourada e o aroma doce da cajuína.
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#EAF4E7] text-[#66736A] font-bold uppercase tracking-wider">
+                  <tr className="border-b border-slate-200 text-slate-600 font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Pomar / Lote</th>
                     <th className="py-3 px-3">Clone Embrapa</th>
                     <th className="py-3 px-3">Castanha Bruta</th>
@@ -277,7 +277,7 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
                     <tr key={l.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-white">{l.identificacao}</div>
-                        <div className="text-[11px] text-[#66736A] font-mono">{l.id}</div>
+                        <div className="text-[11px] text-slate-600 font-mono">{l.id}</div>
                       </td>
                       <td className="py-3.5 px-3 text-amber-300 font-semibold">{l.clone}</td>
                       <td className="py-3.5 px-3 font-mono text-white">{l.castanhaBrutaKg.toLocaleString()} kg</td>
@@ -287,7 +287,7 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
                           {l.classificacaoW}
                         </span>
                       </td>
-                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{l.pedunculoTon} ton</td>
+                      <td className="py-3.5 px-3 font-mono text-slate-900">{l.pedunculoTon} ton</td>
                       <td className="py-3.5 px-3 font-mono text-cyan-400 font-bold">{l.cajuinaProduzidaLitros.toLocaleString()} L</td>
                       <td className="py-3.5 px-3">
                         <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
@@ -306,47 +306,47 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
       {/* Conteúdo Aba 2: Amêndoa */}
       {activeTab === 'amendoa' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Box className="w-5 h-5 text-amber-400" />
               Linha de Processamento da Castanha
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Etapas industriais para obter o padrão exportação W1 (Whole White):
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">Autoclavagem & Quebra Mecânica</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5">
+                <span className="text-slate-600 text-[11px] block mt-0.5">
                   Cozimento sob vapor a 130°C para fragilizar a casca dura e facilitar a quebra sem romper a amêndoa.
                 </span>
               </div>
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">Estufagem & Despeliculagem Pneumática</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5">
+                <span className="text-slate-600 text-[11px] block mt-0.5">
                   Secagem a 70°C para descolar a película protetora marrom, deixando a amêndoa branca intacta.
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               Padrões Internacionais W1 a W4
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Contagem de amêndoas inteiras por libra (lb):
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Padrão W1 210/240:</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Padrão W1 210/240:</span>
                 <span className="font-mono font-bold text-amber-400">Amêndoas Gigantes Premium (Ágio +30%)</span>
               </div>
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Padrão W1 320:</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Padrão W1 320:</span>
                 <span className="font-mono font-bold text-emerald-400">Padrão Mais Comercializado no Mundo</span>
               </div>
             </div>
@@ -357,32 +357,32 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
       {/* Conteúdo Aba 3: Cajuína */}
       {activeTab === 'cajuina' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Droplets className="w-5 h-5 text-amber-400" />
               Clarificação Enzimática e Caramelização Térmica da Cajuína
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               A cajuína é patrimônio cultural imaterial do Brasil: suco de caju clarificado com gelatina alimentícia para precipitar os taninos adstringentes, seguido de banho-maria em garrafas de vidro onde a frutose carameliza naturalmente em tom âmbar brilhante sem adição de açúcar.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Teor de Vitamina C</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Teor de Vitamina C</span>
                 <span className="text-2xl font-black text-white font-mono">220 mg / 100g</span>
                 <span className="text-[11px] text-amber-400 block">5x superior à laranja</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Grau °Brix Natural</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Grau °Brix Natural</span>
                 <span className="text-2xl font-black text-emerald-400 font-mono">11.5°</span>
-                <span className="text-[11px] text-[#66736A] block">Frutose pura do clone CCP 76</span>
+                <span className="text-[11px] text-slate-600 block">Frutose pura do clone CCP 76</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Vida de Prateleira</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Vida de Prateleira</span>
                 <span className="text-2xl font-black text-cyan-400 font-mono">24 meses</span>
-                <span className="text-[11px] text-[#66736A] block">Pasteurizada em garrafa de vidro</span>
+                <span className="text-[11px] text-slate-600 block">Pasteurizada em garrafa de vidro</span>
               </div>
             </div>
           </div>
@@ -392,14 +392,14 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
       {/* Conteúdo Aba 4: Simulador */}
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-amber-400" />
               Parâmetros da Cajucultura
             </h3>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Área Plantada (ha)</span>
                 <span className="font-mono text-amber-400">{areaHa} hectares</span>
               </div>
@@ -415,7 +415,7 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Amêndoa W1 (R$/kg)</span>
                 <span className="font-mono text-emerald-400">R$ {precoKgAmendoaW1Reais.toFixed(2)}</span>
               </div>
@@ -431,7 +431,7 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Garrafa Cajuína (R$/L)</span>
                 <span className="font-mono text-white">R$ {precoLitroCajuinaReais.toFixed(2)}</span>
               </div>
@@ -447,7 +447,7 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Custo de Manejo e Indústria por Ha</span>
                 <span className="font-mono text-rose-400">R$ {custoPorHaReais.toFixed(2)}</span>
               </div>
@@ -463,39 +463,39 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               Demonstrativo Financeiro da Cajucultura Integrada
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Castanhas W1</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Castanhas W1</span>
                 <span className="font-mono font-bold text-white text-base">
                   {(metricas.amendoaW1ExportacaoKg / 1000).toFixed(1)} ton
                 </span>
-                <span className="text-[10px] text-[#66736A] block">{rendimentoAmendoaPct}% rendimento</span>
+                <span className="text-[10px] text-slate-600 block">{rendimentoAmendoaPct}% rendimento</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Cajuína Nobre</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Cajuína Nobre</span>
                 <span className="font-mono font-bold text-amber-400 text-base">
                   {(metricas.cajuinaProduzidaLitros / 1000).toFixed(0)}k L
                 </span>
                 <span className="text-[10px] text-amber-400/80 block">Zero Açúcar Adicionado</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Receita Bruta</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Bruta</span>
                 <span className="font-mono font-bold text-white text-base">
                   R$ {(metricas.receitaBrutaTotalReais / 1000).toFixed(0)}k
                 </span>
-                <span className="text-[10px] text-[#66736A] block">Amêndoa + Suco</span>
+                <span className="text-[10px] text-slate-600 block">Amêndoa + Suco</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Lucro Líquido</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {(metricas.lucroLiquidoReais / 1000).toFixed(0)}k
                 </span>
@@ -503,21 +503,21 @@ export const CajuculturaBeneficiamentoModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Venda de Amêndoas de Castanha ({metricas.amendoaW1ExportacaoKg.toLocaleString()} kg @ R$ {precoKgAmendoaW1Reais.toFixed(2)}):</span>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Venda de Amêndoas de Castanha ({metricas.amendoaW1ExportacaoKg.toLocaleString()} kg @ R$ {precoKgAmendoaW1Reais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-white">
                   R$ {metricas.receitaAmendoaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Venda de Cajuína Clarificada ({metricas.cajuinaProduzidaLitros.toLocaleString()} L @ R$ {precoLitroCajuinaReais.toFixed(2)}):</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Venda de Cajuína Clarificada ({metricas.cajuinaProduzidaLitros.toLocaleString()} L @ R$ {precoLitroCajuinaReais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-amber-400">
                   + R$ {metricas.receitaCajuinaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Custo Total de Manejo do Pomar, Despeliculagem e Pasteurização:</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Custo Total de Manejo do Pomar, Despeliculagem e Pasteurização:</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {metricas.custoTotalReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>

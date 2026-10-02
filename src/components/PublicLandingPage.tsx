@@ -225,41 +225,41 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F9F5] text-[#26332A] font-sans selection:bg-[#8FBF88] selection:text-[#26332A] antialiased">
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-[#8FBF88] selection:text-slate-900 antialiased">
       {/* HEADER INSTITUCIONAL ELEGANTE & LIMPO */}
-      <header className="sticky top-0 z-50 bg-[#F7F9F5]/90 backdrop-blur-md border-b border-[#EAF4E7] px-4 sm:px-6 lg:px-8 py-3.5 transition-all">
+      <header className="sticky top-0 z-50 bg-slate-50/90 backdrop-blur-md border-b border-slate-200 px-4 sm:px-6 lg:px-8 py-3.5 transition-all">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-[#285943] text-white flex items-center justify-center shadow-sm">
-              <Sprout className="w-5 h-5 text-[#8FBF88]" />
+            <div className="w-10 h-10 rounded-2xl bg-emerald-800 text-white flex items-center justify-center shadow-sm">
+              <Sprout className="w-5 h-5 text-emerald-300" />
             </div>
             <div>
-              <span className="text-lg font-black tracking-tight text-[#285943] block leading-none">AGROTECH</span>
-              <span className="text-[10px] text-[#5F8F52] font-semibold tracking-wider uppercase">O Sistema Operacional da Empresa Rural</span>
+              <span className="text-lg font-black tracking-tight text-slate-900 block leading-none">AGROTECH</span>
+              <span className="text-[10px] text-emerald-700 font-semibold tracking-wider uppercase">O Sistema Operacional da Empresa Rural</span>
             </div>
           </div>
 
-          <nav className="hidden lg:flex items-center gap-6 text-xs font-semibold text-[#66736A]">
-            <a href="#complexidade" className="hover:text-[#285943] transition">O Desafio</a>
-            <a href="#plataforma" className="hover:text-[#285943] transition">A Plataforma</a>
-            <a href="#demonstracao" className="hover:text-[#285943] transition">Demonstração</a>
-            <a href="#operacoes" className="hover:text-[#285943] transition">Atividades</a>
-            <a href="#ia" className="hover:text-[#285943] transition">IA Agrícola</a>
-            <a href="#beneficios" className="hover:text-[#285943] transition">Benefícios</a>
-            <a href="#planos" className="hover:text-[#285943] transition">Planos</a>
+          <nav className="hidden lg:flex items-center gap-6 text-xs font-semibold text-slate-600">
+            <a href="#complexidade" className="hover:text-white transition">O Desafio</a>
+            <a href="#plataforma" className="hover:text-white transition">A Plataforma</a>
+            <a href="#demonstracao" className="hover:text-white transition">Demonstração</a>
+            <a href="#operacoes" className="hover:text-white transition">Atividades</a>
+            <a href="#ia" className="hover:text-white transition">IA Agrícola</a>
+            <a href="#beneficios" className="hover:text-white transition">Benefícios</a>
+            <a href="#planos" className="hover:text-white transition">Planos</a>
           </nav>
 
           <div className="flex items-center gap-3">
             <button
               onClick={onGoToLogin}
-              className="px-3.5 py-1.5 text-xs font-bold text-[#285943] hover:bg-[#EAF4E7] rounded-xl transition border border-[#EAF4E7] flex items-center gap-1.5 cursor-pointer"
+              className="px-3.5 py-1.5 text-xs font-bold text-slate-900 hover:bg-emerald-50 rounded-xl transition border border-slate-300 flex items-center gap-1.5 cursor-pointer"
             >
-              <Lock className="w-3.5 h-3.5 text-[#5F8F52]" />
+              <Lock className="w-3.5 h-3.5 text-emerald-700" />
               <span>Entrar</span>
             </button>
             <button
               onClick={handleStartRegister}
-              className="px-4 py-2 text-xs font-black text-white bg-[#285943] hover:bg-[#1b4332] rounded-xl shadow-md transition flex items-center gap-1.5 cursor-pointer"
+              className="px-4 py-2 text-xs font-black text-white bg-emerald-700 hover:bg-emerald-800 rounded-xl shadow-md transition flex items-center gap-1.5 cursor-pointer"
             >
               <span>Começar agora</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -269,26 +269,26 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
       </header>
 
       {/* HERO SECTION — POSICIONAMENTO OFICIAL (Seção 1, 7 & 15) */}
-      <section className="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-[#EAF4E7] bg-gradient-to-b from-[#F7F9F5] via-[#EAF4E7]/40 to-[#F7F9F5]">
+      <section className="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-slate-200 bg-gradient-to-b from-[#F7F9F5] via-[#EAF4E7]/40 to-[#F7F9F5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EAF4E7] border border-[#8FBF88] text-[#285943] text-xs font-bold shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-[#5F8F52]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-300 text-slate-900 text-xs font-bold shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-700" />
               <span>O Sistema Operacional da Empresa Rural</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#285943] leading-tight">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-tight">
               A inteligência que conecta toda a sua operação agrícola.
             </h1>
 
-            <p className="text-base sm:text-lg text-[#66736A] leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
               Gestão agrícola, máquinas, produção, custos, estoque, mercado, financeiro e inteligência em uma única plataforma integrada e sem complexidade.
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
               <button
                 onClick={handleStartRegister}
-                className="w-full sm:w-auto px-8 py-4 bg-[#285943] hover:bg-[#1b4332] text-white font-black rounded-xl text-sm shadow-lg transition flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto px-8 py-4 bg-emerald-700 hover:bg-emerald-800 text-white font-black rounded-xl text-sm shadow-lg transition flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Começar agora</span>
                 <ArrowRight className="w-4 h-4" />
@@ -296,33 +296,33 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
 
               <button
                 onClick={onEnterPlatformDirectly}
-                className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-[#F4F0E6] text-[#285943] font-bold rounded-xl text-sm border border-[#EAF4E7] shadow-sm transition flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-amber-50 text-slate-900 font-bold rounded-xl text-sm border border-slate-300 shadow-sm transition flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Conhecer a plataforma</span>
               </button>
             </div>
 
             {/* As 4 Perguntas Que Todo Produtor Quer Responder */}
-            <div className="pt-8 space-y-3">
-              <span className="text-xs uppercase font-bold tracking-widest text-[#5F8F52] font-mono">
+            <div className="pt-10 space-y-4">
+              <span className="text-xs uppercase font-extrabold tracking-widest text-emerald-900 font-mono bg-emerald-100/90 border border-emerald-400 px-4 py-1.5 rounded-full inline-block shadow-2xs">
                 As 4 Perguntas Fundamentais Que o Produtor Quer Responder Todos os Dias:
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left">
-                <div className="p-4 bg-white rounded-2xl border border-[#EAF4E7] shadow-sm">
-                  <span className="text-xs font-bold text-[#285943] block">Quanto custou produzir cada saca neste talhão?</span>
-                  <p className="text-[11px] text-[#66736A] mt-1">Custeio ABC real com insumos, combustível, horas-máquina e mão de obra alocados ao metro quadrado.</p>
+                <div className="p-4 bg-white rounded-2xl border border-slate-300 shadow-sm">
+                  <span className="text-xs font-bold text-slate-900 block">Quanto custou produzir cada saca neste talhão?</span>
+                  <p className="text-[11px] text-slate-600 mt-1">Custeio ABC real com insumos, combustível, horas-máquina e mão de obra alocados ao metro quadrado.</p>
                 </div>
-                <div className="p-4 bg-white rounded-2xl border border-[#EAF4E7] shadow-sm">
-                  <span className="text-xs font-bold text-[#285943] block">Minhas máquinas estão trabalhando ou paradas agora?</span>
-                  <p className="text-[11px] text-[#66736A] mt-1">Telemetria CAN Bus ao vivo: velocidade, consumo L/h, área trabalhada e paradas não programadas.</p>
+                <div className="p-4 bg-white rounded-2xl border border-slate-300 shadow-sm">
+                  <span className="text-xs font-bold text-slate-900 block">Minhas máquinas estão trabalhando ou paradas agora?</span>
+                  <p className="text-[11px] text-slate-600 mt-1">Telemetria CAN Bus ao vivo: velocidade, consumo L/h, área trabalhada e paradas não programadas.</p>
                 </div>
-                <div className="p-4 bg-white rounded-2xl border border-[#EAF4E7] shadow-sm">
-                  <span className="text-xs font-bold text-[#285943] block">Qual é o meu resultado financeiro real consolidado?</span>
-                  <p className="text-[11px] text-[#66736A] mt-1">DRE por safra, fluxo de caixa diário, Livro Caixa LCDPR e rateio por produtor ou condomínio.</p>
+                <div className="p-4 bg-white rounded-2xl border border-slate-300 shadow-sm">
+                  <span className="text-xs font-bold text-slate-900 block">Qual é o meu resultado financeiro real consolidado?</span>
+                  <p className="text-[11px] text-slate-600 mt-1">DRE por safra, fluxo de caixa diário, Livro Caixa LCDPR e rateio por produtor ou condomínio.</p>
                 </div>
-                <div className="p-4 bg-white rounded-2xl border border-[#EAF4E7] shadow-sm">
-                  <span className="text-xs font-bold text-[#285943] block">Quando e quanto devo vender da minha produção futura?</span>
-                  <p className="text-[11px] text-[#66736A] mt-1">Preço de equilíbrio (break-even), contratos a termo, Barter com CPR e cotações B3/CBOT ao vivo.</p>
+                <div className="p-4 bg-white rounded-2xl border border-slate-300 shadow-sm">
+                  <span className="text-xs font-bold text-slate-900 block">Quando e quanto devo vender da minha produção futura?</span>
+                  <p className="text-[11px] text-slate-600 mt-1">Preço de equilíbrio (break-even), contratos a termo, Barter com CPR e cotações B3/CBOT ao vivo.</p>
                 </div>
               </div>
             </div>
@@ -331,16 +331,16 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
       </section>
 
       {/* SEÇÃO 1 DO STORYTELLING: SUA OPERAÇÃO ESTÁ FICANDO MAIS COMPLEXA (Seção 8) */}
-      <section id="complexidade" className="py-16 sm:py-24 border-b border-[#EAF4E7] bg-white">
+      <section id="complexidade" className="py-16 sm:py-24 border-b border-slate-200 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-bold text-[#C96A5B] uppercase tracking-wider font-mono">
+            <span className="text-xs font-bold text-rose-700 uppercase tracking-wider font-mono">
               O DESAFIO DA GESTÃO RURAL
             </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-[#285943]">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900">
               Sua operação está ficando mais complexa.
             </h2>
-            <p className="text-sm text-[#66736A]">
+            <p className="text-sm text-slate-600">
               À medida que a fazenda cresce, as decisões não podem mais depender apenas de intuição ou anotações dispersas.
             </p>
           </div>
@@ -372,12 +372,12 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
                 desc: 'Comercialização no escuro e travas de insumos desfavoráveis por falta de paridade portuária consolidada.'
               }
             ].map((dor, idx) => (
-              <div key={idx} className="p-6 bg-[#F7F9F5] rounded-2xl border border-[#EAF4E7] space-y-2">
-                <div className="w-8 h-8 rounded-xl bg-[#F4F0E6] text-[#C96A5B] flex items-center justify-center font-bold text-xs">
+              <div key={idx} className="p-6 bg-slate-50 rounded-2xl border border-slate-300 space-y-2">
+                <div className="w-8 h-8 rounded-xl bg-amber-50 text-rose-700 flex items-center justify-center font-bold text-xs">
                   0{idx + 1}
                 </div>
-                <h3 className="text-base font-bold text-[#285943]">{dor.title}</h3>
-                <p className="text-xs text-[#66736A] leading-relaxed">{dor.desc}</p>
+                <h3 className="text-base font-bold text-slate-900">{dor.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">{dor.desc}</p>
               </div>
             ))}
           </div>
@@ -385,137 +385,137 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
       </section>
 
       {/* SEÇÃO 2 A 6 DO STORYTELLING: TUDO CONECTADO EM UMA ÚNICA PLATAFORMA (Seção 8) */}
-      <section id="plataforma" className="py-16 sm:py-24 border-b border-[#EAF4E7] bg-[#F7F9F5]">
+      <section id="plataforma" className="py-16 sm:py-24 border-b border-slate-200 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-bold text-[#5F8F52] uppercase tracking-wider font-mono">
+            <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider font-mono">
               A RESPOSTA DEFINITIVA
             </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-[#285943]">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900">
               Tudo conectado em uma única plataforma.
             </h2>
-            <p className="text-sm text-[#66736A]">
+            <p className="text-sm text-slate-600">
               O AGROTECH integra cada elo da sua empresa rural em uma estrutura lógica e contínua.
             </p>
           </div>
 
           <div className="space-y-12">
             {/* Bloco 1: Controle sua Operação */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white p-8 rounded-3xl border border-[#EAF4E7] shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white p-8 rounded-3xl border border-slate-300 shadow-sm">
               <div className="space-y-4">
-                <span className="text-xs font-bold text-[#5F8F52] uppercase tracking-wider font-mono">SEÇÃO 3 • OPERAÇÃO AGRÍCOLA</span>
-                <h3 className="text-2xl font-black text-[#285943]">Controle sua operação.</h3>
-                <p className="text-xs text-[#66736A] leading-relaxed">
+                <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider font-mono">SEÇÃO 3 • OPERAÇÃO AGRÍCOLA</span>
+                <h3 className="text-2xl font-black text-slate-900">Controle sua operação.</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Gerencie propriedades, fazendas, talhões, safras e culturas com precisão milimétrica. Planeje e registre cada etapa de plantio, manejo fitossanitário e colheita com apontamentos georreferenciados.
                 </p>
                 <div className="flex flex-wrap gap-2 pt-2">
                   {['Propriedades', 'Fazendas', 'Talhões', 'Safras', 'Culturas', 'Plantio', 'Manejo', 'Colheita'].map((tag, i) => (
-                    <span key={i} className="px-3 py-1 rounded-lg bg-[#EAF4E7] text-[#285943] text-xs font-bold">
+                    <span key={i} className="px-3 py-1 rounded-lg bg-emerald-50 text-slate-900 text-xs font-bold">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="p-6 bg-[#F7F9F5] rounded-2xl border border-[#EAF4E7] space-y-3 font-mono text-xs">
-                <div className="flex justify-between items-center text-[#285943] font-bold border-b border-[#EAF4E7] pb-2">
-                  <span>Talhão 02 • Pivô Central</span>
-                  <span className="text-[#5F8F52]">420 ha • Soja</span>
+              <div className="p-6 bg-slate-900 text-slate-100 rounded-2xl border border-slate-800 shadow-md space-y-3 font-mono text-xs">
+                <div className="flex justify-between items-center text-white font-bold border-b border-slate-700 pb-2">
+                  <span className="text-white font-extrabold">Talhão 02 • Pivô Central</span>
+                  <span className="text-emerald-400 font-bold">420 ha • Soja</span>
                 </div>
-                <div className="space-y-1.5 text-[#66736A] text-[11px]">
-                  <div className="flex justify-between"><span>Plantio Realizado:</span><b className="text-[#26332A]">12/10/2026 (14.2 sementes/m)</b></div>
-                  <div className="flex justify-between"><span>Manejo MIP:</span><b className="text-[#5F8F52]">NDE Controlado (1.2 pragas/m)</b></div>
-                  <div className="flex justify-between"><span>Previsão de Colheita:</span><b className="text-[#26332A]">Fevereiro/2027 (71.5 sc/ha)</b></div>
+                <div className="space-y-2 text-slate-300 text-[11px]">
+                  <div className="flex justify-between"><span>Plantio Realizado:</span><b className="text-white font-bold">12/10/2026 (14.2 sementes/m)</b></div>
+                  <div className="flex justify-between"><span>Manejo MIP:</span><b className="text-emerald-400 font-bold">NDE Controlado (1.2 pragas/m)</b></div>
+                  <div className="flex justify-between"><span>Previsão de Colheita:</span><b className="text-amber-300 font-bold">Fevereiro/2027 (71.5 sc/ha)</b></div>
                 </div>
               </div>
             </div>
 
             {/* Bloco 2: Controle suas Máquinas */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white p-8 rounded-3xl border border-[#EAF4E7] shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white p-8 rounded-3xl border border-slate-300 shadow-sm">
               <div className="space-y-4 lg:order-2">
-                <span className="text-xs font-bold text-[#5F8F52] uppercase tracking-wider font-mono">SEÇÃO 4 • MÁQUINAS E FROTAS</span>
-                <h3 className="text-2xl font-black text-[#285943]">Controle suas máquinas.</h3>
-                <p className="text-xs text-[#66736A] leading-relaxed">
+                <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider font-mono">SEÇÃO 4 • MÁQUINAS E FROTAS</span>
+                <h3 className="text-2xl font-black text-slate-900">Controle suas máquinas.</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Supervisione toda a frota, consumo de diesel no comboio, planos preventivos por horímetro e ordens de serviço da oficina. Leitura direta de CAN Bus multimarca para identificar tempo ocioso e rotação do motor.
                 </p>
                 <div className="flex flex-wrap gap-2 pt-2">
                   {['Frota', 'Combustível', 'Manutenção', 'Oficina', 'Operadores', 'Horas Trabalhadas', 'Telemetria'].map((tag, i) => (
-                    <span key={i} className="px-3 py-1 rounded-lg bg-[#EAF4E7] text-[#285943] text-xs font-bold">
+                    <span key={i} className="px-3 py-1 rounded-lg bg-emerald-50 text-slate-900 text-xs font-bold">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="p-6 bg-[#F7F9F5] rounded-2xl border border-[#EAF4E7] space-y-3 font-mono text-xs lg:order-1">
-                <div className="flex justify-between items-center text-[#285943] font-bold border-b border-[#EAF4E7] pb-2">
-                  <span>Trator John Deere 8370R (#04)</span>
-                  <span className="text-[#5F8F52]">CAN Bus J1939</span>
+              <div className="p-6 bg-slate-900 text-slate-100 rounded-2xl border border-slate-800 shadow-md space-y-3 font-mono text-xs lg:order-1">
+                <div className="flex justify-between items-center text-white font-bold border-b border-slate-700 pb-2">
+                  <span className="text-white font-extrabold">Trator John Deere 8370R (#04)</span>
+                  <span className="text-emerald-400 font-bold">CAN Bus J1939</span>
                 </div>
-                <div className="space-y-1.5 text-[#66736A] text-[11px]">
-                  <div className="flex justify-between"><span>Horímetro Atual:</span><b className="text-[#26332A]">3.421,5h</b></div>
-                  <div className="flex justify-between"><span>Consumo Médio:</span><b className="text-[#285943]">28.4 L/h (-12% abaixo da meta)</b></div>
-                  <div className="flex justify-between"><span>Próxima Revisão:</span><b className="text-[#5F8F52]">Em 78,5h (3.500h Preventiva)</b></div>
+                <div className="space-y-2 text-slate-300 text-[11px]">
+                  <div className="flex justify-between"><span>Horímetro Atual:</span><b className="text-white font-bold">3.421,5h</b></div>
+                  <div className="flex justify-between"><span>Consumo Médio:</span><b className="text-amber-300 font-bold">28.4 L/h (-12% abaixo da meta)</b></div>
+                  <div className="flex justify-between"><span>Próxima Revisão:</span><b className="text-emerald-400 font-bold">Em 78,5h (3.500h Preventiva)</b></div>
                 </div>
               </div>
             </div>
 
             {/* Bloco 3: Saiba quanto sua operação realmente custa */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white p-8 rounded-3xl border border-[#EAF4E7] shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white p-8 rounded-3xl border border-slate-300 shadow-sm">
               <div className="space-y-4">
-                <span className="text-xs font-bold text-[#5F8F52] uppercase tracking-wider font-mono">SEÇÃO 5 • CUSTOS E FINANÇAS</span>
-                <h3 className="text-2xl font-black text-[#285943]">Saiba quanto sua operação realmente custa.</h3>
-                <p className="text-xs text-[#66736A] leading-relaxed">
+                <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider font-mono">SEÇÃO 5 • CUSTOS E FINANÇAS</span>
+                <h3 className="text-2xl font-black text-slate-900">Saiba quanto sua operação realmente custa.</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Apure o custo agrícola real por talhão e por saca. Faça a gestão de centros de custo, movimentações de insumos no estoque, contas a pagar, contas a receber e resultado operacional líquido.
                 </p>
                 <div className="flex flex-wrap gap-2 pt-2">
                   {['Custos Agrícolas', 'Centros de Custo', 'Insumos', 'Estoque', 'Financeiro', 'Margem', 'Resultado'].map((tag, i) => (
-                    <span key={i} className="px-3 py-1 rounded-lg bg-[#EAF4E7] text-[#285943] text-xs font-bold">
+                    <span key={i} className="px-3 py-1 rounded-lg bg-emerald-50 text-slate-900 text-xs font-bold">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="p-6 bg-[#F7F9F5] rounded-2xl border border-[#EAF4E7] space-y-3 font-mono text-xs">
-                <div className="flex justify-between items-center text-[#285943] font-bold border-b border-[#EAF4E7] pb-2">
-                  <span>DRE Analítica por Hectare</span>
-                  <span className="text-[#285943]">Safra 2026/27</span>
+              <div className="p-6 bg-slate-900 text-slate-100 rounded-2xl border border-slate-800 shadow-md space-y-3 font-mono text-xs">
+                <div className="flex justify-between items-center text-white font-bold border-b border-slate-700 pb-2">
+                  <span className="text-white font-extrabold">DRE Analítica por Hectare</span>
+                  <span className="text-emerald-400 font-bold">Safra 2026/27</span>
                 </div>
-                <div className="space-y-1.5 text-[#66736A] text-[11px]">
-                  <div className="flex justify-between"><span>Insumos & Fertilizantes:</span><b className="text-[#26332A]">R$ 2.450,00/ha</b></div>
-                  <div className="flex justify-between"><span>Operações & Diesel:</span><b className="text-[#26332A]">R$ 840,00/ha</b></div>
-                  <div className="flex justify-between"><span>Custo Total Apurado:</span><b className="text-[#285943]">R$ 4.290,00/ha (R$ 61,28/sc)</b></div>
-                  <div className="flex justify-between text-[#5F8F52] font-bold pt-1 border-t border-[#EAF4E7]">
-                    <span>Margem Operacional Líquida:</span><b>+53.5% (R$ 70,72/sc)</b>
+                <div className="space-y-2 text-slate-300 text-[11px]">
+                  <div className="flex justify-between"><span>Insumos & Fertilizantes:</span><b className="text-white font-bold">R$ 2.450,00/ha</b></div>
+                  <div className="flex justify-between"><span>Operações & Diesel:</span><b className="text-white font-bold">R$ 840,00/ha</b></div>
+                  <div className="flex justify-between"><span>Custo Total Apurado:</span><b className="text-white font-bold">R$ 4.290,00/ha (R$ 61,28/sc)</b></div>
+                  <div className="flex justify-between text-emerald-400 font-bold pt-1.5 border-t border-slate-700">
+                    <span>Margem Operacional Líquida:</span><b className="text-emerald-300">+53.5% (R$ 70,72/sc)</b>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Bloco 4: Transforme dados em decisões */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white p-8 rounded-3xl border border-[#EAF4E7] shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white p-8 rounded-3xl border border-slate-300 shadow-sm">
               <div className="space-y-4 lg:order-2">
-                <span className="text-xs font-bold text-[#5F8F52] uppercase tracking-wider font-mono">SEÇÃO 6 • INTELIGÊNCIA & DECISÃO</span>
-                <h3 className="text-2xl font-black text-[#285943]">Transforme dados em decisões.</h3>
-                <p className="text-xs text-[#66736A] leading-relaxed">
+                <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider font-mono">SEÇÃO 6 • INTELIGÊNCIA & DECISÃO</span>
+                <h3 className="text-2xl font-black text-slate-900">Transforme dados em decisões.</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Painéis executivos de BI, indicadores chave de desempenho, modelos estatísticos preditivos e um assistente digital para alertar sobre anomalias antes que elas custem caro.
                 </p>
                 <div className="flex flex-wrap gap-2 pt-2">
                   {['BI', 'Indicadores', 'Alertas', 'Previsão', 'IA', 'Riscos', 'Recomendações'].map((tag, i) => (
-                    <span key={i} className="px-3 py-1 rounded-lg bg-[#EAF4E7] text-[#285943] text-xs font-bold">
+                    <span key={i} className="px-3 py-1 rounded-lg bg-emerald-50 text-slate-900 text-xs font-bold">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="p-6 bg-[#F7F9F5] rounded-2xl border border-[#EAF4E7] space-y-3 font-mono text-xs lg:order-1">
-                <div className="flex justify-between items-center text-[#285943] font-bold border-b border-[#EAF4E7] pb-2">
-                  <span>Alerta Preventivo de Pulverização</span>
-                  <span className="text-[#C96A5B]">Delta T Crítico</span>
+              <div className="p-6 bg-slate-900 text-slate-100 rounded-2xl border border-slate-800 shadow-md space-y-3 font-mono text-xs lg:order-1">
+                <div className="flex justify-between items-center text-white font-bold border-b border-slate-700 pb-2">
+                  <span className="text-white font-extrabold">Alerta Preventivo de Pulverização</span>
+                  <span className="text-rose-400 font-bold">Delta T Crítico</span>
                 </div>
-                <div className="space-y-1.5 text-[#66736A] text-[11px]">
-                  <div className="flex justify-between"><span>Temperatura / UR:</span><b className="text-[#26332A]">32°C / 42% (Delta T = 8.2)</b></div>
-                  <div className="flex justify-between"><span>Risco de Deriva e Evaporação:</span><b className="text-[#C96A5B]">ELEVADO</b></div>
-                  <div className="flex justify-between text-[#285943] font-bold">
-                    <span>Recomendação do Sistema:</span><b>Suspender aplicação até 17h30</b>
+                <div className="space-y-2 text-slate-300 text-[11px]">
+                  <div className="flex justify-between"><span>Temperatura / UR:</span><b className="text-white font-bold">32°C / 42% (Delta T = 8.2)</b></div>
+                  <div className="flex justify-between"><span>Risco de Deriva e Evaporação:</span><b className="text-rose-400 font-bold">ELEVADO</b></div>
+                  <div className="flex justify-between text-amber-300 font-bold pt-1.5 border-t border-slate-700">
+                    <span>Recomendação do Sistema:</span><b className="text-amber-200">Suspender aplicação até 17h30</b>
                   </div>
                 </div>
               </div>
@@ -525,16 +525,16 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
       </section>
 
       {/* SEÇÃO 7 DO STORYTELLING: PARA DIFERENTES OPERAÇÕES AGRÍCOLAS (Seção 8) */}
-      <section id="operacoes" className="py-16 sm:py-24 border-b border-[#EAF4E7] bg-white">
+      <section id="operacoes" className="py-16 sm:py-24 border-b border-slate-200 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-bold text-[#5F8F52] uppercase tracking-wider font-mono">
+            <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider font-mono">
               ADAPTAÇÃO POR ATIVIDADE
             </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-[#285943]">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900">
               Para diferentes operações agrícolas.
             </h2>
-            <p className="text-sm text-[#66736A]">
+            <p className="text-sm text-slate-600">
               O AGROTECH molda sua interface conforme o perfil do cliente, ativando somente o que é necessário.
             </p>
           </div>
@@ -556,11 +556,11 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
             ].map((op, idx) => (
               <div
                 key={idx}
-                className="p-4 bg-[#F7F9F5] rounded-2xl border border-[#EAF4E7] hover:border-[#8FBF88] transition space-y-1.5"
+                className="p-4 bg-slate-50 rounded-2xl border border-slate-300 hover:border-emerald-300 transition space-y-1.5"
               >
                 <div className="text-2xl mb-1">{op.icon}</div>
-                <h4 className="text-xs font-bold text-[#285943]">{op.nome}</h4>
-                <p className="text-[11px] text-[#66736A] leading-relaxed">{op.desc}</p>
+                <h4 className="text-xs font-bold text-slate-900">{op.nome}</h4>
+                <p className="text-[11px] text-slate-600 leading-relaxed">{op.desc}</p>
               </div>
             ))}
           </div>
@@ -568,16 +568,16 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
       </section>
 
       {/* SEÇÃO 9: DEMONSTRAÇÃO DO SISTEMA — VEJA O AGROTECH EM AÇÃO (Seção 9) */}
-      <section id="demonstracao" className="py-16 sm:py-24 border-b border-[#EAF4E7] bg-[#F7F9F5]">
+      <section id="demonstracao" className="py-16 sm:py-24 border-b border-slate-200 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-bold text-[#5F8F52] uppercase tracking-wider font-mono">
+            <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider font-mono">
               EXPERIÊNCIA REAL DO PRODUTO
             </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-[#285943]">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900">
               Veja o AGROTECH em ação.
             </h2>
-            <p className="text-sm text-[#66736A]">
+            <p className="text-sm text-slate-600">
               Interface limpa, rápida e desenhada para o gestor rural brasileiro.
             </p>
           </div>
@@ -598,8 +598,8 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
                 onClick={() => setDemoTabAtiva(tab.id as any)}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer border ${
                   demoTabAtiva === tab.id
-                    ? 'bg-[#285943] text-white border-[#285943] shadow-md'
-                    : 'bg-white text-[#66736A] border-[#EAF4E7] hover:border-[#8FBF88]'
+                    ? 'bg-emerald-700 text-white border-emerald-700 shadow-md'
+                    : 'bg-white text-slate-600 border-slate-200 hover:border-emerald-300'
                 }`}
               >
                 {tab.label}
@@ -608,63 +608,63 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
           </div>
 
           {/* Janela de Demonstração de Interface Real */}
-          <div className="bg-white rounded-3xl border border-[#EAF4E7] shadow-xl overflow-hidden p-6 sm:p-8">
+          <div className="bg-white rounded-3xl border border-slate-300 shadow-xl overflow-hidden p-6 sm:p-8">
             {demoTabAtiva === 'DASHBOARD' && (
               <div className="space-y-6">
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-[#EAF4E7] pb-4">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-200 pb-4">
                   <div>
-                    <h4 className="text-lg font-black text-[#285943]">Cockpit Executivo da Safra 2026/27</h4>
-                    <p className="text-xs text-[#66736A]">Fazenda Santa Maria • 3.450 hectares monitorados</p>
+                    <h4 className="text-lg font-black text-slate-900">Cockpit Executivo da Safra 2026/27</h4>
+                    <p className="text-xs text-slate-600">Fazenda Santa Maria • 3.450 hectares monitorados</p>
                   </div>
                   <div className="flex items-center gap-2 text-xs font-mono">
-                    <span className="px-2.5 py-1 rounded bg-[#EAF4E7] text-[#285943] font-bold">100% dos Talhões Mapeados</span>
-                    <span className="px-2.5 py-1 rounded bg-[#F4F0E6] text-[#26332A]">Colheita: 68% Concluída</span>
+                    <span className="px-2.5 py-1 rounded bg-emerald-50 text-slate-900 font-bold">100% dos Talhões Mapeados</span>
+                    <span className="px-2.5 py-1 rounded bg-amber-50 text-slate-900">Colheita: 68% Concluída</span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                  <div className="p-4 bg-[#F7F9F5] rounded-2xl border border-[#EAF4E7]">
-                    <span className="text-[11px] text-[#66736A] block">Produtividade Média Ponderada</span>
-                    <span className="text-2xl font-black text-[#285943] font-mono mt-1 block">71.2 sc/ha</span>
-                    <span className="text-[10px] text-[#5F8F52] font-semibold">+3.8% acima da safra passada</span>
+                  <div className="p-4 bg-slate-50 rounded-2xl border border-slate-300">
+                    <span className="text-[11px] text-slate-600 block">Produtividade Média Ponderada</span>
+                    <span className="text-2xl font-black text-slate-900 font-mono mt-1 block">71.2 sc/ha</span>
+                    <span className="text-[10px] text-emerald-700 font-semibold">+3.8% acima da safra passada</span>
                   </div>
-                  <div className="p-4 bg-[#F7F9F5] rounded-2xl border border-[#EAF4E7]">
-                    <span className="text-[11px] text-[#66736A] block">Custo Médio Operacional</span>
-                    <span className="text-2xl font-black text-[#26332A] font-mono mt-1 block">R$ 61,40/sc</span>
-                    <span className="text-[10px] text-[#5F8F52] font-semibold">Dentro do orçamento planejado</span>
+                  <div className="p-4 bg-slate-50 rounded-2xl border border-slate-300">
+                    <span className="text-[11px] text-slate-600 block">Custo Médio Operacional</span>
+                    <span className="text-2xl font-black text-slate-900 font-mono mt-1 block">R$ 61,40/sc</span>
+                    <span className="text-[10px] text-emerald-700 font-semibold">Dentro do orçamento planejado</span>
                   </div>
-                  <div className="p-4 bg-[#F7F9F5] rounded-2xl border border-[#EAF4E7]">
-                    <span className="text-[11px] text-[#66736A] block">Máquinas em Operação</span>
-                    <span className="text-2xl font-black text-[#285943] font-mono mt-1 block">14 / 16 ativas</span>
-                    <span className="text-[10px] text-[#66736A]">87.5% de disponibilidade OEE</span>
+                  <div className="p-4 bg-slate-50 rounded-2xl border border-slate-300">
+                    <span className="text-[11px] text-slate-600 block">Máquinas em Operação</span>
+                    <span className="text-2xl font-black text-slate-900 font-mono mt-1 block">14 / 16 ativas</span>
+                    <span className="text-[10px] text-slate-600">87.5% de disponibilidade OEE</span>
                   </div>
-                  <div className="p-4 bg-[#F7F9F5] rounded-2xl border border-[#EAF4E7]">
-                    <span className="text-[11px] text-[#66736A] block">Margem Líquida Projetada</span>
-                    <span className="text-2xl font-black text-[#5F8F52] font-mono mt-1 block">52.8%</span>
-                    <span className="text-[10px] text-[#5F8F52] font-semibold">R$ 1.842.000 de resultado líquido</span>
+                  <div className="p-4 bg-slate-50 rounded-2xl border border-slate-300">
+                    <span className="text-[11px] text-slate-600 block">Margem Líquida Projetada</span>
+                    <span className="text-2xl font-black text-emerald-700 font-mono mt-1 block">52.8%</span>
+                    <span className="text-[10px] text-emerald-700 font-semibold">R$ 1.842.000 de resultado líquido</span>
                   </div>
                 </div>
               </div>
             )}
 
             {demoTabAtiva === 'MOBILE' && (
-              <div className="max-w-md mx-auto bg-[#F7F9F5] p-5 rounded-3xl border border-[#EAF4E7] space-y-4">
-                <div className="flex justify-between items-center border-b border-[#EAF4E7] pb-3">
-                  <span className="text-xs font-bold text-[#285943] flex items-center gap-1.5">
-                    <Radio className="w-3.5 h-3.5 text-[#5F8F52]" />
+              <div className="max-w-md mx-auto bg-slate-50 p-5 rounded-3xl border border-slate-300 space-y-4">
+                <div className="flex justify-between items-center border-b border-slate-200 pb-3">
+                  <span className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                    <Radio className="w-3.5 h-3.5 text-emerald-700" />
                     Modo Campo Offline Ativo
                   </span>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-[#EAF4E7] text-[#285943] font-mono">0 Pendências</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-50 text-slate-900 font-mono">0 Pendências</span>
                 </div>
-                <div className="p-3 bg-white rounded-xl border border-[#EAF4E7] space-y-1">
-                  <span className="text-[10px] text-[#66736A] uppercase font-bold">Último Lançamento no Talhão:</span>
-                  <p className="text-xs font-bold text-[#26332A]">Abastecimento Comboio • 380 L Diesel S10</p>
-                  <span className="text-[10px] text-[#5F8F52] block">Gravado localmente na Outbox com ACID local</span>
+                <div className="p-3 bg-white rounded-xl border border-slate-300 space-y-1">
+                  <span className="text-[10px] text-slate-600 uppercase font-bold">Último Lançamento no Talhão:</span>
+                  <p className="text-xs font-bold text-slate-900">Abastecimento Comboio • 380 L Diesel S10</p>
+                  <span className="text-[10px] text-emerald-700 block">Gravado localmente na Outbox com ACID local</span>
                 </div>
                 <button
                   type="button"
                   onClick={onEnterPlatformDirectly}
-                  className="w-full py-2.5 bg-[#285943] text-white font-bold rounded-xl text-xs"
+                  className="w-full py-2.5 bg-emerald-700 text-white font-bold rounded-xl text-xs"
                 >
                   Simular Lançamento Offline no Simulador Mobile
                 </button>
@@ -673,14 +673,14 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
 
             {demoTabAtiva === 'MAPA' && (
               <div className="space-y-4">
-                <div className="flex justify-between items-center text-xs text-[#66736A]">
-                  <span className="font-bold text-[#285943]">Georreferenciamento SIG & Camadas Satelitais</span>
+                <div className="flex justify-between items-center text-xs text-slate-600">
+                  <span className="font-bold text-slate-900">Georreferenciamento SIG & Camadas Satelitais</span>
                   <span>Sistema PostGIS 3.4 Spatial Conectado</span>
                 </div>
-                <div className="h-64 bg-[#EAF4E7]/60 rounded-2xl border border-[#8FBF88] flex flex-col items-center justify-center p-6 text-center space-y-2">
-                  <MapPin className="w-8 h-8 text-[#285943]" />
-                  <span className="text-sm font-bold text-[#285943]">Visualizador Espacial de Talhões Ativo</span>
-                  <p className="text-xs text-[#66736A] max-w-md">
+                <div className="h-64 bg-emerald-50/60 rounded-2xl border border-emerald-300 flex flex-col items-center justify-center p-6 text-center space-y-2">
+                  <MapPin className="w-8 h-8 text-slate-900" />
+                  <span className="text-sm font-bold text-slate-900">Visualizador Espacial de Talhões Ativo</span>
+                  <p className="text-xs text-slate-600 max-w-md">
                     Integração com Sentinel-2 NDVI, polígonos shapefile e alertas de sobreposição territorial em tempo real.
                   </p>
                 </div>
@@ -690,24 +690,24 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
             {demoTabAtiva === 'MAQUINAS' && (
               <div className="space-y-4">
                 <div className="flex justify-between items-center text-xs">
-                  <span className="font-bold text-[#285943]">Telemetria CAN Bus J1939 em Tempo Real</span>
-                  <span className="text-[#5F8F52] font-mono text-xs">Latência: 12ms</span>
+                  <span className="font-bold text-slate-900">Telemetria CAN Bus J1939 em Tempo Real</span>
+                  <span className="text-emerald-700 font-mono text-xs">Latência: 12ms</span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]">
-                    <span className="text-[10px] text-[#66736A] block uppercase">Pulverizador Jacto Uniport</span>
-                    <span className="text-sm font-bold text-[#26332A] mt-1 block">85 L/ha • 18 km/h</span>
-                    <span className="text-[10px] text-[#5F8F52]">Taxa de Aplicação Perfeita</span>
+                  <div className="p-4 bg-slate-50 rounded-xl border border-slate-300">
+                    <span className="text-[10px] text-slate-600 block uppercase">Pulverizador Jacto Uniport</span>
+                    <span className="text-sm font-bold text-slate-900 mt-1 block">85 L/ha • 18 km/h</span>
+                    <span className="text-[10px] text-emerald-700">Taxa de Aplicação Perfeita</span>
                   </div>
-                  <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]">
-                    <span className="text-[10px] text-[#66736A] block uppercase">Colheitadeira John Deere S780</span>
-                    <span className="text-sm font-bold text-[#26332A] mt-1 block">Umidade 13.9% • Perda 0.8%</span>
-                    <span className="text-[10px] text-[#5F8F52]">Dessecação dentro do padrão</span>
+                  <div className="p-4 bg-slate-50 rounded-xl border border-slate-300">
+                    <span className="text-[10px] text-slate-600 block uppercase">Colheitadeira John Deere S780</span>
+                    <span className="text-sm font-bold text-slate-900 mt-1 block">Umidade 13.9% • Perda 0.8%</span>
+                    <span className="text-[10px] text-emerald-700">Dessecação dentro do padrão</span>
                   </div>
-                  <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]">
-                    <span className="text-[10px] text-[#66736A] block uppercase">Trator Case Magnum 340</span>
-                    <span className="text-sm font-bold text-[#26332A] mt-1 block">Horímetro: 2.190h</span>
-                    <span className="text-[10px] text-[#285943]">Próxima troca de filtro em 60h</span>
+                  <div className="p-4 bg-slate-50 rounded-xl border border-slate-300">
+                    <span className="text-[10px] text-slate-600 block uppercase">Trator Case Magnum 340</span>
+                    <span className="text-sm font-bold text-slate-900 mt-1 block">Horímetro: 2.190h</span>
+                    <span className="text-[10px] text-slate-900">Próxima troca de filtro em 60h</span>
                   </div>
                 </div>
               </div>
@@ -716,19 +716,19 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
             {demoTabAtiva === 'CUSTOS' && (
               <div className="space-y-4">
                 <div className="flex justify-between items-center text-xs">
-                  <span className="font-bold text-[#285943]">Demonstrativo de Resultado do Exercício por Talhão</span>
-                  <span className="px-2 py-0.5 rounded bg-[#EAF4E7] text-[#285943] font-bold">LCDPR Integrado</span>
+                  <span className="font-bold text-slate-900">Demonstrativo de Resultado do Exercício por Talhão</span>
+                  <span className="px-2 py-0.5 rounded bg-emerald-50 text-slate-900 font-bold">LCDPR Integrado</span>
                 </div>
-                <div className="p-4 bg-[#F7F9F5] rounded-2xl border border-[#EAF4E7] space-y-2 text-xs">
-                  <div className="flex justify-between py-1 border-b border-[#EAF4E7]">
-                    <span className="text-[#66736A]">Receita Bruta com Grãos (32.400 sacas):</span>
-                    <strong className="text-[#26332A] font-mono">R$ 4.276.800,00</strong>
+                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-300 space-y-2 text-xs">
+                  <div className="flex justify-between py-1 border-b border-slate-200">
+                    <span className="text-slate-600">Receita Bruta com Grãos (32.400 sacas):</span>
+                    <strong className="text-slate-900 font-mono">R$ 4.276.800,00</strong>
                   </div>
-                  <div className="flex justify-between py-1 border-b border-[#EAF4E7]">
-                    <span className="text-[#66736A]">(-) Custo Operacional Efetivo (Insumos + Frota):</span>
-                    <strong className="text-[#C96A5B] font-mono">- R$ 1.980.400,00</strong>
+                  <div className="flex justify-between py-1 border-b border-slate-200">
+                    <span className="text-slate-600">(-) Custo Operacional Efetivo (Insumos + Frota):</span>
+                    <strong className="text-rose-700 font-mono">- R$ 1.980.400,00</strong>
                   </div>
-                  <div className="flex justify-between py-1 text-[#285943] font-bold text-sm">
+                  <div className="flex justify-between py-1 text-slate-900 font-bold text-sm">
                     <span>Resultado Operacional Líquido do Condomínio:</span>
                     <strong className="font-mono">+ R$ 2.296.400,00</strong>
                   </div>
@@ -738,16 +738,16 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
 
             {demoTabAtiva === 'IA' && (
               <div className="space-y-4">
-                <div className="flex items-center gap-2 text-xs text-[#285943] font-bold">
-                  <Bot className="w-4 h-4 text-[#5F8F52]" />
+                <div className="flex items-center gap-2 text-xs text-slate-900 font-bold">
+                  <Bot className="w-4 h-4 text-emerald-700" />
                   <span>Assistente Digital AgroTech • Conectado à Base de Dados Real do Tenant</span>
                 </div>
-                <div className="p-4 bg-[#EAF4E7]/60 rounded-2xl border border-[#8FBF88] space-y-2 text-xs">
-                  <p className="font-bold text-[#285943]">Pergunta do Gestor: "Onde estamos com o maior gargalo de diesel nesta safra?"</p>
-                  <p className="text-[#26332A] leading-relaxed">
+                <div className="p-4 bg-emerald-50/60 rounded-2xl border border-emerald-300 space-y-2 text-xs">
+                  <p className="font-bold text-slate-900">Pergunta do Gestor: "Onde estamos com o maior gargalo de diesel nesta safra?"</p>
+                  <p className="text-slate-900 leading-relaxed">
                     "Identificamos que a frente de dessecação do Talhão 08 apresentou consumo de 34.2 L/h, contra a meta de 28.0 L/h. Causa: trabalho com rotação do motor a 2.100 RPM em velocidade incompatível com a topografia."
                   </p>
-                  <span className="text-[10px] text-[#66736A] block font-mono">
+                  <span className="text-[10px] text-slate-600 block font-mono">
                     Origem dos dados: Telemetria CAN Bus J1939 + Apontamentos de Comboio
                   </span>
                 </div>
@@ -758,16 +758,16 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
       </section>
 
       {/* SEÇÃO 10: BENEFÍCIOS — MAIS CONTROLE. MENOS COMPLEXIDADE (Seção 10) */}
-      <section id="beneficios" className="py-16 sm:py-24 border-b border-[#EAF4E7] bg-white">
+      <section id="beneficios" className="py-16 sm:py-24 border-b border-slate-200 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-bold text-[#5F8F52] uppercase tracking-wider font-mono">
+            <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider font-mono">
               VALOR COMPROVADO
             </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-[#285943]">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900">
               Mais controle. Menos complexidade.
             </h2>
-            <p className="text-sm text-[#66736A]">
+            <p className="text-sm text-slate-600">
               Criado para que o produtor gaste menos tempo com burocracia e mais tempo cuidando da lavoura.
             </p>
           </div>
@@ -783,11 +783,11 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
               { titulo: 'Financeiro', desc: 'Tenha visão real do fluxo de caixa e do livro caixa sem surpresas tributárias.' },
               { titulo: 'Inteligência', desc: 'Receba alertas e recomendações automáticas para agir antes do problema se agravar.' },
             ].map((card, idx) => (
-              <div key={idx} className="p-6 bg-[#F7F9F5] rounded-2xl border border-[#EAF4E7] space-y-2">
-                <span className="text-xs font-bold text-[#5F8F52] block uppercase tracking-wider font-mono">
+              <div key={idx} className="p-6 bg-slate-50 rounded-2xl border border-slate-300 space-y-2">
+                <span className="text-xs font-bold text-emerald-700 block uppercase tracking-wider font-mono">
                   {card.titulo}
                 </span>
-                <p className="text-xs text-[#26332A] leading-relaxed font-medium">
+                <p className="text-xs text-slate-900 leading-relaxed font-medium">
                   {card.desc}
                 </p>
               </div>
@@ -797,16 +797,16 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
       </section>
 
       {/* SEÇÃO 11: IA AGROTECH — SEU GESTOR DIGITAL AGRÍCOLA (Seção 11) */}
-      <section id="ia" className="py-16 sm:py-24 border-b border-[#EAF4E7] bg-[#F7F9F5]">
+      <section id="ia" className="py-16 sm:py-24 border-b border-slate-200 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-bold text-[#5F8F52] uppercase tracking-wider font-mono">
+            <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider font-mono">
               INTELIGÊNCIA BASEADA EM DADOS REAIS
             </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-[#285943]">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900">
               Seu gestor digital agrícola.
             </h2>
-            <p className="text-sm text-[#66736A]">
+            <p className="text-sm text-slate-600">
               Faça perguntas em linguagem natural e receba respostas apoiadas diretamente nos dados do seu tenant.
             </p>
           </div>
@@ -814,7 +814,7 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Lista de Perguntas */}
             <div className="lg:col-span-5 space-y-2">
-              <span className="text-xs font-bold text-[#66736A] uppercase tracking-wider block mb-2 font-mono">
+              <span className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-2 font-mono">
                 Selecione uma Análise:
               </span>
               {perguntasIa.map((item, idx) => (
@@ -824,13 +824,13 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
                   onClick={() => setPerguntaIaAtiva(idx)}
                   className={`w-full text-left p-4 rounded-2xl border transition cursor-pointer text-xs font-bold ${
                     perguntaIaAtiva === idx
-                      ? 'bg-white border-[#5F8F52] text-[#285943] shadow-md'
-                      : 'bg-white/60 border-[#EAF4E7] text-[#66736A] hover:bg-white'
+                      ? 'bg-white border-[#5F8F52] text-slate-900 shadow-md'
+                      : 'bg-white/60 border-slate-200 text-slate-600 hover:bg-white'
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <span>{item.pergunta}</span>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-[#EAF4E7] text-[#285943]">
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-50 text-slate-900">
                       {item.status}
                     </span>
                   </div>
@@ -839,40 +839,40 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
             </div>
 
             {/* Painel de Resposta da IA com Origem de Dados */}
-            <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-[#EAF4E7] shadow-lg space-y-6">
-              <div className="flex items-center gap-3 border-b border-[#EAF4E7] pb-4">
-                <div className="w-10 h-10 rounded-2xl bg-[#285943] text-white flex items-center justify-center">
-                  <Bot className="w-5 h-5 text-[#8FBF88]" />
+            <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-slate-300 shadow-lg space-y-6">
+              <div className="flex items-center gap-3 border-b border-slate-200 pb-4">
+                <div className="w-10 h-10 rounded-2xl bg-emerald-700 text-white flex items-center justify-center">
+                  <Bot className="w-5 h-5 text-emerald-600" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-[#285943]">
+                  <h4 className="text-sm font-bold text-slate-900">
                     {perguntasIa[perguntaIaAtiva].pergunta}
                   </h4>
-                  <span className="text-[11px] text-[#5F8F52] font-semibold">Análise contextual gerada em tempo real</span>
+                  <span className="text-[11px] text-emerald-700 font-semibold">Análise contextual gerada em tempo real</span>
                 </div>
               </div>
 
               <div className="space-y-4">
-                <p className="text-sm text-[#26332A] leading-relaxed">
+                <p className="text-sm text-slate-900 leading-relaxed">
                   {perguntasIa[perguntaIaAtiva].resposta}
                 </p>
 
-                <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] space-y-1">
-                  <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block font-mono">
+                <div className="p-4 bg-slate-50 rounded-xl border border-slate-300 space-y-1">
+                  <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block font-mono">
                     Rastreabilidade da Origem dos Dados (Princípio 11):
                   </span>
-                  <span className="text-xs font-mono text-[#285943] font-semibold block">
+                  <span className="text-xs font-mono text-slate-900 font-semibold block">
                     {perguntasIa[perguntaIaAtiva].origem}
                   </span>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-2 text-[11px] text-[#66736A] border-t border-[#EAF4E7]">
+              <div className="flex items-center justify-between pt-2 text-[11px] text-slate-600 border-t border-slate-200">
                 <span>✓ Dados estritamente isolados pelo seu Tenant ID</span>
                 <button
                   type="button"
                   onClick={onEnterPlatformDirectly}
-                  className="text-[#285943] font-bold hover:underline cursor-pointer"
+                  className="text-slate-900 font-bold hover:underline cursor-pointer"
                 >
                   Abrir Módulo Completo de BI →
                 </button>
@@ -883,146 +883,146 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
       </section>
 
       {/* SEÇÃO 12: PLANOS SAAS CONFIGURÁVEIS (Seção 12) */}
-      <section id="planos" className="py-16 sm:py-24 border-b border-[#EAF4E7] bg-white">
+      <section id="planos" className="py-16 sm:py-24 border-b border-slate-200 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-bold text-[#5F8F52] uppercase tracking-wider font-mono">
+            <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider font-mono">
               ESTRUTURA DE SUBSCRIÇÃO TRANSPARENTE
             </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-[#285943]">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900">
               Planos dimensionados para sua operação.
             </h2>
-            <p className="text-sm text-[#66736A]">
+            <p className="text-sm text-slate-600">
               Sem surpresas ou taxas ocultas. Escolha o nível de capacidade adequado para a sua terra.
             </p>
 
             {/* Alternador Mensal / Anual */}
             <div className="pt-4 flex items-center justify-center gap-3">
-              <span className={`text-xs font-bold ${faturamentoPeriodo === 'MENSAL' ? 'text-[#26332A]' : 'text-[#66736A]'}`}>
+              <span className={`text-xs font-bold ${faturamentoPeriodo === 'MENSAL' ? 'text-slate-900' : 'text-slate-600'}`}>
                 Faturamento Mensal
               </span>
               <button
                 type="button"
                 onClick={() => setFaturamentoPeriodo(prev => prev === 'ANUAL' ? 'MENSAL' : 'ANUAL')}
-                className="w-14 h-7 bg-[#EAF4E7] rounded-full p-1 transition-all relative border border-[#8FBF88] cursor-pointer"
+                className="w-14 h-7 bg-emerald-50 rounded-full p-1 transition-all relative border border-emerald-300 cursor-pointer"
               >
                 <div
-                  className={`w-5 h-5 rounded-full bg-[#285943] transition-all ${
+                  className={`w-5 h-5 rounded-full bg-emerald-700 transition-all ${
                     faturamentoPeriodo === 'ANUAL' ? 'translate-x-7' : 'translate-x-0'
                   }`}
                 ></div>
               </button>
-              <span className={`text-xs font-bold flex items-center gap-1.5 ${faturamentoPeriodo === 'ANUAL' ? 'text-[#285943]' : 'text-[#66736A]'}`}>
-                Faturamento Anual <span className="px-2 py-0.5 rounded-full bg-[#EAF4E7] text-[#285943] text-[10px] border border-[#8FBF88]">Economize 20%</span>
+              <span className={`text-xs font-bold flex items-center gap-1.5 ${faturamentoPeriodo === 'ANUAL' ? 'text-slate-900' : 'text-slate-600'}`}>
+                Faturamento Anual <span className="px-2 py-0.5 rounded-full bg-emerald-50 text-slate-900 text-[10px] border border-emerald-300">Economize 20%</span>
               </span>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* PLANO 1: START */}
-            <div className="bg-[#F7F9F5] rounded-3xl border border-[#EAF4E7] p-8 space-y-6 flex flex-col justify-between hover:border-[#8FBF88] transition">
+            <div className="bg-slate-50 rounded-3xl border border-slate-300 p-8 space-y-6 flex flex-col justify-between hover:border-emerald-300 transition">
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold text-[#66736A] uppercase font-mono">START</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-white text-[#285943] font-mono border border-[#EAF4E7]">Até 800 ha</span>
+                  <span className="text-xs font-bold text-slate-600 uppercase font-mono">START</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-white text-slate-900 font-mono border border-slate-300">Até 800 ha</span>
                 </div>
                 <div>
-                  <span className="text-3xl font-black text-[#285943] font-mono">
+                  <span className="text-3xl font-black text-slate-900 font-mono">
                     R$ {faturamentoPeriodo === 'ANUAL' ? '390' : '490'}
                   </span>
-                  <span className="text-xs text-[#66736A]"> / mês</span>
+                  <span className="text-xs text-slate-600"> / mês</span>
                 </div>
-                <p className="text-xs text-[#66736A] leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Para operações familiares e pequenos produtores que precisam de controle de talhões, estoque e emissão de notas com LCDPR.
                 </p>
 
-                <ul className="space-y-2.5 text-xs text-[#26332A] pt-4 border-t border-[#EAF4E7]">
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#5F8F52] shrink-0" /><span>Até 1 Propriedade e 800 hectares</span></li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#5F8F52] shrink-0" /><span>Livro Caixa Digital do Produtor Rural (LCDPR)</span></li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#5F8F52] shrink-0" /><span>Emissão de NF-e do Produtor</span></li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#5F8F52] shrink-0" /><span>App Mobile 100% Offline (Outbox)</span></li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#5F8F52] shrink-0" /><span>Até 3 Usuários</span></li>
+                <ul className="space-y-2.5 text-xs text-slate-900 pt-4 border-t border-slate-200">
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" /><span>Até 1 Propriedade e 800 hectares</span></li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" /><span>Livro Caixa Digital do Produtor Rural (LCDPR)</span></li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" /><span>Emissão de NF-e do Produtor</span></li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" /><span>App Mobile 100% Offline (Outbox)</span></li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" /><span>Até 3 Usuários</span></li>
                 </ul>
               </div>
 
               <button
                 type="button"
                 onClick={handleStartRegister}
-                className="w-full py-3.5 rounded-xl bg-white hover:bg-[#EAF4E7] text-[#285943] font-bold text-xs border border-[#EAF4E7] transition cursor-pointer shadow-sm"
+                className="w-full py-3.5 rounded-xl bg-white hover:bg-emerald-50 text-slate-900 font-bold text-xs border border-slate-300 transition cursor-pointer shadow-sm"
               >
                 Começar agora
               </button>
             </div>
 
             {/* PLANO 2: PROFESSIONAL */}
-            <div className="bg-white rounded-3xl border-2 border-[#285943] p-8 space-y-6 flex flex-col justify-between shadow-xl relative">
-              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#285943] text-white text-[10px] font-black uppercase tracking-wider">
+            <div className="bg-white rounded-3xl border-2 border-emerald-700 p-8 space-y-6 flex flex-col justify-between shadow-xl relative">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-emerald-700 text-white text-[10px] font-black uppercase tracking-wider">
                 MAIS ESCOLHIDO
               </div>
 
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold text-[#285943] uppercase font-mono">PROFESSIONAL</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-[#EAF4E7] text-[#285943] font-mono">Até 3.500 ha</span>
+                  <span className="text-xs font-bold text-slate-900 uppercase font-mono">PROFESSIONAL</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-50 text-slate-900 font-mono">Até 3.500 ha</span>
                 </div>
                 <div>
-                  <span className="text-3xl font-black text-[#285943] font-mono">
+                  <span className="text-3xl font-black text-slate-900 font-mono">
                     R$ {faturamentoPeriodo === 'ANUAL' ? '1.190' : '1.490'}
                   </span>
-                  <span className="text-xs text-[#66736A]"> / mês</span>
+                  <span className="text-xs text-slate-600"> / mês</span>
                 </div>
-                <p className="text-xs text-[#66736A] leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Para fazendas de alta produtividade que buscam telemetria de máquinas CAN Bus, Barter na B3, controle MIP e DRE talhão a talhão.
                 </p>
 
-                <ul className="space-y-2.5 text-xs text-[#26332A] pt-4 border-t border-[#EAF4E7]">
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#5F8F52] shrink-0" /><span><b>Tudo do plano Start, mais:</b></span></li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#5F8F52] shrink-0" /><span>Telemetria CAN Bus J1939 em Tempo Real</span></li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#5F8F52] shrink-0" /><span>Barter Multi-Commodity & CPR na B3</span></li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#5F8F52] shrink-0" /><span>MDF-e SEFAZ & Emissão de CIOT ANTT</span></li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#5F8F52] shrink-0" /><span>Até 12 Usuários & Suporte Prioritário</span></li>
+                <ul className="space-y-2.5 text-xs text-slate-900 pt-4 border-t border-slate-200">
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" /><span><b>Tudo do plano Start, mais:</b></span></li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" /><span>Telemetria CAN Bus J1939 em Tempo Real</span></li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" /><span>Barter Multi-Commodity & CPR na B3</span></li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" /><span>MDF-e SEFAZ & Emissão de CIOT ANTT</span></li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" /><span>Até 12 Usuários & Suporte Prioritário</span></li>
                 </ul>
               </div>
 
               <button
                 type="button"
                 onClick={handleStartRegister}
-                className="w-full py-3.5 rounded-xl bg-[#285943] hover:bg-[#1b4332] text-white font-black text-xs shadow-md transition cursor-pointer"
+                className="w-full py-3.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-black text-xs shadow-md transition cursor-pointer"
               >
                 Começar agora
               </button>
             </div>
 
             {/* PLANO 3: ENTERPRISE */}
-            <div className="bg-[#F7F9F5] rounded-3xl border border-[#EAF4E7] p-8 space-y-6 flex flex-col justify-between hover:border-[#8FBF88] transition">
+            <div className="bg-slate-50 rounded-3xl border border-slate-300 p-8 space-y-6 flex flex-col justify-between hover:border-emerald-300 transition">
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold text-[#66736A] uppercase font-mono">ENTERPRISE</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-white text-[#285943] font-mono border border-[#EAF4E7]">Área Ilimitada</span>
+                  <span className="text-xs font-bold text-slate-600 uppercase font-mono">ENTERPRISE</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-white text-slate-900 font-mono border border-slate-300">Área Ilimitada</span>
                 </div>
                 <div>
-                  <span className="text-3xl font-black text-[#285943] font-mono">
+                  <span className="text-3xl font-black text-slate-900 font-mono">
                     R$ {faturamentoPeriodo === 'ANUAL' ? '2.490' : '2.990'}
                   </span>
-                  <span className="text-xs text-[#66736A]"> / mês</span>
+                  <span className="text-xs text-slate-600"> / mês</span>
                 </div>
-                <p className="text-xs text-[#66736A] leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Para agroindústrias, cooperativas e grandes grupos com múltiplos CNPJs, usinas, auditoria territorial EUDR e frotas pesadas.
                 </p>
 
-                <ul className="space-y-2.5 text-xs text-[#26332A] pt-4 border-t border-[#EAF4E7]">
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#5F8F52] shrink-0" /><span><b>Tudo do plano Professional, mais:</b></span></li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#5F8F52] shrink-0" /><span>Multi-Fazendas, Matriz & Filiais Ilimitadas</span></li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#5F8F52] shrink-0" /><span>Auditoria Territorial EUDR (PRODES/CAR)</span></li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#5F8F52] shrink-0" /><span>API RESTful e Webhooks para ERPs Legados</span></li>
-                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#5F8F52] shrink-0" /><span>Usuários Ilimitados com RBAC Estrito</span></li>
+                <ul className="space-y-2.5 text-xs text-slate-900 pt-4 border-t border-slate-200">
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" /><span><b>Tudo do plano Professional, mais:</b></span></li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" /><span>Multi-Fazendas, Matriz & Filiais Ilimitadas</span></li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" /><span>Auditoria Territorial EUDR (PRODES/CAR)</span></li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" /><span>API RESTful e Webhooks para ERPs Legados</span></li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0" /><span>Usuários Ilimitados com RBAC Estrito</span></li>
                 </ul>
               </div>
 
               <button
                 type="button"
                 onClick={handleStartRegister}
-                className="w-full py-3.5 rounded-xl bg-white hover:bg-[#EAF4E7] text-[#285943] font-bold text-xs border border-[#EAF4E7] transition cursor-pointer shadow-sm"
+                className="w-full py-3.5 rounded-xl bg-white hover:bg-emerald-50 text-slate-900 font-bold text-xs border border-slate-300 transition cursor-pointer shadow-sm"
               >
                 Falar com Especialista
               </button>
@@ -1032,26 +1032,26 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
       </section>
 
       {/* SEÇÃO 13: CTA FINAL — SUA OPERAÇÃO JÁ É GRANDE DEMAIS PARA DEPENDER DE PLANILHAS (Seção 13) */}
-      <section className="py-20 sm:py-28 bg-[#EAF4E7] border-b border-[#8FBF88] text-center">
+      <section className="py-20 sm:py-28 bg-gradient-to-br from-emerald-950 via-emerald-900 to-[#0A1F15] border-b border-emerald-800 text-center text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <h2 className="text-3xl sm:text-5xl font-black text-[#285943] leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-black text-white leading-tight">
             Sua operação já é grande demais para depender de planilhas.
           </h2>
-          <p className="text-base sm:text-lg text-[#66736A] max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-emerald-100 max-w-2xl mx-auto font-medium">
             Tenha uma visão completa da sua empresa rural em uma única plataforma unificada.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={handleStartRegister}
-              className="w-full sm:w-auto px-8 py-4 bg-[#285943] hover:bg-[#1b4332] text-white font-black rounded-xl text-sm shadow-xl transition flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full sm:w-auto px-8 py-4 bg-emerald-700 hover:bg-emerald-800 text-white font-black rounded-xl text-sm shadow-xl transition flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>Começar agora</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             <button
               onClick={onGoToLogin}
-              className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-[#F4F0E6] text-[#285943] font-bold rounded-xl text-sm border border-[#8FBF88] transition cursor-pointer"
+              className="w-full sm:w-auto px-8 py-4 bg-emerald-800 hover:bg-emerald-700 text-white font-bold rounded-xl text-sm border border-emerald-500/50 transition cursor-pointer"
             >
               <span>Acessar minha conta</span>
             </button>
@@ -1060,59 +1060,59 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
       </section>
 
       {/* SEÇÃO 14: FOOTER PROFISSIONAL (Seção 14) */}
-      <footer className="py-16 bg-[#F7F9F5] border-t border-[#EAF4E7] text-xs text-[#66736A]">
+      <footer className="py-16 bg-slate-50 border-t border-slate-200 text-xs text-slate-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
             <div className="col-span-2 space-y-3">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-[#285943] text-white flex items-center justify-center">
-                  <Sprout className="w-4 h-4 text-[#8FBF88]" />
+                <div className="w-8 h-8 rounded-xl bg-emerald-700 text-white flex items-center justify-center">
+                  <Sprout className="w-4 h-4 text-emerald-600" />
                 </div>
-                <span className="text-base font-black text-[#285943]">AGROTECH</span>
+                <span className="text-base font-black text-slate-900">AGROTECH</span>
               </div>
-              <p className="text-xs text-[#66736A] max-w-sm leading-relaxed">
+              <p className="text-xs text-slate-600 max-w-sm leading-relaxed">
                 O sistema operacional da empresa rural. Conectando campo, máquinas, estoque, financeiro e inteligência de ponta a ponta.
               </p>
-              <span className="text-[11px] text-[#5F8F52] block font-mono">
+              <span className="text-[11px] text-emerald-700 block font-mono">
                 PostGIS 3.4 Spatial • Outbox PWA Offline • ISO 11783 CAN Bus
               </span>
             </div>
 
             <div className="space-y-2">
-              <h5 className="font-bold text-[#285943] uppercase tracking-wider text-[11px]">Plataforma</h5>
+              <h5 className="font-bold text-white uppercase tracking-wider text-[11px]">Plataforma</h5>
               <ul className="space-y-1.5 text-xs">
-                <li><a href="#plataforma" className="hover:text-[#285943]">Operação Agrícola</a></li>
-                <li><a href="#plataforma" className="hover:text-[#285943]">Máquinas & Frotas</a></li>
-                <li><a href="#plataforma" className="hover:text-[#285943]">Estoque de Insumos</a></li>
-                <li><a href="#plataforma" className="hover:text-[#285943]">DRE por Talhão</a></li>
-                <li><a href="#ia" className="hover:text-[#285943]">Assistente de IA</a></li>
+                <li><a href="#plataforma" className="hover:text-white">Operação Agrícola</a></li>
+                <li><a href="#plataforma" className="hover:text-white">Máquinas & Frotas</a></li>
+                <li><a href="#plataforma" className="hover:text-white">Estoque de Insumos</a></li>
+                <li><a href="#plataforma" className="hover:text-white">DRE por Talhão</a></li>
+                <li><a href="#ia" className="hover:text-white">Assistente de IA</a></li>
               </ul>
             </div>
 
             <div className="space-y-2">
-              <h5 className="font-bold text-[#285943] uppercase tracking-wider text-[11px]">Recursos & Soluções</h5>
+              <h5 className="font-bold text-white uppercase tracking-wider text-[11px]">Recursos & Soluções</h5>
               <ul className="space-y-1.5 text-xs">
-                <li><a href="#operacoes" className="hover:text-[#285943]">Para Produtores de Grãos</a></li>
-                <li><a href="#operacoes" className="hover:text-[#285943]">Para Pecuária SISBOV</a></li>
-                <li><a href="#operacoes" className="hover:text-[#285943]">Para Café & Cana</a></li>
-                <li><a href="#planos" className="hover:text-[#285943]">Planos de Subscrição</a></li>
-                <li><a href="#demonstracao" className="hover:text-[#285943]">Demonstração Interativa</a></li>
+                <li><a href="#operacoes" className="hover:text-white">Para Produtores de Grãos</a></li>
+                <li><a href="#operacoes" className="hover:text-white">Para Pecuária SISBOV</a></li>
+                <li><a href="#operacoes" className="hover:text-white">Para Café & Cana</a></li>
+                <li><a href="#planos" className="hover:text-white">Planos de Subscrição</a></li>
+                <li><a href="#demonstracao" className="hover:text-white">Demonstração Interativa</a></li>
               </ul>
             </div>
 
             <div className="space-y-2">
-              <h5 className="font-bold text-[#285943] uppercase tracking-wider text-[11px]">Suporte & Legal</h5>
+              <h5 className="font-bold text-white uppercase tracking-wider text-[11px]">Suporte & Legal</h5>
               <ul className="space-y-1.5 text-xs">
-                <li><a href="#faq" className="hover:text-[#285943]">Dúvidas Frequentes</a></li>
-                <li><span className="text-[#66736A]">Termos de Uso</span></li>
-                <li><span className="text-[#66736A]">Privacidade & LGPD</span></li>
-                <li><button onClick={onGoToLogin} className="hover:text-[#285943] cursor-pointer">Login do Produtor</button></li>
-                <li><span className="text-[#285943] font-bold">0800 400 AGRO</span></li>
+                <li><a href="#faq" className="hover:text-white">Dúvidas Frequentes</a></li>
+                <li><span className="text-slate-600">Termos de Uso</span></li>
+                <li><span className="text-slate-600">Privacidade & LGPD</span></li>
+                <li><button onClick={onGoToLogin} className="hover:text-white cursor-pointer">Login do Produtor</button></li>
+                <li><span className="text-slate-900 font-bold">0800 400 AGRO</span></li>
               </ul>
             </div>
           </div>
 
-          <div className="pt-8 border-t border-[#EAF4E7] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
+          <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
             <span>© 2026 AGROTECH Sistemas Agrícolas S.A. Todos os direitos reservados.</span>
             <span>Ambiente Auditado e Conforme com Normas da Receita Federal & BACEN</span>
           </div>

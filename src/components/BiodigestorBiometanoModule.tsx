@@ -127,7 +127,7 @@ export const BiodigestorBiometanoModule: React.FC = () => {
                     Lei 14.300 • Cogen Biogás
                   </span>
                 </h2>
-                <p className="text-sm text-[#66736A]">
+                <p className="text-sm text-slate-600">
                   Conversão anaeróbia de dejetos pecuários em eletricidade limpa, biofertilizante e créditos de abatimento de metano.
                 </p>
               </div>
@@ -146,14 +146,14 @@ export const BiodigestorBiometanoModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: Eletricidade Mensal Gerada */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Eletricidade Limpa</span>
             <Zap className="w-4 h-4 text-amber-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-amber-400">
             {bioMetrics.energiaEletricaMesKwh.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
-            <span className="text-xs font-normal text-[#66736A]">kWh/mês</span>
+            <span className="text-xs font-normal text-slate-600">kWh/mês</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Produção: {bioMetrics.energiaEletricaKwhDia.toFixed(0)} kWh/dia no motogerador.
@@ -161,14 +161,14 @@ export const BiodigestorBiometanoModule: React.FC = () => {
         </div>
 
         {/* KPI 2: Economia na Conta de Luz */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Economia Energética</span>
             <TrendingUp className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
             R$ {bioMetrics.economiaAnualReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
-            <span className="text-xs font-normal text-[#66736A]">/ ano</span>
+            <span className="text-xs font-normal text-slate-600">/ ano</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             R$ {bioMetrics.economiaMensalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}/mês compensados.
@@ -176,14 +176,14 @@ export const BiodigestorBiometanoModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Volume de Biogás Diário */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Biogás Gerado</span>
             <Flame className="w-4 h-4 text-teal-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-teal-400">
             {bioMetrics.volumeBiogasDiaM3.toFixed(0)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">m³/dia ({teorMetanoCh4Pct}% CH₄)</span>
+            <span className="text-xs font-normal text-slate-600">m³/dia ({teorMetanoCh4Pct}% CH₄)</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Metano líquido: {bioMetrics.volumeMetanoDiaM3.toFixed(0)} m³/dia.
@@ -191,8 +191,8 @@ export const BiodigestorBiometanoModule: React.FC = () => {
         </div>
 
         {/* KPI 4: Abatimento de Metano */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Mitigação de Metano</span>
             <Leaf className="w-4 h-4 text-white" />
           </div>
@@ -209,18 +209,18 @@ export const BiodigestorBiometanoModule: React.FC = () => {
       {/* Grid Principal: Seletor de Unidade e Parâmetros */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Unidades de Biodigestão Cadastradas */}
-        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <Layers className="w-5 h-5 text-teal-400" />
                 Unidades de Biodigestão & Plantel Ativo
               </h3>
-              <p className="text-xs text-[#66736A]">
+              <p className="text-xs text-slate-600">
                 Selecione o sistema para calcular a produção de biogás e potência de despacho.
               </p>
             </div>
-            <span className="text-xs font-mono text-[#66736A]">
+            <span className="text-xs font-mono text-slate-600">
               {unidades.length} Plantas Conectadas
             </span>
           </div>
@@ -235,7 +235,7 @@ export const BiodigestorBiometanoModule: React.FC = () => {
                   className={`p-4 rounded-xl border cursor-pointer transition-all ${
                     isSelected
                       ? 'bg-teal-950/30 border-teal-500/50 shadow-lg'
-                      : 'bg-[#F7F9F5] border-[#EAF4E7] hover:border-slate-700'
+                      : 'bg-slate-50 border-slate-200 hover:border-slate-700'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
@@ -244,7 +244,7 @@ export const BiodigestorBiometanoModule: React.FC = () => {
                       {u.tipoPlantel.replace(/_/g, ' ')}
                     </span>
                   </div>
-                  <div className="grid grid-cols-2 gap-2 text-[11px] font-mono text-[#66736A]">
+                  <div className="grid grid-cols-2 gap-2 text-[11px] font-mono text-slate-600">
                     <div>Plantel: <span className="text-white">{u.numeroCabecas.toLocaleString('pt-BR')} cab.</span></div>
                     <div>Volume: <span className="text-white">{u.volumeBiodigestorM3} m³</span></div>
                     <div>Gerador: <span className="text-white">{u.geradorPotenciaKw} kW</span></div>
@@ -256,12 +256,12 @@ export const BiodigestorBiometanoModule: React.FC = () => {
           </div>
 
           {/* Banner Técnico da Economia Circular */}
-          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-teal-400 font-semibold">
               <Sparkles className="w-4 h-4" />
               Economia Circular & Benefícios Agronômicos:
             </div>
-            <ul className="list-disc list-inside text-[#66736A] space-y-1">
+            <ul className="list-disc list-inside text-slate-600 space-y-1">
               <li>
                 <strong>Biofertilizante Mineralizado:</strong> O efluente digerido ({bioMetrics.biofertilizanteDiaM3.toFixed(0)} m³/dia) apresenta NPK prontamente assimilável pelas plantas, sem odor e com 99% de eliminação de patógenos entéricos.
               </li>
@@ -276,7 +276,7 @@ export const BiodigestorBiometanoModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Parâmetros do Biodigestor */}
-        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Activity className="w-5 h-5 text-teal-400" />
             Parâmetros do Biodigestor
@@ -285,7 +285,7 @@ export const BiodigestorBiometanoModule: React.FC = () => {
           <div className="space-y-4 text-xs">
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-[#66736A] font-medium">Teor de Metano no Biogás (CH₄)</span>
+                <span className="text-slate-600 font-medium">Teor de Metano no Biogás (CH₄)</span>
                 <span className="text-teal-400 font-mono font-bold">{teorMetanoCh4Pct}%</span>
               </div>
               <input
@@ -301,7 +301,7 @@ export const BiodigestorBiometanoModule: React.FC = () => {
 
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-[#66736A] font-medium">Eficiência Elétrica do Motogerador</span>
+                <span className="text-slate-600 font-medium">Eficiência Elétrica do Motogerador</span>
                 <span className="text-amber-400 font-mono font-bold">{eficienciaGeradorPct}%</span>
               </div>
               <input
@@ -316,40 +316,40 @@ export const BiodigestorBiometanoModule: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-[#66736A] block mb-1">Tarifa de Energia Rural (R$/kWh)</label>
+              <label className="text-slate-600 block mb-1">Tarifa de Energia Rural (R$/kWh)</label>
               <input
                 type="number"
                 value={tarifaEnergiaKwhReais}
                 onChange={(e) => setTarifaEnergiaKwhReais(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-1.5 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-white font-mono"
               />
             </div>
 
             <div>
-              <label className="text-[#66736A] block mb-1">Preço Crédito de Metano (R$/t CO₂eq)</label>
+              <label className="text-slate-600 block mb-1">Preço Crédito de Metano (R$/t CO₂eq)</label>
               <input
                 type="number"
                 value={precoCreditoMetanoTonCo2}
                 onChange={(e) => setPrecoCreditoMetanoTonCo2(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-1.5 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-white font-mono"
               />
             </div>
 
             {/* Resumo Consolidado */}
-            <div className="pt-3 border-t border-[#EAF4E7] space-y-2">
+            <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Economia Elétrica Anual:</span>
+                <span className="text-slate-600">Economia Elétrica Anual:</span>
                 <span className="text-emerald-400 font-mono font-bold">
                   R$ {bioMetrics.economiaAnualReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Receita Créditos Metano:</span>
+                <span className="text-slate-600">Receita Créditos Metano:</span>
                 <span className="text-teal-400 font-mono font-bold">
                   +R$ {bioMetrics.receitaCreditosCarbonoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
-              <div className="flex justify-between border-t border-[#EAF4E7] pt-2 font-bold">
+              <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Benefício Anual Total:</span>
                 <span className="text-white font-mono">
                   R$ {(bioMetrics.economiaAnualReais + bioMetrics.receitaCreditosCarbonoReais).toLocaleString('pt-BR', { maximumFractionDigits: 0 })}

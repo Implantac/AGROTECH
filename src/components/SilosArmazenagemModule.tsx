@@ -190,7 +190,7 @@ export const SilosArmazenagemModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-[#EAF4E7] p-6 rounded-2xl backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-slate-200 p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 rounded-xl text-amber-400">
@@ -208,13 +208,13 @@ export const SilosArmazenagemModule: React.FC = () => {
                 <span className={`px-2 py-0.5 rounded text-[10px] font-bold flex items-center gap-1 ${
                   iotTermometriaLive
                     ? 'bg-emerald-950 text-emerald-400 border border-emerald-800'
-                    : 'bg-slate-800 text-[#66736A]'
+                    : 'bg-slate-800 text-slate-600'
                 }`}>
                   <Radio className="w-3 h-3 text-emerald-400 animate-pulse" />
                   IoT Silos Live
                 </span>
               </div>
-              <p className="text-sm text-[#66736A] mt-0.5">
+              <p className="text-sm text-slate-600 mt-0.5">
                 Monitoramento térmico de silos graneleiros, controle de umidade e cálculo oficial de quebra técnica de secagem.
               </p>
             </div>
@@ -222,13 +222,13 @@ export const SilosArmazenagemModule: React.FC = () => {
         </div>
 
         {/* Resumo da Capacidade Estática */}
-        <div className="flex items-center gap-4 bg-[#F7F9F5] p-2.5 rounded-xl border border-[#EAF4E7] text-xs">
+        <div className="flex items-center gap-4 bg-slate-50 p-2.5 rounded-xl border border-slate-200 text-xs">
           <div>
-            <span className="text-[#66736A] block text-[10px] uppercase font-bold">Capacidade Estática:</span>
-            <span className="text-[#26332A] font-mono font-bold">{totalCapacidadeSacas.toLocaleString('pt-BR')} sacas</span>
+            <span className="text-slate-600 block text-[10px] uppercase font-bold">Capacidade Estática:</span>
+            <span className="text-slate-900 font-mono font-bold">{totalCapacidadeSacas.toLocaleString('pt-BR')} sacas</span>
           </div>
-          <div className="border-l border-[#EAF4E7] pl-4">
-            <span className="text-[#66736A] block text-[10px] uppercase font-bold">Ocupação Atual:</span>
+          <div className="border-l border-slate-200 pl-4">
+            <span className="text-slate-600 block text-[10px] uppercase font-bold">Ocupação Atual:</span>
             <span className="text-amber-400 font-mono font-bold">{percentualOcupacaoGeral.toFixed(1)}%</span>
           </div>
         </div>
@@ -236,8 +236,8 @@ export const SilosArmazenagemModule: React.FC = () => {
 
       {/* Cards de Indicadores de Armazenagem */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
-          <div className="flex items-center justify-between text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Estoque Total Físico</span>
             <Warehouse className="w-4 h-4 text-amber-400" />
           </div>
@@ -247,8 +247,8 @@ export const SilosArmazenagemModule: React.FC = () => {
           <p className="text-xs text-slate-500 mt-1">~{(totalArmazenadoSacas * 0.06).toFixed(0)} toneladas armazenadas</p>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
-          <div className="flex items-center justify-between text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Comprometido em Barter/CPR</span>
             <TrendingUp className="w-4 h-4 text-indigo-400" />
           </div>
@@ -256,8 +256,8 @@ export const SilosArmazenagemModule: React.FC = () => {
           <p className="text-xs text-slate-500 mt-1">Entregas fixadas: Cargill, Bunge, Amaggi</p>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
-          <div className="flex items-center justify-between text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Saldo Próprio Livre (Spot)</span>
             <DollarSign className="w-4 h-4 text-emerald-400" />
           </div>
@@ -267,8 +267,8 @@ export const SilosArmazenagemModule: React.FC = () => {
           <p className="text-xs text-emerald-400/80 mt-1">Disponível para negociação na alta</p>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
-          <div className="flex items-center justify-between text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Temperatura Média da Massa</span>
             <Thermometer className="w-4 h-4 text-cyan-400" />
           </div>
@@ -280,14 +280,14 @@ export const SilosArmazenagemModule: React.FC = () => {
       {/* Grid: Planta de Silos & Termometria + Calculadora de Secagem */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel dos Silos & Termometria Digital (2 cols) */}
-        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] p-5 rounded-2xl space-y-4">
-          <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-3">
+        <div className="lg:col-span-2 bg-white border border-slate-200 p-5 rounded-2xl space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-3">
             <div>
               <h2 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
                 <Thermometer className="w-5 h-5 text-amber-400" />
                 Matriz de Termometria Digital & Cabos Sensores
               </h2>
-              <p className="text-xs text-[#66736A]">Clique no silo para auditar os pontos de temperatura em profundidade</p>
+              <p className="text-xs text-slate-600">Clique no silo para auditar os pontos de temperatura em profundidade</p>
             </div>
           </div>
 
@@ -305,12 +305,12 @@ export const SilosArmazenagemModule: React.FC = () => {
                   onClick={() => setSiloSelecionadoId(silo.id)}
                   className={`p-4 rounded-xl border transition-all cursor-pointer ${
                     siloSelecionadoId === silo.id
-                      ? 'bg-[#F7F9F5] border-amber-500 ring-2 ring-amber-500/50'
-                      : 'bg-[#F7F9F5] border-[#EAF4E7] hover:border-slate-700'
+                      ? 'bg-slate-50 border-amber-500 ring-2 ring-amber-500/50'
+                      : 'bg-slate-50 border-slate-200 hover:border-slate-700'
                   }`}
                 >
                   <div className="flex justify-between items-center mb-1">
-                    <span className="font-bold text-[#26332A] text-xs">{silo.codigo}</span>
+                    <span className="font-bold text-slate-900 text-xs">{silo.codigo}</span>
                     <span
                       className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
                         temPontoQuente
@@ -322,10 +322,10 @@ export const SilosArmazenagemModule: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="text-[11px] text-[#66736A] truncate">{silo.cultura}</div>
+                  <div className="text-[11px] text-slate-600 truncate">{silo.cultura}</div>
 
                   <div className="mt-3">
-                    <div className="flex justify-between text-[11px] text-[#26332A] mb-1 font-mono">
+                    <div className="flex justify-between text-[11px] text-slate-900 mb-1 font-mono">
                       <span>{silo.saldoAtualSacas.toLocaleString('pt-BR')} sc</span>
                       <span className="text-amber-400 font-bold">{ocupacaoPct.toFixed(0)}%</span>
                     </div>
@@ -334,7 +334,7 @@ export const SilosArmazenagemModule: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between text-[11px] text-[#66736A] mt-3 pt-2 border-t border-[#EAF4E7]/80">
+                  <div className="flex items-center justify-between text-[11px] text-slate-600 mt-3 pt-2 border-t border-slate-200/80">
                     <span>Umidade: {silo.umidadeMediaPct}%</span>
                     <span>Temp: {silo.temperaturaMediaC}°C</span>
                   </div>
@@ -344,14 +344,14 @@ export const SilosArmazenagemModule: React.FC = () => {
           </div>
 
           {/* Detalhes do Silo Selecionado & Status dos Cabos */}
-          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] space-y-3">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#EAF4E7] pb-3">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-3">
               <div>
                 <h3 className="text-sm font-bold text-white flex items-center gap-2">
                   <Warehouse className="w-4 h-4 text-amber-400" />
                   {siloAtivo.nome}
                 </h3>
-                <span className="text-xs text-[#66736A]">
+                <span className="text-xs text-slate-600">
                   {siloAtivo.saldoAtualSacas.toLocaleString('pt-BR')} sacas • Umidade Média: {siloAtivo.umidadeMediaPct}%
                 </span>
               </div>
@@ -362,7 +362,7 @@ export const SilosArmazenagemModule: React.FC = () => {
                   className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all cursor-pointer ${
                     siloAtivo.statusAeracao === 'LIGADA'
                       ? 'bg-cyan-600 hover:bg-cyan-500 text-white shadow-lg shadow-cyan-950/40'
-                      : 'bg-slate-800 hover:bg-slate-700 text-[#26332A]'
+                      : 'bg-slate-800 hover:bg-slate-700 text-slate-900'
                   }`}
                 >
                   <Fan className={`w-4 h-4 ${siloAtivo.statusAeracao === 'LIGADA' ? 'animate-spin' : ''}`} />
@@ -374,18 +374,18 @@ export const SilosArmazenagemModule: React.FC = () => {
             {/* Visualização dos Cabos de Sensores */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
               {siloAtivo.cabosTermometria.map((cabo, cIdx) => (
-                <div key={cIdx} className="p-3 bg-white border border-[#EAF4E7] rounded-xl space-y-2">
-                  <span className="font-bold text-[#26332A] block border-b border-[#EAF4E7] pb-1">
+                <div key={cIdx} className="p-3 bg-white border border-slate-200 rounded-xl space-y-2">
+                  <span className="font-bold text-slate-900 block border-b border-slate-200 pb-1">
                     {cabo.caboId}
                   </span>
                   {cabo.sensores.map((sensor, sIdx) => (
                     <div key={sIdx} className="flex justify-between items-center py-1">
-                      <span className="text-[#66736A]">{sensor.profundidade}:</span>
+                      <span className="text-slate-600">{sensor.profundidade}:</span>
                       <span
                         className={`font-mono font-bold px-2 py-0.5 rounded ${
                           sensor.status === 'AQUECIMENTO'
                             ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40'
-                            : 'bg-[#F7F9F5] text-[#26332A]'
+                            : 'bg-slate-50 text-slate-900'
                         }`}
                       >
                         {sensor.tempC} °C
@@ -399,83 +399,83 @@ export const SilosArmazenagemModule: React.FC = () => {
         </div>
 
         {/* Calculadora do Secador de Grãos (1 col) */}
-        <div className="bg-white border border-[#EAF4E7] p-5 rounded-2xl flex flex-col justify-between space-y-4">
+        <div className="bg-white border border-slate-200 p-5 rounded-2xl flex flex-col justify-between space-y-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
               <Flame className="w-5 h-5 text-rose-400" />
               <h2 className="text-base font-bold text-[#1D4B38]">Secador de Fluxo Contínuo</h2>
             </div>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Cálculo técnico de dessecação pela fórmula oficial de quebra de massa evaporada:
             </p>
 
-            <div className="p-2.5 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] text-[11px] font-mono text-center text-amber-300 mb-4">
+            <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-[11px] font-mono text-center text-amber-300 mb-4">
               Q% = [(U₁ - U₂) / (100 - U₂)] × 100
             </div>
 
             <div className="space-y-3 text-xs">
               <div>
-                <label className="text-[#26332A] block mb-1">Carga Úmida na Entrada:</label>
+                <label className="text-slate-900 block mb-1">Carga Úmida na Entrada:</label>
                 <div className="flex items-center gap-2">
                   <input
                     type="number"
                     value={secadorPesoInicialTon}
                     onChange={(e) => setSecadorPesoInicialTon(Number(e.target.value))}
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-1.5 text-[#26332A] font-mono"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg px-3 py-1.5 text-slate-900 font-mono"
                   />
-                  <span className="text-[#66736A] font-mono">toneladas</span>
+                  <span className="text-slate-600 font-mono">toneladas</span>
                 </div>
               </div>
 
               <div>
-                <label className="text-[#26332A] block mb-1">Umidade de Entrada (Colheita):</label>
+                <label className="text-slate-900 block mb-1">Umidade de Entrada (Colheita):</label>
                 <div className="flex items-center gap-2">
                   <input
                     type="number"
                     step="0.1"
                     value={secadorUmidadeEntrada}
                     onChange={(e) => setSecadorUmidadeEntrada(Number(e.target.value))}
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-1.5 text-[#26332A] font-mono"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg px-3 py-1.5 text-slate-900 font-mono"
                   />
-                  <span className="text-[#66736A] font-mono">%</span>
+                  <span className="text-slate-600 font-mono">%</span>
                 </div>
               </div>
 
               <div>
-                <label className="text-[#26332A] block mb-1">Umidade Alvo de Saída (Padrão):</label>
+                <label className="text-slate-900 block mb-1">Umidade Alvo de Saída (Padrão):</label>
                 <div className="flex items-center gap-2">
                   <input
                     type="number"
                     step="0.1"
                     value={secadorUmidadeSaida}
                     onChange={(e) => setSecadorUmidadeSaida(Number(e.target.value))}
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-1.5 text-[#26332A] font-mono"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg px-3 py-1.5 text-slate-900 font-mono"
                   />
-                  <span className="text-[#66736A] font-mono">%</span>
+                  <span className="text-slate-600 font-mono">%</span>
                 </div>
               </div>
 
               <div>
-                <label className="text-[#26332A] block mb-1">Temperatura da Fornalha (Biomassa):</label>
+                <label className="text-slate-900 block mb-1">Temperatura da Fornalha (Biomassa):</label>
                 <div className="flex items-center gap-2">
                   <input
                     type="number"
                     value={tempFornalha}
                     onChange={(e) => setTempFornalha(Number(e.target.value))}
-                    className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-1.5 text-[#26332A] font-mono"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-lg px-3 py-1.5 text-slate-900 font-mono"
                   />
-                  <span className="text-[#66736A] font-mono">°C</span>
+                  <span className="text-slate-600 font-mono">°C</span>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="p-4 bg-amber-950/30 border border-amber-800/40 rounded-xl text-xs space-y-2">
-            <div className="flex justify-between items-center text-[#26332A]">
+            <div className="flex justify-between items-center text-slate-900">
               <span>Quebra Técnica de Dessecação:</span>
               <span className="font-mono font-bold text-amber-300">{quebraDessecacaoPct.toFixed(2)}%</span>
             </div>
-            <div className="flex justify-between items-center text-[#26332A]">
+            <div className="flex justify-between items-center text-slate-900">
               <span>Água Evaporada:</span>
               <span className="font-mono font-bold text-rose-400">-{aguaEvaporadaKg.toLocaleString('pt-BR')} kg</span>
             </div>

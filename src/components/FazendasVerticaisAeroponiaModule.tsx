@@ -117,19 +117,19 @@ export const FazendasVerticaisAeroponiaModule: React.FC = () => {
             <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
               🏢 Fazendas Verticais CEA & Aeroponia em Alta Pressão
             </h2>
-            <p className="text-sm text-[#26332A] max-w-3xl leading-relaxed">
+            <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
               Agricultura de Ambiente Controlado (CEA) em galpões urbanos/rurais com aeroponia de alta pressão (névoa de 30 a 50 micras aplicada diretamente nas raízes suspensas), iluminação espectral LED dinâmica e 28 ciclos anuais sem defensivos.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Área Efetiva</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Área Efetiva</span>
               <span className="text-xl font-black text-violet-400">3.600 m²</span>
-              <span className="text-[10px] text-[#66736A] block mt-0.5">Em 450 m² solo</span>
+              <span className="text-[10px] text-slate-600 block mt-0.5">Em 450 m² solo</span>
             </div>
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Produção Anual</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Produção Anual</span>
               <span className="text-xl font-black text-emerald-400">120.960 kg</span>
               <span className="text-[10px] text-emerald-400/80 block mt-0.5">Baby Leaf Limpa</span>
             </div>
@@ -139,8 +139,8 @@ export const FazendasVerticaisAeroponiaModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-violet-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-violet-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Ciclos por Ano</span>
             <Activity className="w-4 h-4 text-emerald-400" />
           </div>
@@ -151,48 +151,48 @@ export const FazendasVerticaisAeroponiaModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-violet-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-violet-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Economia Hídrica</span>
             <Droplets className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black text-cyan-400">98.0%</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Recirculação Fechada e Condensação
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-violet-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-violet-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Faturamento Anual</span>
             <DollarSign className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">R$ 3.870.720,00</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Preço Médio R$ 32,00/kg
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-violet-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-violet-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
             <Award className="w-4 h-4 text-teal-400" />
           </div>
           <div className="text-2xl font-black text-teal-400">R$ 2.420.720,00</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Margem Líquida de 62.5%
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('camadas')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'camadas'
               ? 'bg-violet-500 text-white shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -204,7 +204,7 @@ export const FazendasVerticaisAeroponiaModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'led_espectro'
               ? 'bg-violet-500 text-white shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Sun className="w-4 h-4" />
@@ -216,7 +216,7 @@ export const FazendasVerticaisAeroponiaModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'aeroponia'
               ? 'bg-violet-500 text-white shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Droplets className="w-4 h-4" />
@@ -228,7 +228,7 @@ export const FazendasVerticaisAeroponiaModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
               ? 'bg-violet-500 text-white shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -239,19 +239,19 @@ export const FazendasVerticaisAeroponiaModule: React.FC = () => {
       {/* Conteúdo Aba 1: Camadas */}
       {activeTab === 'camadas' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Layers className="w-5 h-5 text-violet-400" />
               Torres e Racks com Controle Dinâmico de Clima
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Cada nível possui controle individual de fotoperíodo, vazão de bicos aeropônicos e fluxo de ar laminar para evitar bolsões de estagnação de umidade sobre as folhas.
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#EAF4E7] text-[#66736A] font-bold uppercase tracking-wider">
+                  <tr className="border-b border-slate-200 text-slate-600 font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Torre / Rack</th>
                     <th className="py-3 px-3">Cultura</th>
                     <th className="py-3 px-3">Camadas</th>
@@ -267,13 +267,13 @@ export const FazendasVerticaisAeroponiaModule: React.FC = () => {
                     <tr key={c.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-white">{c.identificacao}</div>
-                        <div className="text-[11px] text-[#66736A] font-mono">{c.id}</div>
+                        <div className="text-[11px] text-slate-600 font-mono">{c.id}</div>
                       </td>
                       <td className="py-3.5 px-3 text-violet-300 font-semibold">{c.cultura}</td>
                       <td className="py-3.5 px-3 font-mono text-white">{c.camadas} andares</td>
                       <td className="py-3.5 px-3 font-mono text-emerald-400 font-bold">{c.diasCiclo} dias</td>
                       <td className="py-3.5 px-3 font-mono text-cyan-400 font-bold">{c.ppfdUmolM2S} µmol/m²/s</td>
-                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{c.temperaturaC}°C • {c.vpdKpa} kPa</td>
+                      <td className="py-3.5 px-3 font-mono text-slate-900">{c.temperaturaC}°C • {c.vpdKpa} kPa</td>
                       <td className="py-3.5 px-3 font-mono text-amber-300">{c.pressaoBicosPsi} PSI</td>
                       <td className="py-3.5 px-3">
                         <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
@@ -292,53 +292,53 @@ export const FazendasVerticaisAeroponiaModule: React.FC = () => {
       {/* Conteúdo Aba 2: LED Espectro */}
       {activeTab === 'led_espectro' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Sun className="w-5 h-5 text-amber-400" />
               Espectro Luminoso Customizado por Fase Fenológica
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Receitas de luz (Light Recipes) combinando chips LED Samsung Horticultura com canais independentes:
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">Azul Royal (450 nm - 20%)</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5">
+                <span className="text-slate-600 text-[11px] block mt-0.5">
                   Estimula abertura estomática, densidade de clorofila e evita o estiolamento.
                 </span>
               </div>
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">Vermelho Profundo (660 nm - 70%)</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5">
+                <span className="text-slate-600 text-[11px] block mt-0.5">
                   Pico de absorção dos fotossistemas PSI e PSII para ganho acelerado de massa fresca.
                 </span>
               </div>
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">Vermelho Distante / Far-Red (730 nm - 10%)</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5">
+                <span className="text-slate-600 text-[11px] block mt-0.5">
                   Efeito Emerson: acelera a taxa fotossintética e expansão da área foliar.
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               Eficiência Energética Fotônica
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Métricas de conversão de energia elétrica em fótons úteis:
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Eficácia Fotônica dos LEDs:</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Eficácia Fotônica dos LEDs:</span>
                 <span className="font-mono font-bold text-emerald-400">3.1 µmol / Joule</span>
               </div>
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Duração do Fotoperíodo:</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Duração do Fotoperíodo:</span>
                 <span className="font-mono font-bold text-cyan-400">18 horas de luz / 6h escuro</span>
               </div>
             </div>
@@ -349,32 +349,32 @@ export const FazendasVerticaisAeroponiaModule: React.FC = () => {
       {/* Conteúdo Aba 3: Aeroponia */}
       {activeTab === 'aeroponia' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Droplets className="w-5 h-5 text-cyan-400" />
               Aeroponia em Alta Pressão (High-Pressure Aeroponics - HPA)
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Ao contrário da hidroponia tradicional onde a raiz fica imersa na água com menor oxigenação, na aeroponia a raiz fica 100% suspensa no ar e recebe pulsos de névoa de 3 segundos a cada 5 minutos, garantindo oxigenação radical de 100% e absorção iônica máxima.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Tamanho da Gota</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Tamanho da Gota</span>
                 <span className="text-2xl font-black text-white font-mono">30 a 50 µm</span>
                 <span className="text-[11px] text-cyan-400 block">Penetra os pelos radiculares</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Oxigenação Radical</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Oxigenação Radical</span>
                 <span className="text-2xl font-black text-emerald-400 font-mono">100%</span>
-                <span className="text-[11px] text-[#66736A] block">Sem asfixia ou podridão de raiz</span>
+                <span className="text-[11px] text-slate-600 block">Sem asfixia ou podridão de raiz</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Uso de Agrotóxicos</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Uso de Agrotóxicos</span>
                 <span className="text-2xl font-black text-emerald-400 font-mono">0.0%</span>
-                <span className="text-[11px] text-[#66736A] block">Salas limpas com filtro HEPA</span>
+                <span className="text-[11px] text-slate-600 block">Salas limpas com filtro HEPA</span>
               </div>
             </div>
           </div>
@@ -384,14 +384,14 @@ export const FazendasVerticaisAeroponiaModule: React.FC = () => {
       {/* Conteúdo Aba 4: Simulador */}
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-violet-400" />
               Parâmetros da Fazenda Vertical
             </h3>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Área Pegada no Solo (m²)</span>
                 <span className="font-mono text-violet-400">{areaPegadaFisicaM2} m²</span>
               </div>
@@ -407,7 +407,7 @@ export const FazendasVerticaisAeroponiaModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Andares / Camadas Verticais</span>
                 <span className="font-mono text-cyan-400">{camadasVerticais} andares</span>
               </div>
@@ -423,7 +423,7 @@ export const FazendasVerticaisAeroponiaModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Venda Baby Leaf (R$/kg)</span>
                 <span className="font-mono text-emerald-400">R$ {precoKgBabyLeafReais.toFixed(2)}</span>
               </div>
@@ -439,7 +439,7 @@ export const FazendasVerticaisAeroponiaModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Custo com Energia e Operações (R$)</span>
                 <span className="font-mono text-rose-400">R$ {custoKwhEnergiaMaoObraAnoReais.toFixed(2)}</span>
               </div>
@@ -455,39 +455,39 @@ export const FazendasVerticaisAeroponiaModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               Retorno Financeiro do Cultivo Vertical Indoor
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Área Cultivada</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Área Cultivada</span>
                 <span className="font-mono font-bold text-white text-base">
                   {metricas.areaCultivoEquivalenteM2} m²
                 </span>
-                <span className="text-[10px] text-[#66736A] block">{camadasVerticais}x multiplicação</span>
+                <span className="text-[10px] text-slate-600 block">{camadasVerticais}x multiplicação</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Produção Total</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Produção Total</span>
                 <span className="font-mono font-bold text-violet-400 text-base">
                   {(metricas.producaoTotalAnoKg / 1000).toFixed(1)} ton
                 </span>
                 <span className="text-[10px] text-violet-400/80 block">{ciclosPorAno} ciclos/ano</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Receita Bruta</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Bruta</span>
                 <span className="font-mono font-bold text-white text-base">
                   R$ {(metricas.receitaBrutaReais / 1000).toFixed(0)}k
                 </span>
-                <span className="text-[10px] text-[#66736A] block">Venda Direta</span>
+                <span className="text-[10px] text-slate-600 block">Venda Direta</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Lucro Líquido</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {(metricas.lucroLiquidoReais / 1000).toFixed(0)}k
                 </span>
@@ -495,15 +495,15 @@ export const FazendasVerticaisAeroponiaModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Receita com Venda de Folhosas ({metricas.producaoTotalAnoKg.toLocaleString()} kg @ R$ {precoKgBabyLeafReais.toFixed(2)}):</span>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Receita com Venda de Folhosas ({metricas.producaoTotalAnoKg.toLocaleString()} kg @ R$ {precoKgBabyLeafReais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-white">
                   R$ {metricas.receitaBrutaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Custo com Eletricidade dos LEDs, Ar Condicionado e Nutrientes:</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Custo com Eletricidade dos LEDs, Ar Condicionado e Nutrientes:</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {custoKwhEnergiaMaoObraAnoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>

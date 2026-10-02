@@ -126,7 +126,7 @@ export const CarbonoAgroModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-[#EAF4E7] p-6 rounded-2xl backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-slate-200 p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400">
@@ -142,7 +142,7 @@ export const CarbonoAgroModule: React.FC = () => {
                   Lei 13.986 (CPR Verde)
                 </span>
               </div>
-              <p className="text-sm text-[#66736A] mt-0.5">
+              <p className="text-sm text-slate-600 mt-0.5">
                 Inventário de Escopo 1 (diesel, calcário, N₂O) vs sequestro no solo por Plantio Direto e palhada de braquiária.
               </p>
             </div>
@@ -150,22 +150,22 @@ export const CarbonoAgroModule: React.FC = () => {
         </div>
 
         {/* Cotação do Crédito de Carbono */}
-        <div className="flex items-center gap-2 bg-[#F7F9F5] px-3 py-1.5 rounded-xl border border-[#EAF4E7] text-xs">
-          <span className="text-[#66736A]">Cotação do Crédito:</span>
+        <div className="flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs">
+          <span className="text-slate-600">Cotação do Crédito:</span>
           <input
             type="number"
             value={precoCreditoCarbonoBRL}
             onChange={(e) => setPrecoCreditoCarbonoBRL(Number(e.target.value))}
             className="w-16 bg-slate-900 border border-slate-700 rounded px-2 py-0.5 text-emerald-400 font-mono font-bold"
           />
-          <span className="text-[#66736A] font-mono">R$/t CO₂e</span>
+          <span className="text-slate-600 font-mono">R$/t CO₂e</span>
         </div>
       </div>
 
       {/* Cards de Métricas Climáticas & CPR Verde */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
-          <div className="flex items-center justify-between text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Emissões de Escopo 1</span>
             <TrendingDown className="w-4 h-4 text-amber-400" />
           </div>
@@ -175,8 +175,8 @@ export const CarbonoAgroModule: React.FC = () => {
           <p className="text-xs text-slate-500 mt-1">Diesel frotas + Calcário + Fertilizantes N</p>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
-          <div className="flex items-center justify-between text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Sequestro no Solo</span>
             <Trees className="w-4 h-4 text-emerald-400" />
           </div>
@@ -210,20 +210,20 @@ export const CarbonoAgroModule: React.FC = () => {
       </div>
 
       {/* Tabela do Inventário por Talhão */}
-      <div className="bg-white border border-[#EAF4E7] rounded-2xl overflow-hidden">
-        <div className="p-5 border-b border-[#EAF4E7] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden">
+        <div className="p-5 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <h2 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
               <Recycle className="w-5 h-5 text-emerald-400" />
               Inventário de Emissões & Sequestro Talhão a Talhão
             </h2>
-            <p className="text-xs text-[#66736A]">Metodologia oficial GHG Protocol Agropecuário e Embrapa Meio Ambiente</p>
+            <p className="text-xs text-slate-600">Metodologia oficial GHG Protocol Agropecuário e Embrapa Meio Ambiente</p>
           </div>
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-[#F7F9F5] text-[#66736A] uppercase tracking-wider font-semibold border-b border-[#EAF4E7]">
+            <thead className="bg-slate-50 text-slate-600 uppercase tracking-wider font-semibold border-b border-slate-200">
               <tr>
                 <th className="px-4 py-3.5">Talhão & Área</th>
                 <th className="px-4 py-3.5">Manejo Regenerativo</th>
@@ -237,12 +237,12 @@ export const CarbonoAgroModule: React.FC = () => {
               {dadosCalculados.map((item) => (
                 <tr key={item.talhaoId} className="hover:bg-slate-800/40 transition-colors">
                   <td className="px-4 py-3.5">
-                    <div className="font-bold text-[#26332A]">{item.codigo} - {item.nome}</div>
-                    <div className="text-[11px] text-[#66736A] font-mono">{item.areaHa} ha</div>
+                    <div className="font-bold text-slate-900">{item.codigo} - {item.nome}</div>
+                    <div className="text-[11px] text-slate-600 font-mono">{item.areaHa} ha</div>
                   </td>
 
                   <td className="px-4 py-3.5">
-                    <div className="text-[#26332A] font-medium">{item.praticaRegenerativa}</div>
+                    <div className="text-slate-900 font-medium">{item.praticaRegenerativa}</div>
                     <div className="text-[10px] text-emerald-400 font-mono mt-0.5">
                       Taxa: {item.taxaSequestroTonHaAno} t CO₂e/ha/ano
                     </div>

@@ -109,7 +109,7 @@ export const BarterMultiCommodityCprModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500 to-amber-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
             <Handshake className="w-7 h-7 text-slate-950" />
@@ -123,7 +123,7 @@ export const BarterMultiCommodityCprModule: React.FC = () => {
                 Módulo 130 • Registro B3 / Cerc & Relação de Troca
               </span>
             </div>
-            <p className="text-sm text-[#66736A] mt-1">
+            <p className="text-sm text-slate-600 mt-1">
               Trava de insumos sem desembolso financeiro imediato, cálculo dinâmico de relação de troca em sacas, emissão de CPR com penhor cedular e liquidação física nos armazéns.
             </p>
           </div>
@@ -142,9 +142,9 @@ export const BarterMultiCommodityCprModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Relação de Troca Exigida</span>
+            <span className="text-xs font-medium text-slate-600">Relação de Troca Exigida</span>
             <Scale className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -155,9 +155,9 @@ export const BarterMultiCommodityCprModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Cobertura de Garantia</span>
+            <span className="text-xs font-medium text-slate-600">Cobertura de Garantia</span>
             <ShieldCheck className="w-5 h-5 text-amber-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -168,9 +168,9 @@ export const BarterMultiCommodityCprModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Sobra para Comercialização</span>
+            <span className="text-xs font-medium text-slate-600">Sobra para Comercialização</span>
             <TrendingUp className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -181,9 +181,9 @@ export const BarterMultiCommodityCprModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Status de Registro B3</span>
+            <span className="text-xs font-medium text-slate-600">Status de Registro B3</span>
             <Landmark className="w-5 h-5 text-cyan-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -196,13 +196,13 @@ export const BarterMultiCommodityCprModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('contratos')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'contratos'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -214,7 +214,7 @@ export const BarterMultiCommodityCprModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'troca'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Scale className="w-4 h-4" />
@@ -226,7 +226,7 @@ export const BarterMultiCommodityCprModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'cprb3'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Landmark className="w-4 h-4" />
@@ -238,7 +238,7 @@ export const BarterMultiCommodityCprModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -248,15 +248,15 @@ export const BarterMultiCommodityCprModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'contratos' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <FileText className="w-5 h-5 text-emerald-400" />
             Contratos de Barter com Emissão e Registro de CPR
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-[#26332A]">
-              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
+            <table className="w-full text-left text-sm text-slate-900">
+              <thead className="text-xs uppercase bg-slate-50 text-slate-600">
                 <tr>
                   <th className="px-4 py-3">Número B3</th>
                   <th className="px-4 py-3">Titular</th>
@@ -271,13 +271,13 @@ export const BarterMultiCommodityCprModule: React.FC = () => {
                 {contratos.map((c) => (
                   <tr key={c.id} className="hover:bg-slate-800/30">
                     <td className="px-4 py-3 font-mono text-xs text-white">{c.numeroCprB3}</td>
-                    <td className="px-4 py-3 text-[#26332A] font-medium">{c.produtorTitular}</td>
+                    <td className="px-4 py-3 text-slate-900 font-medium">{c.produtorTitular}</td>
                     <td className="px-4 py-3 font-semibold text-emerald-400">{c.commodityPagamento}</td>
                     <td className="px-4 py-3 font-bold text-white">
                       R$ {c.valorCreditoInsumosReais.toLocaleString('pt-BR')}
                     </td>
                     <td className="px-4 py-3">R$ {c.precoTravadoSacaReais.toFixed(2)}/sc</td>
-                    <td className="px-4 py-3 text-[#26332A]">{c.sacasComprometidas.toLocaleString('pt-BR')} sc</td>
+                    <td className="px-4 py-3 text-slate-900">{c.sacasComprometidas.toLocaleString('pt-BR')} sc</td>
                     <td className="px-4 py-3">
                       <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                         {c.status}
@@ -293,44 +293,44 @@ export const BarterMultiCommodityCprModule: React.FC = () => {
 
       {activeTab === 'troca' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Scale className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Relação de Troca Histórica</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Mede a quantidade de sacas de soja necessárias para comprar 1 tonelada de adubo formulado (ex: MAP ou NPK 02-20-20). Faixas abaixo de 22 sc/ton indicam excelente momento de trava.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Índice Atual:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Índice Atual:</span>
               <span className="text-sm font-bold text-emerald-400 block">18.2 sacas / tonelada de fertilizante</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <ShieldCheck className="w-5 h-5 text-amber-400" />
               <h4 className="text-sm font-semibold text-white">Hedge Cambial & CBOT Embutido</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Ao fixar a operação de Barter, a revenda ou multinacional executa a venda futura da commodity e a compra do insumo, eliminando totalmente o risco de descasamento cambial para o produtor.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Proteção Volatilidade:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Proteção Volatilidade:</span>
               <span className="text-sm font-bold text-amber-400 block">100% blindado contra oscilação do dólar</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Landmark className="w-5 h-5 text-cyan-400" />
               <h4 className="text-sm font-semibold text-white">Liquidação Física em Armazém</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Na colheita, o produtor entrega os grãos no armazém credenciado ou trading, transferindo o romaneio de balança diretamente para quitação integral da CPR.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Desoneração Fiscal:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Desoneração Fiscal:</span>
               <span className="text-sm font-bold text-cyan-400 block">Operação isenta de IOF</span>
             </div>
           </div>
@@ -338,39 +338,39 @@ export const BarterMultiCommodityCprModule: React.FC = () => {
       )}
 
       {activeTab === 'cprb3' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Landmark className="w-5 h-5 text-cyan-400" />
             Estruturação Jurídica da CPR Conforme Lei nº 13.986 (Nova Lei do Agro)
           </h3>
-          <p className="text-sm text-[#66736A]">
+          <p className="text-sm text-slate-600">
             A CPR física é registrada no sistema de custódia da B3 ou Cerc em até 10 dias úteis após emissão, conferindo eficácia de título executivo extrajudicial com garantia real de penhor cedular de safra.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Assinatura Eletrônica</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Assinatura Eletrônica</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">ICP-Brasil / gov.br</p>
-              <span className="text-[11px] text-[#66736A]">Validade jurídica sem reconhecimento em cartório</span>
+              <span className="text-[11px] text-slate-600">Validade jurídica sem reconhecimento em cartório</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Garantia Imobiliária</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Garantia Imobiliária</span>
               <p className="text-lg font-bold text-amber-400 mt-1">Penhor de Safra</p>
-              <span className="text-[11px] text-[#66736A]">Vinculado às coordenadas do talhão CAR</span>
+              <span className="text-[11px] text-slate-600">Vinculado às coordenadas do talhão CAR</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Integração Bancária</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Integração Bancária</span>
               <p className="text-lg font-bold text-white mt-1">B3 Registradora</p>
-              <span className="text-[11px] text-[#66736A]">Custódia digital e consulta pública</span>
+              <span className="text-[11px] text-slate-600">Custódia digital e consulta pública</span>
             </div>
           </div>
         </div>
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-emerald-400" />
             Simulador de Relação de Troca & Margem da Operação Barter
@@ -378,56 +378,56 @@ export const BarterMultiCommodityCprModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Valor Insumos (R$)</label>
+              <label className="text-xs font-medium text-slate-600">Valor Insumos (R$)</label>
               <input
                 type="number"
                 value={valorPacoteInsumosReais}
                 onChange={(e) => setValorPacoteInsumosReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Preço Futuro Saca (R$)</label>
+              <label className="text-xs font-medium text-slate-600">Preço Futuro Saca (R$)</label>
               <input
                 type="number"
                 step="0.5"
                 value={precoFuturoSacaReais}
                 onChange={(e) => setPrecoFuturoSacaReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Sacas Ofertadas CPR</label>
+              <label className="text-xs font-medium text-slate-600">Sacas Ofertadas CPR</label>
               <input
                 type="number"
                 value={sacasGarantidasCpr}
                 onChange={(e) => setSacasGarantidasCpr(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Taxa Registro B3 (R$)</label>
+              <label className="text-xs font-medium text-slate-600">Taxa Registro B3 (R$)</label>
               <input
                 type="number"
                 value={taxaRegistroB3Reais}
                 onChange={(e) => setTaxaRegistroB3Reais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-emerald-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-[#66736A] block">Sacas Necessárias para Quitação:</span>
+              <span className="text-xs text-slate-600 block">Sacas Necessárias para Quitação:</span>
               <span className="text-base font-bold text-emerald-400">
                 {metricas.sacasExigidasBarter.toLocaleString('pt-BR')} sacas contratadas
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-[#66736A] block">Garantia Total Registrada na B3:</span>
+              <span className="text-xs text-slate-600 block">Garantia Total Registrada na B3:</span>
               <span className="text-xl font-bold text-amber-400">
                 R$ {metricas.valorTotalGarantiaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

@@ -130,19 +130,19 @@ export const HeliciculturaEscargotModule: React.FC = () => {
             <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
               🐌 Helicicultura Comercial & Mucina Purificada
             </h2>
-            <p className="text-sm text-[#26332A] max-w-3xl leading-relaxed">
+            <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
               Criação intensiva de caracóis terrestres comestíveis com duplo aproveitamento: extração não letal por ozônio de secreção bioativa (*snail mucin* - rica em alantoína e ácido glicólico para a indústria cosmética) e carne nobre de escargot.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Escargot Limpo</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Escargot Limpo</span>
               <span className="text-xl font-black text-amber-400">1.200 kg</span>
-              <span className="text-[10px] text-[#66736A] block mt-0.5">40% Rendimento</span>
+              <span className="text-[10px] text-slate-600 block mt-0.5">40% Rendimento</span>
             </div>
-            <div className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
-              <span className="text-[10px] font-bold text-[#66736A] uppercase tracking-wider block">Mucina Pura</span>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
+              <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Mucina Pura</span>
               <span className="text-xl font-black text-cyan-400">1.760 L</span>
               <span className="text-[10px] text-cyan-400/80 block mt-0.5">Grau Cosmético</span>
             </div>
@@ -152,8 +152,8 @@ export const HeliciculturaEscargotModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">População nos Parques</span>
             <Activity className="w-4 h-4 text-emerald-400" />
           </div>
@@ -164,48 +164,48 @@ export const HeliciculturaEscargotModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Mucina Purificada (L)</span>
             <Droplets className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-black text-cyan-400">1.760 Litros</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             R$ 320,00/L para Indústria Dermocosmética
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Faturamento Total</span>
             <DollarSign className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">R$ 695.200,00</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Carne Gourmet + Cosméticos
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
             <Award className="w-4 h-4 text-teal-400" />
           </div>
           <div className="text-2xl font-black text-teal-400">R$ 471.200,00</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Margem Líquida de 67.8%
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('parques')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'parques'
               ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Leaf className="w-4 h-4" />
@@ -217,7 +217,7 @@ export const HeliciculturaEscargotModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'mucina'
               ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Sparkles className="w-4 h-4" />
@@ -229,7 +229,7 @@ export const HeliciculturaEscargotModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'gastronomia'
               ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -241,7 +241,7 @@ export const HeliciculturaEscargotModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
               ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-[#26332A] hover:bg-slate-800 border border-[#EAF4E7]'
+              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -252,19 +252,19 @@ export const HeliciculturaEscargotModule: React.FC = () => {
       {/* Conteúdo Aba 1: Parques */}
       {activeTab === 'parques' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Leaf className="w-5 h-5 text-emerald-400" />
               Monitoramento dos Parques com Painéis Verticais de Madeira
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Cultivo sob sombrites de 80% com barreiras perimetrais antifuga (faixas de sal ou telas elétricas de 12V). Microaspersão noturna programada mantendo a umidade necessária para atividade alimentar e acasalamento.
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#EAF4E7] text-[#66736A] font-bold uppercase tracking-wider">
+                  <tr className="border-b border-slate-200 text-slate-600 font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Parque / Estufa</th>
                     <th className="py-3 px-3">Espécie</th>
                     <th className="py-3 px-3">População</th>
@@ -279,7 +279,7 @@ export const HeliciculturaEscargotModule: React.FC = () => {
                     <tr key={p.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-white">{p.identificacao}</div>
-                        <div className="text-[11px] text-[#66736A] font-mono">{p.id}</div>
+                        <div className="text-[11px] text-slate-600 font-mono">{p.id}</div>
                       </td>
                       <td className="py-3.5 px-3 text-emerald-300 font-semibold">{p.especie}</td>
                       <td className="py-3.5 px-3 font-mono text-white">{p.populacaoCaracois.toLocaleString()} cab</td>
@@ -303,47 +303,47 @@ export const HeliciculturaEscargotModule: React.FC = () => {
       {/* Conteúdo Aba 2: Mucina */}
       {activeTab === 'mucina' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-cyan-400" />
               Tecnologia MullerOne de Extração Não-Letal
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               O processo estimula as glândulas mucosas dos caracóis através de névoa de ozônio medicinal e vibração rotativa suave sem estresse nem lesão, preservando a vida do animal para múltiplos ciclos:
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">Alantoína Natural Purificada</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5">
+                <span className="text-slate-600 text-[11px] block mt-0.5">
                   Promove regeneração tecidual acelerada e proliferação celular dérmica.
                 </span>
               </div>
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-white block">Ácido Glicólico e Elastina</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5">
+                <span className="text-slate-600 text-[11px] block mt-0.5">
                   Microesfoliação natural e atenuação de rugas de expressão com alta demanda internacional.
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               Controle de Pureza e Filtragem
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Microfiltração esterilizante em membrana de 0,22 micras:
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Teor de Pureza Cosmética:</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Teor de Pureza Cosmética:</span>
                 <span className="font-mono font-bold text-cyan-400">&gt; 99.2% livre de bactérias</span>
               </div>
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Frequência de Extração por Lote:</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Frequência de Extração por Lote:</span>
                 <span className="font-mono font-bold text-emerald-400">A cada 30 a 45 dias</span>
               </div>
             </div>
@@ -354,32 +354,32 @@ export const HeliciculturaEscargotModule: React.FC = () => {
       {/* Conteúdo Aba 3: Gastronomia */}
       {activeTab === 'gastronomia' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
               <Award className="w-5 h-5 text-amber-400" />
               Carne Nobre de Escargot na Alta Gastronomia
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Após o período produtivo de mucina, os animais selecionados passam por 5 dias de jejum e purga em caixas ventiladas antes do processamento térmico (cozimento em court-bouillon), sendo comercializados congelados ou pré-recheados à moda da Borgonha (*Beurre d'escargot*).
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Proteína Nobre</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Proteína Nobre</span>
                 <span className="text-2xl font-black text-white font-mono">16.3%</span>
                 <span className="text-[11px] text-amber-400 block">Alta digestibilidade</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Gordura Saturada</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Gordura Saturada</span>
                 <span className="text-2xl font-black text-emerald-400 font-mono">&lt; 1.0%</span>
-                <span className="text-[11px] text-[#66736A] block">Carne magra saudável</span>
+                <span className="text-[11px] text-slate-600 block">Carne magra saudável</span>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-1">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Preço de Mercado</span>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Preço de Mercado</span>
                 <span className="text-2xl font-black text-cyan-400 font-mono">R$ 110,00 / kg</span>
-                <span className="text-[11px] text-[#66736A] block">Venda direta a bistrôs</span>
+                <span className="text-[11px] text-slate-600 block">Venda direta a bistrôs</span>
               </div>
             </div>
           </div>
@@ -389,14 +389,14 @@ export const HeliciculturaEscargotModule: React.FC = () => {
       {/* Conteúdo Aba 4: Simulador */}
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <BarChart3 className="w-5 h-5 text-emerald-400" />
               Parâmetros da Helicicultura
             </h3>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Área dos Parques (m²)</span>
                 <span className="font-mono text-emerald-400">{areaParquesM2} m²</span>
               </div>
@@ -412,7 +412,7 @@ export const HeliciculturaEscargotModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Carne Escargot (R$/kg)</span>
                 <span className="font-mono text-white">R$ {precoKgCarneEscargotReais.toFixed(2)}</span>
               </div>
@@ -428,7 +428,7 @@ export const HeliciculturaEscargotModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Mucina Cosmética (R$/L)</span>
                 <span className="font-mono text-cyan-400">R$ {precoLitroMucinaPurificadaReais.toFixed(2)}</span>
               </div>
@@ -444,7 +444,7 @@ export const HeliciculturaEscargotModule: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex justify-between text-xs text-[#26332A] font-semibold mb-1">
+              <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Custo Operacional por m²/ano</span>
                 <span className="font-mono text-rose-400">R$ {custoOperacionalPorM2AnoReais.toFixed(2)}</span>
               </div>
@@ -460,39 +460,39 @@ export const HeliciculturaEscargotModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-lg space-y-4">
+          <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-emerald-400" />
               Retorno Financeiro da Helicicultura Comercial
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Escargot Limpo</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Escargot Limpo</span>
                 <span className="font-mono font-bold text-white text-base">
                   {(metricas.carneEscargotProntaKg / 1000).toFixed(2)} ton
                 </span>
-                <span className="text-[10px] text-[#66736A] block">{rendimentoCarneEscargotPct}% rendimento</span>
+                <span className="text-[10px] text-slate-600 block">{rendimentoCarneEscargotPct}% rendimento</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Mucina Pura</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Mucina Pura</span>
                 <span className="font-mono font-bold text-cyan-400 text-base">
                   {metricas.totalMucinaLitrosAno.toFixed(0)} L
                 </span>
                 <span className="text-[10px] text-cyan-400/80 block">Cosméticos</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Receita Bruta</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Bruta</span>
                 <span className="font-mono font-bold text-white text-base">
                   R$ {(metricas.receitaBrutaTotalReais / 1000).toFixed(0)}k
                 </span>
-                <span className="text-[10px] text-[#66736A] block">Carne + Mucina</span>
+                <span className="text-[10px] text-slate-600 block">Carne + Mucina</span>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
-                <span className="text-[10px] text-[#66736A] uppercase tracking-wider block">Lucro Líquido</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido</span>
                 <span className="font-mono font-bold text-emerald-400 text-base">
                   R$ {(metricas.lucroLiquidoAnoReais / 1000).toFixed(0)}k
                 </span>
@@ -500,21 +500,21 @@ export const HeliciculturaEscargotModule: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Venda de Carne de Escargot ({metricas.carneEscargotProntaKg.toLocaleString()} kg @ R$ {precoKgCarneEscargotReais.toFixed(2)}):</span>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Venda de Carne de Escargot ({metricas.carneEscargotProntaKg.toLocaleString()} kg @ R$ {precoKgCarneEscargotReais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-white">
                   R$ {metricas.receitaCarneReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Venda de Mucina Cosmética Purificada ({metricas.totalMucinaLitrosAno.toLocaleString()} L @ R$ {precoLitroMucinaPurificadaReais.toFixed(2)}):</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Venda de Mucina Cosmética Purificada ({metricas.totalMucinaLitrosAno.toLocaleString()} L @ R$ {precoLitroMucinaPurificadaReais.toFixed(2)}):</span>
                 <span className="font-mono font-bold text-cyan-400">
                   + R$ {metricas.receitaMucinaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]/80">
-                <span className="text-[#66736A]">Custo com Alimentação Rica em Cálcio, Energia e Nebulização:</span>
+              <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
+                <span className="text-slate-600">Custo com Alimentação Rica em Cálcio, Energia e Nebulização:</span>
                 <span className="font-mono font-bold text-rose-400">
                   - R$ {metricas.custoTotalAnoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>

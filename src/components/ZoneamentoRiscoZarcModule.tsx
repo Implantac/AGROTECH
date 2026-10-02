@@ -115,7 +115,7 @@ export const ZoneamentoRiscoZarcModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-700 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-600/20">
             <Compass className="w-7 h-7 text-white" />
@@ -129,7 +129,7 @@ export const ZoneamentoRiscoZarcModule: React.FC = () => {
                 Módulo 120 • Portarias MAPA, Solos AD1/AD2/AD3 & Seguro Rural
               </span>
             </div>
-            <p className="text-sm text-[#66736A] mt-1">
+            <p className="text-sm text-slate-600 mt-1">
               Enquadramento decendial de semeadura por município e tipo de solo para habilitação ao Proagro e subvenção do Seguro Rural Privado.
             </p>
           </div>
@@ -148,9 +148,9 @@ export const ZoneamentoRiscoZarcModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Risco Hídrico Projetado</span>
+            <span className="text-xs font-medium text-slate-600">Risco Hídrico Projetado</span>
             <CloudRain className="w-5 h-5 text-blue-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -161,9 +161,9 @@ export const ZoneamentoRiscoZarcModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Elegibilidade Plano Safra</span>
+            <span className="text-xs font-medium text-slate-600">Elegibilidade Plano Safra</span>
             <ShieldCheck className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -174,9 +174,9 @@ export const ZoneamentoRiscoZarcModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Capital Financiado Total</span>
+            <span className="text-xs font-medium text-slate-600">Capital Financiado Total</span>
             <DollarSign className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -187,9 +187,9 @@ export const ZoneamentoRiscoZarcModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Franquia de Seguro Estipulada</span>
+            <span className="text-xs font-medium text-slate-600">Franquia de Seguro Estipulada</span>
             <Award className="w-5 h-5 text-blue-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -202,13 +202,13 @@ export const ZoneamentoRiscoZarcModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('janelas')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'janelas'
               ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Calendar className="w-4 h-4" />
@@ -220,7 +220,7 @@ export const ZoneamentoRiscoZarcModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'solos'
               ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -232,7 +232,7 @@ export const ZoneamentoRiscoZarcModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'seguro'
               ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <ShieldAlert className="w-4 h-4" />
@@ -244,7 +244,7 @@ export const ZoneamentoRiscoZarcModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -254,15 +254,15 @@ export const ZoneamentoRiscoZarcModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'janelas' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Calendar className="w-5 h-5 text-blue-400" />
             Portarias de Zoneamento Publicadas no Diário Oficial da União (DOU)
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-[#26332A]">
-              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
+            <table className="w-full text-left text-sm text-slate-900">
+              <thead className="text-xs uppercase bg-slate-50 text-slate-600">
                 <tr>
                   <th className="px-4 py-3">Município / UF</th>
                   <th className="px-4 py-3">Cultura & Ciclo</th>
@@ -295,44 +295,44 @@ export const ZoneamentoRiscoZarcModule: React.FC = () => {
 
       {activeTab === 'solos' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Layers className="w-5 h-5 text-yellow-400" />
               <h4 className="text-sm font-semibold text-white">Solo Tipo AD1 (Arenoso)</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Teor de argila inferior a 15% ou baixa retenção hídrica (água disponível menor que 0.35 mm/cm). Janela de plantio mais estreita devido à rápida dessecação.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Capacidade de Retenção:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Capacidade de Retenção:</span>
               <span className="text-sm font-bold text-yellow-400 block">menor que 35 mm de CAD</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Layers className="w-5 h-5 text-blue-400" />
               <h4 className="text-sm font-semibold text-white">Solo Tipo AD2 (Médio)</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Textura média entre 15% e 35% de argila (água disponível entre 0.35 e 0.55 mm/cm). Retenção equilibrada com boa drenagem superficial.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Capacidade de Retenção:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Capacidade de Retenção:</span>
               <span className="text-sm font-bold text-blue-400 block">35 mm a 55 mm de CAD</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Layers className="w-5 h-5 text-emerald-400" />
               <h4 className="text-sm font-semibold text-white">Solo Tipo AD3 (Argiloso)</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Latossolos vermelhos e amarelos com mais de 35% de argila e alto teor de matéria orgânica. Máxima segurança contra veranicos de até 15 dias.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Capacidade de Retenção:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Capacidade de Retenção:</span>
               <span className="text-sm font-bold text-emerald-400 block">superior a 55 mm de CAD</span>
             </div>
           </div>
@@ -340,30 +340,30 @@ export const ZoneamentoRiscoZarcModule: React.FC = () => {
       )}
 
       {activeTab === 'seguro' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-emerald-400" />
             Classificação de Risco e Subvenção Federal ao Prêmio do Seguro (PSR)
           </h3>
-          <p className="text-sm text-[#66736A]">
+          <p className="text-sm text-slate-600">
             A contratação de seguro agrícola vinculada às portarias do ZARC garante descontos federais de até 40% na apólice do produtor através do Programa de Subvenção ao Prêmio do Seguro Rural (PSR).
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Risco Baixo (≤ 20%)</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Risco Baixo (≤ 20%)</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">Subvenção 40%</p>
               <span className="text-[11px] text-emerald-500/80">Menor custo de prêmio e franquia reduzida</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Risco Médio (21% a 30%)</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Risco Médio (21% a 30%)</span>
               <p className="text-lg font-bold text-yellow-400 mt-1">Subvenção 25%</p>
               <span className="text-[11px] text-slate-500">Exige histórico positivo de produtividade</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Risco Elevado (31% a 40%)</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Risco Elevado (31% a 40%)</span>
               <p className="text-lg font-bold text-orange-400 mt-1">Sem Subvenção PSR</p>
               <span className="text-[11px] text-slate-500">Contratação apenas em seguradoras privadas</span>
             </div>
@@ -372,7 +372,7 @@ export const ZoneamentoRiscoZarcModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-blue-400" />
             Simulador de Enquadramento ZARC & Franquia de Seguro Rural
@@ -380,31 +380,31 @@ export const ZoneamentoRiscoZarcModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Área Financiada (ha)</label>
+              <label className="text-xs font-medium text-slate-600">Área Financiada (ha)</label>
               <input
                 type="number"
                 value={areaFinanciadaHa}
                 onChange={(e) => setAreaFinanciadaHa(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-blue-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-blue-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Custo Implantação (R$/ha)</label>
+              <label className="text-xs font-medium text-slate-600">Custo Implantação (R$/ha)</label>
               <input
                 type="number"
                 value={custoImplantacaoHaReais}
                 onChange={(e) => setCustoImplantacaoHaReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-blue-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-blue-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Tipo de Solo (CAD)</label>
+              <label className="text-xs font-medium text-slate-600">Tipo de Solo (CAD)</label>
               <select
                 value={tipoSoloAD}
                 onChange={(e) => setTipoSoloAD(e.target.value as 'AD1' | 'AD2' | 'AD3')}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-blue-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-blue-500 focus:outline-none"
               >
                 <option value="AD1">Solo AD1 (Arenoso)</option>
                 <option value="AD2">Solo AD2 (Médio)</option>
@@ -413,26 +413,26 @@ export const ZoneamentoRiscoZarcModule: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Probabilidade Frustração (%)</label>
+              <label className="text-xs font-medium text-slate-600">Probabilidade Frustração (%)</label>
               <input
                 type="number"
                 step="0.5"
                 value={probabilidadeDeficitInputPct}
                 onChange={(e) => setProbabilidadeDeficitInputPct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-blue-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-blue-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-[#66736A] block">Parecer Oficial de Zoneamento MAPA:</span>
+              <span className="text-xs text-slate-600 block">Parecer Oficial de Zoneamento MAPA:</span>
               <span className={`text-base font-bold ${metricas.statusClass}`}>
                 {metricas.enquadramento}
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-[#66736A] block">Franquia Calculada da Apólice:</span>
+              <span className="text-xs text-slate-600 block">Franquia Calculada da Apólice:</span>
               <span className="text-xl font-bold text-blue-400">
                 R$ {metricas.valorFranquiaSeguroReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

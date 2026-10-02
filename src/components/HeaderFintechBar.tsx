@@ -95,11 +95,11 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
   }, []);
 
   return (
-    <div className="bg-[#15392A] border-b border-[#245B45] px-4 py-1.5 flex flex-wrap items-center justify-between gap-3 text-xs text-[#EAF4E7]">
+    <div className="bg-[#0F291E] border-b border-[#1A4533] px-4 py-1.5 flex flex-wrap items-center justify-between gap-3 text-xs text-white">
       {/* Ticker Financeiro e Commodities em Rolagem Elegante */}
       <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5 flex-1 min-w-0">
-        <span className="text-[10px] font-black uppercase text-[#8FBF88] flex items-center gap-1 shrink-0 bg-[#1D4B38] px-2 py-0.5 rounded-lg border border-[#285943]">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#8FBF88] animate-pulse"></span>
+        <span className="text-[10px] font-black uppercase text-emerald-300 flex items-center gap-1 shrink-0 bg-[#163D2C] px-2.5 py-0.5 rounded-lg border border-[#235840]">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
           B3 • CBOT • CEPEA
         </span>
 
@@ -107,18 +107,18 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
           {ticker.map((item) => (
             <div
               key={item.id}
-              className="flex items-center gap-1.5 bg-[#1D4B38]/90 px-2.5 py-0.5 rounded-lg border border-[#285943] text-[11px] font-mono shrink-0 hover:border-[#8FBF88]/50 transition-all"
+              className="flex items-center gap-1.5 bg-[#163D2C] px-2.5 py-0.5 rounded-lg border border-[#235840] text-[11px] font-mono shrink-0 hover:border-emerald-400 transition-all shadow-2xs"
             >
-              <span className="text-[#8FBF88] font-sans">{item.nome}:</span>
-              <span className="text-white font-bold">{item.valor}</span>
-              <span className="text-[10px] text-[#8FBF88]/70">{item.unidade}</span>
+              <span className="text-slate-200 font-sans font-medium">{item.nome}:</span>
+              <span className="text-white font-black">{item.valor}</span>
+              <span className="text-[10px] text-slate-300">{item.unidade}</span>
               <span
-                className={`text-[10px] font-bold flex items-center ${
+                className={`text-[10px] font-black flex items-center ${
                   item.variacaoPct > 0
-                    ? 'text-[#8FBF88]'
+                    ? 'text-emerald-400'
                     : item.variacaoPct < 0
-                    ? 'text-[#C96A5B]'
-                    : 'text-[#EAF4E7]'
+                    ? 'text-rose-400'
+                    : 'text-slate-300'
                 }`}
               >
                 {item.variacaoPct > 0 ? '▲' : item.variacaoPct < 0 ? '▼' : '▬'}
@@ -134,31 +134,31 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
         {/* Widget de Delta T */}
         <button
           onClick={() => setModalDeltaTOpen(true)}
-          className={`flex items-center gap-2 px-2.5 py-1 rounded-lg border text-[11px] font-mono transition-all cursor-pointer ${
+          className={`flex items-center gap-2 px-2.5 py-1 rounded-lg border text-[11px] font-mono transition-all cursor-pointer shadow-2xs ${
             deltaT.statusJanela === 'OPTIMAL'
-              ? 'bg-[#1D4B38] border-[#285943] text-[#8FBF88] hover:bg-[#285943]'
-              : 'bg-[#422C1A] border-[#D9B65D]/60 text-[#D9B65D] hover:bg-[#523720]'
+              ? 'bg-[#163D2C] border-[#235840] text-emerald-300 hover:bg-[#1E4D38]'
+              : 'bg-[#422C1A] border-[#D9B65D] text-amber-300 hover:bg-[#523720]'
           }`}
           title="Clique para ver o relatório meteorológico detalhado de pulverização"
         >
-          <div className="flex items-center gap-1 font-bold">
-            <Droplets className="w-3.5 h-3.5" />
+          <div className="flex items-center gap-1 font-bold text-white">
+            <Droplets className="w-3.5 h-3.5 text-emerald-400" />
             <span>ΔT {deltaT.deltaTC}°C</span>
           </div>
-          <span className="h-3 w-px bg-[#285943]"></span>
-          <div className="flex items-center gap-1 text-[10px] font-sans">
-            <Thermometer className="w-3 h-3 text-[#8FBF88]" />
+          <span className="h-3 w-px bg-emerald-800"></span>
+          <div className="flex items-center gap-1 text-[10px] font-sans text-slate-200">
+            <Thermometer className="w-3 h-3 text-emerald-400" />
             <span>{deltaT.tempArC}°C</span>
           </div>
-          <div className="flex items-center gap-1 text-[10px] font-sans">
-            <Wind className="w-3 h-3 text-[#8FBF88]" />
+          <div className="flex items-center gap-1 text-[10px] font-sans text-slate-200">
+            <Wind className="w-3 h-3 text-emerald-400" />
             <span>{deltaT.ventoKmH} km/h</span>
           </div>
           <span
-            className={`px-1.5 py-0.2 rounded text-[9px] font-black font-sans uppercase ${
+            className={`px-1.5 py-0.5 rounded text-[9px] font-black font-sans uppercase ${
               deltaT.statusJanela === 'OPTIMAL'
-                ? 'bg-[#5F8F52] text-white'
-                : 'bg-[#D9B65D] text-[#26332A]'
+                ? 'bg-emerald-600 text-white shadow-2xs'
+                : 'bg-amber-500 text-slate-950 font-black shadow-2xs'
             }`}
           >
             {deltaT.statusJanela === 'OPTIMAL' ? 'JANELA SEGURA' : 'ALERTA DERIVA'}
@@ -168,10 +168,10 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
         {/* Botão de Dossiê Bancário Executivo */}
         <button
           onClick={onOpenDossie}
-          className="flex items-center gap-1.5 px-3 py-1 bg-[#285943] hover:bg-[#1b4332] text-white font-bold rounded-lg text-[11px] border border-[#5F8F52]/50 shadow-sm transition-all cursor-pointer"
+          className="flex items-center gap-1.5 px-3 py-1 bg-emerald-700 hover:bg-emerald-600 text-white font-extrabold rounded-lg text-[11px] border border-emerald-500 shadow-sm transition-all cursor-pointer"
           title="Compilar Dossiê Executivo de Crédito Rural (Plano Safra / Bancos)"
         >
-          <FileCheck className="w-3.5 h-3.5 text-[#8FBF88]" />
+          <FileCheck className="w-3.5 h-3.5 text-white" />
           <span>Dossiê Bancário</span>
         </button>
       </div>
@@ -179,30 +179,30 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
       {/* Modal Técnico de Análise Psicrométrica Delta T */}
       {modalDeltaTOpen && (
         <div className="fixed inset-0 z-[1250] bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white border border-[#EAF4E7] p-6 rounded-2xl max-w-lg w-full shadow-2xl text-[#26332A] space-y-4">
-            <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-3">
+          <div className="bg-white border border-slate-200 p-6 rounded-2xl max-w-lg w-full shadow-2xl text-slate-900 space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-[#EAF4E7] text-[#285943] border border-[#8FBF88] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#285943] border border-emerald-300 flex items-center justify-center">
                   <Droplets className="w-4 h-4" />
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-[#1D4B38]">
                     Monitoramento Psicrométrico de Delta T (ΔT)
                   </h3>
-                  <p className="text-xs text-[#66736A]">{deltaT.estacaoMeteorologica}</p>
+                  <p className="text-xs text-slate-600">{deltaT.estacaoMeteorologica}</p>
                 </div>
               </div>
               <button
                 onClick={() => setModalDeltaTOpen(false)}
-                className="text-[#66736A] hover:text-[#1D4B38] p-1.5 rounded-lg hover:bg-[#F7F9F5] transition cursor-pointer"
+                className="text-slate-600 hover:text-[#1D4B38] p-1.5 rounded-lg hover:bg-slate-50 transition cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] space-y-3">
+            <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
               <div className="flex justify-between items-center">
-                <span className="text-xs text-[#66736A]">Valor Atual de Delta T:</span>
+                <span className="text-xs text-slate-600">Valor Atual de Delta T:</span>
                 <span className="text-xl font-black font-mono text-[#285943]">
                   {deltaT.deltaTC} °C
                 </span>
@@ -210,47 +210,47 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
 
               {/* Barra de Faixas de Delta T */}
               <div className="space-y-1">
-                <div className="flex justify-between text-[10px] text-[#66736A] font-mono">
+                <div className="flex justify-between text-[10px] text-slate-600 font-mono">
                   <span>0°C (Inversão)</span>
                   <span className="text-[#285943] font-bold">2°C a 8°C (Ideal)</span>
                   <span>12°C (Evaporação)</span>
                 </div>
-                <div className="w-full h-3 rounded-full bg-[#EAF4E7] flex overflow-hidden">
+                <div className="w-full h-3 rounded-full bg-emerald-50 flex overflow-hidden">
                   <div className="w-[16%] bg-amber-500" title="0°C a 2°C: Risco de Inversão"></div>
                   <div className="w-[50%] bg-[#5F8F52]" title="2°C a 8°C: Faixa Ideal"></div>
                   <div className="w-[34%] bg-rose-500" title="> 8°C: Risco de Evaporação"></div>
                 </div>
               </div>
 
-              <p className="text-xs text-[#1D4B38] font-medium leading-relaxed bg-[#EAF4E7] p-2.5 rounded-lg border border-[#8FBF88]">
+              <p className="text-xs text-[#1D4B38] font-medium leading-relaxed bg-emerald-50 p-2.5 rounded-lg border border-emerald-300">
                 {deltaT.mensagemTecnica}
               </p>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs font-mono">
-              <div className="p-2.5 bg-[#F7F9F5] border border-[#EAF4E7] rounded-lg">
-                <span className="text-[10px] text-[#66736A] block">TEMP. SECO</span>
+              <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-lg">
+                <span className="text-[10px] text-slate-600 block">TEMP. SECO</span>
                 <span className="font-bold text-[#1D4B38] text-sm">{deltaT.tempArC}°C</span>
               </div>
-              <div className="p-2.5 bg-[#F7F9F5] border border-[#EAF4E7] rounded-lg">
-                <span className="text-[10px] text-[#66736A] block">TEMP. ÚMIDO</span>
+              <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-lg">
+                <span className="text-[10px] text-slate-600 block">TEMP. ÚMIDO</span>
                 <span className="font-bold text-[#7DA9C4] text-sm">{deltaT.tempBulboUmidoC}°C</span>
               </div>
-              <div className="p-2.5 bg-[#F7F9F5] border border-[#EAF4E7] rounded-lg">
-                <span className="text-[10px] text-[#66736A] block">UMIDADE REL.</span>
-                <span className="font-bold text-[#5F8F52] text-sm">{deltaT.umidadeRelativaPct}%</span>
+              <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-lg">
+                <span className="text-[10px] text-slate-600 block">UMIDADE REL.</span>
+                <span className="font-bold text-emerald-700 text-sm">{deltaT.umidadeRelativaPct}%</span>
               </div>
-              <div className="p-2.5 bg-[#F7F9F5] border border-[#EAF4E7] rounded-lg">
-                <span className="text-[10px] text-[#66736A] block">VELOC. VENTO</span>
+              <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-lg">
+                <span className="text-[10px] text-slate-600 block">VELOC. VENTO</span>
                 <span className="font-bold text-[#A67C1E] text-sm">{deltaT.ventoKmH} km/h</span>
               </div>
             </div>
 
-            <div className="text-[11px] text-[#66736A] pt-2 border-t border-[#EAF4E7] space-y-1">
+            <div className="text-[11px] text-slate-600 pt-2 border-t border-slate-200 space-y-1">
               <p>
                 <strong className="text-[#1D4B38]">Regra Agronômica Internacional (ASABE S572):</strong>
               </p>
-              <ul className="list-disc list-inside space-y-0.5 text-[#66736A] text-[10px]">
+              <ul className="list-disc list-inside space-y-0.5 text-slate-600 text-[10px]">
                 <li><strong>Abaixo de 2°C:</strong> As gotas não assentam; risco severo de deriva por inversão térmica.</li>
                 <li><strong>Entre 2°C e 8°C:</strong> Janela de ouro. Deposição máxima da calda no alvo foliar.</li>
                 <li><strong>Acima de 8°C:</strong> A gota evapora antes de tocar na folha; ineficiência química severa.</li>

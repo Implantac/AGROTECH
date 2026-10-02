@@ -189,7 +189,7 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
           <div className="space-y-2">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="px-2.5 py-1 text-xs font-bold bg-[#EAF4E7] text-[#285943] rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+              <span className="px-2.5 py-1 text-xs font-bold bg-emerald-50 text-[#285943] rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
                 <Radio className="w-3.5 h-3.5 text-[#285943]" />
                 Módulo 93 • OEM Telematics & Gateway MQTT Edge
               </span>
@@ -213,7 +213,7 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
             </div>
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-3.5 text-center min-w-[145px] shadow-sm">
               <span className="text-[10px] font-bold text-[#EAF4E7] uppercase tracking-wider block">Fluxo Telemetria</span>
-              <span className="text-xl font-black text-[#D9B65D]">3.020 msg/min</span>
+              <span className="text-xl font-black text-amber-700">3.020 msg/min</span>
               <span className="text-[10px] text-[#EAF4E7]/80 block mt-0.5">Latência Média 48ms</span>
             </div>
           </div>
@@ -222,60 +222,60 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
 
       {/* KPI Cards Rápidos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-[#5F8F52]/50 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-[#5F8F52]/50 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Bridge John Deere</span>
-            <Wifi className="w-4 h-4 text-[#5F8F52]" />
+            <Wifi className="w-4 h-4 text-emerald-700" />
           </div>
           <div className="text-2xl font-black text-[#285943]">Conectado</div>
-          <div className="text-[11px] text-[#5F8F52] font-semibold mt-1 flex items-center gap-1">
+          <div className="text-[11px] text-emerald-700 font-semibold mt-1 flex items-center gap-1">
             <CheckCircle2 className="w-3.5 h-3.5" />
             Tokens OAuth2 Válidos (23h)
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-[#5F8F52]/50 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-[#5F8F52]/50 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Balança Rodoviária Edge</span>
             <Scale className="w-4 h-4 text-[#285943]" />
           </div>
           <div className="text-2xl font-black text-[#285943]">Toledo 9091</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Porta COM3 / MQTT Local Ativo
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-[#5F8F52]/50 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-[#5F8F52]/50 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Estação Davis Vantage</span>
-            <CloudRain className="w-4 h-4 text-[#D9B65D]" />
+            <CloudRain className="w-4 h-4 text-amber-700" />
           </div>
           <div className="text-2xl font-black text-[#285943]">Telemetria 10s</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Chuva, Vento, Delta T e Radiação
           </div>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-sm hover:border-[#5F8F52]/50 transition-all">
-          <div className="flex items-center justify-between text-[#66736A] mb-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-[#5F8F52]/50 transition-all">
+          <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Buffer Offline em Disco</span>
-            <Cpu className="w-4 h-4 text-[#5F8F52]" />
+            <Cpu className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-[#5F8F52]">Zero Perdas</div>
-          <div className="text-[11px] text-[#66736A] font-medium mt-1">
+          <div className="text-2xl font-black text-emerald-700">Zero Perdas</div>
+          <div className="text-[11px] text-slate-600 font-medium mt-1">
             Persistência Local SQLite / DuckDB
           </div>
         </div>
       </div>
 
       {/* Navegação entre Abas */}
-      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('conexoes')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
             activeTab === 'conexoes'
               ? 'bg-[#285943] text-white shadow-md'
-              : 'bg-[#F7F9F5] text-[#26332A] hover:bg-[#EAF4E7] border border-[#EAF4E7]'
+              : 'bg-slate-50 text-slate-900 hover:bg-emerald-50 border border-slate-200'
           }`}
         >
           <Wifi className="w-4 h-4" />
@@ -287,7 +287,7 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
             activeTab === 'mqtt_edge'
               ? 'bg-[#285943] text-white shadow-md'
-              : 'bg-[#F7F9F5] text-[#26332A] hover:bg-[#EAF4E7] border border-[#EAF4E7]'
+              : 'bg-slate-50 text-slate-900 hover:bg-emerald-50 border border-slate-200'
           }`}
         >
           <Radio className="w-4 h-4" />
@@ -299,7 +299,7 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
             activeTab === 'can_bus'
               ? 'bg-[#285943] text-white shadow-md'
-              : 'bg-[#F7F9F5] text-[#26332A] hover:bg-[#EAF4E7] border border-[#EAF4E7]'
+              : 'bg-slate-50 text-slate-900 hover:bg-emerald-50 border border-slate-200'
           }`}
         >
           <Cpu className="w-4 h-4" />
@@ -311,7 +311,7 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
             activeTab === 'buffer_offline'
               ? 'bg-[#285943] text-white shadow-md'
-              : 'bg-[#F7F9F5] text-[#26332A] hover:bg-[#EAF4E7] border border-[#EAF4E7]'
+              : 'bg-slate-50 text-slate-900 hover:bg-emerald-50 border border-slate-200'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -322,19 +322,19 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
       {/* Conteúdo Aba 1: Conexões OEM */}
       {activeTab === 'conexoes' && (
         <div className="space-y-4">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-sm">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
             <h3 className="text-base font-bold text-[#285943] flex items-center gap-2 mb-2">
-              <Wifi className="w-5 h-5 text-[#5F8F52]" />
+              <Wifi className="w-5 h-5 text-emerald-700" />
               Sincronização em Nuvem com APIs Oficiais dos Fabricantes
             </h3>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               A arquitetura conecta com as APIs oficiais dos fabricantes, ingerindo localização GPS em tempo real, velocidade operacional, consumo instantâneo de diesel e alertas de código de falha (DTC).
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#EAF4E7] bg-[#F7F9F5] text-[#66736A] font-bold uppercase tracking-wider">
+                  <tr className="border-b border-slate-200 bg-slate-50 text-slate-600 font-bold uppercase tracking-wider">
                     <th className="py-3 px-3">Fabricante / Plataforma</th>
                     <th className="py-3 px-3">Máquinas</th>
                     <th className="py-3 px-3">Status Autenticação</th>
@@ -345,20 +345,20 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
                 </thead>
                 <tbody className="divide-y divide-[#EAF4E7] font-medium">
                   {conexoes.map((c) => (
-                    <tr key={c.id} className="hover:bg-[#F7F9F5] transition-colors">
+                    <tr key={c.id} className="hover:bg-slate-50 transition-colors">
                       <td className="py-3.5 px-3">
                         <div className="font-bold text-[#285943]">{c.nomePlataforma}</div>
-                        <div className="text-[11px] text-[#66736A] font-mono">{c.id}</div>
+                        <div className="text-[11px] text-slate-600 font-mono">{c.id}</div>
                       </td>
                       <td className="py-3.5 px-3 font-mono font-bold text-[#285943]">{c.maquinasConectadas} máquinas</td>
                       <td className="py-3.5 px-3">
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#EAF4E7] text-[#285943] border border-[#5F8F52]/40">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-[#285943] border border-[#5F8F52]/40">
                           {c.statusAuth}
                         </span>
                       </td>
-                      <td className="py-3.5 px-3 font-mono text-[#5F8F52] font-bold">{c.latenciaMs} ms</td>
-                      <td className="py-3.5 px-3 font-mono text-[#26332A]">{c.pacotesPorMinuto} msg/min</td>
-                      <td className="py-3.5 px-3 text-[#66736A]">{c.ultimaSincronizacao}</td>
+                      <td className="py-3.5 px-3 font-mono text-emerald-700 font-bold">{c.latenciaMs} ms</td>
+                      <td className="py-3.5 px-3 font-mono text-slate-900">{c.pacotesPorMinuto} msg/min</td>
+                      <td className="py-3.5 px-3 text-slate-600">{c.ultimaSincronizacao}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -371,52 +371,52 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
       {/* Conteúdo Aba 2: MQTT Edge & Balança */}
       {activeTab === 'mqtt_edge' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-sm space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-4">
             <h3 className="text-base font-bold text-[#285943] flex items-center gap-2">
-              <Scale className="w-5 h-5 text-[#5F8F52]" />
+              <Scale className="w-5 h-5 text-emerald-700" />
               Balança Rodoviária (Porta Serial RS-232 / MQTT Edge)
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Captura em tempo real do stream contínuo de caracteres ASCII da balança física da fazenda:
             </p>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-[#285943] block">Tópico MQTT: fazenda/balanca/peso_bruto</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5 font-mono">
+                <span className="text-slate-600 text-[11px] block mt-0.5 font-mono">
                   Payload atual: &#123; "peso_kg": 48250, "estavel": true, "timestamp": "2026-10-02T19:25:00Z" &#125;
                 </span>
               </div>
-              <div className="p-3.5 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7]">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="font-bold text-[#285943] block">Zero Intervenção Humana</span>
-                <span className="text-[#66736A] text-[11px] block mt-0.5">
+                <span className="text-slate-600 text-[11px] block mt-0.5">
                   Quando o caminhão estabiliza na plataforma por mais de 3 segundos, o romaneio é gerado automaticamente com leitura de placa via OCR e peso capturado com precisão metrológica INMETRO.
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-sm space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-4">
             <h3 className="text-base font-bold text-[#285943] flex items-center gap-2">
-              <CloudRain className="w-5 h-5 text-[#5F8F52]" />
+              <CloudRain className="w-5 h-5 text-emerald-700" />
               Estação Meteorológica Davis Vantage Pro2 Edge
             </h3>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Leitura a cada 10 segundos para alimentação direta da janela ótima de pulverização:
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Velocidade do Vento:</span>
-                <span className="font-mono font-bold text-[#5F8F52]">6.2 km/h (Janela Segura)</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Velocidade do Vento:</span>
+                <span className="font-mono font-bold text-emerald-700">6.2 km/h (Janela Segura)</span>
               </div>
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Delta T Atual:</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Delta T Atual:</span>
                 <span className="font-mono font-bold text-[#285943]">4.8°C (Ótimo para Gota Média/Fina)</span>
               </div>
-              <div className="p-3 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] flex justify-between items-center">
-                <span className="text-[#66736A]">Chuva Acumulada 24h:</span>
-                <span className="font-mono font-bold text-[#D9B65D]">0.0 mm</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
+                <span className="text-slate-600">Chuva Acumulada 24h:</span>
+                <span className="font-mono font-bold text-amber-700">0.0 mm</span>
               </div>
             </div>
           </div>
@@ -427,21 +427,21 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
       {activeTab === 'can_bus' && (
         <div className="space-y-6">
           {/* Card Principal do Decodificador Conectado ao Backend */}
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-sm space-y-5">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#EAF4E7] pb-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-5">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-4">
               <div>
                 <h3 className="text-base font-bold text-[#285943] flex items-center gap-2">
-                  <Cpu className="w-5 h-5 text-[#5F8F52]" />
+                  <Cpu className="w-5 h-5 text-emerald-700" />
                   Decodificador & Sniffer de Quadros SAE J1939 / ISOBUS 11783
                 </h3>
-                <p className="text-xs text-[#66736A] mt-0.5">
+                <p className="text-xs text-slate-600 mt-0.5">
                   Decodificação estrita de quadros CAN Bus estendidos (29-bit CAN ID) processados pelo microserviço Core ERP da plataforma.
                 </p>
               </div>
 
               <div className="flex items-center gap-2">
-                <span className="px-3 py-1 bg-[#EAF4E7] text-[#285943] font-bold text-xs rounded-full border border-[#5F8F52]/40 flex items-center gap-1.5">
-                  <Zap className="w-3.5 h-3.5 text-[#5F8F52]" /> API REST: /api/v1/erp/telemetria/canbus
+                <span className="px-3 py-1 bg-emerald-50 text-[#285943] font-bold text-xs rounded-full border border-[#5F8F52]/40 flex items-center gap-1.5">
+                  <Zap className="w-3.5 h-3.5 text-emerald-700" /> API REST: /api/v1/erp/telemetria/canbus
                 </span>
               </div>
             </div>
@@ -458,12 +458,12 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
                     onClick={() => handleSelectPreset(preset.id)}
                     className={`p-3 rounded-xl text-left text-xs transition-all border cursor-pointer ${
                       selectedPreset === preset.id
-                        ? 'bg-[#EAF4E7] border-[#285943] text-[#285943] font-bold shadow-sm'
-                        : 'bg-[#F7F9F5] border-[#EAF4E7] text-[#66736A] hover:bg-white'
+                        ? 'bg-emerald-50 border-[#285943] text-[#285943] font-bold shadow-sm'
+                        : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-white'
                     }`}
                   >
-                    <span className="block font-semibold text-[#26332A]">{preset.nome}</span>
-                    <span className="font-mono text-[11px] text-[#5F8F52] mt-0.5 block">{preset.canId}</span>
+                    <span className="block font-semibold text-slate-900">{preset.nome}</span>
+                    <span className="font-mono text-[11px] text-emerald-700 mt-0.5 block">{preset.canId}</span>
                   </button>
                 ))}
               </div>
@@ -472,20 +472,20 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
             {/* Inputs de Teste Interativo */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
               <div>
-                <label className="text-xs font-semibold text-[#66736A] block mb-1">
+                <label className="text-xs font-semibold text-slate-600 block mb-1">
                   CAN-ID (Hexadecimal 29 bits):
                 </label>
                 <input
                   type="text"
                   value={canIdInput}
                   onChange={(e) => setCanIdInput(e.target.value)}
-                  className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#285943] focus:outline-none focus:border-[#285943]"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono font-bold text-[#285943] focus:outline-none focus:border-[#285943]"
                   placeholder="0x0CF00400"
                 />
               </div>
 
               <div className="md:col-span-2">
-                <label className="text-xs font-semibold text-[#66736A] block mb-1">
+                <label className="text-xs font-semibold text-slate-600 block mb-1">
                   Payload de Dados (8 Bytes decimais separados por vírgula):
                 </label>
                 <div className="flex gap-2">
@@ -493,7 +493,7 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
                     type="text"
                     value={dataBytesInput}
                     onChange={(e) => setDataBytesInput(e.target.value)}
-                    className="flex-1 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-xs font-mono text-[#26332A] focus:outline-none focus:border-[#285943]"
+                    className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono text-slate-900 focus:outline-none focus:border-[#285943]"
                     placeholder="00, 00, 00, 224, 62, 00, 00, 00"
                   />
                   <button
@@ -510,34 +510,34 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
 
             {/* Resultado Decodificado em Tempo Real */}
             {decodedResult && (
-              <div className="bg-[#F7F9F5] border border-[#8FBF88]/50 rounded-xl p-4 space-y-3">
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#EAF4E7] pb-2">
+              <div className="bg-slate-50 border border-emerald-300/50 rounded-xl p-4 space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-2">
                   <div className="flex items-center gap-2">
-                    <span className="px-2.5 py-0.5 bg-[#EAF4E7] text-[#285943] font-mono font-bold text-xs rounded border border-[#5F8F52]/40">
+                    <span className="px-2.5 py-0.5 bg-emerald-50 text-[#285943] font-mono font-bold text-xs rounded border border-[#5F8F52]/40">
                       PGN {decodedResult.pgn} ({decodedResult.hexPgn})
                     </span>
                     <span className="text-xs font-bold text-[#285943]">
                       {decodedResult.descricaoPgn}
                     </span>
                   </div>
-                  <span className="text-[11px] font-mono text-[#66736A]">
+                  <span className="text-[11px] font-mono text-slate-600">
                     Padrão: {decodedResult.normativa}
                   </span>
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-                  <div className="bg-white p-3 rounded-lg border border-[#EAF4E7]">
-                    <span className="text-[10px] text-[#66736A] uppercase font-bold block">CAN-ID 29b</span>
+                  <div className="bg-white p-3 rounded-lg border border-slate-200">
+                    <span className="text-[10px] text-slate-600 uppercase font-bold block">CAN-ID 29b</span>
                     <span className="text-sm font-black font-mono text-[#285943] mt-0.5 block">{decodedResult.canIdHex}</span>
                   </div>
 
-                  <div className="bg-white p-3 rounded-lg border border-[#EAF4E7]">
-                    <span className="text-[10px] text-[#66736A] uppercase font-bold block">Bytes Hexadecimais</span>
-                    <span className="text-xs font-black font-mono text-[#5F8F52] mt-0.5 block truncate">{decodedResult.dadosBytesHex}</span>
+                  <div className="bg-white p-3 rounded-lg border border-slate-200">
+                    <span className="text-[10px] text-slate-600 uppercase font-bold block">Bytes Hexadecimais</span>
+                    <span className="text-xs font-black font-mono text-emerald-700 mt-0.5 block truncate">{decodedResult.dadosBytesHex}</span>
                   </div>
 
-                  <div className="bg-white p-3 rounded-lg border border-[#EAF4E7]">
-                    <span className="text-[10px] text-[#66736A] uppercase font-bold block">Métrica Extraída</span>
+                  <div className="bg-white p-3 rounded-lg border border-slate-200">
+                    <span className="text-[10px] text-slate-600 uppercase font-bold block">Métrica Extraída</span>
                     <span className="text-base font-black font-mono text-[#285943] mt-0.5 block">
                       {decodedResult.rpmMotor !== undefined && `${decodedResult.rpmMotor} RPM`}
                       {decodedResult.temperaturaLiquidoArrefecimentoC !== undefined && `${decodedResult.temperaturaLiquidoArrefecimentoC} °C`}
@@ -547,10 +547,10 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="bg-white p-3 rounded-lg border border-[#EAF4E7]">
-                    <span className="text-[10px] text-[#66736A] uppercase font-bold block">Status do Barramento</span>
-                    <span className="text-xs font-bold text-[#5F8F52] mt-0.5 flex items-center justify-center gap-1">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#5F8F52]" /> Frame Válido
+                  <div className="bg-white p-3 rounded-lg border border-slate-200">
+                    <span className="text-[10px] text-slate-600 uppercase font-bold block">Status do Barramento</span>
+                    <span className="text-xs font-bold text-emerald-700 mt-0.5 flex items-center justify-center gap-1">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" /> Frame Válido
                     </span>
                   </div>
                 </div>
@@ -562,27 +562,27 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
 
       {/* Conteúdo Aba 4: Buffer Offline */}
       {activeTab === 'buffer_offline' && (
-        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-5 shadow-sm space-y-4">
+        <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-4">
           <h3 className="text-base font-bold text-[#285943] flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-[#5F8F52]" />
+            <CheckCircle2 className="w-5 h-5 text-emerald-700" />
             Arquitetura Offline-First de Tolerância a Falhas de Conexão Rural
           </h3>
-          <p className="text-xs text-[#66736A]">
+          <p className="text-xs text-slate-600">
             Quando a conexão Starlink ou 4G oscila no talhão durante o plantio ou colheita, o gateway local ativa automaticamente a fila de persistência FIFO em disco:
           </p>
 
-          <div className="p-4 rounded-xl bg-[#F7F9F5] border border-[#EAF4E7] space-y-2 text-xs">
-            <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]">
-              <span className="text-[#66736A]">Capacidade de Retenção Local:</span>
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+            <div className="flex justify-between items-center py-1 border-b border-slate-200">
+              <span className="text-slate-600">Capacidade de Retenção Local:</span>
               <span className="font-mono font-bold text-[#285943]">Até 90 dias ininterruptos de telemetria</span>
             </div>
-            <div className="flex justify-between items-center py-1 border-b border-[#EAF4E7]">
-              <span className="text-[#66736A]">Algoritmo de Compressão:</span>
-              <span className="font-mono font-bold text-[#5F8F52]">Zstandard (Zstd) com 8x redução de banda</span>
+            <div className="flex justify-between items-center py-1 border-b border-slate-200">
+              <span className="text-slate-600">Algoritmo de Compressão:</span>
+              <span className="font-mono font-bold text-emerald-700">Zstandard (Zstd) com 8x redução de banda</span>
             </div>
             <div className="flex justify-between items-center py-1">
-              <span className="text-[#66736A]">Sincronização Automática:</span>
-              <span className="font-mono font-bold text-[#D9B65D]">Reenvio em blocos assim que o sinal retorna</span>
+              <span className="text-slate-600">Sincronização Automática:</span>
+              <span className="font-mono font-bold text-amber-700">Reenvio em blocos assim que o sinal retorna</span>
             </div>
           </div>
         </div>

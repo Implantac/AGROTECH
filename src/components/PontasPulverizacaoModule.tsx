@@ -240,7 +240,7 @@ export const PontasPulverizacaoModule: React.FC = () => {
                           <div className="text-xs text-stone-400">Nominal 3 bar</div>
                           <div className="text-sm font-bold text-white">{pnt.vazaoNominal3BarLMin} L/min</div>
                         </div>
-                        <span className="px-2.5 py-1 text-xs font-semibold bg-slate-800 text-[#26332A] border border-slate-700 rounded-lg">
+                        <span className="px-2.5 py-1 text-xs font-semibold bg-slate-800 text-slate-900 border border-slate-700 rounded-lg">
                           {pnt.pressaoMinimaBar}-{pnt.pressaoMaximaBar} bar
                         </span>
                       </div>

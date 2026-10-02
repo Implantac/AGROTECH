@@ -232,7 +232,7 @@ export const EnsaioVariedadesModule: React.FC = () => {
                             #{idx + 1}
                           </span>
                           <span className="font-bold text-white text-sm">{cult.nomeComercial}</span>
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-slate-800 text-[#26332A] border border-slate-700">
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-slate-800 text-slate-900 border border-slate-700">
                             GMR {cult.gmr} • {cult.cicloMedioDias} dias
                           </span>
                         </div>

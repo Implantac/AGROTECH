@@ -250,7 +250,7 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
             <div>
               <div className="flex flex-wrap items-center gap-2">
                 <h1 className="text-xl font-black text-white">Crédito Rural, Financiamentos & CNAB 240</h1>
-                <span className="px-2 py-0.5 text-[11px] font-bold bg-[#EAF4E7] text-[#285943] rounded-full">
+                <span className="px-2 py-0.5 text-[11px] font-bold bg-emerald-50 text-[#285943] rounded-full">
                   Plano Safra Equalizado
                 </span>
                 <span className="px-2 py-0.5 text-[11px] font-semibold bg-white/15 text-white border border-white/20 rounded-full">
@@ -266,13 +266,13 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
       </div>
 
       {/* Tabs de Navegação */}
-      <div className="flex flex-wrap gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('carteira')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
             activeTab === 'carteira'
               ? 'bg-[#285943] text-white shadow-md'
-              : 'bg-[#F7F9F5] text-[#26332A] hover:bg-[#EAF4E7] border border-[#EAF4E7]'
+              : 'bg-slate-50 text-slate-900 hover:bg-emerald-50 border border-slate-200'
           }`}
         >
           <Scale className="w-4 h-4" />
@@ -284,7 +284,7 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
             activeTab === 'cnab240'
               ? 'bg-[#285943] text-white shadow-md'
-              : 'bg-[#F7F9F5] text-[#26332A] hover:bg-[#EAF4E7] border border-[#EAF4E7]'
+              : 'bg-slate-50 text-slate-900 hover:bg-emerald-50 border border-slate-200'
           }`}
         >
           <FileSpreadsheet className="w-4 h-4" />
@@ -297,65 +297,65 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
         <div className="space-y-6">
           {/* Cards de Métricas de Crédito */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow-sm">
-              <div className="flex items-center justify-between text-[#66736A] mb-1">
+            <div className="bg-white border border-slate-200 p-4 rounded-xl shadow-sm">
+              <div className="flex items-center justify-between text-slate-600 mb-1">
                 <span className="text-xs font-semibold uppercase tracking-wider">Volume Total Contratado</span>
-                <Banknote className="w-4 h-4 text-[#5F8F52]" />
+                <Banknote className="w-4 h-4 text-emerald-700" />
               </div>
               <div className="text-2xl font-black text-[#285943] font-mono">
                 R$ {(totalTomado / 1_000_000).toFixed(2)}M
               </div>
-              <p className="text-xs text-[#66736A] mt-1">4 operações ativas de médio e longo prazo</p>
+              <p className="text-xs text-slate-600 mt-1">4 operações ativas de médio e longo prazo</p>
             </div>
 
-            <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow-sm">
-              <div className="flex items-center justify-between text-[#66736A] mb-1">
+            <div className="bg-white border border-slate-200 p-4 rounded-xl shadow-sm">
+              <div className="flex items-center justify-between text-slate-600 mb-1">
                 <span className="text-xs font-semibold uppercase tracking-wider">Saldo Devedor Atual</span>
-                <DollarSign className="w-4 h-4 text-[#D9B65D]" />
+                <DollarSign className="w-4 h-4 text-amber-700" />
               </div>
-              <div className="text-2xl font-black text-[#D9B65D] font-mono">
+              <div className="text-2xl font-black text-amber-700 font-mono">
                 R$ {(totalSaldoDevedor / 1_000_000).toFixed(2)}M
               </div>
-              <p className="text-xs text-[#66736A] mt-1">Com amortizações em dia</p>
+              <p className="text-xs text-slate-600 mt-1">Com amortizações em dia</p>
             </div>
 
-            <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow-sm">
-              <div className="flex items-center justify-between text-[#66736A] mb-1">
+            <div className="bg-white border border-slate-200 p-4 rounded-xl shadow-sm">
+              <div className="flex items-center justify-between text-slate-600 mb-1">
                 <span className="text-xs font-semibold uppercase tracking-wider">Taxa Média Ponderada</span>
                 <Percent className="w-4 h-4 text-[#285943]" />
               </div>
               <div className="text-2xl font-black text-[#285943] font-mono">
                 {taxaMediaPonderada.toFixed(2)}% a.a.
               </div>
-              <p className="text-xs text-[#66736A] mt-1">Abaixo do CDI de mercado (~11.5% a.a.)</p>
+              <p className="text-xs text-slate-600 mt-1">Abaixo do CDI de mercado (~11.5% a.a.)</p>
             </div>
 
-            <div className="bg-[#EAF4E7] border border-[#5F8F52]/40 p-4 rounded-xl shadow-sm">
+            <div className="bg-emerald-50 border border-[#5F8F52]/40 p-4 rounded-xl shadow-sm">
               <div className="flex items-center justify-between text-[#285943] mb-1">
                 <span className="text-xs font-semibold uppercase tracking-wider">Liquidez Garantida Safra</span>
-                <CheckCircle2 className="w-4 h-4 text-[#5F8F52]" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-700" />
               </div>
               <div className="text-2xl font-black text-[#285943] font-mono">100% Coberta</div>
-              <p className="text-xs text-[#5F8F52] mt-1">Margem líquida da lavoura superior à dívida</p>
+              <p className="text-xs text-emerald-700 mt-1">Margem líquida da lavoura superior à dívida</p>
             </div>
           </div>
 
           {/* Grid: Tabela de Operações de Crédito + Simulador de Custeio */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="lg:col-span-2 bg-white border border-[#EAF4E7] p-5 rounded-2xl space-y-4 shadow-sm">
-              <div className="flex items-center justify-between border-b border-[#EAF4E7] pb-3">
+            <div className="lg:col-span-2 bg-white border border-slate-200 p-5 rounded-2xl space-y-4 shadow-sm">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
                 <div>
                   <h2 className="text-base font-bold text-[#285943] flex items-center gap-2">
-                    <Scale className="w-5 h-5 text-[#5F8F52]" />
+                    <Scale className="w-5 h-5 text-emerald-700" />
                     Operações de Crédito Rural & Garantias Reais
                   </h2>
-                  <p className="text-xs text-[#66736A]">Contratos vinculados a matrículas, máquinas e penhor de safra</p>
+                  <p className="text-xs text-slate-600">Contratos vinculados a matrículas, máquinas e penhor de safra</p>
                 </div>
               </div>
 
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
-                  <thead className="bg-[#F7F9F5] text-[#66736A] uppercase tracking-wider font-semibold border-b border-[#EAF4E7]">
+                  <thead className="bg-slate-50 text-slate-600 uppercase tracking-wider font-semibold border-b border-slate-200">
                     <tr>
                       <th className="px-3.5 py-3">Linha & Banco</th>
                       <th className="px-3.5 py-3">Principal & Saldo</th>
@@ -366,37 +366,37 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
                   </thead>
                   <tbody className="divide-y divide-[#EAF4E7]">
                     {contratos.map((c) => (
-                      <tr key={c.id} className="hover:bg-[#F7F9F5] transition-colors">
+                      <tr key={c.id} className="hover:bg-slate-50 transition-colors">
                         <td className="px-3.5 py-3.5">
                           <div className="font-bold text-[#285943]">{c.linhaCredito}</div>
-                          <div className="text-[11px] text-[#5F8F52] font-medium">{c.instituicaoFinanceira}</div>
-                          <div className="text-[10px] text-[#66736A] font-mono mt-0.5">Op: {c.numeroOperacao}</div>
+                          <div className="text-[11px] text-emerald-700 font-medium">{c.instituicaoFinanceira}</div>
+                          <div className="text-[10px] text-slate-600 font-mono mt-0.5">Op: {c.numeroOperacao}</div>
                         </td>
 
                         <td className="px-3.5 py-3.5">
                           <div className="font-mono font-bold text-[#285943]">
                             R$ {c.valorPrincipal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                           </div>
-                          <div className="text-[11px] text-[#D9B65D] font-mono mt-0.5">
+                          <div className="text-[11px] text-amber-700 font-mono mt-0.5">
                             Saldo: R$ {c.saldoDevedorAtual.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                           </div>
                         </td>
 
                         <td className="px-3.5 py-3.5">
                           <div className="font-bold text-[#285943] font-mono">{c.taxaJurosAnualPct}% a.a.</div>
-                          <span className="text-[10px] text-[#66736A] block uppercase">
+                          <span className="text-[10px] text-slate-600 block uppercase">
                             {c.tipoAmortizacao.replace(/_/g, ' ')}
                           </span>
                         </td>
 
-                        <td className="px-3.5 py-3.5 font-mono text-[#26332A]">
+                        <td className="px-3.5 py-3.5 font-mono text-slate-900">
                           <div>{c.dataVencimentoFinal}</div>
-                          <span className="text-[10px] text-[#5F8F52] font-semibold">Em Dia</span>
+                          <span className="text-[10px] text-emerald-700 font-semibold">Em Dia</span>
                         </td>
 
                         <td className="px-3.5 py-3.5 space-y-1">
                           {c.garantiasVinculadas.map((gar, idx) => (
-                            <div key={idx} className="text-[11px] text-[#26332A] flex items-start gap-1">
+                            <div key={idx} className="text-[11px] text-slate-900 flex items-start gap-1">
                               <span className="w-1.5 h-1.5 rounded-full bg-[#5F8F52] mt-1 shrink-0"></span>
                               <span>{gar}</span>
                             </div>
@@ -410,65 +410,65 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
             </div>
 
             {/* Simulador Balão */}
-            <div className="bg-white border border-[#EAF4E7] p-5 rounded-2xl flex flex-col justify-between space-y-4 shadow-sm">
+            <div className="bg-white border border-slate-200 p-5 rounded-2xl flex flex-col justify-between space-y-4 shadow-sm">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <Sparkles className="w-5 h-5 text-[#5F8F52]" />
+                  <Sparkles className="w-5 h-5 text-emerald-700" />
                   <h2 className="text-base font-bold text-[#285943]">Simulador de Custeio Rural</h2>
                 </div>
-                <p className="text-xs text-[#66736A] mb-4">
+                <p className="text-xs text-slate-600 mb-4">
                   Calcule o montante final e juros devidos para liquidação única pós-colheita (Pagamento Balão):
                 </p>
 
                 <div className="space-y-3 text-xs">
                   <div>
-                    <label className="text-[#26332A] font-semibold block mb-1">Valor Principal Desejado (R$):</label>
+                    <label className="text-slate-900 font-semibold block mb-1">Valor Principal Desejado (R$):</label>
                     <input
                       type="number"
                       step="50000"
                       value={simPrincipal}
                       onChange={(e) => setSimPrincipal(Number(e.target.value))}
-                      className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-lg px-3 py-2 text-[#285943] font-mono font-bold"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-[#285943] font-mono font-bold"
                     />
                   </div>
 
                   <div>
-                    <label className="text-[#26332A] font-semibold block mb-1">Taxa Equalizada Plano Safra (% a.a.):</label>
+                    <label className="text-slate-900 font-semibold block mb-1">Taxa Equalizada Plano Safra (% a.a.):</label>
                     <input
                       type="number"
                       step="0.5"
                       value={simTaxaAnual}
                       onChange={(e) => setSimTaxaAnual(Number(e.target.value))}
-                      className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-lg px-3 py-2 text-[#285943] font-mono font-bold"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-[#285943] font-mono font-bold"
                     />
                   </div>
 
                   <div>
-                    <label className="text-[#26332A] font-semibold block mb-1">Prazo de Amortização (Meses):</label>
+                    <label className="text-slate-900 font-semibold block mb-1">Prazo de Amortização (Meses):</label>
                     <input
                       type="number"
                       value={simPrazoMeses}
                       onChange={(e) => setSimPrazoMeses(Number(e.target.value))}
-                      className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-lg px-3 py-2 text-[#285943] font-mono font-bold"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-[#285943] font-mono font-bold"
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-xs space-y-2">
-                <div className="flex justify-between items-center text-[#26332A]">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs space-y-2">
+                <div className="flex justify-between items-center text-slate-900">
                   <span>Juros Devidos no Período:</span>
-                  <span className="font-mono font-bold text-[#D9B65D]">
+                  <span className="font-mono font-bold text-amber-700">
                     + R$ {simJuros.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                   </span>
                 </div>
-                <div className="border-t border-[#EAF4E7] pt-2 flex justify-between items-center">
+                <div className="border-t border-slate-200 pt-2 flex justify-between items-center">
                   <span className="font-bold text-[#285943]">Pagamento Balão no Vencimento:</span>
                   <span className="font-mono font-black text-sm text-[#285943]">
                     R$ {simMontanteFinalBalao.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                   </span>
                 </div>
-                <span className="text-[10px] text-[#66736A] block">
+                <span className="text-[10px] text-slate-600 block">
                   Equivalente a {(simMontanteFinalBalao / 132).toFixed(0)} sacas de soja @ R$ 132/sc
                 </span>
               </div>
@@ -480,33 +480,33 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
       {/* Aba 2: Remessa Bancária CNAB 240 FEBRABAN */}
       {activeTab === 'cnab240' && (
         <div className="space-y-6">
-          <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-sm space-y-5">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#EAF4E7] pb-4">
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-5">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-4">
               <div>
                 <h3 className="text-base font-bold text-[#285943] flex items-center gap-2">
-                  <FileSpreadsheet className="w-5 h-5 text-[#5F8F52]" />
+                  <FileSpreadsheet className="w-5 h-5 text-emerald-700" />
                   Gerador de Remessa CNAB 240 (Padrão FEBRABAN v10.7)
                 </h3>
-                <p className="text-xs text-[#66736A] mt-0.5">
+                <p className="text-xs text-slate-600 mt-0.5">
                   Geração em lote de pagamentos a fornecedores de defensivos, adubos e diesel com linhas estritas de 240 posições.
                 </p>
               </div>
 
               <div className="flex items-center gap-2">
-                <span className="px-3 py-1 bg-[#EAF4E7] text-[#285943] text-xs font-bold rounded-full border border-[#5F8F52]/40">
+                <span className="px-3 py-1 bg-emerald-50 text-[#285943] text-xs font-bold rounded-full border border-[#5F8F52]/40">
                   API: /api/v1/erp/bancario/cnab240
                 </span>
               </div>
             </div>
 
             {/* Parâmetros do Emitente */}
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 bg-[#F7F9F5] p-4 rounded-xl border border-[#EAF4E7]">
+            <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
               <div>
-                <label className="text-xs font-semibold text-[#66736A] block mb-1">Banco Conveniado:</label>
+                <label className="text-xs font-semibold text-slate-600 block mb-1">Banco Conveniado:</label>
                 <select
                   value={bancoCnab}
                   onChange={(e) => setBancoCnab(e.target.value)}
-                  className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-xs font-bold text-[#285943] focus:outline-none focus:border-[#285943]"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-[#285943] focus:outline-none focus:border-[#285943]"
                 >
                   <option value="001">001 - Banco do Brasil</option>
                   <option value="748">748 - Sicredi Agro</option>
@@ -515,32 +515,32 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-[#66736A] block mb-1">CNPJ da Propriedade:</label>
+                <label className="text-xs font-semibold text-slate-600 block mb-1">CNPJ da Propriedade:</label>
                 <input
                   type="text"
                   value={cnpjEmitente}
                   onChange={(e) => setCnpjEmitente(e.target.value)}
-                  className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-xs font-mono text-[#285943] focus:outline-none focus:border-[#285943]"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono text-[#285943] focus:outline-none focus:border-[#285943]"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-[#66736A] block mb-1">Agência:</label>
+                <label className="text-xs font-semibold text-slate-600 block mb-1">Agência:</label>
                 <input
                   type="text"
                   value={agencia}
                   onChange={(e) => setAgencia(e.target.value)}
-                  className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-xs font-mono text-[#285943] focus:outline-none focus:border-[#285943]"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono text-[#285943] focus:outline-none focus:border-[#285943]"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-[#66736A] block mb-1">Conta Corrente:</label>
+                <label className="text-xs font-semibold text-slate-600 block mb-1">Conta Corrente:</label>
                 <input
                   type="text"
                   value={conta}
                   onChange={(e) => setConta(e.target.value)}
-                  className="w-full bg-white border border-[#EAF4E7] rounded-xl px-3 py-2 text-xs font-mono text-[#285943] focus:outline-none focus:border-[#285943]"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono text-[#285943] focus:outline-none focus:border-[#285943]"
                 />
               </div>
             </div>
@@ -551,14 +551,14 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
                 <span className="text-xs font-bold text-[#285943] uppercase tracking-wider">
                   Lote de Pagamentos de Insumos & Fornecedores (Segmento A / TED / PIX):
                 </span>
-                <span className="text-xs font-mono text-[#66736A]">
+                <span className="text-xs font-mono text-slate-600">
                   Total: {itensPagamento.length} favorecidos • R$ {itensPagamento.reduce((acc, i) => acc + i.valor, 0).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
 
-              <div className="overflow-x-auto border border-[#EAF4E7] rounded-xl">
+              <div className="overflow-x-auto border border-slate-200 rounded-xl">
                 <table className="w-full text-left text-xs">
-                  <thead className="bg-[#F7F9F5] text-[#66736A] uppercase font-semibold border-b border-[#EAF4E7]">
+                  <thead className="bg-slate-50 text-slate-600 uppercase font-semibold border-b border-slate-200">
                     <tr>
                       <th className="py-2.5 px-3">Favorecido</th>
                       <th className="py-2.5 px-3">CNPJ / CPF</th>
@@ -569,10 +569,10 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
                   </thead>
                   <tbody className="divide-y divide-[#EAF4E7]">
                     {itensPagamento.map(item => (
-                      <tr key={item.id} className="hover:bg-[#F7F9F5]">
+                      <tr key={item.id} className="hover:bg-slate-50">
                         <td className="py-2.5 px-3 font-bold text-[#285943]">{item.favorecido}</td>
-                        <td className="py-2.5 px-3 font-mono text-[#66736A]">{item.cnpjCpf}</td>
-                        <td className="py-2.5 px-3 text-[#26332A]">{item.finalidade}</td>
+                        <td className="py-2.5 px-3 font-mono text-slate-600">{item.cnpjCpf}</td>
+                        <td className="py-2.5 px-3 text-slate-900">{item.finalidade}</td>
                         <td className="py-2.5 px-3 font-mono text-[#285943]">{item.vencimento}</td>
                         <td className="py-2.5 px-3 font-mono font-bold text-right text-[#285943]">
                           R$ {item.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
@@ -597,14 +597,14 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
 
             {/* Resultado da Geração */}
             {resultadoCnab && (
-              <div className="bg-[#F7F9F5] border border-[#8FBF88]/50 rounded-xl p-5 space-y-4">
-                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#EAF4E7] pb-3">
+              <div className="bg-slate-50 border border-emerald-300/50 rounded-xl p-5 space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-3">
                   <div>
                     <span className="font-bold text-[#285943] text-sm block flex items-center gap-1.5">
-                      <Check className="w-4 h-4 text-[#5F8F52]" />
+                      <Check className="w-4 h-4 text-emerald-700" />
                       Arquivo de Remessa Homologado: {resultadoCnab.nomeArquivo}
                     </span>
-                    <span className="text-xs text-[#66736A]">
+                    <span className="text-xs text-slate-600">
                       {resultadoCnab.banco} • {resultadoCnab.padrao} • {resultadoCnab.totalLinhas} Linhas de 240 caracteres
                     </span>
                   </div>
@@ -618,10 +618,10 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
                 </div>
 
                 <div>
-                  <span className="text-[10px] text-[#66736A] uppercase font-bold block mb-1">
+                  <span className="text-[10px] text-slate-600 uppercase font-bold block mb-1">
                     Visualização Hexadecimal / ASCII (Primeiras Linhas Formatadas):
                   </span>
-                  <pre className="p-3 bg-white border border-[#EAF4E7] rounded-lg font-mono text-[10px] text-[#285943] overflow-x-auto whitespace-pre leading-relaxed">
+                  <pre className="p-3 bg-white border border-slate-200 rounded-lg font-mono text-[10px] text-[#285943] overflow-x-auto whitespace-pre leading-relaxed">
                     {resultadoCnab.conteudoCnab240}
                   </pre>
                 </div>

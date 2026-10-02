@@ -109,7 +109,7 @@ export const ArrendamentosContratosModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-[#EAF4E7] p-6 rounded-2xl backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-slate-200 p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400">
@@ -125,7 +125,7 @@ export const ArrendamentosContratosModule: React.FC = () => {
                   Indexação em Sacas/ha
                 </span>
               </div>
-              <p className="text-sm text-[#66736A] mt-0.5">
+              <p className="text-sm text-slate-600 mt-0.5">
                 Gestão de contratos com pagamento em sacas físicas, liquidação com cotação do dia e retenção de IRRF para LCDPR.
               </p>
             </div>
@@ -155,8 +155,8 @@ export const ArrendamentosContratosModule: React.FC = () => {
 
       {/* Cards de Métricas de Arrendamento */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
-          <div className="flex items-center justify-between text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Área Total Arrendada</span>
             <Layers className="w-4 h-4 text-emerald-400" />
           </div>
@@ -164,8 +164,8 @@ export const ArrendamentosContratosModule: React.FC = () => {
           <p className="text-xs text-slate-500 mt-1">~46% da área consolidada da safra</p>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
-          <div className="flex items-center justify-between text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Compromisso Físico (Soja)</span>
             <ScrollText className="w-4 h-4 text-amber-400" />
           </div>
@@ -175,8 +175,8 @@ export const ArrendamentosContratosModule: React.FC = () => {
           <p className="text-xs text-slate-500 mt-1">Média: 11.2 sc/ha/ano</p>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
-          <div className="flex items-center justify-between text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Desembolso Estimado Safra</span>
             <DollarSign className="w-4 h-4 text-emerald-400" />
           </div>
@@ -186,8 +186,8 @@ export const ArrendamentosContratosModule: React.FC = () => {
           <p className="text-xs text-slate-500 mt-1">Cotação base: R$ {cotacaoDiaSoja.toFixed(2)}/sc</p>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl">
-          <div className="flex items-center justify-between text-[#66736A] mb-1">
+        <div className="bg-white border border-slate-200 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Conformidade Jurídica</span>
             <BadgeCheck className="w-4 h-4 text-indigo-400" />
           </div>
@@ -199,19 +199,19 @@ export const ArrendamentosContratosModule: React.FC = () => {
       {/* Grid: Tabela de Contratos & Liquidação + Simulador de Nova Área */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Tabela de Contratos (2 colunas) */}
-        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] p-5 rounded-2xl space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#EAF4E7] pb-3">
+        <div className="lg:col-span-2 bg-white border border-slate-200 p-5 rounded-2xl space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-3">
             <div>
               <h2 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
                 <ScrollText className="w-5 h-5 text-emerald-400" />
                 Contratos de Arrendamento Ativos
               </h2>
-              <p className="text-xs text-[#66736A]">Valores pactuados em sacas físicas e conversão na data da safra</p>
+              <p className="text-xs text-slate-600">Valores pactuados em sacas físicas e conversão na data da safra</p>
             </div>
 
             {/* Ajuste de Cotação de Liquidação */}
-            <div className="flex items-center gap-2 bg-[#F7F9F5] px-3 py-1.5 rounded-xl border border-[#EAF4E7] text-xs">
-              <span className="text-[#66736A]">Cotação do Dia (Soja):</span>
+            <div className="flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-xs">
+              <span className="text-slate-600">Cotação do Dia (Soja):</span>
               <input
                 type="number"
                 step="0.5"
@@ -219,13 +219,13 @@ export const ArrendamentosContratosModule: React.FC = () => {
                 onChange={(e) => setCotacaoDiaSoja(Number(e.target.value))}
                 className="w-20 bg-slate-900 border border-slate-700 rounded px-2 py-0.5 text-emerald-400 font-mono font-bold"
               />
-              <span className="text-[#66736A] font-mono">R$/sc</span>
+              <span className="text-slate-600 font-mono">R$/sc</span>
             </div>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead className="bg-[#F7F9F5] text-[#66736A] uppercase tracking-wider font-semibold border-b border-[#EAF4E7]">
+              <thead className="bg-slate-50 text-slate-600 uppercase tracking-wider font-semibold border-b border-slate-200">
                 <tr>
                   <th className="px-3.5 py-3">Contrato & Arrendador</th>
                   <th className="px-3.5 py-3">Gleba / Área</th>
@@ -244,13 +244,13 @@ export const ArrendamentosContratosModule: React.FC = () => {
                   return (
                     <tr key={c.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="px-3.5 py-3.5">
-                        <div className="font-bold text-[#26332A]">{c.arrendadorNome}</div>
+                        <div className="font-bold text-slate-900">{c.arrendadorNome}</div>
                         <div className="text-[11px] text-slate-500 font-mono">{c.numeroContrato}</div>
                         <div className="text-[10px] text-slate-500 font-mono">{c.cpfCnpjArrendador}</div>
                       </td>
 
                       <td className="px-3.5 py-3.5">
-                        <div className="text-[#26332A] font-medium">{c.nomeGleba}</div>
+                        <div className="text-slate-900 font-medium">{c.nomeGleba}</div>
                         <div className="text-[11px] text-emerald-400 font-mono">{c.areaHa} hectares</div>
                       </td>
 
@@ -258,7 +258,7 @@ export const ArrendamentosContratosModule: React.FC = () => {
                         <div className="font-mono font-bold text-amber-300">
                           {c.sacasPorHaPactuadas.toFixed(1)} sc/ha
                         </div>
-                        <span className="text-[10px] text-[#66736A]">{c.culturaReferencia}</span>
+                        <span className="text-[10px] text-slate-600">{c.culturaReferencia}</span>
                       </td>
 
                       <td className="px-3.5 py-3.5">
@@ -277,7 +277,7 @@ export const ArrendamentosContratosModule: React.FC = () => {
                       </td>
 
                       <td className="px-3.5 py-3.5">
-                        <div className="text-[#26332A] font-medium">{c.mesVencimentoPagamento}</div>
+                        <div className="text-slate-900 font-medium">{c.mesVencimentoPagamento}</div>
                         <span className="text-[10px] text-emerald-400 font-semibold">Vigente até 2028</span>
                       </td>
                     </tr>
@@ -289,59 +289,59 @@ export const ArrendamentosContratosModule: React.FC = () => {
         </div>
 
         {/* Simulador de Viabilidade de Novo Arrendamento (1 col) */}
-        <div className="bg-white border border-[#EAF4E7] p-5 rounded-2xl flex flex-col justify-between space-y-4">
+        <div className="bg-white border border-slate-200 p-5 rounded-2xl flex flex-col justify-between space-y-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
               <Sparkles className="w-5 h-5 text-emerald-400" />
               <h2 className="text-base font-bold text-[#1D4B38]">Simulador de Arrendamento</h2>
             </div>
-            <p className="text-xs text-[#66736A] mb-4">
+            <p className="text-xs text-slate-600 mb-4">
               Calcule a viabilidade econômica e comprometimento de safra de novas áreas para expansão:
             </p>
 
             <div className="space-y-3 text-xs">
               <div>
-                <label className="text-[#26332A] block mb-1">Área Ofertada (hectares):</label>
+                <label className="text-slate-900 block mb-1">Área Ofertada (hectares):</label>
                 <input
                   type="number"
                   value={simAreaHa}
                   onChange={(e) => setSimAreaHa(Number(e.target.value))}
-                  className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-1.5 text-[#26332A] font-mono"
+                  className="w-full bg-slate-50 border border-slate-700 rounded-lg px-3 py-1.5 text-slate-900 font-mono"
                 />
               </div>
 
               <div>
-                <label className="text-[#26332A] block mb-1">Sacas Pedidas por Hectare (sc/ha):</label>
+                <label className="text-slate-900 block mb-1">Sacas Pedidas por Hectare (sc/ha):</label>
                 <input
                   type="number"
                   step="0.5"
                   value={simSacasHa}
                   onChange={(e) => setSimSacasHa(Number(e.target.value))}
-                  className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-1.5 text-[#26332A] font-mono"
+                  className="w-full bg-slate-50 border border-slate-700 rounded-lg px-3 py-1.5 text-slate-900 font-mono"
                 />
               </div>
 
               <div>
-                <label className="text-[#26332A] block mb-1">Produtividade Média Esperada (sc/ha):</label>
+                <label className="text-slate-900 block mb-1">Produtividade Média Esperada (sc/ha):</label>
                 <input
                   type="number"
                   step="0.5"
                   value={simProdutividadeEsperada}
                   onChange={(e) => setSimProdutividadeEsperada(Number(e.target.value))}
-                  className="w-full bg-[#F7F9F5] border border-slate-700 rounded-lg px-3 py-1.5 text-[#26332A] font-mono"
+                  className="w-full bg-slate-50 border border-slate-700 rounded-lg px-3 py-1.5 text-slate-900 font-mono"
                 />
               </div>
             </div>
           </div>
 
           <div className="p-4 bg-emerald-950/30 border border-emerald-800/40 rounded-xl text-xs space-y-2">
-            <div className="flex justify-between items-center text-[#26332A]">
+            <div className="flex justify-between items-center text-slate-900">
               <span>Comprometimento da Produção Bruta:</span>
               <span className={`font-mono font-bold ${simComprometimentoProducaoPct > 20 ? 'text-rose-400' : 'text-emerald-300'}`}>
                 {simComprometimentoProducaoPct.toFixed(1)}% da safra
               </span>
             </div>
-            <div className="flex justify-between items-center text-[#26332A]">
+            <div className="flex justify-between items-center text-slate-900">
               <span>Total de Sacas Anuais:</span>
               <span className="font-mono font-bold text-[#1D4B38]">
                 {simTotalSacasDevidas.toLocaleString('pt-BR')} sacas

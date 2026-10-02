@@ -108,7 +108,7 @@ export const VinhosFinosDuplaPodaModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-[#EAF4E7] backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-500 to-rose-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
             <Wine className="w-7 h-7 text-white" />
@@ -122,7 +122,7 @@ export const VinhosFinosDuplaPodaModule: React.FC = () => {
                 Módulo 127 • Inversão de Ciclo & Vinhos de Altitude
               </span>
             </div>
-            <p className="text-sm text-[#66736A] mt-1">
+            <p className="text-sm text-slate-600 mt-1">
               Manejo fisiológico com poda de formação e poda de produção, colheita no inverno seco e ensolarado com amplitude térmica superior a 15°C e alta concentração fenólica.
             </p>
           </div>
@@ -141,9 +141,9 @@ export const VinhosFinosDuplaPodaModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Garrafas Produzidas</span>
+            <span className="text-xs font-medium text-slate-600">Garrafas Produzidas</span>
             <Wine className="w-5 h-5 text-purple-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -154,9 +154,9 @@ export const VinhosFinosDuplaPodaModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Custo por Garrafa</span>
+            <span className="text-xs font-medium text-slate-600">Custo por Garrafa</span>
             <Sliders className="w-5 h-5 text-rose-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -167,9 +167,9 @@ export const VinhosFinosDuplaPodaModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Faturamento Previsto</span>
+            <span className="text-xs font-medium text-slate-600">Faturamento Previsto</span>
             <TrendingUp className="w-5 h-5 text-yellow-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -180,9 +180,9 @@ export const VinhosFinosDuplaPodaModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-[#EAF4E7]">
+        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-[#66736A]">Margem Líquida</span>
+            <span className="text-xs font-medium text-slate-600">Margem Líquida</span>
             <Award className="w-5 h-5 text-emerald-400" />
           </div>
           <p className="text-2xl font-bold text-white mt-2">
@@ -195,13 +195,13 @@ export const VinhosFinosDuplaPodaModule: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-[#EAF4E7] pb-2">
+      <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
         <button
           onClick={() => setActiveTab('parcelas')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'parcelas'
               ? 'bg-purple-500/10 text-purple-400 border border-purple-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -213,7 +213,7 @@ export const VinhosFinosDuplaPodaModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'duplapoda'
               ? 'bg-purple-500/10 text-purple-400 border border-purple-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Sun className="w-4 h-4" />
@@ -225,7 +225,7 @@ export const VinhosFinosDuplaPodaModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'enologia'
               ? 'bg-purple-500/10 text-purple-400 border border-purple-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -237,7 +237,7 @@ export const VinhosFinosDuplaPodaModule: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
               ? 'bg-purple-500/10 text-purple-400 border border-purple-500/20'
-              : 'text-[#66736A] hover:text-white hover:bg-slate-800/40'
+              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -247,15 +247,15 @@ export const VinhosFinosDuplaPodaModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'parcelas' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-[#EAF4E7] p-6 space-y-4">
+        <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Wine className="w-5 h-5 text-purple-400" />
             Vinhedos com Inversão de Ciclo & Vinhos de Inverno
           </h3>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-[#26332A]">
-              <thead className="text-xs uppercase bg-[#F7F9F5] text-[#66736A]">
+            <table className="w-full text-left text-sm text-slate-900">
+              <thead className="text-xs uppercase bg-slate-50 text-slate-600">
                 <tr>
                   <th className="px-4 py-3">Parcela / Região</th>
                   <th className="px-4 py-3">Cultivar</th>
@@ -290,44 +290,44 @@ export const VinhosFinosDuplaPodaModule: React.FC = () => {
 
       {activeTab === 'duplapoda' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Sun className="w-5 h-5 text-yellow-400" />
               <h4 className="text-sm font-semibold text-white">1ª Poda (Vegetativa / Agosto)</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Poda curta durante o final do inverno para brotação da ramagem de suporte durante as chuvas de verão, sem retenção de cachos para evitar podridões fúngicas.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Objetivo Fisiológico:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Objetivo Fisiológico:</span>
               <span className="text-sm font-bold text-yellow-400 block">Acúmulo de reservas amiláceas no lenho</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Thermometer className="w-5 h-5 text-purple-400" />
               <h4 className="text-sm font-semibold text-white">2ª Poda (Produção / Janeiro-Fev)</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Poda com quebra de dormência (cianamida hidrogenada) para floração em março e maturação dos cachos no inverno seco (maio a julho).
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Janela de Colheita:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Janela de Colheita:</span>
               <span className="text-sm font-bold text-purple-400 block">Junho e Julho (Zero Chuva)</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-3">
+          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
             <div className="flex items-center gap-3">
               <Sparkles className="w-5 h-5 text-rose-400" />
               <h4 className="text-sm font-semibold text-white">Amplitude Térmica & Polifenóis</h4>
             </div>
-            <p className="text-xs text-[#66736A]">
+            <p className="text-xs text-slate-600">
               Dias ensolarados (25°C) e noites frias (8°C a 10°C) garantem acúmulo excepcional de antocianinas, síntese de resveratrol e preservação de ácido málico.
             </p>
-            <div className="p-3 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7]/80">
-              <span className="text-xs text-[#66736A]">Índice Fenólico:</span>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span className="text-xs text-slate-600">Índice Fenólico:</span>
               <span className="text-sm font-bold text-rose-400 block">IPT superior a 65 (Vinho de Guarda)</span>
             </div>
           </div>
@@ -335,36 +335,36 @@ export const VinhosFinosDuplaPodaModule: React.FC = () => {
       )}
 
       {activeTab === 'enologia' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-4">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <Award className="w-5 h-5 text-purple-400" />
             Parâmetros de Qualidade Enológica & Maturação em Barricas
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Açúcares Naturais</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Açúcares Naturais</span>
               <p className="text-lg font-bold text-yellow-400 mt-1">superior a 23.5° Brix</p>
-              <span className="text-[11px] text-[#66736A]">Graduação alcoólica natural de 14.0% v/v</span>
+              <span className="text-[11px] text-slate-600">Graduação alcoólica natural de 14.0% v/v</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Estágio em Madeira</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Estágio em Madeira</span>
               <p className="text-lg font-bold text-purple-400 mt-1">12 a 18 meses</p>
-              <span className="text-[11px] text-[#66736A]">Carvalho francês de primeiro uso</span>
+              <span className="text-[11px] text-slate-600">Carvalho francês de primeiro uso</span>
             </div>
 
-            <div className="p-4 bg-[#F7F9F5]/50 rounded-xl border border-[#EAF4E7]">
-              <span className="text-xs text-[#66736A]">Certificação D.O.</span>
+            <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
+              <span className="text-xs text-slate-600">Certificação D.O.</span>
               <p className="text-lg font-bold text-emerald-400 mt-1">Selo Vinhos de Inverno</p>
-              <span className="text-[11px] text-[#66736A]">Associação Nacional ANPROVIN</span>
+              <span className="text-[11px] text-slate-600">Associação Nacional ANPROVIN</span>
             </div>
           </div>
         </div>
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-[#EAF4E7] space-y-6">
+        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
           <h3 className="text-base font-semibold text-white flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-purple-400" />
             Simulador de Envase, Custo por Garrafa & Lucro Líquido
@@ -372,57 +372,57 @@ export const VinhosFinosDuplaPodaModule: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Área Cultivada (ha)</label>
+              <label className="text-xs font-medium text-slate-600">Área Cultivada (ha)</label>
               <input
                 type="number"
                 value={areaTotalHa}
                 onChange={(e) => setAreaTotalHa(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-purple-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-purple-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Produtividade (kg/ha)</label>
+              <label className="text-xs font-medium text-slate-600">Produtividade (kg/ha)</label>
               <input
                 type="number"
                 value={produtividadeUvaKgHa}
                 onChange={(e) => setProdutividadeUvaKgHa(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-purple-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-purple-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Preço da Garrafa (R$)</label>
+              <label className="text-xs font-medium text-slate-600">Preço da Garrafa (R$)</label>
               <input
                 type="number"
                 step="5"
                 value={precoMedioGarrafaReais}
                 onChange={(e) => setPrecoMedioGarrafaReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-purple-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-purple-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#66736A]">Custo Anual (R$/ha)</label>
+              <label className="text-xs font-medium text-slate-600">Custo Anual (R$/ha)</label>
               <input
                 type="number"
                 step="1000"
                 value={custoProducaoHaReais}
                 onChange={(e) => setCustoProducaoHaReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl text-white text-sm focus:border-purple-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-purple-500 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="p-4 bg-[#F7F9F5] rounded-xl border border-[#EAF4E7] flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-[#66736A] block">Custo Total por Garrafa Pronta:</span>
+              <span className="text-xs text-slate-600 block">Custo Total por Garrafa Pronta:</span>
               <span className="text-base font-bold text-purple-400">
                 R$ {metricas.custoUnitarioPorGarrafa.toFixed(2)} / garrafa
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs text-[#66736A] block">Lucro Líquido Anual:</span>
+              <span className="text-xs text-slate-600 block">Lucro Líquido Anual:</span>
               <span className="text-xl font-bold text-emerald-400">
                 R$ {metricas.lucroLiquidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>

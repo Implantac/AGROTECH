@@ -116,7 +116,7 @@ export const RenovabioCBIOModule: React.FC = () => {
                     B3 • ANP Lei 13.576
                   </span>
                 </h2>
-                <p className="text-sm text-[#66736A]">
+                <p className="text-sm text-slate-600">
                   Certificação de biomassa de milho/soja para usinas de etanol, Nota NEEA e cálculo de bônus financeiro em CBIOs.
                 </p>
               </div>
@@ -135,14 +135,14 @@ export const RenovabioCBIOModule: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* KPI 1: Nota NEEA */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Nota de Eficiência (NEEA)</span>
             <Sparkles className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
             {renovaMetrics.neea.toFixed(2)}{' '}
-            <span className="text-xs font-normal text-[#66736A]">gCO₂eq/MJ</span>
+            <span className="text-xs font-normal text-slate-600">gCO₂eq/MJ</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Redução de {((renovaMetrics.neea / emissaoReferenciaFossil) * 100).toFixed(1)}% vs fóssil.
@@ -150,14 +150,14 @@ export const RenovabioCBIOModule: React.FC = () => {
         </div>
 
         {/* KPI 2: CBIOs Gerados */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>CBIOs do Produtor</span>
             <Coins className="w-4 h-4 text-amber-400" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono text-amber-400">
             {renovaMetrics.cbiosProdutor.toLocaleString('pt-BR')}{' '}
-            <span className="text-xs font-normal text-[#66736A]">CBIOs ({percentualPartilhaProdutor}%)</span>
+            <span className="text-xs font-normal text-slate-600">CBIOs ({percentualPartilhaProdutor}%)</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Total gerado na usina: {renovaMetrics.totalCbiosGerados.toLocaleString('pt-BR')} t CO₂eq.
@@ -165,8 +165,8 @@ export const RenovabioCBIOModule: React.FC = () => {
         </div>
 
         {/* KPI 3: Receita Financeira em CBIOs */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Receita em CBIOs</span>
             <TrendingUp className="w-4 h-4 text-cyan-400" />
           </div>
@@ -179,8 +179,8 @@ export const RenovabioCBIOModule: React.FC = () => {
         </div>
 
         {/* KPI 4: Prêmio na Saca de Milho */}
-        <div className="bg-white border border-[#EAF4E7] rounded-xl p-4 shadow-lg">
-          <div className="flex items-center justify-between text-xs text-[#66736A] font-medium">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
+          <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Prêmio Extra / Saca</span>
             <Fuel className="w-4 h-4 text-emerald-400" />
           </div>
@@ -197,18 +197,18 @@ export const RenovabioCBIOModule: React.FC = () => {
       {/* Grid Principal: Parâmetros e Contratos de Usina */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Painel Esquerdo: Contratos com Usinas e Balanço */}
-        <div className="lg:col-span-2 bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-4">
+        <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <Factory className="w-5 h-5 text-emerald-400" />
                 Contratos de Fornecimento para Biorrefinarias de Etanol
               </h3>
-              <p className="text-xs text-[#66736A]">
+              <p className="text-xs text-slate-600">
                 Usinas homologadas com rastreabilidade geoespacial de biomassa elegível.
               </p>
             </div>
-            <span className="text-xs font-mono text-[#66736A]">
+            <span className="text-xs font-mono text-slate-600">
               {contratos.length} Contratos Vigentes
             </span>
           </div>
@@ -217,15 +217,15 @@ export const RenovabioCBIOModule: React.FC = () => {
             {contratos.map((c) => (
               <div
                 key={c.id}
-                className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl hover:border-slate-700 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                className="p-4 bg-slate-50 border border-slate-200 rounded-xl hover:border-slate-700 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-3"
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-white border border-[#EAF4E7] text-emerald-400">
+                  <div className="p-2.5 rounded-xl bg-white border border-slate-200 text-emerald-400">
                     <Building2 className="w-5 h-5" />
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-white">{c.usinaNome}</h4>
-                    <p className="text-[11px] text-[#66736A]">
+                    <p className="text-[11px] text-slate-600">
                       {c.localizacao} • {c.tipoBiocombustivel.replace(/_/g, ' ')}
                     </p>
                   </div>
@@ -249,12 +249,12 @@ export const RenovabioCBIOModule: React.FC = () => {
           </div>
 
           {/* Banner RenovaCalc ANP */}
-          <div className="p-4 bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl space-y-2 text-xs">
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
             <div className="flex items-center gap-2 text-emerald-400 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes de Elegibilidade e Emissão RenovaBio (ANP):
             </div>
-            <ul className="list-disc list-inside text-[#66736A] space-y-1">
+            <ul className="list-disc list-inside text-slate-600 space-y-1">
               <li>
                 <strong>Desmatamento Zero pós-2018:</strong> Apenas talhões sem qualquer supressão de vegetação nativa após dezembro de 2018 geram lastro de biomassa elegível.
               </li>
@@ -269,7 +269,7 @@ export const RenovabioCBIOModule: React.FC = () => {
         </div>
 
         {/* Painel Direito: Simulador de Parâmetros de Carbono */}
-        <div className="bg-white border border-[#EAF4E7] rounded-2xl p-6 shadow-xl space-y-5">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Coins className="w-5 h-5 text-amber-400" />
             Parâmetros RenovaCalc
@@ -277,20 +277,20 @@ export const RenovabioCBIOModule: React.FC = () => {
 
           <div className="space-y-4 text-xs">
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">
+              <label className="text-slate-600 font-medium block mb-1">
                 Volume de Milho Entregue (toneladas)
               </label>
               <input
                 type="number"
                 value={toneladasMilhoEntregues}
                 onChange={(e) => setToneladasMilhoEntregues(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-[#66736A] font-medium">Intensidade de Carbono Fazenda</span>
+                <span className="text-slate-600 font-medium">Intensidade de Carbono Fazenda</span>
                 <span className="text-emerald-400 font-mono font-bold">
                   {intensidadeCarbonoFazenda} gCO₂/MJ
                 </span>
@@ -307,20 +307,20 @@ export const RenovabioCBIOModule: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-[#66736A] font-medium block mb-1">
+              <label className="text-slate-600 font-medium block mb-1">
                 Preço do CBIO no Mercado B3 (R$/t CO₂)
               </label>
               <input
                 type="number"
                 value={precoCbioB3}
                 onChange={(e) => setPrecoCbioB3(Number(e.target.value))}
-                className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-xl px-3 py-2 text-white font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
             </div>
 
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-[#66736A] font-medium">% Repasse dos CBIOs ao Produtor</span>
+                <span className="text-slate-600 font-medium">% Repasse dos CBIOs ao Produtor</span>
                 <span className="text-amber-400 font-mono font-bold">
                   {percentualPartilhaProdutor}%
                 </span>
@@ -337,20 +337,20 @@ export const RenovabioCBIOModule: React.FC = () => {
             </div>
 
             {/* Resumo Consolidado */}
-            <div className="pt-3 border-t border-[#EAF4E7] space-y-2">
+            <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Volume de Etanol Anidro:</span>
-                <span className="text-[#26332A] font-mono">
+                <span className="text-slate-600">Volume de Etanol Anidro:</span>
+                <span className="text-slate-900 font-mono">
                   {(renovaMetrics.totalLitrosEtanol / 1000000).toFixed(2)} M Litros
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#66736A]">Total CBIOs Usina:</span>
-                <span className="text-[#26332A] font-mono">
+                <span className="text-slate-600">Total CBIOs Usina:</span>
+                <span className="text-slate-900 font-mono">
                   {renovaMetrics.totalCbiosGerados} CBIOs
                 </span>
               </div>
-              <div className="flex justify-between border-t border-[#EAF4E7] pt-2 font-bold">
+              <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Receita Líquida Fazenda:</span>
                 <span className="text-emerald-400 font-mono">
                   R$ {renovaMetrics.receitaBrutaCbiosReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}

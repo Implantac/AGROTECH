@@ -37,18 +37,18 @@ export const SensibilidadeSafraModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Banner de Sensibilidade Financeira */}
-      <div className="bg-white border border-[#EAF4E7] p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="px-2 py-0.5 bg-emerald-950 text-emerald-400 border border-emerald-800 rounded text-xs font-bold flex items-center gap-1.5">
               <Sliders className="w-3.5 h-3.5" /> Stress Test & Modelagem Preditiva
             </span>
-            <span className="text-xs text-[#66736A]">Safra 2025/2026 • 2.450 Hectares Monitorados</span>
+            <span className="text-xs text-slate-600">Safra 2025/2026 • 2.450 Hectares Monitorados</span>
           </div>
           <h2 className="text-xl font-bold text-white flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-emerald-400" /> Análise de Sensibilidade Financeira & Matriz de Risco
           </h2>
-          <p className="text-xs text-[#66736A] mt-1">
+          <p className="text-xs text-slate-600 mt-1">
             Simule o impacto de quebra de safra, seca ou oscilação da bolsa de Chicago (CBOT) no lucro líquido da fazenda.
           </p>
         </div>
@@ -59,25 +59,25 @@ export const SensibilidadeSafraModule: React.FC = () => {
             setPrecoSacaVenda(132.0);
             setDolarPtax(5.45);
           }}
-          className="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-[#26332A] rounded-xl text-xs font-semibold flex items-center gap-1.5 border border-slate-700 shadow"
+          className="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-900 rounded-xl text-xs font-semibold flex items-center gap-1.5 border border-slate-700 shadow"
         >
-          <RotateCcw className="w-3.5 h-3.5 text-[#66736A]" /> Restaurar Padrões
+          <RotateCcw className="w-3.5 h-3.5 text-slate-600" /> Restaurar Padrões
         </button>
       </div>
 
       {/* Controles Interativos (Sliders) */}
-      <div className="bg-white border border-[#EAF4E7] p-6 rounded-2xl shadow-xl space-y-6">
+      <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-xl space-y-6">
         <h3 className="text-sm font-bold text-white flex items-center gap-2">
           <Calculator className="w-4 h-4 text-emerald-400" /> Variáveis Críticas de Mercado e Campo
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Slider 1: Produtividade Esperada */}
-          <div className="bg-[#F7F9F5] p-4 rounded-xl border border-[#EAF4E7] space-y-2">
+          <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
             <div className="flex justify-between items-center text-xs">
-              <span className="font-semibold text-[#26332A]">Produtividade Esperada</span>
+              <span className="font-semibold text-slate-900">Produtividade Esperada</span>
               <span className="text-lg font-black text-emerald-400 font-mono">
-                {produtividadeScHa.toFixed(1)} <span className="text-xs font-normal text-[#66736A]">sc/ha</span>
+                {produtividadeScHa.toFixed(1)} <span className="text-xs font-normal text-slate-600">sc/ha</span>
               </span>
             </div>
             <input
@@ -97,9 +97,9 @@ export const SensibilidadeSafraModule: React.FC = () => {
           </div>
 
           {/* Slider 2: Preço da Saca */}
-          <div className="bg-[#F7F9F5] p-4 rounded-xl border border-[#EAF4E7] space-y-2">
+          <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
             <div className="flex justify-between items-center text-xs">
-              <span className="font-semibold text-[#26332A]">Cotação Saca Soja (FOB MT)</span>
+              <span className="font-semibold text-slate-900">Cotação Saca Soja (FOB MT)</span>
               <span className="text-lg font-black text-amber-400 font-mono">
                 R$ {precoSacaVenda.toFixed(2)}
               </span>
@@ -121,9 +121,9 @@ export const SensibilidadeSafraModule: React.FC = () => {
           </div>
 
           {/* Slider 3: Câmbio USD/BRL */}
-          <div className="bg-[#F7F9F5] p-4 rounded-xl border border-[#EAF4E7] space-y-2">
+          <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
             <div className="flex justify-between items-center text-xs">
-              <span className="font-semibold text-[#26332A]">Taxa de Câmbio Dólar PTAX</span>
+              <span className="font-semibold text-slate-900">Taxa de Câmbio Dólar PTAX</span>
               <span className="text-lg font-black text-blue-400 font-mono">
                 R$ {dolarPtax.toFixed(2)}
               </span>
@@ -148,8 +148,8 @@ export const SensibilidadeSafraModule: React.FC = () => {
 
       {/* Resultados do Stress Test */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow">
-          <span className="text-xs text-[#66736A] block font-medium">Receita Bruta Total</span>
+        <div className="bg-white border border-slate-200 p-4 rounded-xl shadow">
+          <span className="text-xs text-slate-600 block font-medium">Receita Bruta Total</span>
           <p className="text-xl font-black text-white mt-1">
             R$ {receitaBrutaTotal.toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
           </p>
@@ -158,8 +158,8 @@ export const SensibilidadeSafraModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow">
-          <span className="text-xs text-[#66736A] block font-medium">Lucro Líquido Projetado</span>
+        <div className="bg-white border border-slate-200 p-4 rounded-xl shadow">
+          <span className="text-xs text-slate-600 block font-medium">Lucro Líquido Projetado</span>
           <p
             className={`text-xl font-black mt-1 ${
               lucroLiquidoSafra >= 0 ? 'text-emerald-400' : 'text-red-400'
@@ -173,8 +173,8 @@ export const SensibilidadeSafraModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow">
-          <span className="text-xs text-[#66736A] block font-medium">Margem EBITDA da Safra</span>
+        <div className="bg-white border border-slate-200 p-4 rounded-xl shadow">
+          <span className="text-xs text-slate-600 block font-medium">Margem EBITDA da Safra</span>
           <p
             className={`text-xl font-black mt-1 ${
               margemEbitda >= 20 ? 'text-emerald-400' : margemEbitda >= 0 ? 'text-amber-400' : 'text-red-400'
@@ -187,10 +187,10 @@ export const SensibilidadeSafraModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-white border border-[#EAF4E7] p-4 rounded-xl shadow">
-          <span className="text-xs text-[#66736A] block font-medium">Ponto de Equilíbrio</span>
+        <div className="bg-white border border-slate-200 p-4 rounded-xl shadow">
+          <span className="text-xs text-slate-600 block font-medium">Ponto de Equilíbrio</span>
           <p className="text-xl font-black text-amber-400 mt-1 font-mono">
-            {breakEvenScHa.toFixed(1)} <span className="text-xs text-[#66736A] font-normal">sc/ha</span>
+            {breakEvenScHa.toFixed(1)} <span className="text-xs text-slate-600 font-normal">sc/ha</span>
           </p>
           <span className="text-[11px] text-emerald-400 mt-1 block font-semibold">
             Folga: +{(produtividadeScHa - breakEvenScHa).toFixed(1)} sc/ha
@@ -199,19 +199,19 @@ export const SensibilidadeSafraModule: React.FC = () => {
       </div>
 
       {/* Matriz de Sensibilidade (Tabela Bidimensional) */}
-      <div className="bg-white border border-[#EAF4E7] rounded-2xl shadow-xl overflow-hidden">
-        <div className="p-4 border-b border-[#EAF4E7]">
+      <div className="bg-white border border-slate-200 rounded-2xl shadow-xl overflow-hidden">
+        <div className="p-4 border-b border-slate-200">
           <h3 className="text-sm font-bold text-white">
             Matriz de Lucro Líquido Cruzado (Produtividade × Cotação da Saca)
           </h3>
-          <p className="text-xs text-[#66736A]">
+          <p className="text-xs text-slate-600">
             Valores em R$ Milhões calculados para os 2.450 hectares da Fazenda Santa Helena
           </p>
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-xs text-center text-[#26332A]">
-            <thead className="bg-[#F7F9F5] text-[#66736A] uppercase text-[10px] tracking-wider">
+          <table className="w-full text-xs text-center text-slate-900">
+            <thead className="bg-slate-50 text-slate-600 uppercase text-[10px] tracking-wider">
               <tr>
                 <th className="px-4 py-3 text-left">Produtividade \ Preço</th>
                 {cenariosPreco.map((p) => (
