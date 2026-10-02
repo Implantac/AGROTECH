@@ -493,7 +493,7 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/90 border border-slate-800 p-6 rounded-2xl backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-[#EAF4E7] p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 rounded-xl text-indigo-400">
@@ -501,7 +501,7 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-xl font-bold text-slate-100">Copilot Safra • Inteligência Prescritiva</h1>
+                <h1 className="text-xl font-bold text-[#1D4B38]">Copilot Safra • Inteligência Prescritiva</h1>
                 <span className="px-2 py-0.5 text-[11px] font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded-full flex items-center gap-1">
                   <Sparkles className="w-3 h-3 text-indigo-400" /> Perfil: {profileId.replace(/_/g, ' ')}
                 </span>
@@ -509,7 +509,7 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
                   Telemetria & IA Conectados
                 </span>
               </div>
-              <p className="text-sm text-slate-400 mt-0.5">
+              <p className="text-sm text-[#66736A] mt-0.5">
                 Cruzamento contínuo de sensores de campo, telemetria operacional e regras agronômicas personalizadas para sua atividade.
               </p>
             </div>
@@ -521,21 +521,21 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Coluna 1 & 2: Feeds de Insights Prioritários */}
         <div className="lg:col-span-2 space-y-4">
-          <div className="flex items-center justify-between bg-slate-900/80 border border-slate-800 p-4 rounded-xl">
+          <div className="flex items-center justify-between bg-white border border-[#EAF4E7] p-4 rounded-xl">
             <div className="flex items-center gap-2">
               <Zap className="w-4 h-4 text-amber-400" />
-              <span className="text-xs font-bold text-slate-200 uppercase tracking-wider">
+              <span className="text-xs font-bold text-[#26332A] uppercase tracking-wider">
                 Diagnósticos & Gatilhos Preditivos ({insightsFiltrados.length})
               </span>
             </div>
 
             {/* Filtros */}
             <div className="flex items-center gap-2 text-xs">
-              <Filter className="w-3.5 h-3.5 text-slate-400" />
+              <Filter className="w-3.5 h-3.5 text-[#66736A]" />
               <select
                 value={filtroCategoria}
                 onChange={(e) => setFiltroCategoria(e.target.value)}
-                className="bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1 text-slate-300 focus:outline-none"
+                className="bg-[#F7F9F5] border border-[#EAF4E7] rounded-lg px-2.5 py-1 text-[#26332A] focus:outline-none"
               >
                 <option value="TODOS">Todas as Categorias</option>
                 <option value="FITOSSANITARIA">Fitossanidade & MIP</option>
@@ -580,25 +580,25 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
               return (
                 <div
                   key={ins.id}
-                  className="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl shadow-lg hover:border-slate-700 transition-all space-y-3"
+                  className="bg-white border border-[#EAF4E7] p-5 rounded-2xl shadow-lg hover:border-slate-700 transition-all space-y-3"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div>
                       <div className="flex items-center gap-2 mb-1.5">
                         {prioridadeBadge}
-                        <span className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">
+                        <span className="text-[10px] text-[#66736A] font-semibold uppercase tracking-wider">
                           {ins.categoria.replace(/_/g, ' ')}
                         </span>
                         <span className="text-slate-600">•</span>
-                        <span className="text-[10px] text-slate-400 flex items-center gap-1">
+                        <span className="text-[10px] text-[#66736A] flex items-center gap-1">
                           <Clock className="w-3 h-3 text-slate-500" /> {ins.dataGeracao}
                         </span>
                       </div>
-                      <h3 className="text-sm font-bold text-slate-100">{ins.titulo}</h3>
+                      <h3 className="text-sm font-bold text-[#1D4B38]">{ins.titulo}</h3>
                     </div>
                   </div>
 
-                  <p className="text-xs text-slate-300 leading-relaxed bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                  <p className="text-xs text-[#26332A] leading-relaxed bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
                     {ins.diagnostico}
                   </p>
 
@@ -608,12 +608,12 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
                       const IconComponent = fat.icone;
                       return (
                         <div key={fIdx} className="bg-slate-950/80 p-2.5 rounded-xl border border-slate-800 flex items-center gap-2">
-                          <div className="p-1.5 bg-slate-800 text-indigo-400 rounded-lg shrink-0">
+                          <div className="p-1.5 bg-[#F7F9F5] text-indigo-400 rounded-lg shrink-0">
                             <IconComponent className="w-3.5 h-3.5" />
                           </div>
                           <div className="min-w-0">
-                            <span className="text-[9px] text-slate-400 block truncate">{fat.label}</span>
-                            <span className="text-[11px] font-bold text-slate-200 block truncate">{fat.dado}</span>
+                            <span className="text-[9px] text-[#66736A] block truncate">{fat.label}</span>
+                            <span className="text-[11px] font-bold text-[#26332A] block truncate">{fat.dado}</span>
                           </div>
                         </div>
                       );
@@ -623,7 +623,7 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
                   {/* Recomendação e Impacto */}
                   <div className="border-t border-slate-800 pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
                     <div>
-                      <span className="text-slate-400 font-medium">Ação Prescrita: </span>
+                      <span className="text-[#66736A] font-medium">Ação Prescrita: </span>
                       <span className="text-emerald-400 font-semibold">{ins.recomendacaoAcao}</span>
                     </div>
                   </div>
@@ -651,14 +651,14 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
         </div>
 
         {/* Coluna 3: Chat Interativo com o Copilot Safra */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-2xl flex flex-col h-[650px] shadow-xl overflow-hidden">
+        <div className="bg-white border border-[#EAF4E7] rounded-2xl flex flex-col h-[650px] shadow-xl overflow-hidden">
           <div className="p-4 border-b border-slate-800 bg-slate-950/60 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="p-2 bg-indigo-500/20 text-indigo-400 rounded-xl">
                 <Bot className="w-4 h-4" />
               </div>
               <div>
-                <h3 className="text-xs font-bold text-slate-100">Chat Copilot Agro</h3>
+                <h3 className="text-xs font-bold text-[#1D4B38]">Chat Copilot Agro</h3>
                 <span className="text-[10px] text-emerald-400 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span> Online • Responde em &lt; 1s
                 </span>
@@ -682,11 +682,11 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
                   className={`p-3 rounded-2xl max-w-[85%] leading-relaxed ${
                     msg.remetente === 'USUARIO'
                       ? 'bg-emerald-600 text-white rounded-tr-none'
-                      : 'bg-slate-950 border border-slate-800 text-slate-200 rounded-tl-none'
+                      : 'bg-[#F7F9F5] border border-[#EAF4E7] text-[#26332A] rounded-tl-none'
                   }`}
                 >
                   <p>{msg.texto}</p>
-                  <span className="text-[9px] text-slate-400 block mt-1 text-right">{msg.hora}</span>
+                  <span className="text-[9px] text-[#66736A] block mt-1 text-right">{msg.hora}</span>
                 </div>
                 {msg.remetente === 'USUARIO' && (
                   <div className="w-6 h-6 rounded-full bg-emerald-700 flex items-center justify-center text-white shrink-0">
@@ -701,7 +701,7 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
                 <div className="w-6 h-6 rounded-full bg-indigo-600 flex items-center justify-center text-white shrink-0 animate-spin">
                   <Sparkles className="w-3.5 h-3.5" />
                 </div>
-                <div className="p-3 bg-slate-950 border border-slate-800 text-slate-400 rounded-2xl rounded-tl-none text-xs flex items-center gap-2">
+                <div className="p-3 bg-[#F7F9F5] border border-[#EAF4E7] text-[#66736A] rounded-2xl rounded-tl-none text-xs flex items-center gap-2">
                   <span>Analisando telemetria e sensores...</span>
                 </div>
               </div>
@@ -714,7 +714,7 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
               <button
                 key={idx}
                 onClick={() => handleEnviarPergunta(p)}
-                className="text-[10px] bg-slate-800/80 hover:bg-indigo-600/30 text-indigo-300 hover:text-white px-2.5 py-1 rounded-lg border border-slate-700/60 transition-colors"
+                className="text-[10px] bg-[#F4F0E6] hover:bg-indigo-600/30 text-indigo-300 hover:text-white px-2.5 py-1 rounded-lg border border-slate-700/60 transition-colors"
               >
                 {p}
               </button>
@@ -734,7 +734,7 @@ export const CopilotSafraModule: React.FC<CopilotSafraModuleProps> = ({ profileI
               value={perguntaInput}
               onChange={(e) => setPerguntaInput(e.target.value)}
               placeholder="Pergunte ao Copilot sobre talhões, cocho, Brix ou diesel..."
-              className="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+              className="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-[#26332A] placeholder-slate-500 focus:outline-none focus:border-indigo-500"
             />
             <button
               type="submit"

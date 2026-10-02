@@ -215,10 +215,10 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
         </div>
 
         {/* Barra de Status do Celular */}
-        <div className="w-full px-6 pt-3 pb-1 flex justify-between items-center text-[11px] text-slate-300 font-semibold z-40">
+        <div className="w-full px-6 pt-3 pb-1 flex justify-between items-center text-[11px] text-[#26332A] font-semibold z-40">
           <span>09:41</span>
           <div className="flex items-center gap-2">
-            <Signal className="w-3.5 h-3.5 text-slate-300" />
+            <Signal className="w-3.5 h-3.5 text-[#26332A]" />
             {isOnline ? (
               <span className="flex items-center text-emerald-400 gap-1 text-[10px]">
                 <Wifi className="w-3.5 h-3.5" /> 4G Sede
@@ -233,13 +233,13 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
         </div>
 
         {/* Display do App Mobile (Drift / Flutter UI) */}
-        <div className="w-full h-[660px] bg-slate-900 rounded-[36px] overflow-y-auto overflow-x-hidden flex flex-col border border-slate-800 text-slate-100 p-4">
+        <div className="w-full h-[660px] bg-[#F7F9F5] rounded-[36px] overflow-y-auto overflow-x-hidden flex flex-col border border-[#EAF4E7] text-[#26332A] p-4">
           {/* Header do App */}
           <div className="flex items-center justify-between pb-3 border-b border-slate-800 mb-3">
             {currentScreen !== 'HOME' ? (
               <button
                 onClick={() => setCurrentScreen('HOME')}
-                className="p-1 rounded-lg bg-slate-800 text-slate-300 hover:text-white flex items-center gap-1 text-xs"
+                className="p-1 rounded-lg bg-slate-800 text-[#26332A] hover:text-white flex items-center gap-1 text-xs"
               >
                 <ArrowLeft className="w-4 h-4" /> Voltar
               </button>
@@ -250,7 +250,7 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
                 </div>
                 <div>
                   <h4 className="text-xs font-bold leading-none text-white">Super AgTech Campo</h4>
-                  <span className="text-[10px] text-slate-400">
+                  <span className="text-[10px] text-[#66736A]">
                     {profileId === 'PECUARIA_CORTE_LEITE'
                       ? 'Op: Carlos Vaqueiro (Pec-08)'
                       : profileId === 'HORTIFRUTI_FLORICULTURA'
@@ -276,21 +276,21 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
           {currentScreen === 'HOME' && (
             <div className="flex flex-col space-y-3">
               {/* Card de GPS e Talhão / Piquete Próximo */}
-              <div className="bg-gradient-to-r from-emerald-950/60 to-slate-800/80 p-3 rounded-xl border border-emerald-900/50">
-                <div className="flex items-center justify-between text-xs text-slate-300 mb-1">
+              <div className="bg-[#EAF4E7] p-3 rounded-xl border border-[#8FBF88]/50">
+                <div className="flex items-center justify-between text-xs text-[#26332A] mb-1">
                   <span className="flex items-center gap-1 text-emerald-400 font-semibold">
                     <Compass className="w-3.5 h-3.5 animate-spin" /> GPS Local Ativo
                   </span>
-                  <span className="text-[10px] text-slate-400">Georreferenciado</span>
+                  <span className="text-[10px] text-[#66736A]">Georreferenciado</span>
                 </div>
-                <p className="text-xs font-bold text-white">
+                <p className="text-xs font-bold text-[#1D4B38]">
                   {profileId === 'PECUARIA_CORTE_LEITE'
                     ? 'Piquete 04 • Confinamento Leste'
                     : profileId === 'HORTIFRUTI_FLORICULTURA'
                     ? 'Estufa 02 • Módulo Hidropônico'
                     : 'Talhão Atual: TAL-02 (Represa Leste)'}
                 </p>
-                <p className="text-[10px] text-slate-400">Precisão RTK: ± 2.5 cm no raio operacional</p>
+                <p className="text-[10px] text-[#66736A]">Precisão RTK: ± 2.5 cm no raio operacional</p>
               </div>
 
               {/* Grid com os 4 Botões da Tela Mobile adaptados ao perfil ativo */}
@@ -329,7 +329,7 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
                   >
                     <Database className="w-7 h-7 mb-1 text-cyan-400" />
                     <span className="text-xs font-bold leading-tight">Sincronizar Dados</span>
-                    <span className="text-[9px] text-slate-300 mt-0.5">
+                    <span className="text-[9px] text-[#26332A] mt-0.5">
                       {syncQueue.filter((i) => i.status === 'PENDENTE').length} pendentes
                     </span>
                     {syncQueue.filter((i) => i.status === 'PENDENTE').length > 0 && (
@@ -372,7 +372,7 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
                   >
                     <Database className="w-7 h-7 mb-1 text-cyan-400" />
                     <span className="text-xs font-bold leading-tight">Sincronizar Dados</span>
-                    <span className="text-[9px] text-slate-300 mt-0.5">
+                    <span className="text-[9px] text-[#26332A] mt-0.5">
                       {syncQueue.filter((i) => i.status === 'PENDENTE').length} pendentes
                     </span>
                     {syncQueue.filter((i) => i.status === 'PENDENTE').length > 0 && (
@@ -415,7 +415,7 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
                   >
                     <Database className="w-7 h-7 mb-1 text-cyan-400" />
                     <span className="text-xs font-bold leading-tight">Sincronizar Dados</span>
-                    <span className="text-[9px] text-slate-300 mt-0.5">
+                    <span className="text-[9px] text-[#26332A] mt-0.5">
                       {syncQueue.filter((i) => i.status === 'PENDENTE').length} pendentes
                     </span>
                     {syncQueue.filter((i) => i.status === 'PENDENTE').length > 0 && (
@@ -427,11 +427,11 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
 
               {/* Ordens de Serviço do Dia */}
               <div className="pt-2">
-                <h5 className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
+                <h5 className="text-[11px] font-bold text-[#66736A] uppercase tracking-wider mb-2">
                   Ordens de Serviço do Dia (OS)
                 </h5>
                 <div className="space-y-2">
-                  <div className="bg-slate-800/80 p-2.5 rounded-lg border border-slate-700 flex justify-between items-center text-xs">
+                  <div className="bg-white p-2.5 rounded-lg border border-[#EAF4E7] flex justify-between items-center text-xs">
                     <div>
                       <p className="font-bold text-white">
                         {profileId === 'PECUARIA_CORTE_LEITE'
@@ -440,7 +440,7 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
                           ? 'OS #3018 - Colheita Seletiva Grape Matinal'
                           : 'OS #1084 - Pulverização Fungicida'}
                       </p>
-                      <p className="text-[10px] text-slate-400">
+                      <p className="text-[10px] text-[#66736A]">
                         {profileId === 'PECUARIA_CORTE_LEITE'
                           ? 'Vagão Misturador Kuhn • 4 tratos'
                           : profileId === 'HORTIFRUTI_FLORICULTURA'
@@ -465,11 +465,11 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
               </h4>
 
               <div>
-                <label className="text-[11px] text-slate-400 font-semibold">Lote / Piquete</label>
+                <label className="text-[11px] text-[#66736A] font-semibold">Lote / Piquete</label>
                 <select
                   value={loteCocho}
                   onChange={(e) => setLoteCocho(e.target.value)}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs mt-1"
+                  className="w-full bg-white border border-[#EAF4E7] rounded-lg p-2 text-white font-medium text-xs mt-1"
                 >
                   <option>Confinamento Piquete C-04 (280 Garrotes)</option>
                   <option>Confinamento Piquete C-02 (250 Bois Nelore)</option>
@@ -478,14 +478,14 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
               </div>
 
               <div className="bg-slate-800 p-2.5 rounded-lg border border-slate-700">
-                <label className="text-[11px] text-slate-300 font-semibold">Escore de Sobras (0 a 4)</label>
+                <label className="text-[11px] text-[#26332A] font-semibold">Escore de Sobras (0 a 4)</label>
                 <div className="grid grid-cols-5 gap-1.5 my-2">
                   {[0, 1, 2, 3, 4].map((n) => (
                     <button
                       key={n}
                       onClick={() => setEscoreCocho(n)}
                       className={`py-2 rounded-lg font-bold text-center text-xs transition-all ${
-                        escoreCocho === n ? 'bg-amber-500 text-slate-950 shadow' : 'bg-slate-900 text-slate-300 hover:bg-slate-700'
+                        escoreCocho === n ? 'bg-amber-500 text-slate-950 shadow' : 'bg-slate-900 text-[#26332A] hover:bg-slate-700'
                       }`}
                     >
                       Nota {n}
@@ -518,32 +518,32 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
               </h4>
 
               <div>
-                <label className="text-[11px] text-slate-400 font-semibold">Brinco Eletrônico RFID</label>
+                <label className="text-[11px] text-[#66736A] font-semibold">Brinco Eletrônico RFID</label>
                 <input
                   type="text"
                   value={brincoRfid}
                   onChange={(e) => setBrincoRfid(e.target.value)}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-white font-mono text-xs mt-1"
+                  className="w-full bg-white border border-[#EAF4E7] rounded-lg p-2 text-white font-mono text-xs mt-1"
                 />
               </div>
 
               <div>
-                <label className="text-[11px] text-slate-400 font-semibold">Peso na Balança (kg)</label>
+                <label className="text-[11px] text-[#66736A] font-semibold">Peso na Balança (kg)</label>
                 <input
                   type="number"
                   value={pesoBovinoKg}
                   onChange={(e) => setPesoBovinoKg(Number(e.target.value))}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-emerald-400 font-black text-sm mt-1"
+                  className="w-full bg-white border border-[#EAF4E7] rounded-lg p-2 text-emerald-400 font-black text-sm mt-1"
                 />
               </div>
 
               <div className="bg-slate-800 p-2.5 rounded-lg border border-slate-700 flex justify-between items-center">
                 <div>
-                  <span className="text-[10px] text-slate-400 block">Arrobas (@) Líquidas</span>
+                  <span className="text-[10px] text-[#66736A] block">Arrobas (@) Líquidas</span>
                   <span className="font-black text-white text-sm">{(pesoBovinoKg / 30).toFixed(2)} @</span>
                 </div>
                 <div>
-                  <span className="text-[10px] text-slate-400 block">Cota Hilton</span>
+                  <span className="text-[10px] text-[#66736A] block">Cota Hilton</span>
                   <span className="font-bold text-emerald-400 text-xs">✓ Habilitado (+R$ 8/@)</span>
                 </div>
               </div>
@@ -565,11 +565,11 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
               </h4>
 
               <div>
-                <label className="text-[11px] text-slate-400 font-semibold">Estufa / Setor</label>
+                <label className="text-[11px] text-[#66736A] font-semibold">Estufa / Setor</label>
                 <select
                   value={estufaHF}
                   onChange={(e) => setEstufaHF(e.target.value)}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs mt-1"
+                  className="w-full bg-white border border-[#EAF4E7] rounded-lg p-2 text-white font-medium text-xs mt-1"
                 >
                   <option>Estufa 02 - Tomate Grape Gourmet</option>
                   <option>Estufa 01 - Tomate Italiano Hidropônico</option>
@@ -580,22 +580,22 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="text-[11px] text-slate-400 font-semibold">Caixas Colhidas</label>
+                  <label className="text-[11px] text-[#66736A] font-semibold">Caixas Colhidas</label>
                   <input
                     type="number"
                     value={caixasHF}
                     onChange={(e) => setCaixasHF(Number(e.target.value))}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-white font-bold text-xs mt-1"
+                    className="w-full bg-white border border-[#EAF4E7] rounded-lg p-2 text-white font-bold text-xs mt-1"
                   />
                 </div>
                 <div>
-                  <label className="text-[11px] text-slate-400 font-semibold">Teor Brix (°Bx)</label>
+                  <label className="text-[11px] text-[#66736A] font-semibold">Teor Brix (°Bx)</label>
                   <input
                     type="number"
                     step="0.1"
                     value={grauBrixHF}
                     onChange={(e) => setGrauBrixHF(Number(e.target.value))}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-amber-400 font-black text-xs mt-1"
+                    className="w-full bg-white border border-[#EAF4E7] rounded-lg p-2 text-amber-400 font-black text-xs mt-1"
                   />
                 </div>
               </div>
@@ -621,11 +621,11 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
               </h4>
 
               <div>
-                <label className="text-[11px] text-slate-400 font-semibold">Talhão Selecionado (GPS)</label>
+                <label className="text-[11px] text-[#66736A] font-semibold">Talhão Selecionado (GPS)</label>
                 <select
                   value={selectedTalhaoId}
                   onChange={(e) => setSelectedTalhaoId(e.target.value)}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs mt-1"
+                  className="w-full bg-white border border-[#EAF4E7] rounded-lg p-2 text-white font-medium text-xs mt-1"
                 >
                   {TALHOES_INICIAIS.map((t) => (
                     <option key={t.id} value={t.id}>
@@ -636,11 +636,11 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
               </div>
 
               <div>
-                <label className="text-[11px] text-slate-400 font-semibold">Máquina / Pulverizador</label>
+                <label className="text-[11px] text-[#66736A] font-semibold">Máquina / Pulverizador</label>
                 <select
                   value={selectedMaquinaId}
                   onChange={(e) => setSelectedMaquinaId(e.target.value)}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs mt-1"
+                  className="w-full bg-white border border-[#EAF4E7] rounded-lg p-2 text-white font-medium text-xs mt-1"
                 >
                   {MAQUINAS_INICIAIS.map((m) => (
                     <option key={m.id} value={m.id}>
@@ -675,7 +675,7 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
               {/* Variáveis Meteorológicas Obrigatórias */}
               <div className="bg-slate-800/90 p-2.5 rounded-lg border border-slate-700 space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="font-bold text-[11px] text-slate-300 flex items-center gap-1">
+                  <span className="font-bold text-[11px] text-[#26332A] flex items-center gap-1">
                     <Wind className="w-3.5 h-3.5 text-cyan-400" /> Condições Climáticas (Anemômetro)
                   </span>
                   {alertaVentoDeriva && (
@@ -687,7 +687,7 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
 
                 <div className="grid grid-cols-3 gap-2 text-center text-[10px]">
                   <div className="bg-slate-900 p-1.5 rounded">
-                    <span className="text-slate-400 block">Vento</span>
+                    <span className="text-[#66736A] block">Vento</span>
                     <input
                       type="number"
                       value={ventoKmh}
@@ -697,7 +697,7 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
                     <span className="text-[9px] text-slate-500">km/h</span>
                   </div>
                   <div className="bg-slate-900 p-1.5 rounded">
-                    <span className="text-slate-400 block">Temp</span>
+                    <span className="text-[#66736A] block">Temp</span>
                     <input
                       type="number"
                       value={temperatura}
@@ -707,7 +707,7 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
                     <span className="text-[9px] text-slate-500">°C</span>
                   </div>
                   <div className="bg-slate-900 p-1.5 rounded">
-                    <span className="text-slate-400 block">Umidade</span>
+                    <span className="text-[#66736A] block">Umidade</span>
                     <input
                       type="number"
                       value={umidadePct}
@@ -736,11 +736,11 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
               </h4>
 
               <div>
-                <label className="text-[11px] text-slate-400 font-semibold">Alvo Biológico</label>
+                <label className="text-[11px] text-[#66736A] font-semibold">Alvo Biológico</label>
                 <select
                   value={alvoBiologico}
                   onChange={(e) => setAlvoBiologico(e.target.value)}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs mt-1"
+                  className="w-full bg-white border border-[#EAF4E7] rounded-lg p-2 text-white font-medium text-xs mt-1"
                 >
                   <option>Percevejo Marrom (Euschistus heros)</option>
                   <option>Lagarta da Soja (Anticarsia gemmatalis)</option>
@@ -751,7 +751,7 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
               </div>
 
               <div className="bg-slate-800 p-2.5 rounded-lg border border-slate-700">
-                <label className="text-[11px] text-slate-300 font-semibold">Contagem por Amostragem</label>
+                <label className="text-[11px] text-[#26332A] font-semibold">Contagem por Amostragem</label>
                 <div className="flex items-center gap-2 mt-1">
                   <input
                     type="range"
@@ -764,7 +764,7 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
                   />
                   <span className="font-black text-red-400 text-sm w-10 text-right">{amostragemCount}</span>
                 </div>
-                <div className="flex justify-between text-[9px] text-slate-400 mt-1">
+                <div className="flex justify-between text-[9px] text-[#66736A] mt-1">
                   <span>Limite Seguro: 2.0/m</span>
                   <span className="text-red-400 font-bold">NDE Crítico: 4.0/m</span>
                 </div>
@@ -787,8 +787,8 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
               </h4>
 
               <div>
-                <label className="text-[11px] text-slate-400">Trator / Máquina Agrícola</label>
-                <select className="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs mt-1">
+                <label className="text-[11px] text-[#66736A]">Trator / Máquina Agrícola</label>
+                <select className="w-full bg-white border border-[#EAF4E7] rounded-lg p-2 text-white font-medium text-xs mt-1">
                   <option>Trator John Deere 8R 370</option>
                   <option>Pulverizador JD 4030</option>
                   <option>Colheitadeira Case 8250</option>
@@ -797,18 +797,18 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
               </div>
 
               <div>
-                <label className="text-[11px] text-slate-400">Volume Abastecido (Litros Diesel S10)</label>
+                <label className="text-[11px] text-[#66736A]">Volume Abastecido (Litros Diesel S10)</label>
                 <input
                   type="number"
                   value={litrosAbastecidos}
                   onChange={(e) => setLitrosAbastecidos(Number(e.target.value))}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-white font-bold text-sm mt-1"
+                  className="w-full bg-white border border-[#EAF4E7] rounded-lg p-2 text-white font-bold text-sm mt-1"
                 />
               </div>
 
               <div>
-                <label className="text-[11px] text-slate-400">Tanque / Comboio de Origem</label>
-                <select className="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-white font-medium text-xs mt-1">
+                <label className="text-[11px] text-[#66736A]">Tanque / Comboio de Origem</label>
+                <select className="w-full bg-white border border-[#EAF4E7] rounded-lg p-2 text-white font-medium text-xs mt-1">
                   <option>Tanque Principal Sede (30.000 L)</option>
                   <option>Caminhão Comboio Móvel Melosa 01</option>
                 </select>
@@ -845,7 +845,7 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
                 {syncQueue.map((item) => (
                   <div
                     key={item.id}
-                    className="bg-slate-800/80 p-2.5 rounded-lg border border-slate-700 text-slate-200"
+                    className="bg-white p-2.5 rounded-lg border border-[#EAF4E7] text-slate-200"
                   >
                     <div className="flex justify-between items-center mb-1">
                       <span className="font-bold text-white">{item.tipo}</span>
@@ -859,7 +859,7 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
                         {item.status}
                       </span>
                     </div>
-                    <p className="text-[10px] text-slate-300">{item.resumo}</p>
+                    <p className="text-[10px] text-[#26332A]">{item.resumo}</p>
                     <p className="text-[8px] font-mono text-slate-500 mt-1 truncate">UUIDv7: {item.id}</p>
                   </div>
                 ))}
@@ -875,23 +875,23 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
       </div>
 
       {/* Painel de Controle da Simulação (Lado Direito) */}
-      <div className="max-w-md w-full bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl text-slate-200">
-        <h3 className="text-base font-bold text-white flex items-center gap-2 mb-3">
+      <div className="max-w-md w-full bg-white border border-[#EAF4E7] p-6 rounded-2xl shadow-xl text-[#26332A]">
+        <h3 className="text-base font-bold text-[#1D4B38] flex items-center gap-2 mb-3">
           <Activity className="w-5 h-5 text-emerald-400" /> Controle da Simulação Offline-First
         </h3>
-        <p className="text-xs text-slate-400 mb-4 leading-relaxed">
+        <p className="text-xs text-[#66736A] mb-4 leading-relaxed">
           Este simulador permite testar a experiência real do operador em campo sem conectividade, adaptado ao perfil operacional contratado: <strong className="text-indigo-400">{profileId.replace(/_/g, ' ')}</strong>.
         </p>
 
         {/* Chave de Conectividade */}
-        <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 mb-4">
+        <div className="bg-[#F7F9F5] p-4 rounded-xl border border-[#EAF4E7] mb-4">
           <div className="flex items-center justify-between">
             <div>
-              <span className="text-xs font-bold text-white flex items-center gap-1.5">
+              <span className="text-xs font-bold text-[#1D4B38] flex items-center gap-1.5">
                 {isOnline ? <Wifi className="w-4 h-4 text-emerald-400" /> : <WifiOff className="w-4 h-4 text-amber-400" />}
                 Estado da Conexão de Borda
               </span>
-              <p className="text-[11px] text-slate-400 mt-0.5">
+              <p className="text-[11px] text-[#66736A] mt-0.5">
                 {isOnline ? 'Conectado à nuvem (Wi-Fi Sede / 4G)' : 'Modo Campo (100% Offline)'}
               </p>
             </div>
@@ -910,32 +910,32 @@ ${pendentes} registros transferidos para o PostgreSQL central.`);
 
         {/* Garantias Arquiteturais em Ação */}
         <div className="space-y-2.5 text-xs">
-          <h4 className="font-bold text-slate-300 uppercase tracking-wider text-[11px]">
+          <h4 className="font-bold text-[#26332A] uppercase tracking-wider text-[11px]">
             Garantias Técnicas Testadas:
           </h4>
-          <div className="flex items-start gap-2 bg-slate-800/50 p-2 rounded-lg border border-slate-800">
+          <div className="flex items-start gap-2 bg-[#F7F9F5] p-2.5 rounded-lg border border-[#EAF4E7]">
             <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
             <div>
-              <span className="font-semibold text-white">UUIDv7 Cronológico:</span>
-              <p className="text-[11px] text-slate-400">
+              <span className="font-semibold text-[#1D4B38]">UUIDv7 Cronológico:</span>
+              <p className="text-[11px] text-[#66736A]">
                 Evita colisões ao sincronizar e mantém ordenação temporal natural em índices PostgreSQL B-Tree.
               </p>
             </div>
           </div>
-          <div className="flex items-start gap-2 bg-slate-800/50 p-2 rounded-lg border border-slate-800">
+          <div className="flex items-start gap-2 bg-[#F7F9F5] p-2.5 rounded-lg border border-[#EAF4E7]">
             <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
             <div>
-              <span className="font-semibold text-white">Adaptação Contextual do Cockpit:</span>
-              <p className="text-[11px] text-slate-400">
+              <span className="font-semibold text-[#1D4B38]">Adaptação Contextual do Cockpit:</span>
+              <p className="text-[11px] text-[#66736A]">
                 A interface e os fluxos de trabalho do dispositivo móvel espelham exatamente os módulos da atividade do produtor.
               </p>
             </div>
           </div>
-          <div className="flex items-start gap-2 bg-slate-800/50 p-2 rounded-lg border border-slate-800">
+          <div className="flex items-start gap-2 bg-[#F7F9F5] p-2.5 rounded-lg border border-[#EAF4E7]">
             <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
             <div>
-              <span className="font-semibold text-white">Recepção Assíncrona via RabbitMQ:</span>
-              <p className="text-[11px] text-slate-400">
+              <span className="font-semibold text-[#1D4B38]">Recepção Assíncrona via RabbitMQ:</span>
+              <p className="text-[11px] text-[#66736A]">
                 O gateway responde HTTP 202 instantaneamente, liberando a memória do aparelho sem retenção de rede.
               </p>
             </div>

@@ -148,28 +148,28 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
   const percentageActive = Math.round((activeCount / ALL_MODULES.length) * 100);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
       <div
-        className="bg-slate-900 border border-slate-800 w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl flex flex-col overflow-hidden text-slate-100"
+        className="bg-white border border-[#EAF4E7] w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl flex flex-col overflow-hidden text-[#26332A]"
         role="dialog"
         aria-modal="true"
       >
         {/* Header do Modal */}
-        <div className="px-6 py-4 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
+        <div className="px-6 py-4 bg-[#F7F9F5] border-b border-[#EAF4E7] flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-500 flex items-center justify-center text-slate-950 font-bold shadow-lg shadow-emerald-500/20">
               <Sliders className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="text-base sm:text-lg font-black tracking-tight text-white">
+                <h2 className="text-base sm:text-lg font-bold tracking-tight text-[#1D4B38]">
                   Configuração Modular de Atividades & Módulos
                 </h2>
                 <span className="px-2 py-0.5 text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full">
                   Atividade do Cliente
                 </span>
               </div>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-[#66736A]">
                 Personalize o sistema para exibir exclusivamente os módulos contratados e pertinentes à atividade da sua fazenda.
               </p>
             </div>
@@ -184,7 +184,7 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
         </div>
 
         {/* Resumo do Status Atual (Indicador de Módulos Ativos) */}
-        <div className="px-6 py-3 bg-slate-800/40 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div className="px-6 py-3 bg-[#F7F9F5] border-b border-[#EAF4E7] flex flex-wrap items-center justify-between gap-3 text-xs">
           <div className="flex items-center gap-2">
             <span className="text-slate-400">Perfil em Uso:</span>
             <span className="px-2.5 py-1 rounded-md font-bold bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5">
@@ -200,7 +200,7 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
           <div className="flex items-center gap-2">
             <button
               onClick={handleEnableAll}
-              className="px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-all cursor-pointer flex items-center gap-1"
+              className="px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-[#8FBF88] transition-all cursor-pointer flex items-center gap-1"
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span>Habilitar Todos (135)</span>
@@ -209,12 +209,12 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
         </div>
 
         {/* Abas de Configuração */}
-        <div className="flex border-b border-slate-800 bg-slate-900 px-6 pt-2 gap-2 text-xs font-semibold">
+        <div className="flex border-b border-[#EAF4E7] bg-white px-6 pt-2 gap-2 text-xs font-semibold">
           <button
             onClick={() => setActiveTab('PERFIS')}
             className={`pb-2.5 px-3 border-b-2 transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === 'PERFIS'
-                ? 'border-emerald-500 text-emerald-400 font-bold'
+                ? 'border-[#285943] text-[#1D4B38] font-bold'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -224,7 +224,7 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
             onClick={() => setActiveTab('CULTURAS')}
             className={`pb-2.5 px-3 border-b-2 transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === 'CULTURAS'
-                ? 'border-emerald-500 text-emerald-400 font-bold'
+                ? 'border-[#285943] text-[#1D4B38] font-bold'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -239,7 +239,7 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
             onClick={() => setActiveTab('MODULOS')}
             className={`pb-2.5 px-3 border-b-2 transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === 'MODULOS'
-                ? 'border-emerald-500 text-emerald-400 font-bold'
+                ? 'border-[#285943] text-[#1D4B38] font-bold'
                 : 'border-transparent text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -252,7 +252,7 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
           {/* ABA 1: PERFIS DE ATIVIDADE OPERACIONAL */}
           {activeTab === 'PERFIS' && (
             <div className="space-y-4">
-              <div className="bg-slate-950/60 p-3.5 rounded-xl border border-slate-800/80 text-xs text-slate-300 flex items-start gap-2.5">
+              <div className="bg-[#F4F0E6] p-3.5 rounded-xl border border-[#EAF4E7] text-xs text-slate-300 flex items-start gap-2.5">
                 <Info className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <span>
                   Selecione o perfil que melhor corresponde ao modelo de negócios e contrato da sua fazenda. O sistema automaticamente ocultará telas, gráficos e fluxos que não fazem parte da sua rotina diária.
@@ -269,8 +269,8 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
                       onClick={() => handleSelectProfile(prof.id)}
                       className={`p-4 rounded-xl border text-left transition-all cursor-pointer relative flex flex-col justify-between ${
                         isSelected
-                          ? 'bg-emerald-950/30 border-emerald-500 shadow-md shadow-emerald-500/10 ring-1 ring-emerald-500/30'
-                          : 'bg-slate-950/40 border-slate-800 hover:border-slate-700 hover:bg-slate-950/80'
+                          ? 'bg-[#EAF4E7] border-[#285943] shadow-md ring-1 ring-[#285943]/20'
+                          : 'bg-[#F7F9F5] border-[#EAF4E7] hover:border-[#8FBF88] hover:bg-[#EAF4E7]/40'
                       }`}
                     >
                       <div>
@@ -278,7 +278,7 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
                           <div className="flex items-center gap-2">
                             <span className="text-2xl">{prof.icon}</span>
                             <div>
-                              <h3 className="font-bold text-sm text-white">{prof.name}</h3>
+                              <h3 className="font-bold text-sm text-[#1D4B38]">{prof.name}</h3>
                               <span className="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider">
                                 {prof.badge}
                               </span>
@@ -291,12 +291,12 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
                           )}
                         </div>
 
-                        <p className="text-xs text-slate-400 leading-relaxed mb-3">
+                        <p className="text-xs text-[#66736A] leading-relaxed mb-3">
                           {prof.description}
                         </p>
                       </div>
 
-                      <div className="pt-2 border-t border-slate-800/60 flex items-center justify-between text-[11px] text-slate-400">
+                      <div className="pt-2 border-t border-[#EAF4E7]/60 flex items-center justify-between text-[11px] text-slate-400">
                         <span>
                           {prof.defaultModules.includes('*')
                             ? '135 módulos ativos'
@@ -317,7 +317,7 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
           {/* ABA 2: CULTURAS E CRIAÇÕES ESPECÍFICAS */}
           {activeTab === 'CULTURAS' && (
             <div className="space-y-4">
-              <div className="bg-slate-950/60 p-3.5 rounded-xl border border-slate-800/80 text-xs text-slate-300 flex items-start gap-2.5">
+              <div className="bg-[#F4F0E6] p-3.5 rounded-xl border border-[#EAF4E7] text-xs text-slate-300 flex items-start gap-2.5">
                 <Wheat className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <span>
                   Marque as culturas e criações exploradas nas suas unidades produtivas. Cada seleção habilita de forma inteligente os módulos técnicos correlatos (ex: Soja ativa Fixação Biológica e Nematóides; Bovinos ativa Zootecnia e SISBOV).
@@ -335,7 +335,7 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
                       className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer flex items-center justify-between gap-3 ${
                         isChecked
                           ? 'bg-emerald-950/20 border-emerald-500/70 text-white shadow-sm'
-                          : 'bg-slate-950/40 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200'
+                          : 'bg-[#F7F9F5]/40 border-[#EAF4E7] text-slate-400 hover:border-[#8FBF88] hover:text-slate-200'
                       }`}
                     >
                       <div className="flex items-center gap-2.5">
@@ -352,7 +352,7 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
                         className={`w-5 h-5 rounded-md border flex items-center justify-center transition-all ${
                           isChecked
                             ? 'bg-emerald-500 border-emerald-500 text-slate-950'
-                            : 'border-slate-700 bg-slate-900'
+                            : 'border-[#8FBF88] bg-slate-900'
                         }`}
                       >
                         {isChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
@@ -376,7 +376,7 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     placeholder="Filtrar módulos por nome ou tag..."
-                    className="w-full bg-slate-950 border border-slate-800 rounded-lg pl-9 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
+                    className="w-full bg-[#F7F9F5] border border-[#EAF4E7] rounded-lg pl-9 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
                   />
                   {searchTerm && (
                     <button
@@ -399,7 +399,7 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
                         className={`px-2 py-1 rounded-md transition-all cursor-pointer font-semibold ${
                           selectedCategoryFilter === cat
                             ? 'bg-emerald-600 text-white'
-                            : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                            : 'bg-[#F7F9F5] text-slate-400 hover:text-white border border-[#EAF4E7]'
                         }`}
                       >
                         {cat}
@@ -422,10 +422,10 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
                       onClick={() => !isCore && handleToggleModule(mod.id)}
                       className={`p-3 rounded-xl border flex items-center justify-between gap-3 transition-all ${
                         isCore
-                          ? 'bg-slate-950/60 border-slate-800 opacity-90 cursor-default'
+                          ? 'bg-[#F7F9F5]/60 border-[#EAF4E7] opacity-90 cursor-default'
                           : isEnabled
                           ? 'bg-emerald-950/20 border-emerald-500/50 hover:border-emerald-500 cursor-pointer'
-                          : 'bg-slate-950/40 border-slate-800/80 hover:border-slate-700 opacity-60 hover:opacity-100 cursor-pointer'
+                          : 'bg-[#F7F9F5]/40 border-[#EAF4E7]/80 hover:border-[#8FBF88] opacity-60 hover:opacity-100 cursor-pointer'
                       }`}
                     >
                       <div className="flex items-center gap-3 overflow-hidden">
@@ -444,7 +444,7 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
                               {mod.name}
                             </span>
                             {mod.badge && (
-                              <span className="px-1.5 py-0.2 text-[9px] font-bold rounded bg-slate-800 text-slate-300 border border-slate-700 shrink-0">
+                              <span className="px-1.5 py-0.2 text-[9px] font-bold rounded bg-slate-800 text-slate-300 border border-[#8FBF88] shrink-0">
                                 {mod.badge}
                               </span>
                             )}
@@ -463,7 +463,7 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
                       {/* Switch Toggle */}
                       <div className="shrink-0 flex items-center">
                         {isCore ? (
-                          <span className="text-[10px] text-slate-500 font-semibold px-2 py-0.5 rounded bg-slate-900 border border-slate-800">
+                          <span className="text-[10px] text-slate-500 font-semibold px-2 py-0.5 rounded bg-slate-900 border border-[#EAF4E7]">
                             Fixo
                           </span>
                         ) : (
@@ -489,7 +489,7 @@ export const ModuleConfigModal: React.FC<ModuleConfigModalProps> = ({
         </div>
 
         {/* Rodapé do Modal */}
-        <div className="px-6 py-3.5 bg-slate-950 border-t border-slate-800 flex items-center justify-between text-xs">
+        <div className="px-6 py-3.5 bg-[#F7F9F5] border-t border-[#EAF4E7] flex items-center justify-between text-xs">
           <div className="text-slate-400 flex items-center gap-1.5">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
             <span>
