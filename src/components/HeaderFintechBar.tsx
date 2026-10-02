@@ -95,10 +95,10 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
   }, []);
 
   return (
-    <div className="bg-[#0F291E] border-b border-[#1A4533] px-4 py-1.5 flex flex-wrap items-center justify-between gap-3 text-xs text-white">
+    <div className="bg-slate-950 border-b border-slate-800 px-4 py-1 flex flex-wrap items-center justify-between gap-3 text-xs text-white">
       {/* Ticker Financeiro e Commodities em Rolagem Elegante */}
       <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5 flex-1 min-w-0">
-        <span className="text-[10px] font-black uppercase text-emerald-300 flex items-center gap-1 shrink-0 bg-[#163D2C] px-2.5 py-0.5 rounded-lg border border-[#235840]">
+        <span className="text-[10px] font-black uppercase text-emerald-300 flex items-center gap-1 shrink-0 bg-slate-900 px-2.5 py-0.5 rounded-md border border-slate-800">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
           B3 • CBOT • CEPEA
         </span>
@@ -107,7 +107,7 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
           {ticker.map((item) => (
             <div
               key={item.id}
-              className="flex items-center gap-1.5 bg-[#163D2C] px-2.5 py-0.5 rounded-lg border border-[#235840] text-[11px] font-mono shrink-0 hover:border-emerald-400 transition-all shadow-2xs"
+              className="flex items-center gap-1.5 bg-slate-900 px-2.5 py-0.5 rounded-md border border-slate-800 text-[11px] font-mono shrink-0 hover:border-emerald-400 transition-all shadow-2xs"
             >
               <span className="text-slate-200 font-sans font-medium">{item.nome}:</span>
               <span className="text-white font-black">{item.valor}</span>
@@ -136,7 +136,7 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
           onClick={() => setModalDeltaTOpen(true)}
           className={`flex items-center gap-2 px-2.5 py-1 rounded-lg border text-[11px] font-mono transition-all cursor-pointer shadow-2xs ${
             deltaT.statusJanela === 'OPTIMAL'
-              ? 'bg-[#163D2C] border-[#235840] text-emerald-300 hover:bg-[#1E4D38]'
+              ? 'bg-slate-900 border-slate-800 text-emerald-400 hover:bg-slate-850'
               : 'bg-[#422C1A] border-[#D9B65D] text-amber-300 hover:bg-[#523720]'
           }`}
           title="Clique para ver o relatório meteorológico detalhado de pulverização"

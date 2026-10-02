@@ -610,195 +610,153 @@ export const App: React.FC = () => {
       {/* Barra de Ticker Financeiro B3/CBOT & Cockpit Climático Delta T */}
       <HeaderFintechBar onOpenDossie={() => setIsDossieBancarioOpen(true)} />
 
-      {/* 1. Barra de Navegação Superior (Header Principal Modernizado) */}
-      <header className="sticky top-0 z-50 bg-[#0E291C] border-b border-[#1A4B34] px-4 lg:px-8 py-2.5 print:hidden shadow-md text-white">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-3">
+      {/* 1. Header Principal Corporativo (Luminoso, Clean & Moderno) */}
+      <header className="sticky top-0 z-50 bg-white border-b border-slate-200/80 px-4 lg:px-8 py-2.5 print:hidden shadow-2xs">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
           {/* Logo, Identificação e Seletor de Propriedade */}
-          <div className="flex items-center justify-between w-full lg:w-auto gap-4">
-            <div className="flex items-center gap-3">
-              <div className="relative">
-                <div className="w-10 h-10 rounded-2xl bg-[#17452F] border border-emerald-500/50 flex items-center justify-center shadow-md shrink-0">
-                  <Sprout className="w-5 h-5 text-emerald-300" />
-                </div>
-                <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-xl bg-emerald-700 text-white flex items-center justify-center shadow-xs shrink-0 font-bold">
+                <Sprout className="w-5 h-5 text-white" />
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-base font-black tracking-tight text-slate-900 leading-none">
+                  AGROTECH
+                </span>
+                <span className="hidden sm:inline px-2 py-0.5 text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full">
+                  SaaS Rural
                 </span>
               </div>
-              <div>
-                <div className="flex items-center gap-2">
-                  <h1 className="text-lg font-black tracking-tight text-white leading-none">
-                    AGROTECH
-                  </h1>
-                  <span className="px-2 py-0.5 text-[10px] font-bold bg-[#17452F] text-emerald-300 border border-emerald-500/40 rounded-full flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                    O Sistema Operacional da Empresa Rural
+            </div>
+
+            {/* Divisor vertical */}
+            <div className="h-5 w-px bg-slate-200 hidden sm:block"></div>
+
+            {/* Seletor de Fazenda */}
+            <div className="relative">
+              <button
+                onClick={() => setIsFarmDropdownOpen((prev) => !prev)}
+                className="flex items-center gap-1.5 text-xs text-slate-800 font-bold bg-slate-50 hover:bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-200 transition-all cursor-pointer shadow-2xs"
+              >
+                <MapPin className="w-3.5 h-3.5 text-emerald-700" />
+                <span>{selectedFarm}</span>
+                <ChevronDown className="w-3 h-3 text-slate-400" />
+              </button>
+
+              {isFarmDropdownOpen && (
+                <div className="absolute left-0 mt-1 w-72 bg-white border border-slate-200 rounded-xl shadow-xl p-2 z-50 space-y-1 text-slate-900">
+                  <span className="text-[10px] uppercase font-bold text-slate-500 px-2 block">
+                    Trocar Propriedade Agrícola:
                   </span>
-                </div>
-
-                {/* Seletor Interativo de Fazenda & Atividade Contratada */}
-                <div className="flex flex-wrap items-center gap-2 mt-1">
-                  <div className="relative">
+                  {farmsList.map((f) => (
                     <button
-                      onClick={() => setIsFarmDropdownOpen((prev) => !prev)}
-                      className="flex items-center gap-1.5 text-xs text-emerald-100 hover:text-white font-medium bg-[#143D2A] hover:bg-[#1B5238] px-2.5 py-1 rounded-md border border-[#235F42] transition-all cursor-pointer shadow-2xs"
+                      key={f.id}
+                      onClick={() => handleSelectFarm(f)}
+                      className={`w-full text-left px-3 py-2 rounded-lg text-xs transition-all flex flex-col cursor-pointer ${
+                        selectedFarm.includes(f.nome)
+                          ? 'bg-emerald-50 text-emerald-900 font-bold border border-emerald-200'
+                          : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
+                      }`}
                     >
-                      <MapPin className="w-3.5 h-3.5 text-emerald-300" />
-                      <span className="font-semibold text-white">{selectedFarm}</span>
-                      <ChevronDown className="w-3 h-3 text-emerald-300/80" />
-                    </button>
-
-                    {isFarmDropdownOpen && (
-                      <div className="absolute left-0 mt-1 w-72 bg-[#0E291C] border border-[#235F42] rounded-xl shadow-2xl p-2 z-50 space-y-1 text-white">
-                        <span className="text-[10px] uppercase font-bold text-emerald-300 px-2 block">
-                          Trocar Propriedade Agrícola:
+                      <div className="flex items-center justify-between">
+                        <span className="font-semibold">{f.nome}</span>
+                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-slate-100 text-slate-700 font-mono font-bold">
+                          {f.profileLabel}
                         </span>
-                        {farmsList.map((f) => (
-                          <button
-                            key={f.id}
-                            onClick={() => handleSelectFarm(f)}
-                            className={`w-full text-left px-3 py-2 rounded-lg text-xs transition-all flex flex-col cursor-pointer ${
-                              selectedFarm.includes(f.nome)
-                                ? 'bg-[#17452F] text-emerald-300 font-bold border border-emerald-500/50'
-                                : 'text-slate-200 hover:bg-[#17452F] hover:text-white'
-                            }`}
-                          >
-                            <div className="flex items-center justify-between">
-                              <span className="font-semibold text-white">{f.nome}</span>
-                              <span className="text-[10px] px-1.5 py-0.2 rounded bg-[#0E291C] text-emerald-300 font-mono font-bold">
-                                {f.profileLabel}
-                              </span>
-                            </div>
-                            <span className="text-[10px] text-slate-300">{f.local} • {f.area} • {f.safra}</span>
-                          </button>
-                        ))}
                       </div>
-                    )}
-                  </div>
-
-                  {/* Seletor de Atividade Contratada & Gestão Modular */}
-                  <button
-                    onClick={() => setIsModuleConfigOpen(true)}
-                    className="flex items-center gap-1.5 text-xs text-emerald-100 hover:text-white font-medium bg-[#143D2A] hover:bg-[#1B5238] px-2.5 py-1 rounded-md border border-[#235F42] transition-all cursor-pointer group shadow-2xs"
-                    title="Configuração de Módulos e Atividades Contratadas"
-                  >
-                    <span className="text-xs">{activeProfile.icon}</span>
-                    <span className="text-emerald-300 font-medium">Atividade:</span>
-                    <strong className="text-white font-bold">{activeProfile.shortLabel}</strong>
-                    <span className="text-[10px] text-emerald-300 bg-[#0E291C] px-1.5 py-0.2 rounded font-mono font-bold border border-[#235F42]">
-                      {availableModules.length}/{ALL_MODULES.length}
-                    </span>
-                    <Sliders className="w-3 h-3 text-emerald-300 group-hover:text-white transition-colors" />
-                  </button>
+                      <span className="text-[10px] text-slate-500">{f.local} • {f.area} • {f.safra}</span>
+                    </button>
+                  ))}
                 </div>
-              </div>
+              )}
             </div>
 
-            {/* Ações Rápidas: Busca, Alertas & Lançamento */}
-            <div className="flex items-center gap-2">
-              {/* Botão de Busca Rápida (Ctrl+K) */}
-              <button
-                onClick={() => setIsQuickAccessOpen(true)}
-                className="flex items-center gap-2 px-3 py-1.5 bg-[#143D2A] hover:bg-[#1B5238] text-white rounded-xl border border-[#235F42] text-xs font-semibold shadow-2xs transition-all cursor-pointer"
-                title="Pressione Ctrl + K para abrir o Command Palette"
-              >
-                <Search className="w-3.5 h-3.5 text-emerald-300" />
-                <span className="hidden sm:inline font-medium">Buscar Módulo</span>
-                <kbd className="hidden md:inline-block px-1.5 py-0.5 text-[10px] font-mono bg-[#0E291C] text-emerald-300 rounded border border-[#235F42]">
-                  Ctrl K
-                </kbd>
-              </button>
-
-              {/* Botão de Central de Alertas e Notificações com Badge */}
-              <button
-                onClick={() => setIsNotificationOpen(true)}
-                className="relative p-2 bg-[#143D2A] hover:bg-[#1B5238] text-amber-400 hover:text-white rounded-xl border border-[#235F42] text-xs font-semibold shadow-2xs transition-all cursor-pointer"
-                title="Abrir Central de Notificações Operacionais"
-              >
-                <Bell className="w-4 h-4 text-amber-400" />
-                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-600 text-white text-[9px] font-black flex items-center justify-center">
-                  3
-                </span>
-              </button>
-
-              {/* Botão de Lançamento Rápido de Campo (+ Lançar) */}
-              <button
-                onClick={() => setIsQuickEntryOpen(true)}
-                className="flex items-center gap-2 px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold rounded-xl text-xs shadow-md transition-all cursor-pointer transform hover:scale-105 active:scale-95"
-                title="Abrir Central de Lançamentos Rápidos (Pressione N)"
-              >
-                <Plus className="w-4 h-4 stroke-[3]" />
-                <span className="hidden sm:inline">Novo Lançamento</span>
-                <kbd className="hidden md:inline-block px-1.5 py-0.2 text-[9px] font-mono bg-[#0E291C] text-white rounded border border-[#235F42]">
-                  N
-                </kbd>
-              </button>
-
-              {/* Botão para Portal Institucional / Planos */}
-              <button
-                onClick={() => handleNavigateView('LANDING')}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-100 hover:bg-amber-200 text-amber-950 rounded-xl border border-amber-300 text-xs font-bold shadow-2xs transition-all cursor-pointer"
-                title="Ver Landing Page Institucional e Planos"
-              >
-                <Globe className="w-3.5 h-3.5 text-amber-900" />
-                <span className="hidden xl:inline">Portal Comercial</span>
-              </button>
-
-              {/* Botão de Trocar Conta / Login */}
-              <button
-                onClick={() => handleNavigateView('LOGIN')}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 bg-white/10 hover:bg-white/20 text-white rounded-xl border border-white/20 text-xs font-semibold shadow-2xs transition-all cursor-pointer"
-                title="Trocar de Conta / Tela de Login"
-              >
-                <LogOut className="w-3.5 h-3.5 text-emerald-300" />
-                <span className="hidden xl:inline">Sair</span>
-              </button>
-            </div>
+            {/* Atividade Ativa */}
+            <button
+              onClick={() => setIsModuleConfigOpen(true)}
+              className="hidden md:flex items-center gap-1.5 text-xs text-slate-700 font-medium bg-slate-50 hover:bg-slate-100 px-2.5 py-1.5 rounded-xl border border-slate-200 transition-all cursor-pointer group shadow-2xs"
+              title="Configuração de Módulos e Atividades Contratadas"
+            >
+              <span className="text-xs">{activeProfile.icon}</span>
+              <strong className="text-slate-900 font-bold">{activeProfile.shortLabel}</strong>
+              <Sliders className="w-3 h-3 text-slate-400 group-hover:text-emerald-700 transition-colors" />
+            </button>
           </div>
 
-          {/* Atalhos Rápidos Favoritos */}
-          <nav className="flex items-center gap-1.5 bg-[#143D2A] p-1.5 rounded-xl border border-[#235F42] text-xs font-semibold overflow-x-auto max-w-full">
-            <span className="text-[10px] text-emerald-300 font-bold uppercase tracking-wider px-2 hidden sm:inline flex items-center gap-1">
-              <Star className="w-3 h-3 text-amber-400 fill-current" /> Favoritos:
-            </span>
+          {/* Centro: Busca Rápida Ctrl+K */}
+          <button
+            onClick={() => setIsQuickAccessOpen(true)}
+            className="hidden sm:flex items-center gap-2.5 px-3.5 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-500 rounded-xl border border-slate-200 text-xs font-medium shadow-2xs transition-all cursor-pointer w-48 md:w-64"
+            title="Pressione Ctrl + K para abrir o Command Palette"
+          >
+            <Search className="w-3.5 h-3.5 text-slate-400" />
+            <span className="truncate">Buscar módulo ou comando...</span>
+            <kbd className="ml-auto px-1.5 py-0.5 text-[9px] font-mono bg-white text-slate-500 rounded border border-slate-200">
+              Ctrl K
+            </kbd>
+          </button>
 
-            {modulosBarraSuperior.map((mod: ModuleItem) => {
-              const Icon = mod.icon;
-              const isActive = activeTab === mod.id;
-              const isFav = favoritos.includes(mod.id);
-
-              return (
+          {/* Direita: Perfil RBAC, Ações & Sair */}
+          <div className="flex items-center gap-2">
+            {/* Seletor de Papel RBAC */}
+            <div className="hidden xl:flex items-center bg-slate-100 p-0.5 rounded-xl border border-slate-200 text-xs">
+              {(['PRODUTOR', 'AGRONOMO', 'OPERADOR', 'CONTADOR'] as UserProfileRole[]).map((r) => (
                 <button
-                  key={mod.id}
-                  onClick={() => handleSelectModule(mod.id)}
-                  className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all whitespace-nowrap cursor-pointer ${
-                    isActive
-                      ? 'bg-[#285943] text-white shadow-sm border border-[#5F8F52]'
-                      : 'text-emerald-600 hover:text-white hover:bg-[#1D4B38]'
-                  }`}
-                  title={mod.fullName}
+                  key={r}
+                  onClick={() => {
+                    agroApi.login(r);
+                  }}
+                  className="px-2.5 py-1 rounded-lg text-[11px] font-semibold text-slate-600 hover:text-slate-900 transition-all cursor-pointer hover:bg-white/60"
                 >
-                  <Icon className="w-3.5 h-3.5" />
-                  <span>{mod.name}</span>
-                  {!isFav && (
-                    <span className="w-1.5 h-1.5 bg-[#D9B65D] rounded-full" title="Módulo temporário ativo"></span>
-                  )}
+                  {r === 'PRODUTOR' ? 'Produtor' : r === 'AGRONOMO' ? 'Agrônomo' : r === 'OPERADOR' ? 'Operador' : 'Contador'}
                 </button>
-              );
-            })}
+              ))}
+            </div>
 
+            {/* Central de Alertas */}
             <button
-              onClick={() => setSelectedDomain('TODOS')}
-              className="px-2.5 py-1 text-emerald-300 hover:text-white rounded-lg text-xs font-bold transition-all ml-1 cursor-pointer"
+              onClick={() => setIsNotificationOpen(true)}
+              className="relative p-2 bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-slate-900 rounded-xl border border-slate-200 text-xs transition-all cursor-pointer shadow-2xs"
+              title="Abrir Central de Notificações"
             >
-              <span>Ativos ({availableModules.length})</span>
+              <Bell className="w-4 h-4" />
+              <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-600 text-white text-[9px] font-bold flex items-center justify-center">
+                3
+              </span>
             </button>
-          </nav>
+
+            {/* Botão Novo Lançamento */}
+            <button
+              onClick={() => setIsQuickEntryOpen(true)}
+              className="flex items-center gap-1.5 px-3.5 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl text-xs shadow-xs transition-all cursor-pointer"
+              title="Abrir Central de Lançamentos Rápidos (Pressione N)"
+            >
+              <Plus className="w-4 h-4 stroke-[3]" />
+              <span className="hidden sm:inline">Novo Lançamento</span>
+            </button>
+
+            {/* Portal Comercial */}
+            <button
+              onClick={() => handleNavigateView('LANDING')}
+              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-700 rounded-xl border border-slate-200 text-xs font-semibold shadow-2xs transition-all cursor-pointer"
+              title="Ver Landing Page Institucional e Planos"
+            >
+              <Globe className="w-3.5 h-3.5 text-slate-600" />
+              <span>Portal</span>
+            </button>
+
+            {/* Botão Sair */}
+            <button
+              onClick={() => handleNavigateView('LOGIN')}
+              className="flex items-center gap-1 px-2.5 py-1.5 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-xl text-xs font-semibold border border-transparent transition-all cursor-pointer"
+              title="Trocar de Conta / Tela de Login"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span className="hidden xl:inline">Sair</span>
+            </button>
+          </div>
         </div>
       </header>
-
-      {/* 2. Barra de Controle de Perfil RBAC & Sessão */}
-      <UserRoleBar onOpenQuickAccess={() => setIsQuickAccessOpen(true)} profileId={subscriptionConfig.profileId} />
 
       {/* 3. Navegador de Categorias & Faixa de Módulos (Domain Ribbon) */}
       <div className="bg-white border-b border-slate-200 px-4 lg:px-8 py-2.5 shadow-xs print:hidden">
@@ -813,8 +771,8 @@ export const App: React.FC = () => {
                 onClick={() => setSelectedDomain('TODOS')}
                 className={`px-3 py-1 rounded-lg font-bold transition-all whitespace-nowrap cursor-pointer border ${
                   selectedDomain === 'TODOS'
-                    ? 'bg-emerald-700 text-white border-emerald-700 shadow-2xs'
-                    : 'text-slate-700 bg-white border-slate-200 hover:bg-slate-50 hover:text-slate-900'
+                    ? 'bg-emerald-700 text-white border-emerald-700 shadow-xs'
+                    : 'text-slate-600 bg-transparent border-transparent hover:bg-slate-100 hover:text-slate-900'
                 }`}
               >
                 Habilitados ({availableModules.length})
@@ -954,15 +912,15 @@ export const App: React.FC = () => {
 
       {/* Conteúdo Principal Dinâmico */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-8 space-y-6">
-        {/* Active Module Header & Quick Star Action */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        {/* Active Module Header & Quick Actions */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 pb-3 border-b border-slate-200/80">
           <div className="flex items-center gap-3">
-            <span className="p-2.5 bg-emerald-50 text-[#285943] border border-emerald-300/50 rounded-xl shadow-sm shrink-0">
-              <activeModuleObj.icon className="w-5 h-5 text-[#285943]" />
+            <span className="w-9 h-9 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl flex items-center justify-center shrink-0 shadow-2xs font-bold">
+              <activeModuleObj.icon className="w-5 h-5 text-emerald-700" />
             </span>
             <div>
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-emerald-50 text-[#285943] border border-emerald-300/50">
+                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200">
                   {activeModuleObj.category === 'CAMPO'
                     ? 'Agronomia & Manejo'
                     : activeModuleObj.category === 'FROTA'
@@ -973,24 +931,24 @@ export const App: React.FC = () => {
                     ? 'Fiscal & LCDPR'
                     : 'Pecuária & ILPF'}
                 </span>
-                <span className="text-sm font-bold text-[#285943]">{activeModuleObj.fullName}</span>
+                <h1 className="text-base font-bold text-slate-900">{activeModuleObj.fullName}</h1>
                 {activeModuleObj.badge && (
-                  <span className="text-[10px] px-2 py-0.5 bg-emerald-50 text-[#285943] border border-emerald-300 rounded-full font-bold">
+                  <span className="text-[10px] px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full font-bold">
                     {activeModuleObj.badge}
                   </span>
                 )}
               </div>
-              <p className="text-xs text-slate-600 mt-0.5">{activeModuleObj.description}</p>
+              <p className="text-xs text-slate-500 mt-0.5">{activeModuleObj.description}</p>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2 shrink-0">
+          <div className="flex items-center gap-2 shrink-0">
             {/* Atalhos Rápidos Operacionais do Módulo */}
-            <div className="hidden sm:flex items-center gap-1 bg-slate-50 p-1 rounded-xl border border-slate-200">
+            <div className="hidden sm:flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
               {activeTab !== 'BI' && (
                 <button
                   onClick={() => handleSelectModule('BI')}
-                  className="px-2.5 py-1 text-[11px] font-semibold text-slate-600 hover:text-[#285943] hover:bg-emerald-50 rounded-lg transition-all cursor-pointer"
+                  className="px-2.5 py-1 text-[11px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-white rounded-lg transition-all cursor-pointer"
                   title="Painel Executivo BI"
                 >
                   Cockpit BI
@@ -999,7 +957,7 @@ export const App: React.FC = () => {
               {activeTab !== 'SIG' && (
                 <button
                   onClick={() => handleSelectModule('SIG')}
-                  className="px-2.5 py-1 text-[11px] font-semibold text-slate-600 hover:text-[#285943] hover:bg-emerald-50 rounded-lg transition-all cursor-pointer"
+                  className="px-2.5 py-1 text-[11px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-white rounded-lg transition-all cursor-pointer"
                   title="Central SIG de Mapas"
                 >
                   Mapa SIG
@@ -1008,7 +966,7 @@ export const App: React.FC = () => {
               {activeTab !== 'COPILOT' && (
                 <button
                   onClick={() => handleSelectModule('COPILOT')}
-                  className="px-2.5 py-1 text-[11px] font-semibold text-emerald-700 hover:text-[#285943] hover:bg-emerald-50 rounded-lg transition-all flex items-center gap-1 cursor-pointer"
+                  className="px-2.5 py-1 text-[11px] font-semibold text-emerald-700 hover:text-emerald-900 hover:bg-white rounded-lg transition-all flex items-center gap-1 cursor-pointer"
                   title="Copilot IA Safra"
                 >
                   <Sparkles className="w-3 h-3 text-emerald-700" /> Copilot IA
@@ -1017,32 +975,32 @@ export const App: React.FC = () => {
               {activeTab !== 'MOBILE' && (
                 <button
                   onClick={() => handleSelectModule('MOBILE')}
-                  className="px-2.5 py-1 text-[11px] font-semibold text-[#7DA9C4] hover:text-[#285943] hover:bg-emerald-50 rounded-lg transition-all flex items-center gap-1 cursor-pointer"
+                  className="px-2.5 py-1 text-[11px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-white rounded-lg transition-all flex items-center gap-1 cursor-pointer"
                   title="Simulador de Aplicativo Mobile Offline"
                 >
-                  <Smartphone className="w-3 h-3 text-[#7DA9C4]" /> Mobile
+                  <Smartphone className="w-3 h-3 text-slate-500" /> Mobile
                 </button>
               )}
             </div>
 
             <button
               onClick={() => handleToggleFavorito(activeModuleObj.id)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-semibold transition cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-semibold transition cursor-pointer shadow-2xs ${
                 favoritos.includes(activeModuleObj.id)
-                  ? 'bg-amber-50 border-[#D9B65D] text-[#285943]'
-                  : 'bg-slate-50 border-slate-200 text-slate-600 hover:text-[#285943]'
+                  ? 'bg-amber-50 border-amber-300 text-amber-900'
+                  : 'bg-white hover:bg-slate-50 border-slate-200 text-slate-700'
               }`}
             >
               <Star
                 className={`w-3.5 h-3.5 ${
-                  favoritos.includes(activeModuleObj.id) ? 'fill-current text-amber-700' : ''
+                  favoritos.includes(activeModuleObj.id) ? 'fill-current text-amber-500' : 'text-slate-400'
                 }`}
               />
               <span className="hidden sm:inline">{favoritos.includes(activeModuleObj.id) ? 'Favoritado' : 'Favoritar'}</span>
             </button>
             <button
               onClick={() => setIsQuickAccessOpen(true)}
-              className="p-1.5 bg-slate-50 hover:bg-emerald-50 border border-slate-200 rounded-xl text-[#285943] transition cursor-pointer"
+              className="p-1.5 bg-white hover:bg-slate-50 border border-slate-200 rounded-xl text-slate-600 hover:text-slate-900 transition cursor-pointer shadow-2xs"
               title="Abrir Command Palette (Ctrl+K)"
             >
               <Search className="w-4 h-4" />
@@ -1408,26 +1366,6 @@ export const App: React.FC = () => {
           </React.Suspense>
         </ModuleErrorBoundary>
       </main>
-
-      {/* Botão Flutuante Rápido para Alternar para Landing Page Comercial */}
-      <button
-        onClick={() => handleNavigateView('LANDING')}
-        className="fixed bottom-6 left-6 z-40 bg-white/95 hover:bg-amber-50 text-[#285943] border border-slate-200 p-3 sm:px-4 sm:py-2.5 rounded-2xl shadow-xl flex items-center gap-2 font-bold text-xs transition-all transform hover:scale-105 active:scale-95 print:hidden cursor-pointer backdrop-blur-md"
-        title="Ver a Landing Page Institucional e Planos"
-      >
-        <Globe className="w-4 h-4 text-[#285943]" />
-        <span className="hidden sm:inline">Portal Comercial & Planos</span>
-      </button>
-
-      {/* Botão Flutuante (FAB) de Lançamento Rápido em Campo */}
-      <button
-        onClick={() => setIsQuickEntryOpen(true)}
-        className="fixed bottom-6 right-6 z-40 bg-[#285943] hover:bg-[#1b4332] text-white p-4 rounded-2xl shadow-2xl flex items-center gap-2.5 font-black text-xs transition-all transform hover:scale-105 active:scale-95 print:hidden group cursor-pointer border border-[#5F8F52]/50"
-        title="Lançamento Rápido de Campo (Atalho N)"
-      >
-        <Plus className="w-5 h-5 stroke-[3] group-hover:rotate-90 transition-transform duration-200" />
-        <span className="hidden md:inline font-black tracking-wide">+ Lançamento (N)</span>
-      </button>
 
       {/* Central Unificada de Lançamentos Rápidos */}
       <GlobalQuickEntryModal

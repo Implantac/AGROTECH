@@ -51,53 +51,6 @@ export const DashboardBI: React.FC<DashboardBIProps> = ({
 
   return (
     <div className="space-y-6">
-      {/* Banner de Contexto Operacional Ativo */}
-      <div className="bg-white border border-slate-200 p-4 rounded-2xl shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-300 flex items-center justify-center text-xl shrink-0">
-            {isPecuaria ? '🐂' : isHF ? '🍓' : isBioenergia ? '🎋' : isMisto ? '🚜' : '🌾'}
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <h2 className="text-sm sm:text-base font-bold text-slate-900">
-                Dashboard Executivo •{' '}
-                {isPecuaria
-                  ? 'Pecuária de Corte, Leite & Confinamento'
-                  : isHF
-                  ? 'Hortifrúti, HF & Cultivo Protegido'
-                  : isBioenergia
-                  ? 'Bioenergia, Usina Sucroalcooleira & RenovaBio'
-                  : isMisto
-                  ? 'Agropecuária Integrada (Grãos + Pecuária / ILPF)'
-                  : 'Lavouras de Grãos & Commodities'}
-              </h2>
-              <span className="px-2 py-0.5 text-[10px] font-bold rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300">
-                Módulos Filtrados
-              </span>
-            </div>
-            <p className="text-xs text-slate-600">
-              {isPecuaria
-                ? 'Indicadores zootécnicos, ganho de peso diário, termometria de cocho e rastreabilidade individual RFID.'
-                : isHF
-                ? 'Produtividade de hortaliças, controle de brix, condutividade elétrica da fertirrigação e estufas.'
-                : isBioenergia
-                ? 'Balanço de moenda, açúcar recuperável ATR, cogeração de bagaço e créditos RenovaBio CBIO.'
-                : 'Custos baseados em atividades ABC, taxa variável VRA, balança e cotações de commodities em tempo real.'}
-            </p>
-          </div>
-        </div>
-
-        {onOpenModuleConfig && (
-          <button
-            onClick={onOpenModuleConfig}
-            className="px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-900 hover:text-slate-900 border border-slate-200 text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap self-end sm:self-auto"
-          >
-            <Sliders className="w-3.5 h-3.5 text-emerald-800" />
-            <span>Configurar Módulos da Conta</span>
-          </button>
-        )}
-      </div>
-
       {/* 4 Cards de KPIs Principais Dinâmicos de Acordo com a Atividade */}
       {isPecuaria ? (
         /* KPIS DE PECUÁRIA */
