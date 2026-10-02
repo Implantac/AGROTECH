@@ -1300,6 +1300,178 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 8.18. API: Core ERP - Paridade de Exportação & Barter (Lei 13.986/2020)
+  if (pathname === '/api/v1/erp/barter/paridade') {
+    parseRequestBody(body => {
+      const cbot = parseFloat(body.precoCbotUsdPorBushel || 11.83);
+      const ptax = parseFloat(body.taxaCambioPtaxBacen || 5.4150);
+      const premio = parseFloat(body.premioFobUsdPorBushel || 0.45);
+      const frete = parseFloat(body.custoFreteInteriorPorSaca || 14.50);
+      const elevacao = parseFloat(body.despesasElevacaoPortuariaPorSaca || 3.20);
+      const impostos = parseFloat(body.impostosTaxasPorSaca || 0.85);
+
+      const precoFobUsdBushel = cbot + premio;
+      const precoFobUsdTon = Number((precoFobUsdBushel * 36.7437).toFixed(2));
+      const fatorBushelSaca = 2.20462262;
+      const precoFobReaisSaca = Number((precoFobUsdBushel * fatorBushelSaca * ptax).toFixed(2));
+      const custoLogisticaTotal = Number((frete + elevacao + impostos).toFixed(2));
+      const paridadeFazendaLiquida = Number((precoFobReaisSaca - custoLogisticaTotal).toFixed(2));
+
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        precoCbotUsdPorBushel: cbot,
+        taxaCambioPtaxBacen: ptax,
+        precoFobUsdPorBushel: precoFobUsdBushel,
+        precoFobUsdPorTonelada: precoFobUsdTon,
+        precoFobReaisPorSaca: precoFobReaisSaca,
+        custoLogisticaTotalPorSaca: custoLogisticaTotal,
+        paridadeFazendaLiquidaPorSaca: paridadeFazendaLiquida,
+        timestamp: new Date().toISOString()
+      }));
+    });
+    return;
+  }
+
+  // 8.19. API: Core ERP - Piso Mínimo de Frete Rodoviário ANTT (Lei 13.703/2018)
+  if (pathname === '/api/v1/erp/frete/antt' && req.method === 'POST') {
+    parseRequestBody(body => {
+      const TABELA = {
+        TOCO_2_EIXOS: { eixos: 2, ccdKm: 3.42, ccFixo: 280.0, capTon: 8.5 },
+        TRUCK_3_EIXOS: { eixos: 3, ccdKm: 4.56, ccFixo: 360.0, capTon: 14.0 },
+        CAVALO_TOCO_SEMIREBOQUE_4_EIXOS: { eixos: 4, ccdKm: 5.68, ccFixo: 440.0, capTon: 22.0 },
+        CAVALO_TRUCADO_SEMIREBOQUE_5_EIXOS: { eixos: 5, ccdKm: 6.72, ccFixo: 520.0, capTon: 27.0 },
+        BITREM_7_EIXOS: { eixos: 7, ccdKm: 8.94, ccFixo: 680.0, capTon: 38.0 },
+        RODOTREM_9_EIXOS: { eixos: 9, ccdKm: 10.45, ccFixo: 820.0, capTon: 49.5 }
+      };
+
+      const tipo = body.tipoVeiculo || 'RODOTREM_9_EIXOS';
+      const cfg = TABELA[tipo] || TABELA.RODOTREM_9_EIXOS;
+      const distanciaKm = parseFloat(body.distanciaKm || 850);
+      const pedagio = parseFloat(body.valorPedagioTotal || 420);
+      const pesoTon = parseFloat(body.pesoCargaToneladas || cfg.capTon);
+      const retornoVazio = !!body.retornoVazio;
+
+      const custoDeslocamento = distanciaKm * cfg.ccdKm;
+      const custoCargaDescarga = cfg.ccFixo;
+      const adicionalRetorno = retornoVazio ? custoDeslocamento * 0.20 : 0;
+      const valorTotalMinimo = Number((custoDeslocamento + custoCargaDescarga + adicionalRetorno + pedagio).toFixed(2));
+      const custoPorTon = Number((valorTotalMinimo / Math.max(0.1, pesoTon)).toFixed(2));
+      const sacasTransportadas = (pesoTon * 1000) / 60;
+      const custoPorSaca = Number((valorTotalMinimo / Math.max(1, sacasTransportadas)).toFixed(2));
+
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        tipoVeiculo: tipo,
+        quantidadeEixos: cfg.eixos,
+        distanciaKm,
+        pesoCargaToneladas: pesoTon,
+        valorPedagioObrigatorio: pedagio,
+        adicionalRetornoVazio: Number(adicionalRetorno.toFixed(2)),
+        valorTotalMinimoFrete: valorTotalMinimo,
+        custoPorTonelada: custoPorTon,
+        custoPorSaca60kg: custoPorSaca,
+        emConformidadePisoANTT: true,
+        normativa: 'LEI_13703_2018_ANTT'
+      }));
+    });
+    return;
+  }
+
+  // 8.20. API: Core ERP - Balanço Hídrico FAO-56 & Tarifa Noturna de Irrigação
+  if (pathname === '/api/v1/erp/irrigacao/balanco' && req.method === 'POST') {
+    parseRequestBody(body => {
+      const eto = parseFloat(body.etoReferenciaMmDia || 5.8);
+      const kc = parseFloat(body.coeficienteCulturaKc || 1.15);
+      const chuva = parseFloat(body.precipitacaoEfetivaMmDia || 2.0);
+      const areaHa = parseFloat(body.areaIrrigadaHectares || 120);
+      const vazaoM3h = parseFloat(body.vazaoTotalM3Hora || 380);
+      const eficiencia = parseFloat(body.eficienciaAplicacaoPct || 88) / 100;
+      const potenciaCv = parseFloat(body.potenciaTotalCv || 175);
+      const tarifaDia = parseFloat(body.tarifaEnergiaDiurnaKwh || 0.72);
+      const tarifaNoite = parseFloat(body.tarifaEnergiaNoturnaKwh || 0.19);
+
+      const etc = Number((eto * kc).toFixed(2));
+      const balanco = chuva - etc;
+      const necessitaIrrigacao = balanco < 0;
+      const laminaLiq = necessitaIrrigacao ? Number(Math.abs(balanco).toFixed(2)) : 0;
+      const laminaBruta = necessitaIrrigacao ? Number((laminaLiq / eficiencia).toFixed(2)) : 0;
+      const volumeM3 = Math.round(laminaBruta * areaHa * 10);
+      const horasPivo = vazaoM3h > 0 ? Number((volumeM3 / vazaoM3h).toFixed(1)) : 0;
+
+      const potKw = potenciaCv * 0.735499;
+      const kwhTotal = potKw * horasPivo;
+      const custoDia = Number((kwhTotal * tarifaDia).toFixed(2));
+      const custoNoite = Number((kwhTotal * tarifaNoite).toFixed(2));
+      const economia = Number((custoDia - custoNoite).toFixed(2));
+      const pctEconomia = custoDia > 0 ? Number(((economia / custoDia) * 100).toFixed(1)) : 0;
+
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        etcConsumoCulturaMmDia: etc,
+        deficienciaOuExcessoMm: Number(balanco.toFixed(2)),
+        necessitaIrrigacao,
+        laminaLiquidaRecomendadaMm: laminaLiq,
+        laminaBrutaRecomendadaMm: laminaBruta,
+        horasOperacaoPivoNecessarias: horasPivo,
+        volumeTotalAguaM3: volumeM3,
+        custoEnergiaDiurnaReais: custoDia,
+        custoEnergiaNoturnaReais: custoNoite,
+        economiaTarifaNoturnaReais: economia,
+        percentualEconomiaNoturnaPct: pctEconomia,
+        normativa: 'FAO_56_E_ANEEL_414_2010'
+      }));
+    });
+    return;
+  }
+
+  // 8.21. API: Core ERP - Interpretação de Laudo de Solo, Calagem & Gessagem
+  if (pathname === '/api/v1/erp/solo/recomendacao' && req.method === 'POST') {
+    parseRequestBody(body => {
+      const ca = parseFloat(body.calcioCmolcdm3 || 1.80);
+      const mg = parseFloat(body.magnesioCmolcdm3 || 0.70);
+      const k = parseFloat(body.potassioCmolcdm3 || 0.18);
+      const al = parseFloat(body.aluminioCmolcdm3 || 0.45);
+      const hal = parseFloat(body.hMaisAlCmolcdm3 || 4.20);
+      const argila = parseFloat(body.argilaPct || 38.0);
+      const v2Alvo = parseFloat(body.saturacaoBasesAlvoV2Pct || 70.0);
+      const prnt = parseFloat(body.prntCalcarioPct || 85.0);
+
+      const sb = Number((ca + mg + k).toFixed(2));
+      const t = Number((sb + al).toFixed(2));
+      const T = Number((sb + hal).toFixed(2));
+      const v1 = T > 0 ? Number(((sb / T) * 100).toFixed(1)) : 0;
+      const m = t > 0 ? Number(((al / t) * 100).toFixed(1)) : 0;
+
+      let nc = 0;
+      if (v2Alvo > v1 && prnt > 0) {
+        nc = Number((((v2Alvo - v1) * T) / prnt).toFixed(2));
+      }
+      const ng = Math.round(50 * argila);
+
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        somaBasesSB: sb,
+        ctcEfetivaT: t,
+        ctcPh7T: T,
+        saturacaoBasesV1Pct: v1,
+        saturacaoAluminioMPct: m,
+        necessidadeCalagemTonHa: nc,
+        necessidadeGessoKgHa: ng,
+        alertaToxidezAluminio: m > 15.0 || al > 0.3,
+        normativa: 'METODO_SATURACAO_BASES_E_EMBRAPA_CERRADOS'
+      }));
+    });
+    return;
+  }
+
   // 9. Servir Arquivos Estáticos SPA
   let filePath = path.join(STATIC_DIR, pathname === '/' ? 'index.html' : pathname);
 
