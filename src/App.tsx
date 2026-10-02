@@ -41,6 +41,7 @@ import {
 } from 'lucide-react';
 import { PublicLandingPage } from './components/PublicLandingPage';
 import { LoginScreen } from './components/LoginScreen';
+import { RegisterOnboardingScreen } from './components/RegisterOnboardingScreen';
 import { TALHOES_INICIAIS, TalhaoData } from './data/mockAgroData';
 import { QuickAccessModal, ALL_MODULES, ModuleItem } from './components/QuickAccessModal';
 import { GlobalQuickEntryModal } from './components/GlobalQuickEntryModal';
@@ -260,24 +261,26 @@ class ModuleErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBound
 }
 
 export const App: React.FC = () => {
-  // Controle de Visualização Global: Landing Page Institucional | Tela de Login | Cockpit da Plataforma
-  const [currentAppView, setCurrentAppView] = useState<'LANDING' | 'LOGIN' | 'PLATFORM'>(() => {
+  // Controle de Visualização Global: Landing Page Institucional | Tela de Login | Cadastro & Onboarding | Cockpit da Plataforma
+  const [currentAppView, setCurrentAppView] = useState<'LANDING' | 'LOGIN' | 'REGISTER' | 'PLATFORM'>(() => {
     try {
       if (typeof window !== 'undefined') {
         const urlParams = new URLSearchParams(window.location.search);
         const urlView = urlParams.get('view');
         if (urlView === 'platform') return 'PLATFORM';
         if (urlView === 'login') return 'LOGIN';
+        if (urlView === 'register' || urlView === 'cadastro') return 'REGISTER';
         if (urlView === 'landing') return 'LANDING';
 
         const hash = window.location.hash;
         if (hash.includes('cockpit') || hash.includes('platform')) return 'PLATFORM';
         if (hash.includes('login')) return 'LOGIN';
+        if (hash.includes('register') || hash.includes('cadastro')) return 'REGISTER';
         if (hash.includes('landing') || hash.includes('planos') || hash.includes('calculadora')) return 'LANDING';
 
         const saved = sessionStorage.getItem('agtech_current_app_view');
-        if (saved === 'LOGIN' || saved === 'PLATFORM' || saved === 'LANDING') {
-          return saved;
+        if (saved === 'LOGIN' || saved === 'PLATFORM' || saved === 'LANDING' || saved === 'REGISTER') {
+          return saved as 'LANDING' | 'LOGIN' | 'REGISTER' | 'PLATFORM';
         }
       }
     } catch {
@@ -286,7 +289,7 @@ export const App: React.FC = () => {
     return 'LANDING';
   });
 
-  const handleNavigateView = (view: 'LANDING' | 'LOGIN' | 'PLATFORM') => {
+  const handleNavigateView = (view: 'LANDING' | 'LOGIN' | 'REGISTER' | 'PLATFORM') => {
     setCurrentAppView(view);
     try {
       if (typeof window !== 'undefined') {
@@ -551,12 +554,13 @@ export const App: React.FC = () => {
     (m: ModuleItem) => favoritos.includes(m.id) || m.id === activeTab
   );
 
-  // Renderização Condicional: Landing Page Comercial / Institucional
+  // Renderização Condicional: Landing Page Institucional
   if (currentAppView === 'LANDING') {
     return (
-      <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950">
+      <div className="min-h-screen bg-[#F7F9F5] text-[#26332A] font-sans selection:bg-[#8FBF88] selection:text-[#26332A]">
         <PublicLandingPage
           onGoToLogin={() => handleNavigateView('LOGIN')}
+          onGoToRegister={() => handleNavigateView('REGISTER')}
           onEnterPlatformDirectly={() => {
             handleNavigateView('PLATFORM');
             addToast('Bem-vindo ao Cockpit Super AgTech Enterprise!', 'success');
@@ -567,16 +571,34 @@ export const App: React.FC = () => {
     );
   }
 
+  // Renderização Condicional: Tela de Cadastro e Onboarding Progressivo
+  if (currentAppView === 'REGISTER') {
+    return (
+      <div className="min-h-screen bg-[#F7F9F5] text-[#26332A] font-sans selection:bg-[#8FBF88] selection:text-[#26332A]">
+        <RegisterOnboardingScreen
+          onRegisterSuccess={(data) => {
+            handleNavigateView('PLATFORM');
+            addToast(`Fazenda ${data.farm.nome} configurada com sucesso! Cockpit operacional pronto.`, 'success');
+          }}
+          onGoToLogin={() => handleNavigateView('LOGIN')}
+          onBackToLanding={() => handleNavigateView('LANDING')}
+        />
+        <ToastNotification toasts={toasts} onDismiss={removeToast} />
+      </div>
+    );
+  }
+
   // Renderização Condicional: Tela de Login Segura
   if (currentAppView === 'LOGIN') {
     return (
-      <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950">
+      <div className="min-h-screen bg-[#F7F9F5] text-[#26332A] font-sans selection:bg-[#8FBF88] selection:text-[#26332A]">
         <LoginScreen
           onLoginSuccess={(profile) => {
             handleNavigateView('PLATFORM');
             addToast(`Bem-vindo, ${profile?.name || 'Produtor Rural'}! Cockpit carregado.`, 'success');
           }}
           onBackToLanding={() => handleNavigateView('LANDING')}
+          onGoToRegister={() => handleNavigateView('REGISTER')}
         />
         <ToastNotification toasts={toasts} onDismiss={removeToast} />
       </div>

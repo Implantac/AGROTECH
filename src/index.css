@@ -1,6 +1,21 @@
 @import "tailwindcss";
 @import "leaflet/dist/leaflet.css";
 
+@theme {
+  --color-agro-forest: #285943;
+  --color-agro-green: #5F8F52;
+  --color-agro-soft: #8FBF88;
+  --color-agro-light: #EAF4E7;
+  --color-agro-sand: #F4F0E6;
+  --color-agro-bg: #F7F9F5;
+  --color-agro-card: #FFFFFF;
+  --color-agro-text: #26332A;
+  --color-agro-muted: #66736A;
+  --color-agro-sky: #7DA9C4;
+  --color-agro-amber: #D9B65D;
+  --color-agro-alert: #C96A5B;
+}
+
 /* Estilos adicionais para Mapas e componentes Agro */
 .leaflet-container {
   width: 100%;
