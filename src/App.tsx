@@ -789,7 +789,7 @@ export const App: React.FC = () => {
 
             <button
               onClick={() => setSelectedDomain('TODOS')}
-              className="px-2.5 py-1 text-emerald-600 hover:text-white rounded-lg text-xs font-bold transition-all ml-1 cursor-pointer"
+              className="px-2.5 py-1 text-emerald-300 hover:text-white rounded-lg text-xs font-bold transition-all ml-1 cursor-pointer"
             >
               <span>Ativos ({availableModules.length})</span>
             </button>
@@ -797,141 +797,85 @@ export const App: React.FC = () => {
         </div>
       </header>
 
-      {/* 2. Barra de Telemetria Operacional & Cotações em Tempo Real (Live Ticker) */}
-      <div className="bg-[#15392A]/95 border-b border-[#245B45] px-4 lg:px-8 py-2 text-xs text-[#EAF4E7] overflow-x-auto print:hidden">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-6 whitespace-nowrap">
-          {/* Clima & Janela Delta T */}
-          <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1.5 text-emerald-600">
-              <CloudRain className="w-3.5 h-3.5 text-[#7DA9C4]" />
-              Sorriso/MT: <strong className="text-white">29.4°C</strong> • 62% UR • Vento: 7 km/h SE
-            </span>
-            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#1D4B38] text-emerald-600 border border-[#285943] flex items-center gap-1">
-              <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-              Delta T: 4.8°C (Pulverização Segura)
-            </span>
-          </div>
-
-          {/* Cotações de Mercado */}
-          <div className="flex items-center gap-4 text-emerald-600">
-            <span>
-              Soja Física: <strong className="text-white">R$ 130,00/sc</strong>
-            </span>
-            <span>
-              Milho: <strong className="text-amber-700">R$ 55,00/sc</strong>
-            </span>
-            <span>
-              Boi China: <strong className="text-white">R$ 245,00/@</strong>
-            </span>
-            <span>
-              Dólar PTAX: <strong className="text-white">R$ 5,68</strong>
-            </span>
-            <span>
-              CBOT: <strong className="text-white">US$ 10,42/bu (+0.8%)</strong>
-            </span>
-          </div>
-
-          {/* Alertas Operacionais Interativos */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setIsNotificationOpen(true)}
-              className="flex items-center gap-1.5 text-[11px] text-amber-700 hover:text-white font-semibold bg-[#285943] hover:bg-[#1D4B38] px-2.5 py-1 rounded-lg border border-[#5F8F52]/40 transition-all cursor-pointer shadow-sm"
-              title="Clique para ver os alertas detalhados"
-            >
-              <AlertCircle className="w-3.5 h-3.5 text-amber-700 animate-pulse" />
-              <span>3 Alertas Pendentes</span>
-            </button>
-            <button
-              onClick={() => setIsOfflineSyncModalOpen(true)}
-              className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#1D4B38] hover:bg-[#285943] text-[#EAF4E7] border border-[#285943] flex items-center gap-1.5 transition-all cursor-pointer group"
-              title="Central Offline-First & Sincronização PWA"
-            >
-              <Wifi className="w-3.5 h-3.5 text-emerald-600 group-hover:scale-110 transition-transform" />
-              <span>18ms • Fila PWA Sync</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#8FBF88] animate-pulse"></span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* 2.5 Barra de Controle de Perfil RBAC & Sessão */}
+      {/* 2. Barra de Controle de Perfil RBAC & Sessão */}
       <UserRoleBar onOpenQuickAccess={() => setIsQuickAccessOpen(true)} profileId={subscriptionConfig.profileId} />
 
       {/* 3. Navegador de Categorias & Faixa de Módulos (Domain Ribbon) */}
-      <div className="bg-white border-b border-slate-200 px-4 lg:px-8 py-2.5 shadow-sm print:hidden">
+      <div className="bg-white border-b border-slate-200 px-4 lg:px-8 py-2.5 shadow-xs print:hidden">
         <div className="max-w-7xl mx-auto space-y-2">
           {/* Seletor de Categorias */}
           <div className="flex items-center justify-between gap-2 overflow-x-auto text-xs pb-1">
             <div className="flex items-center gap-1.5">
-              <span className="text-slate-600 font-bold uppercase text-[10px] tracking-wider pr-1">
+              <span className="text-slate-500 font-bold uppercase text-[10px] tracking-wider pr-1">
                 Domínio:
               </span>
               <button
                 onClick={() => setSelectedDomain('TODOS')}
-                className={`px-2.5 py-1 rounded-lg font-bold transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3 py-1 rounded-lg font-bold transition-all whitespace-nowrap cursor-pointer border ${
                   selectedDomain === 'TODOS'
-                    ? 'bg-[#285943] text-white shadow-sm'
-                    : 'text-slate-900 bg-slate-50 border border-slate-200 hover:bg-emerald-50'
+                    ? 'bg-emerald-700 text-white border-emerald-700 shadow-2xs'
+                    : 'text-slate-700 bg-white border-slate-200 hover:bg-slate-50 hover:text-slate-900'
                 }`}
               >
-                🌐 Habilitados ({availableModules.length})
+                Habilitados ({availableModules.length})
               </button>
               <button
                 onClick={() => setSelectedDomain('FAVORITOS')}
-                className={`px-2.5 py-1 rounded-lg font-bold transition-all whitespace-nowrap flex items-center gap-1 cursor-pointer ${
+                className={`px-3 py-1 rounded-lg font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer border ${
                   selectedDomain === 'FAVORITOS'
-                    ? 'bg-[#D9B65D] text-slate-900 font-black shadow-sm'
-                    : 'text-slate-900 bg-slate-50 border border-slate-200 hover:bg-emerald-50'
+                    ? 'bg-emerald-700 text-white border-emerald-700 shadow-2xs'
+                    : 'text-slate-700 bg-white border-slate-200 hover:bg-slate-50 hover:text-slate-900'
                 }`}
               >
-                <Star className="w-3 h-3 fill-current text-amber-700" /> Favoritos ({favoritos.length})
+                <Star className="w-3.5 h-3.5 fill-current text-amber-500" />
+                <span>Favoritos ({favoritos.length})</span>
               </button>
               <button
                 onClick={() => setSelectedDomain('CAMPO')}
-                className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer border ${
                   selectedDomain === 'CAMPO'
-                    ? 'bg-[#285943] text-white font-bold shadow-sm'
-                    : 'text-slate-900 bg-slate-50 border border-slate-200 hover:bg-emerald-50'
+                    ? 'bg-emerald-700 text-white font-bold border-emerald-700 shadow-2xs'
+                    : 'text-slate-700 bg-white border-slate-200 hover:bg-slate-50 hover:text-slate-900'
                 }`}
               >
                 🌾 Campo & Manejo ({campoCount})
               </button>
               <button
                 onClick={() => setSelectedDomain('FROTA')}
-                className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer border ${
                   selectedDomain === 'FROTA'
-                    ? 'bg-[#285943] text-white font-bold shadow-sm'
-                    : 'text-slate-900 bg-slate-50 border border-slate-200 hover:bg-emerald-50'
+                    ? 'bg-emerald-700 text-white font-bold border-emerald-700 shadow-2xs'
+                    : 'text-slate-700 bg-white border-slate-200 hover:bg-slate-50 hover:text-slate-900'
                 }`}
               >
                 🚜 Máquinas & Frotas ({frotaCount})
               </button>
               <button
                 onClick={() => setSelectedDomain('MERCADO')}
-                className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer border ${
                   selectedDomain === 'MERCADO'
-                    ? 'bg-[#285943] text-white font-bold shadow-sm'
-                    : 'text-slate-900 bg-slate-50 border border-slate-200 hover:bg-emerald-50'
+                    ? 'bg-emerald-700 text-white font-bold border-emerald-700 shadow-2xs'
+                    : 'text-slate-700 bg-white border-slate-200 hover:bg-slate-50 hover:text-slate-900'
                 }`}
               >
                 📈 Mercado & Finanças ({mercadoCount})
               </button>
               <button
                 onClick={() => setSelectedDomain('FISCAL')}
-                className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer border ${
                   selectedDomain === 'FISCAL'
-                    ? 'bg-[#285943] text-white font-bold shadow-sm'
-                    : 'text-slate-900 bg-slate-50 border border-slate-200 hover:bg-emerald-50'
+                    ? 'bg-emerald-700 text-white font-bold border-emerald-700 shadow-2xs'
+                    : 'text-slate-700 bg-white border-slate-200 hover:bg-slate-50 hover:text-slate-900'
                 }`}
               >
                 ⚖️ Fiscal & ESG ({fiscalCount})
               </button>
               <button
                 onClick={() => setSelectedDomain('PECUARIA')}
-                className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer border ${
                   selectedDomain === 'PECUARIA'
-                    ? 'bg-[#285943] text-white font-bold shadow-sm'
-                    : 'text-slate-900 bg-slate-50 border border-slate-200 hover:bg-emerald-50'
+                    ? 'bg-emerald-700 text-white font-bold border-emerald-700 shadow-2xs'
+                    : 'text-slate-700 bg-white border-slate-200 hover:bg-slate-50 hover:text-slate-900'
                 }`}
               >
                 🐂 Pecuária & ILPF ({pecuariaCount})
@@ -941,18 +885,18 @@ export const App: React.FC = () => {
             {/* Barra de Pesquisa Rápida na Fita & Botão para Configuração Modular */}
             <div className="flex items-center gap-2 ml-auto">
               <div className="relative flex items-center">
-                <Search className="w-3 h-3 text-slate-600 absolute left-2.5 pointer-events-none" />
+                <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 pointer-events-none" />
                 <input
                   type="text"
                   placeholder="Filtrar módulos..."
                   value={ribbonFilter}
                   onChange={(e) => setRibbonFilter(e.target.value)}
-                  className="bg-slate-50 border border-slate-200 focus:border-[#285943] rounded-lg pl-7 pr-6 py-1 text-xs text-slate-900 placeholder-[#66736A] w-36 sm:w-44 focus:outline-none transition-all"
+                  className="bg-slate-50 border border-slate-200 focus:border-emerald-600 focus:ring-1 focus:ring-emerald-500 rounded-lg pl-7 pr-6 py-1 text-xs text-slate-900 placeholder-slate-400 w-36 sm:w-44 focus:outline-none transition-all"
                 />
                 {ribbonFilter && (
                   <button
                     onClick={() => setRibbonFilter('')}
-                    className="absolute right-2 text-slate-600 hover:text-slate-900 text-xs cursor-pointer"
+                    className="absolute right-2 text-slate-400 hover:text-slate-700 text-xs cursor-pointer"
                   >
                     ✕
                   </button>
@@ -961,7 +905,7 @@ export const App: React.FC = () => {
 
               <button
                 onClick={() => setIsModuleConfigOpen(true)}
-                className="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold text-[#285943] hover:bg-emerald-50 border border-emerald-300 transition-all cursor-pointer whitespace-nowrap"
+                className="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold text-emerald-800 hover:bg-emerald-50 border border-emerald-300 transition-all cursor-pointer whitespace-nowrap shadow-2xs"
                 title="Personalizar Módulos Contratados de Acordo com a Atividade"
               >
                 <Sliders className="w-3.5 h-3.5 text-emerald-700" />
@@ -983,8 +927,8 @@ export const App: React.FC = () => {
                   onClick={() => handleSelectModule(m.id)}
                   className={`px-3 py-1.5 rounded-lg flex items-center gap-2 transition-all whitespace-nowrap cursor-pointer border ${
                     isActive
-                      ? 'bg-[#285943] border-[#285943] text-white font-bold shadow-sm'
-                      : 'bg-slate-50 border-slate-200 text-slate-900 hover:bg-emerald-50 hover:border-emerald-300'
+                      ? 'bg-emerald-800 border-emerald-800 text-white font-bold shadow-2xs'
+                      : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-slate-900 hover:border-slate-300'
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5 shrink-0" />
@@ -994,13 +938,13 @@ export const App: React.FC = () => {
                       className={`px-1.5 py-0.2 text-[9px] rounded font-bold ${
                         isActive
                           ? 'bg-black/20 text-white'
-                          : 'bg-emerald-50 text-[#285943]'
+                          : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
                       }`}
                     >
                       {m.badge}
                     </span>
                   )}
-                  {isFav && <Star className="w-2.5 h-2.5 text-amber-700 fill-current ml-0.5 shrink-0" />}
+                  {isFav && <Star className="w-2.5 h-2.5 text-amber-500 fill-current ml-0.5 shrink-0" />}
                 </button>
               );
             })}

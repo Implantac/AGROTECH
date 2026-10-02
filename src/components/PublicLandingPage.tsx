@@ -302,27 +302,69 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
               </button>
             </div>
 
-            {/* As 4 Perguntas Que Todo Produtor Quer Responder */}
-            <div className="pt-10 space-y-4">
-              <span className="text-xs uppercase font-extrabold tracking-widest text-emerald-900 font-mono bg-emerald-100/90 border border-emerald-400 px-4 py-1.5 rounded-full inline-block shadow-2xs">
-                As 4 Perguntas Fundamentais Que o Produtor Quer Responder Todos os Dias:
-              </span>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left">
-                <div className="p-4 bg-white rounded-2xl border border-slate-300 shadow-sm">
-                  <span className="text-xs font-bold text-slate-900 block">Quanto custou produzir cada saca neste talhão?</span>
-                  <p className="text-[11px] text-slate-600 mt-1">Custeio ABC real com insumos, combustível, horas-máquina e mão de obra alocados ao metro quadrado.</p>
+            {/* Showcase Executivo: As 4 Perguntas Críticas da Safra */}
+            <div className="mt-12 text-left bg-white rounded-2xl border border-slate-200 shadow-md p-6">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-100 pb-4 mb-5 gap-2">
+                <div className="flex items-center gap-2.5">
+                  <span className="px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 text-[10px] font-bold tracking-wider uppercase border border-emerald-200">
+                    Cockpit da Empresa Rural
+                  </span>
+                  <h3 className="text-xs font-bold text-slate-800">
+                    As 4 Perguntas Cruciais Que o Produtor Quer Responder Todos os Dias
+                  </h3>
                 </div>
-                <div className="p-4 bg-white rounded-2xl border border-slate-300 shadow-sm">
-                  <span className="text-xs font-bold text-slate-900 block">Minhas máquinas estão trabalhando ou paradas agora?</span>
-                  <p className="text-[11px] text-slate-600 mt-1">Telemetria CAN Bus ao vivo: velocidade, consumo L/h, área trabalhada e paradas não programadas.</p>
+                <span className="text-[11px] text-slate-600 font-mono font-medium">
+                  Safra 2026/27 • Dados Reais Integrados
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-emerald-300 transition-all group">
+                  <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded font-mono uppercase">
+                    01 • Custos
+                  </span>
+                  <h4 className="text-xs font-bold text-slate-900 mt-2.5 group-hover:text-emerald-900 transition-colors">
+                    Quanto custou produzir cada saca neste talhão?
+                  </h4>
+                  <p className="text-[11px] text-slate-600 mt-1.5 leading-relaxed">
+                    Custeio ABC real com insumos, combustível e mão de obra alocados ao metro quadrado.
+                  </p>
                 </div>
-                <div className="p-4 bg-white rounded-2xl border border-slate-300 shadow-sm">
-                  <span className="text-xs font-bold text-slate-900 block">Qual é o meu resultado financeiro real consolidado?</span>
-                  <p className="text-[11px] text-slate-600 mt-1">DRE por safra, fluxo de caixa diário, Livro Caixa LCDPR e rateio por produtor ou condomínio.</p>
+
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-emerald-300 transition-all group">
+                  <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded font-mono uppercase">
+                    02 • Telemetria
+                  </span>
+                  <h4 className="text-xs font-bold text-slate-900 mt-2.5 group-hover:text-emerald-900 transition-colors">
+                    Minhas máquinas estão trabalhando ou paradas agora?
+                  </h4>
+                  <p className="text-[11px] text-slate-600 mt-1.5 leading-relaxed">
+                    Telemetria CAN Bus J1939 ao vivo: velocidade, diesel L/h, área e paradas de comboio.
+                  </p>
                 </div>
-                <div className="p-4 bg-white rounded-2xl border border-slate-300 shadow-sm">
-                  <span className="text-xs font-bold text-slate-900 block">Quando e quanto devo vender da minha produção futura?</span>
-                  <p className="text-[11px] text-slate-600 mt-1">Preço de equilíbrio (break-even), contratos a termo, Barter com CPR e cotações B3/CBOT ao vivo.</p>
+
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-emerald-300 transition-all group">
+                  <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded font-mono uppercase">
+                    03 • Finanças
+                  </span>
+                  <h4 className="text-xs font-bold text-slate-900 mt-2.5 group-hover:text-emerald-900 transition-colors">
+                    Qual é o meu resultado financeiro real consolidado?
+                  </h4>
+                  <p className="text-[11px] text-slate-600 mt-1.5 leading-relaxed">
+                    DRE por safra, fluxo de caixa diário, Livro Caixa LCDPR e rateio de condomínio.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-emerald-300 transition-all group">
+                  <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded font-mono uppercase">
+                    04 • Comercial
+                  </span>
+                  <h4 className="text-xs font-bold text-slate-900 mt-2.5 group-hover:text-emerald-900 transition-colors">
+                    Quando e quanto devo vender da minha produção futura?
+                  </h4>
+                  <p className="text-[11px] text-slate-600 mt-1.5 leading-relaxed">
+                    Preço de equilíbrio (break-even), contratos a termo, Barter com CPR e B3 ao vivo.
+                  </p>
                 </div>
               </div>
             </div>
@@ -334,13 +376,13 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
       <section id="complexidade" className="py-16 sm:py-24 border-b border-slate-200 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-bold text-rose-700 uppercase tracking-wider font-mono">
+            <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider font-mono bg-slate-100 border border-slate-200 px-3 py-1 rounded-full inline-block">
               O DESAFIO DA GESTÃO RURAL
             </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-900">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
               Sua operação está ficando mais complexa.
             </h2>
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-slate-600 max-w-xl mx-auto">
               À medida que a fazenda cresce, as decisões não podem mais depender apenas de intuição ou anotações dispersas.
             </p>
           </div>
@@ -372,11 +414,11 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
                 desc: 'Comercialização no escuro e travas de insumos desfavoráveis por falta de paridade portuária consolidada.'
               }
             ].map((dor, idx) => (
-              <div key={idx} className="p-6 bg-slate-50 rounded-2xl border border-slate-300 space-y-2">
-                <div className="w-8 h-8 rounded-xl bg-amber-50 text-rose-700 flex items-center justify-center font-bold text-xs">
+              <div key={idx} className="p-6 bg-white rounded-2xl border border-slate-200 shadow-2xs hover:border-emerald-300 hover:shadow-xs transition-all space-y-3 group">
+                <div className="w-8 h-8 rounded-xl bg-slate-100 text-slate-700 border border-slate-200 flex items-center justify-center font-bold text-xs font-mono group-hover:bg-emerald-50 group-hover:text-emerald-800 group-hover:border-emerald-200 transition-colors">
                   0{idx + 1}
                 </div>
-                <h3 className="text-base font-bold text-slate-900">{dor.title}</h3>
+                <h3 className="text-base font-bold text-slate-900 group-hover:text-emerald-900 transition-colors">{dor.title}</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">{dor.desc}</p>
               </div>
             ))}

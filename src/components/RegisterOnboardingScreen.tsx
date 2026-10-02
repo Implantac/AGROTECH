@@ -187,7 +187,7 @@ export const RegisterOnboardingScreen: React.FC<RegisterOnboardingProps> = ({
                   Etapa {etapa} de 4: {
                     etapa === 1 ? 'Acesso do Gestor' :
                     etapa === 2 ? 'Dados da Propriedade' :
-                    etapa === 3 ? 'Vocação & Culturas' :
+                    etapa === 3 ? 'Vocação e Culturas' :
                     'Primeiro Talhão'
                   }
                 </span>
@@ -397,19 +397,19 @@ export const RegisterOnboardingScreen: React.FC<RegisterOnboardingProps> = ({
                 </label>
                 <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
                   {[
-                    'SOJA', 'MILHO', 'ALGODÃO', 'TRIGO', 'SORGO',
-                    'CAFÉ', 'CANA', 'CITROS', 'PASTAGEM', 'FEIJÃO', 'ARROZ', 'EUCALIPTO'
+                    'Soja', 'Milho', 'Algodão', 'Trigo', 'Sorgo',
+                    'Café', 'Cana', 'Citros', 'Pastagem', 'Feijão', 'Arroz', 'Eucalipto'
                   ].map((cultura) => {
-                    const sel = culturasSelecionadas.includes(cultura);
+                    const sel = culturasSelecionadas.includes(cultura.toUpperCase());
                     return (
                       <button
                         key={cultura}
                         type="button"
-                        onClick={() => toggleCultura(cultura)}
+                        onClick={() => toggleCultura(cultura.toUpperCase())}
                         className={`p-2.5 rounded-xl border text-center text-xs font-bold transition cursor-pointer ${
                           sel
-                            ? 'bg-emerald-700 border-emerald-700 text-white shadow-xs'
-                            : 'bg-white border-slate-300 text-slate-700 hover:border-slate-400'
+                            ? 'bg-emerald-700 border-emerald-700 text-white shadow-2xs'
+                            : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300'
                         }`}
                       >
                         {cultura}
