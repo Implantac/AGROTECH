@@ -5,3 +5,5 @@ export * from './nfpe-emissor.service';
 export * from './zootecnia-precisao.service';
 export * from './barter-cpr.service';
 export * from './frete-antt.service';
+export * from './irrigacao-manejo-hidrico.service';
+export * from './analise-solo-recomendacao.service';

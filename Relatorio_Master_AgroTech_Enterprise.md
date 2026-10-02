@@ -73,9 +73,18 @@ Fluxo de autosserviço desenhado para transição sem atrito da Landing Page par
 ---
 
 ### 7. Validação Técnica, Testes e Conformidade
-- **Suíte de Testes do Motor Agro**: 113 testes de regras agronômicas e financeiras aprovados (`test_core_engine.mjs`).
+- **Suíte de Testes do Motor Agro**: 129 testes de regras agronômicas e financeiras aprovados (`test_core_engine.mjs`).
 - **Suíte de Testes da Landing Page e Onboarding**: 100% dos testes aprovados (`test_landing_and_login.mjs`).
-- **Suíte de Microserviços Core ERP**: 5 de 5 suítes aprovadas com 100% de precisão matemática (`scripts/test_core_erp_services.mjs`).
+- **Suíte de Microserviços Core ERP**: 9 de 9 suítes aprovadas com 100% de precisão matemática (`scripts/test_core_erp_services.mjs`):
+  1. Custeio ABC Agrícola (Hora-máquina, insumos, operador e break-even)
+  2. LCDPR Oficial RFB com rateio de condomínio rural familiar
+  3. Parser SEFAZ XML e recálculo de custo médio unitário móvel
+  4. Emissor NFP-e com validação Módulo 11 e retenção Funrural/Senar
+  5. Zootecnia de Precisão com RFID SISBOV, GMD e bloqueio de carência
+  6. Barter & CPR Valuation segundo a Nova Lei do Agro (Lei 13.986/2020)
+  7. Frete Rodoviário & Piso Mínimo ANTT (Lei 13.703/2018)
+  8. Manejo de Irrigação FAO-56 & Desconto em Tarifa Elétrica Noturna ANEEL
+  9. Análise Laboratorial de Solo, Calagem (V%) e Gessagem (Demattê/Embrapa)
 - **Pipeline CI/CD Completo**: 6 de 6 etapas aprovadas (`scripts/ci_test.sh`).
 - **Auditoria SSR e Renderização**: 100% dos 45 módulos especializados renderizados no servidor sem exceções (`verify_render.mjs`).
 - **Motor Offline Outbox Pattern (Princípio 12 & 2)**:

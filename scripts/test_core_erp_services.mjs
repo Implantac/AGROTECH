@@ -394,6 +394,93 @@ const validacaoAcima = freteService.validarTarifaProposta({
 assert.strictEqual(validacaoAcima.aprovado, true);
 console.log(`   ✓ Piso mínimo ANTT calculado: R$ ${freteRodotrem.valorTotalMinimoFrete.toFixed(2)} (R$ ${freteRodotrem.custoPorSaca60kg}/saca) com validação de conformidade legal.`);
 
+// 8. Teste de Manejo de Irrigação & Balanço Hídrico FAO-56
+import { IrrigacaoManejoHidricoService } from '../services/core-erp/src/irrigacao-manejo-hidrico.service.ts';
+
+const irrigacaoService = new IrrigacaoManejoHidricoService();
+
+console.log('\n[8/9] Testando Manejo de Irrigação FAO-56 & Tarifa Elétrica Noturna...');
+const resultadoIrrigacao = irrigacaoService.calcularBalancoHidrico(
+  {
+    capacidadeCampoPct: 32.0,
+    pontoMurchaPermanentePct: 18.0,
+    densidadeSoloGcm3: 1.25,
+    profundidadeRaizMm: 400,
+    fatorDisponibilidadeP: 0.50
+  },
+  {
+    etoReferenciaMmDia: 5.8,
+    coeficienteCulturaKc: 1.15, // ETc = 5.8 * 1.15 = 6.67 mm/dia
+    precipitacaoEfetivaMmDia: 2.0 // Chuva insuficiente -> déficit 4.67 mm
+  },
+  {
+    pivoId: 'PIVO-CENTRAL-01',
+    areaIrrigadaHectares: 120,
+    vazaoTotalM3Hora: 380,
+    eficienciaAplicacaoPct: 88, // Lâmina bruta = 4.67 / 0.88 = 5.31 mm
+    potenciaTotalCv: 175,
+    tarifaEnergiaDiurnaKwh: 0.72,
+    tarifaEnergiaNoturnaKwh: 0.19
+  }
+);
+
+assert.strictEqual(resultadoIrrigacao.etcConsumoCulturaMmDia, 6.67);
+assert.strictEqual(resultadoIrrigacao.cadCapacidadeAguaDisponivelMm, 70.0); // ((32-18)/100)*1.25*400 = 70.0
+assert.strictEqual(resultadoIrrigacao.afdAguaFacilmenteDisponivelMm, 35.0); // 70 * 0.5 = 35.0
+assert.strictEqual(resultadoIrrigacao.necessitaIrrigacao, true);
+assert.strictEqual(resultadoIrrigacao.laminaLiquidaRecomendadaMm, 4.67);
+assert.strictEqual(resultadoIrrigacao.laminaBrutaRecomendadaMm, 5.31);
+assert.strictEqual(resultadoIrrigacao.volumeTotalAguaM3, 6372); // 5.31 * 120 * 10 = 6372 m³
+assert.strictEqual(resultadoIrrigacao.horasOperacaoPivoNecessarias, 16.8); // 6372 / 380 = 16.76 -> 16.8h
+assert.ok(resultadoIrrigacao.economiaTarifaNoturnaReais > 1000.0);
+assert.strictEqual(resultadoIrrigacao.percentualEconomiaNoturnaPct, 73.6);
+console.log(`   ✓ Balanço hídrico ETc ${resultadoIrrigacao.etcConsumoCulturaMmDia} mm/dia e economia noturna de R$ ${resultadoIrrigacao.economiaTarifaNoturnaReais.toFixed(2)} (${resultadoIrrigacao.percentualEconomiaNoturnaPct}%) validados.`);
+
+// 9. Teste de Análise de Solo, Calagem e Gessagem Agrícola
+import { AnaliseSoloRecomendacaoService } from '../services/core-erp/src/analise-solo-recomendacao.service.ts';
+
+const soloService = new AnaliseSoloRecomendacaoService();
+
+console.log('\n[9/9] Testando Interpretação Laboratorial de Solo, Calagem e Gessagem...');
+const resultadoSolo = soloService.interpretarECalcularRecomendacoes(
+  {
+    identificadorAmostra: 'LAB-2026-TALHAO-04',
+    talhaoId: 'talhao-04',
+    profundidadeCm: '0_20',
+    phCacl2: 4.8,
+    materiaOrganicaGdm3: 28.0,
+    fosforoMgdm3: 6.5,
+    potassioCmolcdm3: 0.18,
+    calcioCmolcdm3: 1.80,
+    magnesioCmolcdm3: 0.70,
+    aluminioCmolcdm3: 0.45,
+    hMaisAlCmolcdm3: 4.20,
+    argilaPct: 38.0
+  },
+  {
+    saturacaoBasesAlvoV2Pct: 70.0, // Alvo: 70% V2 para Soja
+    prntCalcarioPct: 85.0
+  }
+);
+
+// SB = 1.80 + 0.70 + 0.18 = 2.68 cmolc/dm³
+assert.strictEqual(resultadoSolo.somaBasesSB, 2.68);
+// t = 2.68 + 0.45 = 3.13 cmolc/dm³
+assert.strictEqual(resultadoSolo.ctcEfetivaT, 3.13);
+// T = 2.68 + 4.20 = 6.88 cmolc/dm³
+assert.strictEqual(resultadoSolo.ctcPh7T, 6.88);
+// V1% = (2.68 / 6.88) * 100 = 39.0%
+assert.strictEqual(resultadoSolo.saturacaoBasesV1Pct, 39.0);
+// m% = (0.45 / 3.13) * 100 = 14.4%
+assert.strictEqual(resultadoSolo.saturacaoAluminioMPct, 14.4);
+// NC = ((70 - 39) * 6.88) / 85 = 2.51 t/ha de calcário
+assert.strictEqual(resultadoSolo.necessidadeCalagemTonHa, 2.51);
+// NG = 50 * 38% argila = 1.900 kg/ha de gesso
+assert.strictEqual(resultadoSolo.necessidadeGessoKgHa, 1900);
+assert.strictEqual(resultadoSolo.classificacaoAcidez, 'ALTA');
+assert.strictEqual(resultadoSolo.alertaToxidezAluminio, true);
+console.log(`   ✓ Laudo interpretado: SB ${resultadoSolo.somaBasesSB} cmolc/dm³, V1% ${resultadoSolo.saturacaoBasesV1Pct}%, NC ${resultadoSolo.necessidadeCalagemTonHa} t/ha calcário e NG ${resultadoSolo.necessidadeGessoKgHa} kg/ha gesso.`);
+
 console.log('\n================================================================');
-console.log('🎉 TODOS OS 7 MICROSSERVIÇOS CORE ERP FORAM VALIDADOS COM SUCESSO!');
+console.log('🎉 TODOS OS 9 MICROSSERVIÇOS CORE ERP FORAM VALIDADOS COM SUCESSO!');
 console.log('================================================================');
