@@ -1472,6 +1472,214 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 8.22. API: Core ERP - Processamento de Imagens Sentinel-2 Copernicus
+  if (pathname === '/api/v1/erp/satelite/sentinel' && req.method === 'POST') {
+    parseRequestBody(body => {
+      const b02 = parseFloat(body.b02Azul !== undefined ? body.b02Azul : 0.045);
+      const b04 = parseFloat(body.b04Vermelho !== undefined ? body.b04Vermelho : 0.052);
+      const b08 = parseFloat(body.b08Nir !== undefined ? body.b08Nir : 0.420);
+      const b11 = parseFloat(body.b11Swir !== undefined ? body.b11Swir : 0.160);
+      const scl = parseInt(body.sclClassificacao !== undefined ? body.sclClassificacao : 4, 10);
+
+      const isCloudOrShadow = [3, 8, 9, 10].includes(scl);
+      const pixelValidoSemNuvem = !isCloudOrShadow;
+
+      let sclNome = 'VEGETACAO';
+      if (scl === 3) sclNome = 'SOMBRA_DE_NUVEM';
+      else if (scl === 8 || scl === 9) sclNome = 'COBERTURA_DE_NUVEM';
+      else if (scl === 5) sclNome = 'SOLO_EXPOSTO';
+      else if (scl === 6) sclNome = 'AGUA';
+
+      // NDVI = (NIR - RED) / (NIR + RED)
+      const denomNdvi = b08 + b04;
+      const ndvi = denomNdvi !== 0 ? Number(((b08 - b04) / denomNdvi).toFixed(4)) : 0;
+
+      // NDWI = (NIR - SWIR) / (NIR + SWIR)
+      const denomNdwi = b08 + b11;
+      const ndwi = denomNdwi !== 0 ? Number(((b08 - b11) / denomNdwi).toFixed(4)) : 0;
+
+      // EVI = 2.5 * ((NIR - RED) / (NIR + 6*RED - 7.5*BLUE + 1))
+      const denomEvi = b08 + 6 * b04 - 7.5 * b02 + 1;
+      const evi = denomEvi !== 0 ? Number((2.5 * ((b08 - b04) / denomEvi)).toFixed(4)) : 0;
+
+      let biomassa = 'SOLO_EXPOSTO';
+      if (ndvi >= 0.70) biomassa = 'MUITO_ALTA';
+      else if (ndvi >= 0.50) biomassa = 'ALTA';
+      else if (ndvi >= 0.30) biomassa = 'MEDIA';
+      else if (ndvi >= 0.15) biomassa = 'BAIXA';
+
+      let estresse = 'SEVERO';
+      if (ndwi >= 0.20) estresse = 'SEM_ESTRESSE';
+      else if (ndwi >= 0.05) estresse = 'LEVE';
+      else if (ndwi >= -0.10) estresse = 'MODERADO';
+
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        ndvi,
+        ndwi,
+        evi,
+        biomassaStatus: biomassa,
+        estresseHidricoStatus: estresse,
+        pixelValidoSemNuvem,
+        classificacaoSclNome: sclNome,
+        fonte: 'Copernicus Sentinel-2 MSI Level-2A (ESA/INPE)',
+        timestamp: new Date().toISOString()
+      }));
+    });
+    return;
+  }
+
+  // 8.23. API: Core ERP - Geração de Remessa Bancária CNAB 240 FEBRABAN
+  if (pathname === '/api/v1/erp/bancario/cnab240' && req.method === 'POST') {
+    parseRequestBody(body => {
+      const banco = (body.codigoBanco || '001').padStart(3, '0');
+      const nomeBanco = body.nomeBanco || (banco === '001' ? 'BANCO DO BRASIL' : banco === '748' ? 'SICREDI' : 'SICOOB');
+      const cnpj = (body.cnpjEmpresa || '12345678000195').replace(/\D/g, '').padStart(14, '0');
+      const nomeEmpresa = (body.nomeEmpresa || 'AGROPECUARIA SANTA HELENA').slice(0, 30).padEnd(30, ' ');
+      const agencia = (body.numeroAgencia || '1234').padStart(5, '0');
+      const digAg = (body.digitoAgencia || '0').slice(0, 1);
+      const conta = (body.numeroConta || '56789').padStart(12, '0');
+      const digConta = (body.digitoConta || '1').slice(0, 1);
+
+      const pagamentos = Array.isArray(body.pagamentos) && body.pagamentos.length > 0 ? body.pagamentos : [
+        {
+          tipoInscricao: '2',
+          cpfCnpj: '98765432000188',
+          nomeFavorecido: 'FERTILIZANTES DO CERRADO LTDA',
+          valorReais: 65400.00,
+          dataVencimento: '20261015',
+          finalidade: 'COMPRA_ADUBO_NPK'
+        }
+      ];
+
+      const now = new Date();
+      const dataGravacao = now.toISOString().slice(0, 10).replace(/-/g, '');
+      const horaGravacao = now.toTimeString().slice(0, 8).replace(/:/g, '');
+
+      const linhas = [];
+
+      // 1. Header de Arquivo
+      let hArq = banco + '0000' + '0' + ''.padEnd(9, ' ') + '2' + cnpj + ''.padEnd(20, ' ') + agencia + digAg + conta + digConta + ' ' + nomeEmpresa + nomeBanco.slice(0, 30).padEnd(30, ' ') + ''.padEnd(10, ' ') + '1' + dataGravacao + horaGravacao + '000001' + '107' + '00000' + ''.padEnd(69, ' ');
+      linhas.push(hArq.padEnd(240, ' ').slice(0, 240));
+
+      // 2. Header de Lote (Serviço 20 = Pagamento Fornecedores)
+      let hLote = banco + '0001' + '1' + 'C' + '20' + '01' + '045' + ' ' + '2' + cnpj + ''.padEnd(20, ' ') + agencia + digAg + conta + digConta + ' ' + nomeEmpresa + ''.padEnd(40, ' ') + 'FAZENDA SANTA HELENA' + '0000' + '1' + 'MT' + ''.padEnd(53, ' ');
+      linhas.push(hLote.padEnd(240, ' ').slice(0, 240));
+
+      let totalValor = 0;
+      let seqLote = 1;
+
+      pagamentos.forEach((pg, idx) => {
+        const valCentavos = Math.round((parseFloat(pg.valorReais) || 0) * 100);
+        totalValor += (parseFloat(pg.valorReais) || 0);
+
+        // Segmento A
+        const seqStr = String(seqLote).padStart(5, '0');
+        const valStr = String(valCentavos).padStart(15, '0');
+        const dataVenc = (pg.dataVencimento || dataGravacao).replace(/\D/g, '').padEnd(8, '0');
+        const favorecido = (pg.nomeFavorecido || 'FAVORECIDO').slice(0, 30).padEnd(30, ' ');
+
+        let segA = banco + '0001' + '3' + seqStr + 'A' + '0' + '00' + '000' + '00000' + '0' + '000000000000' + '0' + ' ' + favorecido + String(idx + 1).padStart(20, '0') + dataVenc + 'BRL' + '000000000000000' + valStr + ''.padEnd(20, ' ') + '00000000' + '000000000000000' + ''.padEnd(28, ' ');
+        linhas.push(segA.padEnd(240, ' ').slice(0, 240));
+        seqLote++;
+      });
+
+      // Trailer de Lote
+      const qtdRegistrosLote = seqLote + 1; // Header lote + registros + trailer lote
+      const totValorCentavos = Math.round(totalValor * 100);
+      let tLote = banco + '0001' + '5' + ''.padEnd(9, ' ') + String(qtdRegistrosLote).padStart(6, '0') + String(totValorCentavos).padStart(18, '0') + ''.padEnd(181, ' ');
+      linhas.push(tLote.padEnd(240, ' ').slice(0, 240));
+
+      // Trailer de Arquivo
+      const totalLinhasArquivo = linhas.length + 1;
+      let tArq = banco + '9999' + '9' + ''.padEnd(9, ' ') + '000001' + String(totalLinhasArquivo).padStart(6, '0') + ''.padEnd(211, ' ');
+      linhas.push(tArq.padEnd(240, ' ').slice(0, 240));
+
+      const conteudoCnab = linhas.join('\r\n') + '\r\n';
+
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        nomeArquivo: `REM_${banco}_${dataGravacao}_${horaGravacao.slice(0, 4)}.REM`,
+        totalLinhas: linhas.length,
+        totalPagamentos: pagamentos.length,
+        valorTotalReais: Number(totalValor.toFixed(2)),
+        conteudoCnab240: conteudoCnab,
+        banco: nomeBanco,
+        padrao: 'FEBRABAN CNAB 240 v10.7'
+      }));
+    });
+    return;
+  }
+
+  // 8.24. API: Core ERP - Decodificador SAE J1939 / ISOBUS 11783 CAN Bus
+  if (pathname === '/api/v1/erp/telemetria/canbus' && req.method === 'POST') {
+    parseRequestBody(body => {
+      let rawCanId = body.canId;
+      if (typeof rawCanId === 'string' && rawCanId.startsWith('0x')) {
+        rawCanId = parseInt(rawCanId, 16);
+      } else {
+        rawCanId = parseInt(rawCanId || 0x0CF00400, 10);
+      }
+      const canId = rawCanId || 0x0CF00400;
+      const data = Array.isArray(body.data) ? body.data : [0, 0, 0, 0xE0, 0x3E, 0, 0, 0];
+
+      // Extrai PGN a partir do CAN-ID de 29 bits
+      const dpAndPfAndPs = (canId >> 8) & 0x3ffff;
+      const pf = (dpAndPfAndPs >> 8) & 0xff;
+      const ps = dpAndPfAndPs & 0xff;
+      const pgn = pf < 240 ? ((dpAndPfAndPs & 0x010000) | (pf << 8)) : dpAndPfAndPs;
+
+      let metricas = {
+        pgn,
+        hexPgn: '0x' + pgn.toString(16).toUpperCase().padStart(6, '0'),
+        descricaoPgn: 'GENERIC_CAN_FRAME'
+      };
+
+      if (pgn === 61444 && data.length >= 8) {
+        // EEC1 - Rotação do motor (Bytes 3 e 4, fator 0.125 rpm/bit)
+        const rawRpm = data[3] | (data[4] << 8);
+        metricas.descricaoPgn = 'EEC1_ROTACAO_MOTOR_RPM';
+        metricas.rpmMotor = Math.round(rawRpm * 0.125);
+      } else if (pgn === 65262 && data.length >= 8) {
+        // ET1 - Temperatura do líquido de arrefecimento (Byte 0, -40 a 210 °C)
+        const rawTemp = data[0];
+        metricas.descricaoPgn = 'ET1_TEMPERATURA_ARREFECIMENTO_MOTOR';
+        metricas.temperaturaLiquidoArrefecimentoC = rawTemp - 40;
+      } else if (pgn === 65266 && data.length >= 8) {
+        // LFE - Consumo de combustível instantâneo (Bytes 0 e 1, 0.05 L/h por bit)
+        const rawFuel = data[0] | (data[1] << 8);
+        metricas.descricaoPgn = 'LFE_CONSUMO_COMBUSTIVEL_L_H';
+        metricas.consumoCombustivelLPorHora = Number((rawFuel * 0.05).toFixed(1));
+      } else if (pgn === 65271 && data.length >= 8) {
+        // VEP1 - Tensão da bateria/alternador (Bytes 4 e 5, 0.05 V/bit)
+        const rawVolt = data[4] | (data[5] << 8);
+        metricas.descricaoPgn = 'VEP1_TENSAO_BATERIA_ALTERNADOR';
+        metricas.tensaoBateriaVolts = Number((rawVolt * 0.05).toFixed(2));
+      } else if (pgn === 65265 && data.length >= 8) {
+        // CCVS1 - Velocidade baseada na roda (Bytes 1 e 2, 1/256 km/h)
+        const rawSpeed = data[1] | (data[2] << 8);
+        metricas.descricaoPgn = 'CCVS1_VELOCIDADE_RODA_KMH';
+        metricas.velocidadeKmH = Number((rawSpeed / 256).toFixed(1));
+      }
+
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        canIdHex: '0x' + canId.toString(16).toUpperCase().padStart(8, '0'),
+        dadosBytesHex: data.map(b => (b || 0).toString(16).toUpperCase().padStart(2, '0')).join(' '),
+        ...metricas,
+        normativa: 'SAE J1939 / ISO 11783 (ISOBUS)',
+        timestampMs: Date.now()
+      }));
+    });
+    return;
+  }
+
   // 9. Servir Arquivos Estáticos SPA
   let filePath = path.join(STATIC_DIR, pathname === '/' ? 'index.html' : pathname);
 
