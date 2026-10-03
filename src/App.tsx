@@ -832,41 +832,44 @@ export const App: React.FC = () => {
                 </div>
 
                 {[
-                  { id: 'CAMPO', label: 'Campo & Manejo', icon: '🌾', count: campoCount },
-                  { id: 'FROTA', label: 'Máquinas & Frotas', icon: '🚜', count: frotaCount },
-                  { id: 'MERCADO', label: 'Mercado & Finanças', icon: '📈', count: mercadoCount },
-                  { id: 'FISCAL', label: 'Fiscal & ESG', icon: '⚖️', count: fiscalCount },
-                  { id: 'PECUARIA', label: 'Pecuária & ILPF', icon: '🐂', count: pecuariaCount },
-                  { id: 'FAVORITOS', label: 'Módulos Favoritos', icon: '⭐', count: favoritos.length },
-                ].map((dom) => (
-                  <button
-                    key={dom.id}
-                    onClick={() => {
-                      setSelectedDomain(dom.id);
-                      const targetMod = availableModules.find((m) =>
-                        dom.id === 'FAVORITOS' ? favoritos.includes(m.id) : m.category === dom.id
-                      );
-                      if (targetMod) handleSelectModule(targetMod.id);
-                    }}
-                    className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${
-                      selectedDomain === dom.id &&
-                      activeTab !== 'BI' &&
-                      activeTab !== 'SIG' &&
-                      activeTab !== 'COPILOT' &&
-                      activeTab !== 'MOBILE'
-                        ? 'bg-slate-800 text-emerald-400 font-bold border border-slate-700'
-                        : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
-                    }`}
-                  >
-                    <div className="flex items-center gap-2 truncate">
-                      <span>{dom.icon}</span>
-                      <span className="truncate">{dom.label}</span>
-                    </div>
-                    <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-800 text-slate-400">
-                      {dom.count}
-                    </span>
-                  </button>
-                ))}
+                  { id: 'CAMPO', label: 'Campo & Manejo', icon: Sprout, count: campoCount, iconColor: 'text-emerald-400' },
+                  { id: 'FROTA', label: 'Máquinas & Frotas', icon: Tractor, count: frotaCount, iconColor: 'text-sky-400' },
+                  { id: 'MERCADO', label: 'Mercado & Finanças', icon: TrendingUp, count: mercadoCount, iconColor: 'text-amber-400' },
+                  { id: 'FISCAL', label: 'Fiscal & ESG', icon: FileCheck, count: fiscalCount, iconColor: 'text-emerald-300' },
+                  { id: 'PECUARIA', label: 'Pecuária & ILPF', icon: ShieldCheck, count: pecuariaCount, iconColor: 'text-rose-400' },
+                  { id: 'FAVORITOS', label: 'Módulos Favoritos', icon: Star, count: favoritos.length, iconColor: 'text-amber-400' },
+                ].map((dom) => {
+                  const IconComponent = dom.icon;
+                  const isCurrentDomain =
+                    selectedDomain === dom.id &&
+                    !['BI', 'SIG', 'COPILOT', 'MOBILE'].includes(activeTab);
+
+                  return (
+                    <button
+                      key={dom.id}
+                      onClick={() => {
+                        setSelectedDomain(dom.id);
+                        const targetMod = availableModules.find((m) =>
+                          dom.id === 'FAVORITOS' ? favoritos.includes(m.id) : m.category === dom.id
+                        );
+                        if (targetMod) handleSelectModule(targetMod.id);
+                      }}
+                      className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${
+                        isCurrentDomain
+                          ? 'bg-slate-800 text-emerald-400 font-bold border border-slate-700'
+                          : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2.5 truncate">
+                        <IconComponent className={`w-4 h-4 ${dom.iconColor} shrink-0`} />
+                        <span className="truncate">{dom.label}</span>
+                      </div>
+                      <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-800 text-slate-400 shrink-0">
+                        {dom.count}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
 
               {/* Sistema & Assinatura */}
@@ -1150,8 +1153,8 @@ export const App: React.FC = () => {
         {/* Conteúdo Principal Dinâmico */}
         <main className="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-8 space-y-6">
 
-        {/* Active Module Header (Exibido apenas em módulos especializados, omitido no BI para maximizar altura útil) */}
-        {activeTab !== 'BI' && (
+        {/* Active Module Header (Exibido apenas em módulos especializados, omitido nas 4 centrais executivas) */}
+        {!['BI', 'SIG', 'COPILOT', 'MOBILE'].includes(activeTab) && (
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 pb-3 border-b border-slate-200/80">
           <div className="flex items-center gap-3">
             <span className="w-9 h-9 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl flex items-center justify-center shrink-0 shadow-2xs font-bold">
