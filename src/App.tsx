@@ -58,6 +58,7 @@ import { ModuleConfigModal } from './components/ModuleConfigModal';
 import { HeaderFintechBar } from './components/HeaderFintechBar';
 import { DossieBancarioCreditoModal } from './components/DossieBancarioCreditoModal';
 import { OfflineSyncCockpitModal } from './components/OfflineSyncCockpitModal';
+import { DeltaTModal } from './components/DeltaTModal';
 import {
   getSavedSubscriptionConfig,
   saveSubscriptionConfig,
@@ -431,6 +432,7 @@ export const App: React.FC = () => {
   const [isQuickEntryOpen, setIsQuickEntryOpen] = useState(false);
   const [isDossieBancarioOpen, setIsDossieBancarioOpen] = useState(false);
   const [isOfflineSyncModalOpen, setIsOfflineSyncModalOpen] = useState(false);
+  const [isDeltaTModalOpen, setIsDeltaTModalOpen] = useState(false);
   const [toasts, setToasts] = useState<ToastItem[]>([]);
 
   const addToast = (message: string, type: 'success' | 'warning' | 'info' = 'success') => {
@@ -902,7 +904,12 @@ export const App: React.FC = () => {
             {/* Sidebar Footer */}
             <div className="p-3 border-t border-slate-800/80 bg-slate-950/70 space-y-2.5">
               {/* Clima & Psicrometria Delta T */}
-              <div className="flex items-center justify-between text-[11px] font-mono bg-slate-900/90 px-2.5 py-1.5 rounded-xl border border-slate-800">
+              <button
+                type="button"
+                onClick={() => setIsDeltaTModalOpen(true)}
+                className="w-full flex items-center justify-between text-[11px] font-mono bg-slate-900/90 hover:bg-slate-800/90 px-2.5 py-1.5 rounded-xl border border-slate-800 transition cursor-pointer text-left"
+                title="Ver Análise Psicrométrica ASABE S572 (ΔT Janela de Pulverização)"
+              >
                 <div className="flex items-center gap-1.5 text-slate-300">
                   <Droplet className="w-3.5 h-3.5 text-emerald-400" />
                   <span>ΔT 5.2°C</span>
@@ -910,7 +917,7 @@ export const App: React.FC = () => {
                 <span className="px-1.5 py-0.2 rounded bg-emerald-950/80 text-emerald-400 text-[9px] font-sans font-bold border border-emerald-800">
                   IDEAL
                 </span>
-              </div>
+              </button>
 
               {/* Status SEFAZ & DB */}
               <div className="flex items-center justify-between text-[10px] text-slate-400 px-1 font-mono">
@@ -1067,7 +1074,7 @@ export const App: React.FC = () => {
           {/* Ações Rápidas: Cotações, Dossiê, Alertas, Novo Lançamento */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {/* Cotação B3/CBOT */}
-            <div className="hidden xl:flex items-center gap-2 text-xs font-mono bg-slate-50 px-2.5 py-1 rounded-xl border border-slate-200 text-slate-700">
+            <div className="hidden 2xl:flex items-center gap-2 text-xs font-mono bg-slate-50 px-2.5 py-1 rounded-xl border border-slate-200 text-slate-700">
               <span className="text-[11px] font-sans font-medium text-slate-500">Soja B3:</span>
               <span className="font-bold text-slate-900">R$ 130,00</span>
               <span className="text-emerald-700 font-bold text-[10px]">▲ +1.2%</span>
@@ -1075,6 +1082,29 @@ export const App: React.FC = () => {
               <span className="text-[11px] font-sans font-medium text-slate-500">Dólar:</span>
               <span className="font-bold text-slate-900">R$ 5,42</span>
             </div>
+
+            {/* Monitor Psicrométrico Delta T ASABE S572 */}
+            <button
+              onClick={() => setIsDeltaTModalOpen(true)}
+              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 rounded-xl border border-emerald-200 text-xs font-mono font-bold shadow-2xs transition-all cursor-pointer"
+              title="Monitor Psicrométrico de Delta T ASABE S572: 5.2°C (Janela Ideal para Pulverização)"
+            >
+              <Droplet className="w-3.5 h-3.5 text-emerald-700" />
+              <span>ΔT 5.2°C</span>
+              <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-200/80 text-emerald-900 font-sans font-extrabold uppercase">
+                Janela Ideal
+              </span>
+            </button>
+
+            {/* Status Sincronização PWA Offline Outbox */}
+            <button
+              onClick={() => setIsOfflineSyncModalOpen(true)}
+              className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-700 rounded-xl border border-slate-200 text-xs font-medium shadow-2xs transition-all cursor-pointer"
+              title="Central de Sincronização Offline-First PWA (Outbox & Fila)"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="font-mono text-[11px]">Sync Ativo</span>
+            </button>
 
             {/* Dossiê Bancário Executivo */}
             <button
@@ -1656,6 +1686,12 @@ export const App: React.FC = () => {
         isOpen={isOfflineSyncModalOpen}
         onClose={() => setIsOfflineSyncModalOpen(false)}
         onNotify={(msg, type) => addToast(msg, type)}
+      />
+
+      {/* Monitor Psicrométrico ASABE S572 de Delta T */}
+      <DeltaTModal
+        isOpen={isDeltaTModalOpen}
+        onClose={() => setIsDeltaTModalOpen(false)}
       />
 
       {/* Sistema de Notificações Toast Feedback Instantâneo */}

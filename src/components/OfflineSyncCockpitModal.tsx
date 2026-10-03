@@ -638,6 +638,13 @@ export const OfflineSyncCockpitModal: React.FC<OfflineSyncCockpitModalProps> = (
           </span>
 
           <div className="flex items-center gap-2 w-full sm:w-auto">
+            <button
+              onClick={onClose}
+              className="px-3.5 py-2.5 bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 rounded-xl transition cursor-pointer font-semibold text-xs"
+            >
+              Fechar
+            </button>
+
             {itensSincronizados.length > 0 && (
               <button
                 onClick={handleLimparSincronizados}

@@ -303,7 +303,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                 <h2 className="text-lg font-bold text-[#1D4B38] tracking-tight">
                   Central de Lançamentos Rápidos
                 </h2>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
                   Offline-First & Validação Instantânea
                 </span>
               </div>
@@ -316,10 +316,10 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
           <div className="flex items-center gap-2">
             <button
               onClick={() => setShowHistory(!showHistory)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition border ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition border cursor-pointer ${
                 showHistory
-                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
-                  : 'bg-emerald-50 text-[#1D4B38] border-emerald-300 hover:text-[#1D4B38]'
+                  ? 'bg-amber-100 text-amber-900 border-amber-300'
+                  : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
               }`}
             >
               <History className="w-3.5 h-3.5" />
@@ -327,7 +327,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 text-slate-600 hover:text-[#1D4B38] rounded-xl hover:bg-slate-800 transition"
+              className="p-1.5 text-slate-400 hover:text-slate-700 rounded-xl hover:bg-slate-100 transition cursor-pointer"
               title="Fechar (Esc)"
             >
               <X className="w-5 h-5" />
@@ -696,24 +696,24 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                   </div>
 
                   {/* Resumo da Pesagem */}
-                  <div className="p-3.5 bg-slate-900 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs">
+                  <div className="p-3.5 bg-slate-100 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs">
                     <div className="flex items-center gap-2">
                       <span className="text-slate-600">Ganho Médio:</span>
-                      <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold font-mono">
+                      <span className="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold font-mono">
                         +{gmdCalculado} kg/animal/dia
                       </span>
                     </div>
 
                     <div className="flex items-center gap-2">
                       <span className="text-slate-600">Total Produzido no Lote:</span>
-                      <span className="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-bold font-mono">
+                      <span className="px-2 py-0.5 rounded bg-purple-100 text-purple-800 font-bold font-mono">
                         +{ganhoArrobasTotal} @ líquidas
                       </span>
                     </div>
 
                     <div className="flex items-center gap-2">
                       <span className="text-slate-600">Peso Total Lote:</span>
-                      <span className="text-white font-mono font-bold">
+                      <span className="text-slate-900 font-mono font-bold">
                         {((pesagemCabecas * pesagemPesoMedio) / 1000).toFixed(1)} toneladas
                       </span>
                     </div>
@@ -946,14 +946,14 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                   </div>
 
                   {/* Resumo da Telemetria Calculada */}
-                  <div className="p-3 bg-slate-900 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs">
+                  <div className="p-3 bg-slate-100 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs">
                     <div>
                       <span className="text-slate-600">Horas Trabalhadas:</span>
-                      <strong className="text-white font-mono ml-1.5">{horasTrabalhadas} h</strong>
+                      <strong className="text-slate-900 font-mono ml-1.5">{horasTrabalhadas} h</strong>
                     </div>
                     <div>
                       <span className="text-slate-600">Consumo Efetivo:</span>
-                      <strong className="text-amber-400 font-mono ml-1.5 text-sm">{consumoMedioLh} L/h</strong>
+                      <strong className="text-amber-700 font-mono ml-1.5 text-sm">{consumoMedioLh} L/h</strong>
                     </div>
                     <div>
                       <span className="text-slate-600">Meta Estabelecida:</span>
@@ -962,8 +962,8 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     <span
                       className={`px-2.5 py-1 rounded-full text-xs font-bold font-mono border ${
                         consumoMedioLh <= 28.0
-                          ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
-                          : 'bg-rose-500/20 text-rose-300 border-rose-500/40'
+                          ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+                          : 'bg-rose-100 text-rose-800 border-rose-300'
                       }`}
                     >
                       {consumoMedioLh <= 28.0 ? '✓ Consumo Eficiente na Meta' : '⚠ Desvio Acima da Meta'}
@@ -1065,18 +1065,18 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
                   </div>
 
-                  <div className="p-3 bg-slate-900 rounded-xl border border-slate-200 flex items-center justify-between text-xs">
+                  <div className="p-3 bg-slate-100 rounded-xl border border-slate-200 flex items-center justify-between text-xs">
                     <div>
                       <span className="text-slate-600">Volume Total de Calda:</span>
-                      <strong className="text-cyan-400 font-mono text-sm ml-2">
+                      <strong className="text-teal-700 font-mono text-sm ml-2">
                         {volumeTotalCaldaLitros.toLocaleString('pt-BR')} Litros
                       </strong>
                     </div>
                     <div className="text-slate-600">
-                      Área Coberta: <strong className="text-white">{selectedCaldaTalhao.areaHa} ha</strong>
+                      Área Coberta: <strong className="text-slate-900">{selectedCaldaTalhao.areaHa} ha</strong>
                     </div>
                     <div className="text-slate-600">
-                      Tanques Estimados (3.000 L): <strong className="text-white font-mono">{(volumeTotalCaldaLitros / 3000).toFixed(1)} recargas</strong>
+                      Tanques Estimados (3.000 L): <strong className="text-slate-900 font-mono">{(volumeTotalCaldaLitros / 3000).toFixed(1)} recargas</strong>
                     </div>
                   </div>
                 </div>
@@ -1138,10 +1138,10 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                   </div>
 
                   {/* Incremento Rápido de Contagem */}
-                  <div className="p-4 bg-slate-900 rounded-xl border border-slate-200 space-y-3">
+                  <div className="p-4 bg-slate-100 rounded-xl border border-slate-200 space-y-3">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-slate-600 font-medium">Contagem de Pragas (Alvos por Metro Linear de Pano):</span>
-                      <span className="text-rose-400 font-mono font-bold text-lg">{mipContagem} alvos/m</span>
+                      <span className="text-slate-700 font-medium">Contagem de Pragas (Alvos por Metro Linear de Pano):</span>
+                      <span className="text-rose-600 font-mono font-bold text-lg">{mipContagem} alvos/m</span>
                     </div>
 
                     <div className="flex items-center gap-2">
@@ -1150,10 +1150,10 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                           key={val}
                           type="button"
                           onClick={() => setMipContagem(val)}
-                          className={`flex-1 py-1.5 rounded-lg text-xs font-mono font-bold transition ${
+                          className={`flex-1 py-1.5 rounded-lg text-xs font-mono font-bold transition cursor-pointer ${
                             mipContagem === val
-                              ? 'bg-rose-500 text-white'
-                              : 'bg-slate-50 text-slate-900 hover:bg-slate-800 border border-slate-200'
+                              ? 'bg-rose-600 text-white shadow-xs'
+                              : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-300'
                           }`}
                         >
                           {val}
@@ -1266,22 +1266,22 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                     </div>
                   </div>
 
-                  <div className="p-3 bg-slate-900 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs">
+                  <div className="p-3 bg-slate-100 rounded-xl border border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs">
                     <div>
                       <span className="text-slate-600">Peso Líquido Bruto:</span>
-                      <strong className="text-white font-mono ml-1.5">{romPesoLiquidoInicial.toLocaleString('pt-BR')} kg</strong>
+                      <strong className="text-slate-900 font-mono ml-1.5">{romPesoLiquidoInicial.toLocaleString('pt-BR')} kg</strong>
                     </div>
                     <div>
                       <span className="text-slate-600">Desconto Umidade:</span>
-                      <strong className="text-rose-400 font-mono ml-1.5">-{romDescUmidadeKg.toLocaleString('pt-BR')} kg</strong>
+                      <strong className="text-rose-700 font-mono ml-1.5">-{romDescUmidadeKg.toLocaleString('pt-BR')} kg</strong>
                     </div>
                     <div>
                       <span className="text-slate-600">Desconto Impureza:</span>
-                      <strong className="text-rose-400 font-mono ml-1.5">-{romDescImpurezaKg.toLocaleString('pt-BR')} kg</strong>
+                      <strong className="text-rose-700 font-mono ml-1.5">-{romDescImpurezaKg.toLocaleString('pt-BR')} kg</strong>
                     </div>
                     <div>
                       <span className="text-slate-600">Peso Líquido Pago:</span>
-                      <strong className="text-emerald-400 font-mono text-sm ml-1.5">
+                      <strong className="text-emerald-800 font-mono text-sm ml-1.5">
                         {romPesoLiquidoFinal.toLocaleString('pt-BR')} kg
                       </strong>
                     </div>
@@ -1443,13 +1443,13 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
                   </div>
 
                   {/* Rateio Automático Condôminos */}
-                  <div className="p-3 bg-slate-900 rounded-xl border border-slate-200 text-xs space-y-1.5">
-                    <span className="text-slate-600 font-medium block mb-1">Rateio Societário Automático (Registro Q100 LCDPR):</span>
+                  <div className="p-3 bg-slate-100 rounded-xl border border-slate-200 text-xs space-y-1.5">
+                    <span className="text-slate-700 font-medium block mb-1">Rateio Societário Automático (Registro Q100 LCDPR):</span>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                       {CONDOMINOS_FAZENDA.map((c) => (
-                        <div key={c.cpf} className="p-2 rounded bg-slate-50 border-slate-200 flex justify-between">
+                        <div key={c.cpf} className="p-2 rounded-lg bg-white border border-slate-200 flex justify-between">
                           <span className="text-slate-600">{c.nome.split(' ')[0]} ({c.percentual}%):</span>
-                          <span className="text-purple-400 font-mono font-bold">
+                          <span className="text-purple-700 font-mono font-bold">
                             R$ {(finValor * (c.percentual / 100)).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                           </span>
                         </div>
@@ -1466,21 +1466,21 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
         <div className="p-4 sm:p-5 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-50">
           <div className="flex items-center gap-2 text-xs text-slate-600">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Atalho rápido: pressione <kbd className="px-1.5 py-0.5 rounded bg-emerald-50 text-[#1D4B38] font-mono text-[10px]">N</kbd> no teclado para lançar</span>
+            <span>Atalho rápido: pressione <kbd className="px-1.5 py-0.5 rounded bg-white border border-slate-200 text-slate-700 font-mono text-[10px]">N</kbd> no teclado para lançar</span>
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl border border-emerald-300 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition"
+              className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 text-xs font-semibold transition cursor-pointer"
             >
               Cancelar
             </button>
             <button
               type="button"
               onClick={() => handleSubmitLaunch(true)}
-              className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl border border-emerald-600/50 bg-emerald-950/60 hover:bg-emerald-900/60 text-emerald-300 text-xs font-bold transition flex items-center justify-center gap-1.5"
+              className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl border border-emerald-300 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               Salvar & Lançar Outro
@@ -1488,7 +1488,7 @@ export const GlobalQuickEntryModal: React.FC<GlobalQuickEntryModalProps> = ({
             <button
               type="button"
               onClick={() => handleSubmitLaunch(false)}
-              className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-black transition shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-1.5"
+              className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold transition shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <CheckCircle2 className="w-4 h-4" />
               Salvar Lançamento
