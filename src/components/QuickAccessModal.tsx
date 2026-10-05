@@ -1474,6 +1474,12 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<string>('TODOS');
   const [filterOnlySubscribed, setFilterOnlySubscribed] = useState<boolean>(true);
 
+  // Filtra por habilitação contratada se ativado
+  const baseModules = useMemo(() => {
+    if (!enabledModuleIds || !filterOnlySubscribed) return ALL_MODULES;
+    return ALL_MODULES.filter((m: ModuleItem) => enabledModuleIds.has(m.id));
+  }, [enabledModuleIds, filterOnlySubscribed]);
+
   // Fecha no ESC
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -1484,12 +1490,6 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
-
-  // Filtra por habilitação contratada se ativado
-  const baseModules = useMemo(() => {
-    if (!enabledModuleIds || !filterOnlySubscribed) return ALL_MODULES;
-    return ALL_MODULES.filter((m: ModuleItem) => enabledModuleIds.has(m.id));
-  }, [enabledModuleIds, filterOnlySubscribed]);
 
   const filteredModules = baseModules.filter((mod: ModuleItem) => {
     const matchesSearch =
@@ -1507,22 +1507,22 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
   });
 
   return (
-    <div className="fixed inset-0 z-[1000] bg-black/80 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in">
+    <div className="fixed inset-0 z-[1000] bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in">
       <div className="bg-white border border-slate-200 w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
         {/* Barra de Pesquisa Rápida (Command Palette) */}
         <div className="p-4 border-b border-slate-200 flex items-center gap-3 bg-slate-50">
-          <Search className="w-5 h-5 text-emerald-400 shrink-0" />
+          <Search className="w-5 h-5 text-emerald-700 shrink-0" />
           <input
             type="text"
             placeholder="Digite o que deseja acessar (ex: clima, trator, romaneio, lcdpr, adubo, cpr)..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             autoFocus
-            className="w-full bg-transparent text-sm text-slate-900 placeholder-[#66736A] focus:outline-none"
+            className="w-full bg-transparent text-sm text-slate-900 placeholder-slate-400 focus:outline-none"
           />
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 cursor-pointer"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-200 cursor-pointer transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -1530,21 +1530,21 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
 
         {/* Faixa de Atividade Contratada & Filtro Modular */}
         {enabledModuleIds && (
-          <div className="px-4 py-2 bg-white border-b border-slate-200 flex items-center justify-between text-xs gap-3">
+          <div className="px-4 py-2 bg-slate-100/70 border-b border-slate-200 flex flex-wrap items-center justify-between text-xs gap-3">
             <div className="flex items-center gap-2">
-              <span className="text-[11px] text-slate-400">Atividade Contratada:</span>
-              <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold border border-emerald-500/30 text-[11px]">
+              <span className="text-[11px] text-slate-600 font-medium">Atividade Contratada:</span>
+              <span className="px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 font-bold border border-emerald-300 text-[11px]">
                 {activeProfileName || 'Perfil Ativo'} ({enabledModuleIds.size}/{ALL_MODULES.length})
               </span>
             </div>
 
             <div className="flex items-center gap-3">
-              <label className="flex items-center gap-1.5 text-[11px] text-slate-400 cursor-pointer select-none">
+              <label className="flex items-center gap-1.5 text-[11px] text-slate-600 cursor-pointer select-none font-medium">
                 <input
                   type="checkbox"
                   checked={filterOnlySubscribed}
                   onChange={(e) => setFilterOnlySubscribed(e.target.checked)}
-                  className="rounded border-slate-700 text-emerald-500 focus:ring-emerald-500"
+                  className="rounded border-slate-300 text-emerald-700 focus:ring-emerald-600"
                 />
                 <span>Ocultar módulos não contratados</span>
               </label>
@@ -1555,7 +1555,7 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
                     onClose();
                     onOpenModuleConfig();
                   }}
-                  className="text-emerald-400 hover:text-emerald-300 font-semibold text-[11px] underline cursor-pointer"
+                  className="text-emerald-800 hover:text-emerald-950 font-bold text-[11px] underline cursor-pointer"
                 >
                   Personalizar Módulos
                 </button>
@@ -1565,13 +1565,13 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
         )}
 
         {/* Filtros de Categoria */}
-        <div className="px-4 py-2 bg-slate-50 border-b border-slate-200 flex items-center gap-1.5 overflow-x-auto text-xs">
+        <div className="px-4 py-2 bg-white border-b border-slate-200 flex items-center gap-1.5 overflow-x-auto text-xs">
           <button
             onClick={() => setSelectedCategory('TODOS')}
             className={`px-3 py-1 rounded-lg font-bold transition-all whitespace-nowrap cursor-pointer ${
               selectedCategory === 'TODOS'
-                ? 'bg-emerald-700 text-white'
-                : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                ? 'bg-emerald-700 text-white shadow-2xs'
+                : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
             }`}
           >
             Exibindo ({baseModules.length})
@@ -1580,17 +1580,17 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
             onClick={() => setSelectedCategory('FAVORITOS')}
             className={`px-3 py-1 rounded-lg font-bold transition-all flex items-center gap-1 whitespace-nowrap cursor-pointer ${
               selectedCategory === 'FAVORITOS'
-                ? 'bg-amber-500 text-slate-950'
-                : 'text-amber-400 hover:bg-slate-800'
+                ? 'bg-amber-100 text-amber-900 border border-amber-300'
+                : 'text-amber-800 hover:bg-amber-50'
             }`}
           >
-            <Star className="w-3.5 h-3.5 fill-current" /> Favoritos ({favoritos.length})
+            <Star className="w-3.5 h-3.5 fill-current text-amber-500" /> Favoritos ({favoritos.length})
           </button>
-          <span className="text-slate-700">|</span>
+          <span className="text-slate-300">|</span>
           <button
             onClick={() => setSelectedCategory('CAMPO')}
             className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
-              selectedCategory === 'CAMPO' ? 'bg-slate-800 text-white font-bold' : 'text-slate-400 hover:text-white'
+              selectedCategory === 'CAMPO' ? 'bg-slate-800 text-white font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
             }`}
           >
             🌾 Campo ({baseModules.filter((m: ModuleItem) => m.category === 'CAMPO').length})
@@ -1598,7 +1598,7 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
           <button
             onClick={() => setSelectedCategory('FROTA')}
             className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
-              selectedCategory === 'FROTA' ? 'bg-slate-800 text-white font-bold' : 'text-slate-400 hover:text-white'
+              selectedCategory === 'FROTA' ? 'bg-slate-800 text-white font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
             }`}
           >
             🚜 Frotas ({baseModules.filter((m: ModuleItem) => m.category === 'FROTA').length})
@@ -1606,7 +1606,7 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
           <button
             onClick={() => setSelectedCategory('MERCADO')}
             className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
-              selectedCategory === 'MERCADO' ? 'bg-slate-800 text-white font-bold' : 'text-slate-400 hover:text-white'
+              selectedCategory === 'MERCADO' ? 'bg-slate-800 text-white font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
             }`}
           >
             📈 Mercado ({baseModules.filter((m: ModuleItem) => m.category === 'MERCADO').length})
@@ -1614,7 +1614,7 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
           <button
             onClick={() => setSelectedCategory('FISCAL')}
             className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
-              selectedCategory === 'FISCAL' ? 'bg-slate-800 text-white font-bold' : 'text-slate-400 hover:text-white'
+              selectedCategory === 'FISCAL' ? 'bg-slate-800 text-white font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
             }`}
           >
             ⚖️ Fiscal ({baseModules.filter((m: ModuleItem) => m.category === 'FISCAL').length})
@@ -1622,7 +1622,7 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
           <button
             onClick={() => setSelectedCategory('PECUARIA')}
             className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
-              selectedCategory === 'PECUARIA' ? 'bg-slate-800 text-white font-bold' : 'text-slate-400 hover:text-white'
+              selectedCategory === 'PECUARIA' ? 'bg-slate-800 text-white font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
             }`}
           >
             🐂 Pecuária ({baseModules.filter((m: ModuleItem) => m.category === 'PECUARIA').length})
@@ -1650,8 +1650,8 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
                   }}
                   className={`p-3.5 rounded-xl border flex items-center justify-between gap-4 cursor-pointer transition-all ${
                     isActive
-                      ? 'bg-emerald-950/40 border-emerald-500 shadow-md'
-                      : 'bg-slate-50 border-slate-200 hover:border-emerald-300 hover:bg-emerald-50'
+                      ? 'bg-emerald-50 border-emerald-500 shadow-2xs'
+                      : 'bg-slate-50 border-slate-200 hover:border-slate-300 hover:bg-slate-100'
                   }`}
                 >
                   <div className="flex items-center gap-3.5 min-w-0">
@@ -1659,7 +1659,7 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
                       className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
                         isActive
                           ? 'bg-emerald-700 text-white'
-                          : 'bg-slate-800 text-emerald-400 border border-slate-700'
+                          : 'bg-emerald-100 text-emerald-800 border border-emerald-300'
                       }`}
                     >
                       <Icon className="w-5 h-5" />
@@ -1667,9 +1667,9 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
 
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
-                        <h4 className="text-xs font-bold text-emerald-800 truncate">{mod.fullName}</h4>
+                        <h4 className="text-xs font-bold text-slate-900 truncate">{mod.fullName}</h4>
                         {mod.badge && (
-                          <span className="px-1.5 py-0.2 bg-slate-800 text-emerald-400 text-[10px] font-mono rounded border border-slate-700 shrink-0">
+                          <span className="px-1.5 py-0.2 bg-slate-100 text-slate-700 text-[10px] font-mono rounded border border-slate-200 shrink-0">
                             {mod.badge}
                           </span>
                         )}
@@ -1689,15 +1689,15 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
                       }}
                       className={`p-2 rounded-lg transition-all ${
                         isFav
-                          ? 'text-amber-400 bg-amber-400/10 hover:bg-amber-400/20'
-                          : 'text-slate-600 hover:text-slate-300 hover:bg-slate-800'
+                          ? 'text-amber-500 bg-amber-50 hover:bg-amber-100'
+                          : 'text-slate-400 hover:text-slate-600 hover:bg-slate-200'
                       }`}
                       title={isFav ? 'Remover dos favoritos' : 'Fixar nos favoritos'}
                     >
                       <Star className={`w-4 h-4 ${isFav ? 'fill-current' : ''}`} />
                     </button>
 
-                    <ChevronRight className="w-4 h-4 text-slate-600" />
+                    <ChevronRight className="w-4 h-4 text-slate-400" />
                   </div>
                 </div>
               );
@@ -1708,7 +1708,7 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
         {/* Rodapé com Atalhos de Teclado */}
         <div className="p-3 bg-slate-50 border-t border-slate-200 flex justify-between items-center text-[11px] text-slate-600">
           <span>Dica: Use a estrela (⭐) para fixar os módulos que você mais utiliza no topo da tela.</span>
-          <span className="font-mono bg-white border border-slate-200 px-2 py-0.5 rounded text-emerald-800">ESC para fechar</span>
+          <span className="font-mono bg-white border border-slate-300 px-2 py-0.5 rounded text-slate-700">ESC para fechar</span>
         </div>
       </div>
     </div>
