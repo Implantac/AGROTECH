@@ -308,6 +308,38 @@ export const App: React.FC = () => {
     }
   };
 
+  // Perfil do Usuário Autenticado & Controle de Papel RBAC
+  const [currentUser, setCurrentUser] = useState<{ name: string; role: string; farm: string }>(() => {
+    try {
+      const saved = localStorage.getItem('agtech_logged_user');
+      if (saved) return JSON.parse(saved);
+    } catch {
+      // fallback
+    }
+    return {
+      name: 'Carlos Eduardo Silva',
+      role: 'Produtor Titular & Gestor',
+      farm: 'Fazenda Santa Maria (Sorriso/MT)',
+    };
+  });
+
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+
+  const updateCurrentUser = (user: { name: string; role: string; farm: string }) => {
+    setCurrentUser(user);
+    try {
+      localStorage.setItem('agtech_logged_user', JSON.stringify(user));
+    } catch {
+      // ignore
+    }
+  };
+
+  const userInitials = useMemo(() => {
+    const parts = (currentUser.name || 'CS').trim().split(' ').filter(Boolean);
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  }, [currentUser.name]);
+
   const [activeTab, setActiveTab] = useState<string>('BI');
   const [selectedTalhao, setSelectedTalhao] = useState<TalhaoData | null>(null);
   const [isQuickAccessOpen, setIsQuickAccessOpen] = useState<boolean>(false);
@@ -589,6 +621,13 @@ export const App: React.FC = () => {
       <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-[#8FBF88] selection:text-slate-900">
         <RegisterOnboardingScreen
           onRegisterSuccess={(data) => {
+            if (data?.farm?.nome) {
+              updateCurrentUser({
+                name: data.user?.nome || 'Carlos Eduardo Silva',
+                role: 'Administrador Rural',
+                farm: data.farm.nome,
+              });
+            }
             handleNavigateView('PLATFORM');
             addToast(`Fazenda ${data.farm.nome} configurada com sucesso! Cockpit operacional pronto.`, 'success');
           }}
@@ -606,6 +645,9 @@ export const App: React.FC = () => {
       <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-[#8FBF88] selection:text-slate-900">
         <LoginScreen
           onLoginSuccess={(profile) => {
+            if (profile) {
+              updateCurrentUser(profile);
+            }
             handleNavigateView('PLATFORM');
             addToast(`Bem-vindo, ${profile?.name || 'Produtor Rural'}! Cockpit carregado.`, 'success');
           }}
@@ -928,24 +970,89 @@ export const App: React.FC = () => {
                 <span>DB 18ms</span>
               </div>
 
-              {/* Perfil do Usuário & Logout */}
-              <div className="flex items-center justify-between pt-1 border-t border-slate-800/80">
-                <div className="flex items-center gap-2 min-w-0">
-                  <div className="w-7 h-7 rounded-full bg-emerald-700 text-white font-bold flex items-center justify-center text-xs shrink-0">
-                    FS
+              {/* Perfil do Usuário & Seletor de Papel RBAC */}
+              <div className="relative pt-1 border-t border-slate-800/80">
+                {isUserMenuOpen && (
+                  <div className="absolute bottom-full left-0 mb-2 w-64 bg-slate-900 border border-slate-700 rounded-xl shadow-xl p-2 z-50 text-xs animate-fade-in space-y-1.5">
+                    <div className="px-2 py-1 border-b border-slate-800">
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                        Alternar Papel Operacional (RBAC)
+                      </span>
+                      <span className="text-[11px] text-emerald-400 font-medium truncate block">
+                        {currentUser.farm}
+                      </span>
+                    </div>
+
+                    {[
+                      { nome: 'Carlos Eduardo Silva', role: 'Produtor Titular & Gestor', sigla: 'CS' },
+                      { nome: 'Engª Juliana Prado', role: 'Agrônoma RT (MIP / ASABE)', sigla: 'JP' },
+                      { nome: 'Valmor Bertoncelli', role: 'Chefe de Frotas (CAN Bus)', sigla: 'VB' },
+                      { nome: 'Dr. Marcelo Arantes', role: 'Médico Veterinário SISBOV', sigla: 'MA' },
+                    ].map((perfil) => (
+                      <button
+                        key={perfil.nome}
+                        onClick={() => {
+                          updateCurrentUser({
+                            name: perfil.nome,
+                            role: perfil.role,
+                            farm: currentUser.farm,
+                          });
+                          setIsUserMenuOpen(false);
+                          addToast(`Perfil ativo alterado para: ${perfil.nome} (${perfil.role})`, 'info');
+                        }}
+                        className={`w-full flex items-center gap-2 px-2 py-1.5 rounded-lg text-left transition cursor-pointer ${
+                          currentUser.name === perfil.nome
+                            ? 'bg-emerald-800/60 text-white font-bold border border-emerald-600/50'
+                            : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                        }`}
+                      >
+                        <div className="w-6 h-6 rounded-full bg-slate-700 text-emerald-300 font-bold flex items-center justify-center text-[10px] shrink-0">
+                          {perfil.sigla}
+                        </div>
+                        <div className="truncate min-w-0">
+                          <p className="truncate font-semibold text-xs leading-tight">{perfil.nome}</p>
+                          <p className="text-[9px] text-slate-400 truncate">{perfil.role}</p>
+                        </div>
+                      </button>
+                    ))}
+
+                    <div className="pt-1 border-t border-slate-800">
+                      <button
+                        onClick={() => {
+                          setIsUserMenuOpen(false);
+                          handleNavigateView('LOGIN');
+                        }}
+                        className="w-full flex items-center gap-2 px-2 py-1.5 rounded-lg text-rose-300 hover:bg-rose-950/40 hover:text-rose-200 transition cursor-pointer font-medium"
+                      >
+                        <LogOut className="w-3.5 h-3.5" />
+                        <span>Trocar de Conta / Sair</span>
+                      </button>
+                    </div>
                   </div>
-                  <div className="truncate">
-                    <p className="text-xs font-bold text-white truncate">Dr. Fernando Silveira</p>
-                    <p className="text-[10px] text-emerald-400">Produtor Titular</p>
-                  </div>
+                )}
+
+                <div className="flex items-center justify-between">
+                  <button
+                    onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                    className="flex items-center gap-2 min-w-0 flex-1 text-left p-1 rounded-lg hover:bg-slate-800/80 transition cursor-pointer"
+                    title="Alternar perfil de operador (Produtor, Agrônomo, Frota, Veterinário)"
+                  >
+                    <div className="w-7 h-7 rounded-full bg-emerald-700 text-white font-bold flex items-center justify-center text-xs shrink-0">
+                      {userInitials}
+                    </div>
+                    <div className="truncate min-w-0 flex-1">
+                      <p className="text-xs font-bold text-white truncate">{currentUser.name}</p>
+                      <p className="text-[10px] text-emerald-400 truncate">{currentUser.role}</p>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => handleNavigateView('LOGIN')}
+                    className="p-1.5 text-slate-400 hover:text-rose-400 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer shrink-0"
+                    title="Sair do sistema"
+                  >
+                    <LogOut className="w-3.5 h-3.5" />
+                  </button>
                 </div>
-                <button
-                  onClick={() => handleNavigateView('LOGIN')}
-                  className="p-1.5 text-slate-400 hover:text-rose-400 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
-                  title="Sair do sistema"
-                >
-                  <LogOut className="w-3.5 h-3.5" />
-                </button>
               </div>
             </div>
           </>
