@@ -75,6 +75,23 @@
         "FISCAL"
       ],
       "createdAt": "2026-10-02T12:53:38.822Z"
+    },
+    {
+      "id": "usr-1791202392396",
+      "tenantId": "tenant-1791202392396",
+      "nome": "Roberto Marcondes",
+      "email": "roberto@fazendasantaclara.com.br",
+      "senhaHash": "ce98608161c4b513d4681b209541def82310e7c86875653f63fff91f6c34f9cb",
+      "perfil": "PRODUTOR",
+      "fazenda": "Fazenda Santa Clara",
+      "permissoes": [
+        "ALL",
+        "FINANCEIRO",
+        "AGRONOMICO",
+        "FROTA",
+        "FISCAL"
+      ],
+      "createdAt": "2026-10-05T12:13:12.396Z"
     }
   ],
   "fazendas": [
@@ -105,6 +122,21 @@
         "MILHO"
       ],
       "createdAt": "2026-10-02T12:53:38.821Z"
+    },
+    {
+      "id": "faz-1791202392396",
+      "tenantId": "tenant-1791202392396",
+      "nome": "Fazenda Santa Clara",
+      "cnpj": "00.000.000/0001-00",
+      "municipio": "A Definir",
+      "uf": "BR",
+      "areaTotalHa": 1200,
+      "areaAgricultavelHa": 950,
+      "reservaLegalHa": 250,
+      "culturas": [
+        "SOJA"
+      ],
+      "createdAt": "2026-10-05T12:13:12.396Z"
     }
   ],
   "talhoes": [

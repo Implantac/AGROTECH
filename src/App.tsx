@@ -894,7 +894,9 @@ export const App: React.FC = () => {
                       onClick={() => {
                         setSelectedDomain(dom.id);
                         const targetMod = availableModules.find((m) =>
-                          dom.id === 'FAVORITOS' ? favoritos.includes(m.id) : m.category === dom.id
+                          dom.id === 'FAVORITOS'
+                            ? favoritos.includes(m.id)
+                            : m.category === dom.id && !['BI', 'SIG', 'COPILOT', 'MOBILE'].includes(m.id)
                         );
                         if (targetMod) handleSelectModule(targetMod.id);
                       }}

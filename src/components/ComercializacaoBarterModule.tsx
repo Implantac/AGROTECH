@@ -472,21 +472,21 @@ export const ComercializacaoBarterModule: React.FC = () => {
 
       {/* Modal de Cadastro de Novo Contrato de Barter & Emissão de CPR */}
       {modalNovoOpen && (
-        <div className="fixed inset-0 z-[1000] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-slate-900 border border-emerald-300 p-6 rounded-2xl max-w-2xl w-full shadow-2xl text-slate-900 space-y-4 my-8">
+        <div className="fixed inset-0 z-[1000] bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white border border-slate-200 p-6 rounded-2xl max-w-2xl w-full shadow-2xl text-slate-900 space-y-4 my-8">
             <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-emerald-950 text-emerald-400 border border-emerald-800 flex items-center justify-center">
-                  <Handshake className="w-4 h-4" />
+                <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center justify-center">
+                  <Handshake className="w-4 h-4 text-emerald-800" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#1D4B38]">Cadastrar Contrato de Barter & CPR Digital</h3>
+                  <h3 className="text-base font-bold text-slate-900">Cadastrar Contrato de Barter & CPR Digital</h3>
                   <p className="text-xs text-slate-600">Formalização de Cédula de Produto Rural com Registro B3 / Cerc</p>
                 </div>
               </div>
               <button
                 onClick={() => setModalNovoOpen(false)}
-                className="text-slate-600 hover:text-[#1D4B38] p-1 rounded-lg"
+                className="text-slate-400 hover:text-slate-700 hover:bg-slate-100 p-1 rounded-lg"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -571,7 +571,7 @@ export const ComercializacaoBarterModule: React.FC = () => {
                       step="1000"
                       value={valorPacoteInsumos}
                       onChange={(e) => setValorPacoteInsumos(Number(e.target.value))}
-                      className="w-full bg-slate-900 border border-emerald-300 rounded-lg p-2 text-[#1D4B38] font-bold font-mono"
+                      className="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-900 font-bold font-mono focus:border-emerald-600 focus:outline-none"
                       required
                     />
                   </div>
@@ -583,14 +583,14 @@ export const ComercializacaoBarterModule: React.FC = () => {
                       step="0.5"
                       value={precoTravadoSaca}
                       onChange={(e) => setPrecoTravadoSaca(Number(e.target.value))}
-                      className="w-full bg-slate-900 border border-emerald-300 rounded-lg p-2 text-emerald-400 font-bold font-mono"
+                      className="w-full bg-white border border-slate-300 rounded-lg p-2 text-emerald-800 font-bold font-mono focus:border-emerald-600 focus:outline-none"
                       required
                     />
                   </div>
 
                   <div>
                     <label className="text-slate-600 block mb-1">Sacas a Entregar</label>
-                    <div className="w-full bg-slate-900 border border-emerald-800/80 rounded-lg p-2 text-amber-400 font-black font-mono text-sm">
+                    <div className="w-full bg-slate-100 border border-slate-300 rounded-lg p-2 text-amber-800 font-black font-mono text-sm">
                       {sacasCalculadas.toLocaleString('pt-BR')} sc
                     </div>
                   </div>
@@ -831,21 +831,21 @@ export const ComercializacaoBarterModule: React.FC = () => {
 
       {/* Modal de Amortização de Carga / Baixa de Romaneio */}
       {modalAmortizar && (
-        <div className="fixed inset-0 z-[1050] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-emerald-300 p-6 rounded-2xl max-w-md w-full shadow-2xl text-slate-900 space-y-4">
+        <div className="fixed inset-0 z-[1050] bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white border border-slate-200 p-6 rounded-2xl max-w-md w-full shadow-2xl text-slate-900 space-y-4">
             <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-blue-950 text-blue-400 border border-blue-800 flex items-center justify-center">
-                  <Truck className="w-4 h-4" />
+                <div className="w-8 h-8 rounded-lg bg-sky-100 text-sky-800 border border-sky-300 flex items-center justify-center">
+                  <Truck className="w-4 h-4 text-sky-800" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#1D4B38]">Amortizar Entrega Física</h3>
+                  <h3 className="text-base font-bold text-slate-900">Amortizar Entrega Física</h3>
                   <p className="text-xs text-slate-600">Contrato: {modalAmortizar.numeroContrato}</p>
                 </div>
               </div>
               <button
                 onClick={() => setModalAmortizar(null)}
-                className="text-slate-600 hover:text-[#1D4B38]"
+                className="text-slate-400 hover:text-slate-700 hover:bg-slate-100 p-1 rounded-lg"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -855,11 +855,11 @@ export const ComercializacaoBarterModule: React.FC = () => {
               <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
                 <div className="flex justify-between text-slate-600">
                   <span>Trading:</span>
-                  <span className="font-semibold text-[#1D4B38]">{modalAmortizar.compradorTrader}</span>
+                  <span className="font-semibold text-slate-900">{modalAmortizar.compradorTrader}</span>
                 </div>
                 <div className="flex justify-between text-slate-600">
                   <span>Saldo Pendente:</span>
-                  <span className="font-bold font-mono text-amber-400">
+                  <span className="font-bold font-mono text-amber-800">
                     {(modalAmortizar.quantidadeSacas60kg - modalAmortizar.sacasEntregues).toLocaleString('pt-BR')} sc
                   </span>
                 </div>
