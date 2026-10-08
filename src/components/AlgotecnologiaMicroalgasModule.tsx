@@ -107,15 +107,15 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className="px-2.5 py-1 text-xs font-black bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+              <span className="px-2.5 py-1 text-xs font-black bg-emerald-500/20 text-emerald-800 border border-emerald-500/40 rounded-full uppercase tracking-wider flex items-center gap-1.5">
                 <Leaf className="w-3.5 h-3.5" />
                 Módulo 90 • Algotecnologia & Microalgas
               </span>
-              <span className="px-2.5 py-1 text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 rounded-full">
+              <span className="px-2.5 py-1 text-xs font-semibold bg-cyan-500/20 text-sky-800 border border-cyan-500/30 rounded-full">
                 Spirulina & Chlorella • Fixação de CO₂
               </span>
             </div>
-            <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-3">
               🧪 Biotecnologia de Microalgas & Bioestimulantes Agrícolas
             </h2>
             <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
@@ -126,13 +126,13 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
           <div className="flex items-center gap-3">
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Biomassa Seca</span>
-              <span className="text-xl font-black text-emerald-400">29.700 kg</span>
+              <span className="text-xl font-black text-emerald-700">29.700 kg</span>
               <span className="text-[10px] text-slate-600 block mt-0.5">5.000 m² raceway</span>
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">CO₂ Fixado</span>
-              <span className="text-xl font-black text-cyan-400">54,35 ton</span>
-              <span className="text-[10px] text-cyan-400/80 block mt-0.5">1.83 kg CO₂ / kg alga</span>
+              <span className="text-xl font-black text-sky-700">54,35 ton</span>
+              <span className="text-[10px] text-sky-700/80 block mt-0.5">1.83 kg CO₂ / kg alga</span>
             </div>
           </div>
         </div>
@@ -143,10 +143,10 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Produtividade Areolar</span>
-            <Activity className="w-4 h-4 text-emerald-400" />
+            <Activity className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-white">18.0 g / m² / dia</div>
-          <div className="text-[11px] text-emerald-400 font-medium mt-1 flex items-center gap-1">
+          <div className="text-2xl font-black text-slate-900">18.0 g / m² / dia</div>
+          <div className="text-[11px] text-emerald-700 font-medium mt-1 flex items-center gap-1">
             <CheckCircle2 className="w-3.5 h-3.5" />
             90 kg biomassa seca / dia
           </div>
@@ -155,9 +155,9 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">pH Alcalino Estável</span>
-            <Droplets className="w-4 h-4 text-cyan-400" />
+            <Droplets className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black text-cyan-400">9.5 a 10.0</div>
+          <div className="text-2xl font-black text-sky-700">9.5 a 10.0</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Meio Zarrouk Protegido contra Invasores
           </div>
@@ -166,9 +166,9 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Receita Bruta Anual</span>
-            <DollarSign className="w-4 h-4 text-emerald-400" />
+            <DollarSign className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-emerald-400">R$ 1.930.500,00</div>
+          <div className="text-2xl font-black text-emerald-700">R$ 1.930.500,00</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             R$ 65,00/kg biomassa pura
           </div>
@@ -177,9 +177,9 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
-            <Award className="w-4 h-4 text-teal-400" />
+            <Award className="w-4 h-4 text-teal-700" />
           </div>
-          <div className="text-2xl font-black text-teal-400">R$ 1.210.500,00</div>
+          <div className="text-2xl font-black text-teal-700">R$ 1.210.500,00</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Margem Líquida de 62.7%
           </div>
@@ -192,8 +192,8 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
           onClick={() => setActiveTab('raceways')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'raceways'
-              ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Waves className="w-4 h-4" />
@@ -204,8 +204,8 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
           onClick={() => setActiveTab('co2_captura')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'co2_captura'
-              ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Leaf className="w-4 h-4" />
@@ -216,8 +216,8 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
           onClick={() => setActiveTab('centrifuga')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'centrifuga'
-              ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Filter className="w-4 h-4" />
@@ -228,8 +228,8 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
-              ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -241,8 +241,8 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
       {activeTab === 'raceways' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <Waves className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <Waves className="w-5 h-5 text-emerald-700" />
               Parâmetros Físico-Químicos dos Canais Raceway
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -263,21 +263,21 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
                     <th className="py-3 px-3">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60 font-medium">
+                <tbody className="divide-y divide-slate-100 font-medium">
                   {lagoas.map((l) => (
-                    <tr key={l.id} className="hover:bg-slate-800/40 transition-colors">
+                    <tr key={l.id} className="hover:bg-slate-50/80 transition-colors">
                       <td className="py-3.5 px-3">
-                        <div className="font-bold text-white">{l.identificacao}</div>
+                        <div className="font-bold text-slate-900">{l.identificacao}</div>
                         <div className="text-[11px] text-slate-600 font-mono">{l.id}</div>
                       </td>
-                      <td className="py-3.5 px-3 text-emerald-300 font-semibold">{l.especie}</td>
+                      <td className="py-3.5 px-3 text-emerald-800 font-semibold">{l.especie}</td>
                       <td className="py-3.5 px-3 font-mono text-slate-900">{l.areaM2} m²</td>
-                      <td className="py-3.5 px-3 font-mono font-bold text-white">{l.densidadeOticaOD680}</td>
-                      <td className="py-3.5 px-3 font-mono text-cyan-400 font-bold">{l.ph}</td>
-                      <td className="py-3.5 px-3 font-mono text-emerald-400">{l.temperaturaC}°C</td>
+                      <td className="py-3.5 px-3 font-mono font-bold text-slate-900">{l.densidadeOticaOD680}</td>
+                      <td className="py-3.5 px-3 font-mono text-sky-700 font-bold">{l.ph}</td>
+                      <td className="py-3.5 px-3 font-mono text-emerald-700">{l.temperaturaC}°C</td>
                       <td className="py-3.5 px-3 font-mono text-slate-900">{l.velocidadeRodaAgitadoraRpm} RPM</td>
                       <td className="py-3.5 px-3">
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30">
                           {l.status}
                         </span>
                       </td>
@@ -294,8 +294,8 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
       {activeTab === 'co2_captura' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <Leaf className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <Leaf className="w-5 h-5 text-emerald-700" />
               Injeção Controlada de Dióxido de Carbono (CO₂)
             </h3>
             <p className="text-xs text-slate-600">
@@ -304,13 +304,13 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
 
             <div className="space-y-3 text-xs">
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Estequiometria Fotossintética</span>
+                <span className="font-bold text-slate-900 block">Estequiometria Fotossintética</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   Para cada 1.000 kg de biomassa celular seca gerada, a cultura sequestra e fixa 1.830 kg de $CO_2$ da atmosfera ou gases de combustão limpos.
                 </span>
               </div>
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Controle Automatizado de pH por Válvula Solenoide</span>
+                <span className="font-bold text-slate-900 block">Controle Automatizado de pH por Válvula Solenoide</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   Quando o consumo de bicarbonatos eleva o pH acima de 10.0, a injeção de $CO_2$ é ligada automaticamente para acidificar o meio até 9.5.
                 </span>
@@ -319,8 +319,8 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
           </div>
 
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-emerald-700" />
               Aplicações como Bioestimulante Foliar
             </h3>
             <p className="text-xs text-slate-600">
@@ -330,15 +330,15 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
             <div className="space-y-2 text-xs">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Proteína Bruta na Massa Seca:</span>
-                <span className="font-mono font-bold text-emerald-400">65% a 70% PB</span>
+                <span className="font-mono font-bold text-emerald-700">65% a 70% PB</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Resistência a Estresse Hídrico:</span>
-                <span className="font-mono font-bold text-cyan-400">+18% retenção de água na soja</span>
+                <span className="font-mono font-bold text-sky-700">+18% retenção de água na soja</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Fitohormônios Auxinas/Citocininas:</span>
-                <span className="font-mono font-bold text-amber-400">Enraizamento Profundo</span>
+                <span className="font-mono font-bold text-amber-700">Enraizamento Profundo</span>
               </div>
             </div>
           </div>
@@ -349,8 +349,8 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
       {activeTab === 'centrifuga' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <Filter className="w-5 h-5 text-cyan-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <Filter className="w-5 h-5 text-sky-700" />
               Desidratação, Filtragem e Secagem Solar / Spray Dryer
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -360,19 +360,19 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Eficiência de Coleta</span>
-                <span className="text-2xl font-black text-white font-mono">98.5%</span>
-                <span className="text-[11px] text-emerald-400 block">Peneira curva de 30 micras</span>
+                <span className="text-2xl font-black text-slate-900 font-mono">98.5%</span>
+                <span className="text-[11px] text-emerald-700 block">Peneira curva de 30 micras</span>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Umidade Pós-Secagem</span>
-                <span className="text-2xl font-black text-cyan-400 font-mono">&lt; 7.0%</span>
+                <span className="text-2xl font-black text-sky-700 font-mono">&lt; 7.0%</span>
                 <span className="text-[11px] text-slate-600 block">Estabilidade por 24 meses</span>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Água Recirculada</span>
-                <span className="text-2xl font-black text-teal-400 font-mono">95.0%</span>
+                <span className="text-2xl font-black text-teal-700 font-mono">95.0%</span>
                 <span className="text-[11px] text-slate-600 block">Reaproveitamento de nutrientes</span>
               </div>
             </div>
@@ -384,15 +384,15 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <BarChart3 className="w-5 h-5 text-emerald-700" />
               Parâmetros de Cultivo de Microalgas
             </h3>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Área de Espelho d'Água (m²)</span>
-                <span className="font-mono text-emerald-400">{areaEspelhoAguaM2} m²</span>
+                <span className="font-mono text-emerald-700">{areaEspelhoAguaM2} m²</span>
               </div>
               <input
                 type="range"
@@ -401,14 +401,14 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
                 step="500"
                 value={areaEspelhoAguaM2}
                 onChange={(e) => setAreaEspelhoAguaM2(Number(e.target.value))}
-                className="w-full accent-emerald-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-emerald-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Produtividade (g/m²/dia)</span>
-                <span className="font-mono text-cyan-400">{produtividadeDiariaGramasM2Dia} g/m²/dia</span>
+                <span className="font-mono text-sky-700">{produtividadeDiariaGramasM2Dia} g/m²/dia</span>
               </div>
               <input
                 type="range"
@@ -417,14 +417,14 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
                 step="1.0"
                 value={produtividadeDiariaGramasM2Dia}
                 onChange={(e) => setProdutividadeDiariaGramasM2Dia(Number(e.target.value))}
-                className="w-full accent-cyan-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-cyan-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Biomassa Seca (R$/kg)</span>
-                <span className="font-mono text-white">R$ {precoKgBiomassaSecaReais.toFixed(2)}</span>
+                <span className="font-mono text-slate-800">R$ {precoKgBiomassaSecaReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -433,14 +433,14 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
                 step="2.5"
                 value={precoKgBiomassaSecaReais}
                 onChange={(e) => setPrecoKgBiomassaSecaReais(Number(e.target.value))}
-                className="w-full accent-emerald-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-emerald-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Custo Operacional Total Anual</span>
-                <span className="font-mono text-rose-400">R$ {custoOperacionalAnualReais.toFixed(2)}</span>
+                <span className="font-mono text-rose-700">R$ {custoOperacionalAnualReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -449,21 +449,21 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
                 step="50000"
                 value={custoOperacionalAnualReais}
                 onChange={(e) => setCustoOperacionalAnualReais(Number(e.target.value))}
-                className="w-full accent-rose-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-rose-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
           </div>
 
           <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <DollarSign className="w-5 h-5 text-emerald-700" />
               Retorno Financeiro e Créditos de Carbono
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Biomassa Anual</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   {(metricas.producaoAnualBiomassaKg / 1000).toFixed(1)} ton
                 </span>
                 <span className="text-[10px] text-slate-600 block">{diasOperacaoAno} dias/ano</span>
@@ -471,15 +471,15 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">CO₂ Fixado</span>
-                <span className="font-mono font-bold text-cyan-400 text-base">
+                <span className="font-mono font-bold text-sky-700 text-base">
                   {metricas.fixacaoTotalCO2Toneladas} ton
                 </span>
-                <span className="text-[10px] text-cyan-400/80 block">Captura Ativa</span>
+                <span className="text-[10px] text-sky-700/80 block">Captura Ativa</span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Bruta</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   R$ {(metricas.receitaBrutaBiomassaReais / 1000).toFixed(0)}k
                 </span>
                 <span className="text-[10px] text-slate-600 block">Bioestimulantes</span>
@@ -487,29 +487,29 @@ export const AlgotecnologiaMicroalgasModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido</span>
-                <span className="font-mono font-bold text-emerald-400 text-base">
+                <span className="font-mono font-bold text-emerald-700 text-base">
                   R$ {(metricas.lucroLiquidoReais / 1000).toFixed(0)}k
                 </span>
-                <span className="text-[10px] text-emerald-400/80 block">{metricas.margemLiquidaPct}% margem</span>
+                <span className="text-[10px] text-emerald-700/80 block">{metricas.margemLiquidaPct}% margem</span>
               </div>
             </div>
 
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Receita com Biomassa Seca ({metricas.producaoAnualBiomassaKg.toLocaleString()} kg @ R$ {precoKgBiomassaSecaReais.toFixed(2)}):</span>
-                <span className="font-mono font-bold text-white">
+                <span className="font-mono font-bold text-slate-900">
                   R$ {metricas.receitaBrutaBiomassaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Custo Total de Operação (Energia das Pás, Meio de Cultura e Pessoal):</span>
-                <span className="font-mono font-bold text-rose-400">
+                <span className="font-mono font-bold text-rose-700">
                   - R$ {custoOperacionalAnualReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-2 text-sm font-black bg-emerald-950/30 px-3 rounded-lg border border-emerald-800/50">
-                <span className="text-white">Lucro Líquido Anual Consolidado:</span>
-                <span className="font-mono text-emerald-300">
+              <div className="flex justify-between items-center py-2 text-sm font-black bg-emerald-50 px-3 rounded-lg border border-emerald-200">
+                <span className="text-slate-900">Lucro Líquido Anual Consolidado:</span>
+                <span className="font-mono text-emerald-800">
                   R$ {metricas.lucroLiquidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>

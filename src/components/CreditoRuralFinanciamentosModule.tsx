@@ -249,7 +249,7 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
             </div>
             <div>
               <div className="flex flex-wrap items-center gap-2">
-                <h1 className="text-xl font-black text-white">Crédito Rural, Financiamentos & CNAB 240</h1>
+                <h1 className="text-xl font-black text-slate-900">Crédito Rural, Financiamentos & CNAB 240</h1>
                 <span className="px-2 py-0.5 text-[11px] font-bold bg-emerald-50 text-[#285943] rounded-full">
                   Plano Safra Equalizado
                 </span>

@@ -1,100 +1,153 @@
 @import "tailwindcss";
 @import "leaflet/dist/leaflet.css";
 
+/* Tipografia Moderna, Humanizada & Orgânica (Plus Jakarta Sans + Outfit) */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
 @theme {
-  /* Paleta Profissional AgTech Alta Visibilidade (WCAG 2.1 AAA) */
-  --color-agro-forest: #143D2B;       /* Verde Floresta Imperial / Âncora Visual */
-  --color-agro-green: #15803D;        /* Verde Agrícola Primário (Alto Contraste) */
-  --color-agro-soft: #16A34A;         /* Verde Esmeralda Acento */
-  --color-agro-light: #CBD5E1;        /* Borda / Divisor Nítido */
-  --color-agro-sand: #F1F5F9;         /* Fundo Neutro Secundário */
-  --color-agro-bg: #F8FAFC;           /* Fundo Geral Alto Contraste */
-  --color-agro-card: #FFFFFF;         /* Superfície do Card */
-  --color-agro-text: #0F172A;         /* Tipografia Principal (Preto Tinta Nítido) */
-  --color-agro-muted: #334155;        /* Tipografia Secundária Legível (Contraste 8:1) */
-  --color-agro-sky: #0369A1;          /* Azul Céu Técnico */
-  --color-agro-amber: #B45309;        /* Âmbar Safra / Soja Ouro */
-  --color-agro-alert: #B91C1C;        /* Vermelho Fiscal / Alerta */
+  /* =========================================================================
+     PALETA AGRO MODERNA ENTERPRISE - ALTA PERFORMANCE & CONFORTO VISUAL
+     Proporção Áurea 60-30-10:
+     • 60% Fundo & Canvas Neutro Orgânico (Off-white / Névoa de Campo #F8FAF6)
+     • 30% Estrutura & Navegação (Verde Floresta Noturno #112319 / Tintas Botânicas)
+     • 10% Destaques de Ação & Safra (Verde Safra #1D6F42 / Ouro Colheita #D97706)
+     ========================================================================= */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Verdes Naturais da Lavoura & Floresta */
+  --color-agro-forest: #112319;       /* Verde Floresta Noturno (Sidebar / Âncora Nobre) */
+  --color-agro-forest-light: #183324; /* Floresta Destaque / Hover Sidebar */
+  --color-agro-forest-surface: #1E3E2D; /* Superfícies Interativas Sidebar */
+  --color-agro-green: #1D6F42;        /* Verde Safra Principal (Ações Primárias / Botões) */
+  --color-agro-green-hover: #165A34;  /* Verde Safra Interativo Hover */
+  --color-agro-soft: #2E8B57;         /* Verde Folhagem / Acentos Vivos */
+  --color-agro-sprout: #34D399;       /* Broto Novo / Badges de Alta Produtividade */
+  --color-agro-sprout-light: #EBF7EE; /* Fundo Suave Verde Broto */
+
+  /* Tons de Terra, Safra & Grãos */
+  --color-agro-amber: #D97706;        /* Ouro Colheita / Soja & Milho Maduro */
+  --color-agro-amber-light: #FEF3C7;  /* Fundo Suave Âmbar Safra */
+  --color-agro-clay: #8C5332;         /* Terra Fértil / Argila & Manejo de Solo */
+  --color-agro-clay-light: #F7ECE4;   /* Fundo Suave Terra */
+
+  /* Canvas, Superfícies & Bordas Orgânicas (60% da UI) */
+  --color-agro-bg: #F8FAF6;           /* Fundo Névoa Matinal da Fazenda */
+  --color-agro-card: #FFFFFF;         /* Superfície do Card Alabastro Puro */
+  --color-agro-sand: #EFF3EB;         /* Fundo Neutro Secundário / Insets */
+  --color-agro-light: #E2E8DF;        /* Borda Orgânica Nítida (Substitui Slate Frio) */
+  --color-agro-light-hover: #CBD5C5;  /* Borda Orgânica no Hover */
+
+  /* Tipografia & Tintas Botânicas (Alto Contraste WCAG AAA) */
+  --color-agro-text: #122117;         /* Tinta Botânica Profunda (Sem aspecto robótico) */
+  --color-agro-muted: #415446;        /* Tinta Secundária Quente / Legibilidade Superior */
+  --color-agro-subtle: #6B7F71;       /* Tinta Terciária / Rótulos e Metadados */
+
+  /* Recursos Específicos do Agro */
+  --color-agro-sky: #0284C7;          /* Azul Manancial / Hídrico & Pivot */
+  --color-agro-sky-light: #E0F2FE;    /* Fundo Azul Irrigação */
+  --color-agro-alert: #DC2626;        /* Alerta Fitosanitário / Fiscal */
+  --color-agro-alert-light: #FEE2E2;  /* Fundo Alerta Suave */
 }
 
-/* Tipografia e Renderização Nítida */
-body {
+/* Tipografia Base Humana & Renderização Suave */
+html, body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  color: #0F172A;
-  background-color: #F8FAFC;
+  color: #122117;
+  background-color: #F8FAF6;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
-/* Utilitários Visuais de Alto Contraste */
+h1, h2, h3, .font-display {
+  font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Números Tabulares para Métricas, Pesagens, Cotações e Balanços */
+.font-mono, .metric-value, [data-metric] {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Utilitários Visuais de Alto Padrão Agro Enterprise */
 .card-agro-enterprise {
   background-color: #FFFFFF;
-  border: 1px solid #CBD5E1;
-  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.06);
+  border: 1px solid #E2E8DF;
+  box-shadow: 0 1px 3px 0 rgba(17, 35, 25, 0.04), 0 1px 2px -1px rgba(17, 35, 25, 0.03);
   border-radius: 1rem;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-agro-enterprise:hover {
-  border-color: #94A3B8;
-  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.06);
+  border-color: #CBD5C5;
+  box-shadow: 0 4px 8px -1px rgba(17, 35, 25, 0.07), 0 2px 4px -2px rgba(17, 35, 25, 0.05);
 }
 
-/* Garantia de Alto Contraste para Classes Antigas */
+.card-agro-elevated {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8DF;
+  box-shadow: 0 10px 15px -3px rgba(17, 35, 25, 0.08), 0 4px 6px -4px rgba(17, 35, 25, 0.04);
+  border-radius: 1.25rem;
+}
+
+/* Transições Suaves para Classes Antigas Harmonizadas com a Nova Paleta */
 [class*="text-[#66736A]"] {
-  color: #334155 !important;
+  color: #415446 !important;
 }
 [class*="border-[#EAF4E7]"] {
-  border-color: #CBD5E1 !important;
+  border-color: #E2E8DF !important;
 }
 [class*="bg-[#F7F9F5]"] {
-  background-color: #F8FAFC !important;
+  background-color: #F8FAF6 !important;
 }
 [class*="text-[#5F8F52]"] {
-  color: #15803D !important;
+  color: #1D6F42 !important;
 }
 [class*="bg-[#EAF4E7]"] {
-  background-color: #DCFCE7 !important;
+  background-color: #EBF7EE !important;
 }
 [class*="border-[#8FBF88]"] {
-  border-color: #86EFAC !important;
+  border-color: #B7E4C4 !important;
 }
 [class*="text-[#26332A]"] {
-  color: #0F172A !important;
+  color: #122117 !important;
 }
 [class*="text-[#8FBF88]"] {
-  color: #15803D !important;
+  color: #1D6F42 !important;
 }
 [class*="bg-[#F4F0E6]"] {
   background-color: #FEF3C7 !important;
 }
 [class*="text-[#D9B65D]"] {
-  color: #B45309 !important;
+  color: #D97706 !important;
 }
 [class*="text-[#C96A5B]"] {
-  color: #B91C1C !important;
+  color: #DC2626 !important;
 }
 
 /* Mapas Leaflet */
 .leaflet-container {
   width: 100%;
   height: 100%;
-  border-radius: 0.75rem;
+  border-radius: 0.85rem;
   z-index: 10;
-  border: 1px solid #CBD5E1;
+  border: 1px solid #E2E8DF;
 }
 
-/* Scrollbars Nítidas e Modernas */
+/* Scrollbars Elegantes e Naturais */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #E2E8F0;
+  background: #F0F4ED;
 }
 ::-webkit-scrollbar-thumb {
-  background: #94A3B8;
+  background: #CBD5C5;
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748B;
+  background: #9DB0A1;
 }

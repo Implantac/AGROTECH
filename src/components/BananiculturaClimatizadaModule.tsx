@@ -151,35 +151,35 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
   // Escala Von Loesecke labels
   const getLoeseckeLabel = (grau: number) => {
     switch (grau) {
-      case 1: return { cor: 'text-emerald-400 bg-emerald-950/60 border-emerald-800', desc: 'Grau 1 • Verde Escuro (Colheita/Embarque Transoceânico)' };
-      case 2: return { cor: 'text-emerald-300 bg-emerald-950/40 border-emerald-700', desc: 'Grau 2 • Verde Claro (Início da Climatização)' };
+      case 1: return { cor: 'text-emerald-700 bg-emerald-950/60 border-emerald-800', desc: 'Grau 1 • Verde Escuro (Colheita/Embarque Transoceânico)' };
+      case 2: return { cor: 'text-emerald-800 bg-emerald-950/40 border-emerald-700', desc: 'Grau 2 • Verde Claro (Início da Climatização)' };
       case 3: return { cor: 'text-lime-300 bg-lime-950/50 border-lime-800', desc: 'Grau 3 • Mais Verde que Amarelo (Fim da Injeção de Etileno)' };
       case 4: return { cor: 'text-yellow-300 bg-yellow-950/50 border-yellow-800', desc: 'Grau 4 • Mais Amarelo que Verde (Ponto Ideal Distribuição CEAGESP)' };
       case 5: return { cor: 'text-yellow-400 bg-yellow-950/60 border-yellow-700', desc: 'Grau 5 • Amarelo com Pontas Verdes (Gôndola Supermercado)' };
-      case 6: return { cor: 'text-amber-400 bg-amber-950/60 border-amber-800', desc: 'Grau 6 • Todo Amarelo (Consumo Imediato)' };
+      case 6: return { cor: 'text-amber-700 bg-amber-950/60 border-amber-800', desc: 'Grau 6 • Todo Amarelo (Consumo Imediato)' };
       case 7: return { cor: 'text-amber-500 bg-amber-950/70 border-amber-900', desc: 'Grau 7 • Amarelo com Pintas Pardas (Açúcar Pleno / Doce)' };
-      default: return { cor: 'text-slate-600 bg-slate-900 border-slate-700', desc: 'Não Classificado' };
+      default: return { cor: 'text-slate-700 bg-slate-100 border-slate-300', desc: 'Não Classificado' };
     }
   };
 
   return (
     <div className="space-y-6">
       {/* Header do Módulo */}
-      <div className="bg-gradient-to-r from-amber-950/60 via-slate-900 to-slate-950 border border-amber-500/30 rounded-2xl p-6 shadow-xl relative overflow-hidden">
+      <div className="bg-white border border-slate-200 shadow-xs rounded-2xl p-6 shadow-xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
 
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className="px-2.5 py-1 text-xs font-black bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+              <span className="px-2.5 py-1 text-xs font-black bg-amber-500/20 text-amber-800 border border-amber-500/40 rounded-full uppercase tracking-wider flex items-center gap-1.5">
                 <Leaf className="w-3.5 h-3.5" />
                 Módulo 79 • Bananicultura de Precisão & Cadeia Climatizada
               </span>
-              <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+              <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 rounded-full">
                 GlobalG.A.P. & MAPA Export
               </span>
             </div>
-            <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-3">
               🍌 Bananicultura Climatizada & Monitoramento Stover
             </h2>
             <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
@@ -190,13 +190,13 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
           <div className="flex items-center gap-3">
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[140px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Área Ativa</span>
-              <span className="text-xl font-black text-amber-400">45 ha</span>
+              <span className="text-xl font-black text-amber-700">45 ha</span>
               <span className="text-[10px] text-slate-600 block mt-0.5">3 Talhões Comerciais</span>
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[150px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Faturamento Estimado</span>
-              <span className="text-xl font-black text-emerald-400">R$ 5,57M</span>
-              <span className="text-[10px] text-emerald-400/80 block mt-0.5">70% Exportação</span>
+              <span className="text-xl font-black text-emerald-700">R$ 5,57M</span>
+              <span className="text-[10px] text-emerald-700/80 block mt-0.5">70% Exportação</span>
             </div>
           </div>
         </div>
@@ -207,10 +207,10 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Índice Stover Médio</span>
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <ShieldCheck className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-white">4.8%</div>
-          <div className="text-[11px] text-emerald-400 font-medium mt-1 flex items-center gap-1">
+          <div className="text-2xl font-black text-slate-900">4.8%</div>
+          <div className="text-[11px] text-emerald-700 font-medium mt-1 flex items-center gap-1">
             <CheckCircle2 className="w-3.5 h-3.5" />
             Meta &lt; 10.0% • Risco Mínimo de Desfolha
           </div>
@@ -219,10 +219,10 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Folhas Sadias no Cacho</span>
-            <Leaf className="w-4 h-4 text-amber-400" />
+            <Leaf className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black text-white">9.5 folhas</div>
-          <div className="text-[11px] text-amber-400 font-medium mt-1 flex items-center gap-1">
+          <div className="text-2xl font-black text-slate-900">9.5 folhas</div>
+          <div className="text-[11px] text-amber-700 font-medium mt-1 flex items-center gap-1">
             <CheckCircle2 className="w-3.5 h-3.5" />
             Exigência Export: &ge; 8.0 folhas ativas
           </div>
@@ -231,10 +231,10 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Câmaras em Climatização</span>
-            <Thermometer className="w-4 h-4 text-cyan-400" />
+            <Thermometer className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black text-white">2.640 cx</div>
-          <div className="text-[11px] text-cyan-400 font-medium mt-1">
+          <div className="text-2xl font-black text-slate-900">2.640 cx</div>
+          <div className="text-[11px] text-sky-700 font-medium mt-1">
             Temp. 15.5°C • Sem Chilling Injury (&gt;12.5°C)
           </div>
         </div>
@@ -242,9 +242,9 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Margem Líquida / ha</span>
-            <DollarSign className="w-4 h-4 text-emerald-400" />
+            <DollarSign className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-emerald-400">R$ 75.900,00</div>
+          <div className="text-2xl font-black text-emerald-700">R$ 75.900,00</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Custo: R$ 48k/ha • Lucro Líquido R$ 3,41M
           </div>
@@ -257,8 +257,8 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
           onClick={() => setActiveTab('fitossanitario')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'fitossanitario'
-              ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <ShieldCheck className="w-4 h-4" />
@@ -269,8 +269,8 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
           onClick={() => setActiveTab('cacho_calibre')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'cacho_calibre'
-              ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Box className="w-4 h-4" />
@@ -281,8 +281,8 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
           onClick={() => setActiveTab('climatizacao')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'climatizacao'
-              ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Thermometer className="w-4 h-4" />
@@ -293,8 +293,8 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
-              ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -308,15 +308,15 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
               <div>
-                <h3 className="text-base font-bold text-white flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-emerald-400" />
+                <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-emerald-700" />
                   Monitoramento de Sigatoka-Negra e Amarela (Escala Stover Modificada)
                 </h3>
                 <p className="text-xs text-slate-600 mt-1">
                   Avaliação da área foliar lesionada nas folhas 1 a 10. Para assegurar maturação uniforme em contêineres marítimos, exige-se no mínimo 8 folhas sadias na colheita.
                 </p>
               </div>
-              <div className="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+              <div className="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 text-xs font-semibold">
                 Protocolo Anti-Resistência FRAC Ativo
               </div>
             </div>
@@ -334,20 +334,20 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
                     <th className="py-3 px-3">Previsão Colheita</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60 font-medium">
+                <tbody className="divide-y divide-slate-100 font-medium">
                   {parcelas.map((parc) => (
-                    <tr key={parc.id} className="hover:bg-slate-800/40 transition-colors">
+                    <tr key={parc.id} className="hover:bg-slate-50/80 transition-colors">
                       <td className="py-3.5 px-3">
-                        <div className="font-bold text-white">{parc.talhao}</div>
-                        <div className="text-[11px] text-amber-400/90">{parc.variedade}</div>
+                        <div className="font-bold text-slate-900">{parc.talhao}</div>
+                        <div className="text-[11px] text-amber-700/90">{parc.variedade}</div>
                       </td>
                       <td className="py-3.5 px-3 text-slate-900 font-mono">{parc.areaHa} ha</td>
                       <td className="py-3.5 px-3 text-slate-900 font-mono">{parc.densidadeTouceirasHa} plantas/ha</td>
                       <td className="py-3.5 px-3 font-mono">
                         <span className={`px-2 py-0.5 rounded font-bold ${
                           parc.folhasSadiasMedias >= 8.5
-                            ? 'text-emerald-400 bg-emerald-950/60'
-                            : 'text-amber-400 bg-amber-950/60'
+                            ? 'text-emerald-700 bg-emerald-950/60'
+                            : 'text-amber-700 bg-amber-950/60'
                         }`}>
                           {parc.folhasSadiasMedias.toFixed(1)} folhas
                         </span>
@@ -357,12 +357,12 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
                       </td>
                       <td className="py-3.5 px-3">
                         {parc.statusSigatoka === 'CONTROLADO' && (
-                          <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                          <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-700 border border-emerald-500/30">
                             Controlado (&lt;6%)
                           </span>
                         )}
                         {parc.statusSigatoka === 'ALERTA_PREVENTIVO' && (
-                          <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                          <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-700 border border-amber-500/30">
                             Alerta Preventivo (&gt;8%)
                           </span>
                         )}
@@ -377,8 +377,8 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
             </div>
 
             <div className="mt-5 p-4 rounded-xl bg-slate-50/70 border border-slate-200 text-xs text-slate-900 space-y-2">
-              <div className="font-bold text-white flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-amber-400" />
+              <div className="font-bold text-slate-900 flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-amber-700" />
                 Diretrizes de Manejo Integrado de Sigatoka
               </div>
               <p>
@@ -396,8 +396,8 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
       {activeTab === 'cacho_calibre' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <Box className="w-5 h-5 text-amber-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <Box className="w-5 h-5 text-amber-700" />
               Operações de Campo no Cacho
             </h3>
             <p className="text-xs text-slate-600">
@@ -406,7 +406,7 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
 
             <div className="space-y-3">
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-sm text-white">Ensacamento / Embolsamento Precoce</div>
                   <div className="text-xs text-slate-600 mt-0.5">
@@ -416,7 +416,7 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
               </div>
 
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-sm text-white">Despistilagem e Corte do Coração</div>
                   <div className="text-xs text-slate-600 mt-0.5">
@@ -426,7 +426,7 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
               </div>
 
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-sm text-white">Escoramento e Amarração das Plantas</div>
                   <div className="text-xs text-slate-600 mt-0.5">
@@ -438,8 +438,8 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
           </div>
 
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-cyan-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <BarChart3 className="w-5 h-5 text-sky-700" />
               Tabela de Calibração & Classificação MAPA
             </h3>
             <p className="text-xs text-slate-600">
@@ -449,40 +449,40 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
             <div className="space-y-2">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center text-xs">
                 <div>
-                  <span className="font-bold text-white block">Calibre Exportação Extra A</span>
+                  <span className="font-bold text-slate-900 block">Calibre Exportação Extra A</span>
                   <span className="text-slate-600">Dedos 39 a 44 mm • Comprimento &gt; 20 cm</span>
                 </div>
-                <span className="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400 font-bold font-mono">
+                <span className="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-700 font-bold font-mono">
                   Prêmio +25%
                 </span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center text-xs">
                 <div>
-                  <span className="font-bold text-white block">Calibre Exportação Padrão</span>
+                  <span className="font-bold text-slate-900 block">Calibre Exportação Padrão</span>
                   <span className="text-slate-600">Dedos 34 a 38 mm • Comprimento 16 a 19 cm</span>
                 </div>
-                <span className="px-2.5 py-1 rounded bg-blue-500/20 text-blue-400 font-bold font-mono">
+                <span className="px-2.5 py-1 rounded bg-blue-500/20 text-blue-700 font-bold font-mono">
                   Base 100%
                 </span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center text-xs">
                 <div>
-                  <span className="font-bold text-white block">Calibre Mercado Doméstico (CEASA)</span>
+                  <span className="font-bold text-slate-900 block">Calibre Mercado Doméstico (CEASA)</span>
                   <span className="text-slate-600">Dedos 30 a 33 mm • Comprimento 14 a 16 cm</span>
                 </div>
-                <span className="px-2.5 py-1 rounded bg-amber-500/20 text-amber-400 font-bold font-mono">
+                <span className="px-2.5 py-1 rounded bg-amber-500/20 text-amber-700 font-bold font-mono">
                   Desconto -15%
                 </span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center text-xs">
                 <div>
-                  <span className="font-bold text-white block">Refugo / Indústria Doceira</span>
+                  <span className="font-bold text-slate-900 block">Refugo / Indústria Doceira</span>
                   <span className="text-slate-600">Frutos com defeitos graves ou &lt; 28 mm</span>
                 </div>
-                <span className="px-2.5 py-1 rounded bg-rose-500/20 text-rose-400 font-bold font-mono">
+                <span className="px-2.5 py-1 rounded bg-rose-500/20 text-rose-700 font-bold font-mono">
                   R$ 0,40/kg
                 </span>
               </div>
@@ -495,8 +495,8 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
       {activeTab === 'climatizacao' && (
         <div className="space-y-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <Thermometer className="w-5 h-5 text-cyan-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <Thermometer className="w-5 h-5 text-sky-700" />
               Câmaras Herméticas de Climatização & Controle de Gás Etileno (C₂H₄)
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -509,8 +509,8 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
                 return (
                   <div key={c.id} className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-white text-sm">{c.camara}</span>
-                      <span className="px-2 py-0.5 text-[10px] font-bold rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
+                      <span className="font-bold text-slate-900 text-sm">{c.camara}</span>
+                      <span className="px-2 py-0.5 text-[10px] font-bold rounded bg-cyan-500/20 text-sky-700 border border-cyan-500/30">
                         {c.statusProcesso}
                       </span>
                     </div>
@@ -518,18 +518,18 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
                     <div className="grid grid-cols-3 gap-2 text-center text-xs">
                       <div className="p-2 rounded-lg bg-white border border-slate-200">
                         <span className="text-[10px] text-slate-600 block">Temperatura</span>
-                        <span className="font-mono font-bold text-white text-sm">{c.temperaturaAtualC}°C</span>
-                        <span className="text-[9px] text-emerald-400 block">&gt; 12.5°C Seguro</span>
+                        <span className="font-mono font-bold text-slate-900 text-sm">{c.temperaturaAtualC}°C</span>
+                        <span className="text-[9px] text-emerald-700 block">&gt; 12.5°C Seguro</span>
                       </div>
                       <div className="p-2 rounded-lg bg-white border border-slate-200">
                         <span className="text-[10px] text-slate-600 block">Umidade (UR)</span>
-                        <span className="font-mono font-bold text-white text-sm">{c.umidadeRelativaPct}%</span>
-                        <span className="text-[9px] text-cyan-400 block">Anti-murchamento</span>
+                        <span className="font-mono font-bold text-slate-900 text-sm">{c.umidadeRelativaPct}%</span>
+                        <span className="text-[9px] text-sky-700 block">Anti-murchamento</span>
                       </div>
                       <div className="p-2 rounded-lg bg-white border border-slate-200">
                         <span className="text-[10px] text-slate-600 block">Gás C₂H₄</span>
-                        <span className="font-mono font-bold text-white text-sm">{c.etilenoPpm} ppm</span>
-                        <span className="text-[9px] text-amber-400 block">Dosagem Oficial</span>
+                        <span className="font-mono font-bold text-slate-900 text-sm">{c.etilenoPpm} ppm</span>
+                        <span className="text-[9px] text-amber-700 block">Dosagem Oficial</span>
                       </div>
                     </div>
 
@@ -548,8 +548,8 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
           </div>
 
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-              <Layers className="w-4 h-4 text-amber-400" />
+            <h4 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <Layers className="w-4 h-4 text-amber-700" />
               Guia da Escala de Cores Von Loesecke (1 a 7)
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-2">
@@ -571,15 +571,15 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <BarChart3 className="w-5 h-5 text-emerald-700" />
               Parâmetros da Safra & Mercado
             </h3>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Área Produtiva Total</span>
-                <span className="font-mono text-amber-400">{areaSimulada} hectares</span>
+                <span className="font-mono text-amber-700">{areaSimulada} hectares</span>
               </div>
               <input
                 type="range"
@@ -588,14 +588,14 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
                 step="5"
                 value={areaSimulada}
                 onChange={(e) => setAreaSimulada(Number(e.target.value))}
-                className="w-full accent-amber-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-amber-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Produtividade Média</span>
-                <span className="font-mono text-amber-400">{produtividadeKgHa.toLocaleString()} kg/ha</span>
+                <span className="font-mono text-amber-700">{produtividadeKgHa.toLocaleString()} kg/ha</span>
               </div>
               <input
                 type="range"
@@ -604,14 +604,14 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
                 step="1000"
                 value={produtividadeKgHa}
                 onChange={(e) => setProdutividadeKgHa(Number(e.target.value))}
-                className="w-full accent-amber-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-amber-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>% Destinado à Exportação</span>
-                <span className="font-mono text-emerald-400">{percentualExportacao}%</span>
+                <span className="font-mono text-emerald-700">{percentualExportacao}%</span>
               </div>
               <input
                 type="range"
@@ -620,14 +620,14 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
                 step="5"
                 value={percentualExportacao}
                 onChange={(e) => setPercentualExportacao(Number(e.target.value))}
-                className="w-full accent-emerald-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-emerald-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Caixa Exportação (20 kg)</span>
-                <span className="font-mono text-emerald-400">R$ {precoExportacaoReais.toFixed(2)}</span>
+                <span className="font-mono text-emerald-700">R$ {precoExportacaoReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -636,14 +636,14 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
                 step="1"
                 value={precoExportacaoReais}
                 onChange={(e) => setPrecoExportacaoReais(Number(e.target.value))}
-                className="w-full accent-emerald-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-emerald-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Caixa Nacional (CEASA)</span>
-                <span className="font-mono text-amber-400">R$ {precoNacionalReais.toFixed(2)}</span>
+                <span className="font-mono text-amber-700">R$ {precoNacionalReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -652,21 +652,21 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
                 step="1"
                 value={precoNacionalReais}
                 onChange={(e) => setPrecoNacionalReais(Number(e.target.value))}
-                className="w-full accent-amber-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-amber-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
           </div>
 
           <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <DollarSign className="w-5 h-5 text-emerald-700" />
               DRE Projetada & Margem Agroindustrial
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Volume Total</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   {(metricasSimuladas.producaoTotalKg / 1000).toLocaleString()} ton
                 </span>
                 <span className="text-[10px] text-slate-600 block">{metricasSimuladas.totalCaixas20kg.toLocaleString()} caixas</span>
@@ -674,15 +674,15 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Caixas Export</span>
-                <span className="font-mono font-bold text-emerald-400 text-base">
+                <span className="font-mono font-bold text-emerald-700 text-base">
                   {metricasSimuladas.caixasExportacao.toLocaleString()} cx
                 </span>
-                <span className="text-[10px] text-emerald-400/80 block">Prêmio Alto</span>
+                <span className="text-[10px] text-emerald-700/80 block">Prêmio Alto</span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Bruta</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   R$ {(metricasSimuladas.receitaTotal / 1000000).toFixed(2)}M
                 </span>
                 <span className="text-[10px] text-slate-600 block">Nacional + Export</span>
@@ -690,35 +690,35 @@ export const BananiculturaClimatizadaModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido</span>
-                <span className="font-mono font-bold text-emerald-400 text-base">
+                <span className="font-mono font-bold text-emerald-700 text-base">
                   R$ {(metricasSimuladas.margemLiquidaTotal / 1000000).toFixed(2)}M
                 </span>
-                <span className="text-[10px] text-emerald-400/80 block">Margem Plena</span>
+                <span className="text-[10px] text-emerald-700/80 block">Margem Plena</span>
               </div>
             </div>
 
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Receita Exportação ({percentualExportacao}%):</span>
-                <span className="font-mono font-bold text-emerald-400">
+                <span className="font-mono font-bold text-emerald-700">
                   R$ {metricasSimuladas.receitaExportacao.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Receita Mercado Nacional:</span>
-                <span className="font-mono font-bold text-amber-400">
+                <span className="font-mono font-bold text-amber-700">
                   R$ {metricasSimuladas.receitaNacional.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Custo Total de Produção & Embalagem:</span>
-                <span className="font-mono font-bold text-rose-400">
+                <span className="font-mono font-bold text-rose-700">
                   - R$ {metricasSimuladas.custoTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-2 text-sm font-black bg-emerald-950/30 px-3 rounded-lg border border-emerald-800/50">
+              <div className="flex justify-between items-center py-2 text-sm font-black bg-emerald-50 px-3 rounded-lg border border-emerald-200">
                 <span className="text-white">Margem Líquida por Hectare:</span>
-                <span className="font-mono text-emerald-300">
+                <span className="font-mono text-emerald-800">
                   R$ {metricasSimuladas.margemLiquidaPorHa.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} / ha
                 </span>
               </div>

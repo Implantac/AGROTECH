@@ -152,13 +152,13 @@ export const FungicidasManejoModule: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400">
+              <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-700">
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Manejo Antirresistência de Fungicidas & Multissítios Protetores
-                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono border border-emerald-500/30">
+                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-800 font-mono border border-emerald-500/30">
                     Diretrizes FRAC Brasil
                   </span>
                 </h2>
@@ -173,9 +173,9 @@ export const FungicidasManejoModule: React.FC = () => {
             <span
               className={`px-3 py-1.5 rounded-xl text-xs font-bold font-mono border flex items-center gap-1.5 ${
                 auditMetrics.riscoResistencia === 'BAIXO_CONTROLADO'
-                  ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                  ? 'bg-emerald-500/20 text-emerald-800 border-emerald-500/40'
                   : auditMetrics.riscoResistencia === 'MODERADO'
-                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                  ? 'bg-amber-500/20 text-amber-800 border-amber-500/40'
                   : 'bg-rose-500/20 text-rose-300 border-rose-500/40 animate-pulse'
               }`}
             >
@@ -192,9 +192,9 @@ export const FungicidasManejoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Eficácia de Controle</span>
-            <Sparkles className="w-4 h-4 text-emerald-400" />
+            <Sparkles className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
+          <div className="text-2xl font-black mt-2 font-mono text-emerald-700">
             {auditMetrics.eficaciaControlePct.toFixed(1)}%
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -206,9 +206,9 @@ export const FungicidasManejoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Sacas Salvas da Desfolha</span>
-            <TrendingUp className="w-4 h-4 text-cyan-400" />
+            <TrendingUp className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
+          <div className="text-2xl font-black mt-2 font-mono text-sky-700">
             +{auditMetrics.sacasPreservadasHa.toFixed(1)}{' '}
             <span className="text-xs font-normal text-slate-600">sc/ha</span>
           </div>
@@ -221,9 +221,9 @@ export const FungicidasManejoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Blindagem Multissítio</span>
-            <Layers className="w-4 h-4 text-amber-400" />
+            <Layers className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-amber-400">
+          <div className="text-2xl font-black mt-2 font-mono text-amber-700">
             {auditMetrics.conformidadeMultissitioPct.toFixed(0)}%
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -235,11 +235,11 @@ export const FungicidasManejoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Retorno Econômico (ROI)</span>
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <ShieldCheck className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-white">
+          <div className="text-2xl font-black mt-2 font-mono text-slate-800">
             {auditMetrics.roiManejo.toFixed(1)}x{' '}
-            <span className="text-xs font-normal text-emerald-400">
+            <span className="text-xs font-normal text-emerald-700">
               (+R$ {auditMetrics.beneficioLiquidoHa.toFixed(2)}/ha)
             </span>
           </div>
@@ -255,8 +255,8 @@ export const FungicidasManejoModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <Calendar className="w-5 h-5 text-emerald-400" />
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <Calendar className="w-5 h-5 text-emerald-700" />
                 Programa Sequencial de Fungicidas da Safra
               </h3>
               <p className="text-xs text-slate-600">
@@ -276,11 +276,11 @@ export const FungicidasManejoModule: React.FC = () => {
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xs flex items-center justify-center border border-emerald-500/30 shrink-0">
+                    <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-700 font-bold text-xs flex items-center justify-center border border-emerald-500/30 shrink-0">
                       {idx + 1}
                     </span>
                     <div>
-                      <h4 className="text-xs font-bold text-white">{app.estadioFenologico}</h4>
+                      <h4 className="text-xs font-bold text-slate-900">{app.estadioFenologico}</h4>
                       <p className="text-[11px] text-slate-600 font-mono">
                         {app.diasAposSemeadura} DAE • {app.produtoComercial}
                       </p>
@@ -291,8 +291,8 @@ export const FungicidasManejoModule: React.FC = () => {
                     <span
                       className={`text-[11px] font-mono px-2 py-0.5 rounded border self-start sm:self-auto ${
                         app.intervaloAposUltimaDias <= 16
-                          ? 'bg-slate-800 text-slate-900 border-slate-700'
-                          : 'bg-rose-500/20 text-rose-300 border-rose-500/30'
+                          ? 'bg-emerald-50 text-emerald-800 border-emerald-200 font-semibold'
+                          : 'bg-rose-50 text-rose-800 border-rose-200 font-semibold'
                       }`}
                     >
                       Intervalo: {app.intervaloAposUltimaDias} dias
@@ -308,7 +308,7 @@ export const FungicidasManejoModule: React.FC = () => {
                     {app.sitiosEspecificos.map((frac) => (
                       <span
                         key={frac}
-                        className="px-2 py-0.5 rounded bg-slate-900 text-cyan-300 font-mono text-[10px] border border-slate-200"
+                        className="px-2 py-0.5 rounded bg-sky-50 border border-sky-200 text-sky-800 font-mono text-[10px]"
                       >
                         {frac}
                       </span>
@@ -326,8 +326,8 @@ export const FungicidasManejoModule: React.FC = () => {
                           app.multissitioAdicionado === ms
                             ? ms === 'NENHUM'
                               ? 'bg-rose-500/20 text-rose-300 border-rose-500/40'
-                              : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
-                            : 'bg-slate-900 text-slate-500 border-slate-200 hover:text-white'
+                              : 'bg-emerald-500/20 text-emerald-800 border-emerald-500/40'
+                            : 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
                         }`}
                       >
                         {ms === 'MANCOZEB'
@@ -347,7 +347,7 @@ export const FungicidasManejoModule: React.FC = () => {
 
           {/* Banner Técnico FRAC Brasil */}
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
-            <div className="flex items-center gap-2 text-emerald-400 font-semibold">
+            <div className="flex items-center gap-2 text-emerald-700 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes Oficiais do Comitê de Ação a Resistência a Fungicidas (FRAC):
             </div>
@@ -367,8 +367,8 @@ export const FungicidasManejoModule: React.FC = () => {
 
         {/* Painel Direito: Parâmetros do Talhão e Simulador de Proteção */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Bug className="w-5 h-5 text-emerald-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Bug className="w-5 h-5 text-emerald-700" />
             Parâmetros da Lavoura
           </h3>
 
@@ -419,13 +419,13 @@ export const FungicidasManejoModule: React.FC = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600">Receita Bruta Protegida:</span>
-                <span className="text-emerald-400 font-mono font-bold">
+                <span className="text-emerald-700 font-mono font-bold">
                   +R$ {auditMetrics.receitaProtegidaHa.toFixed(2)}/ha
                 </span>
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
-                <span className="text-white">Lucro Líquido Preservado:</span>
-                <span className="text-cyan-400 font-mono">
+                <span className="text-slate-900">Lucro Líquido Preservado:</span>
+                <span className="text-sky-700 font-mono">
                   +R$ {auditMetrics.beneficioLiquidoHa.toFixed(2)}/ha
                 </span>
               </div>

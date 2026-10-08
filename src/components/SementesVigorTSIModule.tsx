@@ -119,13 +119,13 @@ export const SementesVigorTSIModule: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-slate-200 p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400">
+            <div className="p-2.5 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-700">
               <Microscope className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-xl font-bold text-[#1D4B38]">Sementes, Vigor Tetrazólio & TSI</h1>
-                <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+                <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 rounded-full">
                   Tetrazólio & Germinação
                 </span>
                 <span className="px-2 py-0.5 text-[11px] font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30 rounded-full">
@@ -143,11 +143,11 @@ export const SementesVigorTSIModule: React.FC = () => {
         <div className="flex items-center gap-3 bg-slate-50 p-2.5 rounded-xl border border-slate-200 text-xs font-mono">
           <div>
             <span className="text-slate-600 block text-[10px] uppercase font-bold">Germinação Média:</span>
-            <span className="text-emerald-400 font-bold">{mediaGerminacao.toFixed(1)}%</span>
+            <span className="text-emerald-700 font-bold">{mediaGerminacao.toFixed(1)}%</span>
           </div>
           <div className="border-l border-slate-200 pl-3">
             <span className="text-slate-600 block text-[10px] uppercase font-bold">Vigor Médio:</span>
-            <span className="text-cyan-400 font-bold">{mediaVigor.toFixed(1)}%</span>
+            <span className="text-sky-700 font-bold">{mediaVigor.toFixed(1)}%</span>
           </div>
         </div>
       </div>
@@ -157,27 +157,27 @@ export const SementesVigorTSIModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
           <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Estoque de Sementes</span>
-            <Sprout className="w-4 h-4 text-emerald-400" />
+            <Sprout className="w-4 h-4 text-emerald-700" />
           </div>
           <div className="text-2xl font-bold text-[#1D4B38] font-mono">{totalSacosDisponiveis.toLocaleString('pt-BR')} sacos</div>
           <p className="text-xs text-slate-500 mt-1">Sacos de 40 kg certificados MAPA</p>
         </div>
 
-        <div className="bg-emerald-950/30 border border-emerald-800/40 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-emerald-300 mb-1">
+        <div className="bg-emerald-50 border border-emerald-800/40 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-emerald-800 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Lotes Aprovados</span>
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <ShieldCheck className="w-4 h-4 text-emerald-700" />
           </div>
           <div className="text-2xl font-bold text-emerald-200 font-mono">4 de 4 lotes</div>
-          <p className="text-xs text-emerald-400/80 mt-1">Germinação &gt; 90% (Padrão Top)</p>
+          <p className="text-xs text-emerald-700/80 mt-1">Germinação &gt; 90% (Padrão Top)</p>
         </div>
 
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
           <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Inoculação Biológica (FBN)</span>
-            <FlaskConical className="w-4 h-4 text-cyan-400" />
+            <FlaskConical className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-bold text-cyan-300 font-mono">100% Tratadas</div>
+          <div className="text-2xl font-bold text-sky-800 font-mono">100% Tratadas</div>
           <p className="text-xs text-slate-500 mt-1">Bradyrhizobium + Azospirillum</p>
         </div>
 
@@ -198,7 +198,7 @@ export const SementesVigorTSIModule: React.FC = () => {
           <div className="flex items-center justify-between border-b border-slate-200 pb-3">
             <div>
               <h2 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
-                <TestTubes className="w-5 h-5 text-emerald-400" />
+                <TestTubes className="w-5 h-5 text-emerald-700" />
                 Lotes Certificados & Laudos de Qualidade Fisiológica
               </h2>
               <p className="text-xs text-slate-600">Resultados de tetrazólio, PMS e tratamento industrial (TSI)</p>
@@ -217,20 +217,20 @@ export const SementesVigorTSIModule: React.FC = () => {
                   <th className="px-3.5 py-3">Laudo</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-slate-100">
                 {lotes.map((l) => (
-                  <tr key={l.id} className="hover:bg-slate-800/40 transition-colors">
+                  <tr key={l.id} className="hover:bg-slate-50/80 transition-colors">
                     <td className="px-3.5 py-3.5">
                       <div className="font-bold text-slate-900">{l.culturaVariedade}</div>
                       <div className="text-[11px] text-slate-600">{l.obtentorSemente}</div>
-                      <div className="text-[10px] text-emerald-400 font-mono mt-0.5">{l.numeroLote}</div>
+                      <div className="text-[10px] text-emerald-700 font-mono mt-0.5">{l.numeroLote}</div>
                     </td>
 
                     <td className="px-3.5 py-3.5">
-                      <div className="font-mono font-bold text-emerald-300">
+                      <div className="font-mono font-bold text-emerald-800">
                         Germ: {l.germinacaoPct.toFixed(1)}%
                       </div>
-                      <div className="text-[11px] text-cyan-300 font-mono">
+                      <div className="text-[11px] text-sky-800 font-mono">
                         Vigor: {l.vigorTetrazolioPct.toFixed(1)}%
                       </div>
                     </td>
@@ -242,7 +242,7 @@ export const SementesVigorTSIModule: React.FC = () => {
 
                     <td className="px-3.5 py-3.5 space-y-0.5 max-w-xs">
                       <div className="text-slate-900 text-[11px] font-medium">{l.tratamentoIndustrialTSI}</div>
-                      <div className="text-[10px] text-cyan-400">{l.inoculacaoBiologica}</div>
+                      <div className="text-[10px] text-sky-700">{l.inoculacaoBiologica}</div>
                     </td>
 
                     <td className="px-3.5 py-3.5 font-mono font-bold text-slate-900">
@@ -250,7 +250,7 @@ export const SementesVigorTSIModule: React.FC = () => {
                     </td>
 
                     <td className="px-3.5 py-3.5">
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1 w-fit">
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 flex items-center gap-1 w-fit">
                         <CheckCircle2 className="w-3 h-3" /> Aprovado
                       </span>
                     </td>
@@ -265,7 +265,7 @@ export const SementesVigorTSIModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-5 rounded-2xl flex flex-col justify-between space-y-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <Sparkles className="w-5 h-5 text-emerald-400" />
+              <Sparkles className="w-5 h-5 text-emerald-700" />
               <h2 className="text-base font-bold text-[#1D4B38]">Calibrador da Plantadeira</h2>
             </div>
             <p className="text-xs text-slate-600 mb-4">
@@ -332,18 +332,18 @@ export const SementesVigorTSIModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-4 bg-emerald-950/30 border border-emerald-800/40 rounded-xl text-xs space-y-2">
+          <div className="p-4 bg-emerald-50 border border-emerald-800/40 rounded-xl text-xs space-y-2">
             <div className="flex justify-between items-center text-slate-900">
               <span>Sementes Totais Necessárias:</span>
               <span className="font-mono font-bold text-[#1D4B38]">{sementesTotaisHa.toLocaleString('pt-BR')} sem/ha</span>
             </div>
             <div className="flex justify-between items-center text-slate-900">
               <span>Consumo em Quilos:</span>
-              <span className="font-mono font-bold text-cyan-300">{kgSementePorHa} kg/ha</span>
+              <span className="font-mono font-bold text-sky-800">{kgSementePorHa} kg/ha</span>
             </div>
             <div className="border-t border-emerald-900/50 pt-2 flex justify-between items-center">
               <span className="font-bold text-[#1D4B38]">Regulagem do Dosador:</span>
-              <span className="font-mono font-extrabold text-sm text-emerald-300">
+              <span className="font-mono font-extrabold text-sm text-emerald-800">
                 {sementesPorMetroLinear} sementes/metro
               </span>
             </div>

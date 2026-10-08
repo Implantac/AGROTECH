@@ -113,13 +113,13 @@ export const OriziculturaArrozModule: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/30 text-cyan-400">
+              <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/30 text-sky-700">
                 <Waves className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Orizicultura de Precisão & Arroz Irrigado
-                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-mono border border-cyan-500/30">
+                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-sky-800 font-mono border border-cyan-500/30">
                     AWD • Lâmina Intermitente • Descarbonização CH₄
                   </span>
                 </h2>
@@ -131,7 +131,7 @@ export const OriziculturaArrozModule: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-300 border-emerald-500/40 flex items-center gap-1.5">
+            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-800 border-emerald-500/40 flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4" />
               {oriziMetrics.carbonoEvitadoTon.toFixed(1)} t CO₂eq abatidas (AWD)
             </span>
@@ -145,9 +145,9 @@ export const OriziculturaArrozModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Produtividade Média</span>
-            <TrendingUp className="w-4 h-4 text-cyan-400" />
+            <TrendingUp className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
+          <div className="text-2xl font-black mt-2 font-mono text-sky-700">
             {oriziMetrics.produtividadeMediaScHa.toFixed(1)}{' '}
             <span className="text-xs font-normal text-slate-600">sc/ha (50 kg)</span>
           </div>
@@ -160,9 +160,9 @@ export const OriziculturaArrozModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Grãos Inteiros (Engenho)</span>
-            <Award className="w-4 h-4 text-emerald-400" />
+            <Award className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
+          <div className="text-2xl font-black mt-2 font-mono text-emerald-700">
             {oriziMetrics.rendimentoMedioInteiros.toFixed(1)}%{' '}
             <span className="text-xs font-normal text-slate-600">(Tipo 1 Nobre)</span>
           </div>
@@ -175,9 +175,9 @@ export const OriziculturaArrozModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Faturamento da Safra</span>
-            <Coins className="w-4 h-4 text-amber-400" />
+            <Coins className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-amber-400">
+          <div className="text-2xl font-black mt-2 font-mono text-amber-700">
             R$ {oriziMetrics.faturamentoBrutoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -189,9 +189,9 @@ export const OriziculturaArrozModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Água Poupada (AWD)</span>
-            <Droplets className="w-4 h-4 text-blue-400" />
+            <Droplets className="w-4 h-4 text-blue-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-blue-400">
+          <div className="text-2xl font-black mt-2 font-mono text-blue-700">
             {(oriziMetrics.economiaAguaM3Total / 1000).toFixed(0)}{' '}
             <span className="text-xs font-normal text-slate-600">mil m³</span>
           </div>
@@ -207,8 +207,8 @@ export const OriziculturaArrozModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <Layers className="w-5 h-5 text-cyan-400" />
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <Layers className="w-5 h-5 text-sky-700" />
                 Quadros de Irrigação & Nível de Lâmina d&apos;Água
               </h3>
               <p className="text-xs text-slate-600">
@@ -232,17 +232,17 @@ export const OriziculturaArrozModule: React.FC = () => {
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono text-xs font-bold border border-cyan-500/30">
+                      <span className="px-2 py-0.5 rounded bg-cyan-500/20 text-sky-800 font-mono text-xs font-bold border border-cyan-500/30">
                         {q.id}
                       </span>
-                      <h4 className="text-xs font-bold text-white">{q.nome}</h4>
+                      <h4 className="text-xs font-bold text-slate-900">{q.nome}</h4>
                       <span className="text-[11px] text-slate-600 font-mono">({q.cultivar})</span>
                     </div>
                     <span
                       className={`px-2 py-0.5 rounded text-[10px] font-mono border ${
                         q.manejoIrrigacao === 'AWD_INTERMITENTE'
-                          ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
-                          : 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+                          ? 'bg-emerald-500/20 text-emerald-800 border-emerald-500/30'
+                          : 'bg-amber-500/20 text-amber-800 border-amber-500/30'
                       }`}
                     >
                       {q.manejoIrrigacao === 'AWD_INTERMITENTE' ? 'AWD Intermitente' : 'Inundação Contínua'}
@@ -251,10 +251,10 @@ export const OriziculturaArrozModule: React.FC = () => {
 
                   <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-600">
                     <span>Área: <strong className="text-white">{q.areaHa} ha</strong></span>
-                    <span>Lâmina: <strong className="text-cyan-400">{q.laminaAguaCm} cm</strong></span>
-                    <span>Inteiros: <strong className="text-emerald-400">{q.rendimentoInteirosPct}%</strong></span>
+                    <span>Lâmina: <strong className="text-sky-700">{q.laminaAguaCm} cm</strong></span>
+                    <span>Inteiros: <strong className="text-emerald-700">{q.rendimentoInteirosPct}%</strong></span>
                     <span>Sacas: <strong className="text-white">{sacasQuadro.toLocaleString('pt-BR')} sc</strong></span>
-                    <span>Faturamento: <strong className="text-amber-400">R$ {faturamentoQuadro.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}</strong></span>
+                    <span>Faturamento: <strong className="text-amber-700">R$ {faturamentoQuadro.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}</strong></span>
                   </div>
                 </div>
               );
@@ -263,7 +263,7 @@ export const OriziculturaArrozModule: React.FC = () => {
 
           {/* Banner Técnico de Boas Práticas Orizícolas */}
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
-            <div className="flex items-center gap-2 text-cyan-400 font-semibold">
+            <div className="flex items-center gap-2 text-sky-700 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes Técnicas de Orizicultura & Metodologia AWD (IRGA & Embrapa Arroz):
             </div>
@@ -283,8 +283,8 @@ export const OriziculturaArrozModule: React.FC = () => {
 
         {/* Painel Direito: Parâmetros Comerciais */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Coins className="w-5 h-5 text-amber-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Coins className="w-5 h-5 text-amber-700" />
             Parâmetros Comerciais & Custos
           </h3>
 
@@ -315,19 +315,19 @@ export const OriziculturaArrozModule: React.FC = () => {
             <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
                 <span className="text-slate-600">Faturamento da Safra:</span>
-                <span className="text-amber-400 font-mono font-bold">
+                <span className="text-amber-700 font-mono font-bold">
                   R$ {oriziMetrics.faturamentoBrutoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600">Faturamento por Hectare:</span>
-                <span className="text-emerald-400 font-mono font-bold">
+                <span className="text-emerald-700 font-mono font-bold">
                   R$ {oriziMetrics.faturamentoPorHaReais.toFixed(2)} / ha
                 </span>
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Créditos de Carbono:</span>
-                <span className="text-cyan-400 font-mono">
+                <span className="text-sky-700 font-mono">
                   +{oriziMetrics.carbonoEvitadoTon.toFixed(1)} t CO₂eq
                 </span>
               </div>

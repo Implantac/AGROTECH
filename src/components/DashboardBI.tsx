@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   TrendingUp,
   DollarSign,
@@ -21,7 +21,14 @@ import {
   Milk,
   Heart,
   Scale,
-  Factory
+  Factory,
+  BookOpen,
+  Plus,
+  HelpCircle,
+  CheckCircle2,
+  Compass,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 import { TALHOES_INICIAIS, TalhaoData } from '../data/mockAgroData';
 
@@ -30,6 +37,9 @@ interface DashboardBIProps {
   profileId?: string;
   onNavigate?: (moduleId: string) => void;
   onOpenModuleConfig?: () => void;
+  onOpenQuickEntry?: () => void;
+  onOpenDeltaTModal?: () => void;
+  onOpenManualModal?: () => void;
 }
 
 export const DashboardBI: React.FC<DashboardBIProps> = ({
@@ -37,7 +47,11 @@ export const DashboardBI: React.FC<DashboardBIProps> = ({
   profileId = 'AGRICULTURA_GRAOS',
   onNavigate,
   onOpenModuleConfig,
+  onOpenQuickEntry,
+  onOpenDeltaTModal,
+  onOpenManualModal,
 }) => {
+  const [mostrarGuiaRapido, setMostrarGuiaRapido] = useState<boolean>(true);
   const totalAreaHa = TALHOES_INICIAIS.reduce((acc, curr) => acc + curr.areaHa, 0);
   const totalCustoABC = TALHOES_INICIAIS.reduce((acc, curr) => acc + curr.custoTotalABC, 0);
   const custoMedioHa = totalCustoABC / totalAreaHa;
@@ -51,6 +65,106 @@ export const DashboardBI: React.FC<DashboardBIProps> = ({
 
   return (
     <div className="space-y-6">
+      {/* PAINEL DE ACOLHIMENTO AO PRODUTOR & AÇÕES RÁPIDAS DO DIA A DIA */}
+      <div className="bg-gradient-to-r from-emerald-900 via-emerald-800 to-slate-900 text-white rounded-2xl p-5 shadow-xs border border-emerald-700/60 relative overflow-hidden">
+        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-[11px] font-bold mb-2">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Painel Descomplicado da Fazenda</span>
+            </div>
+            <h2 className="text-xl font-black text-white tracking-tight">
+              Olá, Produtor! O que você deseja fazer hoje?
+            </h2>
+            <p className="text-xs text-slate-200 mt-1 max-w-xl">
+              Acesse as principais rotinas do campo em 1 clique ou consulte o passo a passo ilustrado com esquemas elétricos e tutoriais.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2">
+            {onOpenManualModal && (
+              <button
+                type="button"
+                onClick={onOpenManualModal}
+                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold border border-white/20 transition cursor-pointer"
+              >
+                <BookOpen className="w-4 h-4 text-emerald-300" />
+                <span>Ver Manual Ilustrado</span>
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={() => setMostrarGuiaRapido((prev) => !prev)}
+              className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 transition cursor-pointer"
+              title={mostrarGuiaRapido ? 'Recolher atalhos rápidos' : 'Expandir atalhos rápidos'}
+            >
+              {mostrarGuiaRapido ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+            </button>
+          </div>
+        </div>
+
+        {/* 4 Botões Grandes e Intuitivos de Ações Diárias */}
+        {mostrarGuiaRapido && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-4 relative z-10">
+            <button
+              type="button"
+              onClick={onOpenQuickEntry}
+              className="flex items-center gap-3 p-3.5 rounded-xl bg-white hover:bg-emerald-50 text-slate-900 transition-all shadow-xs text-left cursor-pointer group border border-slate-200/80"
+            >
+              <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <Tractor className="w-5 h-5" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-xs font-bold block truncate text-slate-900">Registrar Operação</span>
+                <span className="text-[11px] text-slate-500 truncate block">Plantio, colheita ou calda</span>
+              </div>
+            </button>
+
+            <button
+              type="button"
+              onClick={onOpenQuickEntry}
+              className="flex items-center gap-3 p-3.5 rounded-xl bg-white hover:bg-amber-50 text-slate-900 transition-all shadow-xs text-left cursor-pointer group border border-slate-200/80"
+            >
+              <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <Fuel className="w-5 h-5" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-xs font-bold block truncate text-slate-900">Anotar Abastecimento</span>
+                <span className="text-[11px] text-slate-500 truncate block">Diesel S10 no comboio</span>
+              </div>
+            </button>
+
+            <button
+              type="button"
+              onClick={onOpenDeltaTModal}
+              className="flex items-center gap-3 p-3.5 rounded-xl bg-white hover:bg-blue-50 text-slate-900 transition-all shadow-xs text-left cursor-pointer group border border-slate-200/80"
+            >
+              <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <Droplet className="w-5 h-5" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-xs font-bold block truncate text-slate-900">Clima & Pulverização</span>
+                <span className="text-[11px] text-emerald-700 font-semibold truncate block">ΔT 5.2°C • Janela Ideal</span>
+              </div>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => onNavigate && onNavigate('SIG')}
+              className="flex items-center gap-3 p-3.5 rounded-xl bg-white hover:bg-purple-50 text-slate-900 transition-all shadow-xs text-left cursor-pointer group border border-slate-200/80"
+            >
+              <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                <Compass className="w-5 h-5" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-xs font-bold block truncate text-slate-900">Mapa & Talhões</span>
+                <span className="text-[11px] text-slate-500 truncate block">Ver limites por satélite</span>
+              </div>
+            </button>
+          </div>
+        )}
+      </div>
+
       {/* 4 Cards de KPIs Principais Dinâmicos de Acordo com a Atividade */}
       {isPecuaria ? (
         /* KPIS DE PECUÁRIA */
@@ -285,7 +399,7 @@ export const DashboardBI: React.FC<DashboardBIProps> = ({
           <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-2xs relative overflow-hidden">
             <div className="flex justify-between items-start">
               <div>
-                <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">
+                <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider block">
                   Desembolso Acumulado
                 </span>
                 <p className="text-2xl font-black text-slate-900 mt-1">
@@ -300,14 +414,14 @@ export const DashboardBI: React.FC<DashboardBIProps> = ({
               <span className="text-emerald-800 font-bold flex items-center">
                 <ArrowUpRight className="w-3.5 h-3.5" /> 100%
               </span>
-              <span>Apropriado nos talhões via ABC</span>
+              <span>Total investido no ciclo atual da fazenda</span>
             </div>
           </div>
 
           <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-2xs relative overflow-hidden">
             <div className="flex justify-between items-start">
               <div>
-                <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">
+                <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider block">
                   Custo Real Médio / Hectare
                 </span>
                 <p className="text-2xl font-black text-slate-900 mt-1">
@@ -319,14 +433,14 @@ export const DashboardBI: React.FC<DashboardBIProps> = ({
               </div>
             </div>
             <div className="flex items-center gap-1.5 mt-3 text-xs text-slate-600">
-              <span>Insumos + Máquinas + Mão de Obra</span>
+              <span>Sementes + Adubo + Diesel + Operadores</span>
             </div>
           </div>
 
           <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-2xs relative overflow-hidden">
             <div className="flex justify-between items-start">
               <div>
-                <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">
+                <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider block">
                   Ponto de Equilíbrio (Break-Even)
                 </span>
                 <p className="text-2xl font-black text-slate-900 mt-1">
@@ -339,14 +453,14 @@ export const DashboardBI: React.FC<DashboardBIProps> = ({
             </div>
             <div className="flex items-center gap-1.5 mt-3 text-xs text-slate-600">
               <span className="text-emerald-800 font-bold">Meta: 68 sc/ha</span>
-              <span>(Margem Segurança: 50.7%)</span>
+              <span>(Você precisa colher {breakEvenMedio.toFixed(0)} sc/ha p/ pagar a conta)</span>
             </div>
           </div>
 
           <div className="bg-white border border-slate-200 p-5 rounded-2xl shadow-2xs relative overflow-hidden">
             <div className="flex justify-between items-start">
               <div>
-                <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">
+                <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider block">
                   Área Total Monitorada
                 </span>
                 <p className="text-2xl font-black text-slate-900 mt-1">
@@ -358,7 +472,7 @@ export const DashboardBI: React.FC<DashboardBIProps> = ({
               </div>
             </div>
             <div className="flex items-center gap-1.5 mt-3 text-xs text-slate-600">
-              <span>6 Talhões Ativos com PostGIS</span>
+              <span>6 Talhões mapeados com imagens de satélite</span>
             </div>
           </div>
         </div>

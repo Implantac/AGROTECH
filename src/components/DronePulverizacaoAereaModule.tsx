@@ -95,7 +95,7 @@ export const DronePulverizacaoAereaModule: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-slate-200 p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-blue-500/10 border border-blue-500/30 rounded-xl text-blue-400">
+            <div className="p-2.5 bg-blue-500/10 border border-blue-500/30 rounded-xl text-blue-700">
               <Plane className="w-6 h-6" />
             </div>
             <div>
@@ -104,7 +104,7 @@ export const DronePulverizacaoAereaModule: React.FC = () => {
                 <span className="px-2 py-0.5 text-[11px] font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30 rounded-full">
                   Telemetria ANAC / DECEA
                 </span>
-                <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+                <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 rounded-full">
                   Ultrabaixo Volume (UBV)
                 </span>
               </div>
@@ -119,7 +119,7 @@ export const DronePulverizacaoAereaModule: React.FC = () => {
         <div className="flex items-center gap-3 bg-slate-50 p-2.5 rounded-xl border border-slate-200 text-xs">
           <div>
             <span className="text-slate-600 block text-[10px] uppercase font-bold">Área Coberta Hoje:</span>
-            <span className="text-emerald-400 font-bold font-mono">{totalHaHoje.toFixed(1)} hectares</span>
+            <span className="text-emerald-700 font-bold font-mono">{totalHaHoje.toFixed(1)} hectares</span>
           </div>
         </div>
       </div>
@@ -129,7 +129,7 @@ export const DronePulverizacaoAereaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
           <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Aeronaves em Operação</span>
-            <Plane className="w-4 h-4 text-blue-400" />
+            <Plane className="w-4 h-4 text-blue-700" />
           </div>
           <div className="text-2xl font-bold text-[#1D4B38] font-mono">2 Drones de Carga</div>
           <p className="text-xs text-slate-500 mt-1">DJI Agras T50 + XAG P100 Pro</p>
@@ -138,18 +138,18 @@ export const DronePulverizacaoAereaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
           <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Rendimento de Voo</span>
-            <Clock className="w-4 h-4 text-emerald-400" />
+            <Clock className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-bold text-emerald-300 font-mono">20.6 ha/h</div>
+          <div className="text-2xl font-bold text-emerald-800 font-mono">20.6 ha/h</div>
           <p className="text-xs text-slate-500 mt-1">Com trocas rápidas de bateria</p>
         </div>
 
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
           <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Taxa de Aplicação (UBV)</span>
-            <Radio className="w-4 h-4 text-cyan-400" />
+            <Radio className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-bold text-cyan-300 font-mono">15.0 L/ha</div>
+          <div className="text-2xl font-bold text-sky-800 font-mono">15.0 L/ha</div>
           <p className="text-xs text-slate-500 mt-1">Economia de 90% de água vs trator</p>
         </div>
 
@@ -159,7 +159,7 @@ export const DronePulverizacaoAereaModule: React.FC = () => {
             <CheckCircle2 className="w-4 h-4 text-indigo-400" />
           </div>
           <div className="text-2xl font-bold text-indigo-300 font-mono">56 gotas/cm²</div>
-          <p className="text-xs text-emerald-400/80 mt-1">DVM 180 µm (Anti-deriva)</p>
+          <p className="text-xs text-emerald-700/80 mt-1">DVM 180 µm (Anti-deriva)</p>
         </div>
       </div>
 
@@ -170,7 +170,7 @@ export const DronePulverizacaoAereaModule: React.FC = () => {
           <div className="flex items-center justify-between border-b border-slate-200 pb-3">
             <div>
               <h2 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
-                <Radio className="w-5 h-5 text-blue-400" />
+                <Radio className="w-5 h-5 text-blue-700" />
                 Telemetria de Voo e Pulverização Aérea em Tempo Real
               </h2>
               <p className="text-xs text-slate-600">Posicionamento RTK centimétrico e controle de vazão por bico centrífugo</p>
@@ -185,23 +185,23 @@ export const DronePulverizacaoAereaModule: React.FC = () => {
                 <div key={drone.id} className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-850 pb-2">
                     <div>
-                      <h3 className="text-sm font-bold text-white flex items-center gap-2">
-                        <Plane className="w-4 h-4 text-blue-400" />
+                      <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                        <Plane className="w-4 h-4 text-blue-700" />
                         {drone.modeloDrone}
                       </h3>
                       <div className="text-[11px] text-slate-600">{drone.pilotoRemoto} • {drone.identificacaoAnac}</div>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <span className="flex items-center gap-1 text-xs font-mono text-cyan-300 bg-slate-900 px-2.5 py-1 rounded border border-slate-200">
-                        <BatteryCharging className="w-3.5 h-3.5 text-emerald-400" />
+                      <span className="flex items-center gap-1 text-xs font-mono text-sky-800 bg-sky-50 px-2.5 py-1 rounded border border-sky-200">
+                        <BatteryCharging className="w-3.5 h-3.5 text-emerald-700" />
                         {drone.bateriaPct}% Bateria
                       </span>
                       <span
                         className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
                           drone.statusVoo === 'EM_VOO_APLICANDO'
-                            ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40 animate-pulse'
-                            : 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                            ? 'bg-emerald-500/20 text-emerald-800 border-emerald-500/40 animate-pulse'
+                            : 'bg-amber-500/20 text-amber-800 border-amber-500/40'
                         }`}
                       >
                         {drone.statusVoo === 'EM_VOO_APLICANDO' ? 'PULVERIZANDO' : 'BASE DE RECARGA'}
@@ -210,21 +210,21 @@ export const DronePulverizacaoAereaModule: React.FC = () => {
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                    <div className="p-2 bg-slate-900 rounded-lg">
-                      <span className="text-slate-500 text-[10px] uppercase block">Talhão Alvo:</span>
-                      <span className="font-bold text-slate-900">{talhao ? talhao.codigo : drone.talhaoAlvoId}</span>
+                    <div className="p-2 bg-slate-50 border border-slate-200/80 rounded-lg">
+                      <span className="text-slate-500 text-[10px] uppercase block font-semibold">Talhão Alvo:</span>
+                      <span className="font-bold text-slate-800">{talhao ? talhao.codigo : drone.talhaoAlvoId}</span>
                     </div>
-                    <div className="p-2 bg-slate-900 rounded-lg font-mono">
-                      <span className="text-slate-500 text-[10px] uppercase block">Taxa de Aplicação:</span>
-                      <span className="font-bold text-emerald-400">{drone.taxaAplicacaoLha} L/ha</span>
+                    <div className="p-2 bg-slate-50 border border-slate-200/80 rounded-lg font-mono">
+                      <span className="text-slate-500 text-[10px] uppercase block font-semibold">Taxa de Aplicação:</span>
+                      <span className="font-bold text-emerald-800">{drone.taxaAplicacaoLha} L/ha</span>
                     </div>
-                    <div className="p-2 bg-slate-900 rounded-lg font-mono">
-                      <span className="text-slate-500 text-[10px] uppercase block">Faixa de Voo:</span>
-                      <span className="font-bold text-slate-900">{drone.larguraFaixaMetros} m ({drone.alturaVooMetros}m alt.)</span>
+                    <div className="p-2 bg-slate-50 border border-slate-200/80 rounded-lg font-mono">
+                      <span className="text-slate-500 text-[10px] uppercase block font-semibold">Faixa de Voo:</span>
+                      <span className="font-bold text-slate-800">{drone.larguraFaixaMetros} m ({drone.alturaVooMetros}m alt.)</span>
                     </div>
-                    <div className="p-2 bg-slate-900 rounded-lg font-mono">
-                      <span className="text-slate-500 text-[10px] uppercase block">Área Aplicada Hoje:</span>
-                      <span className="font-bold text-cyan-300">{drone.haAplicadosHoje} ha</span>
+                    <div className="p-2 bg-slate-50 border border-slate-200/80 rounded-lg font-mono">
+                      <span className="text-slate-500 text-[10px] uppercase block font-semibold">Área Aplicada Hoje:</span>
+                      <span className="font-bold text-sky-800">{drone.haAplicadosHoje} ha</span>
                     </div>
                   </div>
                 </div>
@@ -237,7 +237,7 @@ export const DronePulverizacaoAereaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-5 rounded-2xl flex flex-col justify-between space-y-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <Sparkles className="w-5 h-5 text-blue-400" />
+              <Sparkles className="w-5 h-5 text-blue-700" />
               <h2 className="text-base font-bold text-[#1D4B38]">Calculador de Voo do Drone</h2>
             </div>
             <p className="text-xs text-slate-600 mb-4">
@@ -298,7 +298,7 @@ export const DronePulverizacaoAereaModule: React.FC = () => {
             </div>
             <div className="border-t border-blue-900/50 pt-2 flex justify-between items-center">
               <span className="font-bold text-[#1D4B38]">Avaliação da Deposição:</span>
-              <span className="font-mono font-bold text-emerald-300 text-[11px]">
+              <span className="font-mono font-bold text-emerald-800 text-[11px]">
                 {statusCobertura}
               </span>
             </div>

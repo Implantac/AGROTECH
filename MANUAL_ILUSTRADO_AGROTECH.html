@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGROTECH Enterprise — Manual Ilustrado de Implantação e Operação</title>
+  <style>
+    :root {
+      --bg-canvas: #F7F9F5;
+      --card-bg: #FFFFFF;
+      --border-color: #E2E8F0;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --primary: #1D4B38;
+      --primary-hover: #285943;
+      --primary-light: #EBF3EE;
+      --accent-amber: #D97706;
+      --accent-rose: #E11D48;
+      --accent-blue: #2563EB;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.6;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout Geral */
+    .container {
+      display: flex;
+      max-width: 1440px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    /* Barra Lateral de Navegação Fixa */
+    .sidebar {
+      width: 300px;
+      background-color: #0F172A;
+      color: #94A3B8;
+      padding: 24px 20px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      flex-shrink: 0;
+      border-right: 1px solid #1E293B;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #1E293B;
+      margin-bottom: 20px;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #34D399;
+      font-weight: 900;
+      font-size: 18px;
+      border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-group-title {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #475569;
+      margin: 18px 0 8px 8px;
+    }
+
+    .nav-list {
+      list-style: none;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: 8px;
+      color: #CBD5E1;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.15s ease;
+      margin-bottom: 2px;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background-color: #1E293B;
+      color: #FFFFFF;
+    }
+
+    .nav-link.active {
+      border-left: 3px solid #10B981;
+    }
+
+    /* Conteúdo Principal */
+    .content {
+      flex: 1;
+      padding: 40px 48px;
+      max-width: 1040px;
+      overflow-y: auto;
+    }
+
+    /* Header do Conteúdo */
+    .doc-header {
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 36px;
+    }
+
+    .badge-enterprise {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+      border: 1px solid rgba(29, 75, 56, 0.15);
+    }
+
+    .doc-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .doc-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 800px;
+    }
+
+    /* Seções e Cartões */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 36px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* Screenshots & Legendas */
+    .screenshot-frame {
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 20px 0;
+      background: #0F172A;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+    }
+
+    .screenshot-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+
+    .screenshot-caption {
+      padding: 10px 16px;
+      background: #F8FAFC;
+      border-top: 1px solid var(--border-color);
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Caixas de Destaque / Dicas */
+    .callout {
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 13px;
+    }
+
+    .callout-info {
+      background-color: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      color: #166534;
+    }
+
+    .callout-warning {
+      background-color: #FFFBEB;
+      border: 1px solid #FDE68A;
+      color: #92400E;
+    }
+
+    .callout-danger {
+      background-color: #FEF2F2;
+      border: 1px solid #FECACA;
+      color: #991B1B;
+    }
+
+    /* Passos Numéricos */
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .step-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: #E2E8F0;
+      color: #475569;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-badge.active {
+      background: var(--primary);
+      color: #FFFFFF;
+    }
+
+    .step-body {
+      flex: 1;
+    }
+
+    .step-title {
+      font-weight: 700;
+      color: var(--text-main);
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .step-desc {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    /* Tabela de Pinagem */
+    .pinout-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 13px;
+    }
+
+    .pinout-table th, .pinout-table td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .pinout-table th {
+      background: #F8FAFC;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    .pinout-table code {
+      font-family: monospace;
+      font-size: 12px;
+      padding: 2px 6px;
+      background: #E2E8F0;
+      border-radius: 4px;
+    }
+
+    /* Esquemático ASCII */
+    .ascii-box {
+      background: #0F172A;
+      color: #34D399;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      padding: 20px;
+      border-radius: 12px;
+      overflow-x: auto;
+      line-height: 1.4;
+      margin: 20px 0;
+    }
+
+    /* Botão Imprimir */
+    .btn-print {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--primary);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 20px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(29, 75, 56, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-print:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    @media print {
+      .sidebar, .btn-print { display: none; }
+      .content { padding: 0; max-width: 100%; }
+      .section-card { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Left Navigation -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">🌱</div>
+      <div>
+        <div class="brand-title">AGROTECH</div>
+        <div class="brand-sub">Manual Enterprise</div>
+      </div>
+    </div>
+
+    <div class="nav-group-title">Introdução</div>
+    <ul class="nav-list">
+      <li><a href="#sec-visao" class="nav-link active">1. Visão Geral & 60-30-10</a></li>
+      <li><a href="#sec-login" class="nav-link">2. Login & Perfis RBAC</a></li>
+      <li><a href="#sec-topbar" class="nav-link">3. Navegação & Topbar</a></li>
+    </ul>
+
+    <div class="nav-group-title">Implantação & Frotas</div>
+    <ul class="nav-list">
+      <li><a href="#sec-modulos" class="nav-link">4. Seleção de Culturas</a></li>
+      <li><a href="#sec-gis" class="nav-link">5. Mapas GIS & CAR</a></li>
+      <li><a href="#sec-canbus" class="nav-link">6. Chicote CAN Bus J1939</a></li>
+      <li><a href="#sec-validacao" class="nav-link">7. Validação em Campo</a></li>
+    </ul>
+
+    <div class="nav-group-title">Operação & Agropecuária</div>
+    <ul class="nav-list">
+      <li><a href="#sec-deltat" class="nav-link">8. Monitor Delta T ASABE</a></li>
+      <li><a href="#sec-offline" class="nav-link">9. Modo Offline Outbox</a></li>
+      <li><a href="#sec-fiscal" class="nav-link">10. NF-e Mod. 55 & LCDPR</a></li>
+      <li><a href="#sec-eudr" class="nav-link">11. ESG & Due Diligence EUDR</a></li>
+      <li><a href="#sec-barter" class="nav-link">12. Barter, CPR & Hedge NDF</a></li>
+      <li><a href="#sec-zarc" class="nav-link">13. Governança RBAC</a></li>
+    </ul>
+
+    <div class="nav-group-title">Infraestrutura & Nuvem</div>
+    <ul class="nav-list">
+      <li><a href="#sec-local" class="nav-link">14. Instalação Local (Fazenda)</a></li>
+      <li><a href="#sec-hospedagem" class="nav-link">15. Hospedagem Nuvem Brasil</a></li>
+    </ul>
+    </ul>
+  </aside>
+
+  <!-- Main Document Content -->
+  <main class="content">
+    <header class="doc-header">
+      <div class="badge-enterprise">✓ Guia Completo e Ilustrado de Implantação e Operação</div>
+      <h1 class="doc-title">AGROTECH — O Sistema Operacional da Empresa Rural</h1>
+      <p class="doc-desc">
+        Manual oficial de uso com capturas de tela reais, guia de instalação do chicote de telemetria CAN Bus e protocolo de validação em campo com operadores de máquinas agrícolas.
+      </p>
+    </header>
+
+    <!-- SEÇÃO 1: VISÃO GERAL -->
+    <section id="sec-visao" class="section-card">
+      <h2 class="section-title">
+        <span class="section-title-num">1</span>
+        Visão Geral da Plataforma & Padrão Visual 60-30-10
+      </h2>
+      <p>
+        O AGROTECH adota a consagrada regra ergonômica <strong>60-30-10</strong> para garantir máxima legibilidade em ambientes de alta luminosidade solar no campo, eliminando o cansaço visual comum em sistemas legados carregados e escuros:
+      </p>
+
+      <div class="screenshot-frame">
+        <img src="screenshot_platform_overview.png" alt="Visão Geral da Plataforma AGROTECH">
+        <div class="screenshot-caption">
+          <span>Figura 1: Visão Geral do Sistema com Left Sidebar, Topbar Unificado e Cards de Indicadores</span>
+          <span style="color: #10B981; font-weight: 700;">Design 60-30-10</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <div>
+          <strong>Distribuição Equilibrada das Cores:</strong>
+          <ul style="margin-top: 6px; margin-left: 20px;">
+            <li><strong>60% Fundo Dominante:</strong> Off-white neutro (<code>#F7F9F5</code>) que previne ofuscamento óptico.</li>
+            <li><strong>30% Estrutura Secundária:</strong> Ardósia profunda (<code>#0F172A</code>) nos menus e cabeçalhos.</li>
+            <li><strong>10% Acentos Direcionadores:</strong> Verde Floresta Nobre (<code>#1D4B38</code>) reservado exclusivamente para botões de ação e status críticos.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 2: LOGIN & PERFIS RBAC -->
+    <section id="sec-login" class="section-card">
+      <h2 class="section-title">
+        <span class="section-title-num">2</span>
+        Acesso, Login e Governança de Perfis (RBAC)
+      </h2>
+      <p>
+        O acesso é protegido por tokens criptográficos HMAC-SHA256 e isolamento absoluto entre fazendas (multi-tenant). Na tela de login, o usuário pode selecionar seu perfil operacional com apenas um clique:
+      </p>
+
+      <div class="screenshot-frame">
+        <img src="screenshot_login_design.png" alt="Tela de Login e Perfis Rápidos">
+        <div class="screenshot-caption">
+          <span>Figura 2: Tela de Acesso com Seletores Rápidos de Perfil Rural</span>
+          <span>Autenticação Segura</span>
+        </div>
+      </div>
+
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-badge active">1</div>
+          <div class="step-body">
+            <div class="step-title">Produtor Titular / Superadmin</div>
+            <div class="step-desc">Acesso completo a financeiro, contratos de barter, emissão de CPR, Dossiê Bancário e governança geral.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">2</div>
+          <div class="step-body">
+            <div class="step-title">Agrônomo Responsável Técnico (RT)</div>
+            <div class="step-desc">Focado em laudos de solo, receituário agronômico, ZARC hídrico, calagem/gessagem e balanço FAO-56.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">3</div>
+          <div class="step-body">
+            <div class="step-title">Operador de Frotas / Campo</div>
+            <div class="step-desc">Interface ágil e simplificada para apontamento de abastecimento, plantio, colheita e telemetria da máquina.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">4</div>
+          <div class="step-body">
+            <div class="step-title">Contador Fiscal Rural</div>
+            <div class="step-desc">Painel exclusivo para emissão de NF-e Produtor Modelo 55 e escrituração do Livro Caixa Digital (LCDPR SPED 0013).</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 3: NAVEGAÇÃO TOPBAR -->
+    <section id="sec-topbar" class="section-card">
+      <h2 class="section-title">
+        <span class="section-title-num">3</span>
+        Navegação de Alto Nível e Topbar Unificado (50px)
+      </h2>
+      <p>
+        O cabeçalho superior condensa as informações mais críticas para tomada de decisão no agronegócio:
+      </p>
+
+      <div class="screenshot-frame">
+        <img src="screenshot_platform_topbar.png" alt="Topbar de 50px do Sistema AGROTECH">
+        <div class="screenshot-caption">
+          <span>Figura 3: Topbar com Cotações B3/Dólar, Status Psicrométrico Delta T e Busca Universal</span>
+          <span>Atalhos Rápidos</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <div>
+          <strong>Atalhos de Teclado Essenciais:</strong>
+          <p style="margin-top: 4px;">Pressione <code>Ctrl + K</code> a qualquer instante para abrir a <strong>Command Palette</strong> e saltar para qualquer módulo, máquina ou talhão sem encostar as mãos no mouse.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 4: CONFIGURAÇÃO DE CULTURAS -->
+    <section id="sec-modulos" class="section-card">
+      <h2 class="section-title">
+        <span class="section-title-num">4</span>
+        Configuração de Módulos e Culturas da Safra
+      </h2>
+      <p>
+        Para não sobrecarregar os operadores com opções irrelevantes, o sistema permite habilitar exclusivamente as culturas e atividades que a fazenda explora:
+      </p>
+
+      <div class="screenshot-frame">
+        <img src="screenshot_module_config_culturas.png" alt="Configuração de Culturas Agrícolas">
+        <div class="screenshot-caption">
+          <span>Figura 4: Seletor Interativo de Culturas da Safra (Soja, Milho, Algodão HVI, Cana, Café)</span>
+          <span>Customização Dinâmica</span>
+        </div>
+      </div>
+
+      <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">
+        Ao marcar uma cultura, o AGROTECH adiciona automaticamente os cálculos agronômicos específicos, como ATR para Cana, Classificação HVI para Algodão ou Pontuação SCA para Cafés Especiais.
+      </p>
+    </section>
+
+    <!-- SEÇÃO 5: MAPAS GIS & CAR -->
+    <section id="sec-gis" class="section-card">
+      <h2 class="section-title">
+        <span class="section-title-num">5</span>
+        Mapeamento Geoespacial, Talhões e Cadastro Ambiental Rural (CAR)
+      </h2>
+      <p>
+        O motor geodésico calcula áreas na projeção elipsoidal WGS84 e cruza com a base do SICAR da fazenda:
+      </p>
+
+      <div class="screenshot-frame">
+        <img src="screenshot_gis_map.png" alt="Mapa GIS de Talhões com Sensoriamento Remoto">
+        <div class="screenshot-caption">
+          <span>Figura 5: Visualização Satelital dos Talhões com Divisão de Reserva Legal e APP</span>
+          <span>PostGIS WGS84</span>
+        </div>
+      </div>
+
+      <div class="screenshot-frame">
+        <img src="screenshot_gis_map_ndre.png" alt="Camada de Biomassa NDRE Sentinel-2">
+        <div class="screenshot-caption">
+          <span>Figura 6: Índice de Clorofila e Biomassa NDRE (Red Edge) com Imagens Sentinel-2 L2A</span>
+          <span>Sensoriamento Remoto</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 6: CHICOTE CAN BUS -->
+    <section id="sec-canbus" class="section-card">
+      <h2 class="section-title">
+        <span class="section-title-num">6</span>
+        Manual de Instalação Física do Chicote Telemático CAN Bus (SAE J1939 / ISO 11783)
+      </h2>
+      <p>
+        A telemetria de precisão depende da integração do modem IoT ao barramento de dados original do trator, pulverizador ou colheitadeira:
+      </p>
+
+      <div class="callout callout-danger">
+        <div>
+          <strong>ATENÇÃO DE SEGURANÇA ELÉTRICA:</strong> Desligue a chave geral da máquina e desconecte o polo negativo da bateria antes de iniciar a conexão do chicote!
+        </div>
+      </div>
+
+      <div class="ascii-box">
+       CONECTOR DEUTSCH 9 PINOS (J1939-13 TIPO 1 / TIPO 2)
+                            (Vista Frontal)
+
+                             [ B: VCC ]   [ A: GND ]
+                                 \           /
+                       [ C: CAN_H ]---\-----/--- [ J: Ignição ]
+                                       \   /
+                       [ D: CAN_L ]-----( O )--- [ H: OEM ]
+                                       /   \
+                       [ E: SHLD ]----/-----\--- [ G: ISOBUS ]
+                                     /       \
+                                  [ F: ISOBUS ]
+      </div>
+
+      <table class="pinout-table">
+        <thead>
+          <tr>
+            <th>Pino</th>
+            <th>Identificação</th>
+            <th>Cor Típica</th>
+            <th>Finalidade Técnica</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Pino A</code></td>
+            <td><strong>GND (Terra)</strong></td>
+            <td>Preto</td>
+            <td>Aterramento no chassi metálico do veículo.</td>
+          </tr>
+          <tr>
+            <td><code>Pino B</code></td>
+            <td><strong>VCC (+12V/+24V)</strong></td>
+            <td>Vermelho</td>
+            <td>Alimentação contínua com fusível de 3A instalado a &lt; 20 cm da bateria.</td>
+          </tr>
+          <tr>
+            <td><code>Pino C</code></td>
+            <td><strong>CAN_H (High)</strong></td>
+            <td>Amarelo</td>
+            <td>Linha diferencial positiva SAE J1939 (2.5V a 3.5V).</td>
+          </tr>
+          <tr>
+            <td><code>Pino D</code></td>
+            <td><strong>CAN_L (Low)</strong></td>
+            <td>Verde</td>
+            <td>Linha diferencial negativa SAE J1939 (1.5V a 2.5V).</td>
+          </tr>
+          <tr>
+            <td><code>Pino E</code></td>
+            <td><strong>CAN_SHLD</strong></td>
+            <td>Malha Nua</td>
+            <td>Blindagem eletromagnética aterrada em ponto único.</td>
+          </tr>
+          <tr>
+            <td><code>Pino J</code></td>
+            <td><strong>Ignição (KL15)</strong></td>
+            <td>Branco</td>
+            <td>Linha pós-chave para despertar e repouso automático do modem.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-warning">
+        <div>
+          <strong>Regra de Ouro da Impedância:</strong> Meça com um multímetro na escala de Ohms entre o Pino C (CAN_H) e o Pino D (CAN_L) com a máquina desligada. A leitura deve ser de <strong>60 Ohms</strong>. Os fios devem ter no mínimo <strong>33 a 50 voltas por metro (par trançado)</strong>.
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 7: VALIDAÇÃO EM CAMPO -->
+    <section id="sec-validacao" class="section-card">
+      <h2 class="section-title">
+        <span class="section-title-num">7</span>
+        Protocolo de Validação e Comissionamento In Loco com Operadores
+      </h2>
+      <p>
+        Com o chicote instalado, ligue a máquina e abra o painel de <strong>Telemetria de Frotas</strong>:
+      </p>
+
+      <div class="screenshot-frame">
+        <img src="screenshot_domain_frotas.png" alt="Painel de Frotas e Telemetria em Tempo Real">
+        <div class="screenshot-caption">
+          <span>Figura 7: Confronto em Tempo Real de RPM, Horímetro, Pressão de Óleo e Temperatura</span>
+          <span>Comissionamento Concluído</span>
+        </div>
+      </div>
+
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-badge active">1</div>
+          <div class="step-body">
+            <div class="step-title">Conferência de RPM (PGN 61444 EEC1)</div>
+            <div class="step-desc">Acelere o motor até 1.800 RPM. A leitura no AGROTECH deve bater com o tacômetro da cabine (tolerância de ±5 RPM).</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge active">2</div>
+          <div class="step-body">
+            <div class="step-title">Pressão de Lubrificação (PGN 65263 EFL_P1)</div>
+            <div class="step-desc">Verifique a pressão: faixa normal entre 3.0 e 5.5 bar. Alerta sonoro/visual dispara automaticamente abaixo de 1.5 bar.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge active">3</div>
+          <div class="step-body">
+            <div class="step-title">Temperatura do Arrefecimento (PGN 65262 ET1)</div>
+            <div class="step-desc">Faixa nominal de 82°C a 94°C. O sistema bloqueia a máquina e alerta o gerente acima de 102°C.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 8: DELTA T -->
+    <section id="sec-deltat" class="section-card">
+      <h2 class="section-title">
+        <span class="section-title-num">8</span>
+        Monitor Psicrométrico de Delta T (ASABE S572)
+      </h2>
+      <p>
+        O indicador de Delta T no topo do sistema calcula a evaporação e o risco de deriva da gota em tempo real:
+      </p>
+
+      <div class="screenshot-frame">
+        <img src="screenshot_modal_delta_t.png" alt="Monitor Psicrométrico Delta T ASABE S572">
+        <div class="screenshot-caption">
+          <span>Figura 8: Modal Psicrométrico ASABE S572 — Janela de Pulverização Ideal (2.0°C a 8.0°C)</span>
+          <span>Pulverização Segura</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 9: OFFLINE OUTBOX -->
+    <section id="sec-offline" class="section-card">
+      <h2 class="section-title">
+        <span class="section-title-num">9</span>
+        Resiliência Offline-First e Sincronização de Campo (Princípio 12)
+      </h2>
+      <p>
+        No talhão sem sinal de celular, o aplicativo opera normalmente salvando na fila local criptografada:
+      </p>
+
+      <div class="screenshot-frame">
+        <img src="screenshot_modal_sync.png" alt="Central de Sincronização Offline Outbox">
+        <div class="screenshot-caption">
+          <span>Figura 9: Fila de Auditoria Outbox — Reconciliação Automática com detecção de conflitos</span>
+          <span>PWA Offline-First</span>
+        </div>
+      </div>
+
+      <div class="screenshot-frame">
+        <img src="screenshot_mobile_view.png" alt="Interface Mobile do Operador">
+        <div class="screenshot-caption">
+          <span>Figura 10: Interface Responsiva de Campo para Celular e Tablet na Cabine</span>
+          <span>Mobile Cockpit</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 10: FISCAL NF-E & LCDPR -->
+    <section id="sec-fiscal" class="section-card">
+      <h2 class="section-title">
+        <span class="section-title-num">10</span>
+        Módulo Fiscal: NF-e do Produtor (Mod. 55) e LCDPR SPED 0013
+      </h2>
+      <p>
+        Emissão oficial de documentos fiscais e escrituração digital do Livro Caixa:
+      </p>
+
+      <div class="screenshot-frame">
+        <img src="screenshot_domain_fiscal.png" alt="Módulo Fiscal NF-e e LCDPR">
+        <div class="screenshot-caption">
+          <span>Figura 11: Emissor de Notas Fiscais Eletrônicas e Gerador de SPED LCDPR Layout 0013</span>
+          <span>Conformidade SEFAZ</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 11: BARTER & HEDGE -->
+    <section id="sec-barter" class="section-card">
+      <h2 class="section-title">
+        <span class="section-title-num">11</span>
+        Gestão Financeira, CPR Eletrônica B3 e Hedge Cambial NDF
+      </h2>
+      <p>
+        Controle de barter de insumos e proteção contra oscilações de câmbio:
+      </p>
+
+      <div class="screenshot-frame">
+        <img src="screenshot_domain_hedge.png" alt="Controle de Barter e Hedge Cambial">
+        <div class="screenshot-caption">
+          <span>Figura 12: Gestão de Contratos de Barter CPR e Trava de Moeda NDF</span>
+          <span>Mercado Financeiro Agro</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 12: GOVERNANÇA RBAC SUPERADMIN -->
+    <section id="sec-zarc" class="section-card">
+      <h2 class="section-title">
+        <span class="section-title-num">13</span>
+        Governança e Matriz de Permissões RBAC Superadmin
+      </h2>
+      <p>
+        Painel exclusivo do titular para concessão de permissões especiais e auditoria da fazenda:
+      </p>
+
+      <div class="screenshot-frame">
+        <img src="screenshot_rbac_superadmin_matrix.png" alt="Matriz de Permissões RBAC Superadmin">
+        <div class="screenshot-caption">
+          <span>Figura 13: Matriz de Permissões de Perfis — Blindagem Exclusiva Superadmin</span>
+          <span>Governança Estrita</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 14: INSTALAÇÃO LOCAL ON-PREMISES -->
+    <section id="sec-local" class="section-card">
+      <h2 class="section-title">
+        <span class="section-title-num">14</span>
+        Guia de Instalação Local e Servidor On-Premises na Sede da Fazenda
+      </h2>
+      <p>
+        Permite que a fazenda opere com autonomia completa e latência zero (menos de 2ms), independente de oscilações do link de internet ou satélite:
+      </p>
+
+      <div class="callout callout-info">
+        <div>
+          <strong>Requisitos de Hardware Recomendados:</strong>
+          Mini PC industrial ou Servidor com processador Intel Core i5/i7 ou AMD Ryzen, 16 GB de RAM, SSD NVMe 512 GB e No-break senoidal de 1.200 VA com bateria externa.
+        </div>
+      </div>
+
+      <div class="ascii-box">
+# Instalação Rápida Automatizada via Docker Compose no Linux (Ubuntu 22.04/24.04 LTS)
+sudo apt update && sudo apt install -y docker.io docker-compose git
+cd /opt
+sudo git clone https://github.com/empresa-rural/agtech-platform.git
+cd agtech-platform
+sudo docker compose up -d --build
+      </div>
+
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-badge active">1</div>
+          <div class="step-body">
+            <div class="step-title">Fixação de IP Estático na Rede da Fazenda</div>
+            <div class="step-desc">Configure o servidor com IP fixo (ex: <code>192.168.1.100</code>) via Netplan no Linux para que os tablets e balanças sempre localizem a aplicação.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge active">2</div>
+          <div class="step-body">
+            <div class="step-title">Roteamento para Starlink e Wi-Fi dos Silos</div>
+            <div class="step-desc">Conecte o servidor à porta LAN do switch central e distribua o sinal via rádios Ubiquiti/Mikrotik para os barracões e oficinas.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge active">3</div>
+          <div class="step-body">
+            <div class="step-title">Backup Automático Diário às 02:00 da Madrugada</div>
+            <div class="step-desc">Script automático agendado no cron compacta o banco de dados e envia para um storage NAS ou pendrive USB externo com retenção de 30 dias.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 15: HOSPEDAGEM NUVEM BRASIL -->
+    <section id="sec-hospedagem" class="section-card">
+      <h2 class="section-title">
+        <span class="section-title-num">15</span>
+        Guia de Hospedagem e Deploy nas Principais Nuvens do Brasil
+      </h2>
+      <p>
+        Para grupos agrícolas com múltiplas fazendas ou acesso remoto seguro por agrônomos e escritórios na capital:
+      </p>
+
+      <table class="pinout-table">
+        <thead>
+          <tr>
+            <th>Provedor</th>
+            <th>Modalidade</th>
+            <th>Data Center</th>
+            <th>Custo Médio</th>
+            <th>Vantagem</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Locaweb</strong></td>
+            <td>VPS Linux SSD</td>
+            <td>São Paulo (SP)</td>
+            <td>R$ 80 a R$ 220/mês</td>
+            <td>Boleto/NF nacional em Reais e suporte 24/7 em português.</td>
+          </tr>
+          <tr>
+            <td><strong>KingHost</strong></td>
+            <td>Cloud VPS</td>
+            <td>Curitiba / Porto Alegre</td>
+            <td>R$ 75 a R$ 190/mês</td>
+            <td>Baixa latência no Sul/Centro-Oeste e painel fácil.</td>
+          </tr>
+          <tr>
+            <td><strong>HostGator Brasil</strong></td>
+            <td>VPS KVM</td>
+            <td>São Paulo (SP)</td>
+            <td>R$ 90 a R$ 250/mês</td>
+            <td>Excelente custo-benefício para fazendas médias.</td>
+          </tr>
+          <tr>
+            <td><strong>AWS América do Sul</strong></td>
+            <td>EC2 / ECS Fargate</td>
+            <td><code>sa-east-1</code> (São Paulo)</td>
+            <td>US$ 30 a US$ 90/mês</td>
+            <td>Escalabilidade elástica, S3 e RDS PostgreSQL PostGIS.</td>
+          </tr>
+          <tr>
+            <td><strong>Oracle Cloud (OCI)</strong></td>
+            <td>Ampere Always Free</td>
+            <td>Vinhedo / São Paulo</td>
+            <td>Gratuito a R$ 150/mês</td>
+            <td>Camada gratuita generosa de 4 OCPUs e 24GB RAM no Brasil.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-badge active">1</div>
+          <div class="step-body">
+            <div class="step-title">Registro de Domínio no Registro.br</div>
+            <div class="step-desc">Registre o domínio oficial da empresa (ex: <code>fazendasantaluzia.com.br</code>) e aponte a entrada DNS tipo <strong>A</strong> para o IP público do seu servidor.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge active">2</div>
+          <div class="step-body">
+            <div class="step-title">Proxy Reverso Nginx & Certificado SSL Let's Encrypt</div>
+            <div class="step-desc">Configure o Nginx com TLS 1.3 e ative o certificado criptografado gratuito via Certbot: <code>sudo certbot --nginx -d sistema.fazendasantaluzia.com.br</code>.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge active">3</div>
+          <div class="step-body">
+            <div class="step-title">Blindagem do Firewall UFW e Fail2ban</div>
+            <div class="step-desc">Feche todas as portas não utilizadas, mantendo apenas 22 (SSH), 80 (HTTP) e 443 (HTTPS) abertas com proteção contra ataques de força bruta.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- Botão Flutuante de Impressão -->
+<button class="btn-print" onclick="window.print()">
+  🖨️ Imprimir / Salvar PDF
+</button>
+
+</body>
+</html>

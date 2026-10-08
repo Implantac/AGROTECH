@@ -98,15 +98,15 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className="px-2.5 py-1 text-xs font-black bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+              <span className="px-2.5 py-1 text-xs font-black bg-emerald-500/20 text-emerald-800 border border-emerald-500/40 rounded-full uppercase tracking-wider flex items-center gap-1.5">
                 <Leaf className="w-3.5 h-3.5" />
                 Módulo 109 • Pimenta-do-Reino & Padrão ASTA
               </span>
-              <span className="px-2.5 py-1 text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full">
+              <span className="px-2.5 py-1 text-xs font-semibold bg-amber-500/20 text-amber-800 border border-amber-500/30 rounded-full">
                 Piper nigrum • Piperina &gt; 4.0% • 565 g/L
               </span>
             </div>
-            <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-3">
               🌶️ Pimenta-do-Reino de Precisão: Tutores, Branqueamento & ASTA
             </h2>
             <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
@@ -117,13 +117,13 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
           <div className="flex items-center gap-3">
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Pimenta Seca</span>
-              <span className="text-xl font-black text-emerald-400">114.000 kg</span>
+              <span className="text-xl font-black text-emerald-700">114.000 kg</span>
               <span className="text-[10px] text-slate-600 block mt-0.5">30 ha Pimental</span>
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Faturamento</span>
-              <span className="text-xl font-black text-amber-400">R$ 3,64M</span>
-              <span className="text-[10px] text-amber-400/80 block mt-0.5">ASTA Grade 1</span>
+              <span className="text-xl font-black text-amber-700">R$ 3,64M</span>
+              <span className="text-[10px] text-amber-700/80 block mt-0.5">ASTA Grade 1</span>
             </div>
           </div>
         </div>
@@ -134,10 +134,10 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Teor de Piperina</span>
-            <Activity className="w-4 h-4 text-emerald-400" />
+            <Activity className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-white">4.60% Piperina</div>
-          <div className="text-[11px] text-emerald-400 font-medium mt-1 flex items-center gap-1">
+          <div className="text-2xl font-black text-slate-900">4.60% Piperina</div>
+          <div className="text-[11px] text-emerald-700 font-medium mt-1 flex items-center gap-1">
             <CheckCircle2 className="w-3.5 h-3.5" />
             Acima do mínimo de 4.0%
           </div>
@@ -146,9 +146,9 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Densidade a Granel</span>
-            <Box className="w-4 h-4 text-amber-400" />
+            <Box className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black text-amber-400">565 g / Litro</div>
+          <div className="text-2xl font-black text-amber-700">565 g / Litro</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Padrão Grade 1 (Mínimo 550 g/L)
           </div>
@@ -157,9 +157,9 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Preço de Exportação</span>
-            <Award className="w-4 h-4 text-cyan-400" />
+            <Award className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black text-cyan-400">R$ 32,00 / kg</div>
+          <div className="text-2xl font-black text-sky-700">R$ 32,00 / kg</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Mercado EUA e União Europeia
           </div>
@@ -168,9 +168,9 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
-            <DollarSign className="w-4 h-4 text-teal-400" />
+            <DollarSign className="w-4 h-4 text-teal-700" />
           </div>
-          <div className="text-2xl font-black text-teal-400">R$ 2.568.000,00</div>
+          <div className="text-2xl font-black text-teal-700">R$ 2.568.000,00</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             R$ 85.600,00 por hectare
           </div>
@@ -183,8 +183,8 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
           onClick={() => setActiveTab('pimentais')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'pimentais'
-              ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Leaf className="w-4 h-4" />
@@ -195,8 +195,8 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
           onClick={() => setActiveTab('processamento')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'processamento'
-              ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Flame className="w-4 h-4" />
@@ -207,8 +207,8 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
           onClick={() => setActiveTab('asta')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'asta'
-              ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <ShieldCheck className="w-4 h-4" />
@@ -219,8 +219,8 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
-              ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -232,8 +232,8 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
       {activeTab === 'pimentais' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <Leaf className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <Leaf className="w-5 h-5 text-emerald-700" />
               Sistemas de Condução e Tutores
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -254,21 +254,21 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
                     <th className="py-3 px-3">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60 font-medium">
+                <tbody className="divide-y divide-slate-100 font-medium">
                   {lotes.map((l) => (
-                    <tr key={l.id} className="hover:bg-slate-800/40 transition-colors">
+                    <tr key={l.id} className="hover:bg-slate-50/80 transition-colors">
                       <td className="py-3.5 px-3">
-                        <div className="font-bold text-white">{l.identificacao}</div>
+                        <div className="font-bold text-slate-900">{l.identificacao}</div>
                         <div className="text-[11px] text-slate-600 font-mono">{l.id}</div>
                       </td>
-                      <td className="py-3.5 px-3 text-emerald-300 font-semibold">{l.variedade}</td>
+                      <td className="py-3.5 px-3 text-emerald-800 font-semibold">{l.variedade}</td>
                       <td className="py-3.5 px-3 text-slate-900">{l.tipoTutor}</td>
-                      <td className="py-3.5 px-3 font-mono text-white">{l.areaHa} ha</td>
-                      <td className="py-3.5 px-3 font-mono text-emerald-400 font-bold">{l.pimentaSecaKg.toLocaleString()} kg</td>
-                      <td className="py-3.5 px-3 font-mono text-cyan-400 font-bold">{l.teorPiperinaPct}%</td>
-                      <td className="py-3.5 px-3 font-mono text-amber-300">{l.densidadeLitroGramas} g/L</td>
+                      <td className="py-3.5 px-3 font-mono text-slate-800">{l.areaHa} ha</td>
+                      <td className="py-3.5 px-3 font-mono text-emerald-700 font-bold">{l.pimentaSecaKg.toLocaleString()} kg</td>
+                      <td className="py-3.5 px-3 font-mono text-sky-700 font-bold">{l.teorPiperinaPct}%</td>
+                      <td className="py-3.5 px-3 font-mono text-amber-800">{l.densidadeLitroGramas} g/L</td>
                       <td className="py-3.5 px-3">
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30">
                           {l.statusExportacao}
                         </span>
                       </td>
@@ -285,7 +285,7 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
       {activeTab === 'processamento' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <Flame className="w-5 h-5 text-orange-400" />
               Choque Hidrotérmico (Branqueamento a 80°C)
             </h3>
@@ -295,13 +295,13 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
 
             <div className="space-y-3 text-xs">
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Ativação da Polifenoloxidase (PPO)</span>
+                <span className="font-bold text-slate-900 block">Ativação da Polifenoloxidase (PPO)</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   Promove oxidação rápida dos taninos, conferindo cor preto-ébano brilhante e homogênea aos grãos secos.
                 </span>
               </div>
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Esterilização Superficial Térmica</span>
+                <span className="font-bold text-slate-900 block">Esterilização Superficial Térmica</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   Elimina coliformes e esporos fúngicos trazidos da lavoura, garantindo umidade final estável em 11.5%.
                 </span>
@@ -310,8 +310,8 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
           </div>
 
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <Sun className="w-5 h-5 text-amber-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <Sun className="w-5 h-5 text-amber-700" />
               Túneis Solares com Exaustão Forçada
             </h3>
             <p className="text-xs text-slate-600">
@@ -321,11 +321,11 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
             <div className="space-y-2 text-xs">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Tempo de Secagem no Túnel:</span>
-                <span className="font-mono font-bold text-emerald-400">3 dias (vs 7 dias no chão)</span>
+                <span className="font-mono font-bold text-emerald-700">3 dias (vs 7 dias no chão)</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Umidade Final Crítica:</span>
-                <span className="font-mono font-bold text-cyan-400">11.0% a 12.0% UR</span>
+                <span className="font-mono font-bold text-sky-700">11.0% a 12.0% UR</span>
               </div>
             </div>
           </div>
@@ -336,8 +336,8 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
       {activeTab === 'asta' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <ShieldCheck className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <ShieldCheck className="w-5 h-5 text-emerald-700" />
               Padrões Microbiológicos e Físicos ASTA
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -347,19 +347,19 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Salmonella spp.</span>
-                <span className="text-2xl font-black text-white font-mono">Ausência / 25g</span>
-                <span className="text-[11px] text-emerald-400 block">100% Conforme</span>
+                <span className="text-2xl font-black text-slate-900 font-mono">Ausência / 25g</span>
+                <span className="text-[11px] text-emerald-700 block">100% Conforme</span>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Matérias Estranhas</span>
-                <span className="text-2xl font-black text-cyan-400 font-mono">&lt; 0.5%</span>
+                <span className="text-2xl font-black text-sky-700 font-mono">&lt; 0.5%</span>
                 <span className="text-[11px] text-slate-600 block">Mesa densimétrica e ímãs</span>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Pimenta Branca</span>
-                <span className="text-2xl font-black text-amber-400 font-mono">Maceração Lenta</span>
+                <span className="text-2xl font-black text-amber-700 font-mono">Maceração Lenta</span>
                 <span className="text-[11px] text-slate-600 block">Remoção mecânica do pericarpo</span>
               </div>
             </div>
@@ -371,15 +371,15 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <BarChart3 className="w-5 h-5 text-emerald-700" />
               Parâmetros do Pimental
             </h3>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Área Plantada (ha)</span>
-                <span className="font-mono text-emerald-400">{areaHa} hectares</span>
+                <span className="font-mono text-emerald-700">{areaHa} hectares</span>
               </div>
               <input
                 type="range"
@@ -388,14 +388,14 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
                 step="5"
                 value={areaHa}
                 onChange={(e) => setAreaHa(Number(e.target.value))}
-                className="w-full accent-emerald-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-emerald-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Produtividade Seca (kg/ha)</span>
-                <span className="font-mono text-cyan-400">{produtividadeKgHa} kg/ha</span>
+                <span className="font-mono text-sky-700">{produtividadeKgHa} kg/ha</span>
               </div>
               <input
                 type="range"
@@ -404,14 +404,14 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
                 step="100"
                 value={produtividadeKgHa}
                 onChange={(e) => setProdutividadeKgHa(Number(e.target.value))}
-                className="w-full accent-cyan-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-cyan-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Venda Grade 1 (R$/kg)</span>
-                <span className="font-mono text-amber-400">R$ {precoKgPimentaReais.toFixed(2)}</span>
+                <span className="font-mono text-amber-700">R$ {precoKgPimentaReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -420,14 +420,14 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
                 step="1.0"
                 value={precoKgPimentaReais}
                 onChange={(e) => setPrecoKgPimentaReais(Number(e.target.value))}
-                className="w-full accent-amber-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-amber-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Custo de Manejo e Indústria por Ha</span>
-                <span className="font-mono text-rose-400">R$ {custoTotalHaReais.toFixed(2)}</span>
+                <span className="font-mono text-rose-700">R$ {custoTotalHaReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -436,21 +436,21 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
                 step="1000"
                 value={custoTotalHaReais}
                 onChange={(e) => setCustoTotalHaReais(Number(e.target.value))}
-                className="w-full accent-rose-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-rose-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
           </div>
 
           <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <DollarSign className="w-5 h-5 text-emerald-700" />
               Retorno Financeiro da Pimenta-do-Reino
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Pimenta Seca</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   {(metricas.producaoTotalKg / 1000).toFixed(1)} ton
                 </span>
                 <span className="text-[10px] text-slate-600 block">{areaHa} ha colhidos</span>
@@ -458,15 +458,15 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Piperina Pura</span>
-                <span className="font-mono font-bold text-emerald-400 text-base">
+                <span className="font-mono font-bold text-emerald-700 text-base">
                   {((metricas.producaoTotalKg * teorPiperinaPct) / 100).toFixed(0)} kg
                 </span>
-                <span className="text-[10px] text-emerald-400/80 block">{teorPiperinaPct}% ativo</span>
+                <span className="text-[10px] text-emerald-700/80 block">{teorPiperinaPct}% ativo</span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Bruta</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   R$ {(metricas.receitaBrutaReais / 1000000).toFixed(2)}M
                 </span>
                 <span className="text-[10px] text-slate-600 block">Padrão ASTA</span>
@@ -474,29 +474,29 @@ export const PimentaDoReinoQualidadeModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido</span>
-                <span className="font-mono font-bold text-emerald-400 text-base">
+                <span className="font-mono font-bold text-emerald-700 text-base">
                   R$ {(metricas.lucroLiquidoReais / 1000000).toFixed(2)}M
                 </span>
-                <span className="text-[10px] text-emerald-400/80 block">{metricas.margemLiquidaPct}% margem</span>
+                <span className="text-[10px] text-emerald-700/80 block">{metricas.margemLiquidaPct}% margem</span>
               </div>
             </div>
 
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Receita Bruta com Pimenta-do-Reino Seca ({metricas.producaoTotalKg.toLocaleString()} kg @ R$ {precoKgPimentaReais.toFixed(2)}):</span>
-                <span className="font-mono font-bold text-white">
+                <span className="font-mono font-bold text-slate-900">
                   R$ {metricas.receitaBrutaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Custos de Tutores, Adubação NPK, Branqueamento e Túneis Solares:</span>
-                <span className="font-mono font-bold text-rose-400">
+                <span className="font-mono font-bold text-rose-700">
                   - R$ {metricas.custoTotalReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-2 text-sm font-black bg-emerald-950/30 px-3 rounded-lg border border-emerald-800/50">
-                <span className="text-white">Lucro Líquido Anual Consolidado do Pimental:</span>
-                <span className="font-mono text-emerald-300">
+              <div className="flex justify-between items-center py-2 text-sm font-black bg-emerald-50 px-3 rounded-lg border border-emerald-200">
+                <span className="text-slate-900">Lucro Líquido Anual Consolidado do Pimental:</span>
+                <span className="font-mono text-emerald-800">
                   R$ {metricas.lucroLiquidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>

@@ -1,40 +1,34 @@
 # ==========================================
-# SUPER AGTECH - PRODUCTION MULTI-STAGE DOCKERFILE
+# SUPER AGTECH - PRODUCTION DOCKERFILE
 # ==========================================
 
-# Estágio 1: Build da Aplicação
-FROM node:20-alpine AS builder
+FROM node:20-alpine AS runner
 
 WORKDIR /app
 
-# Otimização de Cache das dependências
-COPY package.json package-lock.json ./
-RUN npm ci --prefer-offline --no-audit
+ENV NODE_ENV=production
+ENV PORT=5173
+ENV JWT_SECRET=super_agro_jwt_secret_2026_xyz
 
-# Cópia do código fonte
-COPY . .
+# Copia manifestos de dependências
+COPY package.json ./
 
-# Compilação e Geração do Bundle Otimizado
-RUN npm run build
+# Copia código do servidor e diretórios estáticos
+COPY server.cjs ./
+COPY data/ ./data/
+COPY app_static/ ./app_static/
+COPY public/ ./public/
 
-# Estágio 2: Imagem Final de Execução de Alta Performance (Nginx Alpine)
-FROM nginx:alpine-slim
+# Permissões seguras não-root
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S agtech -u 1001 -G nodejs && \
+    chown -R agtech:nodejs /app
 
-# Remove configurações padrão do Nginx
-RUN rm -rf /etc/nginx/conf.d/* /usr/share/nginx/html/*
+USER agtech
 
-# Copia configuração customizada otimizada para SPA + Gzip + PWA
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 5173 3000
 
-# Copia artefatos compilados do estágio anterior
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Exposição da Porta HTTP
-EXPOSE 80
-
-# Healthcheck nativo
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
-  CMD wget --quiet --tries=1 --spider http://localhost/ || exit 1
+  CMD wget --quiet --tries=1 --spider http://127.0.0.1:5173/api/v1/health || exit 1
 
-# Comando de Inicialização do Nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["node", "server.cjs"]

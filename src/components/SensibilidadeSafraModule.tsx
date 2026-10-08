@@ -40,13 +40,13 @@ export const SensibilidadeSafraModule: React.FC = () => {
       <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="px-2 py-0.5 bg-emerald-950 text-emerald-400 border border-emerald-800 rounded text-xs font-bold flex items-center gap-1.5">
+            <span className="px-2 py-0.5 bg-emerald-950 text-emerald-700 border border-emerald-800 rounded text-xs font-bold flex items-center gap-1.5">
               <Sliders className="w-3.5 h-3.5" /> Stress Test & Modelagem Preditiva
             </span>
             <span className="text-xs text-slate-600">Safra 2025/2026 • 2.450 Hectares Monitorados</span>
           </div>
-          <h2 className="text-xl font-bold text-white flex items-center gap-2">
-            <TrendingUp className="w-5 h-5 text-emerald-400" /> Análise de Sensibilidade Financeira & Matriz de Risco
+          <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <TrendingUp className="w-5 h-5 text-emerald-700" /> Análise de Sensibilidade Financeira & Matriz de Risco
           </h2>
           <p className="text-xs text-slate-600 mt-1">
             Simule o impacto de quebra de safra, seca ou oscilação da bolsa de Chicago (CBOT) no lucro líquido da fazenda.
@@ -59,16 +59,16 @@ export const SensibilidadeSafraModule: React.FC = () => {
             setPrecoSacaVenda(132.0);
             setDolarPtax(5.45);
           }}
-          className="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-900 rounded-xl text-xs font-semibold flex items-center gap-1.5 border border-slate-700 shadow"
+          className="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold flex items-center gap-1.5 border border-slate-200 shadow-2xs transition cursor-pointer"
         >
-          <RotateCcw className="w-3.5 h-3.5 text-slate-600" /> Restaurar Padrões
+          <RotateCcw className="w-3.5 h-3.5 text-slate-500" /> Restaurar Padrões
         </button>
       </div>
 
       {/* Controles Interativos (Sliders) */}
       <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-xl space-y-6">
-        <h3 className="text-sm font-bold text-white flex items-center gap-2">
-          <Calculator className="w-4 h-4 text-emerald-400" /> Variáveis Críticas de Mercado e Campo
+        <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+          <Calculator className="w-4 h-4 text-emerald-700" /> Variáveis Críticas de Mercado e Campo
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -76,7 +76,7 @@ export const SensibilidadeSafraModule: React.FC = () => {
           <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
             <div className="flex justify-between items-center text-xs">
               <span className="font-semibold text-slate-900">Produtividade Esperada</span>
-              <span className="text-lg font-black text-emerald-400 font-mono">
+              <span className="text-lg font-black text-emerald-700 font-mono">
                 {produtividadeScHa.toFixed(1)} <span className="text-xs font-normal text-slate-600">sc/ha</span>
               </span>
             </div>
@@ -100,7 +100,7 @@ export const SensibilidadeSafraModule: React.FC = () => {
           <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
             <div className="flex justify-between items-center text-xs">
               <span className="font-semibold text-slate-900">Cotação Saca Soja (FOB MT)</span>
-              <span className="text-lg font-black text-amber-400 font-mono">
+              <span className="text-lg font-black text-amber-700 font-mono">
                 R$ {precoSacaVenda.toFixed(2)}
               </span>
             </div>
@@ -124,7 +124,7 @@ export const SensibilidadeSafraModule: React.FC = () => {
           <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
             <div className="flex justify-between items-center text-xs">
               <span className="font-semibold text-slate-900">Taxa de Câmbio Dólar PTAX</span>
-              <span className="text-lg font-black text-blue-400 font-mono">
+              <span className="text-lg font-black text-blue-700 font-mono">
                 R$ {dolarPtax.toFixed(2)}
               </span>
             </div>
@@ -162,7 +162,7 @@ export const SensibilidadeSafraModule: React.FC = () => {
           <span className="text-xs text-slate-600 block font-medium">Lucro Líquido Projetado</span>
           <p
             className={`text-xl font-black mt-1 ${
-              lucroLiquidoSafra >= 0 ? 'text-emerald-400' : 'text-red-400'
+              lucroLiquidoSafra >= 0 ? 'text-emerald-700' : 'text-red-400'
             }`}
           >
             R$ {lucroLiquidoSafra.toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
@@ -177,7 +177,7 @@ export const SensibilidadeSafraModule: React.FC = () => {
           <span className="text-xs text-slate-600 block font-medium">Margem EBITDA da Safra</span>
           <p
             className={`text-xl font-black mt-1 ${
-              margemEbitda >= 20 ? 'text-emerald-400' : margemEbitda >= 0 ? 'text-amber-400' : 'text-red-400'
+              margemEbitda >= 20 ? 'text-emerald-700' : margemEbitda >= 0 ? 'text-amber-700' : 'text-red-400'
             }`}
           >
             {margemEbitda.toFixed(1)}%
@@ -189,10 +189,10 @@ export const SensibilidadeSafraModule: React.FC = () => {
 
         <div className="bg-white border border-slate-200 p-4 rounded-xl shadow">
           <span className="text-xs text-slate-600 block font-medium">Ponto de Equilíbrio</span>
-          <p className="text-xl font-black text-amber-400 mt-1 font-mono">
+          <p className="text-xl font-black text-amber-700 mt-1 font-mono">
             {breakEvenScHa.toFixed(1)} <span className="text-xs text-slate-600 font-normal">sc/ha</span>
           </p>
-          <span className="text-[11px] text-emerald-400 mt-1 block font-semibold">
+          <span className="text-[11px] text-emerald-700 mt-1 block font-semibold">
             Folga: +{(produtividadeScHa - breakEvenScHa).toFixed(1)} sc/ha
           </span>
         </div>
@@ -201,7 +201,7 @@ export const SensibilidadeSafraModule: React.FC = () => {
       {/* Matriz de Sensibilidade (Tabela Bidimensional) */}
       <div className="bg-white border border-slate-200 rounded-2xl shadow-xl overflow-hidden">
         <div className="p-4 border-b border-slate-200">
-          <h3 className="text-sm font-bold text-white">
+          <h3 className="text-sm font-bold text-slate-900">
             Matriz de Lucro Líquido Cruzado (Produtividade × Cotação da Saca)
           </h3>
           <p className="text-xs text-slate-600">
@@ -221,10 +221,10 @@ export const SensibilidadeSafraModule: React.FC = () => {
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800 font-mono">
+            <tbody className="divide-y divide-slate-100 font-mono">
               {cenariosProdutividade.map((prod) => (
-                <tr key={prod} className="hover:bg-slate-800/50">
-                  <td className="px-4 py-3 text-left font-bold text-white font-sans">
+                <tr key={prod} className="hover:bg-slate-50/80">
+                  <td className="px-4 py-3 text-left font-bold text-slate-900 font-sans">
                     {prod} sc / ha
                   </td>
                   {cenariosPreco.map((preco) => {
@@ -237,9 +237,9 @@ export const SensibilidadeSafraModule: React.FC = () => {
                         key={preco}
                         className={`px-4 py-3 font-bold ${
                           lucroMilhoes > 1.5
-                            ? 'bg-emerald-950/70 text-emerald-300 font-black'
+                            ? 'bg-emerald-950/70 text-emerald-800 font-black'
                             : isPositive
-                            ? 'bg-emerald-950/30 text-emerald-400'
+                            ? 'bg-emerald-50 text-emerald-700'
                             : 'bg-red-950/50 text-red-400'
                         }`}
                       >

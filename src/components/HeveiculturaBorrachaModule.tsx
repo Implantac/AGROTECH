@@ -108,13 +108,13 @@ export const HeveiculturaBorrachaModule: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400">
+              <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-700">
                 <Trees className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Heveicultura de Precisão & Borracha Natural
-                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono border border-emerald-500/30">
+                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-800 font-mono border border-emerald-500/30">
                     Hevea brasiliensis • DRC GEB-10 • Sangria
                   </span>
                 </h2>
@@ -126,7 +126,7 @@ export const HeveiculturaBorrachaModule: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-300 border-emerald-500/40 flex items-center gap-1.5">
+            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-800 border-emerald-500/40 flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4" />
               DRC Médio do Seringal: {heveaMetrics.mediaDrcPct.toFixed(1)}%
             </span>
@@ -140,9 +140,9 @@ export const HeveiculturaBorrachaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Produtividade DRC</span>
-            <TrendingUp className="w-4 h-4 text-emerald-400" />
+            <TrendingUp className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
+          <div className="text-2xl font-black mt-2 font-mono text-emerald-700">
             {heveaMetrics.produtividadeMediaDrcKgHa.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
             <span className="text-xs font-normal text-slate-600">kg DRC/ha/ano</span>
           </div>
@@ -155,9 +155,9 @@ export const HeveiculturaBorrachaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Safra de Borracha Seca</span>
-            <Droplets className="w-4 h-4 text-cyan-400" />
+            <Droplets className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
+          <div className="text-2xl font-black mt-2 font-mono text-sky-700">
             {(heveaMetrics.producaoTotalBorrachaSecaKg / 1000).toFixed(1)}{' '}
             <span className="text-xs font-normal text-slate-600">ton DRC</span>
           </div>
@@ -170,9 +170,9 @@ export const HeveiculturaBorrachaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Faturamento Bruto</span>
-            <Coins className="w-4 h-4 text-amber-400" />
+            <Coins className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-amber-400">
+          <div className="text-2xl font-black mt-2 font-mono text-amber-700">
             R$ {heveaMetrics.faturamentoBrutoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -186,9 +186,9 @@ export const HeveiculturaBorrachaModule: React.FC = () => {
             <span>Margem Operacional Líquida</span>
             <Award className="w-4 h-4 text-white" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-white">
+          <div className="text-2xl font-black mt-2 font-mono text-slate-800">
             R$ {heveaMetrics.margemOperacionalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
-            <span className="text-xs font-normal text-emerald-400">/ ano</span>
+            <span className="text-xs font-normal text-emerald-700">/ ano</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Retorno líquido: R$ {(heveaMetrics.margemOperacionalReais / heveaMetrics.areaTotalHa).toFixed(0)}/ha.
@@ -202,8 +202,8 @@ export const HeveiculturaBorrachaModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <Layers className="w-5 h-5 text-emerald-400" />
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <Layers className="w-5 h-5 text-emerald-700" />
                 Talhões do Seringal & Manejo de Sangria
               </h3>
               <p className="text-xs text-slate-600">
@@ -227,13 +227,13 @@ export const HeveiculturaBorrachaModule: React.FC = () => {
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-xs font-bold border border-emerald-500/30">
+                      <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-800 font-mono text-xs font-bold border border-emerald-500/30">
                         {l.id}
                       </span>
-                      <h4 className="text-xs font-bold text-white">{l.clone}</h4>
+                      <h4 className="text-xs font-bold text-slate-900">{l.clone}</h4>
                       <span className="text-[11px] text-slate-600 font-mono">(Plantio {l.anoPlantio})</span>
                     </div>
-                    <span className="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 text-[10px] font-mono border border-cyan-500/30">
+                    <span className="px-2 py-0.5 rounded bg-cyan-500/20 text-sky-800 text-[10px] font-mono border border-cyan-500/30">
                       DRC {l.drcPct.toFixed(1)}%
                     </span>
                   </div>
@@ -244,8 +244,8 @@ export const HeveiculturaBorrachaModule: React.FC = () => {
 
                   <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-600">
                     <span>Área: <strong className="text-white">{l.areaHa} ha</strong> ({l.arvoresPorHa} árv/ha)</span>
-                    <span>Produtividade: <strong className="text-emerald-400">{drcKgHa.toFixed(0)} kg DRC/ha</strong></span>
-                    <span>Faturamento: <strong className="text-amber-400">R$ {faturamentoLote.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}</strong></span>
+                    <span>Produtividade: <strong className="text-emerald-700">{drcKgHa.toFixed(0)} kg DRC/ha</strong></span>
+                    <span>Faturamento: <strong className="text-amber-700">R$ {faturamentoLote.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}</strong></span>
                   </div>
                 </div>
               );
@@ -254,7 +254,7 @@ export const HeveiculturaBorrachaModule: React.FC = () => {
 
           {/* Banner Técnico de Boas Práticas da Seringueira */}
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
-            <div className="flex items-center gap-2 text-emerald-400 font-semibold">
+            <div className="flex items-center gap-2 text-emerald-700 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes Técnicas de Manejo e Sangria (IAC / EMBRAPA):
             </div>
@@ -274,8 +274,8 @@ export const HeveiculturaBorrachaModule: React.FC = () => {
 
         {/* Painel Direito: Parâmetros de Mercado */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Coins className="w-5 h-5 text-amber-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Coins className="w-5 h-5 text-amber-700" />
             Parâmetros Comerciais & Custos
           </h3>
 
@@ -306,19 +306,19 @@ export const HeveiculturaBorrachaModule: React.FC = () => {
             <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
                 <span className="text-slate-600">Faturamento Bruto:</span>
-                <span className="text-amber-400 font-mono font-bold">
+                <span className="text-amber-700 font-mono font-bold">
                   R$ {heveaMetrics.faturamentoBrutoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600">Custo Total de Sangria:</span>
-                <span className="text-rose-400 font-mono font-bold">
+                <span className="text-rose-700 font-mono font-bold">
                   -R$ {heveaMetrics.custoTotalSangriaReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Margem Operacional Líquida:</span>
-                <span className="text-emerald-400 font-mono">
+                <span className="text-emerald-700 font-mono">
                   R$ {heveaMetrics.margemOperacionalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })} / ano
                 </span>
               </div>

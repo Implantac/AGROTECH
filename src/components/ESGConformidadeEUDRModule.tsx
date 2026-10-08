@@ -137,20 +137,20 @@ export const ESGConformidadeEUDRModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-slate-200 p-6 rounded-2xl backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-slate-200/90 p-6 rounded-2xl shadow-xs">
         <div>
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400">
+            <div className="p-2.5 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-700">
               <Globe className="w-6 h-6" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-xl font-bold text-[#1D4B38]">ESG & Conformidade Regulatória EUDR</h1>
-                <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h1 className="text-xl font-bold text-slate-900">ESG & Conformidade Regulatória EUDR</h1>
+                <span className="px-2.5 py-0.5 text-[11px] font-bold bg-emerald-100 text-emerald-900 border border-emerald-200 rounded-full">
                   Marco 31/12/2020 PRODES
                 </span>
-                <span className="px-2 py-0.5 text-[11px] font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30 rounded-full">
-                  Due Diligence Statement
+                <span className="px-2.5 py-0.5 text-[11px] font-bold bg-sky-100 text-sky-900 border border-sky-200 rounded-full">
+                  Due Diligence Statement (DDS)
                 </span>
               </div>
               <p className="text-sm text-slate-600 mt-0.5">
@@ -162,7 +162,7 @@ export const ESGConformidadeEUDRModule: React.FC = () => {
 
         <button
           onClick={() => setMostrarModalDDS(true)}
-          className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-semibold shadow-lg shadow-emerald-900/20 cursor-pointer"
+          className="flex items-center gap-2 px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold shadow-2xs cursor-pointer transition-all"
         >
           <FileCheck className="w-4 h-4" />
           Gerar Due Diligence EUDR (DDS)
@@ -171,41 +171,41 @@ export const ESGConformidadeEUDRModule: React.FC = () => {
 
       {/* Cards de Métricas ESG */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-slate-200 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-slate-600 mb-1">
-            <span className="text-xs font-medium uppercase tracking-wider">Área Conforme EUDR</span>
-            <Trees className="w-4 h-4 text-emerald-400" />
+        <div className="bg-white border border-slate-200/90 p-4 rounded-xl shadow-xs">
+          <div className="flex items-center justify-between text-slate-500 mb-1">
+            <span className="text-xs font-bold uppercase tracking-wider">Área Conforme EUDR</span>
+            <Trees className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-bold text-emerald-300 font-mono">
+          <div className="text-2xl font-bold text-emerald-800 font-mono">
             {totalAreaAuditada.toFixed(1)} ha (100%)
           </div>
           <p className="text-xs text-slate-500 mt-1">Livre de desmate após 31/12/2020</p>
         </div>
 
-        <div className="bg-white border border-slate-200 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-slate-600 mb-1">
-            <span className="text-xs font-medium uppercase tracking-wider">Embargos IBAMA / ICMBio</span>
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+        <div className="bg-white border border-slate-200/90 p-4 rounded-xl shadow-xs">
+          <div className="flex items-center justify-between text-slate-500 mb-1">
+            <span className="text-xs font-bold uppercase tracking-wider">Embargos IBAMA / ICMBio</span>
+            <ShieldCheck className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-bold text-[#1D4B38] font-mono">0 Embargos</div>
-          <p className="text-xs text-emerald-400/80 mt-1">Conformidade total no SICAR</p>
+          <div className="text-2xl font-bold text-slate-900 font-mono">0 Embargos</div>
+          <p className="text-xs text-emerald-800 mt-1 font-medium">Conformidade total no SICAR</p>
         </div>
 
-        <div className="bg-white border border-slate-200 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-slate-600 mb-1">
-            <span className="text-xs font-medium uppercase tracking-wider">Terras Indígenas / UCs</span>
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+        <div className="bg-white border border-slate-200/90 p-4 rounded-xl shadow-xs">
+          <div className="flex items-center justify-between text-slate-500 mb-1">
+            <span className="text-xs font-bold uppercase tracking-wider">Terras Indígenas / UCs</span>
+            <CheckCircle2 className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-bold text-[#1D4B38] font-mono">0 Sobreposições</div>
+          <div className="text-2xl font-bold text-slate-900 font-mono">0 Sobreposições</div>
           <p className="text-xs text-slate-500 mt-1">Raio de amortecimento &gt; 10 km</p>
         </div>
 
-        <div className="bg-white border border-slate-200 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-slate-600 mb-1">
-            <span className="text-xs font-medium uppercase tracking-wider">Pegada de Carbono Média</span>
-            <Leaf className="w-4 h-4 text-emerald-400" />
+        <div className="bg-white border border-slate-200/90 p-4 rounded-xl shadow-xs">
+          <div className="flex items-center justify-between text-slate-500 mb-1">
+            <span className="text-xs font-bold uppercase tracking-wider">Pegada de Carbono Média</span>
+            <Leaf className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-bold text-emerald-400 font-mono">
+          <div className="text-2xl font-bold text-emerald-800 font-mono">
             {pegadaMedia.toFixed(1)} kg CO₂e/sc
           </div>
           <p className="text-xs text-slate-500 mt-1">50% menor que o benchmark global</p>
@@ -213,14 +213,14 @@ export const ESGConformidadeEUDRModule: React.FC = () => {
       </div>
 
       {/* Grid de Auditoria Talhão a Talhão */}
-      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden">
-        <div className="p-5 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div className="bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs">
+        <div className="p-5 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h2 className="text-base font-semibold text-[#1D4B38] flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-emerald-400" />
+            <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-emerald-700" />
               Auditoria Socioambiental Individual por Talhão
             </h2>
-            <p className="text-xs text-slate-600">
+            <p className="text-xs text-slate-500">
               Verificação via satélite PRODES/INPE, MapBiomas e bases oficiais da FUNAI e IBAMA
             </p>
           </div>
@@ -228,10 +228,10 @@ export const ESGConformidadeEUDRModule: React.FC = () => {
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-slate-50 text-slate-600 uppercase tracking-wider font-semibold border-b border-slate-200">
+            <thead className="bg-slate-50/80 text-slate-600 uppercase tracking-wider font-semibold border-b border-slate-200">
               <tr>
-                <th className="px-4 py-3.5">Talhão & CAR</th>
-                <th className="px-4 py-3.5">Área & Cultura</th>
+                <th className="px-4 py-3.5">Talhão &amp; CAR</th>
+                <th className="px-4 py-3.5">Área &amp; Cultura</th>
                 <th className="px-4 py-3.5">Abertura Histórica</th>
                 <th className="px-4 py-3.5">PRODES Pós-2020</th>
                 <th className="px-4 py-3.5">TI / UC / Embargos</th>
@@ -240,9 +240,9 @@ export const ESGConformidadeEUDRModule: React.FC = () => {
                 <th className="px-4 py-3.5">Ações</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60">
+            <tbody className="divide-y divide-slate-100">
               {talhoesESG.map((t) => (
-                <tr key={t.talhaoId} className="hover:bg-slate-800/40 transition-colors">
+                <tr key={t.talhaoId} className="hover:bg-slate-50/80 transition-colors">
                   <td className="px-4 py-3.5">
                     <div className="font-bold text-slate-900">{t.codigo} - {t.nome}</div>
                     <div className="text-[11px] text-slate-500 font-mono">{t.carNumero}</div>
@@ -250,17 +250,17 @@ export const ESGConformidadeEUDRModule: React.FC = () => {
 
                   <td className="px-4 py-3.5">
                     <div className="font-semibold text-slate-900 font-mono">{t.areaHa} ha</div>
-                    <div className="text-[11px] text-emerald-400">{t.cultura}</div>
+                    <div className="text-[11px] text-emerald-800 font-medium">{t.cultura}</div>
                   </td>
 
                   <td className="px-4 py-3.5">
-                    <div className="font-mono text-slate-900">{t.dataAberturaArea}</div>
-                    <span className="text-[10px] text-emerald-400 font-semibold">Anterior ao Marco 2020</span>
+                    <div className="font-mono text-slate-800">{t.dataAberturaArea}</div>
+                    <span className="text-[10px] text-emerald-800 font-semibold">Anterior ao Marco 2020</span>
                   </td>
 
                   <td className="px-4 py-3.5">
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-1 w-fit">
-                      <CheckCircle2 className="w-3 h-3" /> Zero Desmate
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-900 border border-emerald-200 flex items-center gap-1 w-fit">
+                      <CheckCircle2 className="w-3 h-3 text-emerald-700" /> Zero Desmate
                     </span>
                   </td>
 
@@ -270,15 +270,15 @@ export const ESGConformidadeEUDRModule: React.FC = () => {
                   </td>
 
                   <td className="px-4 py-3.5">
-                    <div className="font-mono font-bold text-emerald-400">
+                    <div className="font-mono font-bold text-emerald-800">
                       {t.pegadaCarbonoKgCO2eSc} kg CO₂e/sc
                     </div>
                     <div className="text-[10px] text-slate-500">Plantio Direto + Biológicos</div>
                   </td>
 
                   <td className="px-4 py-3.5">
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1 w-fit">
-                      <Globe className="w-3 h-3" /> Apto UE (EUDR Compliant)
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-900 border border-emerald-200 flex items-center gap-1 w-fit">
+                      <Globe className="w-3 h-3 text-emerald-700" /> Apto UE (EUDR Compliant)
                     </span>
                   </td>
 
@@ -288,9 +288,9 @@ export const ESGConformidadeEUDRModule: React.FC = () => {
                         setTalhaoSelecionado(t);
                         setMostrarModalDDS(true);
                       }}
-                      className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-900 rounded-lg text-[11px] font-bold flex items-center gap-1 cursor-pointer"
+                      className="px-3 py-1.5 bg-slate-100 hover:bg-emerald-50 text-slate-800 hover:text-emerald-900 border border-slate-200 hover:border-emerald-300 rounded-lg text-[11px] font-bold flex items-center gap-1 cursor-pointer transition-colors shadow-2xs"
                     >
-                      <QrCode className="w-3.5 h-3.5 text-indigo-400" /> Passaporte
+                      <QrCode className="w-3.5 h-3.5 text-emerald-700" /> Passaporte
                     </button>
                   </td>
                 </tr>
@@ -302,88 +302,119 @@ export const ESGConformidadeEUDRModule: React.FC = () => {
 
       {/* Modal do Passaporte Verde & Due Diligence Statement (DDS) EUDR */}
       {mostrarModalDDS && (
-        <div className="fixed inset-0 z-50 bg-slate-50 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white border border-slate-200 rounded-2xl max-w-2xl w-full p-6 shadow-2xl overflow-y-auto max-h-[90vh]">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-200">
+        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white border border-slate-200 rounded-3xl max-w-2xl w-full p-6 shadow-2xl overflow-y-auto max-h-[90vh]">
+            <div className="flex items-center justify-between pb-4 border-b border-slate-100">
               <div className="flex items-center gap-2">
-                <Globe className="w-5 h-5 text-emerald-400" />
-                <h3 className="text-base font-bold text-[#1D4B38]">
-                  EUDR Due Diligence Statement (DDS) & Passaporte Verde
+                <Globe className="w-5 h-5 text-emerald-700" />
+                <h3 className="text-base font-bold text-slate-900">
+                  EUDR Due Diligence Statement (DDS) &amp; Passaporte Verde
                 </h3>
               </div>
               <button
                 onClick={() => setMostrarModalDDS(false)}
-                className="text-slate-600 hover:text-slate-900 text-sm font-bold cursor-pointer"
+                className="text-slate-400 hover:text-slate-700 text-sm font-bold cursor-pointer p-1"
               >
                 ✕
               </button>
             </div>
 
             <div className="mt-4 space-y-4 text-xs">
-              <div className="p-4 bg-emerald-950/40 border border-emerald-800/60 rounded-xl flex items-center justify-between">
+              <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl flex items-center justify-between gap-4">
                 <div>
-                  <span className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider block">
+                  <span className="text-[10px] text-emerald-800 font-bold uppercase tracking-wider block">
                     Certificação Socioambiental Conforme Regulamento EU 2023/1115
                   </span>
-                  <h4 className="text-sm font-bold text-white mt-0.5">
+                  <h4 className="text-sm font-bold text-slate-900 mt-0.5">
                     Declaração de Diligência Prévia nº {talhaoSelecionado.ddsNumero}
                   </h4>
-                  <p className="text-[11px] text-slate-900 mt-1">
+                  <p className="text-[11px] text-slate-700 mt-1 leading-relaxed">
                     Este lote de {talhaoSelecionado.cultura} produzido no {talhaoSelecionado.codigo} cumpre integralmente os requisitos de ausência de desmatamento e legalidade fundiária.
                   </p>
                 </div>
-                <div className="p-3 bg-white rounded-xl shadow-lg flex flex-col items-center justify-center">
+                <div className="p-3 bg-white rounded-xl shadow-xs border border-emerald-100 shrink-0 flex flex-col items-center justify-center">
                   <QrCode className="w-16 h-16 text-slate-900" />
-                  <span className="text-[8px] font-mono text-slate-600 mt-1 font-bold">SCAN PASSAPORTE</span>
+                  <span className="text-[8px] font-mono text-slate-500 mt-1 font-bold">SCAN PASSAPORTE</span>
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-                  <span className="text-slate-600 text-[10px] uppercase font-bold block">Propriedade & CAR:</span>
+                  <span className="text-slate-500 text-[10px] uppercase font-bold block">Propriedade &amp; CAR:</span>
                   <span className="text-slate-900 font-medium">Fazenda Santa Helena</span>
                   <span className="text-[10px] text-slate-500 block font-mono">{talhaoSelecionado.carNumero}</span>
                 </div>
 
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-                  <span className="text-slate-600 text-[10px] uppercase font-bold block">Marco Temporal (Corte EUDR):</span>
-                  <span className="text-emerald-400 font-bold">31 de Dezembro de 2020</span>
+                  <span className="text-slate-500 text-[10px] uppercase font-bold block">Marco Temporal (Corte EUDR):</span>
+                  <span className="text-emerald-800 font-bold">31 de Dezembro de 2020</span>
                   <span className="text-[10px] text-slate-500 block">Área consolidada em {talhaoSelecionado.dataAberturaArea}</span>
                 </div>
 
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-                  <span className="text-slate-600 text-[10px] uppercase font-bold block">Emissão de Carbono:</span>
-                  <span className="text-emerald-300 font-mono font-bold">{talhaoSelecionado.pegadaCarbonoKgCO2eSc} kg CO₂e / sc</span>
+                  <span className="text-slate-500 text-[10px] uppercase font-bold block">Emissão de Carbono:</span>
+                  <span className="text-emerald-800 font-mono font-bold">{talhaoSelecionado.pegadaCarbonoKgCO2eSc} kg CO₂e / sc</span>
                   <span className="text-[10px] text-slate-500 block">Metodologia GHG Protocol Agro</span>
                 </div>
 
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-                  <span className="text-slate-600 text-[10px] uppercase font-bold block">Status de Exportação:</span>
-                  <span className="text-emerald-400 font-bold flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> Liberado para Portos da UE
+                  <span className="text-slate-500 text-[10px] uppercase font-bold block">Status de Exportação:</span>
+                  <span className="text-emerald-800 font-bold flex items-center gap-1">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" /> Liberado para Portos da UE
                   </span>
                   <span className="text-[10px] text-slate-500 block">Roterdã, Hamburgo, Antuérpia</span>
                 </div>
               </div>
 
-              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-600">
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-600 leading-relaxed">
                 Os metadados vetoriais do talhão foram validados via API do Sistema Nacional de Cadastro Ambiental Rural (SICAR) e Instituto Nacional de Pesquisas Espaciais (INPE/PRODES).
               </div>
             </div>
 
-            <div className="mt-5 pt-3 border-t border-slate-200 flex justify-end gap-3">
+            <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
               <button
-                onClick={() => setMostrarModalDDS(false)}
-                className="px-4 py-2 text-slate-600 hover:text-slate-900 cursor-pointer"
+                onClick={() => {
+                  const ddsPayload = {
+                    regulation: 'EU 2023/1115 (EUDR)',
+                    statementId: talhaoSelecionado.ddsNumero,
+                    operator: 'Fazenda Santa Helena',
+                    countryOfProduction: 'BRA',
+                    polygonCar: talhaoSelecionado.carNumero,
+                    talhao: talhaoSelecionado.codigo,
+                    crop: talhaoSelecionado.cultura,
+                    areaHectares: talhaoSelecionado.areaHa,
+                    deforestationFreeCutoffDate: '2020-12-31',
+                    deforestationStatus: 'VERIFIED_ZERO_DEFORESTATION',
+                    carbonIntensity: talhaoSelecionado.pegadaCarbonoKgCO2eSc,
+                    timestamp: new Date().toISOString()
+                  };
+                  const blob = new Blob([JSON.stringify(ddsPayload, null, 2)], { type: 'application/json' });
+                  const url = URL.createObjectURL(blob);
+                  const a = document.createElement('a');
+                  a.href = url;
+                  a.download = `EUDR_DDS_${talhaoSelecionado.codigo}_${talhaoSelecionado.ddsNumero}.json`;
+                  a.click();
+                  URL.revokeObjectURL(url);
+                }}
+                className="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl flex items-center gap-1.5 cursor-pointer text-xs transition-colors"
               >
-                Fechar
+                <Download className="w-4 h-4 text-emerald-700" /> Exportar JSON (TRACES-NT)
               </button>
-              <button
-                onClick={() => window.print()}
-                className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl flex items-center gap-2 cursor-pointer"
-              >
-                <Printer className="w-4 h-4" /> Imprimir Certificado DDS
-              </button>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setMostrarModalDDS(false)}
+                  className="px-4 py-2 text-slate-600 hover:text-slate-900 cursor-pointer font-medium"
+                >
+                  Fechar
+                </button>
+                <button
+                  onClick={() => window.print()}
+                  className="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl flex items-center gap-2 cursor-pointer shadow-2xs transition-all"
+                >
+                  <Printer className="w-4 h-4" /> Imprimir Certificado DDS
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -100,14 +100,14 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-sky-600/20">
             <Truck className="w-7 h-7 text-white" />
           </div>
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-bold text-white tracking-tight">
+              <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
                 Monitoramento de Tráfego de Grãos & Fila de Terminais
               </h1>
               <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/20">
@@ -133,12 +133,12 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Capacidade Diária Máxima</span>
             <Building2 className="w-5 h-5 text-sky-400" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             {metricas.capacidadeMaximaDia} carretas
           </p>
           <span className="text-xs text-sky-400 mt-1 block">
@@ -146,12 +146,12 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Taxa de Ocupação</span>
             <BarChart3 className="w-5 h-5 text-indigo-400" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             {metricas.taxaOcupacaoPct}%
           </p>
           <span className="text-xs text-indigo-400 mt-1 block">
@@ -159,28 +159,28 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Tempo Médio Permanência</span>
             <Clock className="w-5 h-5 text-yellow-400" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             {tempoPermanenciaHoras} horas
           </p>
-          <span className="text-xs text-emerald-400 mt-1 block">
+          <span className="text-xs text-emerald-700 mt-1 block">
             Tolerância Legal: 5.0 horas
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Risco Estadia Acumulada</span>
-            <AlertTriangle className="w-5 h-5 text-rose-400" />
+            <AlertTriangle className="w-5 h-5 text-rose-700" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             R$ {metricas.custoTotalEstadiaDiaReais.toLocaleString('pt-BR')}
           </p>
-          <span className="text-xs text-emerald-400 mt-1 block">
+          <span className="text-xs text-emerald-700 mt-1 block">
             {metricas.horasExcedentes === 0 ? '✓ Zero Estadia (Dentro do Prazo)' : `${metricas.horasExcedentes}h excedentes`}
           </span>
         </div>
@@ -192,8 +192,8 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
           onClick={() => setActiveTab('terminais')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'terminais'
-              ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-sky-50 text-sky-800 border border-sky-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Building2 className="w-4 h-4" />
@@ -204,8 +204,8 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
           onClick={() => setActiveTab('estadia')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'estadia'
-              ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-sky-50 text-sky-800 border border-sky-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <ShieldAlert className="w-4 h-4" />
@@ -216,8 +216,8 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
           onClick={() => setActiveTab('tombadores')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'tombadores'
-              ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-sky-50 text-sky-800 border border-sky-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <ArrowRightLeft className="w-4 h-4" />
@@ -228,8 +228,8 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
-              ? 'bg-sky-500/10 text-sky-400 border border-sky-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-sky-50 text-sky-800 border border-sky-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Clock className="w-4 h-4" />
@@ -239,8 +239,8 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'terminais' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6 space-y-4">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
+        <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-4 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
             <Building2 className="w-5 h-5 text-sky-400" />
             Situação Operacional dos Pátios Reguladores de Triagem
           </h3>
@@ -258,23 +258,23 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
                   <th className="px-4 py-3">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-slate-100">
                 {terminais.map((t) => (
-                  <tr key={t.id} className="hover:bg-slate-800/30">
-                    <td className="px-4 py-3 font-medium text-white">{t.nome}</td>
+                  <tr key={t.id} className="hover:bg-slate-50/80">
+                    <td className="px-4 py-3 font-bold text-slate-900">{t.nome}</td>
                     <td className="px-4 py-3 text-slate-600">{t.portoRegiao}</td>
                     <td className="px-4 py-3 text-sky-400">{t.tombadoresAtivos} unidades</td>
-                    <td className="px-4 py-3 font-semibold text-white">{t.capacidadeVeicHora} veic/h</td>
+                    <td className="px-4 py-3 font-semibold text-slate-900">{t.capacidadeVeicHora} veic/h</td>
                     <td className="px-4 py-3">{t.veiculosAgendadosDia} dia</td>
                     <td className="px-4 py-3 font-bold text-yellow-400">{t.tempoPermanenciaMedioHoras}h</td>
                     <td className="px-4 py-3">
                       <span
                         className={`px-2.5 py-1 rounded-full text-xs font-semibold ${
                           t.statusOperacao === 'FLUIDO'
-                            ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                            ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs cursor-pointer'
                             : t.statusOperacao === 'MODERADO_ATENCAO'
-                              ? 'bg-yellow-500/10 text-yellow-400 border border-yellow-500/20'
-                              : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
+                              ? 'bg-yellow-50 text-yellow-800 border border-yellow-300 font-bold shadow-2xs cursor-pointer'
+                              : 'bg-rose-500/10 text-rose-700 border border-rose-500/20'
                         }`}
                       >
                         {t.statusOperacao}
@@ -290,38 +290,38 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
 
       {activeTab === 'estadia' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-              <h4 className="text-sm font-semibold text-white">Tolerância Legal de 5 Horas</h4>
+              <CheckCircle2 className="w-5 h-5 text-emerald-700" />
+              <h4 className="text-sm font-semibold text-slate-900">Tolerância Legal de 5 Horas</h4>
             </div>
             <p className="text-xs text-slate-600">
               A Lei 13.103/2015 estipula que o transportador tem até 5 horas corridas a partir da chegada no destino/pátio de triagem para descarregar sem multa.
             </p>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
               <span className="text-xs text-slate-600">Franquia de Espera:</span>
-              <span className="text-sm font-bold text-emerald-400 block">5.0 horas corridas gratuitas</span>
+              <span className="text-sm font-bold text-emerald-700 block">5.0 horas corridas gratuitas</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
-              <AlertTriangle className="w-5 h-5 text-rose-400" />
-              <h4 className="text-sm font-semibold text-white">Cálculo da Multa por Hora Parada</h4>
+              <AlertTriangle className="w-5 h-5 text-rose-700" />
+              <h4 className="text-sm font-semibold text-slate-900">Cálculo da Multa por Hora Parada</h4>
             </div>
             <p className="text-xs text-slate-600">
               Após a 5ª hora, incide o valor de estadia calculado por tonelada de capacidade total multiplicada pela fração horária de atraso do terminal.
             </p>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
               <span className="text-xs text-slate-600">Valor Médio Bitrem (37t útil):</span>
-              <span className="text-sm font-bold text-rose-400 block">R$ 80,00 a R$ 95,00/hora parada</span>
+              <span className="text-sm font-bold text-rose-700 block">R$ 80,00 a R$ 95,00/hora parada</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
               <Truck className="w-5 h-5 text-sky-400" />
-              <h4 className="text-sm font-semibold text-white">Agendamento Prévia Obrigatório</h4>
+              <h4 className="text-sm font-semibold text-slate-900">Agendamento Prévia Obrigatório</h4>
             </div>
             <p className="text-xs text-slate-600">
               Apenas veículos com TAG de pedágio e agendamento confirmado no sistema Carga Online/Portos podem ingressar nas vias de acesso litorâneas.
@@ -335,8 +335,8 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
       )}
 
       {activeTab === 'tombadores' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-4 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
             <ArrowRightLeft className="w-5 h-5 text-sky-400" />
             Vazão Crítica de Descarregamento em Tombadores Hidráulicos
           </h3>
@@ -347,13 +347,13 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">Tempo de Ciclo Meta</span>
-              <p className="text-lg font-bold text-white mt-1">12 a 15 min</p>
+              <p className="text-lg font-bold text-slate-900 mt-1">12 a 15 min</p>
               <span className="text-[11px] text-slate-500">Por conjunto bitrem/rodotrem</span>
             </div>
 
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">Amostragem Rápida</span>
-              <p className="text-lg font-bold text-emerald-400 mt-1">90 segundos</p>
+              <p className="text-lg font-bold text-emerald-700 mt-1">90 segundos</p>
               <span className="text-[11px] text-emerald-500/80">Calador automático multi-ponto</span>
             </div>
 
@@ -367,8 +367,8 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-6 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
             <Clock className="w-5 h-5 text-sky-400" />
             Simulador de Carga, Ocupação do Terminal e Risco de Multas de Estadia
           </h3>
@@ -380,7 +380,7 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
                 type="number"
                 value={veiculosDia}
                 onChange={(e) => setVeiculosDia(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-sky-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-sky-500 focus:outline-none"
               />
             </div>
 
@@ -390,7 +390,7 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
                 type="number"
                 value={capacidadeHora}
                 onChange={(e) => setCapacidadeHora(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-sky-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-sky-500 focus:outline-none"
               />
             </div>
 
@@ -401,7 +401,7 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
                 step="0.1"
                 value={tempoPermanenciaHoras}
                 onChange={(e) => setTempoPermanenciaHoras(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-sky-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-sky-500 focus:outline-none"
               />
             </div>
 
@@ -411,7 +411,7 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
                 type="number"
                 value={custoHoraEstadiaReais}
                 onChange={(e) => setCustoHoraEstadiaReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-sky-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-sky-500 focus:outline-none"
               />
             </div>
           </div>
@@ -422,10 +422,10 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
               <span
                 className={`text-base font-bold ${
                   metricas.statusGargalo === 'FLUIDO'
-                    ? 'text-emerald-400'
+                    ? 'text-emerald-700'
                     : metricas.statusGargalo === 'MODERADO_ATENCAO'
                       ? 'text-yellow-400'
-                      : 'text-rose-400'
+                      : 'text-rose-700'
                 }`}
               >
                 {metricas.statusGargalo === 'FLUIDO'
@@ -437,7 +437,7 @@ export const MonitoramentoFilaTerminaisModule: React.FC = () => {
             </div>
             <div className="text-right">
               <span className="text-xs text-slate-600 block">Custo Total de Estadia no Dia:</span>
-              <span className={`text-xl font-bold ${metricas.custoTotalEstadiaDiaReais === 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+              <span className={`text-xl font-bold ${metricas.custoTotalEstadiaDiaReais === 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
                 R$ {metricas.custoTotalEstadiaDiaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>
             </div>

@@ -138,7 +138,7 @@ export const OlericulturaHFModule: React.FC = () => {
                 <Apple className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Olericultura de Precisão & Hortifrúti (HF 4.0)
                   <span className="text-xs px-2.5 py-0.5 rounded-full bg-red-500/20 text-red-300 font-mono border border-red-500/30">
                     Tomate • Batata • Cebola • Gotejamento Subterrâneo
@@ -152,7 +152,7 @@ export const OlericulturaHFModule: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-300 border-emerald-500/40 flex items-center gap-1.5">
+            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-800 border-emerald-500/40 flex items-center gap-1.5">
               <PackageCheck className="w-4 h-4" />
               {hfMetrics.pctCat1Ponderada.toFixed(1)}% Categoria Especial / Extra
             </span>
@@ -181,9 +181,9 @@ export const OlericulturaHFModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Faturamento Bruto HF</span>
-            <Coins className="w-4 h-4 text-amber-400" />
+            <Coins className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-amber-400">
+          <div className="text-2xl font-black mt-2 font-mono text-amber-700">
             R$ {hfMetrics.faturamentoBrutoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -195,9 +195,9 @@ export const OlericulturaHFModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Margem Líquida</span>
-            <TrendingUp className="w-4 h-4 text-emerald-400" />
+            <TrendingUp className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
+          <div className="text-2xl font-black mt-2 font-mono text-emerald-700">
             R$ {hfMetrics.margemLiquidaReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -209,9 +209,9 @@ export const OlericulturaHFModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Caixas Cat 1 (Especial)</span>
-            <Award className="w-4 h-4 text-cyan-400" />
+            <Award className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
+          <div className="text-2xl font-black mt-2 font-mono text-sky-700">
             {Math.round(hfMetrics.totalCaixasCat1).toLocaleString('pt-BR')}{' '}
             <span className="text-xs font-normal text-slate-600">cx</span>
           </div>
@@ -227,7 +227,7 @@ export const OlericulturaHFModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
                 <Layers className="w-5 h-5 text-red-400" />
                 Talhões de Hortifrúti & Sanidade Fitossanitária
               </h3>
@@ -259,16 +259,16 @@ export const OlericulturaHFModule: React.FC = () => {
                       <span className="px-2 py-0.5 rounded bg-red-500/20 text-red-300 font-mono text-xs font-bold border border-red-500/30">
                         {l.id}
                       </span>
-                      <h4 className="text-xs font-bold text-white">{l.cultura}</h4>
+                      <h4 className="text-xs font-bold text-slate-900">{l.cultura}</h4>
                       <span className="text-[11px] text-slate-600 font-mono">({l.variedade})</span>
                     </div>
 
                     <span
                       className={`px-2 py-0.5 rounded text-[10px] font-mono border ${
                         l.riscoRequeima === 'BAIXO'
-                          ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                          ? 'bg-emerald-500/20 text-emerald-800 border-emerald-500/30'
                           : l.riscoRequeima === 'MODERADO'
-                          ? 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+                          ? 'bg-amber-500/20 text-amber-800 border-amber-500/30'
                           : 'bg-rose-500/20 text-rose-300 border-rose-500/30'
                       }`}
                     >
@@ -279,9 +279,9 @@ export const OlericulturaHFModule: React.FC = () => {
                   <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-600">
                     <span>Área: <strong className="text-white">{l.areaHa} ha</strong></span>
                     <span>Produtividade: <strong className="text-red-400">{l.produtividadeTonHa} ton/ha</strong> ({loteTon.toFixed(0)} t)</span>
-                    <span>Cat 1: <strong className="text-emerald-400">{l.pctCat1}%</strong></span>
-                    <span>Caixas 20kg: <strong className="text-cyan-400">{caixas.toLocaleString('pt-BR')}</strong></span>
-                    <span>Faturamento: <strong className="text-amber-400">R$ {faturamentoLote.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}</strong></span>
+                    <span>Cat 1: <strong className="text-emerald-700">{l.pctCat1}%</strong></span>
+                    <span>Caixas 20kg: <strong className="text-sky-700">{caixas.toLocaleString('pt-BR')}</strong></span>
+                    <span>Faturamento: <strong className="text-amber-700">R$ {faturamentoLote.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}</strong></span>
                   </div>
                 </div>
               );
@@ -310,8 +310,8 @@ export const OlericulturaHFModule: React.FC = () => {
 
         {/* Painel Direito: Parâmetros Comerciais */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Coins className="w-5 h-5 text-amber-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Coins className="w-5 h-5 text-amber-700" />
             Cotações de Mercado & Custos HF
           </h3>
 
@@ -364,19 +364,19 @@ export const OlericulturaHFModule: React.FC = () => {
             <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
                 <span className="text-slate-600">Faturamento da Safra:</span>
-                <span className="text-amber-400 font-mono font-bold">
+                <span className="text-amber-700 font-mono font-bold">
                   R$ {hfMetrics.faturamentoBrutoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600">Custo Total da Área:</span>
-                <span className="text-rose-400 font-mono font-bold">
+                <span className="text-rose-700 font-mono font-bold">
                   -R$ {hfMetrics.custoTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
-                <span className="text-white">Lucro Líquido HF:</span>
-                <span className="text-emerald-400 font-mono">
+                <span className="text-slate-900">Lucro Líquido HF:</span>
+                <span className="text-emerald-700 font-mono">
                   R$ {hfMetrics.margemLiquidaReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>

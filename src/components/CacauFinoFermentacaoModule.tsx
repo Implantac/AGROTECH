@@ -122,17 +122,17 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-600 to-yellow-500 flex items-center justify-center shadow-lg shadow-amber-500/20">
             <Sparkles className="w-7 h-7 text-white" />
           </div>
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-bold text-white tracking-tight">
+              <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
                 Cacau Fino & Fermentação Tree-to-Bar
               </h1>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-700 border border-amber-500/20">
                 Módulo 111 • Prova de Corte (Cut Test) & Prêmio Especial
               </span>
             </div>
@@ -155,38 +155,38 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Volume Safra Estimado</span>
-            <Layers className="w-5 h-5 text-amber-400" />
+            <Layers className="w-5 h-5 text-amber-700" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             {metricas.producaoTotalKg.toLocaleString('pt-BR')} kg
           </p>
-          <span className="text-xs text-amber-400 mt-1 block">
+          <span className="text-xs text-amber-700 mt-1 block">
             {(metricas.producaoTotalKg / 1000).toFixed(1)} toneladas secas
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Preço Efetivo c/ Prêmio</span>
-            <DollarSign className="w-5 h-5 text-emerald-400" />
+            <DollarSign className="w-5 h-5 text-emerald-700" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             R$ {metricas.precoEfetivoKg.toFixed(2)}/kg
           </p>
-          <span className="text-xs text-emerald-400 mt-1 block">
+          <span className="text-xs text-emerald-700 mt-1 block">
             {metricas.isTreeToBar ? `+${premioFinoOrigemPct}% vs Commodity` : 'Preço Base Commodity'}
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Receita Bruta Total</span>
             <TrendingUp className="w-5 h-5 text-yellow-400" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             R$ {(metricas.receitaBrutaReais / 1000).toFixed(1)}k
           </p>
           <span className="text-xs text-yellow-400 mt-1 block">
@@ -194,15 +194,15 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Lucro Líquido Safra</span>
-            <Award className="w-5 h-5 text-amber-400" />
+            <Award className="w-5 h-5 text-amber-700" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             R$ {(metricas.lucroLiquidoReais / 1000).toFixed(1)}k
           </p>
-          <span className="text-xs text-emerald-400 mt-1 block">
+          <span className="text-xs text-emerald-700 mt-1 block">
             {metricas.margemLiquidaPct}% Margem Líquida
           </span>
         </div>
@@ -214,8 +214,8 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
           onClick={() => setActiveTab('cochos')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'cochos'
-              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Thermometer className="w-4 h-4" />
@@ -226,8 +226,8 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
           onClick={() => setActiveTab('cut_test')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'cut_test'
-              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -238,8 +238,8 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
           onClick={() => setActiveTab('secagem')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'secagem'
-              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Sun className="w-4 h-4" />
@@ -250,8 +250,8 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
-              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -262,9 +262,9 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
       {/* Conteúdo das Abas */}
       {activeTab === 'cochos' && (
         <div className="space-y-4">
-          <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6">
-            <h3 className="text-base font-semibold text-white mb-4 flex items-center gap-2">
-              <Flame className="w-5 h-5 text-amber-400" />
+          <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs">
+            <h3 className="text-base font-semibold text-slate-900 mb-4 flex items-center gap-2">
+              <Flame className="w-5 h-5 text-amber-700" />
               Monitoramento Térmico & Viragens em Cochos de Madeira (Cedro/Jequitibá)
             </h3>
 
@@ -281,17 +281,17 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
                     <th className="px-4 py-3">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60">
+                <tbody className="divide-y divide-slate-100">
                   {lotes.map((l) => (
-                    <tr key={l.id} className="hover:bg-slate-800/30">
-                      <td className="px-4 py-3 font-medium text-white">{l.lote}</td>
+                    <tr key={l.id} className="hover:bg-slate-50/80">
+                      <td className="px-4 py-3 font-bold text-slate-900">{l.lote}</td>
                       <td className="px-4 py-3">{l.variedade}</td>
                       <td className="px-4 py-3 text-slate-600">{l.origemTerroir}</td>
-                      <td className="px-4 py-3 font-semibold text-amber-400">Dia {l.diaFermentacao}/7</td>
+                      <td className="px-4 py-3 font-semibold text-amber-700">Dia {l.diaFermentacao}/7</td>
                       <td className="px-4 py-3">
                         <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
                           l.tempCochoGraus >= 48
-                            ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                            ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs cursor-pointer'
                             : 'bg-yellow-500/10 text-yellow-400 border border-yellow-500/20'
                         }`}>
                           {l.tempCochoGraus}°C
@@ -299,7 +299,7 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
                       </td>
                       <td className="px-4 py-3">{l.phPolpa}</td>
                       <td className="px-4 py-3">
-                        <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                        <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-700 border border-amber-500/20">
                           {l.status}
                         </span>
                       </td>
@@ -314,24 +314,24 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
 
       {activeTab === 'cut_test' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-              <h4 className="text-sm font-semibold text-white">Amêndoas Bem Fermentadas</h4>
+              <CheckCircle2 className="w-5 h-5 text-emerald-700" />
+              <h4 className="text-sm font-semibold text-slate-900">Amêndoas Bem Fermentadas</h4>
             </div>
             <p className="text-xs text-slate-600">
               Cor marrom-escura homogênea, estrias abertas, aroma achocolatado suave, acidez equilibrada e ausência de adstringência excessiva.
             </p>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
               <span className="text-xs text-slate-600">Meta Tree-to-Bar Especial:</span>
-              <span className="text-sm font-bold text-emerald-400 block">superior a 75%</span>
+              <span className="text-sm font-bold text-emerald-700 block">superior a 75%</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
               <AlertTriangle className="w-5 h-5 text-yellow-400" />
-              <h4 className="text-sm font-semibold text-white">Amêndoas Violetas (Subfermentadas)</h4>
+              <h4 className="text-sm font-semibold text-slate-900">Amêndoas Violetas (Subfermentadas)</h4>
             </div>
             <p className="text-xs text-slate-600">
               Pigmentação roxa/violeta interna por interrupção precoce da fermentação ou aeração insuficiente da massa de cacau.
@@ -342,25 +342,25 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
-              <AlertTriangle className="w-5 h-5 text-rose-400" />
-              <h4 className="text-sm font-semibold text-white">Ardósia & Mohosas (Defeitos)</h4>
+              <AlertTriangle className="w-5 h-5 text-rose-700" />
+              <h4 className="text-sm font-semibold text-slate-900">Ardósia & Mohosas (Defeitos)</h4>
             </div>
             <p className="text-xs text-slate-600">
               Amêndoas acinzentadas duras (zero fermentação) ou atacadas por fungos filamentosos. Desclassificam imediatamente o lote fino.
             </p>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
               <span className="text-xs text-slate-600">Limite Crítico:</span>
-              <span className="text-sm font-bold text-rose-400 block">0% Ardósia / menor que 2% Mofo</span>
+              <span className="text-sm font-bold text-rose-700 block">0% Ardósia / menor que 2% Mofo</span>
             </div>
           </div>
         </div>
       )}
 
       {activeTab === 'secagem' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-4 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
             <Sun className="w-5 h-5 text-yellow-400" />
             Secagem em Barcaças Tradicionais com Teto Móvel & Estufas Solares
           </h3>
@@ -370,17 +370,17 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">Espessura da Camada</span>
-              <p className="text-lg font-bold text-white mt-1">4 a 5 cm</p>
+              <p className="text-lg font-bold text-slate-900 mt-1">4 a 5 cm</p>
               <span className="text-[11px] text-slate-500">Rodo de madeira a cada 2h</span>
             </div>
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">Umidade Final Segura</span>
-              <p className="text-lg font-bold text-emerald-400 mt-1">7.0% ± 0.5%</p>
+              <p className="text-lg font-bold text-emerald-700 mt-1">7.0% ± 0.5%</p>
               <span className="text-[11px] text-emerald-500/80">Sem risco de mofo em sacaria de juta</span>
             </div>
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">Armazenamento</span>
-              <p className="text-lg font-bold text-amber-400 mt-1">Sacos de Juta 60kg</p>
+              <p className="text-lg font-bold text-amber-700 mt-1">Sacos de Juta 60kg</p>
               <span className="text-[11px] text-slate-500">Estrados a 20cm do piso</span>
             </div>
           </div>
@@ -388,9 +388,9 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
-            <DollarSign className="w-5 h-5 text-amber-400" />
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-6 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
+            <DollarSign className="w-5 h-5 text-amber-700" />
             Simulador de Valorização Tree-to-Bar & Prêmio sobre Cotação Internacional
           </h3>
 
@@ -401,7 +401,7 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
                 type="number"
                 value={areaCultivoHa}
                 onChange={(e) => setAreaCultivoHa(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
@@ -411,7 +411,7 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
                 type="number"
                 value={produtividadeKgHa}
                 onChange={(e) => setProdutividadeKgHa(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
@@ -421,7 +421,7 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
                 type="number"
                 value={amendoasFermentadasInputPct}
                 onChange={(e) => setAmendoasFermentadasInputPct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
@@ -431,7 +431,7 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
                 type="number"
                 value={premioFinoOrigemPct}
                 onChange={(e) => setPremioFinoOrigemPct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
           </div>
@@ -439,13 +439,13 @@ export const CacauFinoFermentacaoModule: React.FC = () => {
           <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
               <span className="text-xs text-slate-600 block">Classificação do Lote no Cut Test:</span>
-              <span className={`text-base font-bold ${metricas.isTreeToBar ? 'text-emerald-400' : 'text-yellow-400'}`}>
+              <span className={`text-base font-bold ${metricas.isTreeToBar ? 'text-emerald-700' : 'text-yellow-400'}`}>
                 {metricas.isTreeToBar ? '✓ APROVADO: CACAU FINO ESPECIAL TREE-TO-BAR' : 'PADRÃO COMMODITY'}
               </span>
             </div>
             <div className="text-right">
               <span className="text-xs text-slate-600 block">Lucro Líquido Projetado:</span>
-              <span className="text-xl font-bold text-emerald-400">
+              <span className="text-xl font-bold text-emerald-700">
                 R$ {metricas.lucroLiquidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>
             </div>

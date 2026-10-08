@@ -12,8 +12,9 @@ async function testFullOnboarding() {
 
   // Step 1: User details
   console.log('Filling Step 1...');
+  const uniqueEmail = `roberto_${Date.now()}@fazendasantaclara.com.br`;
   await page.fill('input[placeholder*="Carlos Eduardo"]', 'Roberto Marcondes');
-  await page.fill('input[placeholder*="produtor@fazenda"]', 'roberto@fazendasantaclara.com.br');
+  await page.fill('input[placeholder*="produtor@fazenda"]', uniqueEmail);
   await page.fill('input[placeholder*="Mínimo 8 dígitos"]', 'senhaSegura123!');
   await page.click('button:has-text("Avançar para Dados da Fazenda")');
   await page.waitForTimeout(400);

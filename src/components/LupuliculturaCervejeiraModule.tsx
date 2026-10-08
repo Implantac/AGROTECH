@@ -115,13 +115,13 @@ export const LupuliculturaCervejeiraModule: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400">
+              <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-700">
                 <Beer className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Lupulicultura Tropical & Peletização T-90
-                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono border border-emerald-500/30">
+                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-800 font-mono border border-emerald-500/30">
                     Humulus lupulus • Fotoperíodo Artificial • Alpha-Ácidos
                   </span>
                 </h2>
@@ -133,7 +133,7 @@ export const LupuliculturaCervejeiraModule: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-amber-500/20 text-amber-300 border-amber-500/40 flex items-center gap-1.5">
+            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-amber-500/20 text-amber-800 border-amber-500/40 flex items-center gap-1.5">
               <Award className="w-4 h-4" />
               Alpha-Ácidos Médio: {lupuloMetrics.alphaMedioPct.toFixed(1)}% AA
             </span>
@@ -147,9 +147,9 @@ export const LupuliculturaCervejeiraModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Pellets T-90 Envasados</span>
-            <Beer className="w-4 h-4 text-emerald-400" />
+            <Beer className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
+          <div className="text-2xl font-black mt-2 font-mono text-emerald-700">
             {lupuloMetrics.producaoPelletsT90Kg.toLocaleString('pt-BR')}{' '}
             <span className="text-xs font-normal text-slate-600">kg</span>
           </div>
@@ -162,9 +162,9 @@ export const LupuliculturaCervejeiraModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Faturamento Bruto</span>
-            <Coins className="w-4 h-4 text-amber-400" />
+            <Coins className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-amber-400">
+          <div className="text-2xl font-black mt-2 font-mono text-amber-700">
             R$ {lupuloMetrics.faturamentoBrutoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -176,9 +176,9 @@ export const LupuliculturaCervejeiraModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Margem Líquida</span>
-            <TrendingUp className="w-4 h-4 text-cyan-400" />
+            <TrendingUp className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
+          <div className="text-2xl font-black mt-2 font-mono text-sky-700">
             R$ {lupuloMetrics.margemLiquidaReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -192,7 +192,7 @@ export const LupuliculturaCervejeiraModule: React.FC = () => {
             <span>Óleos Essenciais</span>
             <Sparkles className="w-4 h-4 text-white" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-white">
+          <div className="text-2xl font-black mt-2 font-mono text-slate-800">
             {lupuloMetrics.oleosMedios.toFixed(2)}{' '}
             <span className="text-xs font-normal text-slate-600">mL/100g</span>
           </div>
@@ -208,8 +208,8 @@ export const LupuliculturaCervejeiraModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <Layers className="w-5 h-5 text-emerald-400" />
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <Layers className="w-5 h-5 text-emerald-700" />
                 Espaldeiras de Lúpulo & Laudo Cromatográfico
               </h3>
               <p className="text-xs text-slate-600">
@@ -234,23 +234,23 @@ export const LupuliculturaCervejeiraModule: React.FC = () => {
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-xs font-bold border border-emerald-500/30">
+                      <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-800 font-mono text-xs font-bold border border-emerald-500/30">
                         {p.id}
                       </span>
-                      <h4 className="text-xs font-bold text-white">{p.cultivar}</h4>
+                      <h4 className="text-xs font-bold text-slate-900">{p.cultivar}</h4>
                     </div>
 
-                    <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-mono border border-amber-500/30">
+                    <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-800 text-[10px] font-mono border border-amber-500/30">
                       {p.teorAlphaAcidosPct}% AA • {p.teorOleosTotaisMl100g} mL/100g Óleos
                     </span>
                   </div>
 
                   <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-600">
                     <span>Área: <strong className="text-white">{p.areaHa} ha</strong></span>
-                    <span>Espaldeira: <strong className="text-emerald-400">{p.alturaEspaldeiraMetros} m</strong></span>
-                    <span>Fotoperíodo: <strong className="text-amber-400">{p.fotoperiodoHorasLuz}h luz/dia</strong></span>
-                    <span>Pellets T-90: <strong className="text-cyan-400">{pelletsKg.toLocaleString('pt-BR')} kg</strong></span>
-                    <span>Faturamento: <strong className="text-emerald-400">R$ {faturamentoLote.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}</strong></span>
+                    <span>Espaldeira: <strong className="text-emerald-700">{p.alturaEspaldeiraMetros} m</strong></span>
+                    <span>Fotoperíodo: <strong className="text-amber-700">{p.fotoperiodoHorasLuz}h luz/dia</strong></span>
+                    <span>Pellets T-90: <strong className="text-sky-700">{pelletsKg.toLocaleString('pt-BR')} kg</strong></span>
+                    <span>Faturamento: <strong className="text-emerald-700">R$ {faturamentoLote.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}</strong></span>
                   </div>
                 </div>
               );
@@ -259,7 +259,7 @@ export const LupuliculturaCervejeiraModule: React.FC = () => {
 
           {/* Diretrizes Técnicas de Lupulicultura Tropical */}
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
-            <div className="flex items-center gap-2 text-emerald-400 font-semibold">
+            <div className="flex items-center gap-2 text-emerald-700 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes Técnicas de Lupulicultura de Precisão:
             </div>
@@ -279,8 +279,8 @@ export const LupuliculturaCervejeiraModule: React.FC = () => {
 
         {/* Painel Direito: Parâmetros Comerciais */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Coins className="w-5 h-5 text-amber-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Coins className="w-5 h-5 text-amber-700" />
             Parâmetros Comerciais & Peletização
           </h3>
 
@@ -322,19 +322,19 @@ export const LupuliculturaCervejeiraModule: React.FC = () => {
             <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
                 <span className="text-slate-600">Faturamento da Safra:</span>
-                <span className="text-emerald-400 font-mono font-bold">
+                <span className="text-emerald-700 font-mono font-bold">
                   R$ {lupuloMetrics.faturamentoBrutoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600">Custo Total de Manejo:</span>
-                <span className="text-rose-400 font-mono font-bold">
+                <span className="text-rose-700 font-mono font-bold">
                   -R$ {lupuloMetrics.custoTotalManejoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
-                <span className="text-white">Lucro Líquido Lúpulo:</span>
-                <span className="text-cyan-400 font-mono">
+                <span className="text-slate-900">Lucro Líquido Lúpulo:</span>
+                <span className="text-sky-700 font-mono">
                   R$ {lupuloMetrics.margemLiquidaReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>

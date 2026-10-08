@@ -60,6 +60,8 @@ export interface NfeEmissaoResponse {
   protocolo?: string;
   digestValue?: string;
   dataEmissao?: string;
+  xmlDistribuicao?: string;
+  ibscbs?: any;
   mensagem: string;
   erro?: string;
   instrucao?: string;
@@ -282,6 +284,350 @@ class AgroApiService {
         mensagem: 'Não foi possível contatar o serviço de mensageria da SEFAZ. Tente novamente.',
         erro: err?.message || 'Falha de rede'
       };
+    }
+  }
+
+  /**
+  /**
+   * Consulta a tabela oficial de classificações tributárias cClassTrib (NT 2024.002 / LC 214/2025)
+   */
+  public async obterTabelaCClassTrib(): Promise<any> {
+    try {
+      const res = await fetch(`${this.baseUrl}/fiscal/reforma-tributaria/tabela-cclasstrib`);
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.warn('[AgroApiService.obterTabelaCClassTrib] Falha ao consultar tabela:', err);
+    }
+    return { sucesso: false, tabela: [] };
+  }
+
+  /**
+   * Simula a tributação de IBS e CBS com comparativo Optante vs Não-Optante (Crédito Presumido)
+   */
+  public async simularIbsCbs(params: any): Promise<any> {
+    try {
+      const res = await fetch(`${this.baseUrl}/fiscal/reforma-tributaria/simular`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(params),
+      });
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.warn('[AgroApiService.simularIbsCbs] Falha na simulação:', err);
+    }
+    return { sucesso: false, erro: 'Falha na comunicação com o motor tributário' };
+  }
+
+  /**
+   * Auditoria e Planejamento Tributário: Compara TODOS OS REGIMES TRIBUTÁRIOS do agronegócio
+   * (LCDPR, Arbitramento 20%, Lucro Presumido, Lucro Real, Simples Nacional, Cooperativa, Exportação)
+   */
+  public async consultarAuditoriaTodosRegimes(params: any): Promise<any> {
+    try {
+      const res = await fetch(`${this.baseUrl}/fiscal/regimes-tributarios/comparar`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(params),
+      });
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.warn('[AgroApiService.consultarAuditoriaTodosRegimes] Falha na consulta de regimes:', err);
+    }
+    return { sucesso: false, erro: 'Falha ao consultar auditoria de regimes tributários' };
+  }
+
+  /**
+   * Consulta o status da fila de sincronização Outbox
+   * Princípio 12: Offline Outbox Pattern
+   */
+  public async getOutboxQueue(status?: string): Promise<any> {
+    try {
+      const url = status ? `${this.baseUrl}/sync/outbox?status=${status}` : `${this.baseUrl}/sync/outbox`;
+      const res = await fetch(url);
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.warn('[AgroApiService.getOutboxQueue] Falha ao consultar outbox:', err);
+    }
+    return { sucesso: false, total: 0, pendentes: 0, sincronizados: 0, conflitos: 0, itens: [] };
+  }
+
+  /**
+   * Resolução de conflito manual da fila Outbox
+   */
+  public async resolveOutboxConflict(id: string, manterLocal: boolean, resolucaoManual?: string): Promise<any> {
+    try {
+      const res = await fetch(`${this.baseUrl}/sync/outbox/resolve`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, manterLocal, resolucaoManual })
+      });
+      return await res.json();
+    } catch (err) {
+      console.error('[AgroApiService.resolveOutboxConflict] Erro ao resolver conflito:', err);
+      return { sucesso: false, erro: 'Falha ao contatar servidor' };
+    }
+  }
+
+  /**
+   * Ingestão contínua de telemetria CAN Bus J1939 / ISO 11783
+   */
+  public async ingestCanBusTelemetry(payload: {
+    maquinaId: string;
+    timestamp?: string;
+    frames?: Array<{ canId: string | number; data: number[] }>;
+    telemetriaDireta?: any;
+  }): Promise<any> {
+    try {
+      const res = await fetch('/api/v1/erp/telemetria/ingest', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      return await res.json();
+    } catch (err) {
+      console.error('[AgroApiService.ingestCanBusTelemetry] Erro de telemetria:', err);
+      return { sucesso: false, erro: 'Falha ao conectar gateway de telemetria' };
+    }
+  }
+
+  /**
+   * Consulta espacial PostGIS por raio de proximidade
+   */
+  public async querySpatialGis(lat: number, lng: number, radiusKm: number = 25): Promise<any> {
+    try {
+      const res = await fetch(`/api/v1/gis/spatial-query?lat=${lat}&lng=${lng}&radiusKm=${radiusKm}`);
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.error('[AgroApiService.querySpatialGis] Erro na consulta espacial:', err);
+    }
+    return { sucesso: false, resumoEspacial: { totalTalhoesNoRaio: 0, areaTotalHaNoRaio: 0, maquinasNoRaio: 0, maquinasEmOperacao: 0 }, talhoes: [], frota: [] };
+  }
+
+  /**
+   * Importação e validação de polígono CAR (Cadastro Ambiental Rural)
+   */
+  public async importCarPolygon(payload: {
+    sicarCodigo?: string;
+    nomeImovel?: string;
+    codigo?: string;
+    cultura?: string;
+    salvarComoTalhao?: boolean;
+    geojson: any;
+  }): Promise<any> {
+    try {
+      const res = await fetch('/api/v1/gis/car/import', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      return await res.json();
+    } catch (err) {
+      console.error('[AgroApiService.importCarPolygon] Erro na importação CAR:', err);
+      return { sucesso: false, erro: 'Falha na validação do polígono CAR' };
+    }
+  }
+
+  /**
+   * Emissão e auditoria de Declaração de Due Diligence EUDR (Regulamento UE 2023/1115)
+   */
+  public async emitirDiligenceEUDR(dados: any): Promise<any> {
+    try {
+      const res = await fetch('/api/v1/esg/eudr/diligence', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados)
+      });
+      return await res.json();
+    } catch (err) {
+      console.error('[AgroApiService.emitirDiligenceEUDR] Erro na emissão EUDR:', err);
+      return { sucesso: false, erro: 'Falha ao contatar gateway de conformidade EUDR' };
+    }
+  }
+
+  /**
+   * Consulta pública de certificado Due Diligence EUDR por número DDS
+   */
+  public async consultarDiligenceEUDR(ddsNumero: string): Promise<any> {
+    try {
+      const res = await fetch(`/api/v1/esg/eudr/diligence/${ddsNumero}`);
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.error('[AgroApiService.consultarDiligenceEUDR] Erro na consulta EUDR:', err);
+    }
+    return { sucesso: false, erro: 'Declaração DDS não localizada' };
+  }
+
+  /**
+   * Geração oficial do arquivo LCDPR SPED (Layout 0013 RFB)
+   */
+  public async gerarLcdprSped(dados: any): Promise<any> {
+    try {
+      const res = await fetch('/api/v1/fiscal/lcdpr/gerar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados)
+      });
+      return await res.json();
+    } catch (err) {
+      console.error('[AgroApiService.gerarLcdprSped] Erro na geração do LCDPR:', err);
+      return { sucesso: false, erro: 'Falha ao gerar arquivo LCDPR' };
+    }
+  }
+
+  /**
+   * Consulta e classificação ZARC (Portarias MAPA e MCR BACEN 2-6)
+   */
+  public async consultarZarc(dados: any): Promise<any> {
+    try {
+      const res = await fetch('/api/v1/erp/zarc/consultar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados)
+      });
+      return await res.json();
+    } catch (err) {
+      console.error('[AgroApiService.consultarZarc] Erro no ZARC:', err);
+      return { sucesso: false, erro: 'Falha ao consultar zoneamento ZARC' };
+    }
+  }
+
+  /**
+   * Cálculo e emissão de CBIOs RenovaBio (Lei 13.576/2017 e RenovaCalc ANP)
+   */
+  public async calcularRenovabioCbio(dados: any): Promise<any> {
+    try {
+      const res = await fetch('/api/v1/erp/renovabio/calcular', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados)
+      });
+      return await res.json();
+    } catch (err) {
+      console.error('[AgroApiService.calcularRenovabioCbio] Erro no RenovaBio:', err);
+      return { sucesso: false, erro: 'Falha ao calcular CBIOs' };
+    }
+  }
+
+  /**
+   * Balanço Hídrico FAO-56 e economia na tarifa noturna ANEEL
+   */
+  public async calcularIrrigacaoFao56(dados: any): Promise<any> {
+    try {
+      const res = await fetch('/api/v1/erp/irrigacao/balanco', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados)
+      });
+      return await res.json();
+    } catch (err) {
+      console.error('[AgroApiService.calcularIrrigacaoFao56] Erro na irrigação:', err);
+      return { sucesso: false, erro: 'Falha no balanço hídrico' };
+    }
+  }
+
+  /**
+   * Interpretação de laudo de solo, calagem e gessagem
+   */
+  public async interpretarLaudoSolo(dados: any): Promise<any> {
+    try {
+      const res = await fetch('/api/v1/erp/solo/recomendacao', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados)
+      });
+      return await res.json();
+    } catch (err) {
+      console.error('[AgroApiService.interpretarLaudoSolo] Erro no laudo de solos:', err);
+      return { sucesso: false, erro: 'Falha na recomendação agronômica' };
+    }
+  }
+
+  /**
+   * Consulta credenciais e status de certificados do tenant
+   */
+  public async getTenantCredentials(tenantId?: string): Promise<any> {
+    try {
+      const url = tenantId ? `/api/v1/tenant/credentials?tenantId=${tenantId}` : '/api/v1/tenant/credentials';
+      const res = await fetch(url);
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.error('[AgroApiService.getTenantCredentials] Erro ao carregar credenciais:', err);
+    }
+    return { sucesso: false, erro: 'Falha ao buscar credenciais do tenant' };
+  }
+
+  /**
+   * Upload e validação de Certificado Digital A1 (.pfx / .p12)
+   */
+  public async uploadCertificateA1(payload: {
+    tenantId?: string;
+    nomeArquivo: string;
+    senha: string;
+    ambiente: 'HOMOLOGACAO' | 'PRODUCAO';
+    ufAutorizadora: string;
+    cscCodigo?: string;
+  }): Promise<any> {
+    try {
+      const res = await fetch('/api/v1/tenant/credentials/certificate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      return await res.json();
+    } catch (err) {
+      console.error('[AgroApiService.uploadCertificateA1] Erro no upload do certificado:', err);
+      return { sucesso: false, erro: 'Falha ao comunicar com gateway de certificados' };
+    }
+  }
+
+  /**
+   * Salva configurações globais de credenciais do tenant
+   */
+  public async saveTenantCredentials(payload: any): Promise<any> {
+    try {
+      const res = await fetch('/api/v1/tenant/credentials/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      return await res.json();
+    } catch (err) {
+      console.error('[AgroApiService.saveTenantCredentials] Erro ao salvar credenciais:', err);
+      return { sucesso: false, erro: 'Falha ao salvar credenciais' };
+    }
+  }
+
+  /**
+   * Testa handshake SSL com SEFAZ autorizadora
+   */
+  public async testSefazConnection(payload?: { uf?: string; ambiente?: string }): Promise<any> {
+    try {
+      const res = await fetch('/api/v1/tenant/credentials/test-sefaz', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload || {})
+      });
+      return await res.json();
+    } catch (err) {
+      console.error('[AgroApiService.testSefazConnection] Erro no teste SEFAZ:', err);
+      return { sucesso: false, erro: 'Falha de comunicação com a SEFAZ' };
+    }
+  }
+
+  /**
+   * Dispara alerta de teste para o WhatsApp/SMS de plantão
+   */
+  public async testMessagingAlert(payload?: { telefonePlantao?: string }): Promise<any> {
+    try {
+      const res = await fetch('/api/v1/tenant/credentials/test-messaging', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload || {})
+      });
+      return await res.json();
+    } catch (err) {
+      console.error('[AgroApiService.testMessagingAlert] Erro no teste de mensageria:', err);
+      return { sucesso: false, erro: 'Falha no despacho do alerta' };
     }
   }
 }

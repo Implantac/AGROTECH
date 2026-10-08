@@ -112,16 +112,16 @@ export const ArrendamentosContratosModule: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-slate-200 p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400">
+            <div className="p-2.5 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-700">
               <FileSignature className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-xl font-bold text-[#1D4B38]">Arrendamentos Rurais & Parcerias Agrícolas</h1>
-                <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+                <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 rounded-full">
                   Estatuto da Terra (Lei 4.504)
                 </span>
-                <span className="px-2 py-0.5 text-[11px] font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full">
+                <span className="px-2 py-0.5 text-[11px] font-semibold bg-amber-500/20 text-amber-800 border border-amber-500/30 rounded-full">
                   Indexação em Sacas/ha
                 </span>
               </div>
@@ -142,12 +142,12 @@ export const ArrendamentosContratosModule: React.FC = () => {
       </div>
 
       {sucessoMsg && (
-        <div className="p-4 bg-emerald-950/60 border border-emerald-700/50 rounded-xl text-emerald-300 text-sm flex items-center justify-between">
+        <div className="p-4 bg-emerald-950/60 border border-emerald-700/50 rounded-xl text-emerald-800 text-sm flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+            <CheckCircle2 className="w-4 h-4 text-emerald-700" />
             <span>{sucessoMsg}</span>
           </div>
-          <button onClick={() => setSucessoMsg(null)} className="text-xs text-emerald-400 hover:underline">
+          <button onClick={() => setSucessoMsg(null)} className="text-xs text-emerald-700 hover:underline">
             Fechar
           </button>
         </div>
@@ -158,7 +158,7 @@ export const ArrendamentosContratosModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
           <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Área Total Arrendada</span>
-            <Layers className="w-4 h-4 text-emerald-400" />
+            <Layers className="w-4 h-4 text-emerald-700" />
           </div>
           <div className="text-2xl font-bold text-[#1D4B38] font-mono">{totalAreaArrendada.toFixed(1)} ha</div>
           <p className="text-xs text-slate-500 mt-1">~46% da área consolidada da safra</p>
@@ -167,9 +167,9 @@ export const ArrendamentosContratosModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
           <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Compromisso Físico (Soja)</span>
-            <ScrollText className="w-4 h-4 text-amber-400" />
+            <ScrollText className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-bold text-amber-300 font-mono">
+          <div className="text-2xl font-bold text-amber-800 font-mono">
             {totalSacasComprometidasSoja.toLocaleString('pt-BR')} sacas
           </div>
           <p className="text-xs text-slate-500 mt-1">Média: 11.2 sc/ha/ano</p>
@@ -178,9 +178,9 @@ export const ArrendamentosContratosModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
           <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Desembolso Estimado Safra</span>
-            <DollarSign className="w-4 h-4 text-emerald-400" />
+            <DollarSign className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-bold text-emerald-300 font-mono">
+          <div className="text-2xl font-bold text-emerald-800 font-mono">
             R$ {(totalDesembolsoArrendamentos / 1_000_000).toFixed(2)}M
           </div>
           <p className="text-xs text-slate-500 mt-1">Cotação base: R$ {cotacaoDiaSoja.toFixed(2)}/sc</p>
@@ -192,7 +192,7 @@ export const ArrendamentosContratosModule: React.FC = () => {
             <BadgeCheck className="w-4 h-4 text-indigo-400" />
           </div>
           <div className="text-2xl font-bold text-indigo-200 font-mono">100% Regular</div>
-          <p className="text-xs text-emerald-400/80 mt-1">Registrados em Cartório de Imóveis</p>
+          <p className="text-xs text-emerald-700/80 mt-1">Registrados em Cartório de Imóveis</p>
         </div>
       </div>
 
@@ -203,7 +203,7 @@ export const ArrendamentosContratosModule: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-3">
             <div>
               <h2 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
-                <ScrollText className="w-5 h-5 text-emerald-400" />
+                <ScrollText className="w-5 h-5 text-emerald-700" />
                 Contratos de Arrendamento Ativos
               </h2>
               <p className="text-xs text-slate-600">Valores pactuados em sacas físicas e conversão na data da safra</p>
@@ -217,7 +217,7 @@ export const ArrendamentosContratosModule: React.FC = () => {
                 step="0.5"
                 value={cotacaoDiaSoja}
                 onChange={(e) => setCotacaoDiaSoja(Number(e.target.value))}
-                className="w-20 bg-slate-900 border border-slate-700 rounded px-2 py-0.5 text-emerald-400 font-mono font-bold"
+                className="w-20 bg-white border border-slate-300 rounded px-2 py-0.5 text-emerald-700 font-mono font-bold"
               />
               <span className="text-slate-600 font-mono">R$/sc</span>
             </div>
@@ -235,14 +235,14 @@ export const ArrendamentosContratosModule: React.FC = () => {
                   <th className="px-3.5 py-3">Vencimento</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-slate-100">
                 {contratos.map((c) => {
                   const cotacao = c.culturaReferencia.includes('Soja') ? cotacaoDiaSoja : cotacaoDiaMilho;
                   const sacasDevidas = c.areaHa * c.sacasPorHaPactuadas;
                   const valorFinanceiro = sacasDevidas * cotacao;
 
                   return (
-                    <tr key={c.id} className="hover:bg-slate-800/40 transition-colors">
+                    <tr key={c.id} className="hover:bg-slate-50/80 transition-colors">
                       <td className="px-3.5 py-3.5">
                         <div className="font-bold text-slate-900">{c.arrendadorNome}</div>
                         <div className="text-[11px] text-slate-500 font-mono">{c.numeroContrato}</div>
@@ -251,11 +251,11 @@ export const ArrendamentosContratosModule: React.FC = () => {
 
                       <td className="px-3.5 py-3.5">
                         <div className="text-slate-900 font-medium">{c.nomeGleba}</div>
-                        <div className="text-[11px] text-emerald-400 font-mono">{c.areaHa} hectares</div>
+                        <div className="text-[11px] text-emerald-700 font-mono">{c.areaHa} hectares</div>
                       </td>
 
                       <td className="px-3.5 py-3.5">
-                        <div className="font-mono font-bold text-amber-300">
+                        <div className="font-mono font-bold text-amber-800">
                           {c.sacasPorHaPactuadas.toFixed(1)} sc/ha
                         </div>
                         <span className="text-[10px] text-slate-600">{c.culturaReferencia}</span>
@@ -268,7 +268,7 @@ export const ArrendamentosContratosModule: React.FC = () => {
                       </td>
 
                       <td className="px-3.5 py-3.5">
-                        <div className="font-mono font-bold text-emerald-300">
+                        <div className="font-mono font-bold text-emerald-800">
                           R$ {valorFinanceiro.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                         </div>
                         <span className="text-[10px] text-slate-500">
@@ -278,7 +278,7 @@ export const ArrendamentosContratosModule: React.FC = () => {
 
                       <td className="px-3.5 py-3.5">
                         <div className="text-slate-900 font-medium">{c.mesVencimentoPagamento}</div>
-                        <span className="text-[10px] text-emerald-400 font-semibold">Vigente até 2028</span>
+                        <span className="text-[10px] text-emerald-700 font-semibold">Vigente até 2028</span>
                       </td>
                     </tr>
                   );
@@ -292,7 +292,7 @@ export const ArrendamentosContratosModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-5 rounded-2xl flex flex-col justify-between space-y-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <Sparkles className="w-5 h-5 text-emerald-400" />
+              <Sparkles className="w-5 h-5 text-emerald-700" />
               <h2 className="text-base font-bold text-[#1D4B38]">Simulador de Arrendamento</h2>
             </div>
             <p className="text-xs text-slate-600 mb-4">
@@ -334,10 +334,10 @@ export const ArrendamentosContratosModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-4 bg-emerald-950/30 border border-emerald-800/40 rounded-xl text-xs space-y-2">
+          <div className="p-4 bg-emerald-50 border border-emerald-800/40 rounded-xl text-xs space-y-2">
             <div className="flex justify-between items-center text-slate-900">
               <span>Comprometimento da Produção Bruta:</span>
-              <span className={`font-mono font-bold ${simComprometimentoProducaoPct > 20 ? 'text-rose-400' : 'text-emerald-300'}`}>
+              <span className={`font-mono font-bold ${simComprometimentoProducaoPct > 20 ? 'text-rose-700' : 'text-emerald-800'}`}>
                 {simComprometimentoProducaoPct.toFixed(1)}% da safra
               </span>
             </div>
@@ -349,7 +349,7 @@ export const ArrendamentosContratosModule: React.FC = () => {
             </div>
             <div className="border-t border-emerald-900/50 pt-2 flex justify-between items-center">
               <span className="font-bold text-[#1D4B38]">Custo Financeiro Previsto:</span>
-              <span className="font-mono font-extrabold text-sm text-emerald-300">
+              <span className="font-mono font-extrabold text-sm text-emerald-800">
                 R$ {simCustoTotalFinanceiro.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>
             </div>
