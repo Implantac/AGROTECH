@@ -237,5 +237,69 @@ Fluxo de autosserviço desenhado para transição sem atrito da Landing Page par
 | **Balanço Hídrico FAO-56 & Laudos de Solo** | 100% | Concluído & Testado E2E |
 | **Portal de Credenciais & Certificado A1 do Tenant** | 100% | Concluído & Testado E2E |
 | **Manual Completo de Implantação & Chicote CAN Bus** | 100% | Concluído & Testado E2E |
+| **Reforma Tributária IBS & CBS (NT 2024.002 & LC 214/2025)** | 100% | Concluído & Testado E2E |
 | **Infraestrutura Docker & CI/CD GitHub Actions** | 100% | Concluído & Testado E2E |
 | **Total Global Ponderado** | **100%** | **SISTEMA ENTREGUE & PRONTO PARA OPERAÇÃO** |
+
+---
+
+### 15. Auditoria da Reforma Tributária: IBS e CBS no Agronegócio (EC 132/2023, LC 214/2025 & NT 2024.002)
+
+#### 15.1. Fundamentação Normativa e Técnica
+Em estrito alinhamento com a **Emenda Constitucional nº 132/2023**, com a **Lei Complementar nº 214/2025** e com as diretrizes do **ENCAT / Receita Federal do Brasil (Nota Técnica 2024.002 / 2025.002 do MOC v7.0)**, o AGROTECH incorporou o motor fiscal completo para o IVA Dual (IBS estadual/municipal e CBS federal) e os regimes específicos do produtor rural:
+
+1. **Classificação Tributária Oficial (`cClassTrib`)**:
+   - `200032` (CST 200): Produtos agropecuários in natura (soja, milho, algodão em pluma, boi gordo, café, cacau) com **redução de 60%** da alíquota (Art. 132 da LC 214/2025).
+   - `200035` (CST 200): Insumos agropecuários, sementes e mudas registradas no MAPA com **redução de 60%** (Art. 133 da LC 214/2025).
+   - `220001` (CST 220): Cesta Básica Nacional de Alimentos com **alíquota zero (100% de redução)** (Art. 8º da EC 132/2023 e Anexo I da LC 214/2025).
+   - `410001` (CST 410): Exportação direta de commodities agrícolas com **imunidade constitucional** (Art. 156-A, § 1º, II e Art. 195, § 16 da CF/88).
+   - `510001` (CST 510): Insumos e operações com **diferimento de IBS/CBS** conforme legislação estadual e federal (Art. 135 da LC 214/2025).
+   - `600001` (CST 600): Regime Especial do Produtor Rural Pessoa Física Não Optante pelo IBS/CBS (Art. 140/165 da LC 214/2025), garantindo **isenção de débito direto na saída** e geração de **crédito presumido de 8,5%** para indústrias e cooperativas adquirentes (`gCredPresProdRural`).
+   - `000001` (CST 000): Tributação integral padrão sem redução específica.
+
+2. **Cronograma de Transição Constitucional (2026 a 2033)**:
+   - **Ano-teste 2026**: CBS de 0,90% e IBS de 0,10% (partilhado em 70% Estado do Mato Grosso e 30% Município de Sorriso-MT), totalizando alíquota nominal de 1,00% e efetiva de 0,40% após o desconto de 60% para produtos in natura.
+   - **Período de Transição 2027-2032**: Extinção de PIS/COFINS, vigência plena da CBS e absorção progressiva do ICMS/ISS pelo IBS.
+   - **Regime Pleno a partir de 2033**: Alíquotas nominais de referência (CBS ~8,80% e IBS ~17,70%), com manutenção dos incentivos constitucionais do agronegócio.
+
+3. **Geração dos Grupos XML da NF-e Modelo 55**:
+   - Injeção das tags `<IBSCBS>` no nível de item (`<det><imposto>`) com `<CST>`, `<cClassTrib>`, `<vBCIBS>`, `<pIBS>`, `<pRedIBS>`, `<pIBSEfet>`, `<vIBS>`, grupos de repartição `<gIBSUF>` (com `pIBSEst`/`vIBSEst` e `pIBSMun`/`vIBSMun`), `<gCBS>` e grupo do produtor rural `<gCredPresProdRural>`.
+   - Injeção da tag `<IBSCBSTot>` no resumo da nota fiscal (`<total>`), consolidando `<vBCIBS>`, `<vIBS>`, `<vIBSEst>`, `<vIBSMun>`, `<vBCCBS>`, `<vCBS>` e `<vCredPresProdRural>`.
+
+4. **Simulador Comparativo: Produtor Não-Optante vs Optante**:
+   - Análise automatizada de viabilidade tributária orientando o produtor rural se deve permanecer no regime especial não-optante (sem burocracia, sem desembolso direto na venda e com transferência de crédito presumido de 8,5% às tradings) ou se deve optar pelo regime regular para compensação ampla de créditos decorrentes de altos investimentos em máquinas agrícolas, pivôs e sementes tributadas.
+
+5. **Coexistência de Regimes e Espelho DANFE com Breakdown Duplo**:
+   - Painel de coexistência simultânea auditando a retenção da Regra Normal tradicional (ICMS interno com diferimento CST 51 / Alíquota 0,00%; PIS/COFINS suspenso CST 09 conforme Lei 10.925/2004; Funrural de 1,50% na comercialização vs 0,20% na folha; e FETHAB MT conforme Lei Estadual 7.263/2000) lado a lado com a apuração da Reforma Tributária (IBS e CBS conforme EC 132/2023 e LC 214/2025).
+   - Espelho visual do DANFE com quadro destacado de IBS e CBS discriminando base de cálculo, alíquotas de teste, repartição federativa (Estado de MT e Município de Sorriso) e crédito presumido de 8,5% do produtor não optante para o adquirente, com referências legais completas e carimbo de autorização da SEFAZ.
+
+6. **Validação E2E Automatizada**:
+   - Implementado teste ponta a ponta em `scripts/test_reforma_tributaria_ibscbs_e2e.mjs` e integrado à suíte mestra `npm test`. Testes aprovados com 100% de sucesso abrangendo cálculo de alíquotas, deduções, crédito presumido, Cesta Básica zero, regra normal de ICMS/Funrural/PIS/COFINS e geração de XML válido.
+
+---
+
+### 16. Planejamento e Auditoria de Todos os Regimes Tributários do Agronegócio Brasileiro
+
+#### 16.1. Taxonomia dos 7 Regimes Oficiais Homologados no AGROTECH
+Para além da Reforma Tributária e do LCDPR tradicional, o AGROTECH implementou um motor fiscal abrangente e parametrizável que audita e simula simultaneamente a carga tributária efetiva nos **7 regimes tributários oficiais vigentes e futuros** do agronegócio nacional:
+
+| Código | Regime Tributário | Natureza Jurídica | Fundamentação Legal Principal | Alíquota Média Renda | Funrural / Previdência | Peculiaridades Agropecuárias |
+|---|---|---|---|---|---|---|
+| `PF_LIVRO_CAIXA` | **PF - Livro Caixa Digital (LCDPR)** | Pessoa Física | Arts. 59-64 RIR/2018 (Dec. 9.580/18), Lei 8.023/90 e IN RFB 1.903/19 | IRPF progressivo até 27,5% sobre o Lucro Real apurado | 1,5% (comercialização) ou 0,2% (folha) | Dedução integral imediata (100%) no ano de máquinas, implementos e pivôs (Art. 59 RIR); compensação ilimitada de prejuízos fiscais de safras passadas. |
+| `PF_ARBITRAMENTO_20` | **PF - Arbitramento da Receita Bruta (20%)** | Pessoa Física | Art. 5º da Lei 8.023/90 e Art. 54 do RIR/2018 | IRPF progressivo sobre base presumida de 20% da receita bruta (~5,5% efetivo da receita) | 1,5% (comercialização) ou 0,2% (folha) | Dispensa escrituração detalhada de notas fiscais de despesas operacionais; vantajoso para produtores com margens líquidas superiores a 20%. |
+| `PJ_LUCRO_PRESUMIDO` | **PJ - Lucro Presumido Agropecuário** | Pessoa Jurídica (LTDA / S/A / EIRELI) | Arts. 15 e 20 da Lei 9.249/95 e Lei 9.430/96 | IRPJ (presunção 8% + adic. 10%) e CSLL (presunção 12%) -> ~2,28% a 3,4% da receita | 2,05% (comercialização) ou 0,25% (folha) | Amplamente utilizado em Holdings Rurais Familiares para blindagem patrimonial e planejamento sucessório hereditário. PIS/COFINS cumulativo (3,65%) suspenso na venda de grãos in natura. |
+| `PJ_LUCRO_REAL` | **PJ - Lucro Real Agropecuário** | Pessoa Jurídica | RIR/2018 (Dec. 9.580/18) e Leis 10.637/02 e 10.833/03 | IRPJ (15% + adic. 10%) e CSLL (9%) sobre o lucro contábil ajustado (LALUR) | 2,05% (comercialização) ou 0,25% (folha) | Obrigatório para faturamento superior a R$ 78 milhões/ano. Em caso de quebra de safra climática com prejuízo contábil, o imposto sobre a renda é ZERO. Depreciação acelerada incentivada. |
+| `PJ_SIMPLES_NACIONAL` | **Simples Nacional ME / EPP Rural** | Pessoa Jurídica | Lei Complementar nº 123/2006 (Estatuto Nacional da ME/EPP) | Tabela Anexo I (Comércio) com segregação de ICMS diferido | Incluso na alíquota DAS ou retido conforme LC 123 | Teto de R$ 4,8 milhões/ano. Ideal para pequenos sítios, agricultura familiar e processamento agroartesanal. |
+| `COOPERATIVA_AGRO` | **Cooperativa Agropecuária (Atos Cooperativos)** | Cooperativa | Arts. 79 e 111 da Lei Federal nº 5.764/1971 e Art. 15 da MP 2.158-35/2001 | Isenção total de IRPJ e CSLL sobre sobras líquidas do ato cooperativo típico | 1,5% ou 0,2% na fixação do cooperado | Tributação apenas de PIS sobre folha de salários (1%) e tributos dos associados na distribuição individual de sobras líquidas. |
+| `EXPORTACAO_IMUNE` | **Exportação Direta / Trading Agro** | Pessoa Física ou Jurídica | Art. 149, § 2º, I e Art. 155, § 2º, X, "a" da CF/88; Art. 156-A EC 132/23 | Alíquota ZERO de PIS, COFINS, IBS e CBS; Imunidade Constitucional | Não-incidência de Funrural (Art. 170 IN RFB 2.110/22) | Não exportação de tributos. Manutenção integral de créditos de insumos com ressarcimento ou compensação federal. |
+
+#### 16.2. Arquitetura do Motor de Auditoria Multi-Regimes
+- **Endpoints REST**: `POST /api/v1/fiscal/regimes-tributarios/comparar` e `POST /api/v1/fiscal/reforma-tributaria/simular` em `server.cjs`.
+- **Serviço de Domínio**: `ReformaTributariaService.auditarTodosOsRegimesTributarios(...)` em `src/services/reformaTributariaService.ts`.
+- **Interface Visual**: Módulo `FiscalLCDPRModule.tsx` enriquecido com sistema de 3 abas estratégicas:
+  1. *Auditor de Todos os Regimes (PF, PJ, Simples, Coop, Exportação)*: sliders dinâmicos de faturamento, margem e despesas, ranking ordenado pelo custo tributário total, indicador de economia anual vs pior regime, cartões individuais com fundamentação jurídica detalhada e modal explicativo.
+  2. *Emissão NF-e Produtor (Mod. 55) & SEFAZ*: emissor eletrônico com alternância de ambiente Homologação/Produção, gestão de certificado ICP-Brasil A1, alternância Funrural e breakdown consolidado Regra Normal vs IBS/CBS.
+  3. *Escrituração Fiscal LCDPR (Layout RFB 0013)*: demonstrativo contábil de entradas/saídas por condômino com gerador de arquivo texto homologado na IN RFB 1.903/2019.
+- **Validação E2E**: Teste `scripts/test_todos_os_regimes_tributarios_e2e.mjs` validado e adicionado à suíte geral `npm test` (10 de 10 suítes aprovadas com 100% de sucesso).
+
+

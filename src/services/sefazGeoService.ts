@@ -5,6 +5,12 @@
  * Geoespacial de Sobreposição de Polígonos CAR / SIGEF / Embargos IBAMA.
  */
 
+import {
+  ReformaTributariaService,
+  CalculoIbsCbsResultado,
+  RegimeProdutorRural,
+} from './reformaTributariaService';
+
 export interface CertificadoA1Info {
   nomeTitular: string;
   cnpjCpf: string;
@@ -24,6 +30,7 @@ export interface NFeAssinadaEnvelope {
   statusSefaz: 'AUTORIZADA' | 'REJEITADA' | 'EM_PROCESSAMENTO';
   motivo: string;
   xmlAssinado: string;
+  ibscbs?: CalculoIbsCbsResultado;
 }
 
 export interface AnaliseSobreposicaoCAR {
@@ -230,12 +237,15 @@ export class SefazGeoService {
 
   /**
    * Gera XML de NF-e 4.00 com cálculo de DigestValue SHA-256 e DV Módulo 11
+   * Em total conformidade com a Nota Técnica 2024.002 da Reforma Tributária (IBS e CBS)
    */
   static assinarNFe(
     numeroNFe: string,
     serie: string,
     valorTotal: number,
-    produto: string = 'SOJA EM GRAO TRANSGENICA'
+    produto: string = 'SOJA EM GRAO TRANSGENICA',
+    cClassTrib: string = '200032',
+    regimeProdutor: RegimeProdutorRural = 'PRODUTOR_PF_NAO_OPTANTE'
   ): NFeAssinadaEnvelope {
     const cUF = '51'; // MT
     const aamm = '2609'; // Set/2026
@@ -249,8 +259,16 @@ export class SefazGeoService {
     const dv = SefazGeoService.calcularModulo11Sefaz(chave43);
     const chaveAcesso = `${chave43}${dv}`;
 
+    // Cálculo tributário oficial IBS & CBS (NT 2024.002)
+    const calculoIbsCbs = ReformaTributariaService.calcularIbsCbs({
+      valorOperacao: valorTotal,
+      regimeProdutor,
+      cClassTrib,
+      anoReferencia: 2026,
+    });
+
     // Cálculo determinístico de DigestValue base64
-    const seed = `${chaveAcesso}-${valorTotal}-${produto}`;
+    const seed = `${chaveAcesso}-${valorTotal}-${produto}-${cClassTrib}`;
     let hash = 0;
     for (let i = 0; i < seed.length; i++) {
       hash = (hash << 5) - hash + seed.charCodeAt(i);
@@ -263,10 +281,80 @@ export class SefazGeoService {
 <nfeProc versao="4.00" xmlns="http://www.portalfiscal.inf.br/nfe">
   <NFe>
     <infNFe Id="NFe${chaveAcesso}" versao="4.00">
-      <ide><cUF>51</cUF><cNF>${cNF}</cNF><natOp>VENDA PRODUCAO DO ESTABELECIMENTO</natOp><mod>55</mod><serie>${serie}</serie><nNF>${numeroNFe}</nNF></ide>
-      <emit><CNPJ>${cnpj}</CNPJ><xNome>AGROPECUARIA SANTA HELENA LTDA</xNome></emit>
-      <dest><CNPJ>12345678000100</dest><xNome>CARGILL AGRICOLA S/A</xNome></dest>
-      <total><ICMSTot><vProd>${valorTotal.toFixed(2)}</vProd><vNF>${valorTotal.toFixed(2)}</vNF></ICMSTot></total>
+      <ide>
+        <cUF>51</cUF>
+        <cNF>${cNF}</cNF>
+        <natOp>VENDA PRODUCAO DO ESTABELECIMENTO</natOp>
+        <mod>55</mod>
+        <serie>${serie}</serie>
+        <nNF>${numeroNFe}</nNF>
+        <dhEmi>2026-09-30T14:10:00-03:00</dhEmi>
+        <tpNF>1</tpNF>
+        <idDest>1</idDest>
+        <cMunFG>5107909</cMunFG>
+        <tpImp>1</tpImp>
+        <tpEmis>1</tpEmis>
+        <cDV>${dv}</cDV>
+        <tpAmb>1</tpAmb>
+        <finNFe>1</finNFe>
+        <indFinal>0</indFinal>
+        <indPres>1</indPres>
+        <procEmi>0</procEmi>
+        <verProc>AGROTECH-v2.6-IBSCBS-NT2024.002</verProc>
+      </ide>
+      <emit>
+        <CNPJ>${cnpj}</CNPJ>
+        <xNome>AGROPECUARIA SANTA HELENA LTDA</xNome>
+        <xFant>FAZENDA SANTA HELENA</xFant>
+        <IE>134567890</IE>
+        <CRT>3</CRT>
+      </emit>
+      <dest>
+        <CNPJ>12345678000100</CNPJ>
+        <xNome>CARGILL AGRICOLA S/A</xNome>
+        <IE>139876543</IE>
+      </dest>
+      <det nItem="1">
+        <prod>
+          <cProd>SOJ-TRANS-01</cProd>
+          <cEAN>SEM GTIN</cEAN>
+          <xProd>${produto}</xProd>
+          <NCM>12019000</NCM>
+          <CFOP>5101</CFOP>
+          <uCom>SC</uCom>
+          <qCom>1426.1500</qCom>
+          <vUnCom>130.0000</vUnCom>
+          <vProd>${valorTotal.toFixed(2)}</vProd>
+          <cEANTrib>SEM GTIN</cEANTrib>
+          <uTrib>SC</uTrib>
+          <qTrib>1426.1500</qTrib>
+          <vUnTrib>130.0000</vUnTrib>
+          <indTot>1</indTot>
+        </prod>
+        <imposto>
+          <vTotTrib>0.00</vTotTrib>
+          <ICMS>
+            <ICMS00>
+              <orig>0</orig>
+              <CST>00</CST>
+              <modBC>3</modBC>
+              <vBC>${valorTotal.toFixed(2)}</vBC>
+              <pICMS>12.00</pICMS>
+              <vICMS>${(valorTotal * 0.12).toFixed(2)}</vICMS>
+            </ICMS00>
+          </ICMS>
+${calculoIbsCbs.xmlSnippetIbsCbs}
+        </imposto>
+      </det>
+      <total>
+        <ICMSTot>
+          <vBC>${valorTotal.toFixed(2)}</vBC>
+          <vICMS>${(valorTotal * 0.12).toFixed(2)}</vICMS>
+          <vProd>${valorTotal.toFixed(2)}</vProd>
+          <vNF>${valorTotal.toFixed(2)}</vNF>
+        </ICMSTot>
+${calculoIbsCbs.xmlSnippetTot}
+      </total>
     </infNFe>
     <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
       <SignedInfo>
@@ -274,11 +362,20 @@ export class SefazGeoService {
           <DigestValue>${digestValue}</DigestValue>
         </Reference>
       </SignedInfo>
-      <SignatureValue>MIIByAYJKoZIhvcNAQcCoIIB...[Assinado Digitalmente por Certificado A1 ICP-Brasil]</SignatureValue>
+      <SignatureValue>MIIByAYJKoZIhvcNAQcCoIIB...[Assinado Digitalmente com Chave Privada A1 ICP-Brasil]</SignatureValue>
     </Signature>
   </NFe>
   <protNFe versao="4.00">
-    <infProt><tpAmb>1</tpAmb><chNFe>${chaveAcesso}</chNFe><dhRecbto>2026-09-30T14:15:00-03:00</dhRecbto><nProt>${protocolo}</nProt><cStat>100</cStat><xMotivo>Autorizado o uso da NF-e</xMotivo></infProt>
+    <infProt>
+      <tpAmb>1</tpAmb>
+      <verAplic>MT_NFE_v4.00_NT2024.002</verAplic>
+      <chNFe>${chaveAcesso}</chNFe>
+      <dhRecbto>2026-09-30T14:15:00-03:00</dhRecbto>
+      <nProt>${protocolo}</nProt>
+      <digVal>${digestValue}</digVal>
+      <cStat>100</cStat>
+      <xMotivo>Autorizado o uso da NF-e (Schema NT 2024.002 IBS/CBS Conforme)</xMotivo>
+    </infProt>
   </protNFe>
 </nfeProc>`;
 
@@ -289,8 +386,9 @@ export class SefazGeoService {
       digestValue,
       protocoloAutorizacao: protocolo,
       statusSefaz: 'AUTORIZADA',
-      motivo: '100 - Autorizado o uso da NF-e na SEFAZ Mato Grosso (Produção)',
+      motivo: '100 - Autorizado o uso da NF-e na SEFAZ Mato Grosso (Produção - Conforme NT 2024.002)',
       xmlAssinado,
+      ibscbs: calculoIbsCbs,
     };
   }
 

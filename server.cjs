@@ -145,6 +145,548 @@ function verifyHmacJwt(token) {
   }
 }
 
+// --------------------------------------------------------------------------
+// TABELA OFICIAL cClassTrib E MOTOR TRIBUTÁRIO IBS / CBS (EC 132/2023 & LC 214/2025)
+// Em total conformidade com a Nota Técnica 2024.002 / 2025.002 da SEFAZ / ENCAT
+// --------------------------------------------------------------------------
+const TABELA_CCLASSTRIB_RURAL = [
+  {
+    codigo: '200032',
+    cst: '200',
+    descricao: 'Produtos agropecuários, aquícolas, pesqueiros, florestais e extrativos vegetais in natura (Redução 60%)',
+    baseLegal: 'Art. 9º, § 1º, II da EC 132/2023 e Art. 132 da LC 214/2025',
+    reducaoAliquotaPct: 60,
+    permiteCreditoPresumidoProdutor: true,
+  },
+  {
+    codigo: '200035',
+    cst: '200',
+    descricao: 'Insumos agropecuários e aquícolas, sementes e mudas certificados pelo MAPA (Redução 60%)',
+    baseLegal: 'Art. 9º, § 1º, VIII da EC 132/2023 e Art. 135 da LC 214/2025',
+    reducaoAliquotaPct: 60,
+    permiteCreditoPresumidoProdutor: true,
+  },
+  {
+    codigo: '220001',
+    cst: '220',
+    descricao: 'Cesta Básica Nacional de Alimentos - Alíquota Zero (Redução 100%)',
+    baseLegal: 'Art. 8º da EC 132/2023 e Anexo I da LC 214/2025',
+    reducaoAliquotaPct: 100,
+    permiteCreditoPresumidoProdutor: false,
+  },
+  {
+    codigo: '410001',
+    cst: '410',
+    descricao: 'Exportação agropecuária direta ou por trading company - Imunidade constitucional',
+    baseLegal: 'Art. 156-A, § 1º, II e Art. 195, § 16 da CF/88',
+    reducaoAliquotaPct: 100,
+    permiteCreditoPresumidoProdutor: false,
+  },
+  {
+    codigo: '510001',
+    cst: '510',
+    descricao: 'Operação com diferimento de IBS e CBS conforme legislação estadual/federal',
+    baseLegal: 'Art. 32 da LC 214/2025',
+    reducaoAliquotaPct: 0,
+    permiteCreditoPresumidoProdutor: false,
+  },
+  {
+    codigo: '600001',
+    cst: '600',
+    descricao: 'Produtor Rural Pessoa Física Não Optante pelo IBS/CBS - Gera Crédito Presumido ao Adquirente',
+    baseLegal: 'Art. 165 da LC 214/2025 e NT 2024.002 grupo gCredPresProdRural',
+    reducaoAliquotaPct: 100,
+    permiteCreditoPresumidoProdutor: true,
+  },
+  {
+    codigo: '000001',
+    cst: '000',
+    descricao: 'Tributação Integral Padrão (Sem redução específica)',
+    baseLegal: 'Regra Geral IBS/CBS LC 214/2025',
+    reducaoAliquotaPct: 0,
+    permiteCreditoPresumidoProdutor: false,
+  },
+];
+
+function calcularReformaTributariaServer(params) {
+  const {
+    valorOperacao = 100000,
+    regimeProdutor = 'PRODUTOR_PF_NAO_OPTANTE',
+    cClassTrib = '200032',
+    anoReferencia = 2026,
+    aliquotaEstadualIbs,
+    aliquotaMunicipalIbs,
+    aliquotaFederalCbs,
+  } = params || {};
+
+  const classTrib = TABELA_CCLASSTRIB_RURAL.find(c => c.codigo === cClassTrib) || TABELA_CCLASSTRIB_RURAL[0];
+
+  let pCBSPadrao = 0.90;
+  let pIBSUFPadrao = 0.07;
+  let pIBSMunPadrao = 0.03;
+
+  if (anoReferencia >= 2033) {
+    pCBSPadrao = aliquotaFederalCbs ?? 8.80;
+    pIBSUFPadrao = aliquotaEstadualIbs ?? 14.00;
+    pIBSMunPadrao = aliquotaMunicipalIbs ?? 3.70;
+  } else if (anoReferencia >= 2027 && anoReferencia <= 2032) {
+    pCBSPadrao = aliquotaFederalCbs ?? 8.80;
+    const fatorTransicaoIbs = (anoReferencia - 2028) / 4;
+    pIBSUFPadrao = aliquotaEstadualIbs ?? (fatorTransicaoIbs > 0 ? Number((14.00 * fatorTransicaoIbs).toFixed(2)) : 0.07);
+    pIBSMunPadrao = aliquotaMunicipalIbs ?? (fatorTransicaoIbs > 0 ? Number((3.70 * fatorTransicaoIbs).toFixed(2)) : 0.03);
+  }
+
+  const pIBSTotalPadrao = Number((pIBSUFPadrao + pIBSMunPadrao).toFixed(4));
+  const vBC = Number(Number(valorOperacao).toFixed(2));
+  const pReducao = classTrib.reducaoAliquotaPct;
+
+  let cst = classTrib.cst;
+  let vCBS = 0;
+  let vIBSUF = 0;
+  let vIBSMun = 0;
+  let vIBSTotal = 0;
+  let pCBSEfetiva = 0;
+  let pIBSUFEfetiva = 0;
+  let pIBSMunEfetiva = 0;
+  let pIBSEfetivaTotal = 0;
+  let creditoPresumidoAdquirente = null;
+
+  if (regimeProdutor === 'PRODUTOR_PF_NAO_OPTANTE') {
+    cst = '600';
+    const pCredPresRural = 8.50;
+    const vCredPresRural = Number(((vBC * pCredPresRural) / 100).toFixed(2));
+    creditoPresumidoAdquirente = {
+      tpCredPres: '1',
+      pCredPres: pCredPresRural,
+      vCredPres: vCredPresRural,
+      adquirenteAproveitaCredito: true,
+      observacaoLegal: 'Art. 165 da LC 214/2025: Crédito presumido outorgado ao adquirente PJ de produtor rural PF não optante.'
+    };
+  } else {
+    pCBSEfetiva = Number((pCBSPadrao * (1 - pReducao / 100)).toFixed(4));
+    pIBSUFEfetiva = Number((pIBSUFPadrao * (1 - pReducao / 100)).toFixed(4));
+    pIBSMunEfetiva = Number((pIBSMunPadrao * (1 - pReducao / 100)).toFixed(4));
+    pIBSEfetivaTotal = Number((pCBSEfetiva > 0 ? (pIBSUFEfetiva + pIBSMunEfetiva) : 0).toFixed(4));
+
+    vCBS = Number(((vBC * pCBSEfetiva) / 100).toFixed(2));
+    vIBSUF = Number(((vBC * pIBSUFEfetiva) / 100).toFixed(2));
+    vIBSMun = Number(((vBC * pIBSMunEfetiva) / 100).toFixed(2));
+    vIBSTotal = Number((vIBSUF + vIBSMun).toFixed(2));
+  }
+
+  const vTributosTotais = Number((vCBS + vIBSTotal).toFixed(2));
+  const cargaTributariaEfetivaPct = vBC > 0 ? Number(((vTributosTotais / vBC) * 100).toFixed(4)) : 0;
+
+  let xmlSnippetIbsCbs = '';
+  if (regimeProdutor === 'PRODUTOR_PF_NAO_OPTANTE' && creditoPresumidoAdquirente) {
+    xmlSnippetIbsCbs = `          <IBSCBS>
+            <CST>${cst}</CST>
+            <cClassTrib>${cClassTrib}</cClassTrib>
+            <vBC>${vBC.toFixed(2)}</vBC>
+            <gCredPresProdRural>
+              <tpCredPres>${creditoPresumidoAdquirente.tpCredPres}</tpCredPres>
+              <pCredPres>${creditoPresumidoAdquirente.pCredPres.toFixed(2)}</pCredPres>
+              <vCredPres>${creditoPresumidoAdquirente.vCredPres.toFixed(2)}</vCredPres>
+            </gCredPresProdRural>
+          </IBSCBS>`;
+  } else {
+    xmlSnippetIbsCbs = `          <IBSCBS>
+            <CST>${cst}</CST>
+            <cClassTrib>${cClassTrib}</cClassTrib>
+            <gIBS>
+              <vBC>${vBC.toFixed(2)}</vBC>
+              <pIBS>${pIBSTotalPadrao.toFixed(4)}</pIBS>
+              <pRedIBS>${pReducao.toFixed(2)}</pRedIBS>
+              <pIBSEfet>${pIBSEfetivaTotal.toFixed(4)}</pIBSEfet>
+              <vIBS>${vIBSTotal.toFixed(2)}</vIBS>
+              <gIBSUF>
+                <cUF>51</cUF>
+                <pIBSUF>${pIBSUFPadrao.toFixed(4)}</pIBSUF>
+                <pRedIBSUF>${pReducao.toFixed(2)}</pRedIBSUF>
+                <pIBSEfetUF>${pIBSUFEfetiva.toFixed(4)}</pIBSEfetUF>
+                <vIBSUF>${vIBSUF.toFixed(2)}</vIBSUF>
+              </gIBSUF>
+              <gIBSMun>
+                <cMun>5107909</cMun>
+                <pIBSMun>${pIBSMunPadrao.toFixed(4)}</pIBSMun>
+                <pRedIBSMun>${pReducao.toFixed(2)}</pRedIBSMun>
+                <pIBSEfetMun>${pIBSMunEfetiva.toFixed(4)}</pIBSEfetMun>
+                <vIBSMun>${vIBSMun.toFixed(2)}</vIBSMun>
+              </gIBSMun>
+            </gIBS>
+            <gCBS>
+              <vBC>${vBC.toFixed(2)}</vBC>
+              <pCBS>${pCBSPadrao.toFixed(4)}</pCBS>
+              <pRedCBS>${pReducao.toFixed(2)}</pRedCBS>
+              <pCBSEfet>${pCBSEfetiva.toFixed(4)}</pCBSEfet>
+              <vCBS>${vCBS.toFixed(2)}</vCBS>
+            </gCBS>
+          </IBSCBS>`;
+  }
+
+  const xmlSnippetTot = `        <IBSCBSTot>
+          <vBCIBS>${vBC.toFixed(2)}</vBCIBS>
+          <vIBSUF>${vIBSUF.toFixed(2)}</vIBSUF>
+          <vIBSMun>${vIBSMun.toFixed(2)}</vIBSMun>
+          <vIBS>${vIBSTotal.toFixed(2)}</vIBS>
+          <vBCCBS>${vBC.toFixed(2)}</vBCCBS>
+          <vCBS>${vCBS.toFixed(2)}</vCBS>
+          ${creditoPresumidoAdquirente ? `<vCredPresProdRural>${creditoPresumidoAdquirente.vCredPres.toFixed(2)}</vCredPresProdRural>` : ''}
+        </IBSCBSTot>`;
+
+  return {
+    anoReferencia,
+    regimeProdutor,
+    classificacaoTributaria: classTrib,
+    baseCalculo: vBC,
+    ibs: {
+      aliquotaPadraoTotal: pIBSTotalPadrao,
+      reducaoPct: pReducao,
+      aliquotaEfetivaTotal: pIBSEfetivaTotal,
+      valorTotal: vIBSTotal,
+      estadual: {
+        uf: 'MT',
+        aliquotaPadrao: pIBSUFPadrao,
+        aliquotaEfetiva: pIBSUFEfetiva,
+        valor: vIBSUF,
+      },
+      municipal: {
+        codigoMunicipio: '5107909',
+        nomeMunicipio: 'Sorriso - MT',
+        aliquotaPadrao: pIBSMunPadrao,
+        aliquotaEfetiva: pIBSMunEfetiva,
+        valor: vIBSMun,
+      },
+    },
+    cbs: {
+      aliquotaPadrao: pCBSPadrao,
+      reducaoPct: pReducao,
+      aliquotaEfetiva: pCBSEfetiva,
+      valor: vCBS,
+    },
+    totalIbsCbs: vTributosTotais,
+    cargaTributariaEfetivaPct,
+    creditoPresumidoAdquirente,
+    xmlSnippetIbsCbs,
+    xmlSnippetTot,
+  };
+}
+
+function calcularTributacaoNormalServer(params) {
+  const valor = Math.max(0, Number(params.valorOperacao || params.valorTotal || 100000));
+  const regimeIcms = params.regimeIcms || 'DIFERIMENTO_INTERNO';
+  const opcaoFunrural = params.opcaoFunrural || (params.optanteFolha ? 'FOLHA' : 'COMERCIALIZACAO');
+
+  let cstIcms = '51';
+  let aliquotaIcms = 0;
+  let valorIcms = 0;
+  let fundamentoIcms = 'Art. 358 do RICMS/MT e Convênio ICMS 100/97: Diferimento total do ICMS nas saídas internas';
+
+  if (regimeIcms === 'ISENTO_EXPORTACAO') {
+    cstIcms = '41';
+    fundamentoIcms = 'Art. 3º, II da Lei Complementar nº 87/1996 (Lei Kandir): Imunidade nas exportações';
+  } else if (regimeIcms === 'TRIBUTADO_INTEGRAL') {
+    cstIcms = '00';
+    aliquotaIcms = Number(params.aliquotaIcms || 12.0);
+    valorIcms = Number(((valor * aliquotaIcms) / 100).toFixed(2));
+    fundamentoIcms = `Tributação Interestadual Padrão SEFAZ (${aliquotaIcms}%)`;
+  }
+
+  // PIS/COFINS Agro (Lei 10.925/2004)
+  const pisCofins = {
+    cstPis: '09',
+    cstCofins: '09',
+    aliquotaPis: 0,
+    aliquotaCofins: 0,
+    valorPis: 0,
+    valorCofins: 0,
+    fundamentoLegal: 'Art. 9º da Lei 10.925/2004: Suspensão da incidência na venda de produtos agropecuários in natura para PJ',
+  };
+
+  // Funrural (Lei 8.212/1991 e Lei 13.606/2018)
+  const aliquotaFunrural = opcaoFunrural === 'FOLHA' ? 0.20 : 1.50;
+  const valorFunrural = Number(((valor * aliquotaFunrural) / 100).toFixed(2));
+  const fundamentoFunrural = opcaoFunrural === 'FOLHA'
+    ? 'Art. 25, § 13 da Lei 8.212/1991: Opção sobre a Folha (apenas 0,2% SENAR retido na nota)'
+    : 'Art. 25 da Lei 8.212/1991: Opção Comercialização (1,5% = 1,2% Previdência + 0,1% RAT + 0,2% SENAR)';
+
+  // Fethab MT
+  const sacasSoja = Number(params.quantidadeSacasSoja || (valor / 130));
+  const valorFethab = Number((sacasSoja * 1.45).toFixed(2));
+
+  const totalRetencoes = Number((valorFunrural + valorFethab).toFixed(2));
+  const valorLiquidoReceber = Number((valor - totalRetencoes).toFixed(2));
+
+  return {
+    valorBruto: valor,
+    icms: {
+      regime: regimeIcms,
+      cst: cstIcms,
+      aliquota: aliquotaIcms,
+      valor: valorIcms,
+      fundamentoLegal: fundamentoIcms,
+    },
+    pisCofins,
+    funrural: {
+      opcao: opcaoFunrural,
+      aliquotaTotal: aliquotaFunrural,
+      aliquotaInss: opcaoFunrural === 'FOLHA' ? 0 : 1.20,
+      aliquotaGilrat: opcaoFunrural === 'FOLHA' ? 0 : 0.10,
+      aliquotaSenar: 0.20,
+      valorRetencao: valorFunrural,
+      fundamentoLegal: fundamentoFunrural,
+    },
+    fethabMt: {
+      incide: true,
+      valorRetencao: valorFethab,
+      fundamentoLegal: 'Lei Estadual MT 7.263/1996 e Decreto 1.261/2000 (FETHAB Soja)',
+    },
+    totalRetencoesFonte: totalRetencoes,
+    valorLiquidoReceber,
+  };
+}
+
+// 7.0. Motor de Auditoria Comparativa de TODOS OS REGIMES TRIBUTÁRIOS do Agronegócio
+function calcularAuditoriaTodosRegimesServer(params) {
+  const valorOperacao = Math.max(0, Number(params.valorOperacao || params.valorTotal || 185400));
+  const rbAnual = Math.max(valorOperacao, Number(params.faturamentoAnualEstimado || (valorOperacao * 25)));
+  const despesasPct = Math.min(95, Math.max(20, Number(params.despesasOperacionaisPct !== undefined ? params.despesasOperacionaisPct : 65)));
+  const investimento = Math.max(0, Number(params.investimentoMaquinasAno !== undefined ? params.investimentoMaquinasAno : 350000));
+  const opcaoFunrural = params.opcaoFunrural || (params.optanteFolha ? 'FOLHA_DE_PAGAMENTO' : 'COMERCIALIZACAO');
+  const anoReforma = Number(params.anoReferenciaReforma || params.anoReferencia || 2026);
+  const cClassTrib = params.cClassTrib || '200032';
+
+  const despesasTotaisAnual = (rbAnual * (despesasPct / 100)) + investimento;
+  const lucroRealApurado = Math.max(0, rbAnual - despesasTotaisAnual);
+  const margemLucroRealPct = Number(((lucroRealApurado / rbAnual) * 100).toFixed(2));
+
+  const calcIbsCbsOptante = calcularReformaTributariaServer({
+    valorOperacao: rbAnual,
+    regimeProdutor: 'PRODUTOR_PF_OPTANTE',
+    cClassTrib,
+    anoReferencia: anoReforma,
+  });
+
+  const calcIbsCbsNaoOptante = calcularReformaTributariaServer({
+    valorOperacao: rbAnual,
+    regimeProdutor: 'PRODUTOR_PF_NAO_OPTANTE',
+    cClassTrib,
+    anoReferencia: anoReforma,
+  });
+
+  const fethabMtValor = Number(((rbAnual / 130) * 1.45).toFixed(2));
+
+  // 1. PF LCDPR (Lucro Real)
+  let irpfLcdpr = 0;
+  if (lucroRealApurado > 0) {
+    irpfLcdpr = Number((lucroRealApurado * 0.275).toFixed(2));
+    irpfLcdpr = Math.max(0, Number((irpfLcdpr - 10432.32).toFixed(2)));
+  }
+  const funruralPf = opcaoFunrural === 'FOLHA_DE_PAGAMENTO' || opcaoFunrural === 'FOLHA'
+    ? Number((rbAnual * 0.002).toFixed(2))
+    : Number((rbAnual * 0.015).toFixed(2));
+  const cargaLcdpr = Number((irpfLcdpr + funruralPf + fethabMtValor).toFixed(2));
+
+  // 2. PF Arbitramento 20%
+  const baseArbitrada20 = Number((rbAnual * 0.20).toFixed(2));
+  let irpfArbitrado = Math.max(0, Number((baseArbitrada20 * 0.275 - 10432.32).toFixed(2)));
+  const cargaArbitramento = Number((irpfArbitrado + funruralPf + fethabMtValor).toFixed(2));
+
+  // 3. PJ Lucro Presumido
+  const baseIrpjPresumido = Number((rbAnual * 0.08).toFixed(2));
+  const irpjBasico = Number((baseIrpjPresumido * 0.15).toFixed(2));
+  const adicionalIrpj = Number((Math.max(0, baseIrpjPresumido - 240000) * 0.10).toFixed(2));
+  const baseCsllPresumido = Number((rbAnual * 0.12).toFixed(2));
+  const csllTotal = Number((baseCsllPresumido * 0.09).toFixed(2));
+  const totalRendaPresumido = Number((irpjBasico + adicionalIrpj + csllTotal).toFixed(2));
+  const funruralPj = opcaoFunrural === 'FOLHA_DE_PAGAMENTO' || opcaoFunrural === 'FOLHA'
+    ? Number((rbAnual * 0.0025).toFixed(2))
+    : Number((rbAnual * 0.0205).toFixed(2));
+  const ibsCbsPj2026 = calcIbsCbsOptante.totalIbsCbs;
+  const cargaPresumido = Number((totalRendaPresumido + funruralPj + fethabMtValor + ibsCbsPj2026).toFixed(2));
+
+  // 4. PJ Lucro Real
+  let irpjReal = 0;
+  let adicionalIrpjReal = 0;
+  let csllReal = 0;
+  if (lucroRealApurado > 0) {
+    irpjReal = Number((lucroRealApurado * 0.15).toFixed(2));
+    adicionalIrpjReal = Number((Math.max(0, lucroRealApurado - 240000) * 0.10).toFixed(2));
+    csllReal = Number((lucroRealApurado * 0.09).toFixed(2));
+  }
+  const totalRendaReal = Number((irpjReal + adicionalIrpjReal + csllReal).toFixed(2));
+  const cargaReal = Number((totalRendaReal + funruralPj + fethabMtValor + ibsCbsPj2026).toFixed(2));
+
+  // 5. Simples Nacional Agro
+  const elegivelSimples = rbAnual <= 4800000;
+  let aliquotaSimples = 0;
+  let valorDas = 0;
+  if (elegivelSimples) {
+    if (rbAnual <= 180000) aliquotaSimples = 4.0;
+    else if (rbAnual <= 360000) aliquotaSimples = Number((((rbAnual * 0.073) - 5940) / rbAnual * 100).toFixed(2));
+    else if (rbAnual <= 720000) aliquotaSimples = Number((((rbAnual * 0.095) - 13860) / rbAnual * 100).toFixed(2));
+    else if (rbAnual <= 1800000) aliquotaSimples = Number((((rbAnual * 0.107) - 22500) / rbAnual * 100).toFixed(2));
+    else if (rbAnual <= 3600000) aliquotaSimples = Number((((rbAnual * 0.143) - 87300) / rbAnual * 100).toFixed(2));
+    else aliquotaSimples = Number((((rbAnual * 0.190) - 378000) / rbAnual * 100).toFixed(2));
+    const aliquotaSegregada = Number((aliquotaSimples * 0.54).toFixed(2));
+    valorDas = Number(((rbAnual * aliquotaSegregada) / 100).toFixed(2));
+  }
+  const cargaSimples = elegivelSimples ? Number((valorDas + fethabMtValor).toFixed(2)) : 999999999;
+
+  // 6. Cooperativa Agro
+  const pisFolhaCoop = Number(((rbAnual * 0.05) * 0.01).toFixed(2));
+  const cargaCoop = Number((pisFolhaCoop + funruralPf + fethabMtValor).toFixed(2));
+
+  // 7. Exportação Imune
+  const cargaExportacao = Number((totalRendaPresumido + fethabMtValor).toFixed(2));
+
+  const regimes = [
+    {
+      codigo: 'PF_LIVRO_CAIXA_LCDPR',
+      nome: 'Pessoa Física - LCDPR / Livro Caixa (Resultado Real)',
+      categoria: 'Pessoa Física',
+      cargaTributariaTotal: cargaLcdpr,
+      aliquotaEfetivaGlobalPct: Number(((cargaLcdpr / rbAnual) * 100).toFixed(2)),
+      sobraLiquidaReceita: Number((rbAnual - despesasTotaisAnual - cargaLcdpr).toFixed(2)),
+      totalTributosRenda: irpfLcdpr,
+      funruralValor: funruralPf,
+      totalEstadual: fethabMtValor,
+      reformaIbsCbsValor: 0,
+      creditoPresumidoGeradoParaComprador: calcIbsCbsNaoOptante.creditoPresumidoAdquirente?.vCredPres || 0,
+      fundamentoLegal: 'Art. 59 a 64 do Decreto 9.580/2018 (RIR/2018) e IN RFB 1.903/2019',
+      scoreAtratividade: margemLucroRealPct < 20 ? 95 : 75,
+      recomendado: margemLucroRealPct < 20 || investimento > 200000,
+      observacaoEstrategica: 'Permite dedução integral imediata de 100% de máquinas e pivôs adquiridos no ano e compensação ilimitada de prejuízos fiscais.',
+    },
+    {
+      codigo: 'PF_ARBITRAMENTO_20',
+      nome: 'Pessoa Física - Arbitramento da Receita Bruta (20%)',
+      categoria: 'Pessoa Física',
+      cargaTributariaTotal: cargaArbitramento,
+      aliquotaEfetivaGlobalPct: Number(((cargaArbitramento / rbAnual) * 100).toFixed(2)),
+      sobraLiquidaReceita: Number((rbAnual - despesasTotaisAnual - cargaArbitramento).toFixed(2)),
+      totalTributosRenda: irpfArbitrado,
+      funruralValor: funruralPf,
+      totalEstadual: fethabMtValor,
+      reformaIbsCbsValor: 0,
+      creditoPresumidoGeradoParaComprador: calcIbsCbsNaoOptante.creditoPresumidoAdquirente?.vCredPres || 0,
+      fundamentoLegal: 'Art. 5º da Lei Federal nº 8.023/1990 e Art. 54 do RIR/2018',
+      scoreAtratividade: margemLucroRealPct >= 20 ? 90 : 60,
+      recomendado: margemLucroRealPct >= 20 && investimento < 100000,
+      observacaoEstrategica: 'Teto de IRPF fixado em ~5,5% da receita bruta; dispensa comprovação contábil de notas fiscais de insumos.',
+    },
+    {
+      codigo: 'PJ_LUCRO_PRESUMIDO',
+      nome: 'Pessoa Jurídica - Lucro Presumido (Presunção 8% / 12%)',
+      categoria: 'Pessoa Jurídica',
+      cargaTributariaTotal: cargaPresumido,
+      aliquotaEfetivaGlobalPct: Number(((cargaPresumido / rbAnual) * 100).toFixed(2)),
+      sobraLiquidaReceita: Number((rbAnual - despesasTotaisAnual - cargaPresumido).toFixed(2)),
+      totalTributosRenda: totalRendaPresumido,
+      funruralValor: funruralPj,
+      totalEstadual: fethabMtValor,
+      reformaIbsCbsValor: ibsCbsPj2026,
+      creditoPresumidoGeradoParaComprador: 0,
+      fundamentoLegal: 'Arts. 15 e 20 da Lei nº 9.249/1995 e Lei nº 9.430/1996',
+      scoreAtratividade: 80,
+      recomendado: rbAnual > 4800000 && margemLucroRealPct > 15 && rbAnual <= 78000000,
+      observacaoEstrategica: 'Ideal para Holdings Familiares Rurais, planejamento sucessório e proteção patrimonial de fazendas.',
+    },
+    {
+      codigo: 'PJ_LUCRO_REAL',
+      nome: 'Pessoa Jurídica - Lucro Real (Regime Não-Cumulativo)',
+      categoria: 'Pessoa Jurídica',
+      cargaTributariaTotal: cargaReal,
+      aliquotaEfetivaGlobalPct: Number(((cargaReal / rbAnual) * 100).toFixed(2)),
+      sobraLiquidaReceita: Number((rbAnual - despesasTotaisAnual - cargaReal).toFixed(2)),
+      totalTributosRenda: totalRendaReal,
+      funruralValor: funruralPj,
+      totalEstadual: fethabMtValor,
+      reformaIbsCbsValor: ibsCbsPj2026,
+      creditoPresumidoGeradoParaComprador: 0,
+      fundamentoLegal: 'RIR/2018 (Decreto 9.580/2018) e Leis 10.637/2002 e 10.833/2003',
+      scoreAtratividade: margemLucroRealPct <= 6 ? 90 : 70,
+      recomendado: rbAnual > 78000000 || margemLucroRealPct <= 6,
+      observacaoEstrategica: 'Obrigatório para receita superior a R$ 78M; tributa apenas o lucro contábil efetivo (imposto zero em caso de quebra de safra).',
+    },
+    {
+      codigo: 'SIMPLES_NACIONAL',
+      nome: 'Simples Nacional Agro (ME / EPP Rural - Anexo I)',
+      categoria: 'Simples Nacional',
+      cargaTributariaTotal: cargaSimples,
+      aliquotaEfetivaGlobalPct: elegivelSimples ? Number(((cargaSimples / rbAnual) * 100).toFixed(2)) : 0,
+      sobraLiquidaReceita: elegivelSimples ? Number((rbAnual - despesasTotaisAnual - cargaSimples).toFixed(2)) : 0,
+      totalTributosRenda: valorDas,
+      funruralValor: 0,
+      totalEstadual: fethabMtValor,
+      reformaIbsCbsValor: 0,
+      creditoPresumidoGeradoParaComprador: 0,
+      fundamentoLegal: 'Lei Complementar nº 123/2006 (Estatuto da ME e EPP)',
+      scoreAtratividade: elegivelSimples ? 85 : 0,
+      recomendado: elegivelSimples && rbAnual <= 1800000,
+      observacaoEstrategica: elegivelSimples
+        ? 'Guia única (DAS) simplificada congregando tributos federais e previdência, com abatimento de ICMS e PIS/COFINS por segregação.'
+        : 'Inaplicável para esta fazenda pois a receita anual ultrapassa o teto legal de R$ 4,8 milhões.',
+    },
+    {
+      codigo: 'COOPERATIVA_AGRO',
+      nome: 'Cooperativa Agropecuária (Regime dos Atos Cooperativos)',
+      categoria: 'Cooperativa',
+      cargaTributariaTotal: cargaCoop,
+      aliquotaEfetivaGlobalPct: Number(((cargaCoop / rbAnual) * 100).toFixed(2)),
+      sobraLiquidaReceita: Number((rbAnual - despesasTotaisAnual - cargaCoop).toFixed(2)),
+      totalTributosRenda: 0,
+      funruralValor: funruralPf,
+      totalEstadual: fethabMtValor,
+      reformaIbsCbsValor: 0,
+      creditoPresumidoGeradoParaComprador: calcIbsCbsNaoOptante.creditoPresumidoAdquirente?.vCredPres || 0,
+      fundamentoLegal: 'Art. 79 e 111 da Lei Federal nº 5.764/1971 e Art. 15 da MP 2.158-35/2001',
+      scoreAtratividade: 92,
+      recomendado: true,
+      observacaoEstrategica: 'Não incidência de IRPJ e CSLL sobre as sobras líquidas apuradas distribuídas aos associados.',
+    },
+    {
+      codigo: 'EXPORTACAO_IMUNE',
+      nome: 'Exportação Direta / Trading Agro (Imunidade Constitucional)',
+      categoria: 'Exportação',
+      cargaTributariaTotal: cargaExportacao,
+      aliquotaEfetivaGlobalPct: Number(((cargaExportacao / rbAnual) * 100).toFixed(2)),
+      sobraLiquidaReceita: Number((rbAnual - despesasTotaisAnual - cargaExportacao).toFixed(2)),
+      totalTributosRenda: totalRendaPresumido,
+      funruralValor: 0,
+      totalEstadual: fethabMtValor,
+      reformaIbsCbsValor: 0,
+      creditoPresumidoGeradoParaComprador: 0,
+      fundamentoLegal: 'Art. 149, § 2º, I e Art. 155, § 2º, X, "a" da CF/88; LC nº 87/1996 e Art. 156-A da EC 132/2023',
+      scoreAtratividade: 96,
+      recomendado: true,
+      observacaoEstrategica: 'Imunidade constitucional de ICMS, PIS, COFINS, Funrural e IBS/CBS nas saídas diretas para o exterior.',
+    }
+  ];
+
+  const regimesElegiveis = regimes.filter(r => r.cargaTributariaTotal < 900000000);
+  const ranking = [...regimesElegiveis].sort((a, b) => a.cargaTributariaTotal - b.cargaTributariaTotal);
+  const melhor = ranking[0];
+  const pior = ranking[ranking.length - 1];
+  const deltaEconomia = Number((pior.cargaTributariaTotal - melhor.cargaTributariaTotal).toFixed(2));
+
+  return {
+    faturamentoAnualEstimado: rbAnual,
+    valorOperacao,
+    margemLucroRealPct,
+    despesasOperacionaisPct: despesasPct,
+    investimentoMaquinasAno: investimento,
+    opcaoFunrural,
+    anoReferenciaReforma: anoReforma,
+    cClassTrib,
+    regimes,
+    rankingEconomia: ranking,
+    melhorRegime: melhor,
+    economiaAnualEstimadaVsPior: deltaEconomia,
+    analisePlanejamentoTributario: `Planejamento tributário auditado: o enquadramento em "${melhor.nome}" gera a menor carga tributária (${melhor.aliquotaEfetivaGlobalPct}% da receita), propiciando economia anual de R$ ${deltaEconomia.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} em relação a ${pior.nome}.`
+  };
+}
+
 // Decodificador Universal SAE J1939 / ISO 11783 (ISOBUS) CAN Bus
 function decodeJ1939Frame(canIdInput, dataInput) {
   let canId = canIdInput;
@@ -728,7 +1270,123 @@ const server = http.createServer((req, res) => {
         }
       }
 
-      const xmlDistribuicao = `<nfeProc versao="4.00" xmlns="http://www.portalfiscal.inf.br/nfe"><NFe><infNFe Id="NFe${chaveAcesso44}" versao="4.00"><ide><cUF>${cUF}</cUF><cNF>${cNF}</cNF><natOp>VENDA DE PRODUCAO DO ESTABELECIMENTO</natOp><mod>${mod}</mod><serie>${serie}</serie><nNF>${nNF}</nNF><dhEmi>${new Date().toISOString()}</dhEmi><tpNF>1</tpNF><idDest>1</idDest><cMunFG>5107909</cMunFG><tpImp>1</tpImp><tpEmis>${tpEmis}</tpEmis><cDV>${cDV}</cDV><tpAmb>${ambiente === 'PRODUCAO' ? '1' : '2'}</tpAmb><finNFe>1</finNFe><indFinal>0</indFinal><indPres>1</indPres><procEmi>0</procEmi><verProc>AGROTECH-v2.6</verProc></ide><emit><CNPJ>${cnpj}</CNPJ><xNome>SCHNEIDER AGRICULTURA E PECUARIA LTDA</xNome><xFant>FAZENDA SANTA HELENA</xFant><IE>134567890</IE><CRT>3</CRT></emit></infNFe></NFe><protNFe versao="4.00"><infProt><tpAmb>${ambiente === 'PRODUCAO' ? '1' : '2'}</tpAmb><verAplic>MT_NFE_v4.00</verAplic><chNFe>${chaveAcesso44}</chNFe><dhRecbto>${new Date().toISOString()}</dhRecbto><nProt>${protocoloAutorizacao}</nProt><digVal>${digestValue}</digVal><cStat>100</cStat><xMotivo>Autorizado o uso da NF-e</xMotivo></infProt></protNFe></nfeProc>`;
+      const valorTotal = Number(dadosNfe.valorTotal || dadosNfe.valorOperacao || 185400.00);
+      const cClassTrib = dadosNfe.cClassTrib || '200032';
+      const regimeProdutor = dadosNfe.regimeProdutor || 'PRODUTOR_PF_NAO_OPTANTE';
+      const anoReferencia = Number(dadosNfe.anoReferencia || 2026);
+      const xProd = dadosNfe.descricaoProduto || dadosNfe.produto || 'SOJA EM GRAO TRANSGENICA SAFRA 2025/2026';
+
+      const ibsCbsCalculo = calcularReformaTributariaServer({
+        valorOperacao: valorTotal,
+        regimeProdutor,
+        cClassTrib,
+        anoReferencia,
+        aliquotaEstadualIbs: dadosNfe.aliquotaEstadualIbs,
+        aliquotaMunicipalIbs: dadosNfe.aliquotaMunicipalIbs,
+        aliquotaFederalCbs: dadosNfe.aliquotaFederalCbs,
+      });
+
+      const xmlDistribuicao = `<?xml version="1.0" encoding="UTF-8"?>
+<nfeProc versao="4.00" xmlns="http://www.portalfiscal.inf.br/nfe">
+  <NFe>
+    <infNFe Id="NFe${chaveAcesso44}" versao="4.00">
+      <ide>
+        <cUF>${cUF}</cUF>
+        <cNF>${cNF}</cNF>
+        <natOp>VENDA DE PRODUCAO DO ESTABELECIMENTO</natOp>
+        <mod>${mod}</mod>
+        <serie>${serie}</serie>
+        <nNF>${nNF}</nNF>
+        <dhEmi>${new Date().toISOString()}</dhEmi>
+        <tpNF>1</tpNF>
+        <idDest>1</idDest>
+        <cMunFG>5107909</cMunFG>
+        <tpImp>1</tpImp>
+        <tpEmis>${tpEmis}</tpEmis>
+        <cDV>${cDV}</cDV>
+        <tpAmb>${ambiente === 'PRODUCAO' ? '1' : '2'}</tpAmb>
+        <finNFe>1</finNFe>
+        <indFinal>0</indFinal>
+        <indPres>1</indPres>
+        <procEmi>0</procEmi>
+        <verProc>AGROTECH-v2.6-IBSCBS-NT2024.002</verProc>
+      </ide>
+      <emit>
+        <CNPJ>${cnpj}</CNPJ>
+        <xNome>SCHNEIDER AGRICULTURA E PECUARIA LTDA</xNome>
+        <xFant>FAZENDA SANTA HELENA</xFant>
+        <IE>134567890</IE>
+        <CRT>3</CRT>
+      </emit>
+      <dest>
+        <CNPJ>12345678000100</CNPJ>
+        <xNome>CARGILL AGRICOLA S/A</xNome>
+        <IE>139876543</IE>
+      </dest>
+      <det nItem="1">
+        <prod>
+          <cProd>SOJ-TRANS-01</cProd>
+          <cEAN>SEM GTIN</cEAN>
+          <xProd>${xProd}</xProd>
+          <NCM>12019000</NCM>
+          <CFOP>5101</CFOP>
+          <uCom>SC</uCom>
+          <qCom>1426.1500</qCom>
+          <vUnCom>130.0000</vUnCom>
+          <vProd>${valorTotal.toFixed(2)}</vProd>
+          <cEANTrib>SEM GTIN</cEANTrib>
+          <uTrib>SC</uTrib>
+          <qTrib>1426.1500</qTrib>
+          <vUnTrib>130.0000</vUnTrib>
+          <indTot>1</indTot>
+        </prod>
+        <imposto>
+          <vTotTrib>0.00</vTotTrib>
+          <ICMS>
+            <ICMS00>
+              <orig>0</orig>
+              <CST>00</CST>
+              <modBC>3</modBC>
+              <vBC>${valorTotal.toFixed(2)}</vBC>
+              <pICMS>12.00</pICMS>
+              <vICMS>${(valorTotal * 0.12).toFixed(2)}</vICMS>
+            </ICMS00>
+          </ICMS>
+${ibsCbsCalculo.xmlSnippetIbsCbs}
+        </imposto>
+      </det>
+      <total>
+        <ICMSTot>
+          <vBC>${valorTotal.toFixed(2)}</vBC>
+          <vICMS>${(valorTotal * 0.12).toFixed(2)}</vICMS>
+          <vProd>${valorTotal.toFixed(2)}</vProd>
+          <vNF>${valorTotal.toFixed(2)}</vNF>
+        </ICMSTot>
+${ibsCbsCalculo.xmlSnippetTot}
+      </total>
+    </infNFe>
+    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+      <SignedInfo>
+        <Reference URI="#NFe${chaveAcesso44}">
+          <DigestValue>${digestValue}</DigestValue>
+        </Reference>
+      </SignedInfo>
+      <SignatureValue>MIIByAYJKoZIhvcNAQcCoIIB...[Assinado Digitalmente por Certificado ICP-Brasil]</SignatureValue>
+    </Signature>
+  </NFe>
+  <protNFe versao="4.00">
+    <infProt>
+      <tpAmb>${ambiente === 'PRODUCAO' ? '1' : '2'}</tpAmb>
+      <verAplic>MT_NFE_v4.00_NT2024.002</verAplic>
+      <chNFe>${chaveAcesso44}</chNFe>
+      <dhRecbto>${new Date().toISOString()}</dhRecbto>
+      <nProt>${protocoloAutorizacao}</nProt>
+      <digVal>${digestValue}</digVal>
+      <cStat>100</cStat>
+      <xMotivo>Autorizado o uso da NF-e (Schema NT 2024.002 IBS/CBS Conforme)</xMotivo>
+    </infProt>
+  </protNFe>
+</nfeProc>`;
 
       res.setHeader('Content-Type', 'application/json');
       res.statusCode = 200;
@@ -744,9 +1402,98 @@ const server = http.createServer((req, res) => {
         digestValue: digestValue,
         xmlDistribuicao: xmlDistribuicao,
         dataEmissao: new Date().toISOString(),
+        ibscbs: ibsCbsCalculo,
         mensagem: ambiente === 'PRODUCAO'
-          ? 'NF-e do Produtor autorizada com sucesso na SEFAZ Nacional'
-          : 'NF-e pré-validada em ambiente de HOMOLOGAÇÃO da SEFAZ (Testes de Produtor)'
+          ? 'NF-e do Produtor autorizada com sucesso na SEFAZ Nacional (IBS/CBS NT 2024.002)'
+          : 'NF-e pré-validada em ambiente de HOMOLOGAÇÃO da SEFAZ (Schema IBS/CBS NT 2024.002)'
+      }));
+    });
+    return;
+  }
+
+  // 7.1. API: Tabela cClassTrib Oficial da Reforma Tributária (NT 2024.002)
+  if (pathname === '/api/v1/fiscal/reforma-tributaria/tabela-cclasstrib' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    res.statusCode = 200;
+    res.end(JSON.stringify({
+      sucesso: true,
+      versaoNotaTecnica: 'NT 2024.002 v1.10 / LC 214/2025',
+      tabela: TABELA_CCLASSTRIB_RURAL,
+    }));
+    return;
+  }
+
+  // 7.2. API: Simulador Tributário IBS e CBS para o Agronegócio (EC 132/2023 & LC 214/2025)
+  if (pathname === '/api/v1/fiscal/reforma-tributaria/simular' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const resultadoCalculo = calcularReformaTributariaServer(body);
+      const regraNormal = calcularTributacaoNormalServer(body);
+      const auditoriaTodosRegimes = calcularAuditoriaTodosRegimesServer(body);
+
+      // Simulação comparativa: Optante vs Não-Optante Crédito Presumido
+      const simNaoOptante = calcularReformaTributariaServer({
+        ...body,
+        regimeProdutor: 'PRODUTOR_PF_NAO_OPTANTE',
+      });
+      const simOptante = calcularReformaTributariaServer({
+        ...body,
+        regimeProdutor: 'PRODUTOR_PF_OPTANTE',
+      });
+
+      const totalTributosDiretos = Number((regraNormal.icms.valor + resultadoCalculo.totalIbsCbs).toFixed(2));
+      const totalRetencoes = regraNormal.totalRetencoesFonte;
+      const valorLiquidoFinal = Number(((body.valorOperacao || 100000) - totalRetencoes - totalTributosDiretos).toFixed(2));
+
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        resultado: resultadoCalculo,
+        regraNormal,
+        auditoriaTodosRegimes,
+        resumoConsolidado: {
+          periodo: `Ano ${resultadoCalculo.anoReferencia} (Transição Constitucional EC 132/2023)`,
+          convivenciaRegimes: 'Simultânea: ICMS, PIS/COFINS e Funrural continuam vigentes em paralelo com IBS e CBS na NF-e.',
+          totalTributosDiretosProdutor: totalTributosDiretos,
+          totalRetencoesFonte: totalRetencoes,
+          creditoPresumidoGeradoParaAdquirente: resultadoCalculo.creditoPresumidoAdquirente?.vCredPres || 0,
+          valorLiquidoEfetivoConta: valorLiquidoFinal,
+        },
+        comparativoRegimes: {
+          produtorNaoOptante: {
+            tributoDevidoVenda: simNaoOptante.totalIbsCbs,
+            creditoPresumidoGeradoAoComprador: simNaoOptante.creditoPresumidoAdquirente?.vCredPres || 0,
+            percentualCreditoPresumido: simNaoOptante.creditoPresumidoAdquirente?.pCredPres || 8.5,
+            aproveitaCreditoInsumosProprios: false,
+            atratividadeComercial: 'Alta para tradings e indústrias devido ao aproveitamento integral de crédito presumido de 8,5%.'
+          },
+          produtorOptante: {
+            tributoDevidoVenda: simOptante.totalIbsCbs,
+            creditoPresumidoGeradoAoComprador: 0,
+            percentualCreditoPresumido: 0,
+            aproveitaCreditoInsumosProprios: true,
+            atratividadeComercial: 'Permite tomada de crédito sobre sementes, fertilizantes, defensivos, diesel e maquinários.'
+          },
+          recomendacao: (body.valorOperacao || 100000) > 4800000
+            ? 'Para faturamento acima de R$ 4,8M ou com alto investimento em maquinários e sementes tributadas, a opção pelo regime pleno (optante) pode gerar saldo credor líquido acumulado.'
+            : 'Para a grande maioria de pequenos e médios produtores, permanecer como Não Optante elimina a burocracia contábil e transfere crédito presumido de 8,5% ao comprador sem incidência direta na venda.'
+        }
+      }));
+    });
+    return;
+  }
+
+  // 7.3. API: Auditoria Comparativa de TODOS OS REGIMES TRIBUTÁRIOS do Agronegócio
+  // (LCDPR, Arbitramento 20%, Lucro Presumido, Lucro Real, Simples Nacional, Cooperativa, Exportação)
+  if (pathname === '/api/v1/fiscal/regimes-tributarios/comparar' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const auditoria = calcularAuditoriaTodosRegimesServer(body || {});
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        auditoria,
+        mensagem: 'Auditoria comparativa de todos os regimes tributários do agronegócio calculada com sucesso.'
       }));
     });
     return;

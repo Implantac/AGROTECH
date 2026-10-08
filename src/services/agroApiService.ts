@@ -60,6 +60,8 @@ export interface NfeEmissaoResponse {
   protocolo?: string;
   digestValue?: string;
   dataEmissao?: string;
+  xmlDistribuicao?: string;
+  ibscbs?: any;
   mensagem: string;
   erro?: string;
   instrucao?: string;
@@ -283,6 +285,55 @@ class AgroApiService {
         erro: err?.message || 'Falha de rede'
       };
     }
+  }
+
+  /**
+  /**
+   * Consulta a tabela oficial de classificações tributárias cClassTrib (NT 2024.002 / LC 214/2025)
+   */
+  public async obterTabelaCClassTrib(): Promise<any> {
+    try {
+      const res = await fetch(`${this.baseUrl}/fiscal/reforma-tributaria/tabela-cclasstrib`);
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.warn('[AgroApiService.obterTabelaCClassTrib] Falha ao consultar tabela:', err);
+    }
+    return { sucesso: false, tabela: [] };
+  }
+
+  /**
+   * Simula a tributação de IBS e CBS com comparativo Optante vs Não-Optante (Crédito Presumido)
+   */
+  public async simularIbsCbs(params: any): Promise<any> {
+    try {
+      const res = await fetch(`${this.baseUrl}/fiscal/reforma-tributaria/simular`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(params),
+      });
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.warn('[AgroApiService.simularIbsCbs] Falha na simulação:', err);
+    }
+    return { sucesso: false, erro: 'Falha na comunicação com o motor tributário' };
+  }
+
+  /**
+   * Auditoria e Planejamento Tributário: Compara TODOS OS REGIMES TRIBUTÁRIOS do agronegócio
+   * (LCDPR, Arbitramento 20%, Lucro Presumido, Lucro Real, Simples Nacional, Cooperativa, Exportação)
+   */
+  public async consultarAuditoriaTodosRegimes(params: any): Promise<any> {
+    try {
+      const res = await fetch(`${this.baseUrl}/fiscal/regimes-tributarios/comparar`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(params),
+      });
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.warn('[AgroApiService.consultarAuditoriaTodosRegimes] Falha na consulta de regimes:', err);
+    }
+    return { sucesso: false, erro: 'Falha ao consultar auditoria de regimes tributários' };
   }
 
   /**
