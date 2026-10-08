@@ -99,17 +99,17 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/20">
             <Milk className="w-7 h-7 text-slate-950" />
           </div>
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-bold text-white tracking-tight">
+              <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
                 Caprinocultura Leiteira & Queijos Artesanais Maturados
               </h1>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-700 border border-amber-500/20">
                 Módulo 128 • Raças Saanen/Anglo & Cura em Câmara de Afinamento
               </span>
             </div>
@@ -132,25 +132,25 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Produção de Leite</span>
-            <Milk className="w-5 h-5 text-amber-400" />
+            <Milk className="w-5 h-5 text-amber-700" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             {(metricas.producaoTotalLeiteLitros / 1000).toFixed(1)}k Litros/ano
           </p>
-          <span className="text-xs text-amber-400 mt-1 block">
+          <span className="text-xs text-amber-700 mt-1 block">
             {producaoLeiteCabraDiaLitros} L/dia por cabra em lactação
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Queijo Produzido</span>
             <Scale className="w-5 h-5 text-orange-400" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             {(metricas.queijoProduzidoKg / 1000).toFixed(1)} toneladas
           </p>
           <span className="text-xs text-orange-400 mt-1 block">
@@ -158,12 +158,12 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Faturamento da Queijaria</span>
             <TrendingUp className="w-5 h-5 text-yellow-400" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             R$ {(metricas.faturamentoQueijoReais / 1000000).toFixed(2)}M
           </p>
           <span className="text-xs text-yellow-400 mt-1 block">
@@ -171,15 +171,15 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Margem Operacional</span>
-            <Award className="w-5 h-5 text-emerald-400" />
+            <Award className="w-5 h-5 text-emerald-700" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             {metricas.margemOperacionalPct}%
           </p>
-          <span className="text-xs text-emerald-400 mt-1 block">
+          <span className="text-xs text-emerald-700 mt-1 block">
             R$ {(metricas.lucroOperacionalReais / 1000000).toFixed(2)}M de lucro
           </span>
         </div>
@@ -191,8 +191,8 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
           onClick={() => setActiveTab('lotes')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'lotes'
-              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -203,8 +203,8 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
           onClick={() => setActiveTab('rebanho')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'rebanho'
-              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Heart className="w-4 h-4" />
@@ -215,8 +215,8 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
           onClick={() => setActiveTab('maturacao')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'maturacao'
-              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Sparkles className="w-4 h-4" />
@@ -227,8 +227,8 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
-              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -238,9 +238,9 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'lotes' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6 space-y-4">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
-            <Milk className="w-5 h-5 text-amber-400" />
+        <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-4 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
+            <Milk className="w-5 h-5 text-amber-700" />
             Lotes em Maturação na Queijaria Artesanal
           </h3>
 
@@ -257,17 +257,17 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
                   <th className="px-4 py-3">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-slate-100">
                 {lotes.map((l) => (
-                  <tr key={l.id} className="hover:bg-slate-800/30">
-                    <td className="px-4 py-3 font-semibold text-white">{l.lote}</td>
-                    <td className="px-4 py-3 text-amber-400 font-medium">{l.tipoQueijo}</td>
+                  <tr key={l.id} className="hover:bg-slate-50/80">
+                    <td className="px-4 py-3 font-semibold text-slate-900">{l.lote}</td>
+                    <td className="px-4 py-3 text-amber-700 font-medium">{l.tipoQueijo}</td>
                     <td className="px-4 py-3">{l.maturacaoDias} dias</td>
                     <td className="px-4 py-3">{l.rendimentoLitrosPorKg} L/kg</td>
-                    <td className="px-4 py-3 font-bold text-white">{l.estoquePecas} peças</td>
-                    <td className="px-4 py-3 font-bold text-emerald-400">R$ {l.precoUnitarioReais.toFixed(2)}</td>
+                    <td className="px-4 py-3 font-bold text-slate-900">{l.estoquePecas} peças</td>
+                    <td className="px-4 py-3 font-bold text-emerald-700">R$ {l.precoUnitarioReais.toFixed(2)}</td>
                     <td className="px-4 py-3">
-                      <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                      <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-700 border border-amber-500/20">
                         {l.status}
                       </span>
                     </td>
@@ -281,38 +281,38 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
 
       {activeTab === 'rebanho' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
-              <Heart className="w-5 h-5 text-rose-400" />
-              <h4 className="text-sm font-semibold text-white">Genética Leiteira Selecionada</h4>
+              <Heart className="w-5 h-5 text-rose-700" />
+              <h4 className="text-sm font-semibold text-slate-900">Genética Leiteira Selecionada</h4>
             </div>
             <p className="text-xs text-slate-600">
               Plantel composto por matrizes Saanen puras de origem e Anglo-Nubianas para elevação do teor de gordura e sólidos totais no leite.
             </p>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
               <span className="text-xs text-slate-600">Teor de Gordura:</span>
-              <span className="text-sm font-bold text-amber-400 block">3.8% a 4.2% de gordura</span>
+              <span className="text-sm font-bold text-amber-700 block">3.8% a 4.2% de gordura</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-              <h4 className="text-sm font-semibold text-white">Sanidade & Qualidade do Leite</h4>
+              <CheckCircle2 className="w-5 h-5 text-emerald-700" />
+              <h4 className="text-sm font-semibold text-slate-900">Sanidade & Qualidade do Leite</h4>
             </div>
             <p className="text-xs text-slate-600">
               Controle rigoroso de Linfadenite Caseosa e Artrite Encefalite Caprina (CAE) com Contagem de Células Somáticas (CCS) monitorada quinzenalmente.
             </p>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
               <span className="text-xs text-slate-600">CCS Média do Rebanho:</span>
-              <span className="text-sm font-bold text-emerald-400 block">inferior a 650.000 cél/ml</span>
+              <span className="text-sm font-bold text-emerald-700 block">inferior a 650.000 cél/ml</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
               <Sliders className="w-5 h-5 text-yellow-400" />
-              <h4 className="text-sm font-semibold text-white">Dieta de Alta Densidade</h4>
+              <h4 className="text-sm font-semibold text-slate-900">Dieta de Alta Densidade</h4>
             </div>
             <p className="text-xs text-slate-600">
               Fornecimento de feno de alfafa peletizado, silagem de milho grão úmido e suplementação mineral quelatada garantindo lactação contínua de 280 dias.
@@ -326,9 +326,9 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
       )}
 
       {activeTab === 'maturacao' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-amber-400" />
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-4 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-amber-700" />
             Câmara Fria Climatizada de Afinamento (12°C & 85% UR)
           </h3>
           <p className="text-sm text-slate-600">
@@ -338,7 +338,7 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">Temperatura da Câmara</span>
-              <p className="text-lg font-bold text-amber-400 mt-1">11°C a 13°C</p>
+              <p className="text-lg font-bold text-amber-700 mt-1">11°C a 13°C</p>
               <span className="text-[11px] text-slate-600">Proteólise lenta e controlada</span>
             </div>
 
@@ -358,9 +358,9 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
-            <DollarSign className="w-5 h-5 text-amber-400" />
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-6 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
+            <DollarSign className="w-5 h-5 text-amber-700" />
             Simulador de Eficiência Leiteira & Margem do Queijo Maturado
           </h3>
 
@@ -371,7 +371,7 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
                 type="number"
                 value={cabrasLactacao}
                 onChange={(e) => setCabrasLactacao(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
@@ -382,7 +382,7 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
                 step="0.1"
                 value={producaoLeiteCabraDiaLitros}
                 onChange={(e) => setProducaoLeiteCabraDiaLitros(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
@@ -393,7 +393,7 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
                 step="5"
                 value={precoKgQueijoMaturadoReais}
                 onChange={(e) => setPrecoKgQueijoMaturadoReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
@@ -404,7 +404,7 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
                 step="10000"
                 value={custoAlimentarAnoReais}
                 onChange={(e) => setCustoAlimentarAnoReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
           </div>
@@ -412,13 +412,13 @@ export const CaprinoculturaQueijosMaturadosModule: React.FC = () => {
           <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
               <span className="text-xs text-slate-600 block">Custo de Alimentação por kg de Queijo:</span>
-              <span className="text-base font-bold text-amber-400">
+              <span className="text-base font-bold text-amber-700">
                 R$ {metricas.custoAlimentarPorKgQueijo.toFixed(2)} / kg queijo
               </span>
             </div>
             <div className="text-right">
               <span className="text-xs text-slate-600 block">Lucro Operacional Líquido:</span>
-              <span className="text-xl font-bold text-emerald-400">
+              <span className="text-xl font-bold text-emerald-700">
                 R$ {metricas.lucroOperacionalReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>
             </div>

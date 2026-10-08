@@ -36,19 +36,22 @@ import {
   MapPin,
   Bot,
   Activity,
-  DollarSign
+  DollarSign,
+  BookOpen
 } from 'lucide-react';
 
 interface PublicLandingPageProps {
   onGoToLogin: () => void;
   onEnterPlatformDirectly: () => void;
   onGoToRegister?: () => void;
+  onOpenManual?: () => void;
 }
 
 export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
   onGoToLogin,
   onEnterPlatformDirectly,
   onGoToRegister,
+  onOpenManual,
 }) => {
   // Estado dos Planos & Alternador Mensal / Anual
   const [faturamentoPeriodo, setFaturamentoPeriodo] = useState<'ANUAL' | 'MENSAL'>('ANUAL');
@@ -226,6 +229,38 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-[#8FBF88] selection:text-slate-900 antialiased">
+      {/* BANNER OFICIAL DE ACESSO AO MANUAL E COCKPIT (v2.6) */}
+      <div className="bg-emerald-950 text-white px-4 py-2 border-b border-emerald-800 text-xs">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+          <div className="flex items-center gap-2">
+            <span className="px-2 py-0.5 rounded bg-emerald-700 text-white text-[10px] font-black tracking-wider uppercase">v2.6</span>
+            <span className="text-slate-200">
+              Manual Técnico Ilustrado, Diagrama CAN Bus Deutsch HD10 e Guias de Implantação Disponíveis.
+            </span>
+          </div>
+          <div className="flex items-center gap-3">
+            {onOpenManual && (
+              <button
+                type="button"
+                onClick={onOpenManual}
+                className="inline-flex items-center gap-1.5 text-emerald-300 hover:text-white font-bold underline cursor-pointer"
+              >
+                <BookOpen className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Abrir Manual do Sistema</span>
+              </button>
+            )}
+            <span className="text-emerald-700 hidden sm:inline">•</span>
+            <button
+              type="button"
+              onClick={onEnterPlatformDirectly}
+              className="inline-flex items-center gap-1 text-emerald-300 hover:text-white font-semibold cursor-pointer"
+            >
+              <span>Acessar Cockpit da Fazenda →</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
       {/* HEADER INSTITUCIONAL ELEGANTE & LIMPO */}
       <header className="sticky top-0 z-50 bg-slate-50/90 backdrop-blur-md border-b border-slate-200 px-4 sm:px-6 lg:px-8 py-3.5 transition-all">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -240,16 +275,28 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
           </div>
 
           <nav className="hidden lg:flex items-center gap-6 text-xs font-semibold text-slate-600">
-            <a href="#complexidade" className="hover:text-white transition">O Desafio</a>
-            <a href="#plataforma" className="hover:text-white transition">A Plataforma</a>
-            <a href="#demonstracao" className="hover:text-white transition">Demonstração</a>
-            <a href="#operacoes" className="hover:text-white transition">Atividades</a>
-            <a href="#ia" className="hover:text-white transition">IA Agrícola</a>
-            <a href="#beneficios" className="hover:text-white transition">Benefícios</a>
-            <a href="#planos" className="hover:text-white transition">Planos</a>
+            <a href="#complexidade" className="hover:text-emerald-800 transition">O Desafio</a>
+            <a href="#plataforma" className="hover:text-emerald-800 transition">A Plataforma</a>
+            <a href="#demonstracao" className="hover:text-emerald-800 transition">Demonstração</a>
+            <a href="#operacoes" className="hover:text-emerald-800 transition">Atividades</a>
+            <a href="#ia" className="hover:text-emerald-800 transition">IA Agrícola</a>
+            <a href="#beneficios" className="hover:text-emerald-800 transition">Benefícios</a>
+            <a href="#planos" className="hover:text-emerald-800 transition">Planos</a>
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
+            {onOpenManual && (
+              <button
+                type="button"
+                onClick={onOpenManual}
+                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-emerald-900 bg-emerald-100 hover:bg-emerald-200 rounded-xl transition border border-emerald-300 cursor-pointer shadow-2xs"
+                title="Manual Completo do Usuário & Guia de Implantação Telemática"
+              >
+                <BookOpen className="w-3.5 h-3.5 text-emerald-700" />
+                <span>Manual &amp; Guias</span>
+                <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-700 text-white font-mono">v2.6</span>
+              </button>
+            )}
             <button
               onClick={onGoToLogin}
               className="px-3.5 py-1.5 text-xs font-bold text-slate-900 hover:bg-emerald-50 rounded-xl transition border border-slate-300 flex items-center gap-1.5 cursor-pointer"
@@ -296,10 +343,21 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
 
               <button
                 onClick={onEnterPlatformDirectly}
-                className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-amber-50 text-slate-900 font-bold rounded-xl text-sm border border-slate-300 shadow-sm transition flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-100 text-slate-900 font-bold rounded-xl text-sm border border-slate-300 shadow-sm transition flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Conhecer a plataforma</span>
               </button>
+
+              {onOpenManual && (
+                <button
+                  type="button"
+                  onClick={onOpenManual}
+                  className="w-full sm:w-auto px-6 py-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 font-bold rounded-xl text-sm border border-emerald-300 shadow-2xs transition flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <BookOpen className="w-4 h-4 text-emerald-700" />
+                  <span>Manual do Usuário (v2.6)</span>
+                </button>
+              )}
             </div>
 
             {/* Showcase Executivo: As 4 Perguntas Críticas da Safra */}
@@ -458,15 +516,15 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
                   ))}
                 </div>
               </div>
-              <div className="p-6 bg-slate-900 text-slate-100 rounded-2xl border border-slate-800 shadow-md space-y-3 font-mono text-xs">
-                <div className="flex justify-between items-center text-white font-bold border-b border-slate-700 pb-2">
-                  <span className="text-white font-extrabold">Talhão 02 • Pivô Central</span>
-                  <span className="text-emerald-400 font-bold">420 ha • Soja</span>
+              <div className="p-6 bg-slate-50 text-slate-800 rounded-2xl border border-slate-200 shadow-xs space-y-3 font-mono text-xs">
+                <div className="flex justify-between items-center text-slate-900 font-bold border-b border-slate-200 pb-2">
+                  <span className="text-slate-900 font-extrabold">Talhão 02 • Pivô Central</span>
+                  <span className="text-emerald-800 font-bold bg-emerald-100 px-2 py-0.5 rounded text-[10px]">420 ha • Soja</span>
                 </div>
-                <div className="space-y-2 text-slate-300 text-[11px]">
-                  <div className="flex justify-between"><span>Plantio Realizado:</span><b className="text-white font-bold">12/10/2026 (14.2 sementes/m)</b></div>
-                  <div className="flex justify-between"><span>Manejo MIP:</span><b className="text-emerald-400 font-bold">NDE Controlado (1.2 pragas/m)</b></div>
-                  <div className="flex justify-between"><span>Previsão de Colheita:</span><b className="text-amber-300 font-bold">Fevereiro/2027 (71.5 sc/ha)</b></div>
+                <div className="space-y-2 text-slate-600 text-[11px]">
+                  <div className="flex justify-between"><span>Plantio Realizado:</span><b className="text-slate-900 font-bold">12/10/2026 (14.2 sementes/m)</b></div>
+                  <div className="flex justify-between"><span>Manejo MIP:</span><b className="text-emerald-700 font-bold">NDE Controlado (1.2 pragas/m)</b></div>
+                  <div className="flex justify-between"><span>Previsão de Colheita:</span><b className="text-amber-800 font-bold">Fevereiro/2027 (71.5 sc/ha)</b></div>
                 </div>
               </div>
             </div>
@@ -487,15 +545,15 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
                   ))}
                 </div>
               </div>
-              <div className="p-6 bg-slate-900 text-slate-100 rounded-2xl border border-slate-800 shadow-md space-y-3 font-mono text-xs lg:order-1">
-                <div className="flex justify-between items-center text-white font-bold border-b border-slate-700 pb-2">
-                  <span className="text-white font-extrabold">Trator John Deere 8370R (#04)</span>
-                  <span className="text-emerald-400 font-bold">CAN Bus J1939</span>
+              <div className="p-6 bg-slate-50 text-slate-800 rounded-2xl border border-slate-200 shadow-xs space-y-3 font-mono text-xs lg:order-1">
+                <div className="flex justify-between items-center text-slate-900 font-bold border-b border-slate-200 pb-2">
+                  <span className="text-slate-900 font-extrabold">Trator John Deere 8370R (#04)</span>
+                  <span className="text-emerald-800 font-bold bg-emerald-100 px-2 py-0.5 rounded text-[10px]">CAN Bus J1939</span>
                 </div>
-                <div className="space-y-2 text-slate-300 text-[11px]">
-                  <div className="flex justify-between"><span>Horímetro Atual:</span><b className="text-white font-bold">3.421,5h</b></div>
-                  <div className="flex justify-between"><span>Consumo Médio:</span><b className="text-amber-300 font-bold">28.4 L/h (-12% abaixo da meta)</b></div>
-                  <div className="flex justify-between"><span>Próxima Revisão:</span><b className="text-emerald-400 font-bold">Em 78,5h (3.500h Preventiva)</b></div>
+                <div className="space-y-2 text-slate-600 text-[11px]">
+                  <div className="flex justify-between"><span>Horímetro Atual:</span><b className="text-slate-900 font-bold">3.421,5h</b></div>
+                  <div className="flex justify-between"><span>Consumo Médio:</span><b className="text-amber-800 font-bold">28.4 L/h (-12% da meta)</b></div>
+                  <div className="flex justify-between"><span>Próxima Revisão:</span><b className="text-emerald-700 font-bold">Em 78,5h (3.500h Preventiva)</b></div>
                 </div>
               </div>
             </div>
@@ -516,17 +574,17 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
                   ))}
                 </div>
               </div>
-              <div className="p-6 bg-slate-900 text-slate-100 rounded-2xl border border-slate-800 shadow-md space-y-3 font-mono text-xs">
-                <div className="flex justify-between items-center text-white font-bold border-b border-slate-700 pb-2">
-                  <span className="text-white font-extrabold">DRE Analítica por Hectare</span>
-                  <span className="text-emerald-400 font-bold">Safra 2026/27</span>
+              <div className="p-6 bg-slate-50 text-slate-800 rounded-2xl border border-slate-200 shadow-xs space-y-3 font-mono text-xs">
+                <div className="flex justify-between items-center text-slate-900 font-bold border-b border-slate-200 pb-2">
+                  <span className="text-slate-900 font-extrabold">DRE Analítica por Hectare</span>
+                  <span className="text-emerald-800 font-bold bg-emerald-100 px-2 py-0.5 rounded text-[10px]">Safra 2026/27</span>
                 </div>
-                <div className="space-y-2 text-slate-300 text-[11px]">
-                  <div className="flex justify-between"><span>Insumos & Fertilizantes:</span><b className="text-white font-bold">R$ 2.450,00/ha</b></div>
-                  <div className="flex justify-between"><span>Operações & Diesel:</span><b className="text-white font-bold">R$ 840,00/ha</b></div>
-                  <div className="flex justify-between"><span>Custo Total Apurado:</span><b className="text-white font-bold">R$ 4.290,00/ha (R$ 61,28/sc)</b></div>
-                  <div className="flex justify-between text-emerald-400 font-bold pt-1.5 border-t border-slate-700">
-                    <span>Margem Operacional Líquida:</span><b className="text-emerald-300">+53.5% (R$ 70,72/sc)</b>
+                <div className="space-y-2 text-slate-600 text-[11px]">
+                  <div className="flex justify-between"><span>Insumos & Fertilizantes:</span><b className="text-slate-900 font-bold">R$ 2.450,00/ha</b></div>
+                  <div className="flex justify-between"><span>Operações & Diesel:</span><b className="text-slate-900 font-bold">R$ 840,00/ha</b></div>
+                  <div className="flex justify-between"><span>Custo Total Apurado:</span><b className="text-slate-900 font-bold">R$ 4.290,00/ha (R$ 61,28/sc)</b></div>
+                  <div className="flex justify-between text-emerald-800 font-bold pt-1.5 border-t border-slate-200">
+                    <span>Margem Operacional Líquida:</span><b className="text-emerald-700 font-bold">+53.5% (R$ 70,72/sc)</b>
                   </div>
                 </div>
               </div>
@@ -548,16 +606,16 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
                   ))}
                 </div>
               </div>
-              <div className="p-6 bg-slate-900 text-slate-100 rounded-2xl border border-slate-800 shadow-md space-y-3 font-mono text-xs lg:order-1">
-                <div className="flex justify-between items-center text-white font-bold border-b border-slate-700 pb-2">
-                  <span className="text-white font-extrabold">Alerta Preventivo de Pulverização</span>
-                  <span className="text-rose-400 font-bold">Delta T Crítico</span>
+              <div className="p-6 bg-slate-50 text-slate-800 rounded-2xl border border-slate-200 shadow-xs space-y-3 font-mono text-xs lg:order-1">
+                <div className="flex justify-between items-center text-slate-900 font-bold border-b border-slate-200 pb-2">
+                  <span className="text-slate-900 font-extrabold">Alerta Preventivo de Pulverização</span>
+                  <span className="text-rose-800 font-bold bg-rose-100 px-2 py-0.5 rounded text-[10px]">Delta T Crítico</span>
                 </div>
-                <div className="space-y-2 text-slate-300 text-[11px]">
-                  <div className="flex justify-between"><span>Temperatura / UR:</span><b className="text-white font-bold">32°C / 42% (Delta T = 8.2)</b></div>
-                  <div className="flex justify-between"><span>Risco de Deriva e Evaporação:</span><b className="text-rose-400 font-bold">ELEVADO</b></div>
-                  <div className="flex justify-between text-amber-300 font-bold pt-1.5 border-t border-slate-700">
-                    <span>Recomendação do Sistema:</span><b className="text-amber-200">Suspender aplicação até 17h30</b>
+                <div className="space-y-2 text-slate-600 text-[11px]">
+                  <div className="flex justify-between"><span>Temperatura / UR:</span><b className="text-slate-900 font-bold">32°C / 42% (Delta T = 8.2)</b></div>
+                  <div className="flex justify-between"><span>Risco de Deriva e Evaporação:</span><b className="text-rose-700 font-bold">ELEVADO</b></div>
+                  <div className="flex justify-between text-amber-800 font-bold pt-1.5 border-t border-slate-200">
+                    <span>Recomendação do Sistema:</span><b className="text-amber-700 font-bold">Suspender aplicação até 17h30</b>
                   </div>
                 </div>
               </div>
@@ -1145,6 +1203,40 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
             <div className="space-y-2">
               <h5 className="font-bold text-white uppercase tracking-wider text-[11px]">Suporte & Legal</h5>
               <ul className="space-y-1.5 text-xs">
+                {onOpenManual && (
+                  <li>
+                    <button
+                      type="button"
+                      onClick={onOpenManual}
+                      className="text-emerald-700 font-bold hover:text-emerald-800 flex items-center gap-1.5 cursor-pointer text-left"
+                    >
+                      <BookOpen className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
+                      <span>Manual do Usuário (v2.6)</span>
+                    </button>
+                  </li>
+                )}
+                {onOpenManual && (
+                  <li>
+                    <button
+                      type="button"
+                      onClick={onOpenManual}
+                      className="text-slate-600 hover:text-emerald-800 cursor-pointer text-left"
+                    >
+                      Chicote CAN Bus J1939
+                    </button>
+                  </li>
+                )}
+                {onOpenManual && (
+                  <li>
+                    <button
+                      type="button"
+                      onClick={onOpenManual}
+                      className="text-slate-600 hover:text-emerald-800 cursor-pointer text-left"
+                    >
+                      Instalação Local & Nuvem
+                    </button>
+                  </li>
+                )}
                 <li><a href="#faq" className="hover:text-white">Dúvidas Frequentes</a></li>
                 <li><span className="text-slate-600">Termos de Uso</span></li>
                 <li><span className="text-slate-600">Privacidade & LGPD</span></li>

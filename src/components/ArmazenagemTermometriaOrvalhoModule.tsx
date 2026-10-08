@@ -106,17 +106,17 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-500 flex items-center justify-center shadow-lg shadow-amber-500/20">
             <Warehouse className="w-7 h-7 text-slate-950" />
           </div>
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-bold text-white tracking-tight">
+              <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
                 Armazenagem de Grãos, Termometria & Ponto de Orvalho
               </h1>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-700 border border-amber-500/20">
                 Módulo 134 • Termometria Pendular Wireless & Psicrometria
               </span>
             </div>
@@ -139,25 +139,25 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Ponto de Orvalho Ambiente</span>
-            <Thermometer className="w-5 h-5 text-amber-400" />
+            <Thermometer className="w-5 h-5 text-amber-700" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             {metricas.pontoOrvalhoC}°C
           </p>
-          <span className="text-xs text-amber-400 mt-1 block">
+          <span className="text-xs text-amber-700 mt-1 block">
             {umidadeRelativaAmbientePct}% UR externa a {temperaturaAmbienteC}°C
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Decisão do Algoritmo</span>
-            <Wind className="w-5 h-5 text-emerald-400" />
+            <Wind className="w-5 h-5 text-emerald-700" />
           </div>
-          <p className="text-2xl font-bold text-emerald-400 mt-2">
+          <p className="text-2xl font-bold text-emerald-700 mt-2">
             {metricas.aeracaoSegura ? 'LIGAR AERAÇÃO' : 'BLOQUEAR AERAÇÃO'}
           </p>
           <span className="text-xs text-slate-600 mt-1 block">
@@ -165,12 +165,12 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Perda Física Evitada</span>
             <Award className="w-5 h-5 text-yellow-400" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             {metricas.sacasSalvasAno.toLocaleString('pt-BR')} sc
           </p>
           <span className="text-xs text-yellow-400 mt-1 block">
@@ -178,15 +178,15 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Patrimônio Preservado</span>
-            <DollarSign className="w-5 h-5 text-emerald-400" />
+            <DollarSign className="w-5 h-5 text-emerald-700" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             R$ {(metricas.valorPreservadoReais / 1000).toFixed(1)}k
           </p>
-          <span className="text-xs text-emerald-400 mt-1 block">
+          <span className="text-xs text-emerald-700 mt-1 block">
             Valor financeiro protegido contra micotoxinas
           </span>
         </div>
@@ -198,8 +198,8 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
           onClick={() => setActiveTab('silos')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'silos'
-              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -210,8 +210,8 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
           onClick={() => setActiveTab('psicrometria')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'psicrometria'
-              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Thermometer className="w-4 h-4" />
@@ -222,8 +222,8 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
           onClick={() => setActiveTab('termometria')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'termometria'
-              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <AlertTriangle className="w-4 h-4" />
@@ -234,8 +234,8 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
-              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -245,9 +245,9 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'silos' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6 space-y-4">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
-            <Warehouse className="w-5 h-5 text-amber-400" />
+        <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-4 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
+            <Warehouse className="w-5 h-5 text-amber-700" />
             Monitoramento Térmico Contínuo por Pêndulos Digitais
           </h3>
 
@@ -264,17 +264,17 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
                   <th className="px-4 py-3">Status Aeração</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-slate-100">
                 {silos.map((s) => (
-                  <tr key={s.id} className="hover:bg-slate-800/30">
-                    <td className="px-4 py-3 font-semibold text-white">{s.silo}</td>
-                    <td className="px-4 py-3 text-amber-400 font-bold">{s.graoArmazenado}</td>
+                  <tr key={s.id} className="hover:bg-slate-50/80">
+                    <td className="px-4 py-3 font-semibold text-slate-900">{s.silo}</td>
+                    <td className="px-4 py-3 text-amber-700 font-bold">{s.graoArmazenado}</td>
                     <td className="px-4 py-3">{s.capacidadeToneladas.toLocaleString('pt-BR')} ton</td>
                     <td className="px-4 py-3">{s.temperaturaMediaGraosC}°C</td>
-                    <td className="px-4 py-3 font-bold text-rose-400">{s.temperaturaPontoMaisQuenteC}°C</td>
+                    <td className="px-4 py-3 font-bold text-rose-700">{s.temperaturaPontoMaisQuenteC}°C</td>
                     <td className="px-4 py-3">{s.umidadeGraosPct}%</td>
                     <td className="px-4 py-3">
-                      <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                      <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-700 border border-amber-500/20">
                         {s.statusAeracao}
                       </span>
                     </td>
@@ -288,38 +288,38 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
 
       {activeTab === 'psicrometria' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
-              <Thermometer className="w-5 h-5 text-amber-400" />
-              <h4 className="text-sm font-semibold text-white">Equilíbrio Higroscópico (EMC)</h4>
+              <Thermometer className="w-5 h-5 text-amber-700" />
+              <h4 className="text-sm font-semibold text-slate-900">Equilíbrio Higroscópico (EMC)</h4>
             </div>
             <p className="text-xs text-slate-600">
               O grão ganha ou perde umidade dependendo da umidade relativa e temperatura do ar injetado. A aeração só é permitida quando o EMC está alinhado com 13.0% de umidade da soja.
             </p>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
               <span className="text-xs text-slate-600">Faixa de Aeração Permitida:</span>
-              <span className="text-sm font-bold text-amber-400 block">UR externa entre 55% e 70%</span>
+              <span className="text-sm font-bold text-amber-700 block">UR externa entre 55% e 70%</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
-              <Wind className="w-5 h-5 text-emerald-400" />
-              <h4 className="text-sm font-semibold text-white">Prevenção do Ponto de Orvalho</h4>
+              <Wind className="w-5 h-5 text-emerald-700" />
+              <h4 className="text-sm font-semibold text-slate-900">Prevenção do Ponto de Orvalho</h4>
             </div>
             <p className="text-xs text-slate-600">
               Se o ponto de orvalho do ar for superior à temperatura do telhado do silo, o vapor condensa e goteja na camada superior da massa, formando uma crosta podre em poucos dias.
             </p>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
               <span className="text-xs text-slate-600">Margem Térmica de Segurança:</span>
-              <span className="text-sm font-bold text-emerald-400 block">Diferencial de pelo menos 4.0°C</span>
+              <span className="text-sm font-bold text-emerald-700 block">Diferencial de pelo menos 4.0°C</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-yellow-400" />
-              <h4 className="text-sm font-semibold text-white">Resfriamento Noturno Automatizado</h4>
+              <h4 className="text-sm font-semibold text-slate-900">Resfriamento Noturno Automatizado</h4>
             </div>
             <p className="text-xs text-slate-600">
               Algoritmo de IA liga os motores das 22h às 06h aproveitando a tarifa de energia branca fora de ponta e ar ambiente 8°C mais frio.
@@ -333,9 +333,9 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
       )}
 
       {activeTab === 'termometria' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
-            <AlertTriangle className="w-5 h-5 text-rose-400" />
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-4 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
+            <AlertTriangle className="w-5 h-5 text-rose-700" />
             Detecção Precoce de Focos de Caruncho & Respiração Biológica
           </h3>
           <p className="text-sm text-slate-600">
@@ -345,19 +345,19 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">Sensores por Cabo</span>
-              <p className="text-lg font-bold text-white mt-1">12 sensores / pêndulo</p>
+              <p className="text-lg font-bold text-slate-900 mt-1">12 sensores / pêndulo</p>
               <span className="text-[11px] text-slate-600">Mapeamento 3D da massa</span>
             </div>
 
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">Alarme de Proliferação</span>
-              <p className="text-lg font-bold text-rose-400 mt-1">Acima de 32°C</p>
-              <span className="text-[11px] text-rose-400">Expurgo com fosfina recomendado</span>
+              <p className="text-lg font-bold text-rose-700 mt-1">Acima de 32°C</p>
+              <span className="text-[11px] text-rose-700">Expurgo com fosfina recomendado</span>
             </div>
 
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">Conformidade CONAB</span>
-              <p className="text-lg font-bold text-emerald-400 mt-1">Padrão Tipo 1</p>
+              <p className="text-lg font-bold text-emerald-700 mt-1">Padrão Tipo 1</p>
               <span className="text-[11px] text-slate-600">Zero avariados por queima</span>
             </div>
           </div>
@@ -365,9 +365,9 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
-            <DollarSign className="w-5 h-5 text-amber-400" />
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-6 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
+            <DollarSign className="w-5 h-5 text-amber-700" />
             Simulador de Eficiência Termométrica & Perdas Evitadas
           </h3>
 
@@ -378,7 +378,7 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
                 type="number"
                 value={toneladasArmazenadasTotal}
                 onChange={(e) => setToneladasArmazenadasTotal(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
@@ -389,7 +389,7 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
                 step="0.5"
                 value={temperaturaMediaGraosC}
                 onChange={(e) => setTemperaturaMediaGraosC(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
@@ -400,7 +400,7 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
                 step="0.5"
                 value={temperaturaAmbienteC}
                 onChange={(e) => setTemperaturaAmbienteC(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
@@ -411,7 +411,7 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
                 step="1"
                 value={umidadeRelativaAmbientePct}
                 onChange={(e) => setUmidadeRelativaAmbientePct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
           </div>
@@ -419,13 +419,13 @@ export const ArmazenagemTermometriaOrvalhoModule: React.FC = () => {
           <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
               <span className="text-xs text-slate-600 block">Ponto de Orvalho Calculado:</span>
-              <span className="text-base font-bold text-amber-400">
+              <span className="text-base font-bold text-amber-700">
                 {metricas.pontoOrvalhoC}°C ({metricas.aeracaoSegura ? 'Seguro para aeração' : 'Condensação eminente'})
               </span>
             </div>
             <div className="text-right">
               <span className="text-xs text-slate-600 block">Perda Evitada na Safra:</span>
-              <span className="text-xl font-bold text-emerald-400">
+              <span className="text-xl font-bold text-emerald-700">
                 R$ {metricas.valorPreservadoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>
             </div>

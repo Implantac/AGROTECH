@@ -38,7 +38,14 @@ async function verifyAllModules() {
       }
 
       // Renderiza o componente
-      const element = React.createElement(Component);
+      // Renderiza o componente com props padrão para modais caso aplicável
+      const mockProps = {
+        isOpen: true,
+        toasts: [{ id: 'test-1', type: 'info', message: 'Notificação de Teste' }],
+        onClose: () => {},
+        onDismiss: () => {}
+      };
+      const element = React.createElement(Component, mockProps);
       const html = ReactDOMServer.renderToString(element);
       if (html && html.length > 0) {
         successCount++;

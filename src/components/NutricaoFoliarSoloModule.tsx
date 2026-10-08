@@ -170,7 +170,7 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
                   <h1 className="text-2xl font-bold text-[#1D4B38] tracking-wide">
                     Nutrição de Solo, Calagem & Diagnose Foliar DRIS
                   </h1>
-                  <span className="px-2.5 py-0.5 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+                  <span className="px-2.5 py-0.5 text-xs font-semibold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 rounded-full">
                     Fertilidade 4.0
                   </span>
                 </div>
@@ -186,7 +186,7 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
               onClick={() => alert('Relatório Agronômico de Fertilidade e Prescrição exportado em PDF/CSV!')}
               className="flex items-center gap-2 px-4 py-2.5 bg-slate-50 hover:bg-stone-700 text-stone-200 border border-stone-600 rounded-xl text-sm font-medium transition shadow-sm"
             >
-              <Download className="w-4 h-4 text-teal-400" />
+              <Download className="w-4 h-4 text-teal-700" />
               Exportar Laudo
             </button>
             <div className="text-right pl-4 border-l border-teal-800/60 hidden sm:block">
@@ -201,7 +201,7 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
           <div className="text-xs font-medium text-slate-600">V% Atual do Talhão</div>
-          <div className="text-2xl font-bold text-amber-400 mt-1">
+          <div className="text-2xl font-bold text-amber-700 mt-1">
             {analiseSelecionada.vAtualPct}%
           </div>
           <div className="text-xs text-slate-600 mt-1">
@@ -211,7 +211,7 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
 
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
           <div className="text-xs font-medium text-slate-600">Necessidade de Calagem</div>
-          <div className="text-2xl font-bold text-emerald-400 mt-1">
+          <div className="text-2xl font-bold text-emerald-700 mt-1">
             {calcarioEfetivoTha} <span className="text-sm font-normal text-slate-600">t/ha</span>
           </div>
           <div className="text-xs text-slate-600 mt-1">
@@ -221,7 +221,7 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
 
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
           <div className="text-xs font-medium text-slate-600">Necessidade de Gessagem</div>
-          <div className="text-2xl font-bold text-cyan-400 mt-1">
+          <div className="text-2xl font-bold text-sky-700 mt-1">
             {gessoTha} <span className="text-sm font-normal text-slate-600">t/ha</span>
           </div>
           <div className="text-xs text-slate-600 mt-1">
@@ -248,7 +248,7 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <FlaskConical className="w-5 h-5 text-teal-400" />
+                <FlaskConical className="w-5 h-5 text-teal-700" />
                 <h2 className="text-lg font-semibold text-[#1D4B38]">
                   Laudos Químicos de Fertilidade do Solo
                 </h2>
@@ -271,7 +271,7 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
                   <div className="font-semibold text-sm truncate">{item.talhaoNome}</div>
                   <div className="flex items-center justify-between text-xs text-slate-600 mt-1">
                     <span>Prof: {item.profundidade}</span>
-                    <span className={item.vAtualPct < 50 ? 'text-amber-400 font-medium' : 'text-emerald-400'}>
+                    <span className={item.vAtualPct < 50 ? 'text-amber-700 font-medium' : 'text-emerald-700'}>
                       V: {item.vAtualPct}%
                     </span>
                   </div>
@@ -297,9 +297,9 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
                     <td className="p-3 text-slate-600">5.5 - 6.2</td>
                     <td className="p-3 text-right">
                       {analiseSelecionada.phH2O < 5.5 ? (
-                        <span className="text-amber-400 font-medium">Ácido (Subótimo)</span>
+                        <span className="text-amber-700 font-medium">Ácido (Subótimo)</span>
                       ) : (
-                        <span className="text-emerald-400 font-medium">Adequado</span>
+                        <span className="text-emerald-700 font-medium">Adequado</span>
                       )}
                     </td>
                   </tr>
@@ -309,9 +309,9 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
                     <td className="p-3 text-slate-600">&gt; 18.0 mg/dm³</td>
                     <td className="p-3 text-right">
                       {analiseSelecionada.pResinaMgDm3 < 18 ? (
-                        <span className="text-amber-400 font-medium">Médio / Limitante</span>
+                        <span className="text-amber-700 font-medium">Médio / Limitante</span>
                       ) : (
-                        <span className="text-emerald-400 font-medium">Alto / Muito Bom</span>
+                        <span className="text-emerald-700 font-medium">Alto / Muito Bom</span>
                       )}
                     </td>
                   </tr>
@@ -319,7 +319,7 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
                     <td className="p-3 font-medium text-[#1D4B38]">Potássio Trocável (K⁺)</td>
                     <td className="p-3 font-semibold text-teal-300">{analiseSelecionada.kCmolc} cmol_c/dm³</td>
                     <td className="p-3 text-slate-600">&gt; 0.25 cmol_c</td>
-                    <td className="p-3 text-right text-emerald-400 font-medium">Excelente</td>
+                    <td className="p-3 text-right text-emerald-700 font-medium">Excelente</td>
                   </tr>
                   <tr>
                     <td className="p-3 font-medium text-[#1D4B38]">Cálcio + Magnésio (Ca²⁺ + Mg²⁺)</td>
@@ -327,7 +327,7 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
                       {(analiseSelecionada.caCmolc + analiseSelecionada.mgCmolc).toFixed(2)} cmol_c/dm³
                     </td>
                     <td className="p-3 text-slate-600">&gt; 3.0 cmol_c</td>
-                    <td className="p-3 text-right text-emerald-400 font-medium">Equilibrado (Ca/Mg 2.5:1)</td>
+                    <td className="p-3 text-right text-emerald-700 font-medium">Equilibrado (Ca/Mg 2.5:1)</td>
                   </tr>
                   <tr>
                     <td className="p-3 font-medium text-[#1D4B38]">Alumínio Trocável (m%)</td>
@@ -335,9 +335,9 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
                     <td className="p-3 text-slate-600">&lt; 5.0%</td>
                     <td className="p-3 text-right">
                       {analiseSelecionada.mSaturacaoAlPct > 5 ? (
-                        <span className="text-rose-400 font-medium">Tóxico (Exige Gessagem)</span>
+                        <span className="text-rose-700 font-medium">Tóxico (Exige Gessagem)</span>
                       ) : (
-                        <span className="text-emerald-400 font-medium">Não Tóxico</span>
+                        <span className="text-emerald-700 font-medium">Não Tóxico</span>
                       )}
                     </td>
                   </tr>
@@ -354,7 +354,7 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
             {/* Interactive Liming & Gypsum Calculator */}
             <div className="bg-slate-50/70 border border-slate-200 rounded-xl p-4">
               <div className="flex items-center gap-2 mb-3">
-                <Calculator className="w-4 h-4 text-emerald-400" />
+                <Calculator className="w-4 h-4 text-emerald-700" />
                 <h3 className="text-sm font-semibold text-[#1D4B38]">
                   Simulador de Calagem (V%) & Gessagem (Dematê)
                 </h3>
@@ -406,7 +406,7 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
               <div className="p-3 bg-white/80 border border-emerald-900/40 rounded-lg flex flex-col sm:flex-row justify-between items-center gap-3 text-xs">
                 <div>
                   <span className="text-slate-600">Recomendação Técnica:</span>
-                  <div className="text-emerald-300 font-semibold mt-0.5">
+                  <div className="text-emerald-800 font-semibold mt-0.5">
                     Aplicar {calcarioEfetivoTha} t/ha de Calcário Dolomítico + {gessoTha} t/ha de Gesso Agrícola
                   </div>
                 </div>
@@ -426,7 +426,7 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-emerald-400" />
+                <Sparkles className="w-5 h-5 text-emerald-700" />
                 <h2 className="text-lg font-semibold text-[#1D4B38]">
                   Diagnose Foliar DRIS (Soja R1/R2)
                 </h2>
@@ -456,8 +456,8 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
                             isDeficit
                               ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30'
                               : isExcesso
-                              ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
-                              : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                              ? 'bg-amber-500/20 text-amber-800 border border-amber-500/30'
+                              : 'bg-emerald-500/20 text-emerald-800 border border-emerald-500/30'
                           }`}
                         >
                           Índice: {item.indiceDRIS > 0 ? `+${item.indiceDRIS}` : item.indiceDRIS}
@@ -480,7 +480,7 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
 
                     <div className="flex justify-between items-center text-[10px] text-slate-600 mt-1">
                       <span>Faixa ideal: {item.faixaIdeal}</span>
-                      <span className={isDeficit ? 'text-rose-400 font-medium' : isExcesso ? 'text-amber-400' : 'text-slate-600'}>
+                      <span className={isDeficit ? 'text-rose-700 font-medium' : isExcesso ? 'text-amber-700' : 'text-slate-600'}>
                         {isDeficit ? 'Deficiência Relativa' : isExcesso ? 'Consumo de Luxo' : 'Equilíbrio'}
                       </span>
                     </div>
@@ -492,7 +492,7 @@ export const NutricaoFoliarSoloModule: React.FC = () => {
             {/* Prescrição Foliar Sugerida */}
             <div className="mt-5 p-4 bg-teal-950/40 border border-teal-800/50 rounded-xl">
               <div className="flex items-center gap-2 text-xs font-semibold text-teal-300 mb-1">
-                <CheckCircle2 className="w-4 h-4 text-teal-400" />
+                <CheckCircle2 className="w-4 h-4 text-teal-700" />
                 Intervenção Foliar Recomendada:
               </div>
               <p className="text-xs text-slate-900">

@@ -113,7 +113,7 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
                 <HeartPulse className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Suinocultura de Precisão 4.0 & Bem-Estar Animal
                   <span className="text-xs px-2.5 py-0.5 rounded-full bg-pink-500/20 text-pink-300 font-mono border border-pink-500/30">
                     Ciclo Completo • DFA {dfaLeitoesAno} • ITGH Climatizado
@@ -127,7 +127,7 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-300 border-emerald-500/40 flex items-center gap-1.5">
+            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-800 border-emerald-500/40 flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4" />
               {suinoculturaMetrics.leitoesDesmamadosAno.toLocaleString('pt-BR')} Leitões Desmamados / Ano
             </span>
@@ -156,9 +156,9 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Faturamento Bruto Anual</span>
-            <Coins className="w-4 h-4 text-amber-400" />
+            <Coins className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-amber-400">
+          <div className="text-2xl font-black mt-2 font-mono text-amber-700">
             R$ {suinoculturaMetrics.faturamentoAnualReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -170,9 +170,9 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Margem sobre Ração</span>
-            <TrendingUp className="w-4 h-4 text-emerald-400" />
+            <TrendingUp className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
+          <div className="text-2xl font-black mt-2 font-mono text-emerald-700">
             R$ {suinoculturaMetrics.margemNutricionalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -184,9 +184,9 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Produtividade DFA</span>
-            <Award className="w-4 h-4 text-cyan-400" />
+            <Award className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
+          <div className="text-2xl font-black mt-2 font-mono text-sky-700">
             {dfaLeitoesAno.toFixed(1)}{' '}
             <span className="text-xs font-normal text-slate-600">leitões/matriz</span>
           </div>
@@ -202,7 +202,7 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
                 <Layers className="w-5 h-5 text-pink-400" />
                 Galpões de Confinamento & Ambiência Térmica
               </h3>
@@ -229,13 +229,13 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
                       <span className="px-2 py-0.5 rounded bg-pink-500/20 text-pink-300 font-mono text-xs font-bold border border-pink-500/30">
                         {l.fase}
                       </span>
-                      <h4 className="text-xs font-bold text-white">{l.galpao}</h4>
+                      <h4 className="text-xs font-bold text-slate-900">{l.galpao}</h4>
                     </div>
 
                     <span
                       className={`px-2 py-0.5 rounded text-[10px] font-mono border ${
                         isConforto
-                          ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                          ? 'bg-emerald-500/20 text-emerald-800 border-emerald-500/30'
                           : 'bg-rose-500/20 text-rose-300 border-rose-500/30'
                       }`}
                     >
@@ -246,8 +246,8 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
                   <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-600">
                     <span>Alojados: <strong className="text-white">{l.totalAnimais.toLocaleString('pt-BR')} cab</strong></span>
                     <span>Peso Médio: <strong className="text-pink-400">{l.pesoMedioKg} kg</strong></span>
-                    <span>GPD: <strong className="text-emerald-400">{l.gpdEsperadoGdia} g/dia</strong></span>
-                    <span>CA: <strong className="text-cyan-400">{l.conversaoAlimentar}</strong></span>
+                    <span>GPD: <strong className="text-emerald-700">{l.gpdEsperadoGdia} g/dia</strong></span>
+                    <span>CA: <strong className="text-sky-700">{l.conversaoAlimentar}</strong></span>
                     <span>Ambiência: <strong className="text-white">{l.temperaturaGalpaoC}°C • {l.umidadeRelativaPct}% UR</strong></span>
                   </div>
                 </div>
@@ -277,8 +277,8 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
 
         {/* Painel Direito: Parâmetros Zootécnicos & Comerciais */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Scale className="w-5 h-5 text-amber-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Scale className="w-5 h-5 text-amber-700" />
             Parâmetros Zootécnicos & Preços
           </h3>
 
@@ -322,7 +322,7 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
                 step="0.10"
                 value={precoKgVivoReais}
                 onChange={(e) => setPrecoKgVivoReais(Number(e.target.value))}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-emerald-400 font-mono font-bold"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-emerald-700 font-mono font-bold"
               />
             </div>
 
@@ -333,7 +333,7 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
                 step="0.05"
                 value={custoNutricaoKgVivoReais}
                 onChange={(e) => setCustoNutricaoKgVivoReais(Number(e.target.value))}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-rose-400 font-mono font-bold"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-rose-700 font-mono font-bold"
               />
             </div>
 
@@ -341,19 +341,19 @@ export const SuinoculturaPrecisaoModule: React.FC = () => {
             <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
                 <span className="text-slate-600">Faturamento Anual:</span>
-                <span className="text-amber-400 font-mono font-bold">
+                <span className="text-amber-700 font-mono font-bold">
                   R$ {suinoculturaMetrics.faturamentoAnualReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600">Custo Total de Ração:</span>
-                <span className="text-rose-400 font-mono font-bold">
+                <span className="text-rose-700 font-mono font-bold">
                   -R$ {suinoculturaMetrics.custoNutricionalTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Margem sobre Nutrição:</span>
-                <span className="text-emerald-400 font-mono">
+                <span className="text-emerald-700 font-mono">
                   R$ {suinoculturaMetrics.margemNutricionalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>

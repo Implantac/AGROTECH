@@ -149,13 +149,13 @@ export const FertirrigacaoPivoModule: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/30 text-cyan-400">
+              <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/30 text-sky-700">
                 <Droplets className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Fertirrigação & Injeção em Pivô Central
-                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-mono border border-cyan-500/30">
+                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-sky-800 font-mono border border-cyan-500/30">
                     Quimigação 4.0
                   </span>
                 </h2>
@@ -170,9 +170,9 @@ export const FertirrigacaoPivoModule: React.FC = () => {
             <span
               className={`px-3 py-1.5 rounded-xl text-xs font-bold font-mono border flex items-center gap-1.5 ${
                 fertiMetrics.statusSalinidade === 'SEGURO_EXCELENTE'
-                  ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                  ? 'bg-emerald-500/20 text-emerald-800 border-emerald-500/40'
                   : fertiMetrics.statusSalinidade === 'MODERADO_ATENCAO'
-                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                  ? 'bg-amber-500/20 text-amber-800 border-amber-500/40'
                   : 'bg-rose-500/20 text-rose-300 border-rose-500/40 animate-pulse'
               }`}
             >
@@ -188,9 +188,9 @@ export const FertirrigacaoPivoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Taxa Injeção Bomba</span>
-            <Gauge className="w-4 h-4 text-cyan-400" />
+            <Gauge className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
+          <div className="text-2xl font-black mt-2 font-mono text-sky-700">
             {fertiMetrics.taxaInjecaoBombaLH.toFixed(1)}{' '}
             <span className="text-xs font-normal text-slate-600">L/h</span>
           </div>
@@ -203,16 +203,16 @@ export const FertirrigacaoPivoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Condutividade (CE Calda)</span>
-            <Zap className="w-4 h-4 text-amber-400" />
+            <Zap className="w-4 h-4 text-amber-700" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono flex items-baseline gap-2">
             <span
               className={
                 fertiMetrics.ceCaldaDsM <= 1.6
-                  ? 'text-emerald-400'
+                  ? 'text-emerald-700'
                   : fertiMetrics.ceCaldaDsM <= 2.0
-                  ? 'text-amber-400'
-                  : 'text-rose-400'
+                  ? 'text-amber-700'
+                  : 'text-rose-700'
               }
             >
               {fertiMetrics.ceCaldaDsM.toFixed(2)}
@@ -228,9 +228,9 @@ export const FertirrigacaoPivoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Amassamento Evitado</span>
-            <TrendingUp className="w-4 h-4 text-emerald-400" />
+            <TrendingUp className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
+          <div className="text-2xl font-black mt-2 font-mono text-emerald-700">
             +{fertiMetrics.amassamentoEvitadoSacas.toFixed(0)}{' '}
             <span className="text-xs font-normal text-slate-600">sacas (+2.2 sc/ha)</span>
           </div>
@@ -245,7 +245,7 @@ export const FertirrigacaoPivoModule: React.FC = () => {
             <span>Custo da Operação</span>
             <Droplets className="w-4 h-4 text-white" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-white">
+          <div className="text-2xl font-black mt-2 font-mono text-slate-800">
             R$ {fertiMetrics.custoTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -260,8 +260,8 @@ export const FertirrigacaoPivoModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <RotateCw className="w-5 h-5 text-cyan-400" />
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <RotateCw className="w-5 h-5 text-sky-700" />
                 Pivôs Centrais Cadastrados & Regime Hidráulico
               </h3>
               <p className="text-xs text-slate-600">
@@ -287,8 +287,8 @@ export const FertirrigacaoPivoModule: React.FC = () => {
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <h4 className="text-xs font-bold text-white">{p.nome}</h4>
-                    <span className="px-2 py-0.5 rounded bg-slate-800 text-cyan-300 text-[10px] font-mono">
+                    <h4 className="text-xs font-bold text-slate-900">{p.nome}</h4>
+                    <span className="px-2 py-0.5 rounded bg-sky-50 border border-sky-200 text-sky-800 text-[10px] font-mono">
                       {p.cultura}
                     </span>
                   </div>
@@ -305,7 +305,7 @@ export const FertirrigacaoPivoModule: React.FC = () => {
 
           {/* Banner de Boas Práticas Agronômicas de Quimigação */}
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
-            <div className="flex items-center gap-2 text-cyan-400 font-semibold">
+            <div className="flex items-center gap-2 text-sky-700 font-semibold">
               <Sparkles className="w-4 h-4" />
               Recomendações Técnicas de Fertirrigação:
             </div>
@@ -325,8 +325,8 @@ export const FertirrigacaoPivoModule: React.FC = () => {
 
         {/* Painel Direito: Parâmetros do Insumo e Bomba Injetora */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Sliders className="w-5 h-5 text-cyan-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Sliders className="w-5 h-5 text-sky-700" />
             Configuração da Calda
           </h3>
 
@@ -350,7 +350,7 @@ export const FertirrigacaoPivoModule: React.FC = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span className="text-slate-600 font-medium">Dose Desejada (kg/ha)</span>
-                <span className="text-cyan-400 font-mono font-bold">{doseAlvoKgHa} kg/ha</span>
+                <span className="text-sky-700 font-mono font-bold">{doseAlvoKgHa} kg/ha</span>
               </div>
               <input
                 type="range"
@@ -367,7 +367,7 @@ export const FertirrigacaoPivoModule: React.FC = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span className="text-slate-600 font-medium">Lâmina de Irrigação</span>
-                <span className="text-cyan-400 font-mono font-bold">{laminaAguaMm} mm</span>
+                <span className="text-sky-700 font-mono font-bold">{laminaAguaMm} mm</span>
               </div>
               <input
                 type="range"
@@ -384,7 +384,7 @@ export const FertirrigacaoPivoModule: React.FC = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span className="text-slate-600 font-medium">CE Água Bruta do Poço</span>
-                <span className="text-amber-400 font-mono font-bold">{ceAguaPocoDsM} dS/m</span>
+                <span className="text-amber-700 font-mono font-bold">{ceAguaPocoDsM} dS/m</span>
               </div>
               <input
                 type="range"
@@ -418,7 +418,7 @@ export const FertirrigacaoPivoModule: React.FC = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600">Regulagem da Bomba:</span>
-                <span className="text-cyan-400 font-mono font-bold">
+                <span className="text-sky-700 font-mono font-bold">
                   {fertiMetrics.taxaInjecaoBombaLH.toFixed(1)} L/hora
                 </span>
               </div>
@@ -426,7 +426,7 @@ export const FertirrigacaoPivoModule: React.FC = () => {
                 <span className="text-white">Condutividade Final:</span>
                 <span
                   className={
-                    fertiMetrics.ceCaldaDsM <= 1.8 ? 'text-emerald-400 font-mono' : 'text-rose-400 font-mono'
+                    fertiMetrics.ceCaldaDsM <= 1.8 ? 'text-emerald-700 font-mono' : 'text-rose-700 font-mono'
                   }
                 >
                   {fertiMetrics.ceCaldaDsM.toFixed(2)} dS/m (Seguro)

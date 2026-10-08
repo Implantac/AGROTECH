@@ -184,13 +184,13 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-slate-200 p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 rounded-xl text-amber-400">
+            <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 rounded-xl text-amber-700">
               <HardHat className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-xl font-bold text-[#1D4B38]">NR-31, eSocial & Saúde Ocupacional Rural</h1>
-                <span className="px-2 py-0.5 text-[11px] font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full">
+                <span className="px-2 py-0.5 text-[11px] font-semibold bg-amber-500/20 text-amber-800 border border-amber-500/30 rounded-full">
                   Norma NR-31 MTE
                 </span>
                 <span className="px-2 py-0.5 text-[11px] font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30 rounded-full">
@@ -214,12 +214,12 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
       </div>
 
       {sucessoMsg && (
-        <div className="p-4 bg-emerald-950/60 border border-emerald-700/50 rounded-xl text-emerald-300 text-sm flex items-center justify-between">
+        <div className="p-4 bg-emerald-950/60 border border-emerald-700/50 rounded-xl text-emerald-800 text-sm flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+            <CheckCircle2 className="w-4 h-4 text-emerald-700" />
             <span>{sucessoMsg}</span>
           </div>
-          <button onClick={() => setSucessoMsg(null)} className="text-xs text-emerald-400 hover:underline">
+          <button onClick={() => setSucessoMsg(null)} className="text-xs text-emerald-700 hover:underline">
             Fechar
           </button>
         </div>
@@ -230,37 +230,37 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
           <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Efetivo de Campo</span>
-            <Users className="w-4 h-4 text-emerald-400" />
+            <Users className="w-4 h-4 text-emerald-700" />
           </div>
           <div className="text-2xl font-bold text-[#1D4B38] font-mono">{colaboradores.length} operadores</div>
           <p className="text-xs text-slate-500 mt-1">Tratoristas, mecânicos e balanceiros</p>
         </div>
 
-        <div className="bg-emerald-950/30 border border-emerald-800/40 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-emerald-300 mb-1">
+        <div className="bg-emerald-50 border border-emerald-800/40 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-emerald-800 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Aptos para Operação</span>
-            <Unlock className="w-4 h-4 text-emerald-400" />
+            <Unlock className="w-4 h-4 text-emerald-700" />
           </div>
           <div className="text-2xl font-bold text-emerald-200 font-mono">{aptosCount} aptos</div>
-          <p className="text-xs text-emerald-400/80 mt-1">ASO e treinamentos 100% em dia</p>
+          <p className="text-xs text-emerald-700/80 mt-1">ASO e treinamentos 100% em dia</p>
         </div>
 
-        <div className="bg-amber-950/30 border border-amber-800/40 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-amber-300 mb-1">
+        <div className="bg-amber-50 border border-amber-800/40 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-amber-800 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Renovação Próxima (&lt; 30d)</span>
-            <AlertTriangle className="w-4 h-4 text-amber-400" />
+            <AlertTriangle className="w-4 h-4 text-amber-700" />
           </div>
           <div className="text-2xl font-bold text-amber-200 font-mono">{alertaCount} colaboradores</div>
-          <p className="text-xs text-amber-400/80 mt-1">Agendar reciclagem NR-33/NR-35</p>
+          <p className="text-xs text-amber-700/80 mt-1">Agendar reciclagem NR-33/NR-35</p>
         </div>
 
-        <div className="bg-rose-950/30 border border-rose-800/40 p-4 rounded-xl">
+        <div className="bg-rose-50 border border-rose-800/40 p-4 rounded-xl">
           <div className="flex items-center justify-between text-rose-300 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Bloqueio Operacional</span>
-            <Lock className="w-4 h-4 text-rose-400 animate-pulse" />
+            <Lock className="w-4 h-4 text-rose-700 animate-pulse" />
           </div>
           <div className="text-2xl font-bold text-rose-200 font-mono">{bloqueadosCount} bloqueado</div>
-          <p className="text-xs text-rose-400/80 mt-1">ASO vencido: impedido de ligar máquina</p>
+          <p className="text-xs text-rose-700/80 mt-1">ASO vencido: impedido de ligar máquina</p>
         </div>
       </div>
 
@@ -269,7 +269,7 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
         <div className="p-5 border-b border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <h2 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
-              <FileBadge className="w-5 h-5 text-amber-400" />
+              <FileBadge className="w-5 h-5 text-amber-700" />
               Matriz de Conformidade NR-31 & ASO Periódico
             </h2>
             <p className="text-xs text-slate-600">
@@ -296,10 +296,10 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
                 onChange={(e) => setFiltroStatus(e.target.value)}
                 className="bg-transparent text-slate-900 focus:outline-none cursor-pointer"
               >
-                <option value="TODOS" className="bg-slate-900">Todos</option>
-                <option value="APTO" className="bg-slate-900 text-emerald-400">Aptos</option>
-                <option value="ALERTA_RENOVACAO" className="bg-slate-900 text-amber-400">Alerta Renovação</option>
-                <option value="BLOQUEADO" className="bg-slate-900 text-rose-400">Bloqueados</option>
+                <option value="TODOS" className="bg-white text-slate-900">Todos</option>
+                <option value="APTO" className="bg-white text-emerald-700">Aptos</option>
+                <option value="ALERTA_RENOVACAO" className="bg-white text-amber-700">Alerta Renovação</option>
+                <option value="BLOQUEADO" className="bg-white text-rose-700">Bloqueados</option>
               </select>
             </div>
           </div>
@@ -317,10 +317,10 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
                 <th className="px-4 py-3.5">Status de Aptidão</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60">
+            <tbody className="divide-y divide-slate-100">
               {colaboradoresFiltrados.map((colab) => {
                 let badge = (
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-1 w-fit">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-700 border border-emerald-500/30 flex items-center gap-1 w-fit">
                     <CheckCircle2 className="w-3 h-3" /> Apto para Operação
                   </span>
                 );
@@ -328,19 +328,19 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
                 if (colab.statusAptidao === 'BLOQUEADO') {
                   badge = (
                     <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40 flex items-center gap-1 w-fit animate-pulse">
-                      <Lock className="w-3 h-3 text-rose-400" /> Bloqueio de Segurança
+                      <Lock className="w-3 h-3 text-rose-700" /> Bloqueio de Segurança
                     </span>
                   );
                 } else if (colab.statusAptidao === 'ALERTA_RENOVACAO') {
                   badge = (
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 flex items-center gap-1 w-fit">
-                      <AlertTriangle className="w-3 h-3 text-amber-400" /> Renovar em &lt; 30d
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-800 border border-amber-500/40 flex items-center gap-1 w-fit">
+                      <AlertTriangle className="w-3 h-3 text-amber-700" /> Renovar em &lt; 30d
                     </span>
                   );
                 }
 
                 return (
-                  <tr key={colab.id} className="hover:bg-slate-800/40 transition-colors">
+                  <tr key={colab.id} className="hover:bg-slate-50/80 transition-colors">
                     <td className="px-4 py-3.5">
                       <div className="font-bold text-slate-900">{colab.nome}</div>
                       <div className="text-[11px] text-slate-500 font-mono">{colab.cpf}</div>
@@ -348,11 +348,11 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
 
                     <td className="px-4 py-3.5">
                       <div className="text-slate-900 font-medium">{colab.cargo}</div>
-                      <div className="text-[10px] text-emerald-400 uppercase font-semibold">{colab.setor}</div>
+                      <div className="text-[10px] text-emerald-700 uppercase font-semibold">{colab.setor}</div>
                     </td>
 
                     <td className="px-4 py-3.5">
-                      <div className={`font-mono font-semibold ${colab.asoValido ? 'text-slate-900' : 'text-rose-400'}`}>
+                      <div className={`font-mono font-semibold ${colab.asoValido ? 'text-slate-900' : 'text-rose-700'}`}>
                         Venc: {colab.validadeASO}
                       </div>
                       <div className="text-[10px] text-slate-500">
@@ -394,7 +394,7 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
           <div className="bg-white border border-slate-200 rounded-2xl max-w-lg w-full p-6 shadow-2xl">
             <div className="flex items-center justify-between pb-3 border-b border-slate-200 mb-4">
               <h3 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
-                <HardHat className="w-5 h-5 text-amber-400" />
+                <HardHat className="w-5 h-5 text-amber-700" />
                 Cadastrar Colaborador & Ficha NR-31
               </h3>
               <button

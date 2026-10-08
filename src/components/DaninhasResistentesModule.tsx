@@ -1,129 +1,139 @@
 import React, { useState } from 'react';
 import {
-  ShieldAlert,
-  AlertTriangle,
+  Skull,
+  ShieldCheck,
   CheckCircle2,
+  AlertTriangle,
   Download,
   Calculator,
   Layers,
-  Sparkles,
-  ShieldCheck,
-  TrendingDown,
   Coins
 } from 'lucide-react';
 
-interface EstrategiaDaninha {
+interface EstrategiaManejoHRAC {
   id: string;
   especieDaninha: string;
+  nomeCientifico: string;
   talhaoAlvo: string;
   areaHa: number;
-  estagioDesenvolvimento: string;
   densidadeInfestacaoM2: number;
+  perdaPotencialMatocompeticaoPct: number;
   gruposHracUtilizados: {
-    grupoNumero: number;
+    grupoNumero: string;
     mecanismoAcao: string;
     ingredienteAtivo: string;
-    momento: 'DESSECACAO_1' | 'DESSECACAO_2' | 'PRE_EMERGENTE';
+    momento: 'DESSECACAO_1' | 'DESSECACAO_2' | 'PRE_EMERGENTE_PLANTIO';
   }[];
   diasResidualPreEmergente: number;
-  perdaPotencialMatocompeticaoPct: number;
   custoTratamentoHa: number;
 }
 
-const ESTRATEGIAS_INICIAIS: EstrategiaDaninha[] = [
+const ESTRATEGIAS_INICIAIS: EstrategiaManejoHRAC[] = [
   {
-    id: 'dan-01',
-    especieDaninha: 'Digitaria insularis (Capim-Amargoso Resistente)',
-    talhaoAlvo: 'Talhão T-02 (Cerrado Alto - 280 ha)',
-    areaHa: 280.0,
-    estagioDesenvolvimento: 'Touceiras perfilhadas pré-plantio',
-    densidadeInfestacaoM2: 4.2,
+    id: 'est-01',
+    especieDaninha: 'Capim-Amargoso Resistente ao Glifosato',
+    nomeCientifico: 'Digitaria insularis',
+    talhaoAlvo: 'Talhão T-04 (Pivô Sul - Cabeceiras)',
+    areaHa: 130,
+    densidadeInfestacaoM2: 8.5,
+    perdaPotencialMatocompeticaoPct: 32,
     gruposHracUtilizados: [
-      { grupoNumero: 1, mecanismoAcao: 'Inibidores da ACCase', ingredienteAtivo: 'Cletodim 240 EC (1.0 L/ha)', momento: 'DESSECACAO_1' },
-      { grupoNumero: 9, mecanismoAcao: 'Inibidores da EPSPs', ingredienteAtivo: 'Glifosato Sal Potássico (4.0 L/ha)', momento: 'DESSECACAO_1' },
-      { grupoNumero: 14, mecanismoAcao: 'Inibidores da PPO', ingredienteAtivo: 'Saflufenacil 700 WG (50 g/ha)', momento: 'DESSECACAO_2' },
-      { grupoNumero: 15, mecanismoAcao: 'Inibidores de VLCFA (Pré-Emergente)', ingredienteAtivo: 'S-metolacloro (1.5 L/ha)', momento: 'PRE_EMERGENTE' },
+      { grupoNumero: '9', mecanismoAcao: 'Inibidores da EPSPs', ingredienteAtivo: 'Glifosato Sal Dimetilamina (1.800 g i.a./ha)', momento: 'DESSECACAO_1' },
+      { grupoNumero: '1', mecanismoAcao: 'Inibidores da ACCase (FOP/DIM)', ingredienteAtivo: 'Cletodim 240 EC (120 g i.a./ha)', momento: 'DESSECACAO_1' },
+      { grupoNumero: '14', mecanismoAcao: 'Inibidores da PROTOX', ingredienteAtivo: 'Saflufenacil 700 WG (35 g i.a./ha)', momento: 'DESSECACAO_2' },
+      { grupoNumero: '15', mecanismoAcao: 'Inibidores de VLCFA (Pré-Emergente)', ingredienteAtivo: 'S-Metolacloro 960 EC (1.440 g i.a./ha)', momento: 'PRE_EMERGENTE_PLANTIO' },
     ],
     diasResidualPreEmergente: 35,
-    perdaPotencialMatocompeticaoPct: 22.0,
-    custoTratamentoHa: 195.0,
+    custoTratamentoHa: 245.0,
   },
   {
-    id: 'dan-02',
-    especieDaninha: 'Conyza sumatrensis (Buva Resistente)',
-    talhaoAlvo: 'Talhão T-01 (Sede - 420 ha)',
-    areaHa: 420.0,
-    estagioDesenvolvimento: 'Roseta a 10 cm de altura',
-    densidadeInfestacaoM2: 8.5,
+    id: 'est-02',
+    especieDaninha: 'Buva com Resistência Múltipla (EPSPs + ALS)',
+    nomeCientifico: 'Conyza sumatrensis',
+    talhaoAlvo: 'Talhão T-01 (Sede)',
+    areaHa: 420,
+    densidadeInfestacaoM2: 4.2,
+    perdaPotencialMatocompeticaoPct: 22,
     gruposHracUtilizados: [
-      { grupoNumero: 4, mecanismoAcao: 'Mimetizadores de Auxina', ingredienteAtivo: '2,4-D Colina (2.0 L/ha)', momento: 'DESSECACAO_1' },
-      { grupoNumero: 9, mecanismoAcao: 'Inibidores da EPSPs', ingredienteAtivo: 'Glifosato (3.5 L/ha)', momento: 'DESSECACAO_1' },
-      { grupoNumero: 14, mecanismoAcao: 'Inibidores da PPO', ingredienteAtivo: 'Flumioxazina 500 WP (100 g/ha)', momento: 'PRE_EMERGENTE' },
+      { grupoNumero: '4', mecanismoAcao: 'Mimetizadores de Auxina', ingredienteAtivo: '2,4-D Colina (806 g i.a./ha)', momento: 'DESSECACAO_1' },
+      { grupoNumero: '10', mecanismoAcao: 'Inibidores da Glutamina Sintetase', ingredienteAtivo: 'Glufosinato de Amônio 200 SL (400 g i.a./ha)', momento: 'DESSECACAO_2' },
+      { grupoNumero: '14', mecanismoAcao: 'Inibidores da PROTOX (Pré-Emergente)', ingredienteAtivo: 'Flumioxazina 500 SC (50 g i.a./ha)', momento: 'PRE_EMERGENTE_PLANTIO' },
     ],
     diasResidualPreEmergente: 28,
-    perdaPotencialMatocompeticaoPct: 18.0,
-    custoTratamentoHa: 165.0,
+    custoTratamentoHa: 210.0,
+  },
+  {
+    id: 'est-03',
+    especieDaninha: 'Capim-Pé-de-Galinha Resistente a Graminicidas',
+    nomeCientifico: 'Eleusine indica',
+    talhaoAlvo: 'Talhão T-02 (Cerrado Alto)',
+    areaHa: 280,
+    densidadeInfestacaoM2: 6.0,
+    perdaPotencialMatocompeticaoPct: 26,
+    gruposHracUtilizados: [
+      { grupoNumero: '1', mecanismoAcao: 'Inibidores da ACCase (DIM)', ingredienteAtivo: 'Haloxifope-P-Metílico (62.4 g i.a./ha)', momento: 'DESSECACAO_1' },
+      { grupoNumero: '15', mecanismoAcao: 'Inibidores de VLCFA (Pré-Emergente)', ingredienteAtivo: 'Piroxasulfona (100 g i.a./ha)', momento: 'PRE_EMERGENTE_PLANTIO' },
+    ],
+    diasResidualPreEmergente: 45,
+    custoTratamentoHa: 280.0,
   },
 ];
 
 export const DaninhasResistentesModule: React.FC = () => {
-  const [estrategias] = useState<EstrategiaDaninha[]>(ESTRATEGIAS_INICIAIS);
-  const [estrategiaAtiva, setEstrategiaAtiva] = useState<EstrategiaDaninha>(ESTRATEGIAS_INICIAIS[0]);
+  const [estrategias] = useState<EstrategiaManejoHRAC[]>(ESTRATEGIAS_INICIAIS);
+  const [estrategiaAtiva, setEstrategiaAtiva] = useState<EstrategiaManejoHRAC>(ESTRATEGIAS_INICIAIS[0]);
 
-  const [produtividadeEsperadaScHa, setProdutividadeEsperadaScHa] = useState<number>(70.0);
+  // Simulador de Prejuízo de Matocompetição Evitado
+  const [produtividadeEsperadaScHa, setProdutividadeEsperadaScHa] = useState<number>(68.0);
   const [precoSacaSoja, setPrecoSacaSoja] = useState<number>(130.0);
 
-  // Análise de Diversidade HRAC
+  // Cálculos Técnicos e Financeiros
+  const perdaSacasHa = Number((produtividadeEsperadaScHa * (estrategiaAtiva.perdaPotencialMatocompeticaoPct / 100)).toFixed(1));
+  const receitaPreservadaHa = Number((perdaSacasHa * precoSacaSoja).toFixed(2));
+  const beneficioLiquidoHa = Number((receitaPreservadaHa - estrategiaAtiva.custoTratamentoHa).toFixed(2));
+  const beneficioTotalTalhaoReais = Number((beneficioLiquidoHa * estrategiaAtiva.areaHa).toFixed(2));
+  const roiEstrategia = Number((receitaPreservadaHa / estrategiaAtiva.custoTratamentoHa).toFixed(1));
+
+  // Contagem de Mecanismos HRAC Distintos na Estratégia
   const mecanismosUnicos = new Set(estrategiaAtiva.gruposHracUtilizados.map((g) => g.grupoNumero)).size;
   const blindagemCompleta = mecanismosUnicos >= 3;
-
-  // Cálculos de Prevenção de Perdas por Matocompetição no Período Crítico (PAIW)
-  const sacasSalvasHa = Number(
-    ((produtividadeEsperadaScHa * estrategiaAtiva.perdaPotencialMatocompeticaoPct) / 100).toFixed(1)
-  );
-  const receitaPreservadaHa = Number((sacasSalvasHa * precoSacaSoja).toFixed(2));
-  const beneficioLiquidoHa = Number((receitaPreservadaHa - estrategiaAtiva.custoTratamentoHa).toFixed(2));
-  const beneficioTotalTalhaoReais = beneficioLiquidoHa * estrategiaAtiva.areaHa;
-  const roiEstrategia = Number((receitaPreservadaHa / estrategiaAtiva.custoTratamentoHa).toFixed(1));
+  const sacasSalvasHa = perdaSacasHa;
 
   return (
     <div className="space-y-6">
-      {/* Top Banner Header */}
-      <div className="bg-gradient-to-r from-amber-950 via-stone-900 to-slate-950 border border-amber-800/40 rounded-2xl p-6 shadow-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 relative z-10">
-          <div>
-            <div className="flex items-center gap-3 mb-2">
-              <span className="p-2.5 bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-xl">
-                <ShieldAlert className="w-6 h-6" />
-              </span>
-              <div>
-                <div className="flex items-center gap-2">
-                  <h1 className="text-2xl font-bold text-white tracking-wide">
-                    Manejo de Daninhas Resistentes & Pré-Emergentes (HRAC)
-                  </h1>
-                  <span className="px-2.5 py-0.5 text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full">
-                    Rotação de Modos de Ação
-                  </span>
-                </div>
-                <p className="text-stone-300 text-sm mt-0.5">
-                  Dessecação sequencial, residual de pré-emergentes contra Capim-Amargoso e Buva e prevenção da matocompetição.
-                </p>
+      {/* Top Header Card */}
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-2xs">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+          <div className="flex items-center gap-3">
+            <span className="p-2.5 bg-amber-50 text-amber-800 border border-amber-200 rounded-xl">
+              <Skull className="w-6 h-6 text-amber-700" />
+            </span>
+            <div>
+              <div className="flex items-center gap-2">
+                <h1 className="text-xl font-bold text-slate-900">
+                  Manejo de Daninhas Resistentes & Rotação HRAC
+                </h1>
+                <span className="px-2.5 py-0.5 text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200 rounded-full">
+                  Amargoso & Buva
+                </span>
               </div>
+              <p className="text-slate-500 text-xs mt-0.5">
+                Mapeamento de infestação, dessecação sequencial com rotação de mecanismos de ação e pré-emergentes residuais.
+              </p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             <button
-              onClick={() => alert('Prescrição de Dessecação Sequencial e Pré-Emergentes gerada com trava anti-resistência HRAC!')}
-              className="flex items-center gap-2 px-4 py-2.5 bg-amber-600 hover:bg-amber-500 text-white rounded-xl text-sm font-semibold transition shadow-lg shadow-amber-950/40"
+              onClick={() => alert('Prescrição de Dessecação Sequencial e Pré-Emergentes emitida para o pulverizador!')}
+              className="flex items-center gap-2 px-4 py-2 bg-amber-700 hover:bg-amber-800 text-white rounded-xl text-xs font-semibold transition cursor-pointer shadow-2xs"
             >
               <Download className="w-4 h-4" />
               Prescrição HRAC
             </button>
-            <div className="text-right pl-4 border-l border-amber-800/60 hidden sm:block">
-              <div className="text-xs text-stone-400">Benefício no Talhão</div>
-              <div className="text-xl font-bold text-emerald-300">
+            <div className="text-right pl-4 border-l border-slate-200 hidden sm:block">
+              <div className="text-[11px] text-slate-500">Benefício no Talhão</div>
+              <div className="text-lg font-bold text-emerald-700">
                 R$ {beneficioTotalTalhaoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </div>
             </div>
@@ -133,42 +143,42 @@ export const DaninhasResistentesModule: React.FC = () => {
 
       {/* 4 Summary Metric Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Mecanismos HRAC Distintos</div>
-          <div className={`text-2xl font-bold mt-1 ${blindagemCompleta ? 'text-emerald-400' : 'text-amber-400'}`}>
-            {mecanismosUnicos} <span className="text-sm font-normal text-stone-400">grupos químicos</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Mecanismos HRAC Distintos</div>
+          <div className={`text-2xl font-bold mt-1 ${blindagemCompleta ? 'text-emerald-700' : 'text-amber-700'}`}>
+            {mecanismosUnicos} <span className="text-sm font-normal text-slate-400">grupos químicos</span>
           </div>
-          <div className="text-xs text-stone-500 mt-1">
-            {blindagemCompleta ? 'Blindagem Anti-Resistência Ativa' : 'Alerta: Risco de Seleção de Resistência'}
-          </div>
-        </div>
-
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Residual do Pré-Emergente</div>
-          <div className="text-2xl font-bold text-cyan-300 mt-1">
-            {estrategiaAtiva.diasResidualPreEmergente} <span className="text-sm font-normal text-stone-400">dias</span>
-          </div>
-          <div className="text-xs text-stone-400 mt-1">
-            Garante o fechamento do dossel foliar no limpo
+          <div className="text-xs text-slate-500 mt-1">
+            {blindagemCompleta ? 'Blindagem Anti-Resistência Ativa' : 'Alerta: Risco de Seleção'}
           </div>
         </div>
 
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Sacas Salvas da Matocompetição</div>
-          <div className="text-2xl font-bold text-emerald-400 mt-1">
-            +{sacasSalvasHa} <span className="text-sm font-normal text-stone-400">sc/ha</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Residual do Pré-Emergente</div>
+          <div className="text-2xl font-bold text-sky-700 mt-1">
+            {estrategiaAtiva.diasResidualPreEmergente} <span className="text-sm font-normal text-slate-400">dias</span>
           </div>
-          <div className="text-xs text-stone-500 mt-1">
+          <div className="text-xs text-slate-500 mt-1">
+            Garante fechamento de dossel no limpo
+          </div>
+        </div>
+
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Sacas Salvas da Matocompetição</div>
+          <div className="text-2xl font-bold text-emerald-700 mt-1">
+            +{sacasSalvasHa} <span className="text-sm font-normal text-slate-400">sc/ha</span>
+          </div>
+          <div className="text-xs text-slate-500 mt-1">
             {estrategiaAtiva.perdaPotencialMatocompeticaoPct}% de quebra evitada
           </div>
         </div>
 
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Retorno da Estratégia (ROI)</div>
-          <div className="text-2xl font-bold text-emerald-400 mt-1">
-            {roiEstrategia}x <span className="text-sm font-normal text-stone-400">ROI</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Retorno da Estratégia (ROI)</div>
+          <div className="text-2xl font-bold text-emerald-700 mt-1">
+            {roiEstrategia}x <span className="text-sm font-normal text-slate-400">ROI</span>
           </div>
-          <div className="text-xs text-stone-500 mt-1">
+          <div className="text-xs text-slate-500 mt-1">
             Custo R$ {estrategiaAtiva.custoTratamentoHa}/ha vs R$ {receitaPreservadaHa.toFixed(0)}/ha salvos
           </div>
         </div>
@@ -179,15 +189,15 @@ export const DaninhasResistentesModule: React.FC = () => {
 
         {/* Left Column: Protocolo Sequencial HRAC (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
-          <div className="bg-stone-900/90 border border-stone-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <Layers className="w-5 h-5 text-amber-400" />
-                <h2 className="text-lg font-semibold text-white">
+                <Layers className="w-5 h-5 text-amber-700" />
+                <h2 className="text-base font-bold text-slate-900">
                   Protocolo de Aplicação Sequencial por Talhão
                 </h2>
               </div>
-              <span className="text-xs text-stone-400 font-mono">Norma Global HRAC/WSSA</span>
+              <span className="text-xs text-slate-500 font-mono">Norma Global HRAC/WSSA</span>
             </div>
 
             {/* Selector of Target Weed Cases */}
@@ -198,53 +208,53 @@ export const DaninhasResistentesModule: React.FC = () => {
                   <button
                     key={est.id}
                     onClick={() => setEstrategiaAtiva(est)}
-                    className={`p-3 rounded-xl border text-left transition-all ${
+                    className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
                       isSelected
-                        ? 'bg-amber-950/40 border-amber-500/80 shadow-md ring-1 ring-amber-500/50'
-                        : 'bg-stone-800/40 border-stone-700/60 hover:bg-stone-800'
+                        ? 'bg-amber-50/70 border-amber-300 shadow-2xs'
+                        : 'bg-slate-50/60 border-slate-200 hover:bg-slate-50'
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-white truncate">{est.especieDaninha.split(' (')[0]}</span>
-                      <span className="text-[10px] px-1.5 py-0.5 rounded font-bold bg-amber-500/20 text-amber-300">
+                      <span className="text-xs font-bold text-slate-900 truncate">{est.especieDaninha.split(' (')[0]}</span>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded font-bold bg-amber-100 text-amber-800">
                         {est.densidadeInfestacaoM2} pl/m²
                       </span>
                     </div>
-                    <div className="text-[11px] text-stone-400 mt-1 truncate">{est.talhaoAlvo}</div>
+                    <div className="text-[11px] text-slate-500 mt-1 truncate">{est.talhaoAlvo}</div>
                   </button>
                 );
               })}
             </div>
 
             {/* Herbicide Stack Steps */}
-            <div className="space-y-3 bg-stone-950/70 border border-stone-800 rounded-xl p-4">
-              <h3 className="text-xs font-semibold text-stone-300 uppercase tracking-wider mb-2">
+            <div className="space-y-3 bg-slate-50/70 border border-slate-200/80 rounded-xl p-4">
+              <h3 className="text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
                 Mecanismos de Ação Integrados na Calda
               </h3>
 
               {estrategiaAtiva.gruposHracUtilizados.map((item, idx) => (
-                <div key={idx} className="p-3 bg-stone-900 border border-stone-800 rounded-lg flex items-center justify-between gap-3 text-xs">
+                <div key={idx} className="p-3 bg-white border border-slate-200 rounded-lg flex items-center justify-between gap-3 text-xs">
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded font-mono font-bold text-[10px]">
+                      <span className="px-2 py-0.5 bg-amber-50 text-amber-800 border border-amber-200 rounded font-mono font-bold text-[10px]">
                         Grupo HRAC {item.grupoNumero}
                       </span>
-                      <span className="font-semibold text-white">{item.mecanismoAcao}</span>
+                      <span className="font-semibold text-slate-900">{item.mecanismoAcao}</span>
                     </div>
-                    <div className="text-stone-400 text-[11px] mt-1">
+                    <div className="text-slate-500 text-[11px] mt-1">
                       {item.ingredienteAtivo}
                     </div>
                   </div>
-                  <span className="px-2 py-1 bg-slate-800 text-slate-900 border border-slate-700 rounded text-[10px] font-bold shrink-0">
+                  <span className="px-2 py-1 bg-slate-100 text-slate-700 border border-slate-200 rounded text-[10px] font-bold shrink-0">
                     {item.momento === 'DESSECACAO_1' ? '1ª Aplicação (-14 dias)' : item.momento === 'DESSECACAO_2' ? '2ª Aplicação (-2 dias)' : 'Plante-Aplique'}
                   </span>
                 </div>
               ))}
 
-              <div className="p-3 bg-amber-950/20 border border-amber-900/40 rounded-lg text-stone-300 text-xs flex items-center gap-2 mt-3">
-                <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+              <div className="p-3 bg-amber-50/60 border border-amber-200/80 rounded-lg text-slate-600 text-xs flex items-center gap-2 mt-3">
+                <ShieldCheck className="w-5 h-5 text-emerald-700 shrink-0" />
                 <span>
-                  O pré-emergente atua no banco de sementes criando uma película tóxica que impede o estabelecimento de novas plântulas durante os primeiros <strong>{estrategiaAtiva.diasResidualPreEmergente} dias</strong> cruciais do cultivo.
+                  O pré-emergente atua no banco de sementes criando uma película que impede novas plântulas durante os primeiros <strong>{estrategiaAtiva.diasResidualPreEmergente} dias</strong> cruciais.
                 </span>
               </div>
             </div>
@@ -253,74 +263,74 @@ export const DaninhasResistentesModule: React.FC = () => {
 
         {/* Right Column: Financial Prevention Simulator (5 cols) */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="bg-stone-900/90 border border-stone-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <Calculator className="w-5 h-5 text-amber-400" />
-                <h2 className="text-lg font-semibold text-white">
+                <Calculator className="w-5 h-5 text-amber-700" />
+                <h2 className="text-base font-bold text-slate-900">
                   Valoração da Matocompetição
                 </h2>
               </div>
-              <span className="text-xs bg-amber-500/10 text-amber-300 border border-amber-500/20 px-2 py-0.5 rounded">
+              <span className="text-xs bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded font-semibold">
                 Quebra Evitada
               </span>
             </div>
 
-            <p className="text-xs text-stone-400 mb-5">
+            <p className="text-xs text-slate-500 mb-5">
               Simule o prejuízo potencial evitado ao impedir que as daninhas disputem água e nutrientes no período PAIW.
             </p>
 
             <div className="space-y-4 text-xs">
               <div>
-                <label className="text-stone-400 font-medium block mb-1">Produtividade Esperada da Soja (sc/ha)</label>
+                <label className="text-slate-600 font-medium block mb-1">Produtividade Esperada da Soja (sc/ha)</label>
                 <input
                   type="number"
                   step="1"
                   value={produtividadeEsperadaScHa}
                   onChange={(e) => setProdutividadeEsperadaScHa(Number(e.target.value))}
-                  className="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-white font-semibold focus:border-amber-500"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 font-semibold focus:outline-none focus:ring-1 focus:ring-amber-500"
                 />
               </div>
 
               <div>
-                <label className="text-stone-400 font-medium block mb-1">Preço Projetado da Soja (R$/sc)</label>
+                <label className="text-slate-600 font-medium block mb-1">Preço Projetado da Soja (R$/sc)</label>
                 <input
                   type="number"
                   step="1"
                   value={precoSacaSoja}
                   onChange={(e) => setPrecoSacaSoja(Number(e.target.value))}
-                  className="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-white font-semibold focus:border-amber-500"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 font-semibold focus:outline-none focus:ring-1 focus:ring-amber-500"
                 />
               </div>
             </div>
 
             {/* Substitution Results Output Box */}
-            <div className="mt-6 p-4 bg-stone-950/80 border border-stone-800 rounded-xl space-y-3 text-xs">
+            <div className="mt-6 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3 text-xs">
               <div className="flex justify-between items-center">
-                <span className="text-stone-400">Sacas Salvas por Hectare:</span>
-                <span className="text-emerald-400 font-bold">+{sacasSalvasHa} sc/ha</span>
+                <span className="text-slate-500">Sacas Salvas por Hectare:</span>
+                <span className="text-emerald-700 font-bold">+{sacasSalvasHa} sc/ha</span>
               </div>
 
               <div className="flex justify-between items-center">
-                <span className="text-stone-400">Custo da Estratégia Completa:</span>
-                <span className="text-stone-300 font-semibold">- R$ {estrategiaAtiva.custoTratamentoHa.toFixed(2)}/ha</span>
+                <span className="text-slate-500">Custo da Estratégia Completa:</span>
+                <span className="text-slate-700 font-semibold">- R$ {estrategiaAtiva.custoTratamentoHa.toFixed(2)}/ha</span>
               </div>
 
-              <div className="pt-2 border-t border-stone-800 flex justify-between items-center">
-                <span className="font-semibold text-white">Lucro Líquido Preservado:</span>
-                <span className="text-emerald-400 font-bold text-base">
+              <div className="pt-2 border-t border-slate-200 flex justify-between items-center">
+                <span className="font-semibold text-slate-900">Lucro Líquido Preservado:</span>
+                <span className="text-emerald-700 font-bold text-base">
                   R$ {beneficioLiquidoHa.toFixed(2)} /ha
                 </span>
               </div>
 
-              <div className="p-3 bg-emerald-950/40 border border-emerald-900/40 rounded-lg flex items-center justify-between">
+              <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center justify-between">
                 <div>
-                  <div className="text-[10px] uppercase font-bold text-emerald-400">Benefício Total no Talhão ({estrategiaAtiva.areaHa} ha)</div>
-                  <div className="text-xl font-black text-white">
+                  <div className="text-[10px] uppercase font-bold text-emerald-800">Benefício Total no Talhão ({estrategiaAtiva.areaHa} ha)</div>
+                  <div className="text-xl font-black text-emerald-900">
                     R$ {beneficioTotalTalhaoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </div>
                 </div>
-                <Coins className="w-6 h-6 text-emerald-400" />
+                <Coins className="w-6 h-6 text-emerald-700" />
               </div>
             </div>
           </div>
@@ -330,3 +340,4 @@ export const DaninhasResistentesModule: React.FC = () => {
     </div>
   );
 };
+export default DaninhasResistentesModule;

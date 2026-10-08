@@ -1,4 +1,28 @@
+version: '3.8'
+
 services:
+  # Banco de Dados Principal Relacional & Espacial: PostgreSQL 16 com PostGIS 3.4
+  postgres-agro:
+    image: postgis/postgis:16-3.4
+    container_name: agro_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: super_agtech_db
+      POSTGRES_USER: agro_admin
+      POSTGRES_PASSWORD: agro_secure_password_2026
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata_agro:/var/lib/postgresql/data
+      - ./infra/migrations:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U agro_admin -d super_agtech_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Aplicação Web & API Gateway AGROTECH Enterprise
   super-agtech-web:
     build:
       context: .
@@ -6,11 +30,21 @@ services:
     container_name: super_agtech_production
     restart: always
     ports:
-      - "8080:80"
+      - "5173:5173"
+      - "3000:3000"
     environment:
       - NODE_ENV=production
+      - PORT=5173
+      - DATABASE_URL=postgres://agro_admin:agro_secure_password_2026@postgres-agro:5432/super_agtech_db
+      - JWT_SECRET=super_agro_jwt_secret_2026_xyz
+    depends_on:
+      postgres-agro:
+        condition: service_healthy
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1:5173/api/v1/health"]
       interval: 30s
       timeout: 5s
       retries: 3
+
+volumes:
+  pgdata_agro:

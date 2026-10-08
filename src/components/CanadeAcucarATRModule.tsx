@@ -116,13 +116,13 @@ export const CanadeAcucarATRModule: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400">
+              <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-700">
                 <Factory className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Cana-de-Açúcar • Modelo Consecana & Fertirrigação c/ Vinhaça
-                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono border border-emerald-500/30">
+                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-800 font-mono border border-emerald-500/30">
                     ATR Consecana • CETESB P4.231
                   </span>
                 </h2>
@@ -134,7 +134,7 @@ export const CanadeAcucarATRModule: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-300 border-emerald-500/40 flex items-center gap-1.5">
+            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-800 border-emerald-500/40 flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4" />
               ATR Médio: {canaMetrics.atrMedioKgTon.toFixed(2)} kg ATR/ton
             </span>
@@ -148,9 +148,9 @@ export const CanadeAcucarATRModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>ATR Consecana</span>
-            <Sparkles className="w-4 h-4 text-emerald-400" />
+            <Sparkles className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
+          <div className="text-2xl font-black mt-2 font-mono text-emerald-700">
             {canaMetrics.atrMedioKgTon.toFixed(1)}{' '}
             <span className="text-xs font-normal text-slate-600">kg ATR/t cana</span>
           </div>
@@ -163,9 +163,9 @@ export const CanadeAcucarATRModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Produtividade Canavial</span>
-            <Scale className="w-4 h-4 text-cyan-400" />
+            <Scale className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
+          <div className="text-2xl font-black mt-2 font-mono text-sky-700">
             {canaMetrics.tchMedio.toFixed(1)}{' '}
             <span className="text-xs font-normal text-slate-600">TCH (t/ha)</span>
           </div>
@@ -178,9 +178,9 @@ export const CanadeAcucarATRModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Economia de KCl (Vinhaça)</span>
-            <Leaf className="w-4 h-4 text-amber-400" />
+            <Leaf className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-amber-400">
+          <div className="text-2xl font-black mt-2 font-mono text-amber-700">
             R$ {canaMetrics.economiaTotalVinhacaFazenda.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -194,9 +194,9 @@ export const CanadeAcucarATRModule: React.FC = () => {
             <span>Receita Consecana</span>
             <TrendingUp className="w-4 h-4 text-white" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-white">
+          <div className="text-2xl font-black mt-2 font-mono text-slate-800">
             R$ {canaMetrics.receitaPorHaReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
-            <span className="text-xs font-normal text-emerald-400">/ ha</span>
+            <span className="text-xs font-normal text-emerald-700">/ ha</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Total: R$ {canaMetrics.receitaBrutaTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })} ({canaMetrics.areaTotalHa} ha).
@@ -210,8 +210,8 @@ export const CanadeAcucarATRModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <Layers className="w-5 h-5 text-emerald-400" />
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <Layers className="w-5 h-5 text-emerald-700" />
                 Talhões do Canavial & Rastreabilidade de Maturação
               </h3>
               <p className="text-xs text-slate-600">
@@ -233,16 +233,16 @@ export const CanadeAcucarATRModule: React.FC = () => {
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-xs font-bold border border-emerald-500/30">
+                      <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-800 font-mono text-xs font-bold border border-emerald-500/30">
                         {t.id}
                       </span>
-                      <h4 className="text-xs font-bold text-white">{t.nome}</h4>
+                      <h4 className="text-xs font-bold text-slate-900">{t.nome}</h4>
                     </div>
                     <span
                       className={`text-[10px] font-mono px-2 py-0.5 rounded border self-start sm:self-auto ${
                         t.statusMaturacao === 'MATURA_COLHER'
-                          ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
-                          : 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+                          ? 'bg-emerald-500/20 text-emerald-800 border-emerald-500/30'
+                          : 'bg-amber-500/20 text-amber-800 border-amber-500/30'
                       }`}
                     >
                       {t.statusMaturacao.replace(/_/g, ' ')}
@@ -252,11 +252,11 @@ export const CanadeAcucarATRModule: React.FC = () => {
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono">
                     <div className="p-2 rounded bg-white border border-slate-200">
                       <span className="text-slate-500 block text-[10px]">ATR Calculado</span>
-                      <span className="text-emerald-400 font-bold">{atrTalhao} kg/t</span>
+                      <span className="text-emerald-700 font-bold">{atrTalhao} kg/t</span>
                     </div>
                     <div className="p-2 rounded bg-white border border-slate-200">
                       <span className="text-slate-500 block text-[10px]">TCH Estimado</span>
-                      <span className="text-cyan-400 font-bold">{t.tchEstimadoTonHa} t/ha</span>
+                      <span className="text-sky-700 font-bold">{t.tchEstimadoTonHa} t/ha</span>
                     </div>
                     <div className="p-2 rounded bg-white border border-slate-200">
                       <span className="text-slate-500 block text-[10px]">Área & Corte</span>
@@ -264,7 +264,7 @@ export const CanadeAcucarATRModule: React.FC = () => {
                     </div>
                     <div className="p-2 rounded bg-white border border-slate-200">
                       <span className="text-slate-500 block text-[10px]">Variedade</span>
-                      <span className="text-amber-300 font-bold truncate">{t.variedade.split(' ')[0]}</span>
+                      <span className="text-amber-800 font-bold truncate">{t.variedade.split(' ')[0]}</span>
                     </div>
                   </div>
                 </div>
@@ -274,7 +274,7 @@ export const CanadeAcucarATRModule: React.FC = () => {
 
           {/* Banner Técnico Consecana e Vinhaça */}
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
-            <div className="flex items-center gap-2 text-emerald-400 font-semibold">
+            <div className="flex items-center gap-2 text-emerald-700 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes Técnicas Consecana & Vinhaça Sustentável:
             </div>
@@ -294,8 +294,8 @@ export const CanadeAcucarATRModule: React.FC = () => {
 
         {/* Painel Direito: Parâmetros de Mercado Consecana */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Scale className="w-5 h-5 text-emerald-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Scale className="w-5 h-5 text-emerald-700" />
             Parâmetros Consecana
           </h3>
 
@@ -314,7 +314,7 @@ export const CanadeAcucarATRModule: React.FC = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span className="text-slate-600 font-medium">Dose de Vinhaça Localizada</span>
-                <span className="text-amber-400 font-mono font-bold">{doseVinhacaM3Ha} m³/ha</span>
+                <span className="text-amber-700 font-mono font-bold">{doseVinhacaM3Ha} m³/ha</span>
               </div>
               <input
                 type="range"
@@ -348,13 +348,13 @@ export const CanadeAcucarATRModule: React.FC = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600">Substituição de KCl:</span>
-                <span className="text-amber-400 font-mono font-bold">
+                <span className="text-amber-700 font-mono font-bold">
                   {canaMetrics.kclSubstituidoHaKg.toFixed(0)} kg KCl/ha
                 </span>
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Receita Líquida Estimada:</span>
-                <span className="text-emerald-400 font-mono">
+                <span className="text-emerald-700 font-mono">
                   R$ {canaMetrics.receitaBrutaTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>

@@ -130,11 +130,11 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2.5 rounded-xl bg-blue-500/20 border border-blue-500/30 text-blue-400">
+              <div className="p-2.5 rounded-xl bg-blue-500/20 border border-blue-500/30 text-blue-700">
                 <Fish className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Piscicultura de Precisão & Telemetria Aquícola
                   <span className="text-xs px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 font-mono border border-blue-500/30">
                     Tilápia & Tambaqui
@@ -151,7 +151,7 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
             <span
               className={`px-3 py-1.5 rounded-xl text-xs font-bold font-mono border flex items-center gap-1.5 ${
                 !aquaMetrics.isOxigenioCritico
-                  ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                  ? 'bg-emerald-500/20 text-emerald-800 border-emerald-500/40'
                   : 'bg-rose-500/20 text-rose-300 border-rose-500/40 animate-pulse'
               }`}
             >
@@ -169,9 +169,9 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Biomassa Total</span>
-            <Layers className="w-4 h-4 text-blue-400" />
+            <Layers className="w-4 h-4 text-blue-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-blue-400">
+          <div className="text-2xl font-black mt-2 font-mono text-blue-700">
             {aquaMetrics.biomassaTotalTon.toFixed(1)}{' '}
             <span className="text-xs font-normal text-slate-600">toneladas</span>
           </div>
@@ -184,9 +184,9 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Densidade de Carga</span>
-            <Gauge className="w-4 h-4 text-cyan-400" />
+            <Gauge className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
+          <div className="text-2xl font-black mt-2 font-mono text-sky-700">
             {aquaMetrics.densidadeEstocagemKgM3.toFixed(1)}{' '}
             <span className="text-xs font-normal text-slate-600">kg/m³</span>
           </div>
@@ -199,9 +199,9 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Ração Fornecida</span>
-            <TrendingUp className="w-4 h-4 text-amber-400" />
+            <TrendingUp className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-amber-400">
+          <div className="text-2xl font-black mt-2 font-mono text-amber-700">
             {aquaMetrics.racaoDiariaKg.toFixed(0)}{' '}
             <span className="text-xs font-normal text-slate-600">kg/dia ({aquaMetrics.taxaArracoamentoPct}%)</span>
           </div>
@@ -214,11 +214,11 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Margem no Lote</span>
-            <Sparkles className="w-4 h-4 text-emerald-400" />
+            <Sparkles className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-white">
+          <div className="text-2xl font-black mt-2 font-mono text-slate-800">
             R$ {aquaMetrics.lucroEstimadoLoteReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
-            <span className="text-xs font-normal text-emerald-400">
+            <span className="text-xs font-normal text-emerald-700">
               (+R$ {aquaMetrics.margemLiquidaKgReais.toFixed(2)}/kg)
             </span>
           </div>
@@ -234,8 +234,8 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <Waves className="w-5 h-5 text-blue-400" />
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <Waves className="w-5 h-5 text-blue-700" />
                 Baterias de Tanques & Monitoramento Hidroquímico
               </h3>
               <p className="text-xs text-slate-600">
@@ -265,13 +265,13 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
                       <span className="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-mono text-xs font-bold border border-blue-500/30">
                         {t.id}
                       </span>
-                      <h4 className="text-xs font-bold text-white">{t.nome}</h4>
+                      <h4 className="text-xs font-bold text-slate-900">{t.nome}</h4>
                     </div>
                     <span
                       className={`text-[10px] font-mono px-2 py-0.5 rounded border self-start sm:self-auto ${
                         t.statusAerador === 'STANDBY_OK'
-                          ? 'bg-slate-800 text-slate-600 border-slate-700'
-                          : 'bg-amber-500/20 text-amber-300 border-amber-500/30 animate-pulse'
+                          ? 'bg-slate-100 text-slate-700 border-slate-300'
+                          : 'bg-amber-500/20 text-amber-800 border-amber-500/30 animate-pulse'
                       }`}
                     >
                       Aerador: {t.statusAerador.replace(/_/g, ' ')}
@@ -281,17 +281,17 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono">
                     <div className="p-2 rounded bg-white border border-slate-200">
                       <span className="text-slate-500 block text-[10px]">Oxigênio (O₂)</span>
-                      <span className={t.oxigenioMgL >= 4.5 ? 'text-emerald-400 font-bold' : 'text-rose-400 font-bold'}>
+                      <span className={t.oxigenioMgL >= 4.5 ? 'text-emerald-700 font-bold' : 'text-rose-700 font-bold'}>
                         {t.oxigenioMgL.toFixed(1)} mg/L
                       </span>
                     </div>
                     <div className="p-2 rounded bg-white border border-slate-200">
                       <span className="text-slate-500 block text-[10px]">pH da Água</span>
-                      <span className="text-cyan-400 font-bold">{t.phAgua.toFixed(1)}</span>
+                      <span className="text-sky-700 font-bold">{t.phAgua.toFixed(1)}</span>
                     </div>
                     <div className="p-2 rounded bg-white border border-slate-200">
                       <span className="text-slate-500 block text-[10px]">Temperatura</span>
-                      <span className="text-amber-400 font-bold">{t.temperaturaAguaC}°C</span>
+                      <span className="text-amber-700 font-bold">{t.temperaturaAguaC}°C</span>
                     </div>
                     <div className="p-2 rounded bg-white border border-slate-200">
                       <span className="text-slate-500 block text-[10px]">Biomassa Estimada</span>
@@ -307,7 +307,7 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
 
           {/* Banner de Boas Práticas Aquícolas */}
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
-            <div className="flex items-center gap-2 text-blue-400 font-semibold">
+            <div className="flex items-center gap-2 text-blue-700 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes de Manejo Zootécnico & Sanidade Aquícola:
             </div>
@@ -327,8 +327,8 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
 
         {/* Painel Direito: Parâmetros Zootécnicos e Financeiros */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Fish className="w-5 h-5 text-blue-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Fish className="w-5 h-5 text-blue-700" />
             Parâmetros do Lote
           </h3>
 
@@ -356,7 +356,7 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span className="text-slate-600 font-medium">Conversão Alimentar (FCR)</span>
-                <span className="text-blue-400 font-mono font-bold">{fcrZootecnico.toFixed(2)}</span>
+                <span className="text-blue-700 font-mono font-bold">{fcrZootecnico.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -379,13 +379,13 @@ export const PisciculturaAquiculturaModule: React.FC = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600">Margem Líquida por kg:</span>
-                <span className="text-emerald-400 font-mono font-bold">
+                <span className="text-emerald-700 font-mono font-bold">
                   +R$ {aquaMetrics.margemLiquidaKgReais.toFixed(2)} / kg
                 </span>
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
-                <span className="text-white">Lucro Líquido no Lote:</span>
-                <span className="text-cyan-400 font-mono">
+                <span className="text-slate-900">Lucro Líquido no Lote:</span>
+                <span className="text-sky-700 font-mono">
                   R$ {aquaMetrics.lucroEstimadoLoteReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>

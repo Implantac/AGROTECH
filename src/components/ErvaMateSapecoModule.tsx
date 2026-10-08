@@ -102,15 +102,15 @@ export const ErvaMateSapecoModule: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className="px-2.5 py-1 text-xs font-black bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+              <span className="px-2.5 py-1 text-xs font-black bg-emerald-500/20 text-emerald-800 border border-emerald-500/40 rounded-full uppercase tracking-wider flex items-center gap-1.5">
                 <Leaf className="w-3.5 h-3.5" />
                 Módulo 97 • Erva-Mate & Agrofloresta Sombreada
               </span>
-              <span className="px-2.5 py-1 text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full">
+              <span className="px-2.5 py-1 text-xs font-semibold bg-amber-500/20 text-amber-800 border border-amber-500/30 rounded-full">
                 Ilex paraguariensis • Sapeco & Barricas
               </span>
             </div>
-            <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-3">
               🍃 Erva-Mate de Precisão, Sapeco Térmico & Maturação
             </h2>
             <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
@@ -121,13 +121,13 @@ export const ErvaMateSapecoModule: React.FC = () => {
           <div className="flex items-center gap-3">
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Erva Cancheada</span>
-              <span className="text-xl font-black text-emerald-400">230.400 kg</span>
+              <span className="text-xl font-black text-emerald-700">230.400 kg</span>
               <span className="text-[10px] text-slate-600 block mt-0.5">40 ha Ervais</span>
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Faturamento</span>
-              <span className="text-xl font-black text-amber-400">R$ 1.566.720</span>
-              <span className="text-[10px] text-amber-400/80 block mt-0.5">63.8% Margem</span>
+              <span className="text-xl font-black text-amber-700">R$ 1.566.720</span>
+              <span className="text-[10px] text-amber-700/80 block mt-0.5">63.8% Margem</span>
             </div>
           </div>
         </div>
@@ -138,10 +138,10 @@ export const ErvaMateSapecoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Massa Verde Colhida</span>
-            <Activity className="w-4 h-4 text-emerald-400" />
+            <Activity className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-white">12.0 t / ha</div>
-          <div className="text-[11px] text-emerald-400 font-medium mt-1 flex items-center gap-1">
+          <div className="text-2xl font-black text-slate-900">12.0 t / ha</div>
+          <div className="text-[11px] text-emerald-700 font-medium mt-1 flex items-center gap-1">
             <CheckCircle2 className="w-3.5 h-3.5" />
             Poda Bianual Equilibrada
           </div>
@@ -161,9 +161,9 @@ export const ErvaMateSapecoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Umidade Pós-Secagem</span>
-            <Wind className="w-4 h-4 text-cyan-400" />
+            <Wind className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black text-cyan-400">&lt; 5.5%</div>
+          <div className="text-2xl font-black text-sky-700">&lt; 5.5%</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Imune a Mofos e Fermentação
           </div>
@@ -172,9 +172,9 @@ export const ErvaMateSapecoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-emerald-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
-            <DollarSign className="w-4 h-4 text-emerald-400" />
+            <DollarSign className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-emerald-400">R$ 998.720,00</div>
+          <div className="text-2xl font-black text-emerald-700">R$ 998.720,00</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             R$ 24.968,00 por hectare/ano
           </div>
@@ -187,8 +187,8 @@ export const ErvaMateSapecoModule: React.FC = () => {
           onClick={() => setActiveTab('ervais')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'ervais'
-              ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Leaf className="w-4 h-4" />
@@ -199,8 +199,8 @@ export const ErvaMateSapecoModule: React.FC = () => {
           onClick={() => setActiveTab('sapeco')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'sapeco'
-              ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Flame className="w-4 h-4" />
@@ -211,8 +211,8 @@ export const ErvaMateSapecoModule: React.FC = () => {
           onClick={() => setActiveTab('maturacao')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'maturacao'
-              ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -223,8 +223,8 @@ export const ErvaMateSapecoModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
-              ? 'bg-emerald-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -236,8 +236,8 @@ export const ErvaMateSapecoModule: React.FC = () => {
       {activeTab === 'ervais' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <Leaf className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <Leaf className="w-5 h-5 text-emerald-700" />
               Monitoramento dos Ervais Agroflorestais Sombreados
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -257,20 +257,20 @@ export const ErvaMateSapecoModule: React.FC = () => {
                     <th className="py-3 px-3">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60 font-medium">
+                <tbody className="divide-y divide-slate-100 font-medium">
                   {lotes.map((l) => (
-                    <tr key={l.id} className="hover:bg-slate-800/40 transition-colors">
+                    <tr key={l.id} className="hover:bg-slate-50/80 transition-colors">
                       <td className="py-3.5 px-3">
-                        <div className="font-bold text-white">{l.identificacao}</div>
+                        <div className="font-bold text-slate-900">{l.identificacao}</div>
                         <div className="text-[11px] text-slate-600 font-mono">{l.id}</div>
                       </td>
-                      <td className="py-3.5 px-3 text-emerald-300 font-semibold">{l.sistema}</td>
-                      <td className="py-3.5 px-3 font-mono text-white">{l.massaVerdeKg.toLocaleString()} kg</td>
-                      <td className="py-3.5 px-3 font-mono text-cyan-400 font-bold">{l.umidadePosSecagemPct}%</td>
+                      <td className="py-3.5 px-3 text-emerald-800 font-semibold">{l.sistema}</td>
+                      <td className="py-3.5 px-3 font-mono text-slate-800">{l.massaVerdeKg.toLocaleString()} kg</td>
+                      <td className="py-3.5 px-3 font-mono text-sky-700 font-bold">{l.umidadePosSecagemPct}%</td>
                       <td className="py-3.5 px-3 font-mono text-orange-400 font-bold">{l.temperaturaSapecoC}°C</td>
-                      <td className="py-3.5 px-3 font-mono font-bold text-emerald-400">{l.ervaCancheadaKg.toLocaleString()} kg</td>
+                      <td className="py-3.5 px-3 font-mono font-bold text-emerald-700">{l.ervaCancheadaKg.toLocaleString()} kg</td>
                       <td className="py-3.5 px-3">
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30">
                           {l.status}
                         </span>
                       </td>
@@ -287,7 +287,7 @@ export const ErvaMateSapecoModule: React.FC = () => {
       {activeTab === 'sapeco' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <Flame className="w-5 h-5 text-orange-400" />
               Sapeco Térmico por Chama Direta
             </h3>
@@ -297,13 +297,13 @@ export const ErvaMateSapecoModule: React.FC = () => {
 
             <div className="space-y-3 text-xs">
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Inativação de Enzimas Oxidadoras</span>
+                <span className="font-bold text-slate-900 block">Inativação de Enzimas Oxidadoras</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   Desnatura a enzima polifenoloxidase instantaneamente, preservando a clorofila verde brilhante e impedindo o escurecimento oxidativo.
                 </span>
               </div>
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Ruptura de Células Foliares</span>
+                <span className="font-bold text-slate-900 block">Ruptura de Células Foliares</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   Provoca estalos microscópicos na cutícula foliar, permitindo secagem uniforme no secador de esteiras.
                 </span>
@@ -312,8 +312,8 @@ export const ErvaMateSapecoModule: React.FC = () => {
           </div>
 
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-emerald-700" />
               Secagem Contínua em Ar Indireto
             </h3>
             <p className="text-xs text-slate-600">
@@ -323,11 +323,11 @@ export const ErvaMateSapecoModule: React.FC = () => {
             <div className="space-y-2 text-xs">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Padrão Exportação HPA-Free:</span>
-                <span className="font-mono font-bold text-emerald-400">100% Ar Quente Limpo</span>
+                <span className="font-mono font-bold text-emerald-700">100% Ar Quente Limpo</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Tempo de Residência no Secador:</span>
-                <span className="font-mono font-bold text-amber-400">30 a 45 minutos</span>
+                <span className="font-mono font-bold text-amber-700">30 a 45 minutos</span>
               </div>
             </div>
           </div>
@@ -338,8 +338,8 @@ export const ErvaMateSapecoModule: React.FC = () => {
       {activeTab === 'maturacao' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <Award className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <Award className="w-5 h-5 text-emerald-700" />
               Cancheamento & Maturação em Barricas
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -349,19 +349,19 @@ export const ErvaMateSapecoModule: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Estilo Chimarrão</span>
-                <span className="text-2xl font-black text-white font-mono">Verde Viva (PN-1)</span>
-                <span className="text-[11px] text-emerald-400 block">Moagem fina com folhas novas</span>
+                <span className="text-2xl font-black text-slate-900 font-mono">Verde Viva (PN-1)</span>
+                <span className="text-[11px] text-emerald-700 block">Moagem fina com folhas novas</span>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Estilo Tereré</span>
-                <span className="text-2xl font-black text-cyan-400 font-mono">Foliácea Pura</span>
+                <span className="text-2xl font-black text-sky-700 font-mono">Foliácea Pura</span>
                 <span className="text-[11px] text-slate-600 block">Granulometria grossa sem pó</span>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Mercado Global</span>
-                <span className="text-2xl font-black text-amber-400 font-mono">Energy Drinks & Chás</span>
+                <span className="text-2xl font-black text-amber-700 font-mono">Energy Drinks & Chás</span>
                 <span className="text-[11px] text-slate-600 block">Alemanha, EUA e Oriente Médio</span>
               </div>
             </div>
@@ -373,15 +373,15 @@ export const ErvaMateSapecoModule: React.FC = () => {
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <BarChart3 className="w-5 h-5 text-emerald-700" />
               Parâmetros da Produção Ervateira
             </h3>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Área dos Ervais (ha)</span>
-                <span className="font-mono text-emerald-400">{areaHa} hectares</span>
+                <span className="font-mono text-emerald-700">{areaHa} hectares</span>
               </div>
               <input
                 type="range"
@@ -390,14 +390,14 @@ export const ErvaMateSapecoModule: React.FC = () => {
                 step="5"
                 value={areaHa}
                 onChange={(e) => setAreaHa(Number(e.target.value))}
-                className="w-full accent-emerald-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-emerald-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Produtividade Massa Verde (kg/ha)</span>
-                <span className="font-mono text-cyan-400">{produtividadeMassaVerdeKgHa} kg/ha</span>
+                <span className="font-mono text-sky-700">{produtividadeMassaVerdeKgHa} kg/ha</span>
               </div>
               <input
                 type="range"
@@ -406,14 +406,14 @@ export const ErvaMateSapecoModule: React.FC = () => {
                 step="1000"
                 value={produtividadeMassaVerdeKgHa}
                 onChange={(e) => setProdutividadeMassaVerdeKgHa(Number(e.target.value))}
-                className="w-full accent-cyan-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-cyan-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Erva Cancheada (R$/kg)</span>
-                <span className="font-mono text-white">R$ {precoKgErvaCancheadaReais.toFixed(2)}</span>
+                <span className="font-mono text-slate-800">R$ {precoKgErvaCancheadaReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -422,14 +422,14 @@ export const ErvaMateSapecoModule: React.FC = () => {
                 step="0.20"
                 value={precoKgErvaCancheadaReais}
                 onChange={(e) => setPrecoKgErvaCancheadaReais(Number(e.target.value))}
-                className="w-full accent-emerald-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-emerald-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Custo de Manejo e Indústria por Ha</span>
-                <span className="font-mono text-rose-400">R$ {custoManejoColheitaHaReais.toFixed(2)}</span>
+                <span className="font-mono text-rose-700">R$ {custoManejoColheitaHaReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -438,21 +438,21 @@ export const ErvaMateSapecoModule: React.FC = () => {
                 step="500"
                 value={custoManejoColheitaHaReais}
                 onChange={(e) => setCustoManejoColheitaHaReais(Number(e.target.value))}
-                className="w-full accent-rose-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-rose-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
           </div>
 
           <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <DollarSign className="w-5 h-5 text-emerald-700" />
               Retorno Financeiro da Agrofloresta Ervateira
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Massa Verde</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   {(metricas.massaVerdeTotalKg / 1000).toFixed(0)} ton
                 </span>
                 <span className="text-[10px] text-slate-600 block">{areaHa} ha colhidos</span>
@@ -460,15 +460,15 @@ export const ErvaMateSapecoModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Cancheada Seca</span>
-                <span className="font-mono font-bold text-emerald-400 text-base">
+                <span className="font-mono font-bold text-emerald-700 text-base">
                   {(metricas.ervaCancheadaKg / 1000).toFixed(0)} ton
                 </span>
-                <span className="text-[10px] text-emerald-400/80 block">48% rendimento</span>
+                <span className="text-[10px] text-emerald-700/80 block">48% rendimento</span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Bruta</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   R$ {(metricas.receitaBrutaReais / 1000).toFixed(0)}k
                 </span>
                 <span className="text-[10px] text-slate-600 block">Venda Indústria</span>
@@ -476,29 +476,29 @@ export const ErvaMateSapecoModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido</span>
-                <span className="font-mono font-bold text-emerald-400 text-base">
+                <span className="font-mono font-bold text-emerald-700 text-base">
                   R$ {(metricas.lucroLiquidoReais / 1000).toFixed(0)}k
                 </span>
-                <span className="text-[10px] text-emerald-400/80 block">{metricas.margemLiquidaPct}% margem</span>
+                <span className="text-[10px] text-emerald-700/80 block">{metricas.margemLiquidaPct}% margem</span>
               </div>
             </div>
 
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Receita com Venda de Erva-Mate Cancheada ({metricas.ervaCancheadaKg.toLocaleString()} kg @ R$ {precoKgErvaCancheadaReais.toFixed(2)}):</span>
-                <span className="font-mono font-bold text-white">
+                <span className="font-mono font-bold text-slate-900">
                   R$ {metricas.receitaBrutaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Custo com Manejo da Agrofloresta, Poda e Sapeco Industrial:</span>
-                <span className="font-mono font-bold text-rose-400">
+                <span className="font-mono font-bold text-rose-700">
                   - R$ {metricas.custoTotalReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-2 text-sm font-black bg-emerald-950/30 px-3 rounded-lg border border-emerald-800/50">
-                <span className="text-white">Lucro Líquido Anual Consolidado:</span>
-                <span className="font-mono text-emerald-300">
+              <div className="flex justify-between items-center py-2 text-sm font-black bg-emerald-50 px-3 rounded-lg border border-emerald-200">
+                <span className="text-slate-900">Lucro Líquido Anual Consolidado:</span>
+                <span className="font-mono text-emerald-800">
                   R$ {metricas.lucroLiquidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>

@@ -121,13 +121,13 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2.5 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-400">
+              <div className="p-2.5 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-700">
                 <Flower2 className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Apicultura de Precisão & Polinização Dirigida
-                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-mono border border-amber-500/30">
+                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-800 font-mono border border-amber-500/30">
                     Apis mellifera • Bee-Safe Window • Embrapa
                   </span>
                 </h2>
@@ -142,18 +142,18 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
             <span
               className={`px-3 py-1.5 rounded-xl text-xs font-bold font-mono border flex items-center gap-1.5 ${
                 metrics.isJanelaSegura
-                  ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                  ? 'bg-emerald-500/20 text-emerald-800 border-emerald-500/40'
                   : 'bg-rose-500/20 text-rose-300 border-rose-500/40'
               }`}
             >
               {metrics.isJanelaSegura ? (
                 <>
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                  <ShieldCheck className="w-4 h-4 text-emerald-700" />
                   Janela Segura (Bee-Safe ATIVA)
                 </>
               ) : (
                 <>
-                  <AlertTriangle className="w-4 h-4 text-rose-400" />
+                  <AlertTriangle className="w-4 h-4 text-rose-700" />
                   Alerta: Horário de Forrageamento Intenso
                 </>
               )}
@@ -168,9 +168,9 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Incremento Agronômico</span>
-            <TrendingUp className="w-4 h-4 text-emerald-400" />
+            <TrendingUp className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
+          <div className="text-2xl font-black mt-2 font-mono text-emerald-700">
             +{metrics.incrementoScHa.toFixed(2)}{' '}
             <span className="text-xs font-normal text-slate-600">sc/ha (+{ganhoPolinizacaoPct}%)</span>
           </div>
@@ -183,9 +183,9 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Ganho Grãos/Café Polinizado</span>
-            <Coins className="w-4 h-4 text-amber-400" />
+            <Coins className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-amber-400">
+          <div className="text-2xl font-black mt-2 font-mono text-amber-700">
             R$ {metrics.ganhoAgroTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -214,9 +214,9 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
             <span>Retorno Integrado Total</span>
             <Sparkles className="w-4 h-4 text-white" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-white">
+          <div className="text-2xl font-black mt-2 font-mono text-slate-800">
             R$ {metrics.beneficioTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
-            <span className="text-xs font-normal text-emerald-400">/ ano</span>
+            <span className="text-xs font-normal text-emerald-700">/ ano</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Lavoura + Apicultura consorciada em simbiose biológica.
@@ -230,8 +230,8 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-amber-400" />
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-amber-700" />
                 Mapeamento de Apiários & Raio de Ação
               </h3>
               <p className="text-xs text-slate-600">
@@ -251,21 +251,21 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
-                    <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-xs font-bold border border-amber-500/30">
+                    <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-800 font-mono text-xs font-bold border border-amber-500/30">
                       {a.id}
                     </span>
-                    <h4 className="text-xs font-bold text-white">{a.nome}</h4>
+                    <h4 className="text-xs font-bold text-slate-900">{a.nome}</h4>
                     <span className="text-[11px] text-slate-600">• {a.talhaoAlvo}</span>
                   </div>
-                  <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono border border-emerald-500/30">
+                  <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-800 text-[10px] font-mono border border-emerald-500/30">
                     {a.statusSanitario}
                   </span>
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-600">
                   <span>Colmeias: <strong className="text-white">{a.colmeiasAtivas} un</strong></span>
-                  <span>Raio de Voo: <strong className="text-amber-400">{a.raioVooKm} km</strong></span>
-                  <span>Área Atendida: <strong className="text-cyan-400">{a.areaCoberturaHa} ha</strong></span>
+                  <span>Raio de Voo: <strong className="text-amber-700">{a.raioVooKm} km</strong></span>
+                  <span>Área Atendida: <strong className="text-sky-700">{a.areaCoberturaHa} ha</strong></span>
                   <span>Mel: <strong className="text-yellow-400">{a.producaoMelKgAno.toLocaleString('pt-BR')} kg/ano</strong></span>
                 </div>
               </div>
@@ -274,7 +274,7 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
 
           {/* Banner de Boas Práticas Bee-Safe */}
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
-            <div className="flex items-center gap-2 text-amber-400 font-semibold">
+            <div className="flex items-center gap-2 text-amber-700 font-semibold">
               <ShieldCheck className="w-4 h-4" />
               Diretrizes de Proteção aos Polinizadores (Protocolo Bee-Safe MAPA/Embrapa):
             </div>
@@ -294,8 +294,8 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
 
         {/* Painel Direito: Simulador de Parâmetros e Pulverização */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Clock className="w-5 h-5 text-amber-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Clock className="w-5 h-5 text-amber-700" />
             Simulador de Manejo & Alerta
           </h3>
 
@@ -303,7 +303,7 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span className="text-slate-600 font-medium">Horário da Pulverização Programada</span>
-                <span className="text-amber-400 font-mono font-bold">{horaAtualPulverizacao}h</span>
+                <span className="text-amber-700 font-mono font-bold">{horaAtualPulverizacao}h</span>
               </div>
               <input
                 type="time"
@@ -312,12 +312,12 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-white font-mono"
               />
               {!metrics.isJanelaSegura ? (
-                <p className="text-[11px] text-rose-400 mt-1 flex items-center gap-1">
+                <p className="text-[11px] text-rose-700 mt-1 flex items-center gap-1">
                   <ShieldAlert className="w-3.5 h-3.5 shrink-0" />
                   Alerta: Horário de forrageamento ativo. Risco de intoxicação de colmeias!
                 </p>
               ) : (
-                <p className="text-[11px] text-emerald-400 mt-1 flex items-center gap-1">
+                <p className="text-[11px] text-emerald-700 mt-1 flex items-center gap-1">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
                   Janela segura para pulverização (abelhas protegidas nas caixas).
                 </p>
@@ -337,7 +337,7 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span className="text-slate-600 font-medium">Ganho Agronômico Estimado (%)</span>
-                <span className="text-emerald-400 font-mono font-bold">+{ganhoPolinizacaoPct}%</span>
+                <span className="text-emerald-700 font-mono font-bold">+{ganhoPolinizacaoPct}%</span>
               </div>
               <input
                 type="range"
@@ -374,7 +374,7 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
             <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
                 <span className="text-slate-600">Ganho na Safra (+{metrics.incrementoScHa.toFixed(2)} sc/ha):</span>
-                <span className="text-amber-400 font-mono font-bold">
+                <span className="text-amber-700 font-mono font-bold">
                   R$ {metrics.ganhoAgroTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
@@ -386,7 +386,7 @@ export const ApiculturaPolinizacaoModule: React.FC = () => {
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Retorno Econômico Global:</span>
-                <span className="text-emerald-400 font-mono">
+                <span className="text-emerald-700 font-mono">
                   R$ {metrics.beneficioTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
