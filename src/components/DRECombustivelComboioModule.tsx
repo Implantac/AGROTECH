@@ -307,16 +307,16 @@ export const DRECombustivelComboioModule: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-slate-200 p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 rounded-xl text-amber-400">
+            <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 rounded-xl text-amber-700">
               <DollarSign className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-xl font-bold text-[#1D4B38]">DRE por Talhão & Gestão de Combustível</h1>
-                <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+                <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 rounded-full">
                   Margem R$/sc & ha
                 </span>
-                <span className="px-2 py-0.5 text-[11px] font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full">
+                <span className="px-2 py-0.5 text-[11px] font-semibold bg-amber-500/20 text-amber-800 border border-amber-500/30 rounded-full">
                   Melosa & Comboio
                 </span>
               </div>
@@ -366,12 +366,12 @@ export const DRECombustivelComboioModule: React.FC = () => {
       </div>
 
       {sucessoMsg && (
-        <div className="p-4 bg-emerald-950/60 border border-emerald-700/50 rounded-xl text-emerald-300 text-sm flex items-center justify-between">
+        <div className="p-4 bg-emerald-950/60 border border-emerald-700/50 rounded-xl text-emerald-800 text-sm flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+            <CheckCircle2 className="w-4 h-4 text-emerald-700" />
             <span>{sucessoMsg}</span>
           </div>
-          <button onClick={() => setSucessoMsg(null)} className="text-xs text-emerald-400 hover:underline">
+          <button onClick={() => setSucessoMsg(null)} className="text-xs text-emerald-700 hover:underline">
             Fechar
           </button>
         </div>
@@ -385,7 +385,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
             <div className="bg-white border border-slate-200 p-4 rounded-xl">
               <div className="flex items-center justify-between text-slate-600 mb-1">
                 <span className="text-xs font-medium uppercase tracking-wider">Área Consolidada</span>
-                <Layers className="w-4 h-4 text-emerald-400" />
+                <Layers className="w-4 h-4 text-emerald-700" />
               </div>
               <div className="text-2xl font-bold text-[#1D4B38] font-mono">{totalAreaHa.toFixed(1)} ha</div>
               <p className="text-xs text-slate-500 mt-1">5 talhões agrícolas ativos na safra</p>
@@ -405,7 +405,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
             <div className="bg-white border border-slate-200 p-4 rounded-xl">
               <div className="flex items-center justify-between text-slate-600 mb-1">
                 <span className="text-xs font-medium uppercase tracking-wider">Custo Absorvido Total</span>
-                <PieChart className="w-4 h-4 text-amber-400" />
+                <PieChart className="w-4 h-4 text-amber-700" />
               </div>
               <div className="text-2xl font-bold text-[#1D4B38] font-mono">
                 R$ {(totalCustoAbsorvido / 1_000_000).toFixed(2)}M
@@ -414,14 +414,14 @@ export const DRECombustivelComboioModule: React.FC = () => {
             </div>
 
             <div className="bg-emerald-950/40 border border-emerald-800/60 p-4 rounded-xl">
-              <div className="flex items-center justify-between text-emerald-300 mb-1">
+              <div className="flex items-center justify-between text-emerald-800 mb-1">
                 <span className="text-xs font-medium uppercase tracking-wider">Lucro Líquido Safra</span>
-                <ArrowUpRight className="w-4 h-4 text-emerald-400" />
+                <ArrowUpRight className="w-4 h-4 text-emerald-700" />
               </div>
               <div className="text-2xl font-bold text-emerald-200 font-mono">
                 R$ {(totalLucroLiquido / 1_000_000).toFixed(2)}M
               </div>
-              <p className="text-xs text-emerald-400/80 mt-1">
+              <p className="text-xs text-emerald-700/80 mt-1">
                 Média de R$ {margemMediaPorHa.toFixed(2)} / hectare
               </p>
             </div>
@@ -431,26 +431,26 @@ export const DRECombustivelComboioModule: React.FC = () => {
           {campeaoMargem && (
             <div className="p-4 bg-gradient-to-r from-emerald-950/60 to-slate-900 border border-emerald-700/60 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <div className="p-3 bg-emerald-500/20 text-emerald-400 rounded-xl">
+                <div className="p-3 bg-emerald-500/20 text-emerald-700 rounded-xl">
                   <Sparkles className="w-6 h-6" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">
                       Campeão de Rentabilidade Safra
                     </span>
-                    <span className="px-2 py-0.5 text-[10px] font-bold bg-emerald-500/20 text-emerald-300 rounded-full">
+                    <span className="px-2 py-0.5 text-[10px] font-bold bg-emerald-500/20 text-emerald-800 rounded-full">
                       {campeaoMargem.codigo} - {campeaoMargem.nome}
                     </span>
                   </div>
                   <div className="text-sm text-slate-900 font-medium mt-0.5">
-                    Margem Líquida de <strong className="text-emerald-300 font-mono">R$ {campeaoMargem.margemLiquidaPorSaca.toFixed(2)} / sc</strong> (R$ {campeaoMargem.margemLiquidaHa.toFixed(2)} / ha)
+                    Margem Líquida de <strong className="text-emerald-800 font-mono">R$ {campeaoMargem.margemLiquidaPorSaca.toFixed(2)} / sc</strong> (R$ {campeaoMargem.margemLiquidaHa.toFixed(2)} / ha)
                   </div>
                 </div>
               </div>
               <div className="text-right">
                 <span className="text-xs text-slate-600">Lucro Líquido Gerado pelo Talhão:</span>
-                <div className="text-lg font-bold font-mono text-emerald-300">
+                <div className="text-lg font-bold font-mono text-emerald-800">
                   R$ {campeaoMargem.lucroLiquidoTalhao.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </div>
               </div>
@@ -462,7 +462,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
             <div className="p-5 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <h2 className="text-base font-semibold text-[#1D4B38] flex items-center gap-2">
-                  <BarChart3 className="w-5 h-5 text-emerald-400" />
+                  <BarChart3 className="w-5 h-5 text-emerald-700" />
                   DRE Detalhado Talhão a Talhão
                 </h2>
                 <p className="text-xs text-slate-600">
@@ -485,17 +485,17 @@ export const DRECombustivelComboioModule: React.FC = () => {
                     <th className="px-4 py-3.5">Lucro Total Talhão</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60">
+                <tbody className="divide-y divide-slate-100">
                   {dreCalculado.map((item) => {
                     const insumosHa = item.custoSementesHa + item.custoFertilizantesHa + item.custoDefensivosHa;
                     const frotaHa = item.custoDieselHa + item.custoHorasMaquinaHa;
 
                     return (
-                      <tr key={item.talhaoId} className="hover:bg-slate-800/40 transition-colors">
+                      <tr key={item.talhaoId} className="hover:bg-slate-50/80 transition-colors">
                         <td className="px-4 py-3.5">
                           <div className="font-bold text-slate-900">{item.codigo}</div>
                           <div className="text-slate-600 text-[11px]">{item.nome}</div>
-                          <div className="text-[10px] text-emerald-400 font-medium mt-0.5">{item.cultura}</div>
+                          <div className="text-[10px] text-emerald-700 font-medium mt-0.5">{item.cultura}</div>
                         </td>
 
                         <td className="px-4 py-3.5">
@@ -503,7 +503,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
                           <div className="text-[11px] text-slate-600 font-mono">
                             {item.produtividadeScHa} sc/ha @ R$ {item.precoVendaSaca}/sc
                           </div>
-                          <div className="text-[10px] text-amber-400 mt-0.5">
+                          <div className="text-[10px] text-amber-700 mt-0.5">
                             Desc. Balança: -{item.pctDescontoBalanca}%
                           </div>
                         </td>
@@ -536,7 +536,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
                         </td>
 
                         <td className="px-4 py-3.5">
-                          <div className="font-mono font-bold text-amber-300">
+                          <div className="font-mono font-bold text-amber-800">
                             R$ {item.custoPorSaca.toFixed(2)}
                           </div>
                           <div className="text-[10px] text-slate-500">
@@ -547,7 +547,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
                         <td className="px-4 py-3.5">
                           <div
                             className={`font-mono font-bold text-sm ${
-                              item.margemLiquidaPorSaca >= 0 ? 'text-emerald-400' : 'text-rose-400'
+                              item.margemLiquidaPorSaca >= 0 ? 'text-emerald-700' : 'text-rose-700'
                             }`}
                           >
                             R$ {item.margemLiquidaPorSaca.toFixed(2)}
@@ -558,10 +558,10 @@ export const DRECombustivelComboioModule: React.FC = () => {
                         </td>
 
                         <td className="px-4 py-3.5">
-                          <div className="font-mono font-bold text-emerald-300">
+                          <div className="font-mono font-bold text-emerald-800">
                             R$ {item.lucroLiquidoTalhao.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                           </div>
-                          <span className="text-[10px] text-emerald-400/80">Líquido</span>
+                          <span className="text-[10px] text-emerald-700/80">Líquido</span>
                         </td>
                       </tr>
                     );
@@ -584,7 +584,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-600">
                   Tanque Central Fixo (Sede)
                 </span>
-                <Fuel className="w-5 h-5 text-amber-400" />
+                <Fuel className="w-5 h-5 text-amber-700" />
               </div>
               <div className="flex items-baseline justify-between mb-2">
                 <div className="text-2xl font-bold font-mono text-[#1D4B38]">
@@ -603,7 +603,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
               </div>
               <div className="flex items-center justify-between text-[11px] text-slate-600 mt-2">
                 <span>Nível: {((tanqueSedeLitros / tanqueSedeCapacidade) * 100).toFixed(1)}%</span>
-                <span className="text-emerald-400">Autonomia: ~18 dias de safra</span>
+                <span className="text-emerald-700">Autonomia: ~18 dias de safra</span>
               </div>
             </div>
 
@@ -641,7 +641,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-600">
                   Caminhão Melosa 02 (Campo)
                 </span>
-                <AlertTriangle className="w-5 h-5 text-rose-400" />
+                <AlertTriangle className="w-5 h-5 text-rose-700" />
               </div>
               <div className="flex items-baseline justify-between mb-2">
                 <div className="text-2xl font-bold font-mono text-rose-300">
@@ -658,8 +658,8 @@ export const DRECombustivelComboioModule: React.FC = () => {
                 ></div>
               </div>
               <div className="flex items-center justify-between text-[11px] text-slate-600 mt-2">
-                <span className="text-rose-400 font-semibold">Nível: 30.0% (Crítico)</span>
-                <span className="text-amber-400 hover:underline cursor-pointer">Solicitar Recarga Sede</span>
+                <span className="text-rose-700 font-semibold">Nível: 30.0% (Crítico)</span>
+                <span className="text-amber-700 hover:underline cursor-pointer">Solicitar Recarga Sede</span>
               </div>
             </div>
           </div>
@@ -669,7 +669,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
             <div className="p-5 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <h2 className="text-base font-semibold text-[#1D4B38] flex items-center gap-2">
-                  <Fuel className="w-5 h-5 text-amber-400" />
+                  <Fuel className="w-5 h-5 text-amber-700" />
                   Auditoria de Abastecimentos & Detecção de Desvios de Diesel
                 </h2>
                 <p className="text-xs text-slate-600">
@@ -699,10 +699,10 @@ export const DRECombustivelComboioModule: React.FC = () => {
                     <th className="px-4 py-3.5">Desvio / Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60">
+                <tbody className="divide-y divide-slate-100">
                   {abastecimentos.map((abs) => {
                     let badge = (
-                      <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-1 w-fit">
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-700 border border-emerald-500/30 flex items-center gap-1 w-fit">
                         <CheckCircle2 className="w-3 h-3" /> Em Conformidade ({abs.desvioPct}%)
                       </span>
                     );
@@ -710,19 +710,19 @@ export const DRECombustivelComboioModule: React.FC = () => {
                     if (abs.statusAuditoria === 'CRITICO_EXCESSIVO') {
                       badge = (
                         <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40 flex items-center gap-1 w-fit animate-pulse">
-                          <AlertTriangle className="w-3 h-3 text-rose-400" /> Desvio Alto (+{abs.desvioPct}%)
+                          <AlertTriangle className="w-3 h-3 text-rose-700" /> Desvio Alto (+{abs.desvioPct}%)
                         </span>
                       );
                     } else if (abs.statusAuditoria === 'ALERTA_DESVIO') {
                       badge = (
-                        <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 flex items-center gap-1 w-fit">
-                          <AlertTriangle className="w-3 h-3 text-amber-400" /> Atenção (+{abs.desvioPct}%)
+                        <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-800 border border-amber-500/40 flex items-center gap-1 w-fit">
+                          <AlertTriangle className="w-3 h-3 text-amber-700" /> Atenção (+{abs.desvioPct}%)
                         </span>
                       );
                     }
 
                     return (
-                      <tr key={abs.id} className="hover:bg-slate-800/40 transition-colors">
+                      <tr key={abs.id} className="hover:bg-slate-50/80 transition-colors">
                         <td className="px-4 py-3.5">
                           <div className="font-bold text-slate-900">{abs.maquinaNome}</div>
                           <div className="text-[11px] text-slate-600">{abs.dataHora}</div>
@@ -738,7 +738,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
                         </td>
 
                         <td className="px-4 py-3.5">
-                          <div className="font-bold text-amber-300 font-mono text-sm">
+                          <div className="font-bold text-amber-800 font-mono text-sm">
                             {abs.litrosAbastecidos} Litros
                           </div>
                           <div className="text-[11px] text-slate-600 font-mono">
@@ -775,7 +775,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
               <span className="text-xs text-slate-600 uppercase tracking-wider block mb-1">
                 Disponibilidade Mecânica
               </span>
-              <div className="text-2xl font-bold text-emerald-400 font-mono">91.4%</div>
+              <div className="text-2xl font-bold text-emerald-700 font-mono">91.4%</div>
               <p className="text-xs text-slate-500 mt-1">Horas operando / horas totais de escala</p>
             </div>
 
@@ -791,7 +791,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
               <span className="text-xs text-slate-600 uppercase tracking-wider block mb-1">
                 Qualidade de Execução
               </span>
-              <div className="text-2xl font-bold text-cyan-400 font-mono">88.5%</div>
+              <div className="text-2xl font-bold text-sky-700 font-mono">88.5%</div>
               <p className="text-xs text-slate-500 mt-1">População de sementes e desvio de rota</p>
             </div>
 
@@ -818,7 +818,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
               <div>
                 <div className="flex justify-between text-slate-900 mb-1">
                   <span>Trabalho Efetivo Produtivo (Linha de Plantio / Pulverização)</span>
-                  <span className="font-mono font-bold text-emerald-400">68.1% (545h)</span>
+                  <span className="font-mono font-bold text-emerald-700">68.1% (545h)</span>
                 </div>
                 <div className="w-full bg-slate-50 rounded-full h-2">
                   <div className="bg-emerald-500 h-2 rounded-full" style={{ width: '68.1%' }}></div>
@@ -838,7 +838,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
               <div>
                 <div className="flex justify-between text-slate-900 mb-1">
                   <span>Deslocamento entre Talhões / Estradas Internas</span>
-                  <span className="font-mono font-bold text-amber-400">8.9% (71h)</span>
+                  <span className="font-mono font-bold text-amber-700">8.9% (71h)</span>
                 </div>
                 <div className="w-full bg-slate-50 rounded-full h-2">
                   <div className="bg-amber-500 h-2 rounded-full" style={{ width: '8.9%' }}></div>
@@ -848,7 +848,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
               <div>
                 <div className="flex justify-between text-slate-900 mb-1">
                   <span>Ocioso com Motor Ligado (Parado em Abastecimento/Espera de Caminhão)</span>
-                  <span className="font-mono font-bold text-rose-400">8.7% (70h)</span>
+                  <span className="font-mono font-bold text-rose-700">8.7% (70h)</span>
                 </div>
                 <div className="w-full bg-slate-50 rounded-full h-2">
                   <div className="bg-rose-500 h-2 rounded-full" style={{ width: '8.7%' }}></div>
@@ -865,7 +865,7 @@ export const DRECombustivelComboioModule: React.FC = () => {
           <div className="bg-white border border-slate-200 rounded-2xl max-w-lg w-full p-6 shadow-2xl">
             <div className="flex items-center justify-between pb-4 border-b border-slate-200">
               <h3 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
-                <Fuel className="w-5 h-5 text-amber-400" />
+                <Fuel className="w-5 h-5 text-amber-700" />
                 Registrar Abastecimento de Comboio
               </h3>
               <button

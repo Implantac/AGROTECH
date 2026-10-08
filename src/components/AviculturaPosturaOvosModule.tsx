@@ -110,17 +110,17 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-500 flex items-center justify-center shadow-lg shadow-amber-500/20">
             <Egg className="w-7 h-7 text-slate-950" />
           </div>
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-bold text-white tracking-tight">
+              <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
                 Avicultura de Postura Comercial & Qualidade de Ovos
               </h1>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-700 border border-amber-500/20">
                 Módulo 122 • Cage-Free, Conversão kg/dz & Gema Roche 14
               </span>
             </div>
@@ -143,38 +143,38 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Produção Anual</span>
-            <Egg className="w-5 h-5 text-amber-400" />
+            <Egg className="w-5 h-5 text-amber-700" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             {(metricas.duziasAno / 1000000).toFixed(2)}M dúzias
           </p>
-          <span className="text-xs text-amber-400 mt-1 block">
+          <span className="text-xs text-amber-700 mt-1 block">
             {metricas.ovosDia.toLocaleString('pt-BR')} ovos/dia
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Conversão Alimentar</span>
-            <Scale className="w-5 h-5 text-emerald-400" />
+            <Scale className="w-5 h-5 text-emerald-700" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             {metricas.conversaoKgPorDuzia} kg/dz
           </p>
-          <span className="text-xs text-emerald-400 mt-1 block">
+          <span className="text-xs text-emerald-700 mt-1 block">
             Consumo médio de {consumoRacaoAveDiaG}g/ave/dia
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Faturamento Anual</span>
             <TrendingUp className="w-5 h-5 text-yellow-400" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             R$ {(metricas.receitaBrutaReais / 1000000).toFixed(2)}M
           </p>
           <span className="text-xs text-yellow-400 mt-1 block">
@@ -182,15 +182,15 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Lucro Líquido Anual</span>
-            <Award className="w-5 h-5 text-emerald-400" />
+            <Award className="w-5 h-5 text-emerald-700" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             R$ {(metricas.lucroLiquidoReais / 1000000).toFixed(2)}M
           </p>
-          <span className="text-xs text-emerald-400 mt-1 block">
+          <span className="text-xs text-emerald-700 mt-1 block">
             {metricas.margemLiquidaPct}% de Margem Líquida
           </span>
         </div>
@@ -202,8 +202,8 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
           onClick={() => setActiveTab('galpoes')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'galpoes'
-              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -214,8 +214,8 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
           onClick={() => setActiveTab('qualidade')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'qualidade'
-              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -226,8 +226,8 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
           onClick={() => setActiveTab('nutricao')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'nutricao'
-              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Scale className="w-4 h-4" />
@@ -238,8 +238,8 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
-              ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -249,9 +249,9 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'galpoes' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6 space-y-4">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
-            <Egg className="w-5 h-5 text-amber-400" />
+        <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-4 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
+            <Egg className="w-5 h-5 text-amber-700" />
             Galpões Automatizados & Monitoramento de Postura Diária
           </h3>
 
@@ -268,21 +268,21 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
                   <th className="px-4 py-3">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-slate-100">
                 {galpoes.map((g) => (
-                  <tr key={g.id} className="hover:bg-slate-800/30">
-                    <td className="px-4 py-3 font-medium text-white">{g.galpao}</td>
-                    <td className="px-4 py-3 text-amber-400 font-semibold">{g.linhagem}</td>
+                  <tr key={g.id} className="hover:bg-slate-50/80">
+                    <td className="px-4 py-3 font-bold text-slate-900">{g.galpao}</td>
+                    <td className="px-4 py-3 text-amber-700 font-semibold">{g.linhagem}</td>
                     <td className="px-4 py-3">
-                      <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-slate-800 text-slate-900">
+                      <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">
                         {g.sistemaAlojamento}
                       </span>
                     </td>
                     <td className="px-4 py-3">{g.avesAlojadas.toLocaleString('pt-BR')} aves</td>
-                    <td className="px-4 py-3 font-bold text-emerald-400">{g.taxaPosturaDiariaPct}%</td>
+                    <td className="px-4 py-3 font-bold text-emerald-700">{g.taxaPosturaDiariaPct}%</td>
                     <td className="px-4 py-3">{g.pesoMedioOvoG} g</td>
                     <td className="px-4 py-3">
-                      <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                      <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-700 border border-amber-500/20">
                         {g.status}
                       </span>
                     </td>
@@ -296,38 +296,38 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
 
       {activeTab === 'qualidade' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
-              <Award className="w-5 h-5 text-amber-400" />
-              <h4 className="text-sm font-semibold text-white">Espessura de Casca</h4>
+              <Award className="w-5 h-5 text-amber-700" />
+              <h4 className="text-sm font-semibold text-slate-900">Espessura de Casca</h4>
             </div>
             <p className="text-xs text-slate-600">
               Fornecimento de carbonato de cálcio particulado graúdo no período vespertino garantindo espessura superior a 0.35 mm e resistência à trinca no transporte.
             </p>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
               <span className="text-xs text-slate-600">Meta Zootécnica:</span>
-              <span className="text-sm font-bold text-amber-400 block">superior a 0.36 mm de espessura</span>
+              <span className="text-sm font-bold text-amber-700 block">superior a 0.36 mm de espessura</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-              <h4 className="text-sm font-semibold text-white">Ovoscopia Eletrônica</h4>
+              <CheckCircle2 className="w-5 h-5 text-emerald-700" />
+              <h4 className="text-sm font-semibold text-slate-900">Ovoscopia Eletrônica</h4>
             </div>
             <p className="text-xs text-slate-600">
               Varredura óptica por LED para descarte automático de microfissuras, manchas de sangue internas e ovos deformados antes da embalagem final.
             </p>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
               <span className="text-xs text-slate-600">Índice de Quebra:</span>
-              <span className="text-sm font-bold text-emerald-400 block">menor que 1.2% total</span>
+              <span className="text-sm font-bold text-emerald-700 block">menor que 1.2% total</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
               <Sparkles className="w-5 h-5 text-yellow-400" />
-              <h4 className="text-sm font-semibold text-white">Classificação por Tipo</h4>
+              <h4 className="text-sm font-semibold text-slate-900">Classificação por Tipo</h4>
             </div>
             <p className="text-xs text-slate-600">
               Ovo Tipo Extra (60g a 65g) e Tipo Jumbo (acima de 66g) com câmara de ar intacta e unidade Haugh superior a 75 (frescor máximo).
@@ -341,8 +341,8 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
       )}
 
       {activeTab === 'nutricao' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-4 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
             <Scale className="w-5 h-5 text-yellow-400" />
             Nutrição com Carotenóides Naturais & Pigmentação de Gema (Leque Roche)
           </h3>
@@ -353,19 +353,19 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">Coloração de Gema</span>
-              <p className="text-lg font-bold text-amber-400 mt-1">Leque DSM 13 a 14</p>
+              <p className="text-lg font-bold text-amber-700 mt-1">Leque DSM 13 a 14</p>
               <span className="text-[11px] text-slate-500">Laranja intenso natural</span>
             </div>
 
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">Enriquecimento Ômega-3</span>
-              <p className="text-lg font-bold text-emerald-400 mt-1">+180 mg DHA/ovo</p>
+              <p className="text-lg font-bold text-emerald-700 mt-1">+180 mg DHA/ovo</p>
               <span className="text-[11px] text-emerald-500/80">Adição de farelo de linhaça</span>
             </div>
 
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">Certificação Cage-Free</span>
-              <p className="text-lg font-bold text-white mt-1">HFAC / Certified Humane</p>
+              <p className="text-lg font-bold text-slate-900 mt-1">HFAC / Certified Humane</p>
               <span className="text-[11px] text-slate-500">Prêmio de R$ 1,80 a R$ 2,50 por dúzia</span>
             </div>
           </div>
@@ -373,9 +373,9 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
-            <DollarSign className="w-5 h-5 text-amber-400" />
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-6 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
+            <DollarSign className="w-5 h-5 text-amber-700" />
             Simulador de Eficiência Alimentar & Margem por Dúzia
           </h3>
 
@@ -386,7 +386,7 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
                 type="number"
                 value={avesAlojadas}
                 onChange={(e) => setAvesAlojadas(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
@@ -397,7 +397,7 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
                 step="0.5"
                 value={taxaPosturaDiariaPct}
                 onChange={(e) => setTaxaPosturaDiariaPct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
@@ -408,7 +408,7 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
                 step="0.1"
                 value={precoDuziaOvosReais}
                 onChange={(e) => setPrecoDuziaOvosReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
 
@@ -419,7 +419,7 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
                 step="0.05"
                 value={custoKgRacaoReais}
                 onChange={(e) => setCustoKgRacaoReais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-amber-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-amber-500 focus:outline-none"
               />
             </div>
           </div>
@@ -427,13 +427,13 @@ export const AviculturaPosturaOvosModule: React.FC = () => {
           <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
               <span className="text-xs text-slate-600 block">Eficiência de Conversão Calculada:</span>
-              <span className="text-base font-bold text-emerald-400">
+              <span className="text-base font-bold text-emerald-700">
                 {metricas.conversaoKgPorDuzia} kg de ração / dúzia produzida
               </span>
             </div>
             <div className="text-right">
               <span className="text-xs text-slate-600 block">Lucro Líquido Anual Projetado:</span>
-              <span className="text-xl font-bold text-emerald-400">
+              <span className="text-xl font-bold text-emerald-700">
                 R$ {metricas.lucroLiquidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>
             </div>

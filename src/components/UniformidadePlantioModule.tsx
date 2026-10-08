@@ -3,13 +3,8 @@ import {
   Tractor,
   Sliders,
   CheckCircle2,
-  AlertTriangle,
   Download,
   Gauge,
-  Activity,
-  Layers,
-  Sparkles,
-  TrendingDown,
   Info
 } from 'lucide-react';
 
@@ -90,43 +85,40 @@ export const UniformidadePlantioModule: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Top Banner Header */}
-      <div className="bg-gradient-to-r from-emerald-950 via-teal-950 to-slate-950 border border-emerald-800/40 rounded-2xl p-6 shadow-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 relative z-10">
-          <div>
-            <div className="flex items-center gap-3 mb-2">
-              <span className="p-2.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl">
-                <Tractor className="w-6 h-6" />
-              </span>
-              <div>
-                <div className="flex items-center gap-2">
-                  <h1 className="text-2xl font-bold text-white tracking-wide">
-                    Distribuição Espacial & Coeficiente de Variação (ISO 7256-1)
-                  </h1>
-                  <span className="px-2.5 py-0.5 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
-                    Singulação & Kurachi
-                  </span>
-                </div>
-                <p className="text-stone-300 text-sm mt-0.5">
-                  Auditoria de linhas de semeadura, percentual de duplas e falhas, cálculo de CV% e prevenção de quebra de safra.
-                </p>
+      {/* Top Header Card */}
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-2xs">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+          <div className="flex items-center gap-3">
+            <span className="p-2.5 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl">
+              <Tractor className="w-6 h-6 text-emerald-700" />
+            </span>
+            <div>
+              <div className="flex items-center gap-2">
+                <h1 className="text-xl font-bold text-slate-900">
+                  Distribuição Espacial & Coeficiente de Variação (ISO 7256-1)
+                </h1>
+                <span className="px-2.5 py-0.5 text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full">
+                  Singulação & Kurachi
+                </span>
               </div>
+              <p className="text-slate-500 text-xs mt-0.5">
+                Auditoria de linhas de semeadura, percentual de duplas e falhas, cálculo de CV% e prevenção de quebra de safra.
+              </p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             <button
               onClick={() => alert('Laudo de Calibração de Singulação da Plantadeira emitido!')}
-              className="flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-sm font-semibold transition shadow-lg shadow-emerald-950/40"
+              className="flex items-center gap-2 px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-semibold transition cursor-pointer shadow-2xs"
             >
               <Download className="w-4 h-4" />
               Laudo de Singulação
             </button>
-            <div className="text-right pl-4 border-l border-emerald-800/60 hidden sm:block">
-              <div className="text-xs text-stone-400">CV% da Linha</div>
-              <div className={`text-xl font-bold ${
-                cvPct < 15.0 ? 'text-emerald-400' : cvPct <= 30.0 ? 'text-amber-400' : 'text-rose-400'
+            <div className="text-right pl-4 border-l border-slate-200 hidden sm:block">
+              <div className="text-[11px] text-slate-500">CV% da Linha</div>
+              <div className={`text-lg font-bold ${
+                cvPct < 15.0 ? 'text-emerald-700' : cvPct <= 30.0 ? 'text-amber-700' : 'text-rose-700'
               }`}>
                 {cvPct}%
               </div>
@@ -137,52 +129,52 @@ export const UniformidadePlantioModule: React.FC = () => {
 
       {/* 4 Summary Metric Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Espaçamentos Normais (Kurachi)</div>
-          <div className="text-2xl font-bold text-emerald-400 mt-1">
-            {normalPct}% <span className="text-sm font-normal text-stone-400">({normaisQtd}/{totalAmostras})</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Espaçamentos Normais (Kurachi)</div>
+          <div className="text-2xl font-bold text-emerald-700 mt-1">
+            {normalPct}% <span className="text-sm font-normal text-slate-400">({normaisQtd}/{totalAmostras})</span>
           </div>
-          <div className="text-xs text-stone-500 mt-1">
+          <div className="text-xs text-slate-500 mt-1">
             Faixa aceitável: {limiteDuplaMax.toFixed(1)} a {limiteFalhaMin.toFixed(1)} cm
           </div>
         </div>
 
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Duplas & Falhas Detectadas</div>
-          <div className="text-2xl font-bold text-rose-400 mt-1">
-            {duplasPct}% <span className="text-xs font-normal text-stone-400">duplas</span> • {falhasPct}% <span className="text-xs font-normal text-stone-400">falhas</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Duplas & Falhas Detectadas</div>
+          <div className="text-2xl font-bold text-rose-700 mt-1">
+            {duplasPct}% <span className="text-xs font-normal text-slate-400">duplas</span> • {falhasPct}% <span className="text-xs font-normal text-slate-400">falhas</span>
           </div>
-          <div className="text-xs text-stone-500 mt-1">
+          <div className="text-xs text-slate-500 mt-1">
             Meta agronômica: &lt; 5% de duplas/falhas
           </div>
         </div>
 
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Quebra Estimada por Desuniformidade</div>
-          <div className={`text-2xl font-bold mt-1 ${perdaEstimadaScHa === 0 ? 'text-emerald-400' : 'text-amber-400'}`}>
-            {perdaEstimadaScHa} <span className="text-sm font-normal text-stone-400">sc/ha</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Quebra Estimada por Desuniformidade</div>
+          <div className={`text-2xl font-bold mt-1 ${perdaEstimadaScHa === 0 ? 'text-emerald-700' : 'text-amber-700'}`}>
+            {perdaEstimadaScHa} <span className="text-sm font-normal text-slate-400">sc/ha</span>
           </div>
-          <div className="text-xs text-stone-500 mt-1">
+          <div className="text-xs text-slate-500 mt-1">
             R$ {(perdaEstimadaScHa * precoSacaSoja).toFixed(2)}/ha de perda potencial
           </div>
         </div>
 
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Diagnóstico Operacional</div>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Diagnóstico Operacional</div>
           <div className="mt-1">
             <span
               className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold ${
                 statusClassificacao === 'EXCELENTE'
-                  ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                  ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
                   : statusClassificacao === 'ACEITAVEL_REGULAR'
-                  ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
-                  : 'bg-rose-500/20 text-rose-300 border border-rose-500/30'
+                  ? 'bg-amber-50 text-amber-800 border border-amber-200'
+                  : 'bg-rose-50 text-rose-800 border border-rose-200'
               }`}
             >
               {statusClassificacao === 'EXCELENTE' ? 'Calibração Perfeita' : statusClassificacao === 'ACEITAVEL_REGULAR' ? 'Alerta de Ajuste' : 'Linha Desregulada'}
             </span>
           </div>
-          <div className="text-xs text-stone-500 mt-1">
+          <div className="text-xs text-slate-500 mt-1 truncate">
             Vácuo: {linhaSelecionada.pressaoVacuoMbar} mbar • {linhaSelecionada.velocidadePlantioKmh} km/h
           </div>
         </div>
@@ -193,15 +185,15 @@ export const UniformidadePlantioModule: React.FC = () => {
 
         {/* Left Column: Auditoria por Linha da Plantadeira (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
-          <div className="bg-stone-900/90 border border-stone-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <Sliders className="w-5 h-5 text-emerald-400" />
-                <h2 className="text-lg font-semibold text-white">
+                <Sliders className="w-5 h-5 text-emerald-700" />
+                <h2 className="text-base font-bold text-slate-900">
                   Auditoria por Linha da Plantadeira (24 Linhas)
                 </h2>
               </div>
-              <span className="text-xs text-stone-400 font-mono">Precision Planting vSet</span>
+              <span className="text-xs text-slate-500 font-mono">Precision Planting vSet</span>
             </div>
 
             {/* Selector of Rows */}
@@ -212,25 +204,25 @@ export const UniformidadePlantioModule: React.FC = () => {
                   <button
                     key={l.numeroLinha}
                     onClick={() => setLinhaSelecionada(l)}
-                    className={`p-3 rounded-xl border text-left transition-all ${
+                    className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
                       isSelected
-                        ? 'bg-emerald-950/40 border-emerald-500/80 shadow-md ring-1 ring-emerald-500/50'
-                        : 'bg-stone-800/40 border-stone-700/60 hover:bg-stone-800'
+                        ? 'bg-emerald-50/70 border-emerald-400 shadow-2xs'
+                        : 'bg-slate-50/60 border-slate-200 hover:bg-slate-50'
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-white">Linha {l.numeroLinha}</span>
-                      <span className="text-[10px] text-stone-400">{l.pressaoVacuoMbar} mbar</span>
+                      <span className="text-xs font-bold text-slate-900">Linha {l.numeroLinha}</span>
+                      <span className="text-[10px] text-slate-500">{l.pressaoVacuoMbar} mbar</span>
                     </div>
-                    <div className="text-[11px] text-stone-400 mt-1">{l.velocidadePlantioKmh} km/h</div>
+                    <div className="text-[11px] text-slate-400 mt-1">{l.velocidadePlantioKmh} km/h</div>
                   </button>
                 );
               })}
             </div>
 
             {/* Visual Spacing Distribution Bar */}
-            <div className="space-y-4 bg-stone-950/70 border border-stone-800 rounded-xl p-4">
-              <div className="flex justify-between text-xs text-stone-400 pb-2 border-b border-stone-800">
+            <div className="space-y-4 bg-slate-50/70 border border-slate-200/80 rounded-xl p-4">
+              <div className="flex justify-between text-xs text-slate-500 pb-2 border-b border-slate-200">
                 <span>Espaçamentos Amostrados na Linha (cm)</span>
                 <span className="flex items-center gap-4">
                   <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded bg-emerald-500" /> Normal</span>
@@ -248,13 +240,13 @@ export const UniformidadePlantioModule: React.FC = () => {
                       key={idx}
                       className={`p-2 rounded-lg border text-center font-mono text-xs font-bold ${
                         isDupla
-                          ? 'bg-amber-950/40 text-amber-300 border-amber-600'
+                          ? 'bg-amber-50 text-amber-800 border-amber-300'
                           : isFalha
-                          ? 'bg-rose-950/40 text-rose-300 border-rose-600'
-                          : 'bg-emerald-950/40 text-emerald-300 border-emerald-600'
+                          ? 'bg-rose-50 text-rose-800 border-rose-300'
+                          : 'bg-emerald-50 text-emerald-800 border-emerald-300'
                       }`}
                     >
-                      <div className="text-[9px] text-stone-500">#{idx + 1}</div>
+                      <div className="text-[9px] text-slate-400">#{idx + 1}</div>
                       <div>{dist.toFixed(1)}</div>
                     </div>
                   );
@@ -262,13 +254,13 @@ export const UniformidadePlantioModule: React.FC = () => {
               </div>
 
               {/* Prescription Guidance */}
-              <div className="p-3 bg-stone-900 border border-stone-800 rounded-lg text-xs text-stone-300 flex items-start gap-2">
-                <Info className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+              <div className="p-3 bg-white border border-slate-200 rounded-lg text-xs text-slate-600 flex items-start gap-2">
+                <Info className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" />
                 <div>
                   {linhaSelecionada.pressaoVacuoMbar > 55 ? (
                     <span><strong>Causa Raiz:</strong> Vácuo excessivo ({linhaSelecionada.pressaoVacuoMbar} mbar). Reduza a sucção da turbina para ~48 mbar e verifique o raspador do disco para eliminar sementes duplas no mesmo furo.</span>
                   ) : linhaSelecionada.pressaoVacuoMbar < 40 ? (
-                    <span><strong>Causa Raiz:</strong> Vácuo insuficiente ({linhaSelecionada.pressaoVacuoMbar} mbar) e velocidade de avanço alta ({linhaSelecionada.velocidadePlantioKmh} km/h). Eleve a sucção e reduza a velocidade para o limite de 6.0 km/h para eliminar falhas.</span>
+                    <span><strong>Causa Raiz:</strong> Vácuo insuficiente ({linhaSelecionada.pressaoVacuoMbar} mbar) e velocidade alta ({linhaSelecionada.velocidadePlantioKmh} km/h). Eleve a sucção e reduza a velocidade para o limite de 6.0 km/h para eliminar falhas.</span>
                   ) : (
                     <span><strong>Linha em Condição Ideal:</strong> Singulação de 100% com distribuição homogênea de plantas, maximizando o aproveitamento de radiação solar e área foliar.</span>
                   )}
@@ -280,89 +272,89 @@ export const UniformidadePlantioModule: React.FC = () => {
 
         {/* Right Column: Financial Impact Simulator (5 cols) */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="bg-stone-900/90 border border-stone-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <Gauge className="w-5 h-5 text-emerald-400" />
-                <h2 className="text-lg font-semibold text-white">
+                <Gauge className="w-5 h-5 text-emerald-700" />
+                <h2 className="text-base font-bold text-slate-900">
                   Impacto Econômico da Singulação
                 </h2>
               </div>
-              <span className="text-xs bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 px-2 py-0.5 rounded">
+              <span className="text-xs bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded font-semibold">
                 Quebra Oculta
               </span>
             </div>
 
-            <p className="text-xs text-stone-400 mb-5">
+            <p className="text-xs text-slate-500 mb-5">
               Simule o prejuízo potencial de uma plantadeira desregulada operando com alto coeficiente de variação.
             </p>
 
             <div className="space-y-4 text-xs">
               <div>
-                <label className="text-stone-400 font-medium block mb-1">Espaçamento Teórico Nominal (cm)</label>
+                <label className="text-slate-600 font-medium block mb-1">Espaçamento Teórico Nominal (cm)</label>
                 <input
                   type="number"
                   step="0.1"
                   value={espacamentoRefCm}
                   onChange={(e) => setEspacamentoRefCm(Number(e.target.value))}
-                  className="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-white font-semibold focus:border-emerald-500"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500"
                 />
               </div>
 
               <div>
-                <label className="text-stone-400 font-medium block mb-1">Área Total Semeada (ha)</label>
+                <label className="text-slate-600 font-medium block mb-1">Área Total Semeada (ha)</label>
                 <input
                   type="number"
                   step="50"
                   value={areaTalhaoHa}
                   onChange={(e) => setAreaTalhaoHa(Number(e.target.value))}
-                  className="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-white font-semibold focus:border-emerald-500"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500"
                 />
               </div>
 
               <div>
-                <label className="text-stone-400 font-medium block mb-1">Cotação da Soja (R$/sc)</label>
+                <label className="text-slate-600 font-medium block mb-1">Cotação da Soja (R$/sc)</label>
                 <input
                   type="number"
                   step="1"
                   value={precoSacaSoja}
                   onChange={(e) => setPrecoSacaSoja(Number(e.target.value))}
-                  className="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-white font-semibold focus:border-emerald-500"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500"
                 />
               </div>
             </div>
 
             {/* Substitution Results Output Box */}
-            <div className="mt-6 p-4 bg-stone-950/80 border border-stone-800 rounded-xl space-y-3 text-xs">
+            <div className="mt-6 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3 text-xs">
               <div className="flex justify-between items-center">
-                <span className="text-stone-400">CV% Medido:</span>
-                <span className={`font-bold ${cvPct < 15.0 ? 'text-emerald-400' : 'text-amber-400'}`}>
+                <span className="text-slate-500">CV% Medido:</span>
+                <span className={`font-bold ${cvPct < 15.0 ? 'text-emerald-700' : 'text-amber-700'}`}>
                   {cvPct}% (Meta: &lt; 15%)
                 </span>
               </div>
 
               <div className="flex justify-between items-center">
-                <span className="text-stone-400">Perda Estimada:</span>
-                <span className="text-rose-400 font-bold">
+                <span className="text-slate-500">Perda Estimada:</span>
+                <span className="text-rose-700 font-bold">
                   {perdaEstimadaScHa} sc/ha
                 </span>
               </div>
 
-              <div className="pt-2 border-t border-stone-800 flex justify-between items-center">
-                <span className="font-semibold text-white">Prejuízo Potencial Evitado:</span>
-                <span className="text-rose-400 font-bold text-base">
+              <div className="pt-2 border-t border-slate-200 flex justify-between items-center">
+                <span className="font-semibold text-slate-900">Prejuízo Potencial Evitado:</span>
+                <span className="text-rose-700 font-bold text-base">
                   R$ {prejuizoTalhaoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
               </div>
 
-              <div className="p-3 bg-emerald-950/40 border border-emerald-900/40 rounded-lg flex items-center justify-between">
+              <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center justify-between">
                 <div>
-                  <div className="text-[10px] uppercase font-bold text-emerald-400">Retorno da Calibração da Linha</div>
-                  <div className="text-xs font-medium text-stone-300 mt-0.5">
+                  <div className="text-[10px] uppercase font-bold text-emerald-800">Retorno da Calibração da Linha</div>
+                  <div className="text-xs font-medium text-slate-600 mt-0.5">
                     Ajustar o vácuo de {linhaSelecionada.pressaoVacuoMbar} mbar preserva até <strong>{perdaEstimadaScHa} sc/ha</strong>.
                   </div>
                 </div>
-                <CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0" />
+                <CheckCircle2 className="w-6 h-6 text-emerald-700 shrink-0" />
               </div>
             </div>
           </div>
@@ -372,3 +364,4 @@ export const UniformidadePlantioModule: React.FC = () => {
     </div>
   );
 };
+export default UniformidadePlantioModule;

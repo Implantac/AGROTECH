@@ -32,28 +32,28 @@ export const ToastNotification: React.FC<ToastNotificationProps> = ({
       {toasts.map((toast) => (
         <div
           key={toast.id}
-          className={`pointer-events-auto flex items-start justify-between gap-3 p-3.5 rounded-xl shadow-xl border backdrop-blur-md animate-slide-up transition-all ${
+          className={`pointer-events-auto flex items-start justify-between gap-3 p-3.5 rounded-2xl shadow-xl border backdrop-blur-md animate-slide-up transition-all ${
             toast.type === 'success'
-              ? 'bg-slate-900/95 border-emerald-500/40 text-emerald-200'
+              ? 'bg-white border-emerald-200 text-slate-800'
               : toast.type === 'warning'
-              ? 'bg-slate-900/95 border-amber-500/40 text-amber-200'
-              : 'bg-slate-900/95 border-slate-700 text-slate-200'
+              ? 'bg-white border-amber-200 text-slate-800'
+              : 'bg-white border-slate-200 text-slate-800'
           }`}
         >
           <div className="flex items-start gap-2.5">
-            {toast.type === 'success' && <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />}
-            {toast.type === 'warning' && <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />}
-            {toast.type === 'info' && <Info className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />}
+            {toast.type === 'success' && <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />}
+            {toast.type === 'warning' && <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />}
+            {toast.type === 'info' && <Info className="w-4 h-4 text-sky-600 shrink-0 mt-0.5" />}
             <div className="text-xs">
-              <strong className="block font-bold text-white mb-0.5">
+              <strong className="block font-bold text-slate-900 mb-0.5">
                 {toast.type === 'success' ? 'Sucesso' : toast.type === 'warning' ? 'Atenção' : 'Notificação'}
               </strong>
-              <p className="text-slate-300 leading-snug text-[11px]">{toast.message}</p>
+              <p className="text-slate-600 leading-snug text-[11px] font-medium">{toast.message}</p>
             </div>
           </div>
           <button
             onClick={() => onDismiss(toast.id)}
-            className="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition shrink-0 cursor-pointer"
+            className="p-1 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition shrink-0 cursor-pointer"
           >
             <X className="w-3.5 h-3.5" />
           </button>

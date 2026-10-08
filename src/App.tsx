@@ -42,7 +42,15 @@ import {
   Menu,
   PanelLeftClose,
   PanelLeft,
-  Filter
+  Filter,
+  CreditCard,
+  KeyRound,
+  Key,
+  BookOpen,
+  Cpu,
+  Server,
+  ShieldAlert,
+  Lock,
 } from 'lucide-react';
 import { agroApi } from './services/agroApiService';
 import { PublicLandingPage } from './components/PublicLandingPage';
@@ -53,12 +61,26 @@ import { QuickAccessModal, ALL_MODULES, ModuleItem } from './components/QuickAcc
 import { GlobalQuickEntryModal } from './components/GlobalQuickEntryModal';
 import { NotificationCenterModal } from './components/NotificationCenterModal';
 import { ToastNotification, ToastItem } from './components/ToastNotification';
-import { UserRoleBar, UserProfileRole } from './components/UserRoleBar';
 import { ModuleConfigModal } from './components/ModuleConfigModal';
+import { BillingSubscriptionModal } from './components/BillingSubscriptionModal';
 import { HeaderFintechBar } from './components/HeaderFintechBar';
 import { DossieBancarioCreditoModal } from './components/DossieBancarioCreditoModal';
 import { OfflineSyncCockpitModal } from './components/OfflineSyncCockpitModal';
 import { DeltaTModal } from './components/DeltaTModal';
+import { PerfilAcessoSuperadminModal } from './components/PerfilAcessoSuperadminModal';
+import { ConfiguracaoCredenciaisTenantModal } from './components/ConfiguracaoCredenciaisTenantModal';
+import { ManualImplantacaoOperacionalModal } from './components/ManualImplantacaoOperacionalModal';
+import { AcessoRestritoView } from './components/AcessoRestritoView';
+import {
+  UserRole,
+  RoleGrantsMap,
+  ROLE_DEFINITIONS,
+  normalizeUserRole,
+  isSuperAdmin,
+  loadSavedRoleGrants,
+  syncGrantsWithBackend,
+  resolveEffectiveModulesForUser,
+} from './services/rbacService';
 import {
   getSavedSubscriptionConfig,
   saveSubscriptionConfig,
@@ -494,7 +516,7 @@ export const App: React.FC = () => {
   };
 
   // Perfil RBAC ativo & Controle do Menu Lateral Enterprise
-  const [selectedRole, setSelectedRole] = useState<UserProfileRole>('PRODUTOR');
+  const [selectedRole, setSelectedRole] = useState<UserRole>('PRODUTOR');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
 
   // Atalho de Teclado Global: Ctrl + K (Busca) e N (Novo Lançamento Rápido)
@@ -524,6 +546,22 @@ export const App: React.FC = () => {
     getSavedSubscriptionConfig()
   );
   const [isModuleConfigOpen, setIsModuleConfigOpen] = useState<boolean>(false);
+  const [isBillingModalOpen, setIsBillingModalOpen] = useState<boolean>(false);
+  const [isTenantCredsModalOpen, setIsTenantCredsModalOpen] = useState<boolean>(false);
+  const [isManualModalOpen, setIsManualModalOpen] = useState<boolean>(false);
+
+  // Matriz de Controle de Acesso RBAC & Liberação de Recursos pelo Superadmin
+  const [roleGrants, setRoleGrants] = useState<RoleGrantsMap>(() => loadSavedRoleGrants());
+  const [isSuperadminModalOpen, setIsSuperadminModalOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    syncGrantsWithBackend().then((grants) => {
+      setRoleGrants(grants);
+    });
+  }, []);
+
+  const isSuperAdminUser = useMemo(() => isSuperAdmin(currentUser.role), [currentUser.role]);
+  const activeUserRole = useMemo(() => normalizeUserRole(currentUser.role), [currentUser.role]);
 
   // Todos os IDs de módulos disponíveis
   const allModuleIds = useMemo(() => ALL_MODULES.map((m) => m.id), []);
@@ -533,10 +571,23 @@ export const App: React.FC = () => {
     return resolveActiveModuleIds(subscriptionConfig, allModuleIds);
   }, [subscriptionConfig, allModuleIds]);
 
-  // Lista dos módulos efetivamente disponíveis para o cliente
+  // Conjunto de módulos autorizados para o perfil do usuário + recursos liberados pelo Superadmin
+  const allowedModuleIdsForRole = useMemo(() => {
+    return resolveEffectiveModulesForUser(currentUser.role, allModuleIds, roleGrants);
+  }, [currentUser.role, allModuleIds, roleGrants]);
+
+  // Interseção entre módulos contratados e módulos com permissão de acesso
+  const effectiveModuleIds = useMemo(() => {
+    if (isSuperAdminUser) return enabledModuleIds;
+    return new Set<string>(
+      Array.from(allowedModuleIdsForRole).filter((id) => enabledModuleIds.has(id))
+    );
+  }, [isSuperAdminUser, allowedModuleIdsForRole, enabledModuleIds]);
+
+  // Lista dos módulos efetivamente disponíveis para o usuário atual
   const availableModules = useMemo(() => {
-    return ALL_MODULES.filter((m: ModuleItem) => enabledModuleIds.has(m.id));
-  }, [enabledModuleIds]);
+    return ALL_MODULES.filter((m: ModuleItem) => effectiveModuleIds.has(m.id));
+  }, [effectiveModuleIds]);
 
   // Perfil operacional atual do cliente
   const activeProfile = useMemo(() => {
@@ -546,12 +597,12 @@ export const App: React.FC = () => {
     );
   }, [subscriptionConfig.profileId]);
 
-  // Se o módulo ativo atual não estiver habilitado no perfil contratado, redireciona para o primeiro módulo habilitado
+  // Redirecionamento seguro caso o identificador de módulo ativo não exista no catálogo global
   useEffect(() => {
-    if (!enabledModuleIds.has(activeTab) && availableModules.length > 0) {
+    if (!ALL_MODULES.some((m) => m.id === activeTab) && availableModules.length > 0) {
       setActiveTab(availableModules[0].id);
     }
-  }, [enabledModuleIds, activeTab, availableModules]);
+  }, [activeTab, availableModules]);
 
   // Seleção e sincronização inteligente de módulos
   const handleSelectModule = (id: string) => {
@@ -605,10 +656,16 @@ export const App: React.FC = () => {
         <PublicLandingPage
           onGoToLogin={() => handleNavigateView('LOGIN')}
           onGoToRegister={() => handleNavigateView('REGISTER')}
+          onOpenManual={() => setIsManualModalOpen(true)}
           onEnterPlatformDirectly={() => {
             handleNavigateView('PLATFORM');
             addToast('Bem-vindo ao Cockpit Super AgTech Enterprise!', 'success');
           }}
+        />
+        <ManualImplantacaoOperacionalModal
+          isOpen={isManualModalOpen}
+          onClose={() => setIsManualModalOpen(false)}
+          onNotify={(msg, type) => addToast(msg, type)}
         />
         <ToastNotification toasts={toasts} onDismiss={removeToast} />
       </div>
@@ -634,6 +691,11 @@ export const App: React.FC = () => {
           onGoToLogin={() => handleNavigateView('LOGIN')}
           onBackToLanding={() => handleNavigateView('LANDING')}
         />
+        <ManualImplantacaoOperacionalModal
+          isOpen={isManualModalOpen}
+          onClose={() => setIsManualModalOpen(false)}
+          onNotify={(msg, type) => addToast(msg, type)}
+        />
         <ToastNotification toasts={toasts} onDismiss={removeToast} />
       </div>
     );
@@ -653,6 +715,12 @@ export const App: React.FC = () => {
           }}
           onBackToLanding={() => handleNavigateView('LANDING')}
           onGoToRegister={() => handleNavigateView('REGISTER')}
+          onOpenManual={() => setIsManualModalOpen(true)}
+        />
+        <ManualImplantacaoOperacionalModal
+          isOpen={isManualModalOpen}
+          onClose={() => setIsManualModalOpen(false)}
+          onNotify={(msg, type) => addToast(msg, type)}
         />
         <ToastNotification toasts={toasts} onDismiss={removeToast} />
       </div>
@@ -756,37 +824,75 @@ export const App: React.FC = () => {
               )}
             </div>
 
-            {/* Perfil Operacional RBAC Switcher */}
+            {/* Perfil Operacional RBAC: Governança Superadmin vs Perfil Restrito */}
             <div className="px-3 py-2 border-b border-slate-800/80">
-              <div className="flex items-center justify-between text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5 px-1">
-                <span>Perfil de Acesso</span>
-                <span className="text-emerald-400 font-mono">RBAC</span>
-              </div>
-              <div className="grid grid-cols-2 gap-1 bg-slate-900/80 p-1 rounded-xl border border-slate-800">
-                {[
-                  { id: 'PRODUTOR', label: 'Produtor', icon: Crown },
-                  { id: 'AGRONOMO', label: 'Agrônomo', icon: Sprout },
-                  { id: 'OPERADOR', label: 'Operador', icon: Tractor },
-                  { id: 'CONTADOR', label: 'Contador', icon: FileSpreadsheet },
-                ].map((r) => (
-                  <button
-                    key={r.id}
-                    onClick={() => {
-                      setSelectedRole(r.id as UserProfileRole);
-                      agroApi.login(r.id as UserProfileRole);
-                      addToast(`Perfil operacional alternado para: ${r.label}`, 'info');
-                    }}
-                    className={`flex items-center gap-1.5 px-2 py-1 rounded-lg text-[11px] font-semibold transition-all cursor-pointer ${
-                      selectedRole === r.id
-                        ? 'bg-emerald-600 text-white font-bold shadow-2xs'
-                        : 'text-slate-400 hover:text-white hover:bg-slate-800'
-                    }`}
-                  >
-                    <r.icon className="w-3 h-3 shrink-0" />
-                    <span className="truncate">{r.label}</span>
-                  </button>
-                ))}
-              </div>
+              {isSuperAdminUser ? (
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between text-[10px] font-bold text-slate-400 uppercase tracking-wider px-1">
+                    <span className="flex items-center gap-1.5 text-emerald-400 font-bold">
+                      <KeyRound className="w-3.5 h-3.5" /> Governança RBAC
+                    </span>
+                    <button
+                      onClick={() => setIsSuperadminModalOpen(true)}
+                      className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-800 text-white hover:bg-emerald-700 transition cursor-pointer shadow-2xs"
+                      title="Gerenciar Perfis de Acesso e Matriz de Recursos"
+                    >
+                      Matriz
+                    </button>
+                  </div>
+                  <div className="text-[10px] text-slate-400 px-1 font-medium">
+                    Simular visão operacional:
+                  </div>
+                  <div className="grid grid-cols-2 gap-1 bg-slate-900/80 p-1 rounded-xl border border-slate-800">
+                    {[
+                      { id: 'SUPERADMIN', label: 'Superadmin', icon: KeyRound },
+                      { id: 'PRODUTOR', label: 'Produtor', icon: Crown },
+                      { id: 'AGRONOMO', label: 'Agrônomo', icon: Sprout },
+                      { id: 'OPERADOR', label: 'Operador', icon: Tractor },
+                      { id: 'CONTADOR', label: 'Contador', icon: FileSpreadsheet },
+                      { id: 'VETERINARIO', label: 'Veterinário', icon: ShieldCheck },
+                    ].map((r) => (
+                      <button
+                        key={r.id}
+                        onClick={() => {
+                          const def = ROLE_DEFINITIONS[r.id as UserRole];
+                          updateCurrentUser({
+                            name: r.id === 'SUPERADMIN' ? 'Dr. Roberto Schneider' : `Usuário ${def.shortLabel}`,
+                            role: r.id,
+                            farm: currentUser.farm,
+                          });
+                          addToast(`Simulação operacional ativa: ${def.label}`, 'info');
+                        }}
+                        className={`flex items-center gap-1.5 px-2 py-1 rounded-lg text-[10px] font-semibold transition-all cursor-pointer ${
+                          activeUserRole === r.id
+                            ? 'bg-emerald-600 text-white font-bold shadow-2xs'
+                            : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                        }`}
+                      >
+                        <r.icon className="w-3 h-3 shrink-0" />
+                        <span className="truncate">{r.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800 space-y-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                      Perfil de Acesso
+                    </span>
+                    <span className="px-1.5 py-0.2 rounded text-[9px] font-bold bg-slate-800 text-emerald-400 border border-slate-700">
+                      {ROLE_DEFINITIONS[activeUserRole]?.shortLabel || activeUserRole}
+                    </span>
+                  </div>
+                  <p className="text-xs font-bold text-white truncate">
+                    {ROLE_DEFINITIONS[activeUserRole]?.label || currentUser.role}
+                  </p>
+                  <p className="text-[10px] text-slate-400 leading-tight">
+                    Recursos restritos ao perfil cadastrado. Liberação de módulos extras exclusivamente pelo Superadmin.
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Árvore de Navegação Principal (Scrollable) */}
@@ -796,74 +902,82 @@ export const App: React.FC = () => {
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2">
                   Central Executiva
                 </span>
-                <button
-                  onClick={() => {
-                    handleSelectModule('BI');
-                    setSelectedDomain('TODOS');
-                  }}
-                  className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                    activeTab === 'BI'
-                      ? 'bg-emerald-600 text-white font-bold shadow-xs'
-                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <LayoutDashboard className="w-4 h-4 text-emerald-400" />
-                    <span>Painel Executivo (BI)</span>
-                  </div>
-                </button>
-                <button
-                  onClick={() => {
-                    handleSelectModule('SIG');
-                    setSelectedDomain('TODOS');
-                  }}
-                  className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                    activeTab === 'SIG'
-                      ? 'bg-emerald-600 text-white font-bold shadow-xs'
-                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <Map className="w-4 h-4 text-sky-400" />
-                    <span>Mapas SIG & Satélite</span>
-                  </div>
-                </button>
-                <button
-                  onClick={() => {
-                    handleSelectModule('COPILOT');
-                    setSelectedDomain('TODOS');
-                  }}
-                  className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                    activeTab === 'COPILOT'
-                      ? 'bg-emerald-600 text-white font-bold shadow-xs'
-                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <Sparkles className="w-4 h-4 text-amber-400" />
-                    <span>Copilot IA Safra</span>
-                  </div>
-                  <span className="px-1.5 py-0.2 rounded text-[9px] bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                    IA
-                  </span>
-                </button>
-                <button
-                  onClick={() => {
-                    handleSelectModule('MOBILE');
-                    setSelectedDomain('TODOS');
-                  }}
-                  className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                    activeTab === 'MOBILE'
-                      ? 'bg-emerald-600 text-white font-bold shadow-xs'
-                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <Smartphone className="w-4 h-4 text-emerald-400" />
-                    <span>PWA Mobile Offline</span>
-                  </div>
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                </button>
+                {effectiveModuleIds.has('BI') && (
+                  <button
+                    onClick={() => {
+                      handleSelectModule('BI');
+                      setSelectedDomain('TODOS');
+                    }}
+                    className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                      activeTab === 'BI'
+                        ? 'bg-emerald-600 text-white font-bold shadow-xs'
+                        : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <LayoutDashboard className="w-4 h-4 text-emerald-400" />
+                      <span>Painel Executivo (BI)</span>
+                    </div>
+                  </button>
+                )}
+                {effectiveModuleIds.has('SIG') && (
+                  <button
+                    onClick={() => {
+                      handleSelectModule('SIG');
+                      setSelectedDomain('TODOS');
+                    }}
+                    className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                      activeTab === 'SIG'
+                        ? 'bg-emerald-600 text-white font-bold shadow-xs'
+                        : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <Map className="w-4 h-4 text-sky-400" />
+                      <span>Mapas SIG & Satélite</span>
+                    </div>
+                  </button>
+                )}
+                {effectiveModuleIds.has('COPILOT') && (
+                  <button
+                    onClick={() => {
+                      handleSelectModule('COPILOT');
+                      setSelectedDomain('TODOS');
+                    }}
+                    className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                      activeTab === 'COPILOT'
+                        ? 'bg-emerald-600 text-white font-bold shadow-xs'
+                        : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <Sparkles className="w-4 h-4 text-amber-400" />
+                      <span>Copilot IA Safra</span>
+                    </div>
+                    <span className="px-1.5 py-0.2 rounded text-[9px] bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                      IA
+                    </span>
+                  </button>
+                )}
+                {effectiveModuleIds.has('MOBILE') && (
+                  <button
+                    onClick={() => {
+                      handleSelectModule('MOBILE');
+                      setSelectedDomain('TODOS');
+                    }}
+                    className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                      activeTab === 'MOBILE'
+                        ? 'bg-emerald-600 text-white font-bold shadow-xs'
+                        : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <Smartphone className="w-4 h-4 text-emerald-400" />
+                      <span>PWA Mobile Offline</span>
+                    </div>
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  </button>
+                )}
               </div>
 
               {/* Domínios Operacionais da Fazenda */}
@@ -882,40 +996,42 @@ export const App: React.FC = () => {
                   { id: 'FISCAL', label: 'Fiscal & ESG', icon: FileCheck, count: fiscalCount, iconColor: 'text-emerald-300' },
                   { id: 'PECUARIA', label: 'Pecuária & ILPF', icon: ShieldCheck, count: pecuariaCount, iconColor: 'text-rose-400' },
                   { id: 'FAVORITOS', label: 'Módulos Favoritos', icon: Star, count: favoritos.length, iconColor: 'text-amber-400' },
-                ].map((dom) => {
-                  const IconComponent = dom.icon;
-                  const isCurrentDomain =
-                    selectedDomain === dom.id &&
-                    !['BI', 'SIG', 'COPILOT', 'MOBILE'].includes(activeTab);
+                ]
+                  .filter((dom) => (dom.id === 'FAVORITOS' ? dom.count > 0 : dom.count > 0))
+                  .map((dom) => {
+                    const IconComponent = dom.icon;
+                    const isCurrentDomain =
+                      selectedDomain === dom.id &&
+                      !['BI', 'SIG', 'COPILOT', 'MOBILE'].includes(activeTab);
 
-                  return (
-                    <button
-                      key={dom.id}
-                      onClick={() => {
-                        setSelectedDomain(dom.id);
-                        const targetMod = availableModules.find((m) =>
-                          dom.id === 'FAVORITOS'
-                            ? favoritos.includes(m.id)
-                            : m.category === dom.id && !['BI', 'SIG', 'COPILOT', 'MOBILE'].includes(m.id)
-                        );
-                        if (targetMod) handleSelectModule(targetMod.id);
-                      }}
-                      className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${
-                        isCurrentDomain
-                          ? 'bg-slate-800 text-emerald-400 font-bold border border-slate-700'
-                          : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
-                      }`}
-                    >
-                      <div className="flex items-center gap-2.5 truncate">
-                        <IconComponent className={`w-4 h-4 ${dom.iconColor} shrink-0`} />
-                        <span className="truncate">{dom.label}</span>
-                      </div>
-                      <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-800 text-slate-400 shrink-0">
-                        {dom.count}
-                      </span>
-                    </button>
-                  );
-                })}
+                    return (
+                      <button
+                        key={dom.id}
+                        onClick={() => {
+                          setSelectedDomain(dom.id);
+                          const targetMod = availableModules.find((m) =>
+                            dom.id === 'FAVORITOS'
+                              ? favoritos.includes(m.id)
+                              : m.category === dom.id && !['BI', 'SIG', 'COPILOT', 'MOBILE'].includes(m.id)
+                          );
+                          if (targetMod) handleSelectModule(targetMod.id);
+                        }}
+                        className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${
+                          isCurrentDomain
+                            ? 'bg-slate-800 text-emerald-400 font-bold border border-slate-700'
+                            : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2.5 truncate">
+                          <IconComponent className={`w-4 h-4 ${dom.iconColor} shrink-0`} />
+                          <span className="truncate">{dom.label}</span>
+                        </div>
+                        <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-800 text-slate-400 shrink-0">
+                          {dom.count}
+                        </span>
+                      </button>
+                    );
+                  })}
               </div>
 
               {/* Sistema & Assinatura */}
@@ -923,16 +1039,56 @@ export const App: React.FC = () => {
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2">
                   Sistema & Gestão
                 </span>
+                {isSuperAdminUser && (
+                  <button
+                    onClick={() => setIsSuperadminModalOpen(true)}
+                    className="w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-bold text-emerald-300 bg-emerald-950/70 border border-emerald-800 hover:bg-emerald-900 transition-all cursor-pointer"
+                  >
+                    <div className="flex items-center gap-2 truncate pr-1">
+                      <KeyRound className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span className="truncate">Perfis &amp; Matriz RBAC</span>
+                    </div>
+                    <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-800 text-white font-mono shrink-0 font-bold">
+                      ADMIN
+                    </span>
+                  </button>
+                )}
+                {isSuperAdminUser && (
+                  <button
+                    onClick={() => setIsModuleConfigOpen(true)}
+                    className="w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-all cursor-pointer"
+                  >
+                    <div className="flex items-center gap-2 truncate pr-1">
+                      <Sliders className="w-4 h-4 text-slate-400 shrink-0" />
+                      <span className="truncate">Configurar Módulos</span>
+                    </div>
+                    <span className="text-[9px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 font-mono shrink-0 whitespace-nowrap">
+                      {activeProfile.shortLabel.split(' ')[0]}
+                    </span>
+                  </button>
+                )}
                 <button
-                  onClick={() => setIsModuleConfigOpen(true)}
+                  onClick={() => setIsBillingModalOpen(true)}
                   className="w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-all cursor-pointer"
                 >
                   <div className="flex items-center gap-2 truncate pr-1">
-                    <Sliders className="w-4 h-4 text-slate-400 shrink-0" />
-                    <span className="truncate">Configurar Módulos</span>
+                    <CreditCard className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span className="truncate">Planos & Assinatura</span>
                   </div>
-                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 font-mono shrink-0 whitespace-nowrap">
-                    {activeProfile.shortLabel.split(' ')[0]}
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-950/80 text-emerald-400 font-bold border border-emerald-800">
+                    PRO
+                  </span>
+                </button>
+                <button
+                  onClick={() => setIsTenantCredsModalOpen(true)}
+                  className="w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-all cursor-pointer"
+                >
+                  <div className="flex items-center gap-2 truncate pr-1">
+                    <Key className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span className="truncate">Certificado A1 & APIs</span>
+                  </div>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 font-mono">
+                    SEFAZ
                   </span>
                 </button>
                 <button
@@ -941,6 +1097,58 @@ export const App: React.FC = () => {
                 >
                   <Globe className="w-4 h-4 text-slate-400" />
                   <span>Portal & Planos SaaS</span>
+                </button>
+              </div>
+
+              {/* Seção Própria da Sidebar: Manual & Implantação */}
+              <div className="space-y-1 pt-2 border-t border-slate-800/80">
+                <div className="flex items-center justify-between px-2 pb-1">
+                  <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                    <BookOpen className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>Manual &amp; Guias</span>
+                  </span>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-950 text-emerald-300 font-mono border border-emerald-800 font-bold">
+                    v2.6
+                  </span>
+                </div>
+                <button
+                  onClick={() => setIsManualModalOpen(true)}
+                  className="w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold text-white bg-slate-800/90 hover:bg-slate-800 hover:text-emerald-300 border border-slate-700/80 transition-all cursor-pointer group shadow-2xs"
+                  title="Abrir o Manual Completo e Ilustrado de Uso do Sistema"
+                >
+                  <div className="flex items-center gap-2 truncate pr-1">
+                    <BookOpen className="w-4 h-4 text-emerald-400 shrink-0 group-hover:scale-110 transition-transform" />
+                    <span className="truncate">Manual do Usuário</span>
+                  </div>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-900/80 text-emerald-300 font-bold border border-emerald-700/60">
+                    ILUSTRADO
+                  </span>
+                </button>
+                <button
+                  onClick={() => setIsManualModalOpen(true)}
+                  className="w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-all cursor-pointer"
+                  title="Esquemático Elétrico e Pinagem do Conector Deutsch J1939"
+                >
+                  <div className="flex items-center gap-2 truncate pr-1">
+                    <Cpu className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                    <span className="truncate">Chicote CAN Bus J1939</span>
+                  </div>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-400 font-mono">
+                    DEUTSCH
+                  </span>
+                </button>
+                <button
+                  onClick={() => setIsManualModalOpen(true)}
+                  className="w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-all cursor-pointer"
+                  title="Instalação Local na Fazenda e Hospedagem nas Nuvens do Brasil"
+                >
+                  <div className="flex items-center gap-2 truncate pr-1">
+                    <Server className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                    <span className="truncate">Instalação Local &amp; Nuvem</span>
+                  </div>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-400 font-mono">
+                    DOCKER
+                  </span>
                 </button>
               </div>
             </div>
@@ -964,59 +1172,95 @@ export const App: React.FC = () => {
               </button>
 
               {/* Status SEFAZ & DB */}
-              <div className="flex items-center justify-between text-[10px] text-slate-400 px-1 font-mono">
+              <button
+                type="button"
+                onClick={() => setIsTenantCredsModalOpen(true)}
+                className="w-full flex items-center justify-between text-[10px] text-slate-400 hover:text-emerald-300 px-1 font-mono transition-colors cursor-pointer text-left"
+                title="Configurar Certificado Digital A1 e Chaves do Tenant"
+              >
                 <span className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                   SEFAZ A1 Conectado
                 </span>
                 <span>DB 18ms</span>
-              </div>
+              </button>
 
-              {/* Perfil do Usuário & Seletor de Papel RBAC */}
+              {/* Perfil do Usuário & Governança RBAC */}
               <div className="relative pt-1 border-t border-slate-800/80">
                 {isUserMenuOpen && (
-                  <div className="absolute bottom-full left-0 mb-2 w-64 bg-slate-900 border border-slate-700 rounded-xl shadow-xl p-2 z-50 text-xs animate-fade-in space-y-1.5">
+                  <div className="absolute bottom-full left-0 mb-2 w-64 bg-slate-900 border border-slate-700 rounded-xl shadow-xl p-2 z-50 text-xs animate-fade-in space-y-2">
                     <div className="px-2 py-1 border-b border-slate-800">
                       <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-                        Alternar Papel Operacional (RBAC)
+                        Usuário Autenticado
                       </span>
-                      <span className="text-[11px] text-emerald-400 font-medium truncate block">
+                      <span className="text-[11px] text-emerald-400 font-semibold truncate block">
                         {currentUser.farm}
                       </span>
                     </div>
 
-                    {[
-                      { nome: 'Carlos Eduardo Silva', role: 'Produtor Titular & Gestor', sigla: 'CS' },
-                      { nome: 'Engª Juliana Prado', role: 'Agrônoma RT (MIP / ASABE)', sigla: 'JP' },
-                      { nome: 'Valmor Bertoncelli', role: 'Chefe de Frotas (CAN Bus)', sigla: 'VB' },
-                      { nome: 'Dr. Marcelo Arantes', role: 'Médico Veterinário SISBOV', sigla: 'MA' },
-                    ].map((perfil) => (
-                      <button
-                        key={perfil.nome}
-                        onClick={() => {
-                          updateCurrentUser({
-                            name: perfil.nome,
-                            role: perfil.role,
-                            farm: currentUser.farm,
-                          });
-                          setIsUserMenuOpen(false);
-                          addToast(`Perfil ativo alterado para: ${perfil.nome} (${perfil.role})`, 'info');
-                        }}
-                        className={`w-full flex items-center gap-2 px-2 py-1.5 rounded-lg text-left transition cursor-pointer ${
-                          currentUser.name === perfil.nome
-                            ? 'bg-emerald-800/60 text-white font-bold border border-emerald-600/50'
-                            : 'text-slate-300 hover:bg-slate-800 hover:text-white'
-                        }`}
-                      >
-                        <div className="w-6 h-6 rounded-full bg-slate-700 text-emerald-300 font-bold flex items-center justify-center text-[10px] shrink-0">
-                          {perfil.sigla}
+                    {isSuperAdminUser ? (
+                      <div className="space-y-1">
+                        <button
+                          onClick={() => {
+                            setIsUserMenuOpen(false);
+                            setIsSuperadminModalOpen(true);
+                          }}
+                          className="w-full flex items-center gap-2 px-2 py-1.5 rounded-lg bg-emerald-950 text-emerald-300 hover:bg-emerald-900 border border-emerald-700 text-left font-bold cursor-pointer"
+                        >
+                          <KeyRound className="w-3.5 h-3.5" />
+                          <span>Gerenciar Matriz de Acesso</span>
+                        </button>
+                        <span className="text-[9px] uppercase font-bold text-slate-400 px-1 block pt-1">
+                          Simular Perfil Operacional:
+                        </span>
+                        {[
+                          { nome: 'Carlos Eduardo Silva', role: 'PRODUTOR', label: 'Produtor Titular', sigla: 'CS' },
+                          { nome: 'Engª Juliana Prado', role: 'AGRONOMO', label: 'Agrônoma RT', sigla: 'JP' },
+                          { nome: 'Valmor Bertoncelli', role: 'OPERADOR', label: 'Operador de Frota', sigla: 'VB' },
+                          { nome: 'Dra. Valéria Campos', role: 'CONTADOR', label: 'Contadora Rural', sigla: 'VC' },
+                          { nome: 'Dr. Marcelo Arantes', role: 'VETERINARIO', label: 'Médico Veterinário', sigla: 'MA' },
+                        ].map((perfil) => (
+                          <button
+                            key={perfil.role}
+                            onClick={() => {
+                              updateCurrentUser({
+                                name: perfil.nome,
+                                role: perfil.role,
+                                farm: currentUser.farm,
+                              });
+                              setIsUserMenuOpen(false);
+                              addToast(`Simulação ativada: ${perfil.label}`, 'info');
+                            }}
+                            className={`w-full flex items-center gap-2 px-2 py-1.5 rounded-lg text-left transition cursor-pointer ${
+                              activeUserRole === perfil.role
+                                ? 'bg-emerald-800/60 text-white font-bold border border-emerald-600/50'
+                                : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                            }`}
+                          >
+                            <div className="w-5 h-5 rounded-full bg-slate-700 text-emerald-300 font-bold flex items-center justify-center text-[9px] shrink-0">
+                              {perfil.sigla}
+                            </div>
+                            <div className="truncate min-w-0">
+                              <p className="truncate font-semibold text-xs leading-tight">{perfil.nome}</p>
+                              <p className="text-[9px] text-slate-400 truncate">{perfil.label}</p>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="p-2 bg-slate-800/60 rounded-lg space-y-1">
+                        <div className="flex items-center gap-1.5 text-emerald-400 font-bold">
+                          <ShieldAlert className="w-3.5 h-3.5" />
+                          <span>Acesso Restrito ao Perfil</span>
                         </div>
-                        <div className="truncate min-w-0">
-                          <p className="truncate font-semibold text-xs leading-tight">{perfil.nome}</p>
-                          <p className="text-[9px] text-slate-400 truncate">{perfil.role}</p>
-                        </div>
-                      </button>
-                    ))}
+                        <p className="text-[10px] text-slate-300">
+                          Seu perfil cadastrado ({ROLE_DEFINITIONS[activeUserRole]?.label || currentUser.role}) possui acesso exclusivo aos módulos autorizados.
+                        </p>
+                        <p className="text-[9px] text-slate-400 italic">
+                          Solicitações de recursos adicionais devem ser autorizadas pelo Superadmin.
+                        </p>
+                      </div>
+                    )}
 
                     <div className="pt-1 border-t border-slate-800">
                       <button
@@ -1037,14 +1281,16 @@ export const App: React.FC = () => {
                   <button
                     onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
                     className="flex items-center gap-2 min-w-0 flex-1 text-left p-1 rounded-lg hover:bg-slate-800/80 transition cursor-pointer"
-                    title="Alternar perfil de operador (Produtor, Agrônomo, Frota, Veterinário)"
+                    title={isSuperAdminUser ? 'Menu Superadmin Master' : 'Ver detalhes do perfil cadastrado'}
                   >
                     <div className="w-7 h-7 rounded-full bg-emerald-700 text-white font-bold flex items-center justify-center text-xs shrink-0">
                       {userInitials}
                     </div>
                     <div className="truncate min-w-0 flex-1">
                       <p className="text-xs font-bold text-white truncate">{currentUser.name}</p>
-                      <p className="text-[10px] text-emerald-400 truncate">{currentUser.role}</p>
+                      <p className="text-[10px] text-emerald-400 truncate font-semibold">
+                        {ROLE_DEFINITIONS[activeUserRole]?.shortLabel || currentUser.role}
+                      </p>
                     </div>
                   </button>
                   <button
@@ -1124,6 +1370,13 @@ export const App: React.FC = () => {
               title="Busca Rápida (Ctrl+K)"
             >
               <Search className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => setIsManualModalOpen(true)}
+              className="p-2.5 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-emerald-400 transition cursor-pointer"
+              title="Manual do Sistema & Implantação (v2.6)"
+            >
+              <BookOpen className="w-5 h-5" />
             </button>
             <button
               onClick={() => handleNavigateView('LOGIN')}
@@ -1225,6 +1478,17 @@ export const App: React.FC = () => {
               <span className="hidden lg:inline">Dossiê Bancário</span>
             </button>
 
+            {/* Manual de Uso e Implantação Telemática CAN Bus */}
+            <button
+              onClick={() => setIsManualModalOpen(true)}
+              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 rounded-xl border border-emerald-300 text-xs font-bold shadow-2xs transition-all cursor-pointer"
+              title="Manual Completo de Uso, Implantação e Instalação Telemática CAN Bus"
+            >
+              <BookOpen className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
+              <span className="inline">Manual & Guias</span>
+              <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-700 text-white font-mono hidden md:inline">v2.6</span>
+            </button>
+
             {/* Central de Notificações */}
             <button
               onClick={() => setIsNotificationOpen(true)}
@@ -1236,6 +1500,18 @@ export const App: React.FC = () => {
                 3
               </span>
             </button>
+
+            {/* Painel de Governança RBAC Exclusivo Superadmin */}
+            {isSuperAdminUser && (
+              <button
+                onClick={() => setIsSuperadminModalOpen(true)}
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-800 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs shadow-2xs transition-all cursor-pointer border border-emerald-600"
+                title="Governança RBAC: Gestão de Perfis & Liberação de Recursos"
+              >
+                <KeyRound className="w-3.5 h-3.5 text-emerald-300" />
+                <span className="hidden xl:inline">Perfis &amp; Matriz RBAC</span>
+              </button>
+            )}
 
             {/* Botão Novo Lançamento */}
             <button
@@ -1392,17 +1668,35 @@ export const App: React.FC = () => {
 
         <ModuleErrorBoundary key={activeTab}>
           <React.Suspense fallback={<ModuleFallback />}>
-            {activeTab === 'BI' && (
-            <DashboardBI
-              onSelectTalhao={(talhao) => {
-                setSelectedTalhao(talhao);
-                setActiveTab('SIG');
-              }}
-              profileId={subscriptionConfig.profileId}
-              onNavigate={(moduleId) => handleSelectModule(moduleId)}
-              onOpenModuleConfig={() => setIsModuleConfigOpen(true)}
-            />
-          )}
+            {!isSuperAdminUser && !allowedModuleIdsForRole.has(activeTab) ? (
+              <AcessoRestritoView
+                moduleName={activeModuleObj.name}
+                moduleId={activeTab}
+                userRole={currentUser.role}
+                userName={currentUser.name}
+                isSuperAdminUser={isSuperAdminUser}
+                onOpenSuperadminModal={() => setIsSuperadminModalOpen(true)}
+                onReturnToAllowedModule={() => {
+                  const firstAllowed = availableModules[0]?.id || 'BI';
+                  setActiveTab(firstAllowed);
+                }}
+              />
+            ) : (
+              <>
+                {activeTab === 'BI' && (
+                  <DashboardBI
+                    onSelectTalhao={(talhao) => {
+                      setSelectedTalhao(talhao);
+                      setActiveTab('SIG');
+                    }}
+                    profileId={subscriptionConfig.profileId}
+                    onNavigate={(moduleId) => handleSelectModule(moduleId)}
+                    onOpenModuleConfig={() => setIsModuleConfigOpen(true)}
+                    onOpenQuickEntry={() => setIsQuickEntryOpen(true)}
+                    onOpenDeltaTModal={() => setIsDeltaTModalOpen(true)}
+                    onOpenManualModal={() => setIsManualModalOpen(true)}
+                  />
+                )}
 
           {activeTab === 'SIG' && (
             <div className="space-y-4">
@@ -1745,6 +2039,8 @@ export const App: React.FC = () => {
           {activeTab === 'ARRENDAMENTO' && <ArrendamentosContratosModule />}
 
             {activeTab === 'ZOOTECNIA' && <ZootecniaModule />}
+              </>
+            )}
           </React.Suspense>
         </ModuleErrorBoundary>
         </main>
@@ -1830,17 +2126,69 @@ export const App: React.FC = () => {
         }}
       />
 
+      {/* Modal de Planos, Faturamento e Pagamentos SaaS (PIX / Cartão / Boleto) */}
+      <BillingSubscriptionModal
+        isOpen={isBillingModalOpen}
+        onClose={() => setIsBillingModalOpen(false)}
+        currentPlanId="PRO"
+        onPlanActivated={(planId) => {
+          addToast(`Plano ${planId} ativado com sucesso! NFS-e disponível.`, 'success');
+        }}
+      />
+
+      {/* Modal de Configuração de Credenciais & Certificado A1 do Tenant */}
+      <ConfiguracaoCredenciaisTenantModal
+        isOpen={isTenantCredsModalOpen}
+        onClose={() => setIsTenantCredsModalOpen(false)}
+        onNotify={(msg, type) => addToast(msg, type)}
+      />
+
+      {/* Modal de Manual Completo de Uso, Implantação e Instalação Telemática CAN Bus */}
+      <ManualImplantacaoOperacionalModal
+        isOpen={isManualModalOpen}
+        onClose={() => setIsManualModalOpen(false)}
+        onNotify={(msg, type) => addToast(msg, type)}
+      />
+
       {/* Modal de Acesso Rápido, Busca e Gerenciamento de Favoritos (Command Palette) */}
       <QuickAccessModal
         isOpen={isQuickAccessOpen}
         onClose={() => setIsQuickAccessOpen(false)}
-        onSelectModule={(id) => handleSelectModule(id)}
+        onSelectModule={(id) => {
+          if (id === 'MANUAL') {
+            setIsManualModalOpen(true);
+            return;
+          }
+          handleSelectModule(id);
+        }}
         activeModuleId={activeTab}
         favoritos={favoritos}
         onToggleFavorito={handleToggleFavorito}
-        enabledModuleIds={enabledModuleIds}
+        enabledModuleIds={effectiveModuleIds}
         onOpenModuleConfig={() => setIsModuleConfigOpen(true)}
         activeProfileName={activeProfile.name}
+        isSuperAdmin={isSuperAdminUser}
+      />
+
+      {/* Modal de Governança RBAC e Matriz de Permissões (Exclusivo Superadmin) */}
+      <PerfilAcessoSuperadminModal
+        isOpen={isSuperadminModalOpen}
+        onClose={() => setIsSuperadminModalOpen(false)}
+        currentUserRole={currentUser.role}
+        onApplyGrants={(updatedGrants: RoleGrantsMap) => {
+          setRoleGrants(updatedGrants);
+          addToast('Permissões de perfis propagadas e salvas com sucesso!', 'success');
+        }}
+        onSimulateRole={(targetRole: UserRole, targetName: string) => {
+          const def = ROLE_DEFINITIONS[targetRole];
+          updateCurrentUser({
+            name: targetName || `Usuário ${def.shortLabel}`,
+            role: targetRole,
+            farm: currentUser.farm,
+          });
+          addToast(`Simulação operacional ativada: ${def.label}`, 'info');
+        }}
+        addToast={addToast}
       />
 
       

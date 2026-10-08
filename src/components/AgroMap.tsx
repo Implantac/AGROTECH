@@ -13,7 +13,10 @@ import {
   FileCode,
   CheckCircle2,
   X,
-  FileText
+  FileText,
+  Download,
+  Droplets,
+  Cloud
 } from 'lucide-react';
 
 interface AgroMapProps {
@@ -111,7 +114,8 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
   const polygonLayerGroupRef = useRef<L.LayerGroup | null>(null);
   const machineLayerGroupRef = useRef<L.LayerGroup | null>(null);
 
-  const [activeLayer, setActiveLayer] = useState<'OPERACIONAL' | 'FITOSSANIDADE' | 'NDVI' | 'FROTA'>('OPERACIONAL');
+  const [activeLayer, setActiveLayer] = useState<'OPERACIONAL' | 'FITOSSANIDADE' | 'NDVI' | 'NDRE' | 'NDWI' | 'FROTA'>('OPERACIONAL');
+  const [cloudCoverFilter, setCloudCoverFilter] = useState<'5' | '10' | '20'>('10');
   const [importModalOpen, setImportModalOpen] = useState(false);
   const [talhoesList, setTalhoesList] = useState<TalhaoData[]>(() => {
     return profileId === 'PECUARIA_CORTE_LEITE' ? DIVISOES_PECUARIA : TALHOES_INICIAIS;
@@ -119,6 +123,50 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
   const [importFeedback, setImportFeedback] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Exportador de Prescrição VRA em GeoJSON compatível com ISO 11783 / TaskController
+  const handleExportVRA = () => {
+    const vraFeatures = talhoesList.map((t) => {
+      // Cálculo agronômico de adubação nitrogenada em taxa variável
+      const doseUreiaPrescritaKgHa = Math.max(80, Math.min(200, Math.round(200 - (t.ndviMedio * 110))));
+      return {
+        type: 'Feature',
+        properties: {
+          id: t.id,
+          codigo: t.codigo,
+          nome: t.nome,
+          areaHa: t.areaHa,
+          cultura: t.cultura,
+          ndviSentinel2: t.ndviMedio,
+          prescricaoTaxaVRA_KgHa: doseUreiaPrescritaKgHa,
+          produto: 'Ureia Protegida 46% N (Taxa Variável)',
+          padraoEquipamento: 'ISO 11783 (ISOBUS TaskController XML/GeoJSON)',
+          dataGeracao: new Date().toISOString(),
+          constelacao: 'Sentinel-2 Copernicus (L2A BOA)',
+          filtroNuvensSCL: `< ${cloudCoverFilter}%`,
+        },
+        geometry: {
+          type: 'Polygon',
+          coordinates: [t.coordenadas.map(([lat, lng]) => [lng, lat])],
+        },
+      };
+    });
+
+    const geojson = {
+      type: 'FeatureCollection',
+      name: `Prescricao_VRA_AgroTech_${new Date().toISOString().slice(0, 10)}`,
+      crs: { type: 'name', properties: { name: 'urn:ogc:def:crs:OGC:1.3:CRS84' } },
+      features: vraFeatures,
+    };
+
+    const blob = new Blob([JSON.stringify(geojson, null, 2)], { type: 'application/geo+json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Prescricao_VRA_Sentinel2_${new Date().toISOString().slice(0, 10)}.geojson`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
 
   // Sincroniza polígonos quando a atividade contratada muda
   useEffect(() => {
@@ -225,6 +273,38 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
           fillOpacity = 0.6;
         }
         strokeColor = '#0f172a';
+      } else if (activeLayer === 'NDRE') {
+        const ndre = talhao.ndviMedio * 0.58;
+        if (ndre > 0.42) {
+          fillColor = '#047857';
+          fillOpacity = 0.75;
+        } else if (ndre > 0.30) {
+          fillColor = '#10b981';
+          fillOpacity = 0.65;
+        } else if (ndre > 0.20) {
+          fillColor = '#eab308';
+          fillOpacity = 0.6;
+        } else {
+          fillColor = '#b45309';
+          fillOpacity = 0.65;
+        }
+        strokeColor = '#064e3b';
+      } else if (activeLayer === 'NDWI') {
+        const ndwi = talhao.ndviMedio * 0.42 - 0.05;
+        if (ndwi > 0.25) {
+          fillColor = '#0284c7';
+          fillOpacity = 0.75;
+        } else if (ndwi > 0.10) {
+          fillColor = '#38bdf8';
+          fillOpacity = 0.65;
+        } else if (ndwi > 0.0) {
+          fillColor = '#f59e0b';
+          fillOpacity = 0.6;
+        } else {
+          fillColor = '#ef4444';
+          fillOpacity = 0.65;
+        }
+        strokeColor = '#0369a1';
       }
 
       const isSelected = selectedTalhao?.id === talhao.id;
@@ -236,8 +316,14 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
         fillOpacity: isSelected ? 0.75 : fillOpacity,
       });
 
+      const ndreVal = (talhao.ndviMedio * 0.58).toFixed(2);
+      const ndwiVal = (talhao.ndviMedio * 0.42 - 0.05).toFixed(2);
+
       polygon.bindTooltip(
-        `<b>${talhao.codigo} - ${talhao.nome}</b><br/>Área: ${talhao.areaHa} ha<br/>Cultura: ${talhao.cultura}<br/>Break-Even: <b>${talhao.breakEvenScHa} sc/ha</b>`,
+        `<b>${talhao.codigo} - ${talhao.nome}</b><br/>
+         Área: ${talhao.areaHa} ha • Cultura: ${talhao.cultura}<br/>
+         NDVI: <b>${talhao.ndviMedio.toFixed(2)}</b> • NDRE: <b>${ndreVal}</b> • NDWI: <b>${ndwiVal}</b><br/>
+         Sentinel-2 L2A (Nuvens &lt;${cloudCoverFilter}%)`,
         { permanent: false, direction: 'center', className: 'agro-tooltip' }
       );
 
@@ -466,86 +552,135 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
   };
 
   return (
-    <div className="relative w-full h-[620px] rounded-xl overflow-hidden border border-[#285943] bg-slate-900 shadow-2xl">
+    <div className="relative w-full h-[620px] rounded-2xl overflow-hidden border border-slate-200/90 bg-slate-100 shadow-2xs">
       {/* Contêiner Leaflet */}
       <div ref={mapContainerRef} className="w-full h-full" />
 
-      {/* Controles de Camadas SIG no topo */}
-      <div className="absolute top-4 left-4 z-[500] bg-[#1D4B38]/95 backdrop-blur-md p-2 rounded-lg border border-[#285943] shadow-xl flex flex-wrap items-center gap-1.5 text-xs">
-        <span className="font-semibold text-[#EAF4E7] flex items-center gap-1.5 px-2">
-          <Layers className="w-4 h-4 text-emerald-400" /> Camada SIG:
-        </span>
-        <button
-          onClick={() => setActiveLayer('OPERACIONAL')}
-          className={`px-3 py-1.5 rounded-md font-medium transition-all ${
-            activeLayer === 'OPERACIONAL'
-              ? 'bg-emerald-500 text-white shadow-sm'
-              : 'text-[#EAF4E7] hover:bg-[#285943]'
-          }`}
-        >
-          Status Operações
-        </button>
-        <button
-          onClick={() => setActiveLayer('FROTA')}
-          className={`px-3 py-1.5 rounded-md font-medium transition-all flex items-center gap-1 ${
-            activeLayer === 'FROTA'
-              ? 'bg-blue-600 text-white shadow-sm'
-              : 'text-[#EAF4E7] hover:bg-[#285943]'
-          }`}
-        >
-          <Tractor className="w-3.5 h-3.5" /> Frotas (Tempo Real)
-        </button>
-        <button
-          onClick={() => setActiveLayer('FITOSSANIDADE')}
-          className={`px-3 py-1.5 rounded-md font-medium transition-all flex items-center gap-1 ${
-            activeLayer === 'FITOSSANIDADE'
-              ? 'bg-red-500 text-white shadow-sm'
-              : 'text-[#EAF4E7] hover:bg-[#285943]'
-          }`}
-        >
-          <AlertTriangle className="w-3.5 h-3.5" /> Heatmap Pragas
-        </button>
-        <button
-          onClick={() => setActiveLayer('NDVI')}
-          className={`px-3 py-1.5 rounded-md font-medium transition-all flex items-center gap-1 ${
-            activeLayer === 'NDVI'
-              ? 'bg-lime-600 text-white shadow-sm'
-              : 'text-[#EAF4E7] hover:bg-[#285943]'
-          }`}
-        >
-          <Sprout className="w-3.5 h-3.5" /> NDVI Sentinel-2
-        </button>
-      </div>
+      {/* Barra de Controle Unificada SIG no Topo */}
+      <div className="absolute top-3 left-3 right-3 z-[500] bg-white/95 backdrop-blur-md px-3 py-2 rounded-2xl border border-slate-200/90 shadow-sm flex flex-wrap items-center justify-between gap-2 text-xs">
+        {/* Lado Esquerdo: Seletor de Camadas SIG */}
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <span className="font-bold text-slate-700 flex items-center gap-1.5 pr-1">
+            <Layers className="w-4 h-4 text-emerald-700" /> Camada SIG:
+          </span>
+          <button
+            onClick={() => setActiveLayer('OPERACIONAL')}
+            className={`px-3 py-1.5 rounded-xl font-bold transition-all cursor-pointer ${
+              activeLayer === 'OPERACIONAL'
+                ? 'bg-emerald-700 text-white shadow-2xs'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+            }`}
+          >
+            Status Operações
+          </button>
+          <button
+            onClick={() => setActiveLayer('FROTA')}
+            className={`px-3 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1 cursor-pointer ${
+              activeLayer === 'FROTA'
+                ? 'bg-sky-700 text-white shadow-2xs'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+            }`}
+          >
+            <Tractor className="w-3.5 h-3.5" /> Frotas (CAN Bus)
+          </button>
+          <button
+            onClick={() => setActiveLayer('FITOSSANIDADE')}
+            className={`px-3 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1 cursor-pointer ${
+              activeLayer === 'FITOSSANIDADE'
+                ? 'bg-rose-700 text-white shadow-2xs'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+            }`}
+          >
+            <AlertTriangle className="w-3.5 h-3.5" /> Heatmap MIP
+          </button>
+          <button
+            onClick={() => setActiveLayer('NDVI')}
+            className={`px-3 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1 cursor-pointer ${
+              activeLayer === 'NDVI'
+                ? 'bg-emerald-700 text-white shadow-2xs'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+            }`}
+          >
+            <Sprout className="w-3.5 h-3.5" /> NDVI
+          </button>
+          <button
+            onClick={() => setActiveLayer('NDRE')}
+            className={`px-3 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1 cursor-pointer ${
+              activeLayer === 'NDRE'
+                ? 'bg-emerald-800 text-white shadow-2xs'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+            }`}
+            title="Normalized Difference RedEdge - Clorofila e Nitrogênio Foliar"
+          >
+            <Eye className="w-3.5 h-3.5" /> NDRE Clorofila
+          </button>
+          <button
+            onClick={() => setActiveLayer('NDWI')}
+            className={`px-3 py-1.5 rounded-xl font-bold transition-all flex items-center gap-1 cursor-pointer ${
+              activeLayer === 'NDWI'
+                ? 'bg-sky-700 text-white shadow-2xs'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+            }`}
+            title="Normalized Difference Water Index - Hidratação e Turgidez"
+          >
+            <Droplets className="w-3.5 h-3.5" /> NDWI Água
+          </button>
 
-      {/* Botão de Importação de CAR / Shapefile / GeoJSON */}
-      <div className="absolute top-4 right-4 z-[500] flex items-center gap-2">
-        <button
-          onClick={() => setImportModalOpen(true)}
-          className="bg-[#1D4B38]/95 backdrop-blur-md hover:bg-[#285943] text-white hover:text-emerald-400 border border-[#285943] px-3 py-2 rounded-lg text-xs font-semibold flex items-center gap-2 shadow-xl transition-all"
-        >
-          <UploadCloud className="w-4 h-4 text-emerald-400" /> Importar GeoJSON / KML / CAR
-        </button>
+          {/* Filtro de Nuvens Copernicus Sentinel-2 */}
+          <div className="flex items-center gap-1 pl-2 border-l border-slate-200">
+            <Cloud className="w-3.5 h-3.5 text-slate-400" />
+            <span className="text-[10px] text-slate-500 font-medium">Nuvens SCL:</span>
+            <select
+              value={cloudCoverFilter}
+              onChange={(e) => setCloudCoverFilter(e.target.value as any)}
+              className="bg-slate-100 text-[11px] font-bold text-slate-700 rounded-lg px-2 py-1 border border-slate-200 focus:outline-none cursor-pointer"
+            >
+              <option value="5">&lt; 5% (Ideal)</option>
+              <option value="10">&lt; 10% (Padrão)</option>
+              <option value="20">&lt; 20% (Tolerante)</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Lado Direito: Ações SIG */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={handleExportVRA}
+            className="bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-2xs transition-all cursor-pointer"
+            title="Exportar mapa de aplicação em taxa variável para piloto ISOBUS"
+          >
+            <Download className="w-3.5 h-3.5 text-emerald-700" /> Exportar VRA (ISOBUS)
+          </button>
+          <button
+            onClick={() => setImportModalOpen(true)}
+            className="bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200 px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-2xs transition-all cursor-pointer"
+          >
+            <UploadCloud className="w-3.5 h-3.5 text-emerald-700" /> Importar GeoJSON / CAR
+          </button>
+        </div>
       </div>
 
       {/* Legenda Dinâmica no canto inferior esquerdo */}
-      <div className="absolute bottom-4 left-4 z-[500] bg-[#1D4B38]/95 backdrop-blur-md p-3 rounded-lg border border-[#285943] text-xs text-[#EAF4E7] shadow-xl max-w-xs">
-        <p className="font-semibold text-white mb-1.5">
+      <div className="absolute bottom-4 left-4 z-[500] bg-white/95 backdrop-blur-md p-3.5 rounded-2xl border border-slate-200/90 text-xs text-slate-800 shadow-sm max-w-xs">
+        <p className="font-bold text-slate-900 mb-1.5">
           {activeLayer === 'OPERACIONAL' && 'Legenda de Status Operacional'}
           {activeLayer === 'FROTA' && 'Telemetria de Tratores e Pulverizadores'}
           {activeLayer === 'FITOSSANIDADE' && 'Alerta de Monitoramento Fitossanitário'}
           {activeLayer === 'NDVI' && 'Índice de Vigor Vegetativo (NDVI)'}
+          {activeLayer === 'NDRE' && 'Índice de Clorofila RedEdge (NDRE)'}
+          {activeLayer === 'NDWI' && 'Teor de Água na Copa da Planta (NDWI)'}
         </p>
         {(activeLayer === 'OPERACIONAL' || activeLayer === 'FROTA') && (
           profileId === 'PECUARIA_CORTE_LEITE' ? (
-            <div className="grid grid-cols-2 gap-1.5">
+            <div className="grid grid-cols-2 gap-1.5 text-[11px]">
               <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-emerald-500 rounded-sm"></span> Pastejo Ativo</span>
               <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-amber-500 rounded-sm"></span> Descanso (Rebrota)</span>
               <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-purple-500 rounded-sm"></span> Confinamento Cocho</span>
-              <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-blue-500 rounded-sm"></span> Maternidade / IATF</span>
+              <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-sky-500 rounded-sm"></span> Maternidade / IATF</span>
             </div>
           ) : (
-            <div className="grid grid-cols-2 gap-1.5">
-              <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-blue-500 rounded-sm"></span> Plantado</span>
+            <div className="grid grid-cols-2 gap-1.5 text-[11px]">
+              <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-sky-500 rounded-sm"></span> Plantado</span>
               <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-emerald-500 rounded-sm"></span> Pulverizado</span>
               <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-amber-500 rounded-sm"></span> Preparo</span>
               <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-purple-500 rounded-sm"></span> Colheita</span>
@@ -553,19 +688,39 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
           )
         )}
         {activeLayer === 'FITOSSANIDADE' && (
-          <div className="space-y-1">
+          <div className="space-y-1 text-[11px]">
             <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-emerald-500 rounded-sm"></span> Sob Controle (0 alvos)</span>
             <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-amber-500 rounded-sm"></span> Alerta Moderado (1-2 alvos)</span>
-            <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-red-500 rounded-sm"></span> NDE Crítico (Aplicação Urgente)</span>
+            <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-rose-500 rounded-sm"></span> NDE Crítico (Aplicação Urgente)</span>
           </div>
         )}
         {activeLayer === 'NDVI' && (
           <div className="space-y-1">
-            <div className="h-2 w-full rounded bg-gradient-to-r from-amber-700 via-yellow-400 to-green-700"></div>
-            <div className="flex justify-between text-[10px] text-slate-400">
+            <div className="h-2 w-full rounded bg-gradient-to-r from-amber-600 via-yellow-400 to-emerald-600"></div>
+            <div className="flex justify-between text-[10px] text-slate-500 font-medium">
               <span>0.30 Solo/Palha</span>
               <span>0.65 Médio</span>
               <span>0.85 Alta Biomassa</span>
+            </div>
+          </div>
+        )}
+        {activeLayer === 'NDRE' && (
+          <div className="space-y-1">
+            <div className="h-2 w-full rounded bg-gradient-to-r from-amber-600 via-emerald-400 to-emerald-800"></div>
+            <div className="flex justify-between text-[10px] text-slate-500 font-medium">
+              <span>0.20 Clorose N</span>
+              <span>0.35 Médio</span>
+              <span>0.55 Clorofila Ativa</span>
+            </div>
+          </div>
+        )}
+        {activeLayer === 'NDWI' && (
+          <div className="space-y-1">
+            <div className="h-2 w-full rounded bg-gradient-to-r from-rose-500 via-amber-400 to-sky-600"></div>
+            <div className="flex justify-between text-[10px] text-slate-500 font-medium">
+              <span>-0.10 Estresse Hídrico</span>
+              <span>0.15 Normal</span>
+              <span>0.35 Turgidez Plena</span>
             </div>
           </div>
         )}
@@ -573,24 +728,24 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
 
       {/* Modal de Importação com Parser Ativo GeoJSON / KML */}
       {importModalOpen && (
-        <div className="absolute inset-0 z-[1000] bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-[#285943] p-6 rounded-2xl max-w-lg w-full shadow-2xl text-white">
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-lg font-bold text-[#285943] flex items-center gap-2">
-                <UploadCloud className="w-5 h-5 text-emerald-400" /> Parser SIG: Importar Malha Geográfica
+        <div className="absolute inset-0 z-[1000] bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white border border-slate-200 p-6 rounded-3xl max-w-lg w-full shadow-2xl text-slate-900">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <UploadCloud className="w-5 h-5 text-emerald-700" /> Parser SIG: Importar Malha Geográfica
               </h3>
               <button
                 onClick={() => {
                   setImportModalOpen(false);
                   setImportFeedback(null);
                 }}
-                className="text-slate-400 hover:text-white p-1 rounded-lg"
+                className="text-slate-400 hover:text-slate-700 p-1 rounded-xl cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <p className="text-xs text-slate-600 mb-4">
+            <p className="text-xs text-slate-500 mb-4">
               Arraste ou selecione arquivos <strong>GeoJSON (.geojson, .json)</strong> ou <strong>KML (.kml)</strong> do CAR da fazenda ou do piloto automático do trator.
             </p>
 
@@ -619,16 +774,16 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
                 if (file) handleFileUpload(file);
               }}
               onClick={() => fileInputRef.current?.click()}
-              className={`border-2 border-dashed rounded-xl p-6 text-center transition-all cursor-pointer mb-4 ${
+              className={`border-2 border-dashed rounded-2xl p-6 text-center transition-all cursor-pointer mb-4 ${
                 isDragging
-                  ? 'border-emerald-400 bg-emerald-950/30'
-                  : 'border-[#285943] hover:border-emerald-500/60 bg-slate-800/40'
+                  ? 'border-emerald-500 bg-emerald-50/40'
+                  : 'border-slate-300 hover:border-emerald-500 bg-slate-50/60'
               }`}
             >
-              <FileCode className="w-10 h-10 text-emerald-400 mx-auto mb-2 opacity-90" />
-              <p className="text-sm font-semibold text-[#285943]">Arraste seu arquivo GeoJSON ou KML aqui</p>
-              <p className="text-xs text-slate-600 mt-1">ou clique para selecionar do computador</p>
-              <div className="flex items-center justify-center gap-2 mt-3 text-[11px] text-slate-600 font-mono">
+              <FileCode className="w-10 h-10 text-emerald-700 mx-auto mb-2 opacity-90" />
+              <p className="text-sm font-bold text-slate-800">Arraste seu arquivo GeoJSON ou KML aqui</p>
+              <p className="text-xs text-slate-500 mt-1">ou clique para selecionar do computador</p>
+              <div className="flex items-center justify-center gap-2 mt-3 text-[11px] text-slate-400 font-mono">
                 <span>EPSG:4326 (WGS 84)</span>
                 <span>•</span>
                 <span>SIRGAS 2000</span>
@@ -641,25 +796,25 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
             {importFeedback && (
               <div className={`p-3 rounded-xl mb-4 text-xs flex items-center gap-2 ${
                 importFeedback.startsWith('Sucesso')
-                  ? 'bg-emerald-950/50 text-emerald-300 border border-emerald-800'
-                  : 'bg-rose-950/50 text-rose-300 border border-rose-800'
+                  ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                  : 'bg-rose-50 text-rose-800 border border-rose-200'
               }`}>
                 {importFeedback.startsWith('Sucesso') ? (
-                  <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-400" />
+                  <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-700" />
                 ) : (
-                  <AlertTriangle className="w-4 h-4 shrink-0 text-rose-400" />
+                  <AlertTriangle className="w-4 h-4 shrink-0 text-rose-700" />
                 )}
                 <span>{importFeedback}</span>
               </div>
             )}
 
             {/* Botões de Ação */}
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-3 pt-3 border-t border-slate-100">
               <button
                 onClick={handleLoadSampleGeoJSON}
-                className="w-full sm:w-auto px-3.5 py-2 rounded-xl text-xs bg-emerald-50 hover:bg-[#d8edd4] text-[#285943] border border-emerald-300 font-semibold flex items-center justify-center gap-1.5 shadow"
+                className="w-full sm:w-auto px-3.5 py-2 rounded-xl text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-semibold flex items-center justify-center gap-1.5 transition cursor-pointer"
               >
-                <FileText className="w-3.5 h-3.5" /> Testar com Amostra (CAR 318 ha)
+                <FileText className="w-3.5 h-3.5 text-emerald-700" /> Testar com Amostra (CAR 318 ha)
               </button>
 
               <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
@@ -668,7 +823,7 @@ export const AgroMap: React.FC<AgroMapProps> = ({ onSelectTalhao, selectedTalhao
                     setImportModalOpen(false);
                     setImportFeedback(null);
                   }}
-                  className="px-4 py-2 rounded-xl text-xs bg-slate-800 hover:bg-slate-700 text-[#EAF4E7] font-medium"
+                  className="px-4 py-2 rounded-xl text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold transition cursor-pointer"
                 >
                   Fechar
                 </button>

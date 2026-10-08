@@ -137,7 +137,7 @@ export const BovinoculturaLeiteModule: React.FC = () => {
                 <Milk className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Bovinocultura de Leite 4.0 & Ordenha Robotizada
                   <span className="text-xs px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300 font-mono border border-sky-500/30">
                     IN 76/77 MAPA • IOFC • Compost Barn • Lely
@@ -151,7 +151,7 @@ export const BovinoculturaLeiteModule: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-300 border-emerald-500/40 flex items-center gap-1.5">
+            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-800 border-emerald-500/40 flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4" />
               Padrão IN 76/77 Excelente (CCS: {Math.round(leiteMetrics.mediaCcs / 1000)}k cel/mL)
             </span>
@@ -180,9 +180,9 @@ export const BovinoculturaLeiteModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>IOFC (Margem / Dieta)</span>
-            <Award className="w-4 h-4 text-emerald-400" />
+            <Award className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
+          <div className="text-2xl font-black mt-2 font-mono text-emerald-700">
             R$ {leiteMetrics.iofcVacaDia.toFixed(2)}{' '}
             <span className="text-xs font-normal text-slate-600">/ vaca / dia</span>
           </div>
@@ -195,9 +195,9 @@ export const BovinoculturaLeiteModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Faturamento Mensal</span>
-            <Coins className="w-4 h-4 text-amber-400" />
+            <Coins className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-amber-400">
+          <div className="text-2xl font-black mt-2 font-mono text-amber-700">
             R$ {leiteMetrics.faturamentoMensalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -209,9 +209,9 @@ export const BovinoculturaLeiteModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Qualidade IN 76/77</span>
-            <HeartPulse className="w-4 h-4 text-cyan-400" />
+            <HeartPulse className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
+          <div className="text-2xl font-black mt-2 font-mono text-sky-700">
             {Math.round(leiteMetrics.mediaCcs / 1000)}k{' '}
             <span className="text-xs font-normal text-slate-600">CCS • {Math.round(leiteMetrics.mediaCbt / 1000)}k CBT</span>
           </div>
@@ -227,7 +227,7 @@ export const BovinoculturaLeiteModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
                 <Layers className="w-5 h-5 text-sky-400" />
                 Lotes de Lactação & Telemetria do Robô
               </h3>
@@ -255,10 +255,10 @@ export const BovinoculturaLeiteModule: React.FC = () => {
                       <span className="px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 font-mono text-xs font-bold border border-sky-500/30">
                         {l.id}
                       </span>
-                      <h4 className="text-xs font-bold text-white">{l.nome}</h4>
+                      <h4 className="text-xs font-bold text-slate-900">{l.nome}</h4>
                       <span className="text-[11px] text-slate-600 font-mono">({l.raca})</span>
                     </div>
-                    <span className="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 text-[10px] font-mono border border-cyan-500/30">
+                    <span className="px-2 py-0.5 rounded bg-cyan-500/20 text-sky-800 text-[10px] font-mono border border-cyan-500/30">
                       {l.sistemaOrdenha.replace(/_/g, ' ')}
                     </span>
                   </div>
@@ -266,9 +266,9 @@ export const BovinoculturaLeiteModule: React.FC = () => {
                   <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-600">
                     <span>Vacas: <strong className="text-white">{l.vacasLactacao} cab</strong> (DEL {l.delMedioDias}d)</span>
                     <span>Produção: <strong className="text-sky-400">{l.producaoMediaLitroDia} L/vaca</strong></span>
-                    <span>Sólidos: <strong className="text-amber-400">{l.gorduraPct}% Gord • {l.proteinaPct}% Prot</strong></span>
-                    <span>CCS: <strong className="text-emerald-400">{Math.round(l.ccsCelulasMl / 1000)}k</strong></span>
-                    <span>Receita/Dia: <strong className="text-emerald-400">R$ {faturamentoLoteDia.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}</strong></span>
+                    <span>Sólidos: <strong className="text-amber-700">{l.gorduraPct}% Gord • {l.proteinaPct}% Prot</strong></span>
+                    <span>CCS: <strong className="text-emerald-700">{Math.round(l.ccsCelulasMl / 1000)}k</strong></span>
+                    <span>Receita/Dia: <strong className="text-emerald-700">R$ {faturamentoLoteDia.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}</strong></span>
                   </div>
                 </div>
               );
@@ -297,8 +297,8 @@ export const BovinoculturaLeiteModule: React.FC = () => {
 
         {/* Painel Direito: Parâmetros Comerciais */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Coins className="w-5 h-5 text-amber-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Coins className="w-5 h-5 text-amber-700" />
             Parâmetros Comerciais do Leite
           </h3>
 
@@ -335,13 +335,13 @@ export const BovinoculturaLeiteModule: React.FC = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600">Faturamento Mensal (30d):</span>
-                <span className="text-amber-400 font-mono font-bold">
+                <span className="text-amber-700 font-mono font-bold">
                   R$ {leiteMetrics.faturamentoMensalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Margem sobre a Dieta (Mês):</span>
-                <span className="text-emerald-400 font-mono">
+                <span className="text-emerald-700 font-mono">
                   R$ {leiteMetrics.margemAlimentarMensalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })} / mês
                 </span>
               </div>

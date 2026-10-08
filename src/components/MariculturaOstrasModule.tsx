@@ -95,15 +95,15 @@ export const MariculturaOstrasModule: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className="px-2.5 py-1 text-xs font-black bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+              <span className="px-2.5 py-1 text-xs font-black bg-cyan-500/20 text-sky-800 border border-cyan-500/40 rounded-full uppercase tracking-wider flex items-center gap-1.5">
                 <Waves className="w-3.5 h-3.5" />
                 Módulo 99 • Maricultura Oceânica & Malacocultura
               </span>
-              <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+              <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 rounded-full">
                 Ostras & Mexilhões • Depuração UV-C
               </span>
             </div>
-            <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-3">
               🦪 Maricultura de Precisão, Ostras & Monitoramento de Marés
             </h2>
             <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
@@ -114,13 +114,13 @@ export const MariculturaOstrasModule: React.FC = () => {
           <div className="flex items-center gap-3">
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Produção Anual</span>
-              <span className="text-xl font-black text-cyan-400">180.000 dz</span>
+              <span className="text-xl font-black text-sky-700">180.000 dz</span>
               <span className="text-[10px] text-slate-600 block mt-0.5">2,16M Ostras</span>
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Faturamento</span>
-              <span className="text-xl font-black text-emerald-400">R$ 4,77M</span>
-              <span className="text-[10px] text-emerald-400/80 block mt-0.5">61.2% Margem</span>
+              <span className="text-xl font-black text-emerald-700">R$ 4,77M</span>
+              <span className="text-[10px] text-emerald-700/80 block mt-0.5">61.2% Margem</span>
             </div>
           </div>
         </div>
@@ -131,10 +131,10 @@ export const MariculturaOstrasModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-cyan-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Densidade de Cultivo</span>
-            <Activity className="w-4 h-4 text-cyan-400" />
+            <Activity className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black text-white">15.000 dz / ha</div>
-          <div className="text-[11px] text-emerald-400 font-medium mt-1 flex items-center gap-1">
+          <div className="text-2xl font-black text-slate-900">15.000 dz / ha</div>
+          <div className="text-[11px] text-emerald-700 font-medium mt-1 flex items-center gap-1">
             <CheckCircle2 className="w-3.5 h-3.5" />
             12 ha Concessão Federal SPU
           </div>
@@ -143,9 +143,9 @@ export const MariculturaOstrasModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-cyan-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Depuração UV-C</span>
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <ShieldCheck className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-emerald-400">100% Segura</div>
+          <div className="text-2xl font-black text-emerald-700">100% Segura</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Zero E. coli & Vibrio marinho
           </div>
@@ -154,9 +154,9 @@ export const MariculturaOstrasModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-cyan-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Alerta de Maré Vermelha</span>
-            <Waves className="w-4 h-4 text-blue-400" />
+            <Waves className="w-4 h-4 text-blue-700" />
           </div>
-          <div className="text-2xl font-black text-blue-400">Monitoramento 24/7</div>
+          <div className="text-2xl font-black text-blue-700">Monitoramento 24/7</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Sensores Ópticos de Clorofila
           </div>
@@ -165,9 +165,9 @@ export const MariculturaOstrasModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-cyan-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
-            <DollarSign className="w-4 h-4 text-emerald-400" />
+            <DollarSign className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-emerald-400">R$ 2.920.000,00</div>
+          <div className="text-2xl font-black text-emerald-700">R$ 2.920.000,00</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Preço Médio R$ 26,50/dúzia
           </div>
@@ -180,8 +180,8 @@ export const MariculturaOstrasModule: React.FC = () => {
           onClick={() => setActiveTab('linhas')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'linhas'
-              ? 'bg-cyan-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-cyan-50 text-cyan-800 border border-cyan-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Anchor className="w-4 h-4" />
@@ -192,8 +192,8 @@ export const MariculturaOstrasModule: React.FC = () => {
           onClick={() => setActiveTab('telemetria')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'telemetria'
-              ? 'bg-cyan-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-cyan-50 text-cyan-800 border border-cyan-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Waves className="w-4 h-4" />
@@ -204,8 +204,8 @@ export const MariculturaOstrasModule: React.FC = () => {
           onClick={() => setActiveTab('depuracao')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'depuracao'
-              ? 'bg-cyan-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-cyan-50 text-cyan-800 border border-cyan-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <ShieldCheck className="w-4 h-4" />
@@ -216,8 +216,8 @@ export const MariculturaOstrasModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
-              ? 'bg-cyan-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-cyan-50 text-cyan-800 border border-cyan-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -229,8 +229,8 @@ export const MariculturaOstrasModule: React.FC = () => {
       {activeTab === 'linhas' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <Anchor className="w-5 h-5 text-cyan-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <Anchor className="w-5 h-5 text-sky-700" />
               Parques Aquícolas e Linhas de Longline
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -250,20 +250,20 @@ export const MariculturaOstrasModule: React.FC = () => {
                     <th className="py-3 px-3">Ficotoxinas</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60 font-medium">
+                <tbody className="divide-y divide-slate-100 font-medium">
                   {lotes.map((l) => (
-                    <tr key={l.id} className="hover:bg-slate-800/40 transition-colors">
+                    <tr key={l.id} className="hover:bg-slate-50/80 transition-colors">
                       <td className="py-3.5 px-3">
-                        <div className="font-bold text-white">{l.identificacao}</div>
+                        <div className="font-bold text-slate-900">{l.identificacao}</div>
                         <div className="text-[11px] text-slate-600 font-mono">{l.id}</div>
                       </td>
-                      <td className="py-3.5 px-3 text-cyan-300 font-semibold">{l.especie}</td>
-                      <td className="py-3.5 px-3 font-mono font-bold text-white">{l.duziasOstrasAno.toLocaleString()} dz</td>
-                      <td className="py-3.5 px-3 font-mono text-cyan-400">{l.salinidadePpt} ppt</td>
-                      <td className="py-3.5 px-3 font-mono text-amber-400">{l.temperaturaAguaC}°C</td>
-                      <td className="py-3.5 px-3 font-mono text-emerald-400">{l.oxigenioDissolvidoMgL} mg/L</td>
+                      <td className="py-3.5 px-3 text-sky-800 font-semibold">{l.especie}</td>
+                      <td className="py-3.5 px-3 font-mono font-bold text-slate-900">{l.duziasOstrasAno.toLocaleString()} dz</td>
+                      <td className="py-3.5 px-3 font-mono text-sky-700">{l.salinidadePpt} ppt</td>
+                      <td className="py-3.5 px-3 font-mono text-amber-700">{l.temperaturaAguaC}°C</td>
+                      <td className="py-3.5 px-3 font-mono text-emerald-700">{l.oxigenioDissolvidoMgL} mg/L</td>
                       <td className="py-3.5 px-3">
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30">
                           {l.statusFicotoxinas}
                         </span>
                       </td>
@@ -280,8 +280,8 @@ export const MariculturaOstrasModule: React.FC = () => {
       {activeTab === 'telemetria' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <Compass className="w-5 h-5 text-cyan-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <Compass className="w-5 h-5 text-sky-700" />
               Boia Multiparamétrica IoT em Tempo Real
             </h3>
             <p className="text-xs text-slate-600">
@@ -290,13 +290,13 @@ export const MariculturaOstrasModule: React.FC = () => {
 
             <div className="space-y-3 text-xs">
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Salinidade da Água (30 a 35 ppt)</span>
+                <span className="font-bold text-slate-900 block">Salinidade da Água (30 a 35 ppt)</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   Estabilidade osmótica que garante textura firme e sabor iodado característico da ostra in natura.
                 </span>
               </div>
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Prevenção a Florações Algais Nocivas (FAN)</span>
+                <span className="font-bold text-slate-900 block">Prevenção a Florações Algais Nocivas (FAN)</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   Espectrofotômetro submerso detecta dinoflagelados tóxicos produtores de toxina diarreica (DSP) antes de atingir as lanternas.
                 </span>
@@ -305,8 +305,8 @@ export const MariculturaOstrasModule: React.FC = () => {
           </div>
 
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-emerald-700" />
               Conformidade Ambiental Marinha
             </h3>
             <p className="text-xs text-slate-600">
@@ -316,11 +316,11 @@ export const MariculturaOstrasModule: React.FC = () => {
             <div className="space-y-2 text-xs">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Nitrogênio Removido da Água:</span>
-                <span className="font-mono font-bold text-emerald-400">14.2 kg N / hectare/mês</span>
+                <span className="font-mono font-bold text-emerald-700">14.2 kg N / hectare/mês</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Carbonato de Cálcio Fixado na Concha:</span>
-                <span className="font-mono font-bold text-cyan-400">18.6 ton CaCO₃ / ano</span>
+                <span className="font-mono font-bold text-sky-700">18.6 ton CaCO₃ / ano</span>
               </div>
             </div>
           </div>
@@ -331,8 +331,8 @@ export const MariculturaOstrasModule: React.FC = () => {
       {activeTab === 'depuracao' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <ShieldCheck className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <ShieldCheck className="w-5 h-5 text-emerald-700" />
               Estação Terrestre de Depuração UV-C
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -342,19 +342,19 @@ export const MariculturaOstrasModule: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Eficiência Microbiológica</span>
-                <span className="text-2xl font-black text-white font-mono">&gt; 99.99%</span>
-                <span className="text-[11px] text-emerald-400 block">Eliminação de coliformes</span>
+                <span className="text-2xl font-black text-slate-900 font-mono">&gt; 99.99%</span>
+                <span className="text-[11px] text-emerald-700 block">Eliminação de coliformes</span>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Inspeção Oficial</span>
-                <span className="text-2xl font-black text-cyan-400 font-mono">SIF / SIE</span>
+                <span className="text-2xl font-black text-sky-700 font-mono">SIF / SIE</span>
                 <span className="text-[11px] text-slate-600 block">Selo de Inspeção Federal</span>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Mercado Premium</span>
-                <span className="text-2xl font-black text-amber-400 font-mono">Consumo Cru</span>
+                <span className="text-2xl font-black text-amber-700 font-mono">Consumo Cru</span>
                 <span className="text-[11px] text-slate-600 block">Alta gastronomia e hotéis</span>
               </div>
             </div>
@@ -366,15 +366,15 @@ export const MariculturaOstrasModule: React.FC = () => {
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-cyan-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <BarChart3 className="w-5 h-5 text-sky-700" />
               Parâmetros da Maricultura
             </h3>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Área Concessão Marinha (ha)</span>
-                <span className="font-mono text-cyan-400">{areaConcessaoHa} hectares</span>
+                <span className="font-mono text-sky-700">{areaConcessaoHa} hectares</span>
               </div>
               <input
                 type="range"
@@ -383,14 +383,14 @@ export const MariculturaOstrasModule: React.FC = () => {
                 step="1"
                 value={areaConcessaoHa}
                 onChange={(e) => setAreaConcessaoHa(Number(e.target.value))}
-                className="w-full accent-cyan-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-cyan-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Dúzias de Ostras / Ano</span>
-                <span className="font-mono text-emerald-400">{duziasOstrasAno.toLocaleString()} dz</span>
+                <span className="font-mono text-emerald-700">{duziasOstrasAno.toLocaleString()} dz</span>
               </div>
               <input
                 type="range"
@@ -399,14 +399,14 @@ export const MariculturaOstrasModule: React.FC = () => {
                 step="10000"
                 value={duziasOstrasAno}
                 onChange={(e) => setDuziasOstrasAno(Number(e.target.value))}
-                className="w-full accent-emerald-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-emerald-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço por Dúzia Depurada (R$)</span>
-                <span className="font-mono text-white">R$ {precoDuziaOstraReais.toFixed(2)}</span>
+                <span className="font-mono text-slate-800">R$ {precoDuziaOstraReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -415,14 +415,14 @@ export const MariculturaOstrasModule: React.FC = () => {
                 step="0.50"
                 value={precoDuziaOstraReais}
                 onChange={(e) => setPrecoDuziaOstraReais(Number(e.target.value))}
-                className="w-full accent-cyan-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-cyan-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Custos Operacionais Anuais (R$)</span>
-                <span className="font-mono text-rose-400">R$ {custoOperacionalBarcosLanternasReais.toFixed(2)}</span>
+                <span className="font-mono text-rose-700">R$ {custoOperacionalBarcosLanternasReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -431,21 +431,21 @@ export const MariculturaOstrasModule: React.FC = () => {
                 step="50000"
                 value={custoOperacionalBarcosLanternasReais}
                 onChange={(e) => setCustoOperacionalBarcosLanternasReais(Number(e.target.value))}
-                className="w-full accent-rose-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-rose-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
           </div>
 
           <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <DollarSign className="w-5 h-5 text-emerald-700" />
               Retorno Financeiro da Fazenda Marinha
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Produtividade</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   {metricas.duziasPorHa.toLocaleString()} dz
                 </span>
                 <span className="text-[10px] text-slate-600 block">por hectare marinho</span>
@@ -453,15 +453,15 @@ export const MariculturaOstrasModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Ostras Totais</span>
-                <span className="font-mono font-bold text-cyan-400 text-base">
+                <span className="font-mono font-bold text-sky-700 text-base">
                   {((duziasOstrasAno * 12) / 1000000).toFixed(2)}M un
                 </span>
-                <span className="text-[10px] text-cyan-400/80 block">100% Depuradas</span>
+                <span className="text-[10px] text-sky-700/80 block">100% Depuradas</span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Bruta</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   R$ {(metricas.receitaBrutaReais / 1000000).toFixed(2)}M
                 </span>
                 <span className="text-[10px] text-slate-600 block">Mercado Gastronômico</span>
@@ -469,29 +469,29 @@ export const MariculturaOstrasModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido</span>
-                <span className="font-mono font-bold text-emerald-400 text-base">
+                <span className="font-mono font-bold text-emerald-700 text-base">
                   R$ {(metricas.lucroLiquidoReais / 1000000).toFixed(2)}M
                 </span>
-                <span className="text-[10px] text-emerald-400/80 block">{metricas.margemLiquidaPct}% margem</span>
+                <span className="text-[10px] text-emerald-700/80 block">{metricas.margemLiquidaPct}% margem</span>
               </div>
             </div>
 
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Receita Bruta com Venda de Ostras Depuradas ({duziasOstrasAno.toLocaleString()} dz @ R$ {precoDuziaOstraReais.toFixed(2)}):</span>
-                <span className="font-mono font-bold text-white">
+                <span className="font-mono font-bold text-slate-900">
                   R$ {metricas.receitaBrutaReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Custos Operacionais de Barcos, Lanternas, Tripulação e Depuração UV-C:</span>
-                <span className="font-mono font-bold text-rose-400">
+                <span className="font-mono font-bold text-rose-700">
                   - R$ {custoOperacionalBarcosLanternasReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-2 text-sm font-black bg-emerald-950/30 px-3 rounded-lg border border-emerald-800/50">
-                <span className="text-white">Lucro Líquido Anual Consolidado:</span>
-                <span className="font-mono text-emerald-300">
+              <div className="flex justify-between items-center py-2 text-sm font-black bg-emerald-50 px-3 rounded-lg border border-emerald-200">
+                <span className="text-slate-900">Lucro Líquido Anual Consolidado:</span>
+                <span className="font-mono text-emerald-800">
                   R$ {metricas.lucroLiquidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>

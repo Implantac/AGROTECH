@@ -72,6 +72,7 @@ import {
   Lock,
   Cpu,
   Egg,
+  BookOpen
 } from 'lucide-react';
 
 export interface ModuleItem {
@@ -86,6 +87,17 @@ export interface ModuleItem {
 }
 
 export const ALL_MODULES: ModuleItem[] = [
+  // Acesso Direto: Manual e Tutoriais do Produtor
+  {
+    id: 'MANUAL',
+    name: 'Manual & Ajuda',
+    fullName: 'Manual do Usuário & Tutoriais com Fotos',
+    description: 'Guia ilustrado passo a passo, instalação do chicote CAN Bus e dúvidas frequentes.',
+    category: 'CAMPO',
+    icon: BookOpen,
+    badge: 'v2.6',
+    keywords: ['manual', 'ajuda', 'duvida', 'como usar', 'tutorial', 'fotos', 'chicote', 'instalacao', 'deutsch', 'suporte'],
+  },
   // Categoria: Agronomia & Campo
   {
     id: 'SIG',
@@ -1457,6 +1469,7 @@ interface QuickAccessModalProps {
   enabledModuleIds?: Set<string>;
   onOpenModuleConfig?: () => void;
   activeProfileName?: string;
+  isSuperAdmin?: boolean;
 }
 
 export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
@@ -1469,16 +1482,20 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
   enabledModuleIds,
   onOpenModuleConfig,
   activeProfileName,
+  isSuperAdmin = false,
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('TODOS');
   const [filterOnlySubscribed, setFilterOnlySubscribed] = useState<boolean>(true);
 
-  // Filtra por habilitação contratada se ativado
+  // Filtra por habilitação contratada se ativado (para não-superadmin, o filtro é sempre estrito)
   const baseModules = useMemo(() => {
-    if (!enabledModuleIds || !filterOnlySubscribed) return ALL_MODULES;
-    return ALL_MODULES.filter((m: ModuleItem) => enabledModuleIds.has(m.id));
-  }, [enabledModuleIds, filterOnlySubscribed]);
+    if (!enabledModuleIds) return ALL_MODULES;
+    if (!isSuperAdmin || filterOnlySubscribed) {
+      return ALL_MODULES.filter((m: ModuleItem) => enabledModuleIds.has(m.id));
+    }
+    return ALL_MODULES;
+  }, [enabledModuleIds, filterOnlySubscribed, isSuperAdmin]);
 
   // Fecha no ESC
   useEffect(() => {
@@ -1491,12 +1508,46 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
 
   if (!isOpen) return null;
 
+  const normalizedQuery = searchTerm.toLowerCase().trim();
+  const searchTokens = normalizedQuery.split(/\s+/).filter(Boolean);
+
+  const ruralSynonymsList: string[] = [];
+  searchTokens.forEach((token) => {
+    ruralSynonymsList.push(token);
+    if (token.includes('diesel') || token.includes('combustivel') || token.includes('abastec')) {
+      ruralSynonymsList.push('combustivel', 'comboio', 'diesel', 'posto');
+    }
+    if (token.includes('boi') || token.includes('vaca') || token.includes('gado') || token.includes('bezerro')) {
+      ruralSynonymsList.push('bovinocultura', 'confinamento', 'sisbov', 'zootecnia', 'pecuaria');
+    }
+    if (token.includes('veneno') || token.includes('praga') || token.includes('lagarta') || token.includes('percevejo')) {
+      ruralSynonymsList.push('mip', 'pragas', 'fungicidas', 'pulverizacao', 'defensivo');
+    }
+    if (token.includes('chuva') || token.includes('vento') || token.includes('tempo') || token.includes('previsao')) {
+      ruralSynonymsList.push('clima', 'agrometeorologia', 'irrigacao', 'delta t');
+    }
+    if (token.includes('adubo') || token.includes('calcario') || token.includes('terra') || token.includes('npk')) {
+      ruralSynonymsList.push('adubacao', 'calagem', 'solos', 'nutricao', 'remineralizador');
+    }
+    if (token.includes('nota') || token.includes('imposto') || token.includes('recibo') || token.includes('sped')) {
+      ruralSynonymsList.push('fiscal', 'lcdpr', 'nfe', 'sefaz');
+    }
+    if (token.includes('ajuda') || token.includes('manual') || token.includes('duvida') || token.includes('como')) {
+      ruralSynonymsList.push('manual', 'tutorial', 'fotos', 'guia', 'chicote');
+    }
+  });
+
   const filteredModules = baseModules.filter((mod: ModuleItem) => {
+    const modHaystack = [
+      mod.name.toLowerCase(),
+      mod.fullName.toLowerCase(),
+      mod.description.toLowerCase(),
+      ...mod.keywords.map((k) => k.toLowerCase()),
+    ].join(' ');
+
     const matchesSearch =
-      mod.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      mod.fullName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      mod.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      mod.keywords.some((k: string) => k.toLowerCase().includes(searchTerm.toLowerCase()));
+      searchTokens.length === 0 ||
+      ruralSynonymsList.some((syn) => modHaystack.includes(syn));
 
     const matchesCategory =
       selectedCategory === 'TODOS' ||
@@ -1528,39 +1579,45 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
           </button>
         </div>
 
-        {/* Faixa de Atividade Contratada & Filtro Modular */}
+        {/* Faixa de Atividade Contratada & Filtro Modular RBAC */}
         {enabledModuleIds && (
           <div className="px-4 py-2 bg-slate-100/70 border-b border-slate-200 flex flex-wrap items-center justify-between text-xs gap-3">
             <div className="flex items-center gap-2">
-              <span className="text-[11px] text-slate-600 font-medium">Atividade Contratada:</span>
+              <span className="text-[11px] text-slate-600 font-medium">Perfil & Permissões:</span>
               <span className="px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 font-bold border border-emerald-300 text-[11px]">
-                {activeProfileName || 'Perfil Ativo'} ({enabledModuleIds.size}/{ALL_MODULES.length})
+                {activeProfileName || 'Perfil Ativo'} ({enabledModuleIds.size} liberados)
               </span>
             </div>
 
-            <div className="flex items-center gap-3">
-              <label className="flex items-center gap-1.5 text-[11px] text-slate-600 cursor-pointer select-none font-medium">
-                <input
-                  type="checkbox"
-                  checked={filterOnlySubscribed}
-                  onChange={(e) => setFilterOnlySubscribed(e.target.checked)}
-                  className="rounded border-slate-300 text-emerald-700 focus:ring-emerald-600"
-                />
-                <span>Ocultar módulos não contratados</span>
-              </label>
+            {isSuperAdmin ? (
+              <div className="flex items-center gap-3">
+                <label className="flex items-center gap-1.5 text-[11px] text-slate-600 cursor-pointer select-none font-medium">
+                  <input
+                    type="checkbox"
+                    checked={filterOnlySubscribed}
+                    onChange={(e) => setFilterOnlySubscribed(e.target.checked)}
+                    className="rounded border-slate-300 text-emerald-700 focus:ring-emerald-600"
+                  />
+                  <span>Filtrar apenas liberados</span>
+                </label>
 
-              {onOpenModuleConfig && (
-                <button
-                  onClick={() => {
-                    onClose();
-                    onOpenModuleConfig();
-                  }}
-                  className="text-emerald-800 hover:text-emerald-950 font-bold text-[11px] underline cursor-pointer"
-                >
-                  Personalizar Módulos
-                </button>
-              )}
-            </div>
+                {onOpenModuleConfig && (
+                  <button
+                    onClick={() => {
+                      onClose();
+                      onOpenModuleConfig();
+                    }}
+                    className="text-emerald-800 hover:text-emerald-950 font-bold text-[11px] underline cursor-pointer"
+                  >
+                    Personalizar Módulos
+                  </button>
+                )}
+              </div>
+            ) : (
+              <span className="text-[11px] text-slate-500 italic">
+                Acesso restrito ao perfil. Recursos extras liberados pelo Superadmin.
+              </span>
+            )}
           </div>
         )}
 
@@ -1590,7 +1647,7 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
           <button
             onClick={() => setSelectedCategory('CAMPO')}
             className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
-              selectedCategory === 'CAMPO' ? 'bg-slate-800 text-white font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+              selectedCategory === 'CAMPO' ? 'bg-emerald-700 text-white font-bold shadow-2xs' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
             }`}
           >
             🌾 Campo ({baseModules.filter((m: ModuleItem) => m.category === 'CAMPO').length})
@@ -1598,7 +1655,7 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
           <button
             onClick={() => setSelectedCategory('FROTA')}
             className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
-              selectedCategory === 'FROTA' ? 'bg-slate-800 text-white font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+              selectedCategory === 'FROTA' ? 'bg-emerald-700 text-white font-bold shadow-2xs' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
             }`}
           >
             🚜 Frotas ({baseModules.filter((m: ModuleItem) => m.category === 'FROTA').length})
@@ -1606,7 +1663,7 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
           <button
             onClick={() => setSelectedCategory('MERCADO')}
             className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
-              selectedCategory === 'MERCADO' ? 'bg-slate-800 text-white font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+              selectedCategory === 'MERCADO' ? 'bg-emerald-700 text-white font-bold shadow-2xs' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
             }`}
           >
             📈 Mercado ({baseModules.filter((m: ModuleItem) => m.category === 'MERCADO').length})
@@ -1614,7 +1671,7 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
           <button
             onClick={() => setSelectedCategory('FISCAL')}
             className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
-              selectedCategory === 'FISCAL' ? 'bg-slate-800 text-white font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+              selectedCategory === 'FISCAL' ? 'bg-emerald-700 text-white font-bold shadow-2xs' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
             }`}
           >
             ⚖️ Fiscal ({baseModules.filter((m: ModuleItem) => m.category === 'FISCAL').length})
@@ -1622,7 +1679,7 @@ export const QuickAccessModal: React.FC<QuickAccessModalProps> = ({
           <button
             onClick={() => setSelectedCategory('PECUARIA')}
             className={`px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
-              selectedCategory === 'PECUARIA' ? 'bg-slate-800 text-white font-bold' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+              selectedCategory === 'PECUARIA' ? 'bg-emerald-700 text-white font-bold shadow-2xs' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
             }`}
           >
             🐂 Pecuária ({baseModules.filter((m: ModuleItem) => m.category === 'PECUARIA').length})

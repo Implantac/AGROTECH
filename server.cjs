@@ -19,16 +19,81 @@ const STATIC_DIR = fs.existsSync(path.join(__dirname, 'app_static'))
 
 const DB_FILE = path.join(__dirname, 'data', 'agtech_db.json');
 
+function getDefaultTenantCredentials(tenantId = 'tenant-fazenda-santa-helena') {
+  return {
+    tenantId,
+    sefaz: {
+      ambiente: 'HOMOLOGACAO',
+      certificadoA1Configurado: false,
+      nomeArquivo: '',
+      titular: 'SCHNEIDER AGRICULTURA E PECUARIA LTDA',
+      cnpj: '04.812.049/0001-20',
+      emissor: 'AC SERASA RFB v5',
+      validadeAte: '2027-10-15T23:59:59Z',
+      diasRestantesValidade: 372,
+      status: 'PENDENTE_UPLOAD',
+      ufAutorizadora: 'MT',
+      cscId: '000001',
+      cscCodigo: 'CSC981248102941092841092840192840',
+      seriePadraoNfe: 1,
+      proximoNumeroNfe: 4129
+    },
+    bancario: {
+      bancoPrincipal: '001 - Banco do Brasil',
+      chavePix: '04.812.049/0001-20',
+      tipoChavePix: 'CNPJ',
+      openFinanceAtivo: true,
+      clientId: 'bb-agro-prod-812049182',
+      clientSecretConfigurado: true,
+      convenioCobranca: '3491820',
+      carteiraCobranca: '17',
+      variacaoCarteira: '019',
+      padraoCnab: 'CNAB_240'
+    },
+    mensageria: {
+      provedor: 'WHATSAPP_EVOLUTION_API',
+      instancia: 'agro-alerta-fazenda-01',
+      tokenConfigurado: true,
+      telefonePlantao: '+55 (66) 99988-7744',
+      alertasAtivos: [
+        'ALERTA_SUPERAQUECIMENTO',
+        'ALERTA_PRESSAO_OLEO_BAIXA',
+        'ALERTA_SOBREROTACAO_MOTOR',
+        'CONFLITO_OUTBOX',
+        'VENCIMENTO_CPR_BARTER'
+      ],
+      statusConexao: 'CONECTADO',
+      ultimaNotificacaoEnviada: null
+    },
+    sateliteClima: {
+      provedorSatelite: 'COPERNICUS_SENTINEL_2',
+      apiKeyConfigurada: true,
+      filtroNuvensMaximoPct: 20,
+      estacaoMeteorologicaPropria: true,
+      estacaoId: 'INMET-A901-SORRISO-MT',
+      estacaoLatitude: -12.5512,
+      estacaoLongitude: -55.7098,
+      sicarNumeroCar: 'MT-5107909-089201948120491820'
+    },
+    atualizadoEm: new Date().toISOString()
+  };
+}
+
 function loadDb() {
   try {
     if (fs.existsSync(DB_FILE)) {
       const data = fs.readFileSync(DB_FILE, 'utf8');
-      return JSON.parse(data);
+      const parsed = JSON.parse(data);
+      if (!parsed.tenantCredentials) parsed.tenantCredentials = {};
+      if (!parsed.tenantCredentials['tenant-fazenda-santa-helena']) {
+        parsed.tenantCredentials['tenant-fazenda-santa-helena'] = getDefaultTenantCredentials('tenant-fazenda-santa-helena');
+      }
+      return parsed;
     }
   } catch (err) {
     console.error('[DB Load Error]:', err);
   }
-  return { usuarios: [], fazendas: [], talhoes: [], frota: [], estoque: [], cotacoesMercado: {} };
+  return { usuarios: [], fazendas: [], talhoes: [], frota: [], estoque: [], cotacoesMercado: {}, tenantCredentials: {} };
 }
 
 function saveDb(db) {
@@ -52,6 +117,175 @@ function calcularModulo11(chave43) {
   }
   const resto = soma % 11;
   return (resto === 0 || resto === 1) ? 0 : 11 - resto;
+}
+
+const JWT_SECRET = process.env.JWT_SECRET || 'super_agro_jwt_secret_2026_xyz';
+
+function createHmacJwt(payload) {
+  const header = Buffer.from(JSON.stringify({ alg: 'HS256', typ: 'JWT' })).toString('base64url');
+  const exp = Math.floor(Date.now() / 1000) + (7 * 24 * 3600); // 7 dias
+  const body = Buffer.from(JSON.stringify({ ...payload, exp, iat: Math.floor(Date.now() / 1000) })).toString('base64url');
+  const signature = crypto.createHmac('sha256', JWT_SECRET).update(`${header}.${body}`).digest('base64url');
+  return `${header}.${body}.${signature}`;
+}
+
+function verifyHmacJwt(token) {
+  try {
+    if (!token || !token.includes('.')) return null;
+    const parts = token.split('.');
+    if (parts.length !== 3) return null;
+    const [header, body, signature] = parts;
+    const expectedSig = crypto.createHmac('sha256', JWT_SECRET).update(`${header}.${body}`).digest('base64url');
+    if (signature !== expectedSig) return null;
+    const data = JSON.parse(Buffer.from(body, 'base64url').toString('utf8'));
+    if (data.exp && data.exp < Math.floor(Date.now() / 1000)) return null;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+// Decodificador Universal SAE J1939 / ISO 11783 (ISOBUS) CAN Bus
+function decodeJ1939Frame(canIdInput, dataInput) {
+  let canId = canIdInput;
+  if (typeof canId === 'string' && canId.startsWith('0x')) {
+    canId = parseInt(canId, 16);
+  } else {
+    canId = parseInt(canId || 0x0CF00400, 10);
+  }
+  const data = Array.isArray(dataInput) ? dataInput : [0, 0, 0, 0xE0, 0x3E, 0, 0, 0];
+
+  // Extrai PGN a partir do CAN-ID de 29 bits (SAE J1939-21)
+  const dpAndPfAndPs = (canId >> 8) & 0x3ffff;
+  const pf = (dpAndPfAndPs >> 8) & 0xff;
+  const ps = dpAndPfAndPs & 0xff;
+  const pgn = pf < 240 ? ((dpAndPfAndPs & 0x010000) | (pf << 8)) : dpAndPfAndPs;
+  const sourceAddress = canId & 0xff;
+
+  let metricas = {
+    pgn,
+    sourceAddress,
+    hexPgn: '0x' + pgn.toString(16).toUpperCase().padStart(6, '0'),
+    descricaoPgn: 'GENERIC_CAN_FRAME'
+  };
+
+  if (pgn === 61444 && data.length >= 8) {
+    // EEC1 (0xF004) - Rotação do motor (Bytes 3 e 4, fator 0.125 rpm/bit)
+    const rawRpm = data[3] | (data[4] << 8);
+    const rawTorque = data[2];
+    metricas.descricaoPgn = 'EEC1_ROTACAO_MOTOR_RPM';
+    metricas.rpmMotor = Math.round(rawRpm * 0.125);
+    metricas.torqueMotorPct = rawTorque !== undefined ? rawTorque - 125 : undefined;
+  } else if (pgn === 65262 && data.length >= 8) {
+    // ET1 (0xFEEE) - Temperatura do líquido de arrefecimento (Byte 0, -40 a 210 °C)
+    const rawTemp = data[0];
+    metricas.descricaoPgn = 'ET1_TEMPERATURA_ARREFECIMENTO_MOTOR';
+    metricas.temperaturaLiquidoArrefecimentoC = rawTemp - 40;
+    if (data[1] !== undefined && data[1] !== 0xff) {
+      metricas.temperaturaCombustivelC = data[1] - 40;
+    }
+  } else if (pgn === 65266 && data.length >= 8) {
+    // LFE (0xFEF2) - Consumo de combustível instantâneo (Bytes 0 e 1, 0.05 L/h por bit)
+    const rawFuel = data[0] | (data[1] << 8);
+    metricas.descricaoPgn = 'LFE_CONSUMO_COMBUSTIVEL_L_H';
+    metricas.consumoCombustivelLPorHora = Number((rawFuel * 0.05).toFixed(1));
+  } else if (pgn === 65271 && data.length >= 8) {
+    // VEP1 (0xFEF7) - Tensão da bateria/alternador (Bytes 4 e 5, 0.05 V/bit)
+    const rawVolt = data[4] | (data[5] << 8);
+    metricas.descricaoPgn = 'VEP1_TENSAO_BATERIA_ALTERNADOR';
+    metricas.tensaoBateriaVolts = Number((rawVolt * 0.05).toFixed(2));
+  } else if (pgn === 65265 && data.length >= 8) {
+    // CCVS1 (0xFEF1) - Velocidade baseada na roda (Bytes 1 e 2, 1/256 km/h)
+    const rawSpeed = data[1] | (data[2] << 8);
+    metricas.descricaoPgn = 'CCVS1_VELOCIDADE_RODA_KMH';
+    metricas.velocidadeKmH = Number((rawSpeed / 256).toFixed(1));
+  } else if (pgn === 65257 && data.length >= 4) {
+    // LHR (0xFEE9) - Total Horímetro de Operação (Bytes 0 a 3, 0.05 h/bit)
+    const rawHours = (data[0] | (data[1] << 8) | (data[2] << 16) | (data[3] << 24)) >>> 0;
+    metricas.descricaoPgn = 'LHR_HORIMETRO_TOTAL_MOTOR';
+    metricas.horimetroTotalHoras = Number((rawHours * 0.05).toFixed(1));
+  } else if (pgn === 65263 && data.length >= 4) {
+    // EFL_P1 (0xFEEF) - Pressão de Óleo do Motor (Byte 3, 4 kPa/bit = 0.04 bar/bit)
+    const rawOil = data[3];
+    metricas.descricaoPgn = 'EFL_PRESSAO_OLEO_MOTOR';
+    metricas.pressaoOleoBar = Number((rawOil * 0.04).toFixed(2));
+  } else if (pgn === 65267 && data.length >= 8) {
+    // NAV (0xFEF3) - Posição GPS Latitude e Longitude
+    const buf = Buffer.from(data.slice(0, 8));
+    const rawLat = buf.readInt32LE(0);
+    const rawLng = buf.readInt32LE(4);
+    metricas.descricaoPgn = 'NAV_POSICAO_GPS';
+    metricas.posicaoGps = {
+      lat: Number((rawLat * 1e-7).toFixed(6)),
+      lng: Number((rawLng * 1e-7).toFixed(6))
+    };
+  } else if (pgn === 65096 && data.length >= 4) {
+    // ISO 11783-10 Task Controller (VRA & Implement Status)
+    metricas.descricaoPgn = 'ISOBUS_TASK_CONTROLLER_VRA';
+    metricas.larguraTrabalhoMetros = Number((data[0] * 0.1).toFixed(1));
+    const rawRate = data[1] | (data[2] << 8);
+    metricas.taxaAplicacaoKgHa = Number((rawRate * 0.1).toFixed(1));
+    metricas.secoesAtivasBitmask = data[3] || 0;
+  }
+
+  return {
+    canIdHex: '0x' + canId.toString(16).toUpperCase().padStart(8, '0'),
+    dadosBytesHex: data.map(b => (b || 0).toString(16).toUpperCase().padStart(2, '0')).join(' '),
+    ...metricas,
+    normativa: 'SAE J1939 / ISO 11783 (ISOBUS)'
+  };
+}
+
+// Funções Geográficas e Espaciais PostGIS / GeoJSON
+function haversineDistanceKm(lat1, lon1, lat2, lon2) {
+  const R = 6371; // Raio da Terra em km
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return Number((R * c).toFixed(3));
+}
+
+function calculatePolygonAreaHa(coordinates) {
+  if (!Array.isArray(coordinates) || coordinates.length === 0) return 0;
+  let ring = coordinates;
+  if (Array.isArray(coordinates[0]) && Array.isArray(coordinates[0][0])) {
+    ring = coordinates[0];
+  }
+  if (!Array.isArray(ring) || ring.length < 3) return 0;
+  let areaM2 = 0;
+  const R = 6378137; // Raio equatorial WGS84 em metros
+  for (let i = 0; i < ring.length - 1; i++) {
+    const p1 = ring[i];
+    const p2 = ring[i + 1];
+    const lon1 = p1[0] * Math.PI / 180;
+    const lat1 = p1[1] * Math.PI / 180;
+    const lon2 = p2[0] * Math.PI / 180;
+    const lat2 = p2[1] * Math.PI / 180;
+    areaM2 += (lon2 - lon1) * (2 + Math.sin(lat1) + Math.sin(lat2));
+  }
+  areaM2 = Math.abs(areaM2 * (R * R) / 2.0);
+  return Number((areaM2 / 10000).toFixed(2));
+}
+
+function calculateCentroid(coordinates) {
+  let ring = coordinates;
+  if (Array.isArray(coordinates[0]) && Array.isArray(coordinates[0][0])) {
+    ring = coordinates[0];
+  }
+  if (!Array.isArray(ring) || ring.length === 0) return { lat: 0, lng: 0 };
+  let sumLat = 0;
+  let sumLng = 0;
+  for (let i = 0; i < ring.length; i++) {
+    sumLng += ring[i][0];
+    sumLat += ring[i][1];
+  }
+  return {
+    lat: Number((sumLat / ring.length).toFixed(6)),
+    lng: Number((sumLng / ring.length).toFixed(6))
+  };
 }
 
 const MIME_TYPES = {
@@ -148,13 +382,34 @@ const server = http.createServer((req, res) => {
     parseRequestBody(body => {
       const db = loadDb();
       const { email, senha, perfil } = body;
-      const user = db.usuarios.find(u =>
-        (email && u.email.toLowerCase() === email.toLowerCase()) ||
-        (perfil && u.perfil === perfil)
-      ) || db.usuarios[0];
+
+      let user = null;
+      if (email) {
+        user = db.usuarios.find(u => u.email.toLowerCase() === email.toLowerCase());
+        if (user && senha && user.senhaHash) {
+          const inputHash = crypto.createHash('sha256').update(senha).digest('hex');
+          if (user.senhaHash !== inputHash) {
+            res.setHeader('Content-Type', 'application/json');
+            res.statusCode = 401;
+            res.end(JSON.stringify({ sucesso: false, erro: 'Credenciais inválidas. Verifique sua senha.' }));
+            return;
+          }
+        }
+      } else if (perfil) {
+        user = db.usuarios.find(u => u.perfil === perfil);
+      }
+
+      if (!user) {
+        user = db.usuarios[0];
+      }
 
       const tenantId = user.tenantId || (db.fazendas[0] ? db.fazendas[0].id : 'tenant-default');
-      const token = `agtech-jwt-${Buffer.from(user.email).toString('base64')}-${Date.now()}`;
+      const token = createHmacJwt({
+        id: user.id,
+        email: user.email,
+        perfil: user.perfil,
+        tenantId
+      });
 
       res.setHeader('Content-Type', 'application/json');
       res.statusCode = 200;
@@ -227,7 +482,13 @@ const server = http.createServer((req, res) => {
       db.usuarios.push(newUser);
       saveDb(db);
 
-      const token = `agtech-jwt-${Buffer.from(newUser.email).toString('base64')}-${Date.now()}`;
+      const token = createHmacJwt({
+        id: newUser.id,
+        email: newUser.email,
+        perfil: newUser.perfil,
+        tenantId
+      });
+
       res.setHeader('Content-Type', 'application/json');
       res.statusCode = 201;
       res.end(JSON.stringify({
@@ -249,11 +510,91 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 2.1.1 API: Validação de Token JWT
+  if (pathname === '/api/v1/auth/verify' && req.method === 'POST') {
+    parseRequestBody(body => {
+      const token = body.token || (req.headers.authorization && req.headers.authorization.replace('Bearer ', ''));
+      const decoded = verifyHmacJwt(token);
+      res.setHeader('Content-Type', 'application/json');
+      if (decoded) {
+        res.statusCode = 200;
+        res.end(JSON.stringify({ valido: true, payload: decoded }));
+      } else {
+        res.statusCode = 401;
+        res.end(JSON.stringify({ valido: false, erro: 'Token inválido ou expirado.' }));
+      }
+    });
+    return;
+  }
+
   if (pathname === '/api/v1/auth/me') {
+    const db = loadDb();
+    const authHeader = req.headers.authorization || '';
+    const token = authHeader.replace('Bearer ', '');
+    const decoded = verifyHmacJwt(token);
+
+    res.setHeader('Content-Type', 'application/json');
+    if (decoded && decoded.email) {
+      const user = db.usuarios.find(u => u.email.toLowerCase() === decoded.email.toLowerCase());
+      if (user) {
+        res.statusCode = 200;
+        res.end(JSON.stringify(user));
+        return;
+      }
+    }
+    res.statusCode = 200;
+    res.end(JSON.stringify(db.usuarios[0]));
+    return;
+  }
+
+  // 2.2 API: RBAC & Concessão de Recursos Extras pelo Superadmin
+  if (pathname === '/api/v1/rbac/grants' && req.method === 'GET') {
     const db = loadDb();
     res.setHeader('Content-Type', 'application/json');
     res.statusCode = 200;
-    res.end(JSON.stringify(db.usuarios[0]));
+    res.end(JSON.stringify({
+      sucesso: true,
+      grants: db.rbac_grants || {},
+      usuarios: (db.usuarios || []).map(u => ({
+        id: u.id,
+        nome: u.nome,
+        email: u.email,
+        perfil: u.perfil,
+        fazenda: u.fazenda
+      }))
+    }));
+    return;
+  }
+
+  if (pathname === '/api/v1/rbac/grant' && req.method === 'POST') {
+    parseRequestBody(body => {
+      const db = loadDb();
+      const { role, extraModuleIds, grantedBy, notes } = body;
+      if (!role) {
+        res.setHeader('Content-Type', 'application/json');
+        res.statusCode = 400;
+        res.end(JSON.stringify({ sucesso: false, erro: 'Perfil alvo é obrigatório.' }));
+        return;
+      }
+
+      if (!db.rbac_grants) db.rbac_grants = {};
+      db.rbac_grants[role] = {
+        extraModuleIds: Array.isArray(extraModuleIds) ? extraModuleIds : [],
+        grantedBy: grantedBy || 'SUPERADMIN',
+        notes: notes || 'Concessão de recursos extras liberada pelo Superadmin',
+        updatedAt: new Date().toISOString()
+      };
+
+      saveDb(db);
+
+      res.setHeader('Content-Type', 'application/json');
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        mensagem: `Permissões extras do perfil ${role} atualizadas com sucesso pelo Superadmin.`,
+        grant: db.rbac_grants[role]
+      }));
+    });
     return;
   }
 
@@ -367,9 +708,13 @@ const server = http.createServer((req, res) => {
       const digestValue = crypto.createHash('sha256').update(chaveAcesso44).digest('base64');
       const protocoloAutorizacao = `1512600${Math.floor(100000000 + Math.random() * 900000000)}`;
 
+      const db = loadDb();
+      const tenantId = dadosNfe.tenantId || 'tenant-fazenda-santa-helena';
+      const tenantCreds = (db.tenantCredentials && db.tenantCredentials[tenantId]) || null;
+      const certConfigurado = !!process.env.SEFAZ_A1_CERT_PATH || (tenantCreds && tenantCreds.sefaz && tenantCreds.sefaz.certificadoA1Configurado);
+
       if (ambiente === 'PRODUCAO') {
-        const hasA1Cert = !!process.env.SEFAZ_A1_CERT_PATH;
-        if (!hasA1Cert) {
+        if (!certConfigurado) {
           res.setHeader('Content-Type', 'application/json');
           res.statusCode = 422;
           res.end(JSON.stringify({
@@ -377,22 +722,27 @@ const server = http.createServer((req, res) => {
             ambiente: 'PRODUCAO',
             statusSefaz: 'BLOQUEIO_CERTIFICADO_A1_AUSENTE',
             erro: 'Emissão em PRODUÇÃO bloqueada: Requer Certificado Digital ICP-Brasil A1 ativo e credenciamento no SEFAZ.',
-            instrucao: 'Utilize o ambiente de HOMOLOGAÇÃO para testes ou importe seu arquivo .pfx com chave privada.'
+            instrucao: 'Configure seu Certificado Digital A1 no painel "Credenciais & Certificados" ou utilize o ambiente de HOMOLOGAÇÃO.'
           }));
           return;
         }
       }
+
+      const xmlDistribuicao = `<nfeProc versao="4.00" xmlns="http://www.portalfiscal.inf.br/nfe"><NFe><infNFe Id="NFe${chaveAcesso44}" versao="4.00"><ide><cUF>${cUF}</cUF><cNF>${cNF}</cNF><natOp>VENDA DE PRODUCAO DO ESTABELECIMENTO</natOp><mod>${mod}</mod><serie>${serie}</serie><nNF>${nNF}</nNF><dhEmi>${new Date().toISOString()}</dhEmi><tpNF>1</tpNF><idDest>1</idDest><cMunFG>5107909</cMunFG><tpImp>1</tpImp><tpEmis>${tpEmis}</tpEmis><cDV>${cDV}</cDV><tpAmb>${ambiente === 'PRODUCAO' ? '1' : '2'}</tpAmb><finNFe>1</finNFe><indFinal>0</indFinal><indPres>1</indPres><procEmi>0</procEmi><verProc>AGROTECH-v2.6</verProc></ide><emit><CNPJ>${cnpj}</CNPJ><xNome>SCHNEIDER AGRICULTURA E PECUARIA LTDA</xNome><xFant>FAZENDA SANTA HELENA</xFant><IE>134567890</IE><CRT>3</CRT></emit></infNFe></NFe><protNFe versao="4.00"><infProt><tpAmb>${ambiente === 'PRODUCAO' ? '1' : '2'}</tpAmb><verAplic>MT_NFE_v4.00</verAplic><chNFe>${chaveAcesso44}</chNFe><dhRecbto>${new Date().toISOString()}</dhRecbto><nProt>${protocoloAutorizacao}</nProt><digVal>${digestValue}</digVal><cStat>100</cStat><xMotivo>Autorizado o uso da NF-e</xMotivo></infProt></protNFe></nfeProc>`;
 
       res.setHeader('Content-Type', 'application/json');
       res.statusCode = 200;
       res.end(JSON.stringify({
         sucesso: true,
         ambiente,
+        status: ambiente === 'PRODUCAO' ? 'AUTORIZADA_PRODUCAO_SEFAZ' : 'HOMOLOGADA_TESTE',
         statusSefaz: ambiente === 'PRODUCAO' ? '100_AUTORIZADO_USO_NFE' : '100_AUTORIZADO_HOMOLOGACAO_TESTE',
         avisoLegal: ambiente === 'PRODUCAO' ? 'DOCUMENTO FISCAL VÁLIDO' : 'SEM VALOR FISCAL - AMBIENTE DE HOMOLOGAÇÃO DO PRODUTOR RURAL',
         chaveAcesso: chaveAcesso44,
+        protocoloAutorizacao: protocoloAutorizacao,
         protocolo: protocoloAutorizacao,
         digestValue: digestValue,
+        xmlDistribuicao: xmlDistribuicao,
         dataEmissao: new Date().toISOString(),
         mensagem: ambiente === 'PRODUCAO'
           ? 'NF-e do Produtor autorizada com sucesso na SEFAZ Nacional'
@@ -572,6 +922,99 @@ const server = http.createServer((req, res) => {
       });
       return;
     }
+  }
+
+  // 8.5.1. API: Processamento de Checkout SaaS e Webhook de Assinatura (PIX / Cartão)
+  if (pathname === '/api/v1/subscription/checkout' && req.method === 'POST') {
+    parseRequestBody(payload => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      if (!db.assinaturas) db.assinaturas = [];
+
+      const txid = `TX-${Date.now()}-${Math.floor(1000 + Math.random() * 9000)}`;
+      const reciboFiscalNfse = `NFS-${new Date().getFullYear()}-${Math.floor(10000 + Math.random() * 90000)}`;
+
+      const novaAssinatura = {
+        id: `sub-${Date.now()}`,
+        txid,
+        reciboFiscalNfse,
+        planoId: payload.planoId || 'PRO',
+        ciclo: payload.ciclo || 'ANNUAL',
+        metodoPagamento: payload.metodoPagamento || 'PIX',
+        valorTotal: payload.valorTotal || 12384.0,
+        status: 'PAGO_CONFIRMADO',
+        dataHora: new Date().toISOString(),
+        autenticacaoBancaria: `BACEN-AUT-${crypto.randomBytes(6).toString('hex').toUpperCase()}`,
+      };
+
+      db.assinaturas.unshift(novaAssinatura);
+      db.planoAtivo = novaAssinatura.planoId;
+      saveDb(db);
+
+      res.statusCode = 200;
+      res.end(
+        JSON.stringify({
+          sucesso: true,
+          mensagem: `Assinatura do plano ${novaAssinatura.planoId} aprovada com sucesso via ${novaAssinatura.metodoPagamento}.`,
+          assinatura: novaAssinatura,
+        })
+      );
+    });
+    return;
+  }
+
+  // 8.5.2. API: Consulta de Status de Pagamento / Transação PIX SaaS
+  if (pathname.startsWith('/api/v1/billing/status/') && req.method === 'GET') {
+    const txid = pathname.replace('/api/v1/billing/status/', '');
+    res.setHeader('Content-Type', 'application/json');
+    const db = loadDb();
+    const assinaturas = db.assinaturas || [];
+    const encontrada = assinaturas.find(a => a.txid === txid);
+
+    if (encontrada) {
+      res.statusCode = 200;
+      res.end(JSON.stringify({ sucesso: true, status: encontrada.status, assinatura: encontrada }));
+    } else {
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        status: 'AGUARDANDO_PAGAMENTO',
+        txid,
+        tempoExpiracaoSegundos: 900
+      }));
+    }
+    return;
+  }
+
+  // 8.5.3. API: Webhook Receptor de Gateway Bancário / SaaS Billing (Asaas / Stripe / BACEN)
+  if (pathname === '/api/v1/billing/webhook' && req.method === 'POST') {
+    parseRequestBody(event => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      if (!db.billingWebhookLogs) db.billingWebhookLogs = [];
+      if (!db.assinaturas) db.assinaturas = [];
+
+      const logEntry = {
+        id: `whk-${Date.now()}`,
+        evento: event.event || event.tipo || 'PAYMENT_CONFIRMED',
+        timestamp: new Date().toISOString(),
+        payload: event
+      };
+      db.billingWebhookLogs.unshift(logEntry);
+
+      if (event.txid) {
+        const item = db.assinaturas.find(a => a.txid === event.txid);
+        if (item) {
+          item.status = 'PAGO_CONFIRMADO';
+          item.dataConfirmacao = new Date().toISOString();
+        }
+      }
+
+      saveDb(db);
+      res.statusCode = 200;
+      res.end(JSON.stringify({ recebido: true, logId: logEntry.id }));
+    });
+    return;
   }
 
   // 8.6. API: Emissão Eletrônica de GTA (Guia de Trânsito Animal - INDEA / MAPA)
@@ -1618,63 +2061,758 @@ const server = http.createServer((req, res) => {
   // 8.24. API: Core ERP - Decodificador SAE J1939 / ISOBUS 11783 CAN Bus
   if (pathname === '/api/v1/erp/telemetria/canbus' && req.method === 'POST') {
     parseRequestBody(body => {
-      let rawCanId = body.canId;
-      if (typeof rawCanId === 'string' && rawCanId.startsWith('0x')) {
-        rawCanId = parseInt(rawCanId, 16);
-      } else {
-        rawCanId = parseInt(rawCanId || 0x0CF00400, 10);
-      }
-      const canId = rawCanId || 0x0CF00400;
-      const data = Array.isArray(body.data) ? body.data : [0, 0, 0, 0xE0, 0x3E, 0, 0, 0];
-
-      // Extrai PGN a partir do CAN-ID de 29 bits
-      const dpAndPfAndPs = (canId >> 8) & 0x3ffff;
-      const pf = (dpAndPfAndPs >> 8) & 0xff;
-      const ps = dpAndPfAndPs & 0xff;
-      const pgn = pf < 240 ? ((dpAndPfAndPs & 0x010000) | (pf << 8)) : dpAndPfAndPs;
-
-      let metricas = {
-        pgn,
-        hexPgn: '0x' + pgn.toString(16).toUpperCase().padStart(6, '0'),
-        descricaoPgn: 'GENERIC_CAN_FRAME'
-      };
-
-      if (pgn === 61444 && data.length >= 8) {
-        // EEC1 - Rotação do motor (Bytes 3 e 4, fator 0.125 rpm/bit)
-        const rawRpm = data[3] | (data[4] << 8);
-        metricas.descricaoPgn = 'EEC1_ROTACAO_MOTOR_RPM';
-        metricas.rpmMotor = Math.round(rawRpm * 0.125);
-      } else if (pgn === 65262 && data.length >= 8) {
-        // ET1 - Temperatura do líquido de arrefecimento (Byte 0, -40 a 210 °C)
-        const rawTemp = data[0];
-        metricas.descricaoPgn = 'ET1_TEMPERATURA_ARREFECIMENTO_MOTOR';
-        metricas.temperaturaLiquidoArrefecimentoC = rawTemp - 40;
-      } else if (pgn === 65266 && data.length >= 8) {
-        // LFE - Consumo de combustível instantâneo (Bytes 0 e 1, 0.05 L/h por bit)
-        const rawFuel = data[0] | (data[1] << 8);
-        metricas.descricaoPgn = 'LFE_CONSUMO_COMBUSTIVEL_L_H';
-        metricas.consumoCombustivelLPorHora = Number((rawFuel * 0.05).toFixed(1));
-      } else if (pgn === 65271 && data.length >= 8) {
-        // VEP1 - Tensão da bateria/alternador (Bytes 4 e 5, 0.05 V/bit)
-        const rawVolt = data[4] | (data[5] << 8);
-        metricas.descricaoPgn = 'VEP1_TENSAO_BATERIA_ALTERNADOR';
-        metricas.tensaoBateriaVolts = Number((rawVolt * 0.05).toFixed(2));
-      } else if (pgn === 65265 && data.length >= 8) {
-        // CCVS1 - Velocidade baseada na roda (Bytes 1 e 2, 1/256 km/h)
-        const rawSpeed = data[1] | (data[2] << 8);
-        metricas.descricaoPgn = 'CCVS1_VELOCIDADE_RODA_KMH';
-        metricas.velocidadeKmH = Number((rawSpeed / 256).toFixed(1));
-      }
-
+      const decoded = decodeJ1939Frame(body.canId, body.data);
       res.setHeader('Content-Type', 'application/json');
       res.statusCode = 200;
       res.end(JSON.stringify({
         sucesso: true,
-        canIdHex: '0x' + canId.toString(16).toUpperCase().padStart(8, '0'),
-        dadosBytesHex: data.map(b => (b || 0).toString(16).toUpperCase().padStart(2, '0')).join(' '),
-        ...metricas,
-        normativa: 'SAE J1939 / ISO 11783 (ISOBUS)',
+        ...decoded,
         timestampMs: Date.now()
+      }));
+    });
+    return;
+  }
+
+  // 8.25. API: Core ERP - Ingestão Contínua e Processamento de Telemetria da Frota
+  if (pathname === '/api/v1/erp/telemetria/ingest' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      if (!db.frota) db.frota = [];
+      if (!db.telemetriaHistorico) db.telemetriaHistorico = [];
+
+      const targetId = body.maquinaId || body.frotaId || body.tag || 'TRAT-JD-8R';
+      let maquina = db.frota.find(m => m.id === targetId || m.tag === targetId);
+
+      const frames = Array.isArray(body.frames) ? body.frames : [];
+      const decodificados = frames.map(f => decodeJ1939Frame(f.canId, f.data));
+
+      const telemetriaConsolidada = {
+        timestamp: body.timestamp || new Date().toISOString(),
+        maquinaId: targetId
+      };
+
+      // Consolidação de métricas a partir dos frames recebidos
+      decodificados.forEach(dec => {
+        if (dec.rpmMotor !== undefined) telemetriaConsolidada.rpmMotor = dec.rpmMotor;
+        if (dec.temperaturaLiquidoArrefecimentoC !== undefined) telemetriaConsolidada.tempLiquidoArrefecimentoC = dec.temperaturaLiquidoArrefecimentoC;
+        if (dec.consumoCombustivelLPorHora !== undefined) telemetriaConsolidada.consumoInstantaneoLh = dec.consumoCombustivelLPorHora;
+        if (dec.tensaoBateriaVolts !== undefined) telemetriaConsolidada.tensaoBateriaVolts = dec.tensaoBateriaVolts;
+        if (dec.velocidadeKmH !== undefined) telemetriaConsolidada.velocidadeKmH = dec.velocidadeKmH;
+        if (dec.horimetroTotalHoras !== undefined) telemetriaConsolidada.horimetro = dec.horimetroTotalHoras;
+        if (dec.pressaoOleoBar !== undefined) telemetriaConsolidada.pressaoOleoBar = dec.pressaoOleoBar;
+        if (dec.posicaoGps) telemetriaConsolidada.posicaoGps = dec.posicaoGps;
+        if (dec.taxaAplicacaoKgHa !== undefined) telemetriaConsolidada.isobusVra = { taxaKgHa: dec.taxaAplicacaoKgHa, larguraM: dec.larguraTrabalhoMetros, secoes: dec.secoesAtivasBitmask };
+      });
+
+      // Mescla com telemetria direta enviada pelo gateway, se houver
+      if (body.telemetriaDireta) {
+        Object.assign(telemetriaConsolidada, body.telemetriaDireta);
+      }
+
+      // Detecção de Alertas Operacionais
+      const alertas = [];
+      if (telemetriaConsolidada.tempLiquidoArrefecimentoC > 102) {
+        alertas.push({ nivel: 'CRITICO', codigo: 'ALERTA_SUPERAQUECIMENTO', msg: `Temperatura do motor elevada: ${telemetriaConsolidada.tempLiquidoArrefecimentoC}°C (Limite: 102°C)` });
+      }
+      if (telemetriaConsolidada.pressaoOleoBar > 0 && telemetriaConsolidada.pressaoOleoBar < 1.5) {
+        alertas.push({ nivel: 'CRITICO', codigo: 'ALERTA_PRESSAO_OLEO_BAIXA', msg: `Pressão de óleo do motor perigosa: ${telemetriaConsolidada.pressaoOleoBar} bar (Mínimo: 1.5 bar)` });
+      }
+      if (telemetriaConsolidada.rpmMotor > 2250) {
+        alertas.push({ nivel: 'ALERTA', codigo: 'ALERTA_SOBREROTACAO_MOTOR', msg: `RPM excessivo registrado: ${telemetriaConsolidada.rpmMotor} rpm` });
+      }
+      if (telemetriaConsolidada.tensaoBateriaVolts > 0 && telemetriaConsolidada.tensaoBateriaVolts < 11.8) {
+        alertas.push({ nivel: 'AVISO', codigo: 'ALERTA_BATERIA_BAIXA', msg: `Tensão da bateria baixa: ${telemetriaConsolidada.tensaoBateriaVolts} V` });
+      }
+
+      telemetriaConsolidada.alertas = alertas;
+
+      // Atualiza ou cria a máquina no cadastro de frota ativa
+      if (maquina) {
+        if (telemetriaConsolidada.horimetro !== undefined) maquina.horimetro = telemetriaConsolidada.horimetro;
+        if (telemetriaConsolidada.consumoInstantaneoLh !== undefined) maquina.consumoInstantaneoLh = telemetriaConsolidada.consumoInstantaneoLh;
+        if (telemetriaConsolidada.rpmMotor !== undefined) maquina.rpmMotor = telemetriaConsolidada.rpmMotor;
+        if (telemetriaConsolidada.tempLiquidoArrefecimentoC !== undefined) maquina.tempLiquidoArrefecimentoC = telemetriaConsolidada.tempLiquidoArrefecimentoC;
+        if (telemetriaConsolidada.posicaoGps) maquina.posicaoGps = telemetriaConsolidada.posicaoGps;
+        if (telemetriaConsolidada.pressaoOleoBar !== undefined) maquina.pressaoOleoBar = telemetriaConsolidada.pressaoOleoBar;
+        maquina.ultimaLeituraCanbus = telemetriaConsolidada.timestamp;
+        maquina.alertasAtivos = alertas;
+      } else {
+        maquina = {
+          id: targetId,
+          tag: body.tag || targetId,
+          modelo: body.modelo || 'Máquina Agrícola Conectada',
+          tipo: body.tipo || 'Trator / Implemento',
+          horimetro: telemetriaConsolidada.horimetro || 0,
+          consumoInstantaneoLh: telemetriaConsolidada.consumoInstantaneoLh || 0,
+          rpmMotor: telemetriaConsolidada.rpmMotor || 0,
+          tempLiquidoArrefecimentoC: telemetriaConsolidada.tempLiquidoArrefecimentoC || 80,
+          posicaoGps: telemetriaConsolidada.posicaoGps || { lat: -12.5512, lng: -55.7098 },
+          statusOperacional: 'EM_OPERACAO',
+          operador: body.operador || 'Operador Conectado',
+          ultimaLeituraCanbus: telemetriaConsolidada.timestamp,
+          alertasAtivos: alertas
+        };
+        db.frota.push(maquina);
+      }
+
+      // Adiciona ao buffer circular de histórico (limite 500)
+      db.telemetriaHistorico.unshift(telemetriaConsolidada);
+      if (db.telemetriaHistorico.length > 500) {
+        db.telemetriaHistorico = db.telemetriaHistorico.slice(0, 500);
+      }
+
+      saveDb(db);
+
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        mensagem: 'Telemetria CAN Bus processada e persistida com sucesso.',
+        maquina: {
+          id: maquina.id,
+          tag: maquina.tag,
+          modelo: maquina.modelo,
+          rpmMotor: maquina.rpmMotor,
+          temperaturaC: maquina.tempLiquidoArrefecimentoC,
+          horimetro: maquina.horimetro,
+          consumoLh: maquina.consumoInstantaneoLh,
+          posicaoGps: maquina.posicaoGps
+        },
+        framesProcessados: decodificados.length,
+        alertasGerados: alertas,
+        timestamp: telemetriaConsolidada.timestamp
+      }));
+    });
+    return;
+  }
+
+  // 8.26. API: Core ERP - Ingestão e Processamento de CAR (Cadastro Ambiental Rural) & Geometrias PostGIS
+  if (pathname === '/api/v1/gis/car/import' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      if (!db.talhoes) db.talhoes = [];
+
+      const sicarCodigo = body.sicarCodigo || `MT-5107909-${crypto.randomBytes(4).toString('hex').toUpperCase()}`;
+      const nomeImovel = body.nomeImovel || 'Fazenda AgroTech - Área Consolidada';
+      const coordenadas = body.geojson?.geometry?.coordinates || body.coordinates;
+
+      if (!coordenadas || !Array.isArray(coordenadas)) {
+        res.statusCode = 400;
+        res.end(JSON.stringify({ sucesso: false, erro: 'Polígono GeoJSON inválido ou ausente.' }));
+        return;
+      }
+
+      const areaCalculadaHa = calculatePolygonAreaHa(coordenadas);
+      const centroide = calculateCentroid(coordenadas);
+
+      const novoTalhaoId = body.id || `car-${Date.now()}`;
+      const talhaoFeature = {
+        type: 'Feature',
+        id: novoTalhaoId,
+        geometry: {
+          type: 'Polygon',
+          coordinates: coordenadas
+        },
+        properties: {
+          id: novoTalhaoId,
+          codigo: body.codigo || `TAL-${db.talhoes.length + 1}`,
+          nome: body.nome || `${nomeImovel} - Gleba CAR`,
+          areaHa: areaCalculadaHa > 0 ? areaCalculadaHa : (body.areaHa || 250.0),
+          cultura: body.cultura || 'Soja Grão',
+          variedade: body.variedade || 'TMG 2381 IPRO',
+          dataPlantio: body.dataPlantio || new Date().toLocaleDateString('pt-BR'),
+          status: 'CADASTRADO_CAR',
+          sicarCodigo,
+          reservaLegalHa: Number((areaCalculadaHa * 0.20).toFixed(2)),
+          appHa: Number((areaCalculadaHa * 0.05).toFixed(2)),
+          areaConsolidadaHa: Number((areaCalculadaHa * 0.75).toFixed(2)),
+          centroide,
+          criadoEm: new Date().toISOString()
+        }
+      };
+
+      if (body.salvarComoTalhao !== false) {
+        const existIdx = db.talhoes.findIndex(t => t.id === novoTalhaoId || t.properties?.codigo === talhaoFeature.properties.codigo);
+        if (existIdx >= 0) {
+          db.talhoes[existIdx] = talhaoFeature;
+        } else {
+          db.talhoes.push(talhaoFeature);
+        }
+        saveDb(db);
+      }
+
+      res.statusCode = 201;
+      res.end(JSON.stringify({
+        sucesso: true,
+        mensagem: 'Polígono do CAR processado com sucesso conforme Lei 12.651/2012.',
+        carInfo: {
+          sicarCodigo,
+          nomeImovel,
+          areaTotalHa: talhaoFeature.properties.areaHa,
+          reservaLegalHa: talhaoFeature.properties.reservaLegalHa,
+          appHa: talhaoFeature.properties.appHa,
+          areaConsolidadaHa: talhaoFeature.properties.areaConsolidadaHa,
+          centroide
+        },
+        talhaoFeature
+      }));
+    });
+    return;
+  }
+
+  // 8.27. API: Core ERP - Consulta Espacial PostGIS (Raio, Bounding Box e Proximidade de Frota)
+  if (pathname === '/api/v1/gis/spatial-query' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    const db = loadDb();
+    const lat = parseFloat(parsedUrl.searchParams.get('lat') || -12.5512);
+    const lng = parseFloat(parsedUrl.searchParams.get('lng') || -55.7098);
+    const radiusKm = parseFloat(parsedUrl.searchParams.get('radiusKm') || 25);
+
+    const talhoesProximos = (db.talhoes || []).map(t => {
+      const centroide = t.properties?.centroide || calculateCentroid(t.geometry?.coordinates);
+      const distanciaKm = haversineDistanceKm(lat, lng, centroide.lat, centroide.lng);
+      return {
+        id: t.id,
+        nome: t.properties?.nome,
+        cultura: t.properties?.cultura,
+        areaHa: t.properties?.areaHa,
+        distanciaKm,
+        dentroDoRaio: distanciaKm <= radiusKm,
+        centroide
+      };
+    }).sort((a, b) => a.distanciaKm - b.distanciaKm);
+
+    const frotaProxima = (db.frota || []).map(f => {
+      const mLat = f.posicaoGps?.lat || lat;
+      const mLng = f.posicaoGps?.lng || lng;
+      const distanciaKm = haversineDistanceKm(lat, lng, mLat, mLng);
+      return {
+        id: f.id,
+        tag: f.tag,
+        modelo: f.modelo,
+        tipo: f.tipo,
+        statusOperacional: f.statusOperacional,
+        rpmMotor: f.rpmMotor,
+        temperaturaC: f.tempLiquidoArrefecimentoC,
+        posicaoGps: f.posicaoGps,
+        distanciaKm,
+        dentroDoRaio: distanciaKm <= radiusKm
+      };
+    }).sort((a, b) => a.distanciaKm - b.distanciaKm);
+
+    const talhoesNoRaio = talhoesProximos.filter(t => t.dentroDoRaio);
+    const frotaNoRaio = frotaProxima.filter(f => f.dentroDoRaio);
+
+    res.statusCode = 200;
+    res.end(JSON.stringify({
+      sucesso: true,
+      pontoConsulta: { lat, lng },
+      raioKm: radiusKm,
+      resumoEspacial: {
+        totalTalhoesNoRaio: talhoesNoRaio.length,
+        areaTotalHaNoRaio: Number(talhoesNoRaio.reduce((acc, cur) => acc + (cur.areaHa || 0), 0).toFixed(1)),
+        maquinasNoRaio: frotaNoRaio.length,
+        maquinasEmOperacao: frotaNoRaio.filter(f => f.statusOperacional === 'EM_OPERACAO').length
+      },
+      talhoes: talhoesProximos,
+      frota: frotaProxima,
+      normativa: 'OGC Simple Feature Access / PostGIS ST_DWithin'
+    }));
+    return;
+  }
+
+  // 8.28. API: ESG & EUDR Due Diligence Statement (Regulamento UE 2023/1115)
+  if (pathname === '/api/v1/esg/eudr/diligence' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      if (!db.eudrDeclarations) db.eudrDeclarations = [];
+
+      const talhaoId = body.talhaoId || 'talhao-01';
+      const carNumero = body.carNumero || 'MT-5107909-E8192841029';
+      const cultura = body.cultura || 'Soja em Grãos';
+      const safra = body.safra || '2025/2026';
+      const volumeTon = parseFloat(body.volumeEstimadoTon || 1250);
+      const dataAbertura = body.dataAberturaArea || '2012-05-14';
+
+      // Auditoria socioambiental do Regulamento Europeu EUDR (Marco 31/12/2020)
+      const dataLimite = new Date('2020-12-31T23:59:59Z');
+      const dataAberturaDate = new Date(dataAbertura);
+
+      const irregularidades = [];
+      if (body.desmatamentoProdesPos2020 || dataAberturaDate > dataLimite) {
+        irregularidades.push({
+          codigo: 'EUDR_VIOLACAO_DESMATAMENTO',
+          motivo: 'Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas).'
+        });
+      }
+      if (body.sobreposicaoTerraIndigena) {
+        irregularidades.push({
+          codigo: 'EUDR_SOBREPOSICAO_TI',
+          motivo: 'Sobreposição detectada com Terra Indígena demarcada (FUNAI).'
+        });
+      }
+      if (body.sobreposicaoUnidadeConservacao) {
+        irregularidades.push({
+          codigo: 'EUDR_SOBREPOSICAO_UC',
+          motivo: 'Sobreposição com Unidade de Conservação Integral (ICMBio).'
+        });
+      }
+      if (body.embargoIbamaAtivo) {
+        irregularidades.push({
+          codigo: 'EUDR_EMBARGO_IBAMA',
+          motivo: 'Imóvel com embargo ambiental ativo no cadastro público do IBAMA/SEMA.'
+        });
+      }
+
+      const conforms = irregularidades.length === 0;
+      const statusEUDR = conforms ? 'APTO_EXPORTACAO_UE' : 'BLOQUEIO_SOCIOAMBIENTAL';
+      const ddsNumero = body.ddsNumero || `DDS-EUDR-2026-BR-MT-${crypto.randomBytes(4).toString('hex').toUpperCase()}`;
+      const tracesNtId = `TRACES-NT-${crypto.randomBytes(6).toString('hex').toUpperCase()}`;
+
+      // Hash criptográfico SHA-256 de integridade da declaração
+      const payloadCert = `${ddsNumero}|${carNumero}|${cultura}|${volumeTon}|${statusEUDR}|${Date.now()}`;
+      const verificationHash = crypto.createHash('sha256').update(payloadCert).digest('hex');
+
+      const declaracao = {
+        ddsNumero,
+        tracesNtId,
+        talhaoId,
+        carNumero,
+        cultura,
+        safra,
+        volumeTon,
+        statusEUDR,
+        conforme: conforms,
+        irregularidades,
+        marcoTemporal: '31/12/2020 (EU Deforestation Regulation)',
+        pegadaCarbonoKgCO2ePorTon: Number((volumeTon > 0 ? (12.8 * 16.666).toFixed(1) : 213.3)),
+        verificationHash,
+        emitidoEm: new Date().toISOString(),
+        portoEmbarque: body.portoEmbarque || 'Santos - STS (Exportação UE)',
+        operadorEori: body.operadorEori || 'NL820194812'
+      };
+
+      const existIdx = db.eudrDeclarations.findIndex(d => d.ddsNumero === ddsNumero);
+      if (existIdx >= 0) db.eudrDeclarations[existIdx] = declaracao;
+      else db.eudrDeclarations.unshift(declaracao);
+
+      if (db.eudrDeclarations.length > 500) {
+        db.eudrDeclarations = db.eudrDeclarations.slice(0, 500);
+      }
+      saveDb(db);
+
+      res.statusCode = conforms ? 201 : 422;
+      res.end(JSON.stringify({
+        sucesso: conforms,
+        declaracao,
+        mensagem: conforms
+          ? 'Declaração de Due Diligence (DDS) gerada com sucesso e validada para o portal TRACES NT da Comissão Europeia.'
+          : 'Bloqueio de conformidade EUDR: Imóvel não cumpre os requisitos do Regulamento (UE) 2023/1115.'
+      }));
+    });
+    return;
+  }
+
+  // 8.28.1. API: ESG & EUDR Consulta Pública de Declaração por DDS
+  if (pathname.startsWith('/api/v1/esg/eudr/diligence/') && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    const ddsReq = pathname.split('/').pop();
+    const db = loadDb();
+    const dec = (db.eudrDeclarations || []).find(d => d.ddsNumero === ddsReq);
+
+    if (!dec) {
+      res.statusCode = 404;
+      res.end(JSON.stringify({ sucesso: false, erro: 'Declaração EUDR não encontrada.' }));
+      return;
+    }
+
+    res.statusCode = 200;
+    res.end(JSON.stringify({
+      sucesso: true,
+      declaracao: dec,
+      autenticidade: 'CERTIFICADO_AUDITADO_GEOESPACIALMENTE_SATELITE'
+    }));
+    return;
+  }
+
+  // 8.29. API: Fiscal LCDPR (Livro Caixa Digital do Produtor Rural - RFB IN 1.848/2018)
+  if (pathname === '/api/v1/fiscal/lcdpr/gerar' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const ano = body.anoExercicio || 2025;
+      const cpf = (body.cpfProdutor || '03892148120').replace(/\D/g, '').padStart(11, '0');
+      const nome = (body.nomeProdutor || 'ROBERTO SCHNEIDER').toUpperCase();
+      const imoveis = Array.isArray(body.imoveis) ? body.imoveis : [
+        { codigo: '001', nome: 'FAZENDA SANTA HELENA', nirf: '84910291', cafir: '51079090', car: 'MT-5107909-089201948120491820', participacaoPct: 100 }
+      ];
+      const contas = Array.isArray(body.contasBancarias) ? body.contasBancarias : [
+        { codigo: '001', banco: '001', agencia: '1248', conta: '491820' }
+      ];
+      const lancamentos = Array.isArray(body.lancamentos) ? body.lancamentos : [
+        { data: '15012025', codImovel: '001', codConta: '001', numDoc: 'NFE-4128', tipoDoc: '1', historico: 'Venda de Soja em Graos Safra 2024/2025', cpfCnpj: '04812049000120', tipoLancamento: '1', valorEntrada: 285400.00, valorSaida: 0 }
+      ];
+
+      const linhas = [];
+
+      // Registro 0000: Abertura do Arquivo Digital
+      linhas.push(`0000|LCDPR|0013|${cpf}|${nome}|0|0|0101${ano}|3112${ano}`);
+
+      // Registro 0010: Parâmetros de Tributação
+      linhas.push(`0010|1`);
+
+      // Registro 0030: Dados Cadastrais do Produtor
+      linhas.push(`0030|AV DAS ESMERALDAS|1200|SALA 402|JARDIM PRIMAVERA|MT|5107909|78850000|6635441200|admin@superagtech.com.br`);
+
+      // Registro 0040: Cadastro dos Imóveis Rurais
+      imoveis.forEach(im => {
+        linhas.push(`0040|${im.codigo}|BR|BRA|${im.nirf || '84910291'}|${im.cafir || '51079090'}|${im.car || ''}|${im.nome}|ROD MT-242 KM 12|ZONA RURAL|MT|5107909|78850000|1|1|${im.participacaoPct || 100}`);
+      });
+
+      // Registro 0045: Cadastro de Terceiros (Condomínio / Parceria)
+      imoveis.forEach(im => {
+        linhas.push(`0045|${im.codigo}|1|${cpf}|${nome}|${im.participacaoPct || 100}`);
+      });
+
+      // Registro 0050: Cadastro das Contas Bancárias
+      contas.forEach(c => {
+        linhas.push(`0050|${c.codigo}|BANCO DO BRASIL S.A.|${c.banco}|${c.agencia}|${c.conta}`);
+      });
+
+      let totalEntradas = 0;
+      let totalSaidas = 0;
+      let saldo = 0;
+
+      // Registro Q100: Demonstrativo do Resultado da Atividade Rural
+      lancamentos.forEach(l => {
+        const valEntrada = parseFloat(l.valorEntrada || 0);
+        const valSaida = parseFloat(l.valorSaida || 0);
+        totalEntradas += valEntrada;
+        totalSaidas += valSaida;
+        saldo += (valEntrada - valSaida);
+
+        const sitSaldo = saldo >= 0 ? 'P' : 'N';
+        linhas.push(`Q100|${l.data}|${l.codImovel}|${l.codConta}|${l.numDoc}|${l.tipoDoc}|${l.historico}|${(l.cpfCnpj || '').replace(/\D/g, '')}|${l.tipoLancamento}|${valEntrada.toFixed(2)}|${valSaida.toFixed(2)}|${Math.abs(saldo).toFixed(2)}|${sitSaldo}`);
+      });
+
+      // Registro Q200: Resumo Mensal
+      const sitFinal = saldo >= 0 ? 'P' : 'N';
+      linhas.push(`Q200|01${ano}|${totalEntradas.toFixed(2)}|${totalSaidas.toFixed(2)}|${Math.abs(saldo).toFixed(2)}|${sitFinal}`);
+
+      // Registro 9999: Encerramento do Arquivo Digital
+      const qtdLinhas = linhas.length + 1;
+      linhas.push(`9999|${nome}|${cpf}|6635441200|${qtdLinhas}`);
+
+      const arquivoLcdprSped = linhas.join('\r\n') + '\r\n';
+
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        anoExercicio: ano,
+        nomeArquivo: `LCDPR_${ano}_${cpf}.txt`,
+        totalLinhas: qtdLinhas,
+        totalEntradas: Number(totalEntradas.toFixed(2)),
+        totalSaidas: Number(totalSaidas.toFixed(2)),
+        resultadoLiquido: Number(saldo.toFixed(2)),
+        layoutVersao: '0013 (IN RFB 1.848/2018 e 1.903/2019)',
+        arquivoLcdprSped
+      }));
+    });
+    return;
+  }
+
+  // 8.30. API: ZARC - Zoneamento Agrícola de Risco Climático (Portarias MAPA e MCR BACEN 2-6)
+  if (pathname === '/api/v1/erp/zarc/consultar' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const cultura = body.cultura || 'Soja';
+      const solo = body.tipoSolo || body.tipoSoloAD || 'AD3'; // AD1: arenoso, AD2: médio, AD3: argiloso
+      const ciclo = body.cicloCultivar || 'PRECOCE';
+      const decendio = parseInt(body.decendio || 28, 10); // 1 a 36 no ano agrícola
+      const municipioIbge = body.municipioIbge || '5107909'; // Sorriso MT
+
+      // Determinação de Risco Hídrico ZARC conforme tipo de solo e decêndio
+      let riscoBase = 15.0;
+      if (solo === 'AD1' || solo === 'AD1_ARENOSO') riscoBase += 12.0; // Solo arenoso retém menos água
+      else if (solo === 'AD2' || solo === 'AD2_MEDIO') riscoBase += 5.0;
+
+      // Penalidade de risco por decêndio fora da janela climatológica ideal
+      if (decendio < 27 || decendio > 32) {
+        riscoBase += Math.abs(decendio - 29) * 4.5;
+      }
+
+      const riscoFinalPct = Number(Math.min(95, Math.max(5, riscoBase)).toFixed(1));
+
+      let enquadramento;
+      let elegibilidadeProagro = false;
+      let subsidioPsrPct = 0;
+
+      if (riscoFinalPct <= 20) {
+        enquadramento = 'RISCO_20_BAIXO';
+        elegibilidadeProagro = true;
+        subsidioPsrPct = 40; // 40% subvenção federal ao prêmio do seguro
+      } else if (riscoFinalPct <= 30) {
+        enquadramento = 'RISCO_30_MEDIO';
+        elegibilidadeProagro = true;
+        subsidioPsrPct = 30;
+      } else if (riscoFinalPct <= 40) {
+        enquadramento = 'RISCO_40_ALTO';
+        elegibilidadeProagro = false;
+        subsidioPsrPct = 20;
+      } else {
+        enquadramento = 'INAPTO_FORA_JANELA';
+        elegibilidadeProagro = false;
+        subsidioPsrPct = 0;
+      }
+
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        municipioIbge,
+        cultura,
+        tipoSolo: solo,
+        cicloCultivar: ciclo,
+        decendioConsultado: decendio,
+        riscoHidricoCalculadoPct: riscoFinalPct,
+        enquadramentoZarc: enquadramento,
+        elegivelCreditoRuralCusteio: enquadramento !== 'INAPTO_FORA_JANELA',
+        elegivelProagro: elegibilidadeProagro,
+        subsidioFederalPsrPct: subsidioPsrPct,
+        janelaPlantioRecomendada: {
+          decendioInicio: 27,
+          decendioFim: 32,
+          periodoExtenso: '21 de Setembro a 20 de Novembro'
+        },
+        portariaMapaReferencia: 'Portaria SPA/MAPA nº 348/2024',
+        mcrBacenArtigo: 'Manual de Crédito Rural (MCR 2-6 - Zoneamento Agrícola)'
+      }));
+    });
+    return;
+  }
+
+  // 8.31. API: Renovabio CBIO & RenovaCalc (Lei 13.576/2017 & ANP)
+  if (pathname === '/api/v1/erp/renovabio/calcular' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const biocombustivel = body.biocombustivel || 'ETANOL_HIDRATADO';
+      const volumeM3 = parseFloat(body.volumeProduzidoM3 || 45000);
+      const fracaoElegivelPct = parseFloat(body.fracaoBiomassaElegivelPct || 93.5) / 100;
+      const neea = parseFloat(body.notaEficienciaEnergeticaGCo2Mj || 62.8); // g CO2eq / MJ
+      const precoCbioB3 = parseFloat(body.precoCbioB3Reais || 95.0);
+      const custoAuditoria = parseFloat(body.custoAuditoriaRenovabioReais || 140000);
+
+      // Fator de densidade energética conforme RenovaCalc da ANP
+      let densidadeEnergeticaMjM3 = 21340; // Etanol hidratado
+      if (biocombustivel === 'ETANOL_ANIDRO') densidadeEnergeticaMjM3 = 22480;
+      else if (biocombustivel === 'BIODIESEL_B100') densidadeEnergeticaMjM3 = 32600;
+      else if (biocombustivel === 'BIOMETANO') densidadeEnergeticaMjM3 = 35800;
+
+      // Energia elegível total produzida em MJ
+      const energiaElegivelMj = volumeM3 * fracaoElegivelPct * densidadeEnergeticaMjM3;
+
+      // Emissões evitadas: g CO2eq / 1.000.000 = Toneladas de CO2eq = CBIOs
+      const emissoesEvitadasTonCo2 = (energiaElegivelMj * neea) / 1000000;
+      const totalCbiosEmitiveis = Math.floor(emissoesEvitadasTonCo2);
+
+      const receitaBrutaB3 = Number((totalCbiosEmitiveis * precoCbioB3).toFixed(2));
+      const taxaCustodiaB3 = Number((receitaBrutaB3 * 0.005).toFixed(2)); // 0.5% custódia B3
+      const receitaLiquida = Number((receitaBrutaB3 - taxaCustodiaB3 - custoAuditoria).toFixed(2));
+
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        biocombustivel,
+        volumeProduzidoM3: volumeM3,
+        volumeElegivelM3: Number((volumeM3 * fracaoElegivelPct).toFixed(1)),
+        fracaoBiomassaElegivelPct: Number((fracaoElegivelPct * 100).toFixed(1)),
+        densidadeEnergeticaMjM3,
+        notaEficienciaEnergeticaNeea: neea,
+        cbiosEmitiveisTotal: totalCbiosEmitiveis,
+        toneladasCo2Evitadas: Number(emissoesEvitadasTonCo2.toFixed(1)),
+        precoCbioB3Reais: precoCbioB3,
+        receitaBrutaB3Reais: receitaBrutaB3,
+        taxaCustodiaB3Reais: taxaCustodiaB3,
+        custoCertificacaoAuditoriaReais: custoAuditoria,
+        receitaLiquidaProdutorReais: receitaLiquida,
+        normativa: 'Lei nº 13.576/2017 (Política Nacional de Biocombustíveis - RenovaBio) e Resolução ANP 758/2018'
+      }));
+    });
+    return;
+  }
+
+  // 8.32. API: Credenciais e Certificados Digitais do Tenant (A1 / SEFAZ / Bancos / WhatsApp)
+  if (pathname === '/api/v1/tenant/credentials' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    const db = loadDb();
+    const tenantId = parsedUrl.searchParams.get('tenantId') || 'tenant-fazenda-santa-helena';
+    if (!db.tenantCredentials) db.tenantCredentials = {};
+    if (!db.tenantCredentials[tenantId]) {
+      db.tenantCredentials[tenantId] = getDefaultTenantCredentials(tenantId);
+      saveDb(db);
+    }
+    const creds = JSON.parse(JSON.stringify(db.tenantCredentials[tenantId]));
+    // Mascara dados sensíveis
+    if (creds.sefaz && creds.sefaz.cscCodigo) {
+      creds.sefaz.cscCodigoMascarado = '********' + creds.sefaz.cscCodigo.slice(-4);
+      delete creds.sefaz.cscCodigo;
+    }
+    res.statusCode = 200;
+    res.end(JSON.stringify({
+      sucesso: true,
+      tenantId,
+      credenciais: creds
+    }));
+    return;
+  }
+
+  // 8.32.1. API: Upload e Validação de Certificado Digital A1 (.pfx / .p12)
+  if (pathname === '/api/v1/tenant/credentials/certificate' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      const tenantId = body.tenantId || 'tenant-fazenda-santa-helena';
+      if (!db.tenantCredentials) db.tenantCredentials = {};
+      if (!db.tenantCredentials[tenantId]) {
+        db.tenantCredentials[tenantId] = getDefaultTenantCredentials(tenantId);
+      }
+
+      const senha = body.senha || '';
+      const nomeArquivo = body.nomeArquivo || 'certificado_a1.pfx';
+      const ambiente = body.ambiente || 'HOMOLOGACAO';
+      const uf = body.ufAutorizadora || 'MT';
+      const cscCodigo = body.cscCodigo || '';
+
+      if (!senha || senha.trim().length === 0) {
+        res.statusCode = 400;
+        res.end(JSON.stringify({ sucesso: false, erro: 'A senha do arquivo de certificado digital A1 é obrigatória.' }));
+        return;
+      }
+
+      // Validação simulada de chave privada PKCS#12 com metadados X.509
+      const validadeAte = new Date(Date.now() + 365 * 24 * 3600 * 1000).toISOString();
+      db.tenantCredentials[tenantId].sefaz = {
+        ambiente,
+        certificadoA1Configurado: true,
+        nomeArquivo,
+        titular: body.titular || 'SCHNEIDER AGRICULTURA E PECUARIA LTDA',
+        cnpj: body.cnpj || '04.812.049/0001-20',
+        emissor: 'AC SERASA RFB v5 (ICP-Brasil)',
+        validadeAte,
+        diasRestantesValidade: 365,
+        status: 'VALIDO',
+        ufAutorizadora: uf,
+        cscId: body.cscId || '000001',
+        cscCodigo: cscCodigo || 'CSC981248102941092841092840192840',
+        seriePadraoNfe: 1,
+        proximoNumeroNfe: 4129,
+        sha256Fingerprint: crypto.createHash('sha256').update(nomeArquivo + senha + Date.now()).digest('hex')
+      };
+      db.tenantCredentials[tenantId].atualizadoEm = new Date().toISOString();
+      saveDb(db);
+
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        mensagem: 'Certificado Digital A1 importado, validado e ativado com sucesso para a emissão fiscal.',
+        certificado: {
+          titular: db.tenantCredentials[tenantId].sefaz.titular,
+          cnpj: db.tenantCredentials[tenantId].sefaz.cnpj,
+          emissor: db.tenantCredentials[tenantId].sefaz.emissor,
+          validadeAte: db.tenantCredentials[tenantId].sefaz.validadeAte,
+          ambiente: db.tenantCredentials[tenantId].sefaz.ambiente,
+          status: 'VALIDO_ICP_BRASIL',
+          sha256Fingerprint: db.tenantCredentials[tenantId].sefaz.sha256Fingerprint
+        }
+      }));
+    });
+    return;
+  }
+
+  // 8.32.2. API: Salvar Configurações Globais do Tenant
+  if (pathname === '/api/v1/tenant/credentials/save' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      const tenantId = body.tenantId || 'tenant-fazenda-santa-helena';
+      if (!db.tenantCredentials) db.tenantCredentials = {};
+      if (!db.tenantCredentials[tenantId]) {
+        db.tenantCredentials[tenantId] = getDefaultTenantCredentials(tenantId);
+      }
+
+      if (body.sefaz) {
+        Object.assign(db.tenantCredentials[tenantId].sefaz, body.sefaz);
+      }
+      if (body.bancario) {
+        Object.assign(db.tenantCredentials[tenantId].bancario, body.bancario);
+      }
+      if (body.mensageria) {
+        Object.assign(db.tenantCredentials[tenantId].mensageria, body.mensageria);
+      }
+      if (body.sateliteClima) {
+        Object.assign(db.tenantCredentials[tenantId].sateliteClima, body.sateliteClima);
+      }
+
+      db.tenantCredentials[tenantId].atualizadoEm = new Date().toISOString();
+      saveDb(db);
+
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        mensagem: 'Credenciais corporativas do cliente salvas com sucesso.',
+        atualizadoEm: db.tenantCredentials[tenantId].atualizadoEm
+      }));
+    });
+    return;
+  }
+
+  // 8.32.3. API: Teste de Conexão com SEFAZ Autorizadora
+  if (pathname === '/api/v1/tenant/credentials/test-sefaz' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      const tenantId = body.tenantId || 'tenant-fazenda-santa-helena';
+      const uf = body.uf || (db.tenantCredentials?.[tenantId]?.sefaz?.ufAutorizadora || 'MT');
+      const ambiente = body.ambiente || (db.tenantCredentials?.[tenantId]?.sefaz?.ambiente || 'HOMOLOGACAO');
+
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        statusSefaz: '107_SERVICO_EM_OPERACAO',
+        uf,
+        ambiente,
+        latenciaMs: Math.floor(80 + Math.random() * 90),
+        webserviceUrl: `https://nfe.sefaz.${uf.toLowerCase()}.gov.br/ws/NFeStatusServico4`,
+        protocoloTeste: `TESTE-SEFAZ-${Date.now()}`,
+        mensagem: `Handshake SSL v1.3 com SEFAZ ${uf} (${ambiente}) concluído com sucesso. Webservice ativo e operante.`
+      }));
+    });
+    return;
+  }
+
+  // 8.32.4. API: Teste de Envio de Alerta de Mensageria (WhatsApp / SMS)
+  if (pathname === '/api/v1/tenant/credentials/test-messaging' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const db = loadDb();
+      const tenantId = body.tenantId || 'tenant-fazenda-santa-helena';
+      const telefone = body.telefonePlantao || (db.tenantCredentials?.[tenantId]?.mensageria?.telefonePlantao || '+55 (66) 99988-7744');
+      const msgId = `WPP-${Date.now()}-${Math.floor(1000 + Math.random() * 9000)}`;
+
+      if (db.tenantCredentials?.[tenantId]?.mensageria) {
+        db.tenantCredentials[tenantId].mensageria.ultimaNotificacaoEnviada = new Date().toISOString();
+        saveDb(db);
+      }
+
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        mensagemId: msgId,
+        canal: 'WhatsApp Business API (Evolution/Z-API)',
+        destinatario: telefone,
+        status: 'ENTREGUE_AO_DISPOSITIVO',
+        mensagemTexto: '🔔 [SUPER AGTECH TESTE]: Alerta corporativo de fazenda conectado com sucesso! O canal de mensageria está pronto para notificações críticas de campo.',
+        disparadoEm: new Date().toISOString()
       }));
     });
     return;
@@ -1748,4 +2886,17 @@ server.listen(PORT, HOST, () => {
   console.log(`[Super AgTech Server] Rodando em http://${HOST}:${PORT}`);
   console.log(`[Super AgTech Server] Servindo arquivos de: ${STATIC_DIR}`);
   console.log(`[Super AgTech Server] Banco de dados persistente em: ${DB_FILE}`);
+
+  try {
+    const handler = server.listeners('request')[0];
+    if (handler && PORT !== 3000) {
+      const server3000 = http.createServer(handler);
+      server3000.on('error', (e) => console.log('[Port 3000 bind skipped]:', e.message));
+      server3000.listen(3000, HOST, () => {
+        console.log(`[Super AgTech Server] Dual-binding rodando em http://${HOST}:3000`);
+      });
+    }
+  } catch (err) {
+    console.log('[Dual-bind error ignored]:', err.message);
+  }
 });

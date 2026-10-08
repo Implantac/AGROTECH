@@ -95,30 +95,30 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
   }, []);
 
   return (
-    <div className="bg-slate-950 border-b border-slate-800 px-4 py-1 flex flex-wrap items-center justify-between gap-3 text-xs text-white">
+    <div className="bg-slate-50 border-b border-slate-200 px-4 py-1.5 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-700">
       {/* Ticker Financeiro e Commodities em Rolagem Elegante */}
       <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5 flex-1 min-w-0">
-        <span className="text-[10px] font-black uppercase text-emerald-300 flex items-center gap-1 shrink-0 bg-slate-900 px-2.5 py-0.5 rounded-md border border-slate-800">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span className="text-[10px] font-bold uppercase text-emerald-800 flex items-center gap-1.5 shrink-0 bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
           B3 • CBOT • CEPEA
         </span>
 
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2.5 shrink-0">
           {ticker.map((item) => (
             <div
               key={item.id}
-              className="flex items-center gap-1.5 bg-slate-900 px-2.5 py-0.5 rounded-md border border-slate-800 text-[11px] font-mono shrink-0 hover:border-emerald-400 transition-all shadow-2xs"
+              className="flex items-center gap-1.5 bg-white px-2.5 py-0.5 rounded-md border border-slate-200 text-[11px] font-mono shrink-0 hover:border-emerald-500 transition-all shadow-2xs"
             >
-              <span className="text-slate-200 font-sans font-medium">{item.nome}:</span>
-              <span className="text-white font-black">{item.valor}</span>
-              <span className="text-[10px] text-slate-300">{item.unidade}</span>
+              <span className="text-slate-500 font-sans font-medium">{item.nome}:</span>
+              <span className="text-slate-900 font-bold">{item.valor}</span>
+              <span className="text-[10px] text-slate-400">{item.unidade}</span>
               <span
-                className={`text-[10px] font-black flex items-center ${
+                className={`text-[10px] font-bold flex items-center ${
                   item.variacaoPct > 0
-                    ? 'text-emerald-400'
+                    ? 'text-emerald-700'
                     : item.variacaoPct < 0
-                    ? 'text-rose-400'
-                    : 'text-slate-300'
+                    ? 'text-rose-600'
+                    : 'text-slate-500'
                 }`}
               >
                 {item.variacaoPct > 0 ? '▲' : item.variacaoPct < 0 ? '▼' : '▬'}
@@ -136,29 +136,29 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
           onClick={() => setModalDeltaTOpen(true)}
           className={`flex items-center gap-2 px-2.5 py-1 rounded-lg border text-[11px] font-mono transition-all cursor-pointer shadow-2xs ${
             deltaT.statusJanela === 'OPTIMAL'
-              ? 'bg-slate-900 border-slate-800 text-emerald-400 hover:bg-slate-850'
-              : 'bg-[#422C1A] border-[#D9B65D] text-amber-300 hover:bg-[#523720]'
+              ? 'bg-white border-emerald-300 text-emerald-900 hover:bg-emerald-50/50'
+              : 'bg-amber-50 border-amber-300 text-amber-900 hover:bg-amber-100/60'
           }`}
           title="Clique para ver o relatório meteorológico detalhado de pulverização"
         >
-          <div className="flex items-center gap-1 font-bold text-white">
-            <Droplets className="w-3.5 h-3.5 text-emerald-400" />
+          <div className="flex items-center gap-1 font-bold text-slate-900">
+            <Droplets className="w-3.5 h-3.5 text-emerald-600" />
             <span>ΔT {deltaT.deltaTC}°C</span>
           </div>
-          <span className="h-3 w-px bg-emerald-800"></span>
-          <div className="flex items-center gap-1 text-[10px] font-sans text-slate-200">
-            <Thermometer className="w-3 h-3 text-emerald-400" />
+          <span className="h-3 w-px bg-slate-300"></span>
+          <div className="flex items-center gap-1 text-[10px] font-sans text-slate-600">
+            <Thermometer className="w-3 h-3 text-slate-400" />
             <span>{deltaT.tempArC}°C</span>
           </div>
-          <div className="flex items-center gap-1 text-[10px] font-sans text-slate-200">
-            <Wind className="w-3 h-3 text-emerald-400" />
+          <div className="flex items-center gap-1 text-[10px] font-sans text-slate-600">
+            <Wind className="w-3 h-3 text-slate-400" />
             <span>{deltaT.ventoKmH} km/h</span>
           </div>
           <span
-            className={`px-1.5 py-0.5 rounded text-[9px] font-black font-sans uppercase ${
+            className={`px-1.5 py-0.5 rounded text-[9px] font-bold font-sans uppercase ${
               deltaT.statusJanela === 'OPTIMAL'
-                ? 'bg-emerald-600 text-white shadow-2xs'
-                : 'bg-amber-500 text-slate-950 font-black shadow-2xs'
+                ? 'bg-emerald-700 text-white shadow-2xs'
+                : 'bg-amber-500 text-slate-950 font-bold shadow-2xs'
             }`}
           >
             {deltaT.statusJanela === 'OPTIMAL' ? 'JANELA SEGURA' : 'ALERTA DERIVA'}
@@ -168,7 +168,7 @@ export const HeaderFintechBar: React.FC<HeaderFintechBarProps> = ({ onOpenDossie
         {/* Botão de Dossiê Bancário Executivo */}
         <button
           onClick={onOpenDossie}
-          className="flex items-center gap-1.5 px-3 py-1 bg-emerald-700 hover:bg-emerald-600 text-white font-extrabold rounded-lg text-[11px] border border-emerald-500 shadow-sm transition-all cursor-pointer"
+          className="flex items-center gap-1.5 px-3 py-1 bg-emerald-700 hover:bg-emerald-800 text-white font-semibold rounded-lg text-[11px] shadow-2xs transition-all cursor-pointer"
           title="Compilar Dossiê Executivo de Crédito Rural (Plano Safra / Bancos)"
         >
           <FileCheck className="w-3.5 h-3.5 text-white" />

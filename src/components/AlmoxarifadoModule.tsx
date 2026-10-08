@@ -244,13 +244,13 @@ export const AlmoxarifadoModule: React.FC = () => {
       <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="px-2 py-0.5 bg-emerald-950 text-emerald-400 border border-emerald-800 rounded text-xs font-bold flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Gestão de Insumos & Custo Médio Ponderado Móvel
+            <span className="px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded text-xs font-bold flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" /> Gestão de Insumos & Custo Médio Ponderado Móvel
             </span>
             <span className="text-xs text-slate-600">Almoxarifado Central Sede • Galpão Climatizado DEFITO</span>
           </div>
           <h2 className="text-xl font-bold text-[#1D4B38] flex items-center gap-2">
-            <Package className="w-5 h-5 text-emerald-400" /> Almoxarifado Central, Lotes & Curva ABC
+            <Package className="w-5 h-5 text-emerald-700" /> Almoxarifado Central, Lotes & Curva ABC
           </h2>
           <p className="text-xs text-slate-600 mt-1">
             Controle físico-financeiro de defensivos, sementes, fertilizantes e diesel com rastreabilidade de lote, validade MAPA e apropriação por talhão.
@@ -261,13 +261,13 @@ export const AlmoxarifadoModule: React.FC = () => {
         <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={() => setModalEntradaOpen(true)}
-            className="px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 flex items-center gap-1.5 transition cursor-pointer"
+            className="px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-800 border border-emerald-500/40 flex items-center gap-1.5 transition cursor-pointer"
           >
             <Plus className="w-4 h-4" /> Nova Entrada NF-e
           </button>
           <button
             onClick={() => setModalSaidaOpen(true)}
-            className="px-3.5 py-2 rounded-xl text-xs font-bold bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 flex items-center gap-1.5 transition cursor-pointer"
+            className="px-3.5 py-2 rounded-xl text-xs font-bold bg-amber-500/20 hover:bg-amber-500/30 text-amber-800 border border-amber-500/40 flex items-center gap-1.5 transition cursor-pointer"
           >
             <Minus className="w-4 h-4" /> Baixa para Lavoura
           </button>
@@ -276,13 +276,13 @@ export const AlmoxarifadoModule: React.FC = () => {
             disabled={xmlImported}
             className={`px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-lg transition-all ${
               xmlImported
-                ? 'bg-slate-50 text-emerald-400 border border-emerald-800/40 cursor-default'
+                ? 'bg-slate-50 text-emerald-700 border border-emerald-800/40 cursor-default'
                 : 'bg-emerald-600 hover:bg-emerald-500 text-[#1D4B38] shadow-emerald-950/40'
             }`}
           >
             {xmlImported ? (
               <>
-                <CheckCircle className="w-4 h-4 text-emerald-400" /> NF-e #184920 OK
+                <CheckCircle className="w-4 h-4 text-emerald-700" /> NF-e #184920 OK
               </>
             ) : (
               <>
@@ -298,9 +298,9 @@ export const AlmoxarifadoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-4 rounded-xl shadow">
           <div className="flex justify-between items-center text-xs text-slate-600 mb-1">
             <span>Patrimônio em Estoque</span>
-            <TrendingUp className="w-4 h-4 text-emerald-400" />
+            <TrendingUp className="w-4 h-4 text-emerald-700" />
           </div>
-          <p className="text-2xl font-black text-emerald-400">
+          <p className="text-2xl font-black text-emerald-700">
             R$ {totalFinanceiroEstoque.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
           </p>
           <span className="text-[11px] text-slate-600 mt-1 block">Apropriado em DRE Safra</span>
@@ -309,20 +309,20 @@ export const AlmoxarifadoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-4 rounded-xl shadow">
           <div className="flex justify-between items-center text-xs text-slate-600 mb-1">
             <span>Itens Abaixo do Mínimo</span>
-            <AlertTriangle className="w-4 h-4 text-amber-400" />
+            <AlertTriangle className="w-4 h-4 text-amber-700" />
           </div>
-          <p className="text-2xl font-black text-amber-400">
+          <p className="text-2xl font-black text-amber-700">
             {itensAbaixoMinimo} <span className="text-xs font-normal text-slate-600">insumos</span>
           </p>
-          <span className="text-[11px] text-amber-400/90 mt-1 block font-medium">Requer compra imediata</span>
+          <span className="text-[11px] text-amber-700/90 mt-1 block font-medium">Requer compra imediata</span>
         </div>
 
         <div className="bg-white border border-slate-200 p-4 rounded-xl shadow">
           <div className="flex justify-between items-center text-xs text-slate-600 mb-1">
             <span>Itens em Classe A (80/20)</span>
-            <Layers className="w-4 h-4 text-cyan-400" />
+            <Layers className="w-4 h-4 text-sky-700" />
           </div>
-          <p className="text-2xl font-black text-cyan-400">
+          <p className="text-2xl font-black text-sky-700">
             {insumosEnriquecidos.filter((i) => i.classeABC === 'A').length} <span className="text-xs font-normal text-slate-600">itens críticos</span>
           </p>
           <span className="text-[11px] text-slate-600 mt-1 block">Fertilizantes e Defensivos nobres</span>
@@ -331,10 +331,10 @@ export const AlmoxarifadoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-4 rounded-xl shadow">
           <div className="flex justify-between items-center text-xs text-slate-600 mb-1">
             <span>Conformidade DEFITO / MAPA</span>
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <ShieldCheck className="w-4 h-4 text-emerald-700" />
           </div>
           <p className="text-2xl font-black text-[#1D4B38]">100%</p>
-          <span className="text-[11px] text-emerald-400 mt-1 block font-medium">Lotes e validade auditados</span>
+          <span className="text-[11px] text-emerald-700 mt-1 block font-medium">Lotes e validade auditados</span>
         </div>
       </div>
 
@@ -342,7 +342,7 @@ export const AlmoxarifadoModule: React.FC = () => {
       {xmlImported && (
         <div className="bg-gradient-to-r from-emerald-950/80 to-slate-900 border border-emerald-800/60 p-4 rounded-xl shadow-lg flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
+            <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-700 shrink-0">
               <Calculator className="w-5 h-5" />
             </div>
             <div>
@@ -350,11 +350,11 @@ export const AlmoxarifadoModule: React.FC = () => {
                 Custo Médio Ponderado Atualizado Automaticamente via NF-e:
               </p>
               <p className="text-xs text-slate-900">
-                Insumo: <span className="font-semibold text-emerald-300">Fox Xpro (Fungicida)</span> • Entrada de 400 L • Saldo foi de 620 L para 1.020 L • Custo Médio Unitário recalculado de <span className="line-through text-slate-600">R$ 310,00</span> para <span className="font-bold text-[#1D4B38]">R$ 321,76/L</span>.
+                Insumo: <span className="font-semibold text-emerald-800">Fox Xpro (Fungicida)</span> • Entrada de 400 L • Saldo foi de 620 L para 1.020 L • Custo Médio Unitário recalculado de <span className="line-through text-slate-600">R$ 310,00</span> para <span className="font-bold text-[#1D4B38]">R$ 321,76/L</span>.
               </p>
             </div>
           </div>
-          <span className="text-[10px] font-mono bg-emerald-900 text-emerald-300 px-2.5 py-1 rounded-full font-bold">
+          <span className="text-[10px] font-mono bg-emerald-900 text-emerald-800 px-2.5 py-1 rounded-full font-bold">
             Auditado SEFAZ
           </span>
         </div>
@@ -366,8 +366,7 @@ export const AlmoxarifadoModule: React.FC = () => {
           onClick={() => setAbaAtiva('ESTOQUE')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             abaAtiva === 'ESTOQUE'
-              ? 'bg-emerald-600 text-[#1D4B38] shadow-md'
-              : 'bg-slate-900 text-slate-600 hover:text-[#1D4B38] hover:bg-slate-50'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs' : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Package className="w-4 h-4" />
@@ -378,8 +377,7 @@ export const AlmoxarifadoModule: React.FC = () => {
           onClick={() => setAbaAtiva('CURVA_ABC')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             abaAtiva === 'CURVA_ABC'
-              ? 'bg-emerald-600 text-[#1D4B38] shadow-md'
-              : 'bg-slate-900 text-slate-600 hover:text-[#1D4B38] hover:bg-slate-50'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs' : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -390,8 +388,7 @@ export const AlmoxarifadoModule: React.FC = () => {
           onClick={() => setAbaAtiva('LOTES_VALIDADE')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             abaAtiva === 'LOTES_VALIDADE'
-              ? 'bg-emerald-600 text-[#1D4B38] shadow-md'
-              : 'bg-slate-900 text-slate-600 hover:text-[#1D4B38] hover:bg-slate-50'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs' : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Calendar className="w-4 h-4" />
@@ -402,8 +399,7 @@ export const AlmoxarifadoModule: React.FC = () => {
           onClick={() => setAbaAtiva('PONTO_PEDIDO')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             abaAtiva === 'PONTO_PEDIDO'
-              ? 'bg-emerald-600 text-[#1D4B38] shadow-md'
-              : 'bg-slate-900 text-slate-600 hover:text-[#1D4B38] hover:bg-slate-50'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs' : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Truck className="w-4 h-4" />
@@ -455,13 +451,13 @@ export const AlmoxarifadoModule: React.FC = () => {
                   <th className="px-4 py-3">Lote / Reg. MAPA</th>
                   <th className="px-4 py-3">Categoria</th>
                   <th className="px-4 py-3 text-right">Saldo Físico</th>
-                  <th className="px-4 py-3 text-right text-emerald-400">Custo Médio Unitário</th>
+                  <th className="px-4 py-3 text-right text-emerald-700">Custo Médio Unitário</th>
                   <th className="px-4 py-3 text-right">Valor Total em Estoque</th>
                   <th className="px-4 py-3 text-center">Status</th>
                   <th className="px-4 py-3 text-center">QR Code</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800">
+              <tbody className="divide-y divide-slate-100">
                 {filteredInsumos.map((ins) => {
                   const totalFinanceiro = ins.saldoAtual * ins.custoMedioUnitario;
                   const isBaixo = ins.saldoAtual <= ins.estoqueMinimo;
@@ -474,7 +470,7 @@ export const AlmoxarifadoModule: React.FC = () => {
                       </td>
                       <td className="px-4 py-3 text-slate-600">{ins.principioAtivo}</td>
                       <td className="px-4 py-3">
-                        <span className="font-mono text-cyan-400 block font-semibold">{ins.lote.loteNumero}</span>
+                        <span className="font-mono text-sky-700 block font-semibold">{ins.lote.loteNumero}</span>
                         <span className="text-[10px] text-slate-500">{ins.lote.registroMapa}</span>
                       </td>
                       <td className="px-4 py-3">
@@ -485,7 +481,7 @@ export const AlmoxarifadoModule: React.FC = () => {
                       <td className="px-4 py-3 text-right font-mono font-bold text-slate-900">
                         {ins.saldoAtual.toLocaleString('pt-BR')} {ins.unidade}
                       </td>
-                      <td className="px-4 py-3 text-right font-mono font-bold text-emerald-400">
+                      <td className="px-4 py-3 text-right font-mono font-bold text-emerald-700">
                         R$ {ins.custoMedioUnitario.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} / {ins.unidade}
                       </td>
                       <td className="px-4 py-3 text-right font-mono text-slate-900">
@@ -497,7 +493,7 @@ export const AlmoxarifadoModule: React.FC = () => {
                             <AlertTriangle className="w-3 h-3" /> Abaixo do Mínimo
                           </span>
                         ) : (
-                          <span className="px-2 py-0.5 bg-emerald-950 text-emerald-400 border border-emerald-800 rounded-full text-[10px] font-bold">
+                          <span className="px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full text-[10px] font-bold">
                             Normal
                           </span>
                         )}
@@ -505,7 +501,7 @@ export const AlmoxarifadoModule: React.FC = () => {
                       <td className="px-4 py-3 text-center">
                         <button
                           onClick={() => handleSimularScanQr(ins)}
-                          className="p-1.5 hover:bg-slate-50 text-slate-600 hover:text-cyan-400 rounded-lg transition"
+                          className="p-1.5 hover:bg-slate-50 text-slate-600 hover:text-sky-700 rounded-lg transition"
                           title="Escanear / Ver QR Code GS1-128"
                         >
                           <QrCode className="w-4 h-4" />
@@ -525,7 +521,7 @@ export const AlmoxarifadoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div>
             <h3 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
-              <Layers className="w-5 h-5 text-cyan-400" />
+              <Layers className="w-5 h-5 text-sky-700" />
               Classificação por Curva ABC (Princípio de Pareto 80/20)
             </h3>
             <p className="text-xs text-slate-600 mt-1">
@@ -547,7 +543,7 @@ export const AlmoxarifadoModule: React.FC = () => {
                   <th className="px-4 py-3 text-center">Estratégia de Suprimentos</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800">
+              <tbody className="divide-y divide-slate-100">
                 {insumosEnriquecidos.map((ins) => {
                   const pctCapital = (ins.valorTotal / (totalFinanceiroEstoque || 1)) * 100;
 
@@ -559,8 +555,8 @@ export const AlmoxarifadoModule: React.FC = () => {
                             ins.classeABC === 'A'
                               ? 'bg-red-950 text-red-400 border border-red-800'
                               : ins.classeABC === 'B'
-                              ? 'bg-amber-950 text-amber-400 border border-amber-800'
-                              : 'bg-blue-950 text-blue-400 border border-blue-800'
+                              ? 'bg-amber-950 text-amber-700 border border-amber-800'
+                              : 'bg-blue-950 text-blue-700 border border-blue-800'
                           }`}
                         >
                           Classe {ins.classeABC}
@@ -574,10 +570,10 @@ export const AlmoxarifadoModule: React.FC = () => {
                       <td className="px-4 py-3 text-right font-mono">
                         R$ {ins.custoMedioUnitario.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                       </td>
-                      <td className="px-4 py-3 text-right font-mono font-bold text-emerald-400">
+                      <td className="px-4 py-3 text-right font-mono font-bold text-emerald-700">
                         R$ {ins.valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                       </td>
-                      <td className="px-4 py-3 text-right font-mono font-bold text-cyan-400">
+                      <td className="px-4 py-3 text-right font-mono font-bold text-sky-700">
                         {pctCapital.toFixed(1)}%
                       </td>
                       <td className="px-4 py-3 text-center text-[11px] text-slate-600">
@@ -601,7 +597,7 @@ export const AlmoxarifadoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div>
             <h3 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-amber-400" />
+              <Calendar className="w-5 h-5 text-amber-700" />
               Auditoria de Validade e Quarentena Sanitária (IN MAPA nº 42)
             </h3>
             <p className="text-xs text-slate-600 mt-1">
@@ -626,8 +622,8 @@ export const AlmoxarifadoModule: React.FC = () => {
                         ins.lote.statusValidade === 'CRITICO_30D'
                           ? 'bg-red-950 text-red-400 border border-red-800'
                           : ins.lote.statusValidade === 'ATENCAO_90D'
-                          ? 'bg-amber-950 text-amber-400 border border-amber-800'
-                          : 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                          ? 'bg-amber-950 text-amber-700 border border-amber-800'
+                          : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
                       }`}
                     >
                       {ins.lote.statusValidade === 'ATENCAO_90D' ? 'Vence em < 90 dias' : 'Validade Regular'}
@@ -645,7 +641,7 @@ export const AlmoxarifadoModule: React.FC = () => {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-500">Dias Restantes:</span>
-                      <span className="font-mono font-bold text-amber-400">{ins.lote.diasParaVencer} dias</span>
+                      <span className="font-mono font-bold text-amber-700">{ins.lote.diasParaVencer} dias</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-500">Reg. MAPA:</span>
@@ -656,7 +652,7 @@ export const AlmoxarifadoModule: React.FC = () => {
 
                 <button
                   onClick={() => handleSimularScanQr(ins)}
-                  className="w-full py-1.5 rounded-lg bg-slate-900 hover:bg-slate-50 text-slate-900 text-xs font-semibold flex items-center justify-center gap-1.5 border border-slate-200 transition"
+                  className="w-full py-1.5 rounded-lg bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold flex items-center justify-center gap-1.5 border border-slate-300 shadow-2xs cursor-pointer transition"
                 >
                   <QrCode className="w-3.5 h-3.5" /> Gerar Etiqueta GS1-128
                 </button>
@@ -671,7 +667,7 @@ export const AlmoxarifadoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div>
             <h3 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
-              <Truck className="w-5 h-5 text-cyan-400" />
+              <Truck className="w-5 h-5 text-sky-700" />
               Dimensionamento de Ponto de Pedido: PP = (Consumo × Lead Time) + Estoque de Segurança
             </h3>
             <p className="text-xs text-slate-600 mt-1">
@@ -695,8 +691,8 @@ export const AlmoxarifadoModule: React.FC = () => {
                     <span
                       className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                         precisaComprar
-                          ? 'bg-rose-950 text-rose-400 border border-rose-800'
-                          : 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                          ? 'bg-rose-50 text-rose-800 border border-rose-200'
+                          : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
                       }`}
                     >
                       {precisaComprar ? 'Gatilho de Compra Disparado' : 'Estoque Confortável'}
@@ -704,19 +700,19 @@ export const AlmoxarifadoModule: React.FC = () => {
                   </div>
 
                   <div className="grid grid-cols-3 gap-2 text-xs pt-2">
-                    <div className="bg-slate-900 p-2 rounded-lg border border-slate-200">
+                    <div className="bg-white p-2.5 rounded-xl border border-slate-200 shadow-2xs">
                       <span className="text-[10px] text-slate-500 block">Lead Time Fornecedor</span>
                       <span className="font-bold text-[#1D4B38] font-mono">{ins.tempoReposicaoDias} dias</span>
                     </div>
-                    <div className="bg-slate-900 p-2 rounded-lg border border-slate-200">
+                    <div className="bg-white p-2.5 rounded-xl border border-slate-200 shadow-2xs">
                       <span className="text-[10px] text-slate-500 block">Ponto de Pedido</span>
-                      <span className="font-bold text-amber-400 font-mono">
+                      <span className="font-bold text-amber-700 font-mono">
                         {pontoPedidoRecomendado.toLocaleString('pt-BR')} {ins.unidade}
                       </span>
                     </div>
-                    <div className="bg-slate-900 p-2 rounded-lg border border-slate-200">
+                    <div className="bg-white p-2.5 rounded-xl border border-slate-200 shadow-2xs">
                       <span className="text-[10px] text-slate-500 block">Saldo Atual</span>
-                      <span className="font-bold text-cyan-400 font-mono">
+                      <span className="font-bold text-sky-700 font-mono">
                         {ins.saldoAtual.toLocaleString('pt-BR')} {ins.unidade}
                       </span>
                     </div>
@@ -734,7 +730,7 @@ export const AlmoxarifadoModule: React.FC = () => {
           <div className="bg-white border border-slate-200 rounded-2xl w-full max-w-md p-6 shadow-2xl space-y-4">
             <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <h3 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
-                <Plus className="w-5 h-5 text-emerald-400" />
+                <Plus className="w-5 h-5 text-emerald-700" />
                 Lançamento de Entrada de Insumo (NF-e)
               </h3>
               <button onClick={() => setModalEntradaOpen(false)} className="text-slate-600 hover:text-[#1D4B38] p-1">
@@ -785,7 +781,7 @@ export const AlmoxarifadoModule: React.FC = () => {
                     step="0.5"
                     value={entradaPrecoUnit}
                     onChange={(e) => setEntradaPrecoUnit(Number(e.target.value))}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-emerald-400 font-mono font-bold"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-emerald-700 font-mono font-bold"
                   />
                 </div>
               </div>
@@ -817,7 +813,7 @@ export const AlmoxarifadoModule: React.FC = () => {
           <div className="bg-white border border-slate-200 rounded-2xl w-full max-w-md p-6 shadow-2xl space-y-4">
             <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <h3 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
-                <Minus className="w-5 h-5 text-amber-400" />
+                <Minus className="w-5 h-5 text-amber-700" />
                 Baixa de Insumo para Aplicação no Campo
               </h3>
               <button onClick={() => setModalSaidaOpen(false)} className="text-slate-600 hover:text-[#1D4B38] p-1">
@@ -862,7 +858,7 @@ export const AlmoxarifadoModule: React.FC = () => {
                   type="number"
                   value={saidaQtd}
                   onChange={(e) => setSaidaQtd(Number(e.target.value))}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-amber-400 font-mono font-bold"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-amber-700 font-mono font-bold"
                 />
               </div>
             </div>
@@ -893,7 +889,7 @@ export const AlmoxarifadoModule: React.FC = () => {
           <div className="bg-white border border-slate-200 rounded-2xl w-full max-w-sm p-6 shadow-2xl space-y-4 text-center">
             <div className="flex justify-between items-center border-b border-slate-200 pb-2">
               <span className="text-xs font-bold text-[#1D4B38] flex items-center gap-1.5">
-                <QrCode className="w-4 h-4 text-cyan-400" /> Etiqueta de Galpão GS1-128
+                <QrCode className="w-4 h-4 text-sky-700" /> Etiqueta de Galpão GS1-128
               </span>
               <button onClick={() => setModalLeitorQrOpen(false)} className="text-slate-600 hover:text-[#1D4B38]">
                 <X className="w-4 h-4" />
@@ -901,20 +897,20 @@ export const AlmoxarifadoModule: React.FC = () => {
             </div>
 
             <div className="p-4 bg-white rounded-xl inline-block shadow">
-              <div className="w-36 h-36 bg-slate-900 text-[#1D4B38] flex flex-col items-center justify-center font-mono text-[10px] rounded p-2">
-                <QrCode className="w-20 h-20 text-emerald-400 mb-1" />
+              <div className="w-36 h-36 bg-slate-100 text-slate-800 flex flex-col items-center justify-center border border-slate-200 font-mono text-[10px] rounded p-2">
+                <QrCode className="w-20 h-20 text-emerald-700 mb-1" />
                 <span>GS1-128 AGRO</span>
               </div>
             </div>
 
             <div className="text-left bg-slate-50 p-3 rounded-xl border border-slate-200 font-mono text-[11px] space-y-1">
               <span className="text-slate-500 text-[10px] block">String de Dados GS1:</span>
-              <p className="text-cyan-400 break-all">{codigoLido}</p>
+              <p className="text-sky-700 break-all">{codigoLido}</p>
             </div>
 
             <button
               onClick={() => setModalLeitorQrOpen(false)}
-              className="w-full py-2 bg-slate-50 hover:bg-slate-700 text-[#1D4B38] text-xs font-bold rounded-xl transition"
+              className="w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-xl cursor-pointer transition"
             >
               Fechar
             </button>

@@ -120,11 +120,11 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2.5 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-400">
+              <div className="p-2.5 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-700">
                 <HeartPulse className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Ovinocultura & Caprinocultura de Precisão
                   <span className="text-xs px-2.5 py-0.5 rounded-full bg-teal-500/20 text-teal-300 font-mono border border-teal-500/30">
                     FAMACHA© • Escore ECC • Creep Feeding • Selo ARTE
@@ -138,7 +138,7 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-300 border-emerald-500/40 flex items-center gap-1.5">
+            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-800 border-emerald-500/40 flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4" />
               {ovinoMetrics.totalCabecas} Cabeças no Rebanho ({ovinoMetrics.percentualTratadoGeral.toFixed(1)}% vermifugação seletiva)
             </span>
@@ -152,9 +152,9 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Economia Sanitária FAMACHA©</span>
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <ShieldCheck className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
+          <div className="text-2xl font-black mt-2 font-mono text-emerald-700">
             R$ {ovinoMetrics.economiaVermifugoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -166,9 +166,9 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Safra de Cordeiros (Corte)</span>
-            <Scale className="w-4 h-4 text-amber-400" />
+            <Scale className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-amber-400">
+          <div className="text-2xl font-black mt-2 font-mono text-amber-700">
             R$ {ovinoMetrics.faturamentoCordeirosReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -180,9 +180,9 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Leite & Queijos Caprinos</span>
-            <Milk className="w-4 h-4 text-cyan-400" />
+            <Milk className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
+          <div className="text-2xl font-black mt-2 font-mono text-sky-700">
             R$ {ovinoMetrics.faturamentoLeiteReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -196,9 +196,9 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
             <span>Faturamento Bruto Geral</span>
             <Coins className="w-4 h-4 text-white" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-white">
+          <div className="text-2xl font-black mt-2 font-mono text-slate-800">
             R$ {ovinoMetrics.receitaTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
-            <span className="text-xs font-normal text-emerald-400">/ ano</span>
+            <span className="text-xs font-normal text-emerald-700">/ ano</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Corte ovino precoce + bacia leiteira especializada.
@@ -212,8 +212,8 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <Layers className="w-5 h-5 text-teal-400" />
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <Layers className="w-5 h-5 text-teal-700" />
                 Lotes de Produção & Monitoramento Sanitário
               </h3>
               <p className="text-xs text-slate-600">
@@ -239,18 +239,18 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
                       <span className="px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 font-mono text-xs font-bold border border-teal-500/30">
                         {l.id}
                       </span>
-                      <h4 className="text-xs font-bold text-white">{l.raca}</h4>
+                      <h4 className="text-xs font-bold text-slate-900">{l.raca}</h4>
                     </div>
-                    <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono border border-emerald-500/30">
+                    <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-800 text-[10px] font-mono border border-emerald-500/30">
                       {l.statusSanitario}
                     </span>
                   </div>
 
                   <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-600">
                     <span>Rebanho: <strong className="text-white">{l.quantidadeCabecas} cab</strong></span>
-                    <span>ECC Médio: <strong className="text-cyan-400">{l.escoreCorporalMedio.toFixed(1)}/5.0</strong></span>
-                    <span>FAMACHA 4-5: <strong className="text-rose-400">{l.grauFamachaCriticoPct}% ({animaisTratar} cab)</strong></span>
-                    <span>GPD: <strong className="text-emerald-400">+{l.gpdEsperadoGramasDia} g/dia</strong></span>
+                    <span>ECC Médio: <strong className="text-sky-700">{l.escoreCorporalMedio.toFixed(1)}/5.0</strong></span>
+                    <span>FAMACHA 4-5: <strong className="text-rose-700">{l.grauFamachaCriticoPct}% ({animaisTratar} cab)</strong></span>
+                    <span>GPD: <strong className="text-emerald-700">+{l.gpdEsperadoGramasDia} g/dia</strong></span>
                   </div>
                 </div>
               );
@@ -259,7 +259,7 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
 
           {/* Banner Técnico de Boas Práticas Ovinos/Caprinos */}
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
-            <div className="flex items-center gap-2 text-teal-400 font-semibold">
+            <div className="flex items-center gap-2 text-teal-700 font-semibold">
               <Sparkles className="w-4 h-4" />
               Princípios do Protocolo FAMACHA© & Manejo Rotacionado (Embrapa Caprinos e Ovinos):
             </div>
@@ -279,8 +279,8 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
 
         {/* Painel Direito: Parâmetros Comerciais */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Coins className="w-5 h-5 text-amber-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Coins className="w-5 h-5 text-amber-700" />
             Parâmetros Comerciais & Custos
           </h3>
 
@@ -322,25 +322,25 @@ export const OvinoculturaCaprinosModule: React.FC = () => {
             <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
                 <span className="text-slate-600">Venda de Cordeiros:</span>
-                <span className="text-amber-400 font-mono font-bold">
+                <span className="text-amber-700 font-mono font-bold">
                   R$ {ovinoMetrics.faturamentoCordeirosReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600">Venda de Leite Caprino:</span>
-                <span className="text-cyan-400 font-mono font-bold">
+                <span className="text-sky-700 font-mono font-bold">
                   R$ {ovinoMetrics.faturamentoLeiteReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600">Custo Tratamento Seletivo:</span>
-                <span className="text-rose-400 font-mono font-bold">
+                <span className="text-rose-700 font-mono font-bold">
                   -R$ {ovinoMetrics.custoTratamentoSeletivoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Faturamento Líquido:</span>
-                <span className="text-emerald-400 font-mono">
+                <span className="text-emerald-700 font-mono">
                   R$ {(ovinoMetrics.receitaTotalReais - ovinoMetrics.custoTratamentoSeletivoReais).toLocaleString('pt-BR', { maximumFractionDigits: 0 })} / ano
                 </span>
               </div>

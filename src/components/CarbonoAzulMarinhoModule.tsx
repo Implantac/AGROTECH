@@ -100,15 +100,15 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className="px-2.5 py-1 text-xs font-black bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+              <span className="px-2.5 py-1 text-xs font-black bg-cyan-500/20 text-sky-800 border border-cyan-500/40 rounded-full uppercase tracking-wider flex items-center gap-1.5">
                 <Waves className="w-3.5 h-3.5" />
                 Módulo 105 • Carbono Azul & Créditos Marinhos
               </span>
-              <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+              <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 rounded-full">
                 Biomineralização de CaCO₃ • Bioextração N/P
               </span>
             </div>
-            <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-3">
               🌊 Balanço de Carbono Azul & Serviços Ecossistêmicos Marinhos
             </h2>
             <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
@@ -119,13 +119,13 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
           <div className="flex items-center gap-3">
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">CO₂eq Fixado</span>
-              <span className="text-xl font-black text-cyan-400">75.24 t</span>
+              <span className="text-xl font-black text-sky-700">75.24 t</span>
               <span className="text-[10px] text-slate-600 block mt-0.5">171 t Conchas</span>
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Créditos PSA</span>
-              <span className="text-xl font-black text-emerald-400">R$ 78.919</span>
-              <span className="text-[10px] text-emerald-400/80 block mt-0.5">Tokens Verificados</span>
+              <span className="text-xl font-black text-emerald-700">R$ 78.919</span>
+              <span className="text-[10px] text-emerald-700/80 block mt-0.5">Tokens Verificados</span>
             </div>
           </div>
         </div>
@@ -136,10 +136,10 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-cyan-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Carbonato de Cálcio</span>
-            <Layers className="w-4 h-4 text-cyan-400" />
+            <Layers className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black text-white">95% CaCO₃ Puro</div>
-          <div className="text-[11px] text-emerald-400 font-medium mt-1 flex items-center gap-1">
+          <div className="text-2xl font-black text-slate-900">95% CaCO₃ Puro</div>
+          <div className="text-[11px] text-emerald-700 font-medium mt-1 flex items-center gap-1">
             <CheckCircle2 className="w-3.5 h-3.5" />
             Biomineralização Estável
           </div>
@@ -148,9 +148,9 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-cyan-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Nitrogênio Bioextraído</span>
-            <Filter className="w-4 h-4 text-emerald-400" />
+            <Filter className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-emerald-400">756.0 kg N / ano</div>
+          <div className="text-2xl font-black text-emerald-700">756.0 kg N / ano</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Mitigação de Eutrofização Costeira
           </div>
@@ -159,9 +159,9 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-cyan-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Cotação do Carbono Azul</span>
-            <Award className="w-4 h-4 text-blue-400" />
+            <Award className="w-4 h-4 text-blue-700" />
           </div>
-          <div className="text-2xl font-black text-blue-400">R$ 185,00 / ton</div>
+          <div className="text-2xl font-black text-blue-700">R$ 185,00 / ton</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Ágio de +40% vs Créditos Terrestres
           </div>
@@ -170,9 +170,9 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-cyan-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Receita Adicional PSA</span>
-            <DollarSign className="w-4 h-4 text-teal-400" />
+            <DollarSign className="w-4 h-4 text-teal-700" />
           </div>
-          <div className="text-2xl font-black text-teal-400">R$ 78.919,40</div>
+          <div className="text-2xl font-black text-teal-700">R$ 78.919,40</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Pagamento por Serviços Ambientais
           </div>
@@ -185,8 +185,8 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
           onClick={() => setActiveTab('biomineralizacao')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'biomineralizacao'
-              ? 'bg-cyan-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-cyan-50 text-cyan-800 border border-cyan-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -197,8 +197,8 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
           onClick={() => setActiveTab('nutrientes')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'nutrientes'
-              ? 'bg-cyan-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-cyan-50 text-cyan-800 border border-cyan-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Filter className="w-4 h-4" />
@@ -209,8 +209,8 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
           onClick={() => setActiveTab('creditos')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'creditos'
-              ? 'bg-cyan-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-cyan-50 text-cyan-800 border border-cyan-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -221,8 +221,8 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
-              ? 'bg-cyan-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-cyan-50 text-cyan-800 border border-cyan-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -234,8 +234,8 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
       {activeTab === 'biomineralizacao' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <Layers className="w-5 h-5 text-cyan-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <Layers className="w-5 h-5 text-sky-700" />
               Fixação Mineral de Carbono em Conchas Bivalves
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -255,20 +255,20 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
                     <th className="py-3 px-3">Certificação</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60 font-medium">
+                <tbody className="divide-y divide-slate-100 font-medium">
                   {concessoes.map((c) => (
-                    <tr key={c.id} className="hover:bg-slate-800/40 transition-colors">
+                    <tr key={c.id} className="hover:bg-slate-50/80 transition-colors">
                       <td className="py-3.5 px-3">
-                        <div className="font-bold text-white">{c.identificacao}</div>
+                        <div className="font-bold text-slate-900">{c.identificacao}</div>
                         <div className="text-[11px] text-slate-600 font-mono">{c.id}</div>
                       </td>
-                      <td className="py-3.5 px-3 font-mono text-white">{c.duziasOstrasAno.toLocaleString()} dz</td>
-                      <td className="py-3.5 px-3 font-mono text-cyan-300 font-bold">{c.conchasSecasTon} ton</td>
-                      <td className="py-3.5 px-3 font-mono text-amber-300 font-bold">{c.carbonoFixadoTon} ton C</td>
-                      <td className="py-3.5 px-3 font-mono text-emerald-400 font-bold">{c.co2eqCapturadoTon} ton CO₂eq</td>
+                      <td className="py-3.5 px-3 font-mono text-slate-800">{c.duziasOstrasAno.toLocaleString()} dz</td>
+                      <td className="py-3.5 px-3 font-mono text-sky-800 font-bold">{c.conchasSecasTon} ton</td>
+                      <td className="py-3.5 px-3 font-mono text-amber-800 font-bold">{c.carbonoFixadoTon} ton C</td>
+                      <td className="py-3.5 px-3 font-mono text-emerald-700 font-bold">{c.co2eqCapturadoTon} ton CO₂eq</td>
                       <td className="py-3.5 px-3 font-mono text-teal-300">{c.nitrogenioRemovidoKg} kg N</td>
                       <td className="py-3.5 px-3">
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30">
                           {c.statusCertificacao}
                         </span>
                       </td>
@@ -285,8 +285,8 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
       {activeTab === 'nutrientes' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <Filter className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <Filter className="w-5 h-5 text-emerald-700" />
               Bioextração & Despoluição Costeira
             </h3>
             <p className="text-xs text-slate-600">
@@ -295,13 +295,13 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
 
             <div className="space-y-3 text-xs">
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Remoção de Nitrogênio (N)</span>
+                <span className="font-bold text-slate-900 block">Remoção de Nitrogênio (N)</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   Cada dúzia de ostras retira cerca de 4,2 gramas de nitrogênio elementar da água, convertendo-o em proteína muscular e biomassa de concha.
                 </span>
               </div>
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Clarificação Óptica da Água</span>
+                <span className="font-bold text-slate-900 block">Clarificação Óptica da Água</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   A remoção de partículas suspensas aumenta a penetração solar e estimula o retorno de bancos naturais de gramas marinhas (*seagrass*).
                 </span>
@@ -310,8 +310,8 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
           </div>
 
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-emerald-700" />
               Reciclagem Circular da Concha
             </h3>
             <p className="text-xs text-slate-600">
@@ -321,11 +321,11 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
             <div className="space-y-2 text-xs">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Calcário Agrícola de Origem Marinha:</span>
-                <span className="font-mono font-bold text-emerald-400">98% Neutralização de Acidez de Solo</span>
+                <span className="font-mono font-bold text-emerald-700">98% Neutralização de Acidez de Solo</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Substrato para Novos Recifes:</span>
-                <span className="font-mono font-bold text-cyan-400">Fixação de Sementes Nativas</span>
+                <span className="font-mono font-bold text-sky-700">Fixação de Sementes Nativas</span>
               </div>
             </div>
           </div>
@@ -336,8 +336,8 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
       {activeTab === 'creditos' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <Award className="w-5 h-5 text-blue-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <Award className="w-5 h-5 text-blue-700" />
               Mercado Voluntário de Carbono Azul (Blue Carbon Tokens)
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -347,19 +347,19 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Permanência Geológica</span>
-                <span className="text-2xl font-black text-white font-mono">&gt; 1.000 Anos</span>
-                <span className="text-[11px] text-emerald-400 block">Carbonato inerte</span>
+                <span className="text-2xl font-black text-slate-900 font-mono">&gt; 1.000 Anos</span>
+                <span className="text-[11px] text-emerald-700 block">Carbonato inerte</span>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Metodologia Verra / Gold</span>
-                <span className="text-2xl font-black text-cyan-400 font-mono">VM0033 / Blue</span>
+                <span className="text-2xl font-black text-sky-700 font-mono">VM0033 / Blue</span>
                 <span className="text-[11px] text-slate-600 block">Rigor MRV com telemetria</span>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Investidores ESG</span>
-                <span className="text-2xl font-black text-blue-400 font-mono">Empresas Portuárias</span>
+                <span className="text-2xl font-black text-blue-700 font-mono">Empresas Portuárias</span>
                 <span className="text-[11px] text-slate-600 block">Compensação de fretes marítimos</span>
               </div>
             </div>
@@ -371,15 +371,15 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-cyan-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <BarChart3 className="w-5 h-5 text-sky-700" />
               Parâmetros de Carbono Azul
             </h3>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Dúzias de Ostras / Ano</span>
-                <span className="font-mono text-cyan-400">{duziasOstrasAno.toLocaleString()} dz</span>
+                <span className="font-mono text-sky-700">{duziasOstrasAno.toLocaleString()} dz</span>
               </div>
               <input
                 type="range"
@@ -388,14 +388,14 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
                 step="10000"
                 value={duziasOstrasAno}
                 onChange={(e) => setDuziasOstrasAno(Number(e.target.value))}
-                className="w-full accent-cyan-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-cyan-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço do Crédito de Carbono Azul (R$/t)</span>
-                <span className="font-mono text-emerald-400">R$ {precoCreditoCarbonoAzulTon.toFixed(2)}</span>
+                <span className="font-mono text-emerald-700">R$ {precoCreditoCarbonoAzulTon.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -404,14 +404,14 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
                 step="5"
                 value={precoCreditoCarbonoAzulTon}
                 onChange={(e) => setPrecoCreditoCarbonoAzulTon(Number(e.target.value))}
-                className="w-full accent-emerald-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-emerald-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Bônus de Serviço Ecossistêmico (PSA)</span>
-                <span className="font-mono text-blue-400">R$ {premioServicoEcossistemicoReais.toFixed(2)}</span>
+                <span className="font-mono text-blue-700">R$ {premioServicoEcossistemicoReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -420,21 +420,21 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
                 step="5000"
                 value={premioServicoEcossistemicoReais}
                 onChange={(e) => setPremioServicoEcossistemicoReais(Number(e.target.value))}
-                className="w-full accent-blue-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-blue-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
           </div>
 
           <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <DollarSign className="w-5 h-5 text-emerald-700" />
               Valor Econômico Ambiental Adicional
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Conchas Secas</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   {metricas.conchasSecasTon} ton
                 </span>
                 <span className="text-[10px] text-slate-600 block">Carbonato estável</span>
@@ -442,45 +442,45 @@ export const CarbonoAzulMarinhoModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">CO₂eq Capturado</span>
-                <span className="font-mono font-bold text-cyan-400 text-base">
+                <span className="font-mono font-bold text-sky-700 text-base">
                   {metricas.co2EquivalenteTon} ton
                 </span>
-                <span className="text-[10px] text-cyan-400/80 block">Sequestro líquido</span>
+                <span className="text-[10px] text-sky-700/80 block">Sequestro líquido</span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">N Removido</span>
-                <span className="font-mono font-bold text-emerald-400 text-base">
+                <span className="font-mono font-bold text-emerald-700 text-base">
                   {metricas.nitrogenioRemovidoKg} kg
                 </span>
-                <span className="text-[10px] text-emerald-400/80 block">Água mais limpa</span>
+                <span className="text-[10px] text-emerald-700/80 block">Água mais limpa</span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Verde Total</span>
-                <span className="font-mono font-bold text-teal-400 text-base">
+                <span className="font-mono font-bold text-teal-700 text-base">
                   R$ {(metricas.receitaTotalSustentavelReais / 1000).toFixed(1)}k
                 </span>
-                <span className="text-[10px] text-teal-400/80 block">Carbono + PSA</span>
+                <span className="text-[10px] text-teal-700/80 block">Carbono + PSA</span>
               </div>
             </div>
 
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Receita de Créditos de Carbono Azul ({metricas.co2EquivalenteTon} t CO₂eq @ R$ {precoCreditoCarbonoAzulTon.toFixed(2)}):</span>
-                <span className="font-mono font-bold text-cyan-400">
+                <span className="font-mono font-bold text-sky-700">
                   R$ {metricas.receitaCreditosCarbonoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Pagamento por Serviços Ambientais (PSA Marinho - Despoluição e Bioextração de Nitrogênio):</span>
-                <span className="font-mono font-bold text-blue-400">
+                <span className="font-mono font-bold text-blue-700">
                   + R$ {premioServicoEcossistemicoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
               <div className="flex justify-between items-center py-2 text-sm font-black bg-cyan-950/30 px-3 rounded-lg border border-cyan-800/50">
                 <span className="text-white">Receita Extra Sustentável Anual:</span>
-                <span className="font-mono text-emerald-300">
+                <span className="font-mono text-emerald-800">
                   R$ {metricas.receitaTotalSustentavelReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>

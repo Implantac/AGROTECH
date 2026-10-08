@@ -1,6 +1,17 @@
 {
   "usuarios": [
     {
+      "id": "usr-admin",
+      "nome": "Dr. Roberto Schneider",
+      "email": "admin@superagtech.com.br",
+      "senhaHash": "admin123",
+      "perfil": "SUPERADMIN",
+      "fazenda": "Diretoria Corporativa AgTech",
+      "permissoes": [
+        "ALL"
+      ]
+    },
+    {
       "id": "usr-01",
       "nome": "Dr. Fernando Silveira",
       "email": "produtor@superagtech.com.br",
@@ -92,6 +103,54 @@
         "FISCAL"
       ],
       "createdAt": "2026-10-05T12:13:12.396Z"
+    },
+    {
+      "id": "usr-1791222945420",
+      "tenantId": "tenant-1791222945419",
+      "nome": "Roberto Marcondes",
+      "email": "roberto_1791222943772@fazendasantaclara.com.br",
+      "senhaHash": "ce98608161c4b513d4681b209541def82310e7c86875653f63fff91f6c34f9cb",
+      "perfil": "PRODUTOR",
+      "fazenda": "Fazenda Santa Clara",
+      "permissoes": [
+        "ALL",
+        "FINANCEIRO",
+        "AGRONOMICO",
+        "FROTA",
+        "FISCAL"
+      ],
+      "createdAt": "2026-10-05T17:55:45.420Z"
+    },
+    {
+      "id": "usr-05",
+      "nome": "Dr. Marcelo Arantes",
+      "email": "veterinario@superagtech.com.br",
+      "senhaHash": "vet123",
+      "perfil": "VETERINARIO",
+      "fazenda": "Fazenda Santa Maria do Araguaia",
+      "permissoes": [
+        "PECUARIA",
+        "SISBOV",
+        "CONFINAMENTO",
+        "ZOOTECNIA"
+      ]
+    },
+    {
+      "id": "usr-1791377038912",
+      "tenantId": "tenant-1791377038912",
+      "nome": "Roberto Marcondes",
+      "email": "roberto_1791377037369@fazendasantaclara.com.br",
+      "senhaHash": "ce98608161c4b513d4681b209541def82310e7c86875653f63fff91f6c34f9cb",
+      "perfil": "PRODUTOR",
+      "fazenda": "Fazenda Santa Clara",
+      "permissoes": [
+        "ALL",
+        "FINANCEIRO",
+        "AGRONOMICO",
+        "FROTA",
+        "FISCAL"
+      ],
+      "createdAt": "2026-10-07T12:43:58.912Z"
     }
   ],
   "fazendas": [
@@ -137,6 +196,36 @@
         "SOJA"
       ],
       "createdAt": "2026-10-05T12:13:12.396Z"
+    },
+    {
+      "id": "faz-1791222945419",
+      "tenantId": "tenant-1791222945419",
+      "nome": "Fazenda Santa Clara",
+      "cnpj": "00.000.000/0001-00",
+      "municipio": "A Definir",
+      "uf": "BR",
+      "areaTotalHa": 1200,
+      "areaAgricultavelHa": 950,
+      "reservaLegalHa": 250,
+      "culturas": [
+        "SOJA"
+      ],
+      "createdAt": "2026-10-05T17:55:45.419Z"
+    },
+    {
+      "id": "faz-1791377038912",
+      "tenantId": "tenant-1791377038912",
+      "nome": "Fazenda Santa Clara",
+      "cnpj": "00.000.000/0001-00",
+      "municipio": "A Definir",
+      "uf": "BR",
+      "areaTotalHa": 1200,
+      "areaAgricultavelHa": 950,
+      "reservaLegalHa": 250,
+      "culturas": [
+        "SOJA"
+      ],
+      "createdAt": "2026-10-07T12:43:58.912Z"
     }
   ],
   "talhoes": [
@@ -229,6 +318,56 @@
         "ndviMedio": 0.78,
         "pragasDetectadas": 1
       }
+    },
+    {
+      "type": "Feature",
+      "id": "car-1791475969852",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -55.725,
+              -12.54
+            ],
+            [
+              -55.7,
+              -12.54
+            ],
+            [
+              -55.7,
+              -12.565
+            ],
+            [
+              -55.725,
+              -12.565
+            ],
+            [
+              -55.725,
+              -12.54
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "car-1791475969852",
+        "codigo": "TAL-05",
+        "nome": "Fazenda AgroTech - Talhão 05 Gleba Sul - Gleba CAR",
+        "areaHa": 755.99,
+        "cultura": "Milho Safrinha",
+        "variedade": "TMG 2381 IPRO",
+        "dataPlantio": "08/10/2026",
+        "status": "CADASTRADO_CAR",
+        "sicarCodigo": "MT-5107909-089201948120491820",
+        "reservaLegalHa": 151.2,
+        "appHa": 37.8,
+        "areaConsolidadaHa": 566.99,
+        "centroide": {
+          "lat": -12.55,
+          "lng": -55.715
+        },
+        "criadoEm": "2026-10-08T16:12:50.073Z"
+      }
     }
   ],
   "frota": [
@@ -238,15 +377,29 @@
       "modelo": "John Deere 8R 370",
       "tipo": "Trator Pesado",
       "horimetro": 3410.8,
-      "consumoInstantaneoLh": 28.4,
-      "rpmMotor": 1850,
-      "tempLiquidoArrefecimentoC": 86,
+      "consumoInstantaneoLh": 29.6,
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
       "posicaoGps": {
-        "lat": -12.5512,
-        "lng": -55.7098
+        "lat": -12.552,
+        "lng": -55.71
       },
       "statusOperacional": "EM_OPERACAO",
-      "operador": "Marcos Barreto"
+      "operador": "Marcos Barreto",
+      "pressaoOleoBar": 1.2,
+      "ultimaLeituraCanbus": "2026-10-08T16:12:49.837Z",
+      "alertasAtivos": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
     },
     {
       "id": "COLH-01",
@@ -606,6 +759,534 @@
   ],
   "outboxQueue": [
     {
+      "id": "op-mip-1791475970206",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791475970206",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T16:12:50.206Z",
+      "updatedAt": "2026-10-08T16:12:50.231Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "11618be240211ceeabca9547a3bd24b4",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791475970206",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791475970206",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T16:12:50.206Z",
+      "updatedAt": "2026-10-08T16:12:50.215Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "44356ef7f0a7d4230f751cf724db4386"
+    },
+    {
+      "id": "op-mip-1791470480627",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791470480627",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T14:41:20.627Z",
+      "updatedAt": "2026-10-08T14:41:20.644Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "e0da825967f93c7ddff1a16bed482b29",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791470480627",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791470480627",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T14:41:20.627Z",
+      "updatedAt": "2026-10-08T14:41:20.634Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "99cd1eac36e4a6d2eaea01f4830957da"
+    },
+    {
+      "id": "op-mip-1791470309949",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791470309949",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T14:38:29.949Z",
+      "updatedAt": "2026-10-08T14:38:29.960Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "4dd5592dae020c67f385b46693609982",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791470309949",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791470309949",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T14:38:29.949Z",
+      "updatedAt": "2026-10-08T14:38:29.953Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "5c702cd55596d26f3bf758f1d9972bed"
+    },
+    {
+      "id": "op-mip-1791460415654",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791460415654",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:53:35.655Z",
+      "updatedAt": "2026-10-08T11:53:35.671Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "18f3d1645e5d09e7f82e82f2fcdc71db",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791460415654",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791460415654",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:53:35.654Z",
+      "updatedAt": "2026-10-08T11:53:35.661Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "66f9aa2b1265d3baa44d32c6855a6ff1"
+    },
+    {
+      "id": "op-mip-1791460040016",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791460040016",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:47:20.016Z",
+      "updatedAt": "2026-10-08T11:47:20.033Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "a196b633256095f1c9a398eb9e4ac853",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791460040016",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791460040016",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:47:20.016Z",
+      "updatedAt": "2026-10-08T11:47:20.023Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "b5875a7c0a2d12bb9e7275b9f772a995"
+    },
+    {
+      "id": "op-mip-1791459614888",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791459614888",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:40:14.888Z",
+      "updatedAt": "2026-10-08T11:40:14.909Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "460fa494053ef75efb0b330ba22f4ad1",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791459614888",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791459614888",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:40:14.888Z",
+      "updatedAt": "2026-10-08T11:40:14.897Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "768159c30453d9bfc91820cfa80cf838"
+    },
+    {
+      "id": "op-mip-1791459022426",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791459022426",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:30:22.426Z",
+      "updatedAt": "2026-10-08T11:30:22.441Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "cf832df62582d3e8ec989e8225557725",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791459022426",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791459022426",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:30:22.426Z",
+      "updatedAt": "2026-10-08T11:30:22.432Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "ec83eb3c06f056f408979d42a59d5c3a"
+    },
+    {
+      "id": "op-mip-1791458545864",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791458545864",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:22:25.865Z",
+      "updatedAt": "2026-10-08T11:22:25.881Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "aa07596b93b1d86f34f99243e170f578",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791458545864",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791458545864",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:22:25.864Z",
+      "updatedAt": "2026-10-08T11:22:25.871Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "9603e66e4a21b3daa5983941f8053ed0"
+    },
+    {
+      "id": "op-mip-1791458521836",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791458521836",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:22:01.836Z",
+      "updatedAt": "2026-10-08T11:22:01.851Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "84cfe27aa7d847352ff4e4c47bf9eba2",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791458521836",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791458521836",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:22:01.836Z",
+      "updatedAt": "2026-10-08T11:22:01.842Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "45760a343ca6c93ee9b0c1d0af844289"
+    },
+    {
+      "id": "op-mip-1791458478874",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791458478874",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:21:18.874Z",
+      "updatedAt": "2026-10-08T11:21:18.890Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "03e339e122845f6093c68cf6f0f2aec0",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791458478874",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791458478874",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:21:18.874Z",
+      "updatedAt": "2026-10-08T11:21:18.880Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "5e6e17d33a103451799b5b71333e1ea8"
+    },
+    {
+      "id": "op-mip-1791458389004",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791458389004",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:19:49.005Z",
+      "updatedAt": "2026-10-08T11:19:49.019Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "73822eb43536bbfd866fe770761c87ec",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791458389004",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791458389004",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:19:49.004Z",
+      "updatedAt": "2026-10-08T11:19:49.011Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "be6eb4b594a77e9ab93b3d320fea3f32"
+    },
+    {
+      "id": "op-mip-1791457755142",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791457755142",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:09:15.142Z",
+      "updatedAt": "2026-10-08T11:09:15.160Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "3e61849a5dcf03978b297da473001921",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791457755142",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791457755142",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:09:15.142Z",
+      "updatedAt": "2026-10-08T11:09:15.150Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "f79d5f49cdec581974d098c7b318fc58"
+    },
+    {
+      "id": "op-mip-1791457496436",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791457496436",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:04:56.436Z",
+      "updatedAt": "2026-10-08T11:04:56.448Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "09710b8783d1f297b0378306b23c7b8c",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791457496436",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791457496436",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T11:04:56.436Z",
+      "updatedAt": "2026-10-08T11:04:56.441Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "508a2e386d5dd951039f4d958ced4250"
+    },
+    {
+      "id": "op-mip-1791457066681",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791457066681",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T10:57:46.681Z",
+      "updatedAt": "2026-10-08T10:57:46.693Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "77d4a3bd2c025b3184840bc166252973",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791457066681",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791457066681",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-08T10:57:46.681Z",
+      "updatedAt": "2026-10-08T10:57:46.687Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "c73b3eb21737b216ac44bd39a60f583c"
+    },
+    {
+      "id": "op-mip-1791406742511",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791406742511",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-07T20:59:02.511Z",
+      "updatedAt": "2026-10-07T20:59:02.526Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "00b8c26c49dde7de90bf83115abfcff0",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791406742511",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791406742511",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-07T20:59:02.511Z",
+      "updatedAt": "2026-10-07T20:59:02.516Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "e2826741ed6871b08edda7c87567707c"
+    },
+    {
+      "id": "op-mip-1791406718981",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791406718981",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-07T20:58:38.982Z",
+      "updatedAt": "2026-10-07T20:58:38.994Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "2ff22ab60a636dbea373bbb37c0b5642",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791406718981",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791406718981",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-07T20:58:38.981Z",
+      "updatedAt": "2026-10-07T20:58:38.987Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "b4111f46d353e3821df48e0b1859c198"
+    },
+    {
       "id": "test-01",
       "tenantId": "tenant-fazenda-santa-helena",
       "batchId": "batch-1790954318903",
@@ -621,5 +1302,1651 @@
       "conflitoDetalhes": null,
       "idempotencyKey": "b659ae27ba03432bcd35da60362893ef"
     }
-  ]
+  ],
+  "assinaturas": [
+    {
+      "id": "sub-1791475969613",
+      "txid": "TX-1791475969613-4897",
+      "reciboFiscalNfse": "NFS-2026-60664",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-08T16:12:49.613Z",
+      "autenticacaoBancaria": "BACEN-AUT-53E3AAE9321F",
+      "dataConfirmacao": "2026-10-08T16:12:49.637Z"
+    },
+    {
+      "id": "sub-1791470480414",
+      "txid": "TX-1791470480414-8957",
+      "reciboFiscalNfse": "NFS-2026-97124",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-08T14:41:20.414Z",
+      "autenticacaoBancaria": "BACEN-AUT-59AC0D1187C4",
+      "dataConfirmacao": "2026-10-08T14:41:20.429Z"
+    },
+    {
+      "id": "sub-1791470309678",
+      "txid": "TX-1791470309678-8717",
+      "reciboFiscalNfse": "NFS-2026-13571",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-08T14:38:29.678Z",
+      "autenticacaoBancaria": "BACEN-AUT-872BF9BE65F5",
+      "dataConfirmacao": "2026-10-08T14:38:29.694Z"
+    },
+    {
+      "id": "sub-1791460415321",
+      "txid": "TX-1791460415321-4975",
+      "reciboFiscalNfse": "NFS-2026-29556",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-08T11:53:35.321Z",
+      "autenticacaoBancaria": "BACEN-AUT-D1689E9CF155",
+      "dataConfirmacao": "2026-10-08T11:53:35.340Z"
+    },
+    {
+      "id": "sub-1791460039668",
+      "txid": "TX-1791460039668-6553",
+      "reciboFiscalNfse": "NFS-2026-87533",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-08T11:47:19.668Z",
+      "autenticacaoBancaria": "BACEN-AUT-73D503E2250E",
+      "dataConfirmacao": "2026-10-08T11:47:19.684Z"
+    },
+    {
+      "id": "sub-1791459614545",
+      "txid": "TX-1791459614544-1775",
+      "reciboFiscalNfse": "NFS-2026-44689",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-08T11:40:14.545Z",
+      "autenticacaoBancaria": "BACEN-AUT-8FE2198938A5",
+      "dataConfirmacao": "2026-10-08T11:40:14.561Z"
+    },
+    {
+      "id": "sub-1791459022043",
+      "txid": "TX-1791459022043-9189",
+      "reciboFiscalNfse": "NFS-2026-93277",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-08T11:30:22.043Z",
+      "autenticacaoBancaria": "BACEN-AUT-E42C2BA81D2D",
+      "dataConfirmacao": "2026-10-08T11:30:22.061Z"
+    },
+    {
+      "id": "sub-1791458545607",
+      "txid": "TX-1791458545607-7606",
+      "reciboFiscalNfse": "NFS-2026-82778",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-08T11:22:25.607Z",
+      "autenticacaoBancaria": "BACEN-AUT-1CEA9C44C29A",
+      "dataConfirmacao": "2026-10-08T11:22:25.629Z"
+    },
+    {
+      "id": "sub-1791458521586",
+      "txid": "TX-1791458521586-7703",
+      "reciboFiscalNfse": "NFS-2026-81594",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-08T11:22:01.586Z",
+      "autenticacaoBancaria": "BACEN-AUT-773E4FECC60E",
+      "dataConfirmacao": "2026-10-08T11:22:01.603Z"
+    },
+    {
+      "id": "sub-1791458478620",
+      "txid": "TX-1791458478620-2104",
+      "reciboFiscalNfse": "NFS-2026-17736",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-08T11:21:18.620Z",
+      "autenticacaoBancaria": "BACEN-AUT-63FF1E55B47E",
+      "dataConfirmacao": "2026-10-08T11:21:18.641Z"
+    },
+    {
+      "id": "sub-1791458388678",
+      "txid": "TX-1791458388678-3446",
+      "reciboFiscalNfse": "NFS-2026-46237",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-08T11:19:48.678Z",
+      "autenticacaoBancaria": "BACEN-AUT-E2F2AFDB374A",
+      "dataConfirmacao": "2026-10-08T11:19:48.700Z"
+    },
+    {
+      "id": "sub-1791457754815",
+      "txid": "TX-1791457754815-6574",
+      "reciboFiscalNfse": "NFS-2026-83966",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-08T11:09:14.815Z",
+      "autenticacaoBancaria": "BACEN-AUT-609DBB7C8EA7",
+      "dataConfirmacao": "2026-10-08T11:09:14.832Z"
+    },
+    {
+      "id": "sub-1791457496141",
+      "txid": "TX-1791457496141-8597",
+      "reciboFiscalNfse": "NFS-2026-51660",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-08T11:04:56.141Z",
+      "autenticacaoBancaria": "BACEN-AUT-1516FAB27E41",
+      "dataConfirmacao": "2026-10-08T11:04:56.158Z"
+    },
+    {
+      "id": "sub-1791457066342",
+      "txid": "TX-1791457066342-1740",
+      "reciboFiscalNfse": "NFS-2026-61423",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-08T10:57:46.342Z",
+      "autenticacaoBancaria": "BACEN-AUT-558D065FA2EE",
+      "dataConfirmacao": "2026-10-08T10:57:46.361Z"
+    },
+    {
+      "id": "sub-1791406742193",
+      "txid": "TX-1791406742193-8918",
+      "reciboFiscalNfse": "NFS-2026-49729",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-07T20:59:02.193Z",
+      "autenticacaoBancaria": "BACEN-AUT-2A827954719E",
+      "dataConfirmacao": "2026-10-07T20:59:02.207Z"
+    },
+    {
+      "id": "sub-1791398534911",
+      "txid": "TX-1791398534911-8567",
+      "reciboFiscalNfse": "NFS-2026-85917",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-07T18:42:14.911Z",
+      "autenticacaoBancaria": "BACEN-AUT-CA8EDAE2545B",
+      "dataConfirmacao": "2026-10-07T18:42:14.922Z"
+    },
+    {
+      "id": "sub-1791398501906",
+      "txid": "TX-1791398501906-3238",
+      "reciboFiscalNfse": "NFS-2026-92767",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-07T18:41:41.906Z",
+      "autenticacaoBancaria": "BACEN-AUT-62A060037E89",
+      "dataConfirmacao": "2026-10-07T18:41:41.919Z"
+    },
+    {
+      "id": "sub-1791390860060",
+      "txid": "TX-1791390860060-5595",
+      "reciboFiscalNfse": "NFS-2026-76715",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-07T16:34:20.060Z",
+      "autenticacaoBancaria": "BACEN-AUT-734E124AE3E6",
+      "dataConfirmacao": "2026-10-07T16:34:20.080Z"
+    },
+    {
+      "id": "sub-1791390715587",
+      "txid": "TX-1791390715587-7744",
+      "reciboFiscalNfse": "NFS-2026-91853",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-07T16:31:55.587Z",
+      "autenticacaoBancaria": "BACEN-AUT-6440294D8B68",
+      "dataConfirmacao": "2026-10-07T16:32:13.189Z"
+    },
+    {
+      "id": "sub-1791208944426",
+      "txid": "TX-1791208944426-5612",
+      "reciboFiscalNfse": "NFS-2026-23515",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-05T14:02:24.426Z",
+      "autenticacaoBancaria": "BACEN-AUT-19F3801E6EA7"
+    }
+  ],
+  "planoAtivo": "PRO",
+  "rbac_grants": {
+    "PRODUTOR": {
+      "extraModuleIds": [],
+      "grantedBy": "SUPERADMIN",
+      "updatedAt": "2026-10-06T17:39:31.518Z"
+    },
+    "AGRONOMO": {
+      "extraModuleIds": [],
+      "grantedBy": "SUPERADMIN",
+      "updatedAt": "2026-10-06T17:39:31.529Z"
+    },
+    "OPERADOR": {
+      "extraModuleIds": [
+        "DRE_COMBOIO"
+      ],
+      "grantedBy": "SUPERADMIN",
+      "notes": "Liberação de auditoria de combustível para o Operador",
+      "updatedAt": "2026-10-06T17:53:04.251Z"
+    },
+    "CONTADOR": {
+      "extraModuleIds": [],
+      "grantedBy": "SUPERADMIN",
+      "updatedAt": "2026-10-06T17:39:31.529Z"
+    },
+    "VETERINARIO": {
+      "extraModuleIds": [],
+      "grantedBy": "SUPERADMIN",
+      "updatedAt": "2026-10-06T17:39:31.529Z"
+    }
+  },
+  "billingWebhookLogs": [
+    {
+      "id": "whk-1791475969637",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-08T16:12:49.637Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791475969613-4897",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791470480429",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-08T14:41:20.429Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791470480414-8957",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791470309694",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-08T14:38:29.694Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791470309678-8717",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791460415339",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-08T11:53:35.339Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791460415321-4975",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791460039684",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-08T11:47:19.684Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791460039668-6553",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791459614561",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-08T11:40:14.561Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791459614544-1775",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791459022061",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-08T11:30:22.061Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791459022043-9189",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791458545629",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-08T11:22:25.629Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791458545607-7606",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791458521603",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-08T11:22:01.603Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791458521586-7703",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791458478640",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-08T11:21:18.640Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791458478620-2104",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791458388700",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-08T11:19:48.700Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791458388678-3446",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791457754832",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-08T11:09:14.832Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791457754815-6574",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791457496158",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-08T11:04:56.158Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791457496141-8597",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791457066361",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-08T10:57:46.361Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791457066342-1740",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791406742207",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-07T20:59:02.207Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791406742193-8918",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791398534922",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-07T18:42:14.922Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791398534911-8567",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791398501919",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-07T18:41:41.919Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791398501906-3238",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791390860080",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-07T16:34:20.080Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791390860060-5595",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
+      "id": "whk-1791390733189",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-07T16:32:13.189Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791390715587-7744",
+        "amount": 12384
+      }
+    }
+  ],
+  "telemetriaHistorico": [
+    {
+      "timestamp": "2026-10-08T16:12:49.837Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-08T14:41:20.547Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-08T14:38:29.793Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-08T11:53:35.466Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-08T11:47:19.814Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-08T11:40:14.711Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-08T11:30:22.194Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-08T11:22:25.765Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-08T11:22:01.738Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-08T11:21:18.768Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-08T11:19:48.819Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-08T11:09:14.968Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-08T11:04:56.269Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-08T10:57:46.478Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-07T20:59:02.316Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-07T18:42:15.020Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-07T18:41:42.009Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-10-07T18:41:19.729Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    }
+  ],
+  "eudrDeclarations": [
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-89D0DD7C",
+      "tracesNtId": "TRACES-NT-9B95D33E7315",
+      "talhaoId": "talhao-09",
+      "carNumero": "MT-5107909-IRREGULAR",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1250,
+      "statusEUDR": "BLOQUEIO_SOCIOAMBIENTAL",
+      "conforme": false,
+      "irregularidades": [
+        {
+          "codigo": "EUDR_VIOLACAO_DESMATAMENTO",
+          "motivo": "Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas)."
+        },
+        {
+          "codigo": "EUDR_SOBREPOSICAO_TI",
+          "motivo": "Sobreposição detectada com Terra Indígena demarcada (FUNAI)."
+        }
+      ],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "7019f8116493c43e3cbe3dc5ac8898a0f1f0e82a0c7bf5990c9854d16eadd977",
+      "emitidoEm": "2026-10-08T16:12:50.316Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-23033",
+      "tracesNtId": "TRACES-NT-46214E061B7B",
+      "talhaoId": "talhao-01",
+      "carNumero": "MT-5107909-E8192841029",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1500,
+      "statusEUDR": "APTO_EXPORTACAO_UE",
+      "conforme": true,
+      "irregularidades": [],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "65f409bf399a7bc6192e71f53bae28ae4d6869064ab30f55a3298996ef7f44b5",
+      "emitidoEm": "2026-10-08T16:12:50.300Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-180C22AD",
+      "tracesNtId": "TRACES-NT-406A648B6BE7",
+      "talhaoId": "talhao-09",
+      "carNumero": "MT-5107909-IRREGULAR",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1250,
+      "statusEUDR": "BLOQUEIO_SOCIOAMBIENTAL",
+      "conforme": false,
+      "irregularidades": [
+        {
+          "codigo": "EUDR_VIOLACAO_DESMATAMENTO",
+          "motivo": "Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas)."
+        },
+        {
+          "codigo": "EUDR_SOBREPOSICAO_TI",
+          "motivo": "Sobreposição detectada com Terra Indígena demarcada (FUNAI)."
+        }
+      ],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "dd54905dd1c6eff7f12ae9a101e40d6c9183e39ad668835282777334fe574c4c",
+      "emitidoEm": "2026-10-08T14:41:20.694Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-10402",
+      "tracesNtId": "TRACES-NT-48B85CCD8E9F",
+      "talhaoId": "talhao-01",
+      "carNumero": "MT-5107909-E8192841029",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1500,
+      "statusEUDR": "APTO_EXPORTACAO_UE",
+      "conforme": true,
+      "irregularidades": [],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "36848a73bb00e6d5b7117c6ea0f0e77da28dc8d1fa4af5ccecf5bac5957ba12c",
+      "emitidoEm": "2026-10-08T14:41:20.687Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-4A931073",
+      "tracesNtId": "TRACES-NT-02823B4E1F40",
+      "talhaoId": "talhao-09",
+      "carNumero": "MT-5107909-IRREGULAR",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1250,
+      "statusEUDR": "BLOQUEIO_SOCIOAMBIENTAL",
+      "conforme": false,
+      "irregularidades": [
+        {
+          "codigo": "EUDR_VIOLACAO_DESMATAMENTO",
+          "motivo": "Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas)."
+        },
+        {
+          "codigo": "EUDR_SOBREPOSICAO_TI",
+          "motivo": "Sobreposição detectada com Terra Indígena demarcada (FUNAI)."
+        }
+      ],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "9b05806c2d940eb42c30d4d3be7264a88c15019a376c05a418466bb1ea762222",
+      "emitidoEm": "2026-10-08T14:38:30.001Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-77344",
+      "tracesNtId": "TRACES-NT-9363647CE8BC",
+      "talhaoId": "talhao-01",
+      "carNumero": "MT-5107909-E8192841029",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1500,
+      "statusEUDR": "APTO_EXPORTACAO_UE",
+      "conforme": true,
+      "irregularidades": [],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "0dac44e8b78ea34e4a523d8eb656124b990ce21bd2c031ec4021759442c6c665",
+      "emitidoEm": "2026-10-08T14:38:29.996Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-B66471DE",
+      "tracesNtId": "TRACES-NT-E551C4F317B5",
+      "talhaoId": "talhao-09",
+      "carNumero": "MT-5107909-IRREGULAR",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1250,
+      "statusEUDR": "BLOQUEIO_SOCIOAMBIENTAL",
+      "conforme": false,
+      "irregularidades": [
+        {
+          "codigo": "EUDR_VIOLACAO_DESMATAMENTO",
+          "motivo": "Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas)."
+        },
+        {
+          "codigo": "EUDR_SOBREPOSICAO_TI",
+          "motivo": "Sobreposição detectada com Terra Indígena demarcada (FUNAI)."
+        }
+      ],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "1d78c7f89688af2b0888ad183c9ceb5729c9b409a4fea09b51c18d2364f31db1",
+      "emitidoEm": "2026-10-08T11:53:35.727Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-95780",
+      "tracesNtId": "TRACES-NT-AB316861C17C",
+      "talhaoId": "talhao-01",
+      "carNumero": "MT-5107909-E8192841029",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1500,
+      "statusEUDR": "APTO_EXPORTACAO_UE",
+      "conforme": true,
+      "irregularidades": [],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "dec5d97b61eba8f6ec0934dd72b3dc8bbff1ce8359d76c8978de1cbcb1758016",
+      "emitidoEm": "2026-10-08T11:53:35.718Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-6A113CB4",
+      "tracesNtId": "TRACES-NT-89F728A5CD1D",
+      "talhaoId": "talhao-09",
+      "carNumero": "MT-5107909-IRREGULAR",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1250,
+      "statusEUDR": "BLOQUEIO_SOCIOAMBIENTAL",
+      "conforme": false,
+      "irregularidades": [
+        {
+          "codigo": "EUDR_VIOLACAO_DESMATAMENTO",
+          "motivo": "Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas)."
+        },
+        {
+          "codigo": "EUDR_SOBREPOSICAO_TI",
+          "motivo": "Sobreposição detectada com Terra Indígena demarcada (FUNAI)."
+        }
+      ],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "f6312b990fa63bd76906477866d009f3a7094328e85697b1900301b410140a2c",
+      "emitidoEm": "2026-10-08T11:47:20.084Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-55509",
+      "tracesNtId": "TRACES-NT-73F2EC1EF53C",
+      "talhaoId": "talhao-01",
+      "carNumero": "MT-5107909-E8192841029",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1500,
+      "statusEUDR": "APTO_EXPORTACAO_UE",
+      "conforme": true,
+      "irregularidades": [],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "b232f19813beb42576d4cf1d71ac99e6f1cee3ac5f93e7bebef53f973350efde",
+      "emitidoEm": "2026-10-08T11:47:20.077Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-26AB3194",
+      "tracesNtId": "TRACES-NT-08625B5DEBF3",
+      "talhaoId": "talhao-09",
+      "carNumero": "MT-5107909-IRREGULAR",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1250,
+      "statusEUDR": "BLOQUEIO_SOCIOAMBIENTAL",
+      "conforme": false,
+      "irregularidades": [
+        {
+          "codigo": "EUDR_VIOLACAO_DESMATAMENTO",
+          "motivo": "Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas)."
+        },
+        {
+          "codigo": "EUDR_SOBREPOSICAO_TI",
+          "motivo": "Sobreposição detectada com Terra Indígena demarcada (FUNAI)."
+        }
+      ],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "30320ef465c5641707666eebe7fd8731a3aba0de81889bc9290354b931463a6b",
+      "emitidoEm": "2026-10-08T11:40:14.971Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-82720",
+      "tracesNtId": "TRACES-NT-B483B7B5AA98",
+      "talhaoId": "talhao-01",
+      "carNumero": "MT-5107909-E8192841029",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1500,
+      "statusEUDR": "APTO_EXPORTACAO_UE",
+      "conforme": true,
+      "irregularidades": [],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "34825d9d7d80eb9c94040e88968de966d53c25103c9dc7c619cc98e9474d6f5e",
+      "emitidoEm": "2026-10-08T11:40:14.962Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-6226B8D3",
+      "tracesNtId": "TRACES-NT-B4EEAB2DEBE3",
+      "talhaoId": "talhao-09",
+      "carNumero": "MT-5107909-IRREGULAR",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1250,
+      "statusEUDR": "BLOQUEIO_SOCIOAMBIENTAL",
+      "conforme": false,
+      "irregularidades": [
+        {
+          "codigo": "EUDR_VIOLACAO_DESMATAMENTO",
+          "motivo": "Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas)."
+        },
+        {
+          "codigo": "EUDR_SOBREPOSICAO_TI",
+          "motivo": "Sobreposição detectada com Terra Indígena demarcada (FUNAI)."
+        }
+      ],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "3714ce28fd453b0c68dbd5721d2738a93c4bf3ccd47898e059d43b872e392cb9",
+      "emitidoEm": "2026-10-08T11:30:22.493Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-82149",
+      "tracesNtId": "TRACES-NT-12B53F01B581",
+      "talhaoId": "talhao-01",
+      "carNumero": "MT-5107909-E8192841029",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1500,
+      "statusEUDR": "APTO_EXPORTACAO_UE",
+      "conforme": true,
+      "irregularidades": [],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "073a73ce8ed23cf9e86cb7ea699944f1029e269e58fd3ad4780bedef3c0b0fde",
+      "emitidoEm": "2026-10-08T11:30:22.486Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-ECB9CC72",
+      "tracesNtId": "TRACES-NT-1EA222A473F7",
+      "talhaoId": "talhao-09",
+      "carNumero": "MT-5107909-IRREGULAR",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1250,
+      "statusEUDR": "BLOQUEIO_SOCIOAMBIENTAL",
+      "conforme": false,
+      "irregularidades": [
+        {
+          "codigo": "EUDR_VIOLACAO_DESMATAMENTO",
+          "motivo": "Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas)."
+        },
+        {
+          "codigo": "EUDR_SOBREPOSICAO_TI",
+          "motivo": "Sobreposição detectada com Terra Indígena demarcada (FUNAI)."
+        }
+      ],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "8564605ffe56d857491002ef83746e6c3a4493300b4e5de181d3f57d792715f8",
+      "emitidoEm": "2026-10-08T11:22:25.940Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-67859",
+      "tracesNtId": "TRACES-NT-9AE290A96428",
+      "talhaoId": "talhao-01",
+      "carNumero": "MT-5107909-E8192841029",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1500,
+      "statusEUDR": "APTO_EXPORTACAO_UE",
+      "conforme": true,
+      "irregularidades": [],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "67128f182ec6207011fb7df1f1aca7c5475cdc0475446dc06bf40dd52a5682aa",
+      "emitidoEm": "2026-10-08T11:22:25.932Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-747AD727",
+      "tracesNtId": "TRACES-NT-BB7221663097",
+      "talhaoId": "talhao-09",
+      "carNumero": "MT-5107909-IRREGULAR",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1250,
+      "statusEUDR": "BLOQUEIO_SOCIOAMBIENTAL",
+      "conforme": false,
+      "irregularidades": [
+        {
+          "codigo": "EUDR_VIOLACAO_DESMATAMENTO",
+          "motivo": "Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas)."
+        },
+        {
+          "codigo": "EUDR_SOBREPOSICAO_TI",
+          "motivo": "Sobreposição detectada com Terra Indígena demarcada (FUNAI)."
+        }
+      ],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "7f44f48c02b29e19367daa1a578cce07644177a6df3af910752ae845d123d949",
+      "emitidoEm": "2026-10-08T11:21:18.946Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-36848",
+      "tracesNtId": "TRACES-NT-4CC2CB143798",
+      "talhaoId": "talhao-01",
+      "carNumero": "MT-5107909-E8192841029",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1500,
+      "statusEUDR": "APTO_EXPORTACAO_UE",
+      "conforme": true,
+      "irregularidades": [],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "3c7d37ca6ff44bc6411da121fad9abdc564a8f854ad648061f82b774ea1c3176",
+      "emitidoEm": "2026-10-08T11:21:18.937Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-FE77B0BD",
+      "tracesNtId": "TRACES-NT-CC814E02D710",
+      "talhaoId": "talhao-09",
+      "carNumero": "MT-5107909-IRREGULAR",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1250,
+      "statusEUDR": "BLOQUEIO_SOCIOAMBIENTAL",
+      "conforme": false,
+      "irregularidades": [
+        {
+          "codigo": "EUDR_VIOLACAO_DESMATAMENTO",
+          "motivo": "Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas)."
+        },
+        {
+          "codigo": "EUDR_SOBREPOSICAO_TI",
+          "motivo": "Sobreposição detectada com Terra Indígena demarcada (FUNAI)."
+        }
+      ],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "7708536fb9cc4341436a1cf91dadb8d40544cd54fad0c7b49354d6b4d49dcb1e",
+      "emitidoEm": "2026-10-08T11:19:49.077Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-19585",
+      "tracesNtId": "TRACES-NT-79CFAE54DC8E",
+      "talhaoId": "talhao-01",
+      "carNumero": "MT-5107909-E8192841029",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1500,
+      "statusEUDR": "APTO_EXPORTACAO_UE",
+      "conforme": true,
+      "irregularidades": [],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "40c12a09e75ef5faaa947584eacf3172dff5ac0d467eabd4903e1ffcf0c1961f",
+      "emitidoEm": "2026-10-08T11:19:49.069Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-7D916EF1",
+      "tracesNtId": "TRACES-NT-5DBB169D392C",
+      "talhaoId": "talhao-09",
+      "carNumero": "MT-5107909-IRREGULAR",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1250,
+      "statusEUDR": "BLOQUEIO_SOCIOAMBIENTAL",
+      "conforme": false,
+      "irregularidades": [
+        {
+          "codigo": "EUDR_VIOLACAO_DESMATAMENTO",
+          "motivo": "Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas)."
+        },
+        {
+          "codigo": "EUDR_SOBREPOSICAO_TI",
+          "motivo": "Sobreposição detectada com Terra Indígena demarcada (FUNAI)."
+        }
+      ],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "404c48f1b0e0674d18df49d9b670e683f1c6f71cf0111cd0cca29d2a8606866b",
+      "emitidoEm": "2026-10-08T11:09:15.225Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-27352",
+      "tracesNtId": "TRACES-NT-F4DC88DBC55A",
+      "talhaoId": "talhao-01",
+      "carNumero": "MT-5107909-E8192841029",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1500,
+      "statusEUDR": "APTO_EXPORTACAO_UE",
+      "conforme": true,
+      "irregularidades": [],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "eaf470b802432ae8f920859613f8a81efc4c2a16b6224656b2a5bdf016ef492c",
+      "emitidoEm": "2026-10-08T11:09:15.217Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-90926E0F",
+      "tracesNtId": "TRACES-NT-6CD25667C381",
+      "talhaoId": "talhao-09",
+      "carNumero": "MT-5107909-IRREGULAR",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1250,
+      "statusEUDR": "BLOQUEIO_SOCIOAMBIENTAL",
+      "conforme": false,
+      "irregularidades": [
+        {
+          "codigo": "EUDR_VIOLACAO_DESMATAMENTO",
+          "motivo": "Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas)."
+        },
+        {
+          "codigo": "EUDR_SOBREPOSICAO_TI",
+          "motivo": "Sobreposição detectada com Terra Indígena demarcada (FUNAI)."
+        }
+      ],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "04ef3468acae29cd0cf552117a0783bfd117f359a5ee385f2810552d78da693c",
+      "emitidoEm": "2026-10-08T11:04:56.490Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-52186",
+      "tracesNtId": "TRACES-NT-D6EC9BE9197E",
+      "talhaoId": "talhao-01",
+      "carNumero": "MT-5107909-E8192841029",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1500,
+      "statusEUDR": "APTO_EXPORTACAO_UE",
+      "conforme": true,
+      "irregularidades": [],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "e4487a240a0f6bf1328d465bf2b781eb3758888e703d7890be4ca9a60645a021",
+      "emitidoEm": "2026-10-08T11:04:56.484Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-D90EB675",
+      "tracesNtId": "TRACES-NT-B8B0E24D43BF",
+      "talhaoId": "talhao-09",
+      "carNumero": "MT-5107909-IRREGULAR",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1250,
+      "statusEUDR": "BLOQUEIO_SOCIOAMBIENTAL",
+      "conforme": false,
+      "irregularidades": [
+        {
+          "codigo": "EUDR_VIOLACAO_DESMATAMENTO",
+          "motivo": "Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas)."
+        },
+        {
+          "codigo": "EUDR_SOBREPOSICAO_TI",
+          "motivo": "Sobreposição detectada com Terra Indígena demarcada (FUNAI)."
+        }
+      ],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "6620e73cf4ede98e2dc067b8b2063835c38cb11f4ef921f0434f02fec9674c61",
+      "emitidoEm": "2026-10-08T10:57:46.742Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-21992",
+      "tracesNtId": "TRACES-NT-19785410DBD5",
+      "talhaoId": "talhao-01",
+      "carNumero": "MT-5107909-E8192841029",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1500,
+      "statusEUDR": "APTO_EXPORTACAO_UE",
+      "conforme": true,
+      "irregularidades": [],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "e9c978a7f2e0e13c674ec737a6159e21c514800ecbc15c282cbbbc37abdb7c2c",
+      "emitidoEm": "2026-10-08T10:57:46.736Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-88C7CE38",
+      "tracesNtId": "TRACES-NT-18251DF015EA",
+      "talhaoId": "talhao-09",
+      "carNumero": "MT-5107909-IRREGULAR",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1250,
+      "statusEUDR": "BLOQUEIO_SOCIOAMBIENTAL",
+      "conforme": false,
+      "irregularidades": [
+        {
+          "codigo": "EUDR_VIOLACAO_DESMATAMENTO",
+          "motivo": "Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas)."
+        },
+        {
+          "codigo": "EUDR_SOBREPOSICAO_TI",
+          "motivo": "Sobreposição detectada com Terra Indígena demarcada (FUNAI)."
+        }
+      ],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "15f271ed78ef6badb601b5449a039d0703f3f665330b516da9fd1aa2a49945ea",
+      "emitidoEm": "2026-10-08T10:57:11.460Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-68583",
+      "tracesNtId": "TRACES-NT-DC09FB078981",
+      "talhaoId": "talhao-01",
+      "carNumero": "MT-5107909-E8192841029",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1500,
+      "statusEUDR": "APTO_EXPORTACAO_UE",
+      "conforme": true,
+      "irregularidades": [],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "3fffc23f24ece1b8e4d9ccfb486588def4a858ea0b34621987d108ada4fe59d8",
+      "emitidoEm": "2026-10-08T10:57:11.453Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    }
+  ],
+  "tenantCredentials": {
+    "tenant-fazenda-santa-helena": {
+      "tenantId": "tenant-fazenda-santa-helena",
+      "sefaz": {
+        "ambiente": "PRODUCAO",
+        "certificadoA1Configurado": true,
+        "nomeArquivo": "certificado_agro_2026.pfx",
+        "titular": "SCHNEIDER AGRICULTURA E PECUARIA LTDA",
+        "cnpj": "04.812.049/0001-20",
+        "emissor": "AC SERASA RFB v5 (ICP-Brasil)",
+        "validadeAte": "2027-10-08T16:12:50.533Z",
+        "diasRestantesValidade": 365,
+        "status": "VALIDO",
+        "ufAutorizadora": "MT",
+        "cscId": "000001",
+        "cscCodigo": "TOKEN_CSC_OFICIAL_SEFAZ_MT_91820",
+        "seriePadraoNfe": 1,
+        "proximoNumeroNfe": 4129,
+        "sha256Fingerprint": "74a4bc7712976ece10af19b0d8091b0b509eb59fc43c6f4171ee6d76300d2b70"
+      },
+      "bancario": {
+        "bancoPrincipal": "001 - Banco do Brasil",
+        "chavePix": "04.812.049/0001-20",
+        "tipoChavePix": "CNPJ",
+        "openFinanceAtivo": true,
+        "clientId": "bb-agro-prod-812049182",
+        "clientSecretConfigurado": true,
+        "convenioCobranca": "3491820",
+        "carteiraCobranca": "17",
+        "variacaoCarteira": "019",
+        "padraoCnab": "CNAB_240"
+      },
+      "mensageria": {
+        "provedor": "WHATSAPP_EVOLUTION_API",
+        "instancia": "agro-alerta-fazenda-01",
+        "tokenConfigurado": true,
+        "telefonePlantao": "+55 (66) 99988-7744",
+        "alertasAtivos": [
+          "ALERTA_SUPERAQUECIMENTO",
+          "ALERTA_PRESSAO_OLEO_BAIXA",
+          "ALERTA_SOBREROTACAO_MOTOR",
+          "CONFLITO_OUTBOX",
+          "VENCIMENTO_CPR_BARTER"
+        ],
+        "statusConexao": "CONECTADO",
+        "ultimaNotificacaoEnviada": "2026-10-08T16:12:50.552Z"
+      },
+      "sateliteClima": {
+        "provedorSatelite": "COPERNICUS_SENTINEL_2",
+        "apiKeyConfigurada": true,
+        "filtroNuvensMaximoPct": 20,
+        "estacaoMeteorologicaPropria": true,
+        "estacaoId": "INMET-A901-SORRISO-MT",
+        "estacaoLatitude": -12.5512,
+        "estacaoLongitude": -55.7098,
+        "sicarNumeroCar": "MT-5107909-089201948120491820"
+      },
+      "atualizadoEm": "2026-10-08T16:12:50.533Z"
+    }
+  }
 }

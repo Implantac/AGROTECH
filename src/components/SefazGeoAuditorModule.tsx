@@ -100,7 +100,7 @@ export const SefazGeoAuditorModule: React.FC = () => {
             </span>
             <span className="text-xs text-slate-600">SEFAZ / Receita Federal / IBAMA / SICAR</span>
           </div>
-          <h2 className="text-xl font-bold text-white flex items-center gap-2">
+          <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
             <FileCode className="w-5 h-5 text-indigo-400" /> SEFAZ Geo-Auditor & Assinador ICP-Brasil A1
           </h2>
           <p className="text-xs text-slate-600 mt-1">
@@ -109,8 +109,8 @@ export const SefazGeoAuditorModule: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="px-3 py-1.5 rounded-xl border border-emerald-800/80 bg-emerald-950/40 text-emerald-400 text-xs font-bold flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+          <div className="px-3 py-1.5 rounded-xl border border-emerald-800/80 bg-emerald-950/40 text-emerald-700 text-xs font-bold flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-emerald-700" />
             Certificado A1 Válido (245 dias)
           </div>
         </div>
@@ -121,10 +121,10 @@ export const SefazGeoAuditorModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-indigo-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Autoridade Emissora</span>
-            <Key className="w-4 h-4 text-emerald-400" />
+            <Key className="w-4 h-4 text-emerald-700" />
           </div>
           <div className="text-sm font-black text-white">{certInfo.emissor}</div>
-          <div className="text-[11px] text-emerald-400 font-medium mt-1 flex items-center gap-1">
+          <div className="text-[11px] text-emerald-700 font-medium mt-1 flex items-center gap-1">
             <CheckCircle2 className="w-3.5 h-3.5" />
             ICP-Brasil Válido até {certInfo.dataValidade}
           </div>
@@ -133,9 +133,9 @@ export const SefazGeoAuditorModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-indigo-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Último DigestValue SHA-256</span>
-            <FileCode className="w-4 h-4 text-cyan-400" />
+            <FileCode className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-sm font-mono font-bold text-cyan-400 truncate">{nfeAssinada.digestValue}</div>
+          <div className="text-sm font-mono font-bold text-sky-700 truncate">{nfeAssinada.digestValue}</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Canonicalização C14N Ativa
           </div>
@@ -144,10 +144,10 @@ export const SefazGeoAuditorModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-indigo-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Sobreposição APP</span>
-            <MapPin className="w-4 h-4 text-amber-400" />
+            <MapPin className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black text-amber-400">{analiseCar.pctAppSobreposta}%</div>
-          <div className="text-[11px] text-emerald-400 font-medium mt-1">
+          <div className="text-2xl font-black text-amber-700">{analiseCar.pctAppSobreposta}%</div>
+          <div className="text-[11px] text-emerald-700 font-medium mt-1">
             Preservada & Protegida
           </div>
         </div>
@@ -155,9 +155,9 @@ export const SefazGeoAuditorModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-indigo-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Crédito Rural & Tradings</span>
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <ShieldCheck className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-emerald-400">LIBERADO</div>
+          <div className="text-2xl font-black text-emerald-700">LIBERADO</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Zero embargo IBAMA
           </div>
@@ -171,7 +171,7 @@ export const SefazGeoAuditorModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'certificado'
               ? 'bg-indigo-600 text-white shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Lock className="w-4 h-4" />
@@ -183,7 +183,7 @@ export const SefazGeoAuditorModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'assinador_nfe'
               ? 'bg-indigo-600 text-white shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <FileCode className="w-4 h-4" />
@@ -195,7 +195,7 @@ export const SefazGeoAuditorModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'geo_car'
               ? 'bg-indigo-600 text-white shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <MapPin className="w-4 h-4" />
@@ -207,7 +207,7 @@ export const SefazGeoAuditorModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'validador_chave'
               ? 'bg-indigo-600 text-white shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Hash className="w-4 h-4" />
@@ -218,7 +218,7 @@ export const SefazGeoAuditorModule: React.FC = () => {
       {/* Conteúdo Aba 1: Certificado */}
       {activeTab === 'certificado' && (
         <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
             <Key className="w-5 h-5 text-indigo-400" />
             Detalhes da Chave Privada e Certificado Digital ICP-Brasil
           </h3>
@@ -231,7 +231,7 @@ export const SefazGeoAuditorModule: React.FC = () => {
               <span className="text-slate-600 block font-semibold">Titular do Certificado:</span>
               <p className="text-white font-bold text-sm">{certInfo.nomeTitular}</p>
               <span className="text-slate-600 block font-semibold mt-2">CNPJ do Produtor / Empresa:</span>
-              <p className="font-mono text-cyan-400 font-bold">{certInfo.cnpjCpf}</p>
+              <p className="font-mono text-sky-700 font-bold">{certInfo.cnpjCpf}</p>
             </div>
 
             <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
@@ -239,9 +239,9 @@ export const SefazGeoAuditorModule: React.FC = () => {
               <p className="text-white font-bold">{certInfo.emissor}</p>
               <div className="flex justify-between items-center mt-2">
                 <span className="text-slate-600">Validade:</span>
-                <span className="text-emerald-400 font-bold font-mono">Até {certInfo.dataValidade}</span>
+                <span className="text-emerald-700 font-bold font-mono">Até {certInfo.dataValidade}</span>
               </div>
-              <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden mt-1">
+              <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden mt-1">
                 <div className="bg-emerald-500 h-full w-[70%]"></div>
               </div>
             </div>
@@ -253,7 +253,7 @@ export const SefazGeoAuditorModule: React.FC = () => {
       {activeTab === 'assinador_nfe' && (
         <div className="space-y-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <FileCheck className="w-5 h-5 text-indigo-400" />
               Simulador de Emissão & Assinatura XML W3C C14N
             </h3>
@@ -292,7 +292,7 @@ export const SefazGeoAuditorModule: React.FC = () => {
 
             <button
               onClick={handleAssinarNFe}
-              className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-white text-xs transition-all shadow-md flex items-center gap-2"
+              className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-slate-900 text-xs transition-all shadow-md flex items-center gap-2"
             >
               <FileCode className="w-4 h-4" />
               Assinar Digitalmente e Transmitir à SEFAZ
@@ -301,8 +301,8 @@ export const SefazGeoAuditorModule: React.FC = () => {
 
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-3">
             <div className="flex justify-between items-center">
-              <span className="text-xs font-bold text-white">XML Assinado & Envelope SOAP SEFAZ:</span>
-              <span className="text-[11px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">
+              <span className="text-xs font-bold text-slate-900">XML Assinado & Envelope SOAP SEFAZ:</span>
+              <span className="text-[11px] font-mono text-emerald-700 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">
                 {nfeAssinada.statusSefaz}
               </span>
             </div>
@@ -317,7 +317,7 @@ export const SefazGeoAuditorModule: React.FC = () => {
       {activeTab === 'geo_car' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <MapPin className="w-5 h-5 text-indigo-400" />
               Auditoria de Polígono do Talhão vs CAR Oficial
             </h3>
@@ -355,7 +355,7 @@ export const SefazGeoAuditorModule: React.FC = () => {
 
               <button
                 onClick={handleAuditarGeo}
-                className="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-white transition-all shadow-md mt-2 flex items-center justify-center gap-2"
+                className="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-slate-900 transition-all shadow-md mt-2 flex items-center justify-center gap-2"
               >
                 <ShieldCheck className="w-4 h-4" />
                 Executar Auditoria Territorial
@@ -364,25 +364,25 @@ export const SefazGeoAuditorModule: React.FC = () => {
           </div>
 
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <Award className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <Award className="w-5 h-5 text-emerald-700" />
               Resultado da Conformidade Ambiental & EUDR
             </h3>
 
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3 text-xs">
               <div className="flex justify-between items-center py-1 border-b border-slate-200">
                 <span className="text-slate-600">Classificação de Risco:</span>
-                <span className="font-bold text-emerald-400 font-mono">{analiseCar.statusConformidade}</span>
+                <span className="font-bold text-emerald-700 font-mono">{analiseCar.statusConformidade}</span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-200">
                 <span className="text-slate-600">Elegibilidade para Crédito Bancário:</span>
-                <span className={`font-bold font-mono ${analiseCar.aptoCreditoRural ? 'text-emerald-400' : 'text-rose-400'}`}>
+                <span className={`font-bold font-mono ${analiseCar.aptoCreditoRural ? 'text-emerald-700' : 'text-rose-700'}`}>
                   {analiseCar.aptoCreditoRural ? '100% HABILITADO' : 'BLOQUEADO'}
                 </span>
               </div>
               <div className="flex justify-between items-center py-1">
                 <span className="text-slate-600">Reserva Legal Calculada:</span>
-                <span className="font-bold text-cyan-400 font-mono">{analiseCar.sobreposicaoReservaLegalHa} ha (20%)</span>
+                <span className="font-bold text-sky-700 font-mono">{analiseCar.sobreposicaoReservaLegalHa} ha (20%)</span>
               </div>
             </div>
           </div>
@@ -395,7 +395,7 @@ export const SefazGeoAuditorModule: React.FC = () => {
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
               <div>
-                <h3 className="text-base font-bold text-white flex items-center gap-2">
+                <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
                   <Hash className="w-5 h-5 text-indigo-400" />
                   Validador e Decompositor Oficial de Chave de Acesso SEFAZ (44 Dígitos)
                 </h3>
@@ -407,13 +407,13 @@ export const SefazGeoAuditorModule: React.FC = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setChaveInput('51260900123456000199550010000492811100000008')}
-                  className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-900 rounded-lg text-xs font-semibold transition"
+                  className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 rounded-lg text-xs font-semibold transition cursor-pointer"
                 >
                   Exemplo Válido
                 </button>
                 <button
                   onClick={() => setChaveInput('51260900123456000199550010000492811100000009')}
-                  className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-900 rounded-lg text-xs font-semibold transition"
+                  className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 rounded-lg text-xs font-semibold transition cursor-pointer"
                 >
                   Simular DV Inválido
                 </button>
@@ -427,14 +427,14 @@ export const SefazGeoAuditorModule: React.FC = () => {
                 value={chaveInput}
                 onChange={(e) => setChaveInput(e.target.value.replace(/\s+/g, ''))}
                 placeholder="Insira os 44 dígitos da chave de acesso (NF-e, MDF-e, CT-e, NFC-e)..."
-                className="w-full bg-slate-50 border border-slate-200 focus:border-indigo-500 rounded-xl p-3.5 pr-24 text-white font-mono text-sm tracking-widest placeholder:tracking-normal placeholder:text-slate-600 outline-none"
+                className="w-full bg-slate-50 border border-slate-200 focus:border-emerald-600 rounded-xl p-3.5 pr-24 text-slate-900 font-mono text-sm tracking-widest placeholder:tracking-normal placeholder:text-slate-400 outline-none"
                 maxLength={50}
               />
               <button
                 onClick={handleCopiarChave}
-                className="absolute right-2.5 top-2.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-900 rounded-lg text-xs flex items-center gap-1.5 transition"
+                className="absolute right-2.5 top-2.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 rounded-lg text-xs flex items-center gap-1.5 transition cursor-pointer"
               >
-                {copiado ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                {copiado ? <Check className="w-3.5 h-3.5 text-emerald-700" /> : <Copy className="w-3.5 h-3.5" />}
                 {copiado ? 'Copiado' : 'Copiar'}
               </button>
             </div>
@@ -443,14 +443,14 @@ export const SefazGeoAuditorModule: React.FC = () => {
             <div
               className={`p-4 rounded-xl border flex items-center gap-3 text-xs font-medium ${
                 analiseChave.valida
-                  ? 'bg-emerald-950/40 border-emerald-800/80 text-emerald-300'
+                  ? 'bg-emerald-950/40 border-emerald-800/80 text-emerald-800'
                   : 'bg-rose-950/40 border-rose-800/80 text-rose-300'
               }`}
             >
               {analiseChave.valida ? (
-                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0" />
               ) : (
-                <AlertTriangle className="w-5 h-5 text-rose-400 shrink-0" />
+                <AlertTriangle className="w-5 h-5 text-rose-700 shrink-0" />
               )}
               <div className="flex-1">
                 <span className="font-bold block text-sm">
@@ -459,7 +459,7 @@ export const SefazGeoAuditorModule: React.FC = () => {
                 <span>{analiseChave.mensagem}</span>
               </div>
               <div className="text-right font-mono text-xs font-bold">
-                DV Informado: <b className="text-white">{analiseChave.dvInformado}</b> | Calculado: <b className={analiseChave.valida ? 'text-emerald-400' : 'text-rose-400'}>{analiseChave.dvCalculado}</b>
+                DV Informado: <b className="text-white">{analiseChave.dvInformado}</b> | Calculado: <b className={analiseChave.valida ? 'text-emerald-700' : 'text-rose-700'}>{analiseChave.dvCalculado}</b>
               </div>
             </div>
 
@@ -479,7 +479,7 @@ export const SefazGeoAuditorModule: React.FC = () => {
 
               <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
                 <span className="text-slate-600 text-[11px] block">3. CNPJ do Emitente:</span>
-                <p className="text-cyan-400 font-bold font-mono text-sm mt-0.5">{analiseChave.cnpjFormatado || '-'}</p>
+                <p className="text-sky-700 font-bold font-mono text-sm mt-0.5">{analiseChave.cnpjFormatado || '-'}</p>
                 <span className="text-[10px] text-slate-500 font-mono">14 Dígitos RFB</span>
               </div>
 

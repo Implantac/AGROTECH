@@ -103,11 +103,11 @@ export const MercadoCarbonoSBCEModule: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2.5 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-400">
+              <div className="p-2.5 rounded-xl bg-teal-500/20 border border-teal-500/30 text-teal-700">
                 <Globe className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Mercado Regulado de Carbono • SBCE & Finanças Verdes
                   <span className="text-xs px-2.5 py-0.5 rounded-full bg-teal-500/20 text-teal-300 font-mono border border-teal-500/30">
                     SBCE • Artigo 6 Paris • CPR Verde
@@ -121,7 +121,7 @@ export const MercadoCarbonoSBCEModule: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-300 border-emerald-500/40 flex items-center gap-1.5">
+            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-800 border-emerald-500/40 flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4" />
               Fazenda Carbono Negativo ({sbceMetrics.saldoLiquidoTonCo2Ano.toLocaleString('pt-BR')} t CO₂eq saldo)
             </span>
@@ -135,9 +135,9 @@ export const MercadoCarbonoSBCEModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Remoção Líquida</span>
-            <Leaf className="w-4 h-4 text-emerald-400" />
+            <Leaf className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
+          <div className="text-2xl font-black mt-2 font-mono text-emerald-700">
             +{sbceMetrics.saldoLiquidoTonCo2Ano.toLocaleString('pt-BR')}{' '}
             <span className="text-xs font-normal text-slate-600">t CO₂eq/ano</span>
           </div>
@@ -150,9 +150,9 @@ export const MercadoCarbonoSBCEModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Deságio de Juros (Plano Safra)</span>
-            <Landmark className="w-4 h-4 text-cyan-400" />
+            <Landmark className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
+          <div className="text-2xl font-black mt-2 font-mono text-sky-700">
             R$ {sbceMetrics.economiaJurosBancariosReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
             <span className="text-xs font-normal text-slate-600">/ ano</span>
           </div>
@@ -165,9 +165,9 @@ export const MercadoCarbonoSBCEModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Receita Venda de Créditos</span>
-            <Coins className="w-4 h-4 text-amber-400" />
+            <Coins className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-amber-400">
+          <div className="text-2xl font-black mt-2 font-mono text-amber-700">
             R$ {sbceMetrics.receitaVendaCreditosReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -181,9 +181,9 @@ export const MercadoCarbonoSBCEModule: React.FC = () => {
             <span>Benefício Verde Total</span>
             <TrendingUp className="w-4 h-4 text-white" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-white">
+          <div className="text-2xl font-black mt-2 font-mono text-slate-800">
             R$ {sbceMetrics.beneficioEconomicoTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
-            <span className="text-xs font-normal text-emerald-400">/ ano</span>
+            <span className="text-xs font-normal text-emerald-700">/ ano</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Retorno: +R$ {sbceMetrics.beneficioPorHaReais.toFixed(2)}/ha em finanças sustentáveis.
@@ -197,8 +197,8 @@ export const MercadoCarbonoSBCEModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <Layers className="w-5 h-5 text-teal-400" />
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <Layers className="w-5 h-5 text-teal-700" />
                 Projetos & Ativos de Sequestro na Fazenda
               </h3>
               <p className="text-xs text-slate-600">
@@ -221,17 +221,17 @@ export const MercadoCarbonoSBCEModule: React.FC = () => {
                     <span className="px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 font-mono text-xs font-bold border border-teal-500/30">
                       {p.id}
                     </span>
-                    <h4 className="text-xs font-bold text-white">{p.nome}</h4>
+                    <h4 className="text-xs font-bold text-slate-900">{p.nome}</h4>
                   </div>
-                  <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono border border-emerald-500/30">
+                  <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-800 text-[10px] font-mono border border-emerald-500/30">
                     {p.statusCertificacao.replace(/_/g, ' ')}
                   </span>
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-600">
                   <span>Área: <strong className="text-white">{p.areaHa.toLocaleString('pt-BR')} ha</strong></span>
-                  <span>Remoção Anual: <strong className="text-emerald-400">+{p.remocaoTonCo2Ano.toLocaleString('pt-BR')} t CO₂eq</strong></span>
-                  <span>Taxa: <strong className="text-cyan-400">{(p.remocaoTonCo2Ano / p.areaHa).toFixed(2)} t CO₂/ha</strong></span>
+                  <span>Remoção Anual: <strong className="text-emerald-700">+{p.remocaoTonCo2Ano.toLocaleString('pt-BR')} t CO₂eq</strong></span>
+                  <span>Taxa: <strong className="text-sky-700">{(p.remocaoTonCo2Ano / p.areaHa).toFixed(2)} t CO₂/ha</strong></span>
                 </div>
               </div>
             ))}
@@ -239,7 +239,7 @@ export const MercadoCarbonoSBCEModule: React.FC = () => {
 
           {/* Banner Técnico SBCE */}
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
-            <div className="flex items-center gap-2 text-teal-400 font-semibold">
+            <div className="flex items-center gap-2 text-teal-700 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes do Sistema Brasileiro de Comércio de Emissões (SBCE):
             </div>
@@ -259,8 +259,8 @@ export const MercadoCarbonoSBCEModule: React.FC = () => {
 
         {/* Painel Direito: Parâmetros Financeiros */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Landmark className="w-5 h-5 text-cyan-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Landmark className="w-5 h-5 text-sky-700" />
             Parâmetros Financeiros Verdes
           </h3>
 
@@ -289,7 +289,7 @@ export const MercadoCarbonoSBCEModule: React.FC = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span className="text-slate-600 font-medium">Desconto de Juros Verde (% a.a.)</span>
-                <span className="text-cyan-400 font-mono font-bold">-{descontoJurosVerdePct}% a.a.</span>
+                <span className="text-sky-700 font-mono font-bold">-{descontoJurosVerdePct}% a.a.</span>
               </div>
               <input
                 type="range"
@@ -316,19 +316,19 @@ export const MercadoCarbonoSBCEModule: React.FC = () => {
             <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
                 <span className="text-slate-600">Economia no Custeio:</span>
-                <span className="text-cyan-400 font-mono font-bold">
+                <span className="text-sky-700 font-mono font-bold">
                   R$ {sbceMetrics.economiaJurosBancariosReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600">Venda no Mercado:</span>
-                <span className="text-amber-400 font-mono font-bold">
+                <span className="text-amber-700 font-mono font-bold">
                   R$ {sbceMetrics.receitaVendaCreditosReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Lucro Verde Total:</span>
-                <span className="text-emerald-400 font-mono">
+                <span className="text-emerald-700 font-mono">
                   R$ {sbceMetrics.beneficioEconomicoTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })} / ano
                 </span>
               </div>

@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
 import {
-  Sprout,
   Trophy,
-  Scale,
-  TrendingUp,
   Download,
   CheckCircle2,
-  AlertCircle,
   Calculator,
-  Layers,
-  Sparkles,
   BarChart3
 } from 'lucide-react';
 
@@ -111,42 +105,39 @@ export const EnsaioVariedadesModule: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Top Banner Header */}
-      <div className="bg-gradient-to-r from-emerald-950 via-teal-950 to-slate-950 border border-emerald-800/40 rounded-2xl p-6 shadow-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 relative z-10">
-          <div>
-            <div className="flex items-center gap-3 mb-2">
-              <span className="p-2.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl">
-                <Trophy className="w-6 h-6" />
-              </span>
-              <div>
-                <div className="flex items-center gap-2">
-                  <h1 className="text-2xl font-bold text-white tracking-wide">
-                    Ensaio de Variedades & Lado a Lado (Strip-Trials)
-                  </h1>
-                  <span className="px-2.5 py-0.5 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
-                    Fitotecnia de Precisão
-                  </span>
-                </div>
-                <p className="text-stone-300 text-sm mt-0.5">
-                  Comparação pareada de cultivares, correção de umidade Conab (13,0%) e teste estatístico de Tukey (DMS).
-                </p>
+      {/* Top Header Card */}
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-2xs">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+          <div className="flex items-center gap-3">
+            <span className="p-2.5 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl">
+              <Trophy className="w-6 h-6 text-emerald-700" />
+            </span>
+            <div>
+              <div className="flex items-center gap-2">
+                <h1 className="text-xl font-bold text-slate-900">
+                  Ensaio de Variedades & Lado a Lado (Strip-Trials)
+                </h1>
+                <span className="px-2.5 py-0.5 text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full">
+                  Fitotecnia de Precisão
+                </span>
               </div>
+              <p className="text-slate-500 text-xs mt-0.5">
+                Comparação pareada de cultivares, correção de umidade Conab (13,0%) e teste estatístico de Tukey (DMS).
+              </p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             <button
               onClick={() => alert('Laudo Técnico Comparativo de Strip-Trial emitido com matriz de significância estatística Tukey!')}
-              className="flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-sm font-semibold transition shadow-lg shadow-emerald-950/40"
+              className="flex items-center gap-2 px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-semibold transition cursor-pointer shadow-2xs"
             >
               <Download className="w-4 h-4" />
               Laudo do Ensaio
             </button>
-            <div className="text-right pl-4 border-l border-emerald-800/60 hidden sm:block">
-              <div className="text-xs text-stone-400">Variedade Campeã</div>
-              <div className="text-xl font-bold text-emerald-300">{campeao.nomeComercial}</div>
+            <div className="text-right pl-4 border-l border-slate-200 hidden sm:block">
+              <div className="text-[11px] text-slate-500">Variedade Campeã</div>
+              <div className="text-lg font-bold text-emerald-700">{campeao.nomeComercial}</div>
             </div>
           </div>
         </div>
@@ -154,43 +145,43 @@ export const EnsaioVariedadesModule: React.FC = () => {
 
       {/* 4 Summary Metric Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Produtividade Máxima (13%)</div>
-          <div className="text-2xl font-bold text-emerald-400 mt-1">
-            {campeao.prodLiquidaScHa} <span className="text-sm font-normal text-stone-400">sc/ha</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Produtividade Máxima (13%)</div>
+          <div className="text-2xl font-bold text-emerald-700 mt-1">
+            {campeao.prodLiquidaScHa} <span className="text-sm font-normal text-slate-400">sc/ha</span>
           </div>
-          <div className="text-xs text-stone-500 mt-1 truncate">
+          <div className="text-xs text-slate-500 mt-1 truncate">
             {campeao.nomeComercial} ({campeao.biotecnologia})
           </div>
         </div>
 
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Diferença vs 2º Lugar</div>
-          <div className="text-2xl font-bold text-cyan-300 mt-1">
-            +{diferencaCampeaoScHa} <span className="text-sm font-normal text-stone-400">sc/ha</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Diferença vs 2º Lugar</div>
+          <div className="text-2xl font-bold text-slate-900 mt-1">
+            +{diferencaCampeaoScHa} <span className="text-sm font-normal text-slate-400">sc/ha</span>
           </div>
-          <div className="text-xs text-stone-400 mt-1">
+          <div className="text-xs text-slate-500 mt-1">
             {ehEstatisticamenteSuperior ? 'Superioridade Comprovada (p < 0.05)' : 'Empate Estatístico (DMS = 3.5 sc/ha)'}
           </div>
         </div>
 
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">DMS Tukey 5% de Probabilidade</div>
-          <div className="text-2xl font-bold text-white mt-1">
-            {dmsTukeyScHa.toFixed(1)} <span className="text-sm font-normal text-stone-400">sc/ha</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">DMS Tukey (5% Prob.)</div>
+          <div className="text-2xl font-bold text-slate-900 mt-1">
+            {dmsTukeyScHa.toFixed(1)} <span className="text-sm font-normal text-slate-400">sc/ha</span>
           </div>
-          <div className="text-xs text-stone-500 mt-1">
+          <div className="text-xs text-slate-500 mt-1">
             Limiar mínimo de significância real
           </div>
         </div>
 
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Ganho Marginal Previsto</div>
-          <div className="text-2xl font-bold text-emerald-400 mt-1">
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Ganho Marginal Previsto</div>
+          <div className="text-2xl font-bold text-emerald-700 mt-1">
             R$ {ganhoMarginalFinanceiroReais.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </div>
-          <div className="text-xs text-stone-500 mt-1">
-            Em {areaPlanejadaProximaSafraHa} ha alocados na próxima safra
+          <div className="text-xs text-slate-500 mt-1">
+            Em {areaPlanejadaProximaSafraHa} ha na próxima safra
           </div>
         </div>
       </div>
@@ -200,15 +191,15 @@ export const EnsaioVariedadesModule: React.FC = () => {
 
         {/* Left Column: Strip-Trial Results Ranking Table (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
-          <div className="bg-stone-900/90 border border-stone-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <BarChart3 className="w-5 h-5 text-emerald-400" />
-                <h2 className="text-lg font-semibold text-white">
+                <BarChart3 className="w-5 h-5 text-emerald-700" />
+                <h2 className="text-base font-bold text-slate-900">
                   Ranking Pareado de Produtividade Padronizada (13,0%)
                 </h2>
               </div>
-              <span className="text-xs text-stone-400 font-mono">Padrão Conab</span>
+              <span className="text-xs text-slate-500 font-mono">Padrão Conab</span>
             </div>
 
             <div className="space-y-3">
@@ -219,39 +210,39 @@ export const EnsaioVariedadesModule: React.FC = () => {
                     key={cult.id}
                     className={`p-4 rounded-xl border transition-all ${
                       isChampion
-                        ? 'bg-emerald-950/40 border-emerald-500/80 shadow-md ring-1 ring-emerald-500/40'
-                        : 'bg-stone-800/40 border-stone-700/60'
+                        ? 'bg-emerald-50/70 border-emerald-300 shadow-2xs'
+                        : 'bg-slate-50/60 border-slate-200'
                     }`}
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                       <div>
                         <div className="flex items-center gap-2">
                           <span className={`px-2 py-0.5 rounded text-xs font-bold ${
-                            isChampion ? 'bg-emerald-500 text-slate-950' : 'bg-stone-700 text-stone-300'
+                            isChampion ? 'bg-emerald-700 text-white' : 'bg-slate-200 text-slate-700'
                           }`}>
                             #{idx + 1}
                           </span>
-                          <span className="font-bold text-white text-sm">{cult.nomeComercial}</span>
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-slate-800 text-slate-900 border border-slate-700">
+                          <span className="font-bold text-slate-900 text-sm">{cult.nomeComercial}</span>
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-slate-100 text-slate-700 border border-slate-200">
                             GMR {cult.gmr} • {cult.cicloMedioDias} dias
                           </span>
                         </div>
-                        <div className="text-xs text-stone-400 mt-1">
-                          Obtentor: <span className="text-stone-300">{cult.obtentor}</span> • PMS: {cult.pesoMilSementesGramas} g • {(cult.populacaoPlantasHa / 1000).toFixed(0)}k pl/ha
+                        <div className="text-xs text-slate-500 mt-1">
+                          Obtentor: <span className="text-slate-700">{cult.obtentor}</span> • PMS: {cult.pesoMilSementesGramas} g • {(cult.populacaoPlantasHa / 1000).toFixed(0)}k pl/ha
                         </div>
-                        <div className="text-[11px] text-stone-500 mt-0.5">
+                        <div className="text-[11px] text-slate-400 mt-0.5">
                           Tolerâncias: {cult.resistenciaDoencas.join(' • ')}
                         </div>
                       </div>
 
                       <div className="text-right shrink-0">
-                        <div className="text-xs text-stone-400">
+                        <div className="text-xs text-slate-500">
                           Colhido: {cult.produtividadeBrutaScHa} sc/ha @ {cult.umidadeColheitaPct}%
                         </div>
-                        <div className="text-xl font-black text-emerald-400">
-                          {cult.prodLiquidaScHa} <span className="text-xs font-normal text-stone-400">sc/ha</span>
+                        <div className="text-xl font-black text-emerald-700">
+                          {cult.prodLiquidaScHa} <span className="text-xs font-normal text-slate-400">sc/ha</span>
                         </div>
-                        <div className="text-[11px] text-stone-400 font-mono">
+                        <div className="text-[11px] text-slate-500 font-mono">
                           R$ {cult.faturamentoBrutoHa.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}/ha
                         </div>
                       </div>
@@ -262,13 +253,13 @@ export const EnsaioVariedadesModule: React.FC = () => {
             </div>
 
             {/* Explicação Estatística Tukey */}
-            <div className="mt-4 p-4 bg-emerald-950/20 border border-emerald-900/40 rounded-xl text-xs text-stone-300 flex items-start gap-2.5">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+            <div className="mt-4 p-4 bg-emerald-50/60 border border-emerald-200/80 rounded-xl text-xs text-slate-600 flex items-start gap-2.5">
+              <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
               <div>
-                <span className="font-semibold text-emerald-300 block mb-0.5">
+                <span className="font-semibold text-emerald-900 block mb-0.5">
                   Conclusão Estatística do Teste de Médias (Tukey 5%):
                 </span>
-                A cultivar <strong>{campeao.nomeComercial}</strong> superou a segunda colocada ({segundoLugar.nomeComercial}) por <strong>+{diferencaCampeaoScHa} sc/ha</strong>, superando a Diferença Mínima Significativa calculada ({dmsTukeyScHa} sc/ha). A superioridade agronômica é estatisticamente real e recomendada para ampliação de plantio na safra seguinte.
+                A cultivar <strong className="text-slate-900">{campeao.nomeComercial}</strong> superou a segunda colocada ({segundoLugar.nomeComercial}) por <strong>+{diferencaCampeaoScHa} sc/ha</strong>, superando a Diferença Mínima Significativa calculada ({dmsTukeyScHa} sc/ha). A superioridade agronômica é estatisticamente real e recomendada para ampliação de plantio na safra seguinte.
               </div>
             </div>
           </div>
@@ -276,77 +267,77 @@ export const EnsaioVariedadesModule: React.FC = () => {
 
         {/* Right Column: Varietal Allocation & Financial Margin Simulator (5 cols) */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="bg-stone-900/90 border border-stone-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <Calculator className="w-5 h-5 text-emerald-400" />
-                <h2 className="text-lg font-semibold text-white">
+                <Calculator className="w-5 h-5 text-emerald-700" />
+                <h2 className="text-base font-bold text-slate-900">
                   Planejamento da Próxima Safra
                 </h2>
               </div>
-              <span className="text-xs bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 px-2 py-0.5 rounded">
+              <span className="text-xs bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded font-semibold">
                 Decisão Varietal
               </span>
             </div>
 
-            <p className="text-xs text-stone-400 mb-5">
+            <p className="text-xs text-slate-500 mb-5">
               Simule a substituição de área da variedade secundária pela variedade campeã do ensaio lado a lado.
             </p>
 
             <div className="space-y-4 text-xs">
               <div>
-                <label className="text-stone-400 font-medium block mb-1">Área a Alocar com a Variedade Campeã (ha)</label>
+                <label className="text-slate-600 font-medium block mb-1">Área a Alocar com a Variedade Campeã (ha)</label>
                 <input
                   type="number"
                   step="50"
                   value={areaPlanejadaProximaSafraHa}
                   onChange={(e) => setAreaPlanejadaProximaSafraHa(Number(e.target.value))}
-                  className="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-white font-semibold focus:border-emerald-500"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500"
                 />
               </div>
 
               <div>
-                <label className="text-stone-400 font-medium block mb-1">Preço Projetado da Saca de Soja (R$/sc)</label>
+                <label className="text-slate-600 font-medium block mb-1">Preço Projetado da Saca de Soja (R$/sc)</label>
                 <input
                   type="number"
                   step="1.0"
                   value={precoSacaVenda}
                   onChange={(e) => setPrecoSacaVenda(Number(e.target.value))}
-                  className="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-white font-semibold focus:border-emerald-500"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500"
                 />
               </div>
 
               <div>
-                <label className="text-stone-400 font-medium block mb-1">DMS Tukey (Sensibilidade do Ensaio em sc/ha)</label>
+                <label className="text-slate-600 font-medium block mb-1">DMS Tukey (Sensibilidade do Ensaio em sc/ha)</label>
                 <input
                   type="number"
                   step="0.5"
                   value={dmsTukeyScHa}
                   onChange={(e) => setDmsTukeyScHa(Number(e.target.value))}
-                  className="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-white font-semibold focus:border-emerald-500"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500"
                 />
               </div>
             </div>
 
             {/* Financial Results Output Box */}
-            <div className="mt-6 p-4 bg-stone-950/80 border border-stone-800 rounded-xl space-y-3 text-xs">
+            <div className="mt-6 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3 text-xs">
               <div className="flex justify-between items-center">
-                <span className="text-stone-400">Ganho Adicional por Hectare:</span>
-                <span className="text-emerald-400 font-bold text-sm">
+                <span className="text-slate-500">Ganho Adicional por Hectare:</span>
+                <span className="text-emerald-700 font-bold text-sm">
                   +{diferencaCampeaoScHa} sc/ha (R$ {(diferencaCampeaoScHa * precoSacaVenda).toFixed(2)}/ha)
                 </span>
               </div>
 
               <div className="flex justify-between items-center">
-                <span className="text-stone-400">Produção Adicional Total:</span>
-                <span className="text-white font-semibold">
+                <span className="text-slate-500">Produção Adicional Total:</span>
+                <span className="text-slate-900 font-semibold">
                   +{ganhoMarginalSacasTotal.toLocaleString('pt-BR')} sacas
                 </span>
               </div>
 
-              <div className="pt-2 border-t border-stone-800 flex justify-between items-center">
-                <span className="font-semibold text-white">Resultado Financeiro Marginal:</span>
-                <span className="text-emerald-400 font-black text-lg">
+              <div className="pt-2 border-t border-slate-200 flex justify-between items-center">
+                <span className="font-semibold text-slate-900">Resultado Financeiro Marginal:</span>
+                <span className="text-emerald-700 font-black text-lg">
                   R$ {ganhoMarginalFinanceiroReais.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
               </div>
@@ -358,3 +349,4 @@ export const EnsaioVariedadesModule: React.FC = () => {
     </div>
   );
 };
+export default EnsaioVariedadesModule;

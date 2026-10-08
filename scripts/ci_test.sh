@@ -21,7 +21,8 @@ echo ""
 # 3. Execução dos Testes da Landing Page, Onboarding e Autenticação
 echo "▶ [3/6] Executando Suíte de Validação da Landing Page e Onboarding..."
 node /home/user/scripts/test_landing_and_login.mjs
-echo "   ✓ Todos os requisitos de Landing e Onboarding aprovados."
+node /home/user/agtech-platform/scripts/test_rbac_governance.mjs
+echo "   ✓ Todos os requisitos de Landing, Onboarding e Governança RBAC aprovados."
 echo ""
 
 # 4. Testes de Renderização SSR de Todos os Componentes

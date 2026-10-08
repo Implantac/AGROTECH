@@ -109,17 +109,17 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-rose-500 to-pink-500 flex items-center justify-center shadow-lg shadow-rose-500/20">
             <Flower2 className="w-7 h-7 text-white" />
           </div>
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-bold text-white tracking-tight">
+              <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
                 Floricultura & Flores Nobres em Estufa
               </h1>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/20">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-500/10 text-rose-700 border border-rose-500/20">
                 Módulo 121 • Rosas de Corte, Phalaenopsis & Pulsagem Sacarose
               </span>
             </div>
@@ -142,38 +142,38 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Produção Anual Total</span>
-            <Flower2 className="w-5 h-5 text-rose-400" />
+            <Flower2 className="w-5 h-5 text-rose-700" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             {metricas.producaoTotalHastes.toLocaleString('pt-BR')} hastes
           </p>
-          <span className="text-xs text-rose-400 mt-1 block">
+          <span className="text-xs text-rose-700 mt-1 block">
             {hastesPorMetroAno} hastes/m² ano
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Hastes Classe Extra A1</span>
             <Sparkles className="w-5 h-5 text-pink-400" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             {metricas.hastesA1.toLocaleString('pt-BR')}
           </p>
-          <span className="text-xs text-emerald-400 mt-1 block">
+          <span className="text-xs text-emerald-700 mt-1 block">
             {proporcaoClasseA1Pct}% de aproveitamento nobre
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Receita Bruta Anual</span>
             <TrendingUp className="w-5 h-5 text-yellow-400" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             R$ {(metricas.receitaBrutaReais / 1000).toFixed(1)}k
           </p>
           <span className="text-xs text-yellow-400 mt-1 block">
@@ -181,15 +181,15 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Lucro Líquido Anual</span>
-            <Award className="w-5 h-5 text-emerald-400" />
+            <Award className="w-5 h-5 text-emerald-700" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             R$ {(metricas.lucroLiquidoReais / 1000).toFixed(1)}k
           </p>
-          <span className="text-xs text-emerald-400 mt-1 block">
+          <span className="text-xs text-emerald-700 mt-1 block">
             {metricas.margemLiquidaPct}% Margem Líquida
           </span>
         </div>
@@ -201,8 +201,8 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
           onClick={() => setActiveTab('estufas')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'estufas'
-              ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-rose-50 text-rose-800 border border-rose-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -213,8 +213,8 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
           onClick={() => setActiveTab('pulsagem')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'pulsagem'
-              ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-rose-50 text-rose-800 border border-rose-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Droplets className="w-4 h-4" />
@@ -225,8 +225,8 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
           onClick={() => setActiveTab('qualidade')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'qualidade'
-              ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-rose-50 text-rose-800 border border-rose-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -237,8 +237,8 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
-              ? 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-rose-50 text-rose-800 border border-rose-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -248,9 +248,9 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'estufas' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6 space-y-4">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
-            <Flower2 className="w-5 h-5 text-rose-400" />
+        <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-4 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
+            <Flower2 className="w-5 h-5 text-rose-700" />
             Monitoramento de Estufas com Telas Termo-Refletoras & Pad-Fan
           </h3>
 
@@ -267,22 +267,22 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
                   <th className="px-4 py-3">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-slate-100">
                 {estufas.map((e) => (
-                  <tr key={e.id} className="hover:bg-slate-800/30">
-                    <td className="px-4 py-3 font-medium text-white">{e.estufa}</td>
+                  <tr key={e.id} className="hover:bg-slate-50/80">
+                    <td className="px-4 py-3 font-bold text-slate-900">{e.estufa}</td>
                     <td className="px-4 py-3">
-                      <span className="text-rose-400 font-semibold">{e.especie}</span>
+                      <span className="text-rose-700 font-semibold">{e.especie}</span>
                       <span className="block text-xs text-slate-600">{e.cultivar}</span>
                     </td>
                     <td className="px-4 py-3">{e.areaM2} m²</td>
-                    <td className="px-4 py-3 font-bold text-white">{e.hastesM2Ano} hastes/m²</td>
-                    <td className="px-4 py-3 text-emerald-400 font-semibold">{e.comprimentoMedioHasteCm} cm</td>
+                    <td className="px-4 py-3 font-bold text-slate-900">{e.hastesM2Ano} hastes/m²</td>
+                    <td className="px-4 py-3 text-emerald-700 font-semibold">{e.comprimentoMedioHasteCm} cm</td>
                     <td className="px-4 py-3 text-xs">
                       {e.temperaturaMediaC}°C | {e.umidadeRelativaPct}% UR
                     </td>
                     <td className="px-4 py-3">
-                      <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/20">
+                      <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-rose-500/10 text-rose-700 border border-rose-500/20">
                         {e.status}
                       </span>
                     </td>
@@ -296,38 +296,38 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
 
       {activeTab === 'pulsagem' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
-              <Droplets className="w-5 h-5 text-rose-400" />
-              <h4 className="text-sm font-semibold text-white">Solução de Pulsagem com Sacarose</h4>
+              <Droplets className="w-5 h-5 text-rose-700" />
+              <h4 className="text-sm font-semibold text-slate-900">Solução de Pulsagem com Sacarose</h4>
             </div>
             <p className="text-xs text-slate-600">
               Imersão basal das hastes imediatamente após o corte em água desmineralizada com 2% a 4% de sacarose e sulfato de alumínio para acidificação (pH 3.5 a 4.0).
             </p>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
               <span className="text-xs text-slate-600">Absorção Rápida:</span>
-              <span className="text-sm font-bold text-rose-400 block">4 a 6 horas em câmara a 4°C</span>
+              <span className="text-sm font-bold text-rose-700 block">4 a 6 horas em câmara a 4°C</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-              <h4 className="text-sm font-semibold text-white">Bactericida & Desobstrução</h4>
+              <CheckCircle2 className="w-5 h-5 text-emerald-700" />
+              <h4 className="text-sm font-semibold text-slate-900">Bactericida & Desobstrução</h4>
             </div>
             <p className="text-xs text-slate-600">
               Uso de hipoclorito ou compostos de cloro ativo para inibir proliferação bacteriana nos vasos xilemáticos, evitando o fenômeno de "pescoço caído" (*bent neck*).
             </p>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
               <span className="text-xs text-slate-600">Vida Útil em Vaso:</span>
-              <span className="text-sm font-bold text-emerald-400 block">14 a 20 dias garantidos</span>
+              <span className="text-sm font-bold text-emerald-700 block">14 a 20 dias garantidos</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
               <Calendar className="w-5 h-5 text-yellow-400" />
-              <h4 className="text-sm font-semibold text-white">Sincronização de Datas Festivas</h4>
+              <h4 className="text-sm font-semibold text-slate-900">Sincronização de Datas Festivas</h4>
             </div>
             <p className="text-xs text-slate-600">
               Poda programada e ajuste de temperatura permitem concentrar 60% do faturamento nas janelas de maior valor agregado (Dia das Mães, Namorados e Fim de Ano).
@@ -341,8 +341,8 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
       )}
 
       {activeTab === 'qualidade' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-4 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
             <Award className="w-5 h-5 text-pink-400" />
             Classificação Padrão Veiling Holambra (Norma Ibraflor)
           </h3>
@@ -353,7 +353,7 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">Classe A1 Extra Longa</span>
-              <p className="text-lg font-bold text-emerald-400 mt-1">superior a 70 cm</p>
+              <p className="text-lg font-bold text-emerald-700 mt-1">superior a 70 cm</p>
               <span className="text-[11px] text-emerald-500/80">Botão superior a 4.5 cm de altura</span>
             </div>
 
@@ -365,7 +365,7 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
 
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">Classe B Curta</span>
-              <p className="text-lg font-bold text-white mt-1">menor que 50 cm</p>
+              <p className="text-lg font-bold text-slate-900 mt-1">menor que 50 cm</p>
               <span className="text-[11px] text-slate-500">Destinado a arranjos de mesa</span>
             </div>
           </div>
@@ -373,9 +373,9 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
-            <DollarSign className="w-5 h-5 text-rose-400" />
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-6 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
+            <DollarSign className="w-5 h-5 text-rose-700" />
             Simulador de Faturamento & Rentabilidade por m² de Estufa
           </h3>
 
@@ -386,7 +386,7 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
                 type="number"
                 value={areaEstufasM2}
                 onChange={(e) => setAreaEstufasM2(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-rose-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-rose-500 focus:outline-none"
               />
             </div>
 
@@ -396,7 +396,7 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
                 type="number"
                 value={hastesPorMetroAno}
                 onChange={(e) => setHastesPorMetroAno(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-rose-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-rose-500 focus:outline-none"
               />
             </div>
 
@@ -406,7 +406,7 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
                 type="number"
                 value={proporcaoClasseA1Pct}
                 onChange={(e) => setProporcaoClasseA1Pct(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-rose-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-rose-500 focus:outline-none"
               />
             </div>
 
@@ -417,7 +417,7 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
                 step="0.1"
                 value={precoHasteA1Reais}
                 onChange={(e) => setPrecoHasteA1Reais(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-rose-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-rose-500 focus:outline-none"
               />
             </div>
           </div>
@@ -425,13 +425,13 @@ export const FloriculturaFloresNobresModule: React.FC = () => {
           <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
               <span className="text-xs text-slate-600 block">Volume Extra A1 Produzido:</span>
-              <span className="text-base font-bold text-rose-400">
+              <span className="text-base font-bold text-rose-700">
                 {metricas.hastesA1.toLocaleString('pt-BR')} hastes nobres
               </span>
             </div>
             <div className="text-right">
               <span className="text-xs text-slate-600 block">Lucro Líquido Anual Projetado:</span>
-              <span className="text-xl font-bold text-emerald-400">
+              <span className="text-xl font-bold text-emerald-700">
                 R$ {metricas.lucroLiquidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>
             </div>

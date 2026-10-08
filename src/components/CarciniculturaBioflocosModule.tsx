@@ -129,11 +129,11 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
                 <Waves className="w-3.5 h-3.5" />
                 Módulo 86 • Carcinicultura de Precisão & Camarão BFT
               </span>
-              <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+              <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 rounded-full">
                 Biofloc Technology • Zero Efluente
               </span>
             </div>
-            <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-3">
               🦐 Carcinicultura BFT & Litopenaeus vannamei
             </h2>
             <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
@@ -144,13 +144,13 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
           <div className="flex items-center gap-3">
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Volume Útil</span>
-              <span className="text-xl font-black text-teal-400">1.200 m³</span>
+              <span className="text-xl font-black text-teal-700">1.200 m³</span>
               <span className="text-[10px] text-slate-600 block mt-0.5">4 Tanques BFT</span>
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Despesca Anual</span>
-              <span className="text-xl font-black text-emerald-400">10.986 kg</span>
-              <span className="text-[10px] text-emerald-400/80 block mt-0.5">3.5 Ciclos/Ano</span>
+              <span className="text-xl font-black text-emerald-700">10.986 kg</span>
+              <span className="text-[10px] text-emerald-700/80 block mt-0.5">3.5 Ciclos/Ano</span>
             </div>
           </div>
         </div>
@@ -161,10 +161,10 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-teal-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Relação C:N Atual</span>
-            <Activity className="w-4 h-4 text-emerald-400" />
+            <Activity className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-white">14.0 : 1</div>
-          <div className="text-[11px] text-emerald-400 font-medium mt-1 flex items-center gap-1">
+          <div className="text-2xl font-black text-slate-900">14.0 : 1</div>
+          <div className="text-[11px] text-emerald-700 font-medium mt-1 flex items-center gap-1">
             <CheckCircle2 className="w-3.5 h-3.5" />
             Amônia Segura (&lt; 0.3 mg/L)
           </div>
@@ -173,9 +173,9 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-teal-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Densidade de Povoamento</span>
-            <Waves className="w-4 h-4 text-cyan-400" />
+            <Waves className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black text-cyan-400">220 cam / m³</div>
+          <div className="text-2xl font-black text-sky-700">220 cam / m³</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Superintensivo em Estufa Plástica
           </div>
@@ -195,9 +195,9 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-teal-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
-            <DollarSign className="w-4 h-4 text-emerald-400" />
+            <DollarSign className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-emerald-400">R$ 170.290,75</div>
+          <div className="text-2xl font-black text-emerald-700">R$ 170.290,75</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Receita: R$ 373,5k • R$ 9,16/m³
           </div>
@@ -210,8 +210,8 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
           onClick={() => setActiveTab('tanques_bft')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'tanques_bft'
-              ? 'bg-teal-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-teal-50 text-teal-800 border border-teal-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Waves className="w-4 h-4" />
@@ -222,8 +222,8 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
           onClick={() => setActiveTab('manejo_carbono')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'manejo_carbono'
-              ? 'bg-teal-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-teal-50 text-teal-800 border border-teal-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Droplets className="w-4 h-4" />
@@ -234,8 +234,8 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
           onClick={() => setActiveTab('biometria')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'biometria'
-              ? 'bg-teal-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-teal-50 text-teal-800 border border-teal-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Scale className="w-4 h-4" />
@@ -246,8 +246,8 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
-              ? 'bg-teal-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-teal-50 text-teal-800 border border-teal-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -259,8 +259,8 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
       {activeTab === 'tanques_bft' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <Waves className="w-5 h-5 text-teal-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <Waves className="w-5 h-5 text-teal-700" />
               Telemetria e Parâmetros Físico-Químicos dos Tanques Circulares
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -282,22 +282,22 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
                     <th className="py-3 px-3">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60 font-medium">
+                <tbody className="divide-y divide-slate-100 font-medium">
                   {tanques.map((t) => (
-                    <tr key={t.id} className="hover:bg-slate-800/40 transition-colors">
+                    <tr key={t.id} className="hover:bg-slate-50/80 transition-colors">
                       <td className="py-3.5 px-3">
-                        <div className="font-bold text-white">{t.identificacao}</div>
+                        <div className="font-bold text-slate-900">{t.identificacao}</div>
                         <div className="text-[11px] text-slate-600 font-mono">{t.id}</div>
                       </td>
                       <td className="py-3.5 px-3 font-mono text-slate-900">{t.volumeM3} m³</td>
                       <td className="py-3.5 px-3 font-mono text-slate-900">{t.diasCultivo} dias</td>
-                      <td className="py-3.5 px-3 font-mono font-bold text-white">{t.pesoMedioGramas} g</td>
-                      <td className="py-3.5 px-3 font-mono font-bold text-teal-400">{t.oxigenioDissolvidoMgL} mg/L</td>
-                      <td className="py-3.5 px-3 font-mono text-emerald-400">{t.amoniaTanMgL} mg/L</td>
-                      <td className="py-3.5 px-3 font-mono text-cyan-400">{t.nitritoMgL} mg/L</td>
-                      <td className="py-3.5 px-3 font-mono text-amber-300">{t.coneImhoffMl} mL/L</td>
+                      <td className="py-3.5 px-3 font-mono font-bold text-slate-900">{t.pesoMedioGramas} g</td>
+                      <td className="py-3.5 px-3 font-mono font-bold text-teal-700">{t.oxigenioDissolvidoMgL} mg/L</td>
+                      <td className="py-3.5 px-3 font-mono text-emerald-700">{t.amoniaTanMgL} mg/L</td>
+                      <td className="py-3.5 px-3 font-mono text-sky-700">{t.nitritoMgL} mg/L</td>
+                      <td className="py-3.5 px-3 font-mono text-amber-800">{t.coneImhoffMl} mL/L</td>
                       <td className="py-3.5 px-3">
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30">
                           {t.statusAgua}
                         </span>
                       </td>
@@ -314,8 +314,8 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
       {activeTab === 'manejo_carbono' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <Droplets className="w-5 h-5 text-teal-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <Droplets className="w-5 h-5 text-teal-700" />
               Cálculo Estequiométrico da Relação C:N
             </h3>
             <p className="text-xs text-slate-600">
@@ -324,21 +324,21 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
 
             <div className="space-y-3 text-xs">
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Equação de Ebeling & Avnimelech</span>
+                <span className="font-bold text-slate-900 block">Equação de Ebeling & Avnimelech</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   ΔC = ΔN × (Relação C:N) → Para manter C:N em 14:1, aplica-se aproximadamente 600g de melaço para cada 1 kg de ração comercial (35% PB) consumida no tanque.
                 </span>
               </div>
 
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Aeração de Fundo com Tubos Aero-Tube</span>
+                <span className="font-bold text-slate-900 block">Aeração de Fundo com Tubos Aero-Tube</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   Microbolhas contínuas que mantêm os bioflocos em suspensão homogênea na coluna d'água sem decantação anaeróbica no fundo cônico.
                 </span>
               </div>
 
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Alcalinidade e Carbonato de Cálcio</span>
+                <span className="font-bold text-slate-900 block">Alcalinidade e Carbonato de Cálcio</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   A atividade bacteriana consome bicarbonatos. Mantém-se alcalinidade &gt; 140 mg/L CaCO₃ com cal hidratada ou bicarbonato de sódio.
                 </span>
@@ -347,8 +347,8 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
           </div>
 
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-emerald-700" />
               Volume de Biofloco (Cone Imhoff)
             </h3>
             <p className="text-xs text-slate-600">
@@ -358,15 +358,15 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
             <div className="space-y-2 text-xs">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Faixa Ótima de Bioflocos:</span>
-                <span className="font-mono font-bold text-emerald-400">25 a 40 mL/L</span>
+                <span className="font-mono font-bold text-emerald-700">25 a 40 mL/L</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Ação se &gt; 45 mL/L:</span>
-                <span className="font-mono font-bold text-amber-400">Acionar Clarificador / Decantador</span>
+                <span className="font-mono font-bold text-amber-700">Acionar Clarificador / Decantador</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Ação se &lt; 20 mL/L:</span>
-                <span className="font-mono font-bold text-cyan-400">Inocular Probiótico e Melaço</span>
+                <span className="font-mono font-bold text-sky-700">Inocular Probiótico e Melaço</span>
               </div>
             </div>
           </div>
@@ -377,8 +377,8 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
       {activeTab === 'biometria' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <Scale className="w-5 h-5 text-teal-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <Scale className="w-5 h-5 text-teal-700" />
               Acompanhamento de Crescimento e Calibre Comercial
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -388,19 +388,19 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Peso Alvo Despesca</span>
-                <span className="text-2xl font-black text-white font-mono">14.5 gramas</span>
-                <span className="text-[11px] text-teal-400 block">Calibre 60/70 (Alta Demanda)</span>
+                <span className="text-2xl font-black text-slate-900 font-mono">14.5 gramas</span>
+                <span className="text-[11px] text-teal-700 block">Calibre 60/70 (Alta Demanda)</span>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Taxa de Sobrevivência</span>
-                <span className="text-2xl font-black text-emerald-400 font-mono">82.0%</span>
+                <span className="text-2xl font-black text-emerald-700 font-mono">82.0%</span>
                 <span className="text-[11px] text-slate-600 block">Ambiente Fechado Protegido</span>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Produtividade Efetiva</span>
-                <span className="text-2xl font-black text-cyan-400 font-mono">9.16 kg / m³ / ano</span>
+                <span className="text-2xl font-black text-sky-700 font-mono">9.16 kg / m³ / ano</span>
                 <span className="text-[11px] text-slate-600 block">15x superior a viveiros de terra</span>
               </div>
             </div>
@@ -412,15 +412,15 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-teal-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <BarChart3 className="w-5 h-5 text-teal-700" />
               Parâmetros da Carcinicultura
             </h3>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Volume Útil Total</span>
-                <span className="font-mono text-teal-400">{volumeTotalM3} m³</span>
+                <span className="font-mono text-teal-700">{volumeTotalM3} m³</span>
               </div>
               <input
                 type="range"
@@ -429,14 +429,14 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
                 step="100"
                 value={volumeTotalM3}
                 onChange={(e) => setVolumeTotalM3(Number(e.target.value))}
-                className="w-full accent-teal-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-teal-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Densidade de Camarões / m³</span>
-                <span className="font-mono text-teal-400">{densidadeM3} cam/m³</span>
+                <span className="font-mono text-teal-700">{densidadeM3} cam/m³</span>
               </div>
               <input
                 type="range"
@@ -445,14 +445,14 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
                 step="10"
                 value={densidadeM3}
                 onChange={(e) => setDensidadeM3(Number(e.target.value))}
-                className="w-full accent-teal-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-teal-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Camarão Despescado (R$/kg)</span>
-                <span className="font-mono text-emerald-400">R$ {precoKgCamaraoReais.toFixed(2)}</span>
+                <span className="font-mono text-emerald-700">R$ {precoKgCamaraoReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -461,14 +461,14 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
                 step="1.0"
                 value={precoKgCamaraoReais}
                 onChange={(e) => setPrecoKgCamaraoReais(Number(e.target.value))}
-                className="w-full accent-emerald-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-emerald-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Custo Total por kg Despescado</span>
-                <span className="font-mono text-rose-400">R$ {custoTotalKgReais.toFixed(2)}</span>
+                <span className="font-mono text-rose-700">R$ {custoTotalKgReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -477,21 +477,21 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
                 step="0.50"
                 value={custoTotalKgReais}
                 onChange={(e) => setCustoTotalKgReais(Number(e.target.value))}
-                className="w-full accent-rose-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-rose-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
           </div>
 
           <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <DollarSign className="w-5 h-5 text-emerald-700" />
               DRE da Carcinicultura BFT & Margem Operacional
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Despesca/Ciclo</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   {(metricasCarcinicultura.biomassaDespescadaCicloKg / 1000).toFixed(2)} ton
                 </span>
                 <span className="text-[10px] text-slate-600 block">{taxaSobrevivenciaPct}% sobrevivência</span>
@@ -499,15 +499,15 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Produção Anual</span>
-                <span className="font-mono font-bold text-teal-400 text-base">
+                <span className="font-mono font-bold text-teal-700 text-base">
                   {(metricasCarcinicultura.biomassaDespescadaAnualKg / 1000).toFixed(2)} ton
                 </span>
-                <span className="text-[10px] text-teal-400/80 block">{ciclosAno} ciclos/ano</span>
+                <span className="text-[10px] text-teal-700/80 block">{ciclosAno} ciclos/ano</span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Bruta</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   R$ {(metricasCarcinicultura.receitaBrutaAnual / 1000).toFixed(0)}k
                 </span>
                 <span className="text-[10px] text-slate-600 block">Camarão Fresco</span>
@@ -515,29 +515,29 @@ export const CarciniculturaBioflocosModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido Anual</span>
-                <span className="font-mono font-bold text-emerald-400 text-base">
+                <span className="font-mono font-bold text-emerald-700 text-base">
                   R$ {(metricasCarcinicultura.lucroLiquidoAnual / 1000).toFixed(0)}k
                 </span>
-                <span className="text-[10px] text-emerald-400/80 block">Superintensivo</span>
+                <span className="text-[10px] text-emerald-700/80 block">Superintensivo</span>
               </div>
             </div>
 
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Receita Bruta com Despescas ({metricasCarcinicultura.biomassaDespescadaAnualKg.toLocaleString()} kg @ R$ {precoKgCamaraoReais.toFixed(2)}):</span>
-                <span className="font-mono font-bold text-emerald-400">
+                <span className="font-mono font-bold text-emerald-700">
                   R$ {metricasCarcinicultura.receitaBrutaAnual.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Custo Total de Operação (Ração 35% PB, Melaço, Probióticos e Energia):</span>
-                <span className="font-mono font-bold text-rose-400">
+                <span className="font-mono font-bold text-rose-700">
                   - R$ {metricasCarcinicultura.custoTotalAnual.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-2 text-sm font-black bg-emerald-950/30 px-3 rounded-lg border border-emerald-800/50">
+              <div className="flex justify-between items-center py-2 text-sm font-black bg-emerald-50 px-3 rounded-lg border border-emerald-200">
                 <span className="text-white">Produtividade Anual por Metro Cúbico de Água:</span>
-                <span className="font-mono text-emerald-300">
+                <span className="font-mono text-emerald-800">
                   {metricasCarcinicultura.produtividadeM3AnoKg} kg / m³ / ano
                 </span>
               </div>
