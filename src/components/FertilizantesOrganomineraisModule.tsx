@@ -101,14 +101,14 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Cabeçalho */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-6 rounded-2xl border border-slate-200 backdrop-blur-md">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-xs">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-lime-500 to-emerald-500 flex items-center justify-center shadow-lg shadow-lime-500/20">
             <Recycle className="w-7 h-7 text-slate-950" />
           </div>
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-bold text-white tracking-tight">
+              <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
                 Fertilizantes Organominerais & Bioeconomia Circular
               </h1>
               <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-lime-500/10 text-lime-400 border border-lime-500/20">
@@ -134,12 +134,12 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Produção Anual</span>
             <Factory className="w-5 h-5 text-lime-400" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             {toneladasProduzidasAno.toLocaleString('pt-BR')} ton
           </p>
           <span className="text-xs text-lime-400 mt-1 block">
@@ -147,25 +147,25 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Custo de Fabricação</span>
-            <Sliders className="w-5 h-5 text-emerald-400" />
+            <Sliders className="w-5 h-5 text-emerald-700" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             R$ {metricas.custoUnitarioProducao.toFixed(2)} / ton
           </p>
-          <span className="text-xs text-emerald-400 mt-1 block">
+          <span className="text-xs text-emerald-700 mt-1 block">
             Matéria orgânica + sais + peletização
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Economia ao Agricultor</span>
             <Sprout className="w-5 h-5 text-yellow-400" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             R$ {metricas.economiaProdutorVsMineralPorTon.toFixed(2)} / ton
           </p>
           <span className="text-xs text-yellow-400 mt-1 block">
@@ -173,15 +173,15 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
           </span>
         </div>
 
-        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-200">
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-600">Margem Líquida da Usina</span>
-            <TrendingUp className="w-5 h-5 text-emerald-400" />
+            <TrendingUp className="w-5 h-5 text-emerald-700" />
           </div>
-          <p className="text-2xl font-bold text-white mt-2">
+          <p className="text-2xl font-bold text-slate-900 mt-2">
             {metricas.margemLiquidaPct}%
           </p>
-          <span className="text-xs text-emerald-400 mt-1 block">
+          <span className="text-xs text-emerald-700 mt-1 block">
             R$ {(metricas.lucroLiquidoAno / 1000000).toFixed(2)}M / ano de lucro
           </span>
         </div>
@@ -193,8 +193,8 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
           onClick={() => setActiveTab('lotes')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'lotes'
-              ? 'bg-lime-500/10 text-lime-400 border border-lime-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-lime-50 text-lime-800 border border-lime-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -205,8 +205,8 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
           onClick={() => setActiveTab('normas')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'normas'
-              ? 'bg-lime-500/10 text-lime-400 border border-lime-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-lime-50 text-lime-800 border border-lime-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -217,8 +217,8 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
           onClick={() => setActiveTab('processo')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'processo'
-              ? 'bg-lime-500/10 text-lime-400 border border-lime-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-lime-50 text-lime-800 border border-lime-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <Factory className="w-4 h-4" />
@@ -229,8 +229,8 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             activeTab === 'simulador'
-              ? 'bg-lime-500/10 text-lime-400 border border-lime-500/20'
-              : 'text-slate-600 hover:text-white hover:bg-slate-800/40'
+              ? 'bg-lime-50 text-lime-800 border border-lime-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
           }`}
         >
           <DollarSign className="w-4 h-4" />
@@ -240,8 +240,8 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
 
       {/* Conteúdo das Abas */}
       {activeTab === 'lotes' && (
-        <div className="bg-slate-900/40 rounded-2xl border border-slate-200 p-6 space-y-4">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
+        <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-4 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
             <Recycle className="w-5 h-5 text-lime-400" />
             Lotes Industriais Formulados
           </h3>
@@ -259,17 +259,17 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
                   <th className="px-4 py-3">Status MAPA</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-slate-100">
                 {lotes.map((l) => (
-                  <tr key={l.id} className="hover:bg-slate-800/30">
-                    <td className="px-4 py-3 font-semibold text-white">{l.lote}</td>
+                  <tr key={l.id} className="hover:bg-slate-50/80">
+                    <td className="px-4 py-3 font-semibold text-slate-900">{l.lote}</td>
                     <td className="px-4 py-3 text-xs text-slate-600">{l.materiaPrimaOrganica}</td>
                     <td className="px-4 py-3 font-bold text-lime-400">{l.carbonoOrganicoPct}%</td>
                     <td className="px-4 py-3">{l.ctcMmolcKg}</td>
                     <td className="px-4 py-3">{l.umidadePct}%</td>
                     <td className="px-4 py-3">{l.producaoToneladas.toLocaleString('pt-BR')} ton</td>
                     <td className="px-4 py-3">
-                      <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1 w-max">
+                      <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-700 border border-emerald-500/20 flex items-center gap-1 w-max">
                         <CheckCircle2 className="w-3.5 h-3.5" /> Conforme IN 61
                       </span>
                     </td>
@@ -283,10 +283,10 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
 
       {activeTab === 'normas' && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
               <Beaker className="w-5 h-5 text-lime-400" />
-              <h4 className="text-sm font-semibold text-white">Carbono Orgânico Total (COT)</h4>
+              <h4 className="text-sm font-semibold text-slate-900">Carbono Orgânico Total (COT)</h4>
             </div>
             <p className="text-xs text-slate-600">
               Mínimo regulatório exigido de 8% de COT na massa seca, estimulando a microbiota telúrica benéfica e solubilização biológica de fósforo residual.
@@ -297,24 +297,24 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
-              <Sprout className="w-5 h-5 text-emerald-400" />
-              <h4 className="text-sm font-semibold text-white">Capacidade de Troca Catiônica</h4>
+              <Sprout className="w-5 h-5 text-emerald-700" />
+              <h4 className="text-sm font-semibold text-slate-900">Capacidade de Troca Catiônica</h4>
             </div>
             <p className="text-xs text-slate-600">
               CTC mínima de 80 mmolc/kg proporcionando retenção de cátions (K+, Ca2+, Mg2+) e reduzindo as perdas por lixiviação nas chuvas tropicais.
             </p>
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
               <span className="text-xs text-slate-600">Exigência MAPA:</span>
-              <span className="text-sm font-bold text-emerald-400 block">mínimo 80 mmolc/kg</span>
+              <span className="text-sm font-bold text-emerald-700 block">mínimo 80 mmolc/kg</span>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-3">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
             <div className="flex items-center gap-3">
               <Award className="w-5 h-5 text-yellow-400" />
-              <h4 className="text-sm font-semibold text-white">Umidade Máxima Permitida</h4>
+              <h4 className="text-sm font-semibold text-slate-900">Umidade Máxima Permitida</h4>
             </div>
             <p className="text-xs text-slate-600">
               Limite máximo de 30% de umidade (ou 15% para fórmulas peletizadas/granuladas a vácuo) evitando empedramento e degradação nas adubadeiras de plantio.
@@ -328,8 +328,8 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
       )}
 
       {activeTab === 'processo' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-4">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-4 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
             <Factory className="w-5 h-5 text-lime-400" />
             Fluxo Contínuo de Compostagem Termofílica e Granulação Industrial
           </h3>
@@ -340,25 +340,25 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-2">
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">1. Compostagem Ativa</span>
-              <p className="text-sm font-bold text-white mt-1">Aeração forçada</p>
+              <p className="text-sm font-bold text-slate-900 mt-1">Aeração forçada</p>
               <span className="text-[11px] text-lime-400">Sanitização biológica</span>
             </div>
 
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">2. Adição de Minerais</span>
-              <p className="text-sm font-bold text-white mt-1">MAP, KCl e Ureia</p>
+              <p className="text-sm font-bold text-slate-900 mt-1">MAP, KCl e Ureia</p>
               <span className="text-[11px] text-lime-400">Homogeneização mecânica</span>
             </div>
 
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">3. Peletização / Granulação</span>
-              <p className="text-sm font-bold text-white mt-1">Matriz Rotativa</p>
+              <p className="text-sm font-bold text-slate-900 mt-1">Matriz Rotativa</p>
               <span className="text-[11px] text-lime-400">Grânulos de 2 a 4 mm</span>
             </div>
 
             <div className="p-4 bg-slate-50/50 rounded-xl border border-slate-200">
               <span className="text-xs text-slate-600">4. Secagem & Ensaque</span>
-              <p className="text-sm font-bold text-white mt-1">Resfriador Contracorrente</p>
+              <p className="text-sm font-bold text-slate-900 mt-1">Resfriador Contracorrente</p>
               <span className="text-[11px] text-lime-400">Big Bags de 1.000 kg</span>
             </div>
           </div>
@@ -366,8 +366,8 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
       )}
 
       {activeTab === 'simulador' && (
-        <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-200 space-y-6">
-          <h3 className="text-base font-semibold text-white flex items-center gap-2">
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-6 shadow-xs">
+          <h3 className="text-base font-semibold text-slate-900 flex items-center gap-2">
             <DollarSign className="w-5 h-5 text-lime-400" />
             Simulador de Viabilidade Industrial & Economia em Campo
           </h3>
@@ -379,7 +379,7 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
                 type="number"
                 value={toneladasProduzidasAno}
                 onChange={(e) => setToneladasProduzidasAno(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-lime-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-lime-500 focus:outline-none"
               />
             </div>
 
@@ -389,7 +389,7 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
                 type="number"
                 value={precoVendaOrganomineralPorTon}
                 onChange={(e) => setPrecoVendaOrganomineralPorTon(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-lime-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-lime-500 focus:outline-none"
               />
             </div>
 
@@ -399,7 +399,7 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
                 type="number"
                 value={precoMineralEquivalentePorTon}
                 onChange={(e) => setPrecoMineralEquivalentePorTon(Number(e.target.value))}
-                className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-white text-sm focus:border-lime-500 focus:outline-none"
+                className="w-full mt-1.5 px-3 py-2 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium text-sm focus:border-lime-500 focus:outline-none"
               />
             </div>
           </div>
@@ -413,7 +413,7 @@ export const FertilizantesOrganomineraisModule: React.FC = () => {
             </div>
             <div className="text-right">
               <span className="text-xs text-slate-600 block">Lucro Líquido Anual da Fábrica:</span>
-              <span className="text-xl font-bold text-emerald-400">
+              <span className="text-xl font-bold text-emerald-700">
                 R$ {metricas.lucroLiquidoAno.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </span>
             </div>

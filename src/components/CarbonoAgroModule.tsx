@@ -129,16 +129,16 @@ export const CarbonoAgroModule: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-slate-200 p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400">
+            <div className="p-2.5 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-700">
               <Leaf className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-xl font-bold text-[#1D4B38]">Balanço de Carbono GHG Protocol & CPR Verde</h1>
-                <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+                <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 rounded-full">
                   Carbon Negative (Sumidouro)
                 </span>
-                <span className="px-2 py-0.5 text-[11px] font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 rounded-full">
+                <span className="px-2 py-0.5 text-[11px] font-semibold bg-cyan-500/20 text-sky-800 border border-cyan-500/30 rounded-full">
                   Lei 13.986 (CPR Verde)
                 </span>
               </div>
@@ -156,7 +156,7 @@ export const CarbonoAgroModule: React.FC = () => {
             type="number"
             value={precoCreditoCarbonoBRL}
             onChange={(e) => setPrecoCreditoCarbonoBRL(Number(e.target.value))}
-            className="w-16 bg-slate-900 border border-slate-700 rounded px-2 py-0.5 text-emerald-400 font-mono font-bold"
+            className="w-16 bg-white border border-slate-300 rounded px-2 py-0.5 text-emerald-700 font-mono font-bold"
           />
           <span className="text-slate-600 font-mono">R$/t CO₂e</span>
         </div>
@@ -167,7 +167,7 @@ export const CarbonoAgroModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
           <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Emissões de Escopo 1</span>
-            <TrendingDown className="w-4 h-4 text-amber-400" />
+            <TrendingDown className="w-4 h-4 text-amber-700" />
           </div>
           <div className="text-2xl font-bold text-[#1D4B38] font-mono">
             {totalEmissoes.toFixed(1)} t CO₂e
@@ -178,34 +178,34 @@ export const CarbonoAgroModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
           <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Sequestro no Solo</span>
-            <Trees className="w-4 h-4 text-emerald-400" />
+            <Trees className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-bold text-emerald-300 font-mono">
+          <div className="text-2xl font-bold text-emerald-800 font-mono">
             {totalSequestro.toFixed(1)} t CO₂e
           </div>
           <p className="text-xs text-slate-500 mt-1">Plantio Direto na Palha + Braquiária</p>
         </div>
 
         <div className="bg-emerald-950/40 border border-emerald-800/60 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-emerald-300 mb-1">
+          <div className="flex items-center justify-between text-emerald-800 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Balanço Líquido (Sumidouro)</span>
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <ShieldCheck className="w-4 h-4 text-emerald-700" />
           </div>
           <div className="text-2xl font-bold text-emerald-200 font-mono">
             {balancoGeral.toFixed(1)} t CO₂e
           </div>
-          <p className="text-xs text-emerald-400/80 mt-1">A fazenda sequestra 2.1x mais do que emite</p>
+          <p className="text-xs text-emerald-700/80 mt-1">A fazenda sequestra 2.1x mais do que emite</p>
         </div>
 
         <div className="bg-gradient-to-br from-emerald-950/40 to-slate-900 border border-emerald-800/60 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-emerald-300 mb-1">
+          <div className="flex items-center justify-between text-emerald-800 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Potencial CPR Verde</span>
-            <DollarSign className="w-4 h-4 text-cyan-400" />
+            <DollarSign className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-bold text-cyan-300 font-mono">
+          <div className="text-2xl font-bold text-sky-800 font-mono">
             R$ {(receitaTotalCprVerde / 1000).toFixed(1)}k
           </div>
-          <p className="text-xs text-cyan-400/80 mt-1">{totalCprVerdeTon.toFixed(1)} créditos monetizáveis</p>
+          <p className="text-xs text-sky-700/80 mt-1">{totalCprVerdeTon.toFixed(1)} créditos monetizáveis</p>
         </div>
       </div>
 
@@ -214,7 +214,7 @@ export const CarbonoAgroModule: React.FC = () => {
         <div className="p-5 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <h2 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
-              <Recycle className="w-5 h-5 text-emerald-400" />
+              <Recycle className="w-5 h-5 text-emerald-700" />
               Inventário de Emissões & Sequestro Talhão a Talhão
             </h2>
             <p className="text-xs text-slate-600">Metodologia oficial GHG Protocol Agropecuário e Embrapa Meio Ambiente</p>
@@ -233,9 +233,9 @@ export const CarbonoAgroModule: React.FC = () => {
                 <th className="px-4 py-3.5">Crédito CPR Verde (R$)</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60">
+            <tbody className="divide-y divide-slate-100">
               {dadosCalculados.map((item) => (
-                <tr key={item.talhaoId} className="hover:bg-slate-800/40 transition-colors">
+                <tr key={item.talhaoId} className="hover:bg-slate-50/80 transition-colors">
                   <td className="px-4 py-3.5">
                     <div className="font-bold text-slate-900">{item.codigo} - {item.nome}</div>
                     <div className="text-[11px] text-slate-600 font-mono">{item.areaHa} ha</div>
@@ -243,13 +243,13 @@ export const CarbonoAgroModule: React.FC = () => {
 
                   <td className="px-4 py-3.5">
                     <div className="text-slate-900 font-medium">{item.praticaRegenerativa}</div>
-                    <div className="text-[10px] text-emerald-400 font-mono mt-0.5">
+                    <div className="text-[10px] text-emerald-700 font-mono mt-0.5">
                       Taxa: {item.taxaSequestroTonHaAno} t CO₂e/ha/ano
                     </div>
                   </td>
 
                   <td className="px-4 py-3.5 font-mono">
-                    <div className="font-bold text-amber-300">
+                    <div className="font-bold text-amber-800">
                       {item.totalEmissoesTon.toFixed(2)} t CO₂e
                     </div>
                     <div className="text-[10px] text-slate-500">
@@ -258,20 +258,20 @@ export const CarbonoAgroModule: React.FC = () => {
                   </td>
 
                   <td className="px-4 py-3.5 font-mono">
-                    <div className="font-bold text-emerald-300">
+                    <div className="font-bold text-emerald-800">
                       {item.totalSequestroTon.toFixed(2)} t CO₂e
                     </div>
                     <span className="text-[10px] text-slate-500">Fixado na Matéria Orgânica</span>
                   </td>
 
                   <td className="px-4 py-3.5">
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1 w-fit font-mono">
-                      <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-800 border border-emerald-500/40 flex items-center gap-1 w-fit font-mono">
+                      <CheckCircle2 className="w-3 h-3 text-emerald-700" />
                       {item.balancoLiquidoTon.toFixed(2)} t CO₂e (Negativo)
                     </span>
                   </td>
 
-                  <td className="px-4 py-3.5 font-mono font-bold text-cyan-300">
+                  <td className="px-4 py-3.5 font-mono font-bold text-sky-800">
                     R$ {item.receitaPotencialCprVerde.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                   </td>
                 </tr>

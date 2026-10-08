@@ -167,13 +167,13 @@ export const ManutencaoOficinaModule: React.FC = () => {
       <div className="bg-white border border-slate-200 p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="px-2 py-0.5 bg-amber-950 text-amber-400 border border-amber-800 rounded text-xs font-bold flex items-center gap-1.5">
-              <Wrench className="w-3.5 h-3.5 text-amber-400" /> Oficina Mecânica Central & Engenharia de Frotas
+            <span className="px-2 py-0.5 bg-amber-950 text-amber-700 border border-amber-800 rounded text-xs font-bold flex items-center gap-1.5">
+              <Wrench className="w-3.5 h-3.5 text-amber-700" /> Oficina Mecânica Central & Engenharia de Frotas
             </span>
             <span className="text-xs text-slate-600">Fazenda Santa Helena • Telemetria CAN Bus J1939</span>
           </div>
-          <h2 className="text-xl font-bold text-white flex items-center gap-2">
-            <Tractor className="w-5 h-5 text-amber-400" /> Manutenção Preventiva, Preditiva & Análise SOS
+          <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <Tractor className="w-5 h-5 text-amber-700" /> Manutenção Preventiva, Preditiva & Análise SOS
           </h2>
           <p className="text-xs text-slate-600 mt-1">
             Gatilhos automáticos por horímetro vindo da telemetria de tratores, colheitadeiras e pulverizadores, prevenindo quebras na safra.
@@ -196,9 +196,9 @@ export const ManutencaoOficinaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-4 rounded-xl shadow">
           <div className="flex justify-between items-center text-xs text-slate-600 mb-1">
             <span>Ordens em Aberto</span>
-            <Clock className="w-4 h-4 text-amber-400" />
+            <Clock className="w-4 h-4 text-amber-700" />
           </div>
-          <p className="text-2xl font-black text-amber-400">
+          <p className="text-2xl font-black text-amber-700">
             {osEmAberto} <span className="text-xs font-normal text-slate-600">em manutenção</span>
           </p>
           <span className="text-[11px] text-slate-600 mt-1 block">Equipe de mecânicos alocada</span>
@@ -207,18 +207,18 @@ export const ManutencaoOficinaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-4 rounded-xl shadow">
           <div className="flex justify-between items-center text-xs text-slate-600 mb-1">
             <span>Disponibilidade Mecânica</span>
-            <Gauge className="w-4 h-4 text-emerald-400" />
+            <Gauge className="w-4 h-4 text-emerald-700" />
           </div>
-          <p className="text-2xl font-black text-emerald-400">94.8%</p>
-          <span className="text-[11px] text-emerald-400 mt-1 block font-medium">Meta: &gt; 92.0% da frota ativa</span>
+          <p className="text-2xl font-black text-emerald-700">94.8%</p>
+          <span className="text-[11px] text-emerald-700 mt-1 block font-medium">Meta: &gt; 92.0% da frota ativa</span>
         </div>
 
         <div className="bg-white border border-slate-200 p-4 rounded-xl shadow">
           <div className="flex justify-between items-center text-xs text-slate-600 mb-1">
             <span>Custo Acumulado da Frota</span>
-            <DollarSign className="w-4 h-4 text-cyan-400" />
+            <DollarSign className="w-4 h-4 text-sky-700" />
           </div>
-          <p className="text-2xl font-black text-cyan-400">
+          <p className="text-2xl font-black text-sky-700">
             R$ {totalCustoOS.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
           </p>
           <span className="text-[11px] text-slate-600 mt-1 block">Peças, lubrificantes e terceiros</span>
@@ -229,7 +229,7 @@ export const ManutencaoOficinaModule: React.FC = () => {
             <span>MTBF Médio (Falhas)</span>
             <Activity className="w-4 h-4 text-indigo-400" />
           </div>
-          <p className="text-2xl font-black text-white">164 <span className="text-xs font-normal text-slate-600">horas</span></p>
+          <p className="text-2xl font-black text-slate-900">164 <span className="text-xs font-normal text-slate-600">horas</span></p>
           <span className="text-[11px] text-indigo-300 mt-1 block font-medium">Tempo médio entre quebras</span>
         </div>
       </div>
@@ -241,7 +241,7 @@ export const ManutencaoOficinaModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             abaAtiva === 'ORDENS'
               ? 'bg-amber-500 text-slate-950 font-black shadow-md'
-              : 'bg-slate-900 text-slate-600 hover:text-white hover:bg-slate-800'
+              : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200'
           }`}
         >
           <Wrench className="w-4 h-4" />
@@ -253,7 +253,7 @@ export const ManutencaoOficinaModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             abaAtiva === 'PLANO_PREVENTIVO'
               ? 'bg-amber-500 text-slate-950 font-black shadow-md'
-              : 'bg-slate-900 text-slate-600 hover:text-white hover:bg-slate-800'
+              : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200'
           }`}
         >
           <Calendar className="w-4 h-4" />
@@ -265,7 +265,7 @@ export const ManutencaoOficinaModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             abaAtiva === 'ANALISE_OLEO'
               ? 'bg-amber-500 text-slate-950 font-black shadow-md'
-              : 'bg-slate-900 text-slate-600 hover:text-white hover:bg-slate-800'
+              : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200'
           }`}
         >
           <Droplet className="w-4 h-4" />
@@ -277,7 +277,7 @@ export const ManutencaoOficinaModule: React.FC = () => {
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             abaAtiva === 'INDICADORES'
               ? 'bg-amber-500 text-slate-950 font-black shadow-md'
-              : 'bg-slate-900 text-slate-600 hover:text-white hover:bg-slate-800'
+              : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200'
           }`}
         >
           <TrendingUp className="w-4 h-4" />
@@ -331,12 +331,12 @@ export const ManutencaoOficinaModule: React.FC = () => {
                     <div className="flex justify-between items-start">
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="font-mono text-xs font-bold text-amber-400">{os.numeroOs}</span>
-                          <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-900 font-semibold">
+                          <span className="font-mono text-xs font-bold text-amber-700">{os.numeroOs}</span>
+                          <span className="text-[10px] px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 font-semibold">
                             {os.tipoManutencao === 'PREVENTIVA_HORIMETRO' ? 'Preventiva Horímetro' : 'Corretiva'}
                           </span>
                         </div>
-                        <h3 className="text-base font-bold text-white mt-1">
+                        <h3 className="text-base font-bold text-slate-900 mt-1">
                           {maquina ? maquina.nome : 'Trator Agrícola'}
                         </h3>
                         <p className="text-xs text-slate-600 font-mono">
@@ -347,10 +347,10 @@ export const ManutencaoOficinaModule: React.FC = () => {
                       <span
                         className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
                           os.status === 'CONCLUIDA'
-                            ? 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                            ? 'bg-emerald-950 text-emerald-700 border border-emerald-800'
                             : os.status === 'EM_ANDAMENTO'
-                            ? 'bg-blue-950 text-blue-400 border border-blue-800'
-                            : 'bg-amber-950 text-amber-400 border border-amber-800'
+                            ? 'bg-blue-950 text-blue-700 border border-blue-800'
+                            : 'bg-amber-950 text-amber-700 border border-amber-800'
                         }`}
                       >
                         {os.status}
@@ -366,7 +366,7 @@ export const ManutencaoOficinaModule: React.FC = () => {
                       <span className="text-[10px] uppercase font-semibold text-slate-500">Peças e Lubrificantes:</span>
                       <div className="flex flex-wrap gap-1.5">
                         {os.pecasSubstituidas.map((p, idx) => (
-                          <span key={idx} className="px-2 py-0.5 bg-slate-800/80 text-slate-900 rounded text-[11px]">
+                          <span key={idx} className="px-2 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 rounded text-[11px] font-mono">
                             {p}
                           </span>
                         ))}
@@ -376,12 +376,12 @@ export const ManutencaoOficinaModule: React.FC = () => {
 
                   <div className="pt-3 border-t border-slate-200 flex items-center justify-between text-xs">
                     <div>
-                      <span className="text-slate-500 text-[10px] block">Mecânico Responsável</span>
-                      <span className="text-slate-900 font-medium">{os.mecanicoResponsavel}</span>
+                      <span className="text-slate-500 text-[10px] block font-medium">Mecânico Responsável</span>
+                      <span className="text-slate-900 font-semibold">{os.mecanicoResponsavel}</span>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <span className="font-mono font-bold text-emerald-400 text-sm">
+                      <span className="font-mono font-bold text-emerald-700 text-sm">
                         R$ {os.custoTotalPecasMaoObra.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                       </span>
 
@@ -397,7 +397,7 @@ export const ManutencaoOficinaModule: React.FC = () => {
 
                       <button
                         onClick={() => setOsParaImprimir(os)}
-                        className="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-900 hover:text-white rounded-lg transition"
+                        className="p-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 rounded-lg transition"
                         title="Visualizar / Imprimir OS A4"
                       >
                         <Printer className="w-4 h-4" />
@@ -415,8 +415,8 @@ export const ManutencaoOficinaModule: React.FC = () => {
       {abaAtiva === 'PLANO_PREVENTIVO' && (
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div>
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-amber-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <Calendar className="w-5 h-5 text-amber-700" />
               Cronograma de Revisões Preventivas por Horímetro (Telemetria CAN Bus)
             </h3>
             <p className="text-xs text-slate-600 mt-1">
@@ -436,14 +436,14 @@ export const ManutencaoOficinaModule: React.FC = () => {
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                     <div>
                       <div className="flex items-center gap-2">
-                        <Tractor className="w-4 h-4 text-amber-400" />
-                        <h4 className="font-bold text-white text-sm">{maq.nome}</h4>
-                        <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-600 font-mono">
+                        <Tractor className="w-4 h-4 text-amber-700" />
+                        <h4 className="font-bold text-slate-900 text-sm">{maq.nome}</h4>
+                        <span className="text-[10px] px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-700 font-mono">
                           {maq.tipo}
                         </span>
                       </div>
                       <p className="text-xs text-slate-600 mt-0.5">
-                        Horímetro Atual: <b className="text-white font-mono">{maq.horimetroAtual}h</b> • Próxima Parada Programada: <b className="text-amber-400 font-mono">{proximaRevisao}h</b>
+                        Horímetro Atual: <b className="text-white font-mono">{maq.horimetroAtual}h</b> • Próxima Parada Programada: <b className="text-amber-700 font-mono">{proximaRevisao}h</b>
                       </p>
                     </div>
 
@@ -452,8 +452,8 @@ export const ManutencaoOficinaModule: React.FC = () => {
                         isUrgente
                           ? 'bg-red-950 text-red-400 border border-red-800'
                           : horasRestantes < 50
-                          ? 'bg-amber-950 text-amber-400 border border-amber-800'
-                          : 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                          ? 'bg-amber-950 text-amber-700 border border-amber-800'
+                          : 'bg-emerald-950 text-emerald-700 border border-emerald-800'
                       }`}
                     >
                       {horasRestantes}h Restantes ({isUrgente ? 'PARADA IMINENTE' : 'REGULAR'})
@@ -461,7 +461,7 @@ export const ManutencaoOficinaModule: React.FC = () => {
                   </div>
 
                   <div className="space-y-1">
-                    <div className="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden">
+                    <div className="w-full h-2.5 rounded-full bg-slate-200 overflow-hidden">
                       <div
                         className={`h-full rounded-full transition-all ${
                           isUrgente ? 'bg-red-500' : horasRestantes < 50 ? 'bg-amber-500' : 'bg-emerald-500'
@@ -486,8 +486,8 @@ export const ManutencaoOficinaModule: React.FC = () => {
       {abaAtiva === 'ANALISE_OLEO' && (
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div>
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <Droplet className="w-5 h-5 text-cyan-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <Droplet className="w-5 h-5 text-sky-700" />
               Monitoramento Preditivo por Análise Tribológica de Óleo (Laboratório SOS)
             </h3>
             <p className="text-xs text-slate-600 mt-1">
@@ -507,16 +507,16 @@ export const ManutencaoOficinaModule: React.FC = () => {
                   <div>
                     <div className="flex justify-between items-start">
                       <div>
-                        <h4 className="font-bold text-white text-sm">{maquina ? maquina.nome : 'Máquina'}</h4>
-                        <span className="text-[10px] text-cyan-400 font-mono block">{an.componente}</span>
+                        <h4 className="font-bold text-slate-900 text-sm">{maquina ? maquina.nome : 'Máquina'}</h4>
+                        <span className="text-[10px] text-sky-700 font-mono block">{an.componente}</span>
                       </div>
                       <span
                         className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                           an.status === 'CRITICO_PARADA'
                             ? 'bg-red-950 text-red-400 border border-red-800'
                             : an.status === 'ALERTA_MODERADO'
-                            ? 'bg-amber-950 text-amber-400 border border-amber-800'
-                            : 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                            ? 'bg-amber-950 text-amber-700 border border-amber-800'
+                            : 'bg-emerald-950 text-emerald-700 border border-emerald-800'
                         }`}
                       >
                         {an.status}
@@ -524,25 +524,25 @@ export const ManutencaoOficinaModule: React.FC = () => {
                     </div>
 
                     <div className="grid grid-cols-2 gap-2 text-xs pt-3">
-                      <div className="bg-slate-900 p-2 rounded-lg border border-slate-200">
+                      <div className="bg-slate-50 p-2 rounded-lg border border-slate-200">
                         <span className="text-[10px] text-slate-500 block">Ferro (Fe)</span>
                         <span className={`font-mono font-bold ${an.ferroPpm > 100 ? 'text-red-400' : 'text-slate-900'}`}>
                           {an.ferroPpm} ppm
                         </span>
                       </div>
-                      <div className="bg-slate-900 p-2 rounded-lg border border-slate-200">
+                      <div className="bg-slate-50 p-2 rounded-lg border border-slate-200">
                         <span className="text-[10px] text-slate-500 block">Cobre (Cu)</span>
                         <span className={`font-mono font-bold ${an.cobrePpm > 40 ? 'text-red-400' : 'text-slate-900'}`}>
                           {an.cobrePpm} ppm
                         </span>
                       </div>
-                      <div className="bg-slate-900 p-2 rounded-lg border border-slate-200">
+                      <div className="bg-slate-50 p-2 rounded-lg border border-slate-200">
                         <span className="text-[10px] text-slate-500 block">Sílica (Poeira)</span>
                         <span className={`font-mono font-bold ${an.silicaPpm > 25 ? 'text-red-400' : 'text-slate-900'}`}>
                           {an.silicaPpm} ppm
                         </span>
                       </div>
-                      <div className="bg-slate-900 p-2 rounded-lg border border-slate-200">
+                      <div className="bg-slate-50 p-2 rounded-lg border border-slate-200">
                         <span className="text-[10px] text-slate-500 block">Diluição Diesel</span>
                         <span className={`font-mono font-bold ${an.diluicaoDieselPct > 3 ? 'text-red-400' : 'text-slate-900'}`}>
                           {an.diluicaoDieselPct}%
@@ -550,7 +550,7 @@ export const ManutencaoOficinaModule: React.FC = () => {
                       </div>
                     </div>
 
-                    <p className="text-[11px] text-slate-600 mt-3 bg-slate-900/60 p-2.5 rounded-lg border border-slate-200/80 leading-relaxed">
+                    <p className="text-[11px] text-slate-700 mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-200 leading-relaxed">
                       <b>Diagnóstico:</b> {an.diagnostico}
                     </p>
                   </div>
@@ -570,7 +570,7 @@ export const ManutencaoOficinaModule: React.FC = () => {
       {abaAtiva === 'INDICADORES' && (
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div>
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-indigo-400" />
               Indicadores Chave de Desempenho da Engenharia de Manutenção Rural
             </h3>
@@ -582,19 +582,19 @@ export const ManutencaoOficinaModule: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
               <span className="text-xs text-slate-600">Taxa de Manutenção Preventiva vs Corretiva</span>
-              <p className="text-2xl font-bold text-emerald-400">82% / 18%</p>
+              <p className="text-2xl font-bold text-emerald-700">82% / 18%</p>
               <p className="text-[11px] text-slate-500">Padrão classe mundial: &gt; 80% preventiva para evitar quebras em safra.</p>
             </div>
 
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
               <span className="text-xs text-slate-600">MTTR (Tempo Médio de Reparo)</span>
-              <p className="text-2xl font-bold text-amber-400">3.8 Horas</p>
+              <p className="text-2xl font-bold text-amber-700">3.8 Horas</p>
               <p className="text-[11px] text-slate-500">Agilidade no reabastecimento de peças originais e retorno à lavoura.</p>
             </div>
 
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
               <span className="text-xs text-slate-600">Custo de Manutenção / Hora Frota</span>
-              <p className="text-2xl font-bold text-cyan-400">R$ 48,20 / h</p>
+              <p className="text-2xl font-bold text-sky-700">R$ 48,20 / h</p>
               <p className="text-[11px] text-slate-500">Dentro do orçamento operacional aprovado de R$ 52,00/h.</p>
             </div>
           </div>
@@ -606,8 +606,8 @@ export const ManutencaoOficinaModule: React.FC = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-50 backdrop-blur-sm animate-fade-in">
           <div className="bg-white border border-slate-200 rounded-2xl w-full max-w-lg p-6 shadow-2xl space-y-4">
             <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <Wrench className="w-5 h-5 text-amber-400" />
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <Wrench className="w-5 h-5 text-amber-700" />
                 Abertura de Ordem de Serviço Mecânica (OS)
               </h3>
               <button onClick={() => setModalNovoOpen(false)} className="text-slate-600 hover:text-white p-1">
@@ -650,7 +650,7 @@ export const ManutencaoOficinaModule: React.FC = () => {
                     type="number"
                     value={custo}
                     onChange={(e) => setCusto(Number(e.target.value))}
-                    className="w-full bg-slate-50 border border-slate-700 rounded-xl px-3 py-2 text-emerald-400 font-mono font-bold"
+                    className="w-full bg-slate-50 border border-slate-700 rounded-xl px-3 py-2 text-emerald-700 font-mono font-bold"
                   />
                 </div>
               </div>
@@ -680,7 +680,7 @@ export const ManutencaoOficinaModule: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setModalNovoOpen(false)}
-                className="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 text-slate-900 hover:text-white"
+                className="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition"
               >
                 Cancelar
               </button>
@@ -710,7 +710,7 @@ export const ManutencaoOficinaModule: React.FC = () => {
                 <span className="text-xs text-slate-600 font-mono">Oficina Central Fazenda Santa Helena</span>
               </div>
               <div className="text-right">
-                <span className="px-3 py-1 bg-slate-900 text-white font-mono font-bold text-xs rounded">
+                <span className="px-3 py-1 bg-emerald-800 text-white font-mono font-bold text-xs rounded">
                   STATUS: {osParaImprimir.status}
                 </span>
                 <span className="text-[10px] text-slate-500 block mt-1">Data: 01/10/2026</span>

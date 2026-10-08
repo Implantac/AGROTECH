@@ -3,14 +3,11 @@ import {
   Dna,
   Sparkles,
   Download,
-  CheckCircle2,
-  AlertTriangle,
   Microscope,
   Leaf,
   FlaskConical,
   Calculator,
   ShieldCheck,
-  TrendingUp,
   Coins
 } from 'lucide-react';
 
@@ -91,13 +88,10 @@ export const BioanaliseSoloModule: React.FC = () => {
   const [cotacaoGessoTon, setCotacaoGessoTon] = useState<number>(380.0); // R$ 380 / ton (Gesso agrícola com 15% S)
 
   // Cálculos de Equivalência em Fertilizantes Químicos Minerais
-  // P orgânico mineralizado (kg/ha) convertido em P2O5 (fator 2.29): P2O5_equiv = P * 2.29
   const p2o5EquivKgHa = laudoAtivo.fosfatoOrgMineralizadoKgHa * 2.29;
-  // Quantidade de MAP (52% P2O5) substituída:
   const mapSubstituidoKgHa = (p2o5EquivKgHa / 0.52);
   const economiaMAPReaisHa = (mapSubstituidoKgHa / 1000) * cotacaoMAPTon;
 
-  // Enxofre orgânico (kg/ha) substituído de gesso (15% S):
   const gessoSubstituidoKgHa = (laudoAtivo.enxofreOrgMineralizadoKgHa / 0.15);
   const economiaGessoReaisHa = (gessoSubstituidoKgHa / 1000) * cotacaoGessoTon;
 
@@ -106,42 +100,39 @@ export const BioanaliseSoloModule: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Top Banner Header */}
-      <div className="bg-gradient-to-r from-emerald-950 via-teal-950 to-slate-950 border border-emerald-800/40 rounded-2xl p-6 shadow-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 relative z-10">
-          <div>
-            <div className="flex items-center gap-3 mb-2">
-              <span className="p-2.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl">
-                <Dna className="w-6 h-6" />
-              </span>
-              <div>
-                <div className="flex items-center gap-2">
-                  <h1 className="text-2xl font-bold text-white tracking-wide">
-                    Bioanálise de Solo (BioAS Embrapa & Saúde Biológica)
-                  </h1>
-                  <span className="px-2.5 py-0.5 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
-                    Tecnologia Embrapa Cerrados
-                  </span>
-                </div>
-                <p className="text-stone-300 text-sm mt-0.5">
-                  Avaliação das enzimas Beta-Glicosidase, Arilsulfatase e Fosfatase Ácida para mensurar a fertilidade biológica oculta do solo.
-                </p>
+      {/* Top Header Card */}
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-2xs">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+          <div className="flex items-center gap-3">
+            <span className="p-2.5 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl">
+              <Dna className="w-6 h-6 text-emerald-700" />
+            </span>
+            <div>
+              <div className="flex items-center gap-2">
+                <h1 className="text-xl font-bold text-slate-900">
+                  Bioanálise de Solo (BioAS Embrapa & Saúde Biológica)
+                </h1>
+                <span className="px-2.5 py-0.5 text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full">
+                  Embrapa Cerrados
+                </span>
               </div>
+              <p className="text-slate-500 text-xs mt-0.5">
+                Avaliação das enzimas Beta-Glicosidase, Arilsulfatase e Fosfatase Ácida para mensurar a fertilidade biológica oculta do solo.
+              </p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             <button
               onClick={() => alert('Certificado Oficial de Bioanálise de Solo (BioAS) emitido!')}
-              className="flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-sm font-semibold transition shadow-lg shadow-emerald-950/40"
+              className="flex items-center gap-2 px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-semibold transition cursor-pointer shadow-2xs"
             >
               <Download className="w-4 h-4" />
               Laudo Oficial BioAS
             </button>
-            <div className="text-right pl-4 border-l border-emerald-800/60 hidden sm:block">
-              <div className="text-xs text-stone-400">Economia em Fertilizantes</div>
-              <div className="text-xl font-bold text-emerald-300">
+            <div className="text-right pl-4 border-l border-slate-200 hidden sm:block">
+              <div className="text-[11px] text-slate-500">Economia em Fertilizantes</div>
+              <div className="text-lg font-bold text-emerald-700">
                 R$ {economiaBiologicaTalhaoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </div>
             </div>
@@ -151,43 +142,43 @@ export const BioanaliseSoloModule: React.FC = () => {
 
       {/* 4 Summary Metric Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Índice BioAS (IQS Biológico)</div>
-          <div className="text-2xl font-bold text-emerald-400 mt-1">
-            {laudoAtivo.iqsBiologico.toFixed(2)} <span className="text-sm font-normal text-stone-400">/ 1.00</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Índice BioAS (IQS Biológico)</div>
+          <div className="text-2xl font-bold text-slate-900 mt-1">
+            {laudoAtivo.iqsBiologico.toFixed(2)} <span className="text-sm font-normal text-slate-400">/ 1.00</span>
           </div>
-          <div className="text-xs text-stone-500 mt-1">
-            Classificação: <strong className="text-white">{laudoAtivo.classeSaude}</strong>
+          <div className="text-xs text-slate-500 mt-1">
+            Classificação: <strong className="text-emerald-700">{laudoAtivo.classeSaude}</strong>
           </div>
         </div>
 
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Fósforo Orgânico Mineralizado</div>
-          <div className="text-2xl font-bold text-cyan-300 mt-1">
-            {laudoAtivo.fosfatoOrgMineralizadoKgHa} <span className="text-sm font-normal text-stone-400">kg P/ha/ano</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Fósforo Orgânico Mineralizado</div>
+          <div className="text-2xl font-bold text-slate-900 mt-1">
+            {laudoAtivo.fosfatoOrgMineralizadoKgHa} <span className="text-sm font-normal text-slate-400">kg P/ha/ano</span>
           </div>
-          <div className="text-xs text-stone-400 mt-1">
+          <div className="text-xs text-slate-500 mt-1">
             Equivale a {mapSubstituidoKgHa.toFixed(1)} kg MAP/ha
           </div>
         </div>
 
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Enxofre Orgânico Mineralizado</div>
-          <div className="text-2xl font-bold text-amber-300 mt-1">
-            {laudoAtivo.enxofreOrgMineralizadoKgHa} <span className="text-sm font-normal text-stone-400">kg S/ha/ano</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Enxofre Orgânico Mineralizado</div>
+          <div className="text-2xl font-bold text-slate-900 mt-1">
+            {laudoAtivo.enxofreOrgMineralizadoKgHa} <span className="text-sm font-normal text-slate-400">kg S/ha/ano</span>
           </div>
-          <div className="text-xs text-stone-400 mt-1">
+          <div className="text-xs text-slate-500 mt-1">
             Equivale a {gessoSubstituidoKgHa.toFixed(1)} kg gesso/ha
           </div>
         </div>
 
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Economia Biológica Total</div>
-          <div className="text-2xl font-bold text-emerald-400 mt-1">
-            R$ {economiaBiologicaTotalHa.toFixed(2)} <span className="text-sm font-normal text-stone-400">/ha</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Economia Biológica Total</div>
+          <div className="text-2xl font-bold text-emerald-700 mt-1">
+            R$ {economiaBiologicaTotalHa.toFixed(2)} <span className="text-sm font-normal text-slate-400">/ha</span>
           </div>
-          <div className="text-xs text-stone-500 mt-1">
-            Substituição natural de adubação química solúvel
+          <div className="text-xs text-slate-500 mt-1">
+            Substituição natural de adubação solúvel
           </div>
         </div>
       </div>
@@ -197,15 +188,15 @@ export const BioanaliseSoloModule: React.FC = () => {
 
         {/* Left Column: Atividades Enzimáticas BioAS (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
-          <div className="bg-stone-900/90 border border-stone-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <Microscope className="w-5 h-5 text-emerald-400" />
-                <h2 className="text-lg font-semibold text-white">
+                <Microscope className="w-5 h-5 text-emerald-700" />
+                <h2 className="text-base font-bold text-slate-900">
                   Diagnóstico Enzimático por Talhão
                 </h2>
               </div>
-              <span className="text-xs text-stone-400 font-mono">Padrão Embrapa Cerrados</span>
+              <span className="text-xs text-slate-500 font-mono">Padrão Embrapa Cerrados</span>
             </div>
 
             {/* Selector of Talhões */}
@@ -216,48 +207,48 @@ export const BioanaliseSoloModule: React.FC = () => {
                   <button
                     key={l.id}
                     onClick={() => setLaudoAtivo(l)}
-                    className={`p-3 rounded-xl border text-left transition-all ${
+                    className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
                       isSelected
-                        ? 'bg-emerald-950/40 border-emerald-500/80 shadow-md ring-1 ring-emerald-500/50'
-                        : 'bg-stone-800/40 border-stone-700/60 hover:bg-stone-800'
+                        ? 'bg-emerald-50/70 border-emerald-400 shadow-2xs'
+                        : 'bg-slate-50/60 border-slate-200 hover:bg-slate-50'
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-white truncate">{l.talhao.split(' - ')[0]}</span>
+                      <span className="text-xs font-bold text-slate-900 truncate">{l.talhao.split(' - ')[0]}</span>
                       <span
                         className={`text-[10px] px-1.5 py-0.5 rounded font-bold ${
                           l.classeSaude === 'ALTA'
-                            ? 'bg-emerald-500/20 text-emerald-300'
+                            ? 'bg-emerald-100 text-emerald-800'
                             : l.classeSaude === 'MEDIA'
-                            ? 'bg-amber-500/20 text-amber-300'
-                            : 'bg-rose-500/20 text-rose-300'
+                            ? 'bg-amber-100 text-amber-800'
+                            : 'bg-rose-100 text-rose-800'
                         }`}
                       >
                         {l.classeSaude}
                       </span>
                     </div>
-                    <div className="text-[11px] text-stone-400 mt-1 truncate">{l.areaHa} ha • {l.argilaPct}% argila</div>
+                    <div className="text-[11px] text-slate-500 mt-1 truncate">{l.areaHa} ha • {l.argilaPct}% argila</div>
                   </button>
                 );
               })}
             </div>
 
             {/* Three BioAS Enzyme Indicators */}
-            <div className="space-y-4 bg-stone-950/70 border border-stone-800 rounded-xl p-4">
+            <div className="space-y-4 bg-slate-50/70 border border-slate-200/80 rounded-xl p-4">
               {/* Beta-Glicosidase */}
               <div>
-                <div className="flex justify-between items-center text-xs mb-1">
-                  <span className="font-semibold text-white flex items-center gap-2">
-                    <Leaf className="w-3.5 h-3.5 text-emerald-400" />
+                <div className="flex justify-between items-center text-xs mb-1.5">
+                  <span className="font-semibold text-slate-800 flex items-center gap-2">
+                    <Leaf className="w-3.5 h-3.5 text-emerald-600" />
                     Beta-Glicosidase (Ciclo do Carbono e Matéria Orgânica)
                   </span>
-                  <span className="font-mono font-bold text-emerald-300">
-                    {laudoAtivo.betaGlicosidase} mg PNP/kg/h <span className="text-stone-500 text-[10px]">(Ref: 180)</span>
+                  <span className="font-mono font-bold text-emerald-800">
+                    {laudoAtivo.betaGlicosidase} mg PNP/kg/h <span className="text-slate-400 text-[10px]">(Ref: 180)</span>
                   </span>
                 </div>
-                <div className="w-full bg-stone-800 h-2.5 rounded-full overflow-hidden">
+                <div className="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
                   <div
-                    className="h-full rounded-full bg-emerald-500 transition-all duration-500"
+                    className="h-full rounded-full bg-emerald-600 transition-all duration-500"
                     style={{ width: `${Math.min(100, (laudoAtivo.betaGlicosidase / 180) * 100)}%` }}
                   />
                 </div>
@@ -265,18 +256,18 @@ export const BioanaliseSoloModule: React.FC = () => {
 
               {/* Arilsulfatase */}
               <div>
-                <div className="flex justify-between items-center text-xs mb-1">
-                  <span className="font-semibold text-white flex items-center gap-2">
-                    <FlaskConical className="w-3.5 h-3.5 text-amber-400" />
+                <div className="flex justify-between items-center text-xs mb-1.5">
+                  <span className="font-semibold text-slate-800 flex items-center gap-2">
+                    <FlaskConical className="w-3.5 h-3.5 text-amber-600" />
                     Arilsulfatase (Ciclo do Enxofre e Palhada)
                   </span>
-                  <span className="font-mono font-bold text-amber-300">
-                    {laudoAtivo.arilsulfatase} mg PNP/kg/h <span className="text-stone-500 text-[10px]">(Ref: 70)</span>
+                  <span className="font-mono font-bold text-amber-800">
+                    {laudoAtivo.arilsulfatase} mg PNP/kg/h <span className="text-slate-400 text-[10px]">(Ref: 70)</span>
                   </span>
                 </div>
-                <div className="w-full bg-stone-800 h-2.5 rounded-full overflow-hidden">
+                <div className="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
                   <div
-                    className="h-full rounded-full bg-amber-500 transition-all duration-500"
+                    className="h-full rounded-full bg-amber-600 transition-all duration-500"
                     style={{ width: `${Math.min(100, (laudoAtivo.arilsulfatase / 70) * 100)}%` }}
                   />
                 </div>
@@ -284,18 +275,18 @@ export const BioanaliseSoloModule: React.FC = () => {
 
               {/* Fosfatase Ácida */}
               <div>
-                <div className="flex justify-between items-center text-xs mb-1">
-                  <span className="font-semibold text-white flex items-center gap-2">
-                    <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                <div className="flex justify-between items-center text-xs mb-1.5">
+                  <span className="font-semibold text-slate-800 flex items-center gap-2">
+                    <Sparkles className="w-3.5 h-3.5 text-sky-600" />
                     Fosfatase Ácida (Solubilização de Fósforo Orgânico)
                   </span>
-                  <span className="font-mono font-bold text-cyan-300">
-                    {laudoAtivo.fosfataseAcida} mg PNP/kg/h <span className="text-stone-500 text-[10px]">(Ref: 450)</span>
+                  <span className="font-mono font-bold text-sky-800">
+                    {laudoAtivo.fosfataseAcida} mg PNP/kg/h <span className="text-slate-400 text-[10px]">(Ref: 450)</span>
                   </span>
                 </div>
-                <div className="w-full bg-stone-800 h-2.5 rounded-full overflow-hidden">
+                <div className="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
                   <div
-                    className="h-full rounded-full bg-cyan-500 transition-all duration-500"
+                    className="h-full rounded-full bg-sky-600 transition-all duration-500"
                     style={{ width: `${Math.min(100, (laudoAtivo.fosfataseAcida / 450) * 100)}%` }}
                   />
                 </div>
@@ -303,16 +294,16 @@ export const BioanaliseSoloModule: React.FC = () => {
             </div>
 
             {/* Manejo Contextual & Resiliência ao Veranico */}
-            <div className="mt-4 p-4 bg-emerald-950/20 border border-emerald-900/40 rounded-xl space-y-2 text-xs">
+            <div className="mt-4 p-4 bg-emerald-50/60 border border-emerald-200/80 rounded-xl space-y-2 text-xs">
               <div className="flex items-center justify-between">
-                <span className="font-semibold text-emerald-300 flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <span className="font-semibold text-emerald-800 flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-emerald-700" />
                   Resiliência Agronômica ao Estresse Hídrico
                 </span>
-                <span className="text-[11px] font-bold text-white">{laudoAtivo.resilienciaEstresseHidrico}</span>
+                <span className="text-[11px] font-bold text-slate-800">{laudoAtivo.resilienciaEstresseHidrico}</span>
               </div>
-              <p className="text-stone-300 leading-relaxed text-[11px]">
-                Histórico de manejo: <strong>{laudoAtivo.tipoManejo}</strong>. A rotação continuada com braquiária e inoculação biológica promoveu abundante rede de hifas de fungos micorrízicos arbusculares (FMA) e exsudação radicular rica em açúcares, alimentando o microbioma benéfico que recicla fósforo e enxofre em profundidade.
+              <p className="text-slate-600 leading-relaxed text-[11px]">
+                Histórico de manejo: <strong className="text-slate-900">{laudoAtivo.tipoManejo}</strong>. A rotação continuada com braquiária e inoculação biológica promoveu abundante rede de hifas de fungos micorrízicos arbusculares (FMA) e exsudação radicular rica em açúcares, alimentando o microbioma benéfico que recicla fósforo e enxofre em profundidade.
               </p>
             </div>
           </div>
@@ -320,78 +311,78 @@ export const BioanaliseSoloModule: React.FC = () => {
 
         {/* Right Column: Fertilizer Economic Replacement Simulator (5 cols) */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="bg-stone-900/90 border border-stone-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <Calculator className="w-5 h-5 text-emerald-400" />
-                <h2 className="text-lg font-semibold text-white">
+                <Calculator className="w-5 h-5 text-emerald-700" />
+                <h2 className="text-base font-bold text-slate-900">
                   Valoração da Fertilidade Biológica
                 </h2>
               </div>
-              <span className="text-xs bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 px-2 py-0.5 rounded">
+              <span className="text-xs bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded font-semibold">
                 Economia Real
               </span>
             </div>
 
-            <p className="text-xs text-stone-400 mb-5">
+            <p className="text-xs text-slate-500 mb-5">
               Simule a substituição de fertilizantes solúveis de alto custo (MAP e Gesso) pelos nutrientes disponibilizados biologicamente.
             </p>
 
             <div className="space-y-4 text-xs">
               <div>
-                <label className="text-stone-400 font-medium block mb-1">Cotação do Fertilizante Fosfatado MAP (R$/t)</label>
+                <label className="text-slate-600 font-medium block mb-1">Cotação do Fertilizante Fosfatado MAP (R$/t)</label>
                 <input
                   type="number"
                   step="100"
                   value={cotacaoMAPTon}
                   onChange={(e) => setCotacaoMAPTon(Number(e.target.value))}
-                  className="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-white font-semibold focus:border-emerald-500"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500"
                 />
               </div>
 
               <div>
-                <label className="text-stone-400 font-medium block mb-1">Cotação do Gesso Agrícola (R$/t)</label>
+                <label className="text-slate-600 font-medium block mb-1">Cotação do Gesso Agrícola (R$/t)</label>
                 <input
                   type="number"
                   step="20"
                   value={cotacaoGessoTon}
                   onChange={(e) => setCotacaoGessoTon(Number(e.target.value))}
-                  className="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-white font-semibold focus:border-emerald-500"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 font-semibold focus:outline-none focus:ring-1 focus:ring-emerald-500"
                 />
               </div>
             </div>
 
             {/* Substitution Results Output Box */}
-            <div className="mt-6 p-4 bg-stone-950/80 border border-stone-800 rounded-xl space-y-3 text-xs">
+            <div className="mt-6 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3 text-xs">
               <div className="flex justify-between items-center">
-                <span className="text-stone-400">Economia de Fósforo (MAP):</span>
-                <span className="text-cyan-300 font-bold">
+                <span className="text-slate-600">Economia de Fósforo (MAP):</span>
+                <span className="text-sky-800 font-bold">
                   {mapSubstituidoKgHa.toFixed(1)} kg MAP/ha (R$ {economiaMAPReaisHa.toFixed(2)}/ha)
                 </span>
               </div>
 
               <div className="flex justify-between items-center">
-                <span className="text-stone-400">Economia de Enxofre (Gesso):</span>
-                <span className="text-amber-300 font-bold">
+                <span className="text-slate-600">Economia de Enxofre (Gesso):</span>
+                <span className="text-amber-800 font-bold">
                   {gessoSubstituidoKgHa.toFixed(1)} kg Gesso/ha (R$ {economiaGessoReaisHa.toFixed(2)}/ha)
                 </span>
               </div>
 
-              <div className="pt-2 border-t border-stone-800 flex justify-between items-center">
-                <span className="font-semibold text-white">Economia Biológica Total:</span>
-                <span className="text-emerald-400 font-bold text-base">
+              <div className="pt-2 border-t border-slate-200 flex justify-between items-center">
+                <span className="font-semibold text-slate-900">Economia Biológica Total:</span>
+                <span className="text-emerald-700 font-bold text-base">
                   R$ {economiaBiologicaTotalHa.toFixed(2)} /ha
                 </span>
               </div>
 
-              <div className="p-3 bg-emerald-950/40 border border-emerald-900/40 rounded-lg flex items-center justify-between">
+              <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center justify-between">
                 <div>
-                  <div className="text-[10px] uppercase font-bold text-emerald-400">Economia Total no Talhão ({laudoAtivo.areaHa} ha)</div>
-                  <div className="text-xl font-black text-white">
+                  <div className="text-[10px] uppercase font-bold text-emerald-800">Economia Total no Talhão ({laudoAtivo.areaHa} ha)</div>
+                  <div className="text-xl font-black text-emerald-900">
                     R$ {economiaBiologicaTalhaoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </div>
                 </div>
-                <Coins className="w-6 h-6 text-emerald-400" />
+                <Coins className="w-6 h-6 text-emerald-700" />
               </div>
             </div>
           </div>
@@ -401,3 +392,4 @@ export const BioanaliseSoloModule: React.FC = () => {
     </div>
   );
 };
+export default BioanaliseSoloModule;

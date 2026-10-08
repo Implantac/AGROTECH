@@ -116,13 +116,13 @@ export const MandioculturaAmidoModule: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2.5 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-400">
+              <div className="p-2.5 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-700">
                 <Scale className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Mandiocultura Industrial & Balança Hidrostática
-                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-mono border border-amber-500/30">
+                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-800 font-mono border border-amber-500/30">
                     Grossmann • Teor de Amido/Fécula • Bonificação Fecularia
                   </span>
                 </h2>
@@ -134,7 +134,7 @@ export const MandioculturaAmidoModule: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-300 border-emerald-500/40 flex items-center gap-1.5">
+            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-800 border-emerald-500/40 flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4" />
               Amido Médio: {mandiocaMetrics.teorAmidoMedioPct.toFixed(1)}% (Padrão Premium &gt; 32%)
             </span>
@@ -148,9 +148,9 @@ export const MandioculturaAmidoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Raízes Tuberosas</span>
-            <Sprout className="w-4 h-4 text-amber-400" />
+            <Sprout className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-amber-400">
+          <div className="text-2xl font-black mt-2 font-mono text-amber-700">
             {mandiocaMetrics.producaoTotalTon.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
             <span className="text-xs font-normal text-slate-600">toneladas</span>
           </div>
@@ -163,9 +163,9 @@ export const MandioculturaAmidoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Faturamento Bruto</span>
-            <Coins className="w-4 h-4 text-emerald-400" />
+            <Coins className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
+          <div className="text-2xl font-black mt-2 font-mono text-emerald-700">
             R$ {mandiocaMetrics.faturamentoTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -177,9 +177,9 @@ export const MandioculturaAmidoModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Margem Líquida</span>
-            <TrendingUp className="w-4 h-4 text-cyan-400" />
+            <TrendingUp className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
+          <div className="text-2xl font-black mt-2 font-mono text-sky-700">
             R$ {mandiocaMetrics.margemLiquidaReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -193,7 +193,7 @@ export const MandioculturaAmidoModule: React.FC = () => {
             <span>Teor Médio de Amido</span>
             <Award className="w-4 h-4 text-white" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-white">
+          <div className="text-2xl font-black mt-2 font-mono text-slate-800">
             {mandiocaMetrics.teorAmidoMedioPct.toFixed(1)}%
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -208,8 +208,8 @@ export const MandioculturaAmidoModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <Layers className="w-5 h-5 text-amber-400" />
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <Layers className="w-5 h-5 text-amber-700" />
                 Talhões de Mandioca & Laudo Hidrostático Grossmann
               </h3>
               <p className="text-xs text-slate-600">
@@ -237,24 +237,24 @@ export const MandioculturaAmidoModule: React.FC = () => {
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-xs font-bold border border-amber-500/30">
+                      <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-800 font-mono text-xs font-bold border border-amber-500/30">
                         {l.id}
                       </span>
-                      <h4 className="text-xs font-bold text-white">{l.talhao}</h4>
+                      <h4 className="text-xs font-bold text-slate-900">{l.talhao}</h4>
                       <span className="text-[11px] text-slate-600 font-mono">({l.variedade} • {l.idadeMeses} meses)</span>
                     </div>
 
-                    <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono border border-emerald-500/30">
+                    <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-800 text-[10px] font-mono border border-emerald-500/30">
                       Amido: {amidoPct}% (Prêmio R$ {deltaAmido * bonificacaoPorPctAmidoReais}/t)
                     </span>
                   </div>
 
                   <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-600">
                     <span>Área: <strong className="text-white">{l.areaHa} ha</strong></span>
-                    <span>Produtividade: <strong className="text-amber-400">{l.produtividadeTonHa} t/ha</strong> ({loteTon.toFixed(0)} t)</span>
-                    <span>Peso na Água: <strong className="text-cyan-400">{l.pesoAmostraAguaG} g</strong></span>
+                    <span>Produtividade: <strong className="text-amber-700">{l.produtividadeTonHa} t/ha</strong> ({loteTon.toFixed(0)} t)</span>
+                    <span>Peso na Água: <strong className="text-sky-700">{l.pesoAmostraAguaG} g</strong></span>
                     <span>Preço Pago: <strong className="text-white">R$ {precoEfetivo.toFixed(2)}/t</strong></span>
-                    <span>Faturamento: <strong className="text-emerald-400">R$ {faturamentoLote.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}</strong></span>
+                    <span>Faturamento: <strong className="text-emerald-700">R$ {faturamentoLote.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}</strong></span>
                   </div>
                 </div>
               );
@@ -263,7 +263,7 @@ export const MandioculturaAmidoModule: React.FC = () => {
 
           {/* Diretrizes Técnicas de Mandiocultura */}
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
-            <div className="flex items-center gap-2 text-amber-400 font-semibold">
+            <div className="flex items-center gap-2 text-amber-700 font-semibold">
               <Sparkles className="w-4 h-4" />
               Diretrizes Técnicas Embrapa Mandioca e Fruticultura:
             </div>
@@ -283,8 +283,8 @@ export const MandioculturaAmidoModule: React.FC = () => {
 
         {/* Painel Direito: Parâmetros Comerciais */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Factory className="w-5 h-5 text-amber-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Factory className="w-5 h-5 text-amber-700" />
             Parâmetros Comerciais da Fecularia
           </h3>
 
@@ -326,19 +326,19 @@ export const MandioculturaAmidoModule: React.FC = () => {
             <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
                 <span className="text-slate-600">Faturamento da Safra:</span>
-                <span className="text-emerald-400 font-mono font-bold">
+                <span className="text-emerald-700 font-mono font-bold">
                   R$ {mandiocaMetrics.faturamentoTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600">Custo Total de Campo:</span>
-                <span className="text-rose-400 font-mono font-bold">
+                <span className="text-rose-700 font-mono font-bold">
                   -R$ {mandiocaMetrics.custoTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
-                <span className="text-white">Lucro Líquido Mandioca:</span>
-                <span className="text-cyan-400 font-mono">
+                <span className="text-slate-900">Lucro Líquido Mandioca:</span>
+                <span className="text-sky-700 font-mono">
                   R$ {mandiocaMetrics.margemLiquidaReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>

@@ -131,7 +131,7 @@ export const AviculturaClimatizadaModule: React.FC = () => {
                 <Wind className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Avicultura Climatizada & Frango de Corte 4.0
                   <span className="text-xs px-2.5 py-0.5 rounded-full bg-red-500/20 text-red-300 font-mono border border-red-500/30">
                     Dark House • IEP Padrão Exportação • Biosseguridade
@@ -145,7 +145,7 @@ export const AviculturaClimatizadaModule: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-300 border-emerald-500/40 flex items-center gap-1.5">
+            <span className="px-3 py-1.5 rounded-xl text-xs font-bold font-mono border bg-emerald-500/20 text-emerald-800 border-emerald-500/40 flex items-center gap-1.5">
               <Award className="w-4 h-4" />
               IEP Geral: {aviculturaMetrics.iepMedioPonderado.toFixed(1)} (Alta Excelência)
             </span>
@@ -159,9 +159,9 @@ export const AviculturaClimatizadaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Índice de Eficiência (IEP)</span>
-            <Award className="w-4 h-4 text-emerald-400" />
+            <Award className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
+          <div className="text-2xl font-black mt-2 font-mono text-emerald-700">
             {aviculturaMetrics.iepMedioPonderado.toFixed(1)}{' '}
             <span className="text-xs font-normal text-slate-600">pontos</span>
           </div>
@@ -174,9 +174,9 @@ export const AviculturaClimatizadaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Biomassa Abatida</span>
-            <Activity className="w-4 h-4 text-cyan-400" />
+            <Activity className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
+          <div className="text-2xl font-black mt-2 font-mono text-sky-700">
             {(aviculturaMetrics.totalBiomassaKg / 1000).toFixed(1)}{' '}
             <span className="text-xs font-normal text-slate-600">toneladas</span>
           </div>
@@ -189,9 +189,9 @@ export const AviculturaClimatizadaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Faturamento Bruto</span>
-            <Coins className="w-4 h-4 text-amber-400" />
+            <Coins className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-amber-400">
+          <div className="text-2xl font-black mt-2 font-mono text-amber-700">
             R$ {aviculturaMetrics.faturamentoTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -205,9 +205,9 @@ export const AviculturaClimatizadaModule: React.FC = () => {
             <span>Margem Pós-Energia</span>
             <TrendingUp className="w-4 h-4 text-white" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-white">
+          <div className="text-2xl font-black mt-2 font-mono text-slate-800">
             R$ {aviculturaMetrics.margemLoteReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
-            <span className="text-xs font-normal text-emerald-400">/ ciclo</span>
+            <span className="text-xs font-normal text-emerald-700">/ ciclo</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Custo elétrico climatização: R$ {aviculturaMetrics.custoEnergiaTotalReais.toLocaleString('pt-BR')}.
@@ -221,7 +221,7 @@ export const AviculturaClimatizadaModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
                 <Layers className="w-5 h-5 text-red-400" />
                 Núcleos Aviários & Telemetria Dark House
               </h3>
@@ -250,19 +250,19 @@ export const AviculturaClimatizadaModule: React.FC = () => {
                       <span className="px-2 py-0.5 rounded bg-red-500/20 text-red-300 font-mono text-xs font-bold border border-red-500/30">
                         {g.id}
                       </span>
-                      <h4 className="text-xs font-bold text-white">{g.nome}</h4>
+                      <h4 className="text-xs font-bold text-slate-900">{g.nome}</h4>
                       <span className="text-[11px] text-slate-600 font-mono">({g.linhagem})</span>
                     </div>
-                    <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono border border-emerald-500/30">
+                    <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-800 text-[10px] font-mono border border-emerald-500/30">
                       IEP: {iep.toFixed(1)} pts • CA: {g.conversaoAlimentar}
                     </span>
                   </div>
 
                   <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-900 text-[11px] font-mono text-slate-600">
                     <span>Alojadas: <strong className="text-white">{g.avesAlojadas.toLocaleString('pt-BR')}</strong> ({g.idadeDias} dias)</span>
-                    <span>Peso Médio: <strong className="text-cyan-400">{g.pesoMedioKg.toFixed(2)} kg</strong></span>
-                    <span>Ambiência: <strong className="text-amber-400">{g.temperaturaAtual}°C</strong> ({g.umidadeRelativaPct}% UR • {g.velocidadeArMs} m/s)</span>
-                    <span>Biomassa: <strong className="text-emerald-400">{biomassaTon.toFixed(1)} ton</strong></span>
+                    <span>Peso Médio: <strong className="text-sky-700">{g.pesoMedioKg.toFixed(2)} kg</strong></span>
+                    <span>Ambiência: <strong className="text-amber-700">{g.temperaturaAtual}°C</strong> ({g.umidadeRelativaPct}% UR • {g.velocidadeArMs} m/s)</span>
+                    <span>Biomassa: <strong className="text-emerald-700">{biomassaTon.toFixed(1)} ton</strong></span>
                   </div>
                 </div>
               );
@@ -291,8 +291,8 @@ export const AviculturaClimatizadaModule: React.FC = () => {
 
         {/* Painel Direito: Parâmetros Comerciais */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Coins className="w-5 h-5 text-amber-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Coins className="w-5 h-5 text-amber-700" />
             Parâmetros Comerciais & Custos
           </h3>
 
@@ -323,19 +323,19 @@ export const AviculturaClimatizadaModule: React.FC = () => {
             <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
                 <span className="text-slate-600">Faturamento dos Lotes:</span>
-                <span className="text-amber-400 font-mono font-bold">
+                <span className="text-amber-700 font-mono font-bold">
                   R$ {aviculturaMetrics.faturamentoTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600">Custo Total de Energia:</span>
-                <span className="text-rose-400 font-mono font-bold">
+                <span className="text-rose-700 font-mono font-bold">
                   -R$ {aviculturaMetrics.custoEnergiaTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Resultado Operacional:</span>
-                <span className="text-emerald-400 font-mono">
+                <span className="text-emerald-700 font-mono">
                   R$ {aviculturaMetrics.margemLoteReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })} / ciclo
                 </span>
               </div>

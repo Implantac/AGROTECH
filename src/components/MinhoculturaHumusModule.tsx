@@ -122,15 +122,15 @@ export const MinhoculturaHumusModule: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className="px-2.5 py-1 text-xs font-black bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+              <span className="px-2.5 py-1 text-xs font-black bg-amber-500/20 text-amber-800 border border-amber-500/40 rounded-full uppercase tracking-wider flex items-center gap-1.5">
                 <Leaf className="w-3.5 h-3.5" />
                 Módulo 91 • Minhocultura & Vermicompostagem
               </span>
-              <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+              <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 rounded-full">
                 Eisenia fetida • Húmus Sólido & Líquido
               </span>
             </div>
-            <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-3">
               🪱 Vermicompostagem Industrial & Ácidos Húmicos
             </h2>
             <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
@@ -141,13 +141,13 @@ export const MinhoculturaHumusModule: React.FC = () => {
           <div className="flex items-center gap-3">
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Húmus Peneirado</span>
-              <span className="text-xl font-black text-amber-400">300 ton</span>
+              <span className="text-xl font-black text-amber-700">300 ton</span>
               <span className="text-[10px] text-slate-600 block mt-0.5">50% Rendimento Seco</span>
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Biofertilizante</span>
-              <span className="text-xl font-black text-emerald-400">90.000 L</span>
-              <span className="text-[10px] text-emerald-400/80 block mt-0.5">Extrato Purificado</span>
+              <span className="text-xl font-black text-emerald-700">90.000 L</span>
+              <span className="text-[10px] text-emerald-700/80 block mt-0.5">Extrato Purificado</span>
             </div>
           </div>
         </div>
@@ -158,10 +158,10 @@ export const MinhoculturaHumusModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">População nos Canteiros</span>
-            <Activity className="w-4 h-4 text-emerald-400" />
+            <Activity className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-white">8.500 minh / m²</div>
-          <div className="text-[11px] text-emerald-400 font-medium mt-1 flex items-center gap-1">
+          <div className="text-2xl font-black text-slate-900">8.500 minh / m²</div>
+          <div className="text-[11px] text-emerald-700 font-medium mt-1 flex items-center gap-1">
             <CheckCircle2 className="w-3.5 h-3.5" />
             Digestão Rápida em 60 dias
           </div>
@@ -170,9 +170,9 @@ export const MinhoculturaHumusModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Teor de Matéria Orgânica</span>
-            <Layers className="w-4 h-4 text-amber-400" />
+            <Layers className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black text-amber-400">54.0%</div>
+          <div className="text-2xl font-black text-amber-700">54.0%</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Rico em Ácidos Fúlvicos e Húmicos
           </div>
@@ -181,9 +181,9 @@ export const MinhoculturaHumusModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Faturamento Anual</span>
-            <DollarSign className="w-4 h-4 text-emerald-400" />
+            <DollarSign className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-emerald-400">R$ 1.305.000,00</div>
+          <div className="text-2xl font-black text-emerald-700">R$ 1.305.000,00</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Húmus Sólido + Líquido
           </div>
@@ -192,9 +192,9 @@ export const MinhoculturaHumusModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
-            <Award className="w-4 h-4 text-teal-400" />
+            <Award className="w-4 h-4 text-teal-700" />
           </div>
-          <div className="text-2xl font-black text-teal-400">R$ 925.000,00</div>
+          <div className="text-2xl font-black text-teal-700">R$ 925.000,00</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Margem Líquida de 70.9%
           </div>
@@ -207,8 +207,8 @@ export const MinhoculturaHumusModule: React.FC = () => {
           onClick={() => setActiveTab('canteiros')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'canteiros'
-              ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -219,8 +219,8 @@ export const MinhoculturaHumusModule: React.FC = () => {
           onClick={() => setActiveTab('biologia')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'biologia'
-              ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Activity className="w-4 h-4" />
@@ -231,8 +231,8 @@ export const MinhoculturaHumusModule: React.FC = () => {
           onClick={() => setActiveTab('acidos_humicos')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'acidos_humicos'
-              ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Filter className="w-4 h-4" />
@@ -243,8 +243,8 @@ export const MinhoculturaHumusModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
-              ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -256,8 +256,8 @@ export const MinhoculturaHumusModule: React.FC = () => {
       {activeTab === 'canteiros' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <Layers className="w-5 h-5 text-amber-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <Layers className="w-5 h-5 text-amber-700" />
               Monitoramento dos Canteiros em Galpões Cobertos
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -278,21 +278,21 @@ export const MinhoculturaHumusModule: React.FC = () => {
                     <th className="py-3 px-3">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60 font-medium">
+                <tbody className="divide-y divide-slate-100 font-medium">
                   {canteiros.map((c) => (
-                    <tr key={c.id} className="hover:bg-slate-800/40 transition-colors">
+                    <tr key={c.id} className="hover:bg-slate-50/80 transition-colors">
                       <td className="py-3.5 px-3">
-                        <div className="font-bold text-white">{c.identificacao}</div>
+                        <div className="font-bold text-slate-900">{c.identificacao}</div>
                         <div className="text-[11px] text-slate-600 font-mono">{c.id}</div>
                       </td>
                       <td className="py-3.5 px-3 text-slate-900">{c.substratoBase}</td>
-                      <td className="py-3.5 px-3 font-mono text-white">{c.diasProcessamento} dias</td>
-                      <td className="py-3.5 px-3 font-mono font-bold text-amber-400">{c.temperaturaC}°C • {c.umidadePct}%</td>
-                      <td className="py-3.5 px-3 font-mono text-cyan-400 font-bold">{c.ph}</td>
-                      <td className="py-3.5 px-3 font-mono text-emerald-400">{c.densidadeMinhocasPorM2.toLocaleString()} / m²</td>
-                      <td className="py-3.5 px-3 font-mono font-bold text-teal-400">{c.extracaoChorumeLitrosSemana} L/sem</td>
+                      <td className="py-3.5 px-3 font-mono text-slate-800">{c.diasProcessamento} dias</td>
+                      <td className="py-3.5 px-3 font-mono font-bold text-amber-700">{c.temperaturaC}°C • {c.umidadePct}%</td>
+                      <td className="py-3.5 px-3 font-mono text-sky-700 font-bold">{c.ph}</td>
+                      <td className="py-3.5 px-3 font-mono text-emerald-700">{c.densidadeMinhocasPorM2.toLocaleString()} / m²</td>
+                      <td className="py-3.5 px-3 font-mono font-bold text-teal-700">{c.extracaoChorumeLitrosSemana} L/sem</td>
                       <td className="py-3.5 px-3">
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-800 border border-amber-500/30">
                           {c.status}
                         </span>
                       </td>
@@ -309,8 +309,8 @@ export const MinhoculturaHumusModule: React.FC = () => {
       {activeTab === 'biologia' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <Activity className="w-5 h-5 text-amber-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <Activity className="w-5 h-5 text-amber-700" />
               Fisiologia e Digestão da Eisenia fetida
             </h3>
             <p className="text-xs text-slate-600">
@@ -319,13 +319,13 @@ export const MinhoculturaHumusModule: React.FC = () => {
 
             <div className="space-y-3 text-xs">
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Pré-Compostagem Térmica Obrigatória</span>
+                <span className="font-bold text-slate-900 block">Pré-Compostagem Térmica Obrigatória</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   Os dejetos passam por 15 dias de fermentação aeróbica a 60°C para eliminar sementes de invasoras e patógenos entéricos antes de serem fornecidos às minhocas.
                 </span>
               </div>
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Reprodução Hermafrodita e Casulos</span>
+                <span className="font-bold text-slate-900 block">Reprodução Hermafrodita e Casulos</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   Cada casulo eclode em 21 dias gerando de 2 a 4 novas minhocas, dobrando a biomassa do canteiro a cada 60 a 90 dias.
                 </span>
@@ -334,8 +334,8 @@ export const MinhoculturaHumusModule: React.FC = () => {
           </div>
 
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-emerald-700" />
               Peneiramento e Separação
             </h3>
             <p className="text-xs text-slate-600">
@@ -345,11 +345,11 @@ export const MinhoculturaHumusModule: React.FC = () => {
             <div className="space-y-2 text-xs">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Fotofobia da Minhoca:</span>
-                <span className="font-mono font-bold text-amber-400">Fuga para o fundo facilitando colheita</span>
+                <span className="font-mono font-bold text-amber-700">Fuga para o fundo facilitando colheita</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Peneira Cilíndrica Trommel:</span>
-                <span className="font-mono font-bold text-emerald-400">Separação de 99% dos casulos e matrizes</span>
+                <span className="font-mono font-bold text-emerald-700">Separação de 99% dos casulos e matrizes</span>
               </div>
             </div>
           </div>
@@ -360,8 +360,8 @@ export const MinhoculturaHumusModule: React.FC = () => {
       {activeTab === 'acidos_humicos' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <Filter className="w-5 h-5 text-cyan-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <Filter className="w-5 h-5 text-sky-700" />
               Composição Bioquímica e Quelação de Nutrientes no Solo
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -371,19 +371,19 @@ export const MinhoculturaHumusModule: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Ácidos Fúlvicos</span>
-                <span className="text-2xl font-black text-white font-mono">18.5%</span>
-                <span className="text-[11px] text-amber-400 block">Absorção foliar ultra-rápida</span>
+                <span className="text-2xl font-black text-slate-900 font-mono">18.5%</span>
+                <span className="text-[11px] text-amber-700 block">Absorção foliar ultra-rápida</span>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Ácidos Húmicos</span>
-                <span className="text-2xl font-black text-emerald-400 font-mono">24.2%</span>
+                <span className="text-2xl font-black text-emerald-700 font-mono">24.2%</span>
                 <span className="text-[11px] text-slate-600 block">Estruturação de agregados de solo</span>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Carga Microbiana Viva</span>
-                <span className="text-2xl font-black text-cyan-400 font-mono">10⁹ UFC / g</span>
+                <span className="text-2xl font-black text-sky-700 font-mono">10⁹ UFC / g</span>
                 <span className="text-[11px] text-slate-600 block">Antagonismo a fungos de raiz</span>
               </div>
             </div>
@@ -395,15 +395,15 @@ export const MinhoculturaHumusModule: React.FC = () => {
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-amber-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <BarChart3 className="w-5 h-5 text-amber-700" />
               Parâmetros de Vermicompostagem
             </h3>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Esterco Processado Anual</span>
-                <span className="font-mono text-amber-400">{estercoProcessadoTonAno} toneladas</span>
+                <span className="font-mono text-amber-700">{estercoProcessadoTonAno} toneladas</span>
               </div>
               <input
                 type="range"
@@ -412,14 +412,14 @@ export const MinhoculturaHumusModule: React.FC = () => {
                 step="50"
                 value={estercoProcessadoTonAno}
                 onChange={(e) => setEstercoProcessadoTonAno(Number(e.target.value))}
-                className="w-full accent-amber-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-amber-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Húmus Sólido (R$/kg)</span>
-                <span className="font-mono text-white">R$ {precoKgHumusSolidoReais.toFixed(2)}</span>
+                <span className="font-mono text-slate-800">R$ {precoKgHumusSolidoReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -428,14 +428,14 @@ export const MinhoculturaHumusModule: React.FC = () => {
                 step="0.10"
                 value={precoKgHumusSolidoReais}
                 onChange={(e) => setPrecoKgHumusSolidoReais(Number(e.target.value))}
-                className="w-full accent-amber-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-amber-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Biofertilizante Líquido (R$/L)</span>
-                <span className="font-mono text-emerald-400">R$ {precoLitroBiofertilizanteReais.toFixed(2)}</span>
+                <span className="font-mono text-emerald-700">R$ {precoLitroBiofertilizanteReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -444,14 +444,14 @@ export const MinhoculturaHumusModule: React.FC = () => {
                 step="0.5"
                 value={precoLitroBiofertilizanteReais}
                 onChange={(e) => setPrecoLitroBiofertilizanteReais(Number(e.target.value))}
-                className="w-full accent-emerald-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-emerald-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Custo Operacional Total Anual</span>
-                <span className="font-mono text-rose-400">R$ {custoTotalOperacaoAnoReais.toFixed(2)}</span>
+                <span className="font-mono text-rose-700">R$ {custoTotalOperacaoAnoReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -460,21 +460,21 @@ export const MinhoculturaHumusModule: React.FC = () => {
                 step="25000"
                 value={custoTotalOperacaoAnoReais}
                 onChange={(e) => setCustoTotalOperacaoAnoReais(Number(e.target.value))}
-                className="w-full accent-rose-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-rose-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
           </div>
 
           <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <DollarSign className="w-5 h-5 text-emerald-700" />
               Retorno Financeiro e Economia Circular
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Húmus Peneirado</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   {(metricas.humusSolidoKgAno / 1000).toFixed(0)} ton
                 </span>
                 <span className="text-[10px] text-slate-600 block">{taxaConversaoHumusSolidoPct}% rendimento</span>
@@ -482,15 +482,15 @@ export const MinhoculturaHumusModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Biofertilizante</span>
-                <span className="font-mono font-bold text-amber-400 text-base">
+                <span className="font-mono font-bold text-amber-700 text-base">
                   {(metricas.biofertilizanteLiquidoLitrosAno / 1000).toFixed(0)}k L
                 </span>
-                <span className="text-[10px] text-amber-400/80 block">Extrato Concentrado</span>
+                <span className="text-[10px] text-amber-700/80 block">Extrato Concentrado</span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Bruta</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   R$ {(metricas.receitaBrutaTotalReais / 1000).toFixed(0)}k
                 </span>
                 <span className="text-[10px] text-slate-600 block">Sólido + Líquido</span>
@@ -498,35 +498,35 @@ export const MinhoculturaHumusModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido</span>
-                <span className="font-mono font-bold text-emerald-400 text-base">
+                <span className="font-mono font-bold text-emerald-700 text-base">
                   R$ {(metricas.lucroLiquidoAnoReais / 1000).toFixed(0)}k
                 </span>
-                <span className="text-[10px] text-emerald-400/80 block">{metricas.margemLiquidaPct}% margem</span>
+                <span className="text-[10px] text-emerald-700/80 block">{metricas.margemLiquidaPct}% margem</span>
               </div>
             </div>
 
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Venda de Húmus Sólido ({metricas.humusSolidoKgAno.toLocaleString()} kg @ R$ {precoKgHumusSolidoReais.toFixed(2)}):</span>
-                <span className="font-mono font-bold text-white">
+                <span className="font-mono font-bold text-slate-900">
                   R$ {metricas.receitaHumusSolidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Venda de Biofertilizante Líquido ({metricas.biofertilizanteLiquidoLitrosAno.toLocaleString()} L @ R$ {precoLitroBiofertilizanteReais.toFixed(2)}):</span>
-                <span className="font-mono font-bold text-amber-400">
+                <span className="font-mono font-bold text-amber-700">
                   + R$ {metricas.receitaBiofertilizanteReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Custo Total de Operação, Peneiramento e Ensacamento:</span>
-                <span className="font-mono font-bold text-rose-400">
+                <span className="font-mono font-bold text-rose-700">
                   - R$ {custoTotalOperacaoAnoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-2 text-sm font-black bg-emerald-950/30 px-3 rounded-lg border border-emerald-800/50">
-                <span className="text-white">Lucro Líquido Anual Consolidado:</span>
-                <span className="font-mono text-emerald-300">
+              <div className="flex justify-between items-center py-2 text-sm font-black bg-emerald-50 px-3 rounded-lg border border-emerald-200">
+                <span className="text-slate-900">Lucro Líquido Anual Consolidado:</span>
+                <span className="font-mono text-emerald-800">
                   R$ {metricas.lucroLiquidoAnoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>

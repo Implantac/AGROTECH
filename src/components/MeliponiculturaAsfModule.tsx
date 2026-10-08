@@ -101,15 +101,15 @@ export const MeliponiculturaAsfModule: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className="px-2.5 py-1 text-xs font-black bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+              <span className="px-2.5 py-1 text-xs font-black bg-amber-500/20 text-amber-800 border border-amber-500/40 rounded-full uppercase tracking-wider flex items-center gap-1.5">
                 <Flower2 className="w-3.5 h-3.5" />
                 Módulo 103 • Meliponicultura & Abelhas Nativas Sem Ferrão
               </span>
-              <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+              <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 rounded-full">
                 Polinização Dirigida • Mel Medicinal R$ 180/L
               </span>
             </div>
-            <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-3">
               🐝 Meliponicultura 4.0: Polinização de Alto Valor & Mel Nobre
             </h2>
             <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
@@ -120,13 +120,13 @@ export const MeliponiculturaAsfModule: React.FC = () => {
           <div className="flex items-center gap-3">
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[130px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Mel Nobre ASF</span>
-              <span className="text-xl font-black text-amber-400">250 L</span>
+              <span className="text-xl font-black text-amber-700">250 L</span>
               <span className="text-[10px] text-slate-600 block mt-0.5">100 Colmeias</span>
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Faturamento</span>
-              <span className="text-xl font-black text-emerald-400">R$ 75.000</span>
-              <span className="text-[10px] text-emerald-400/80 block mt-0.5">62.7% Margem</span>
+              <span className="text-xl font-black text-emerald-700">R$ 75.000</span>
+              <span className="text-[10px] text-emerald-700/80 block mt-0.5">62.7% Margem</span>
             </div>
           </div>
         </div>
@@ -137,11 +137,11 @@ export const MeliponiculturaAsfModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Aumento de Vingamento</span>
-            <Flower2 className="w-4 h-4 text-emerald-400" />
+            <Flower2 className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-emerald-400">+ 28.5% Frutos</div>
+          <div className="text-2xl font-black text-emerald-700">+ 28.5% Frutos</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1 flex items-center gap-1">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
             Polinização por Vibração (Buzz)
           </div>
         </div>
@@ -149,9 +149,9 @@ export const MeliponiculturaAsfModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Redução de Deformidades</span>
-            <ShieldCheck className="w-4 h-4 text-cyan-400" />
+            <ShieldCheck className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black text-cyan-400">- 62.0% Perdas</div>
+          <div className="text-2xl font-black text-sky-700">- 62.0% Perdas</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Morangos e Tomates Classe Extra
           </div>
@@ -160,9 +160,9 @@ export const MeliponiculturaAsfModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Preço do Mel ASF</span>
-            <Award className="w-4 h-4 text-amber-400" />
+            <Award className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black text-amber-400">R$ 180,00 / L</div>
+          <div className="text-2xl font-black text-amber-700">R$ 180,00 / L</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Alta Concentração de Flavonoides
           </div>
@@ -171,9 +171,9 @@ export const MeliponiculturaAsfModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-amber-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Lucro Líquido Anual</span>
-            <DollarSign className="w-4 h-4 text-teal-400" />
+            <DollarSign className="w-4 h-4 text-teal-700" />
           </div>
-          <div className="text-2xl font-black text-teal-400">R$ 47.000,00</div>
+          <div className="text-2xl font-black text-teal-700">R$ 47.000,00</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Mel + Aluguel de Polinização
           </div>
@@ -186,8 +186,8 @@ export const MeliponiculturaAsfModule: React.FC = () => {
           onClick={() => setActiveTab('colmeias')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'colmeias'
-              ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Flower2 className="w-4 h-4" />
@@ -198,8 +198,8 @@ export const MeliponiculturaAsfModule: React.FC = () => {
           onClick={() => setActiveTab('polinizacao')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'polinizacao'
-              ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Activity className="w-4 h-4" />
@@ -210,8 +210,8 @@ export const MeliponiculturaAsfModule: React.FC = () => {
           onClick={() => setActiveTab('mel')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'mel'
-              ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Droplets className="w-4 h-4" />
@@ -222,8 +222,8 @@ export const MeliponiculturaAsfModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
-              ? 'bg-amber-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-amber-50 text-amber-800 border border-amber-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -235,8 +235,8 @@ export const MeliponiculturaAsfModule: React.FC = () => {
       {activeTab === 'colmeias' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <Flower2 className="w-5 h-5 text-amber-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <Flower2 className="w-5 h-5 text-amber-700" />
               Colmeias Racionais em Monitoramento IoT
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -256,20 +256,20 @@ export const MeliponiculturaAsfModule: React.FC = () => {
                     <th className="py-3 px-3">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60 font-medium">
+                <tbody className="divide-y divide-slate-100 font-medium">
                   {colmeias.map((c) => (
-                    <tr key={c.id} className="hover:bg-slate-800/40 transition-colors">
+                    <tr key={c.id} className="hover:bg-slate-50/80 transition-colors">
                       <td className="py-3.5 px-3">
-                        <div className="font-bold text-white">{c.especie}</div>
+                        <div className="font-bold text-slate-900">{c.especie}</div>
                         <div className="text-[11px] text-slate-600 font-mono">{c.id}</div>
                       </td>
-                      <td className="py-3.5 px-3 font-mono text-amber-300 font-bold">{c.caixasAtivas} caixas</td>
-                      <td className="py-3.5 px-3 font-mono text-white">{c.areaAtendidaHa} ha</td>
-                      <td className="py-3.5 px-3 text-cyan-300 font-semibold">{c.culturaAlvo}</td>
-                      <td className="py-3.5 px-3 font-mono text-emerald-400 font-bold">{c.producaoMelLitrosAno} L/ano</td>
+                      <td className="py-3.5 px-3 font-mono text-amber-800 font-bold">{c.caixasAtivas} caixas</td>
+                      <td className="py-3.5 px-3 font-mono text-slate-800">{c.areaAtendidaHa} ha</td>
+                      <td className="py-3.5 px-3 text-sky-800 font-semibold">{c.culturaAlvo}</td>
+                      <td className="py-3.5 px-3 font-mono text-emerald-700 font-bold">{c.producaoMelLitrosAno} L/ano</td>
                       <td className="py-3.5 px-3 font-mono text-teal-300 font-bold">+{c.ganhoVingamentoPct}%</td>
                       <td className="py-3.5 px-3">
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30">
                           {c.statusSanitario}
                         </span>
                       </td>
@@ -286,8 +286,8 @@ export const MeliponiculturaAsfModule: React.FC = () => {
       {activeTab === 'polinizacao' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <Activity className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <Activity className="w-5 h-5 text-emerald-700" />
               Polinização por Vibração (Buzz Pollination)
             </h3>
             <p className="text-xs text-slate-600">
@@ -296,13 +296,13 @@ export const MeliponiculturaAsfModule: React.FC = () => {
 
             <div className="space-y-3 text-xs">
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Solanáceas (Tomate, Berinjela, Pimentão)</span>
+                <span className="font-bold text-slate-900 block">Solanáceas (Tomate, Berinjela, Pimentão)</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   Anteras poricidas exigem vibração acústica; abelhas nativas aumentam em 25% o peso médio dos frutos e o teor de sólidos solúveis (°Brix).
                 </span>
               </div>
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                <span className="font-bold text-white block">Morangos em Estufa Hidropônica</span>
+                <span className="font-bold text-slate-900 block">Morangos em Estufa Hidropônica</span>
                 <span className="text-slate-600 text-[11px] block mt-0.5">
                   A fecundação completa de todos os pistilos elimina frutos tortos ou ocos, convertendo 95% da colheita em padrão Exportação Classe 1.
                 </span>
@@ -311,8 +311,8 @@ export const MeliponiculturaAsfModule: React.FC = () => {
           </div>
 
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-emerald-700" />
               Densidade Ótima em Estufas
             </h3>
             <p className="text-xs text-slate-600">
@@ -322,11 +322,11 @@ export const MeliponiculturaAsfModule: React.FC = () => {
             <div className="space-y-2 text-xs">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Carga Recomendada:</span>
-                <span className="font-mono font-bold text-amber-400">6 a 10 caixas / hectare</span>
+                <span className="font-mono font-bold text-amber-700">6 a 10 caixas / hectare</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center">
                 <span className="text-slate-600">Distância Máxima de Voo:</span>
-                <span className="font-mono font-bold text-cyan-400">Até 800 metros do ninho</span>
+                <span className="font-mono font-bold text-sky-700">Até 800 metros do ninho</span>
               </div>
             </div>
           </div>
@@ -337,8 +337,8 @@ export const MeliponiculturaAsfModule: React.FC = () => {
       {activeTab === 'mel' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-              <Droplets className="w-5 h-5 text-amber-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+              <Droplets className="w-5 h-5 text-amber-700" />
               Mel em Potes de Cerume & Geoprópolis Medicinal
             </h3>
             <p className="text-xs text-slate-600 mb-4">
@@ -348,19 +348,19 @@ export const MeliponiculturaAsfModule: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Desumidificação a Frio</span>
-                <span className="text-2xl font-black text-white font-mono">&lt; 18.0% UR</span>
-                <span className="text-[11px] text-emerald-400 block">Impede fermentação espontânea</span>
+                <span className="text-2xl font-black text-slate-900 font-mono">&lt; 18.0% UR</span>
+                <span className="text-[11px] text-emerald-700 block">Impede fermentação espontânea</span>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Geoprópolis Ativa</span>
-                <span className="text-2xl font-black text-amber-400 font-mono">Própolis + Barro</span>
+                <span className="text-2xl font-black text-amber-700 font-mono">Própolis + Barro</span>
                 <span className="text-[11px] text-slate-600 block">Propriedades antivirais nobres</span>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Mercado Gourmet</span>
-                <span className="text-2xl font-black text-cyan-400 font-mono">Chefs Michelin</span>
+                <span className="text-2xl font-black text-sky-700 font-mono">Chefs Michelin</span>
                 <span className="text-[11px] text-slate-600 block">Cotação até R$ 250/L em frascos</span>
               </div>
             </div>
@@ -372,15 +372,15 @@ export const MeliponiculturaAsfModule: React.FC = () => {
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-amber-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <BarChart3 className="w-5 h-5 text-amber-700" />
               Parâmetros da Meliponicultura
             </h3>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Número de Colmeias</span>
-                <span className="font-mono text-amber-400">{totalColmeias} caixas</span>
+                <span className="font-mono text-amber-700">{totalColmeias} caixas</span>
               </div>
               <input
                 type="range"
@@ -389,14 +389,14 @@ export const MeliponiculturaAsfModule: React.FC = () => {
                 step="10"
                 value={totalColmeias}
                 onChange={(e) => setTotalColmeias(Number(e.target.value))}
-                className="w-full accent-amber-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-amber-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Área Alugada para Polinização (ha)</span>
-                <span className="font-mono text-cyan-400">{areaPolinizadaHa} ha</span>
+                <span className="font-mono text-sky-700">{areaPolinizadaHa} ha</span>
               </div>
               <input
                 type="range"
@@ -405,14 +405,14 @@ export const MeliponiculturaAsfModule: React.FC = () => {
                 step="1"
                 value={areaPolinizadaHa}
                 onChange={(e) => setAreaPolinizadaHa(Number(e.target.value))}
-                className="w-full accent-cyan-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-cyan-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Preço Litro Mel ASF (R$)</span>
-                <span className="font-mono text-emerald-400">R$ {precoLitroMelAsfReais.toFixed(2)}</span>
+                <span className="font-mono text-emerald-700">R$ {precoLitroMelAsfReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -421,14 +421,14 @@ export const MeliponiculturaAsfModule: React.FC = () => {
                 step="10"
                 value={precoLitroMelAsfReais}
                 onChange={(e) => setPrecoLitroMelAsfReais(Number(e.target.value))}
-                className="w-full accent-emerald-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-emerald-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Custo de Manejo e Alimentação Suplementar</span>
-                <span className="font-mono text-rose-400">R$ {custoManejoAnualReais.toFixed(2)}</span>
+                <span className="font-mono text-rose-700">R$ {custoManejoAnualReais.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -437,37 +437,37 @@ export const MeliponiculturaAsfModule: React.FC = () => {
                 step="2000"
                 value={custoManejoAnualReais}
                 onChange={(e) => setCustoManejoAnualReais(Number(e.target.value))}
-                className="w-full accent-rose-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-rose-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
           </div>
 
           <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <DollarSign className="w-5 h-5 text-emerald-700" />
               Retorno Financeiro dos Serviços com Abelhas Nativas
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Mel Total</span>
-                <span className="font-mono font-bold text-amber-400 text-base">
+                <span className="font-mono font-bold text-amber-700 text-base">
                   {metricas.volumeMelTotalLitros.toFixed(0)} L
                 </span>
-                <span className="text-[10px] text-amber-400/80 block">Extremamente Puro</span>
+                <span className="text-[10px] text-amber-700/80 block">Extremamente Puro</span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Polinização</span>
-                <span className="font-mono font-bold text-cyan-400 text-base">
+                <span className="font-mono font-bold text-sky-700 text-base">
                   R$ {(metricas.receitaPolinizacaoReais / 1000).toFixed(0)}k
                 </span>
-                <span className="text-[10px] text-cyan-400/80 block">{areaPolinizadaHa} ha atendidos</span>
+                <span className="text-[10px] text-sky-700/80 block">{areaPolinizadaHa} ha atendidos</span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Total</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   R$ {(metricas.receitaBrutaTotalReais / 1000).toFixed(0)}k
                 </span>
                 <span className="text-[10px] text-slate-600 block">Mel + Serviços</span>
@@ -475,35 +475,35 @@ export const MeliponiculturaAsfModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido</span>
-                <span className="font-mono font-bold text-emerald-400 text-base">
+                <span className="font-mono font-bold text-emerald-700 text-base">
                   R$ {(metricas.lucroLiquidoReais / 1000).toFixed(0)}k
                 </span>
-                <span className="text-[10px] text-emerald-400/80 block">{metricas.margemLiquidaPct}% margem</span>
+                <span className="text-[10px] text-emerald-700/80 block">{metricas.margemLiquidaPct}% margem</span>
               </div>
             </div>
 
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Receita com Venda de Mel Puro Desumidificado ({metricas.volumeMelTotalLitros} L @ R$ {precoLitroMelAsfReais.toFixed(2)}):</span>
-                <span className="font-mono font-bold text-amber-400">
+                <span className="font-mono font-bold text-amber-700">
                   R$ {metricas.receitaMelReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Receita com Locação de Caixas para Polinização de Estufas ({areaPolinizadaHa} ha @ R$ {aluguelPolinizacaoHaReais.toFixed(2)}):</span>
-                <span className="font-mono font-bold text-cyan-400">
+                <span className="font-mono font-bold text-sky-700">
                   + R$ {metricas.receitaPolinizacaoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Custos Totais com Caixas Racionais, Alimentação e Sanidade:</span>
-                <span className="font-mono font-bold text-rose-400">
+                <span className="font-mono font-bold text-rose-700">
                   - R$ {custoManejoAnualReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>
-              <div className="flex justify-between items-center py-2 text-sm font-black bg-amber-950/30 px-3 rounded-lg border border-amber-800/50">
-                <span className="text-white">Lucro Líquido Anual Consolidado:</span>
-                <span className="font-mono text-emerald-300">
+              <div className="flex justify-between items-center py-2 text-sm font-black bg-amber-50 px-3 rounded-lg border border-amber-200">
+                <span className="text-slate-900">Lucro Líquido Anual Consolidado:</span>
+                <span className="font-mono text-emerald-800">
                   R$ {metricas.lucroLiquidoReais.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               </div>

@@ -197,7 +197,7 @@ export const OEMTelematicsGatewayModule: React.FC = () => {
                 John Deere • Case IH • New Holland • Trimble • Jacto • ISOBUS
               </span>
             </div>
-            <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-3">
               Gateway Universal de Telemetria OEM & Decodificador CAN Bus J1939
             </h2>
             <p className="text-xs sm:text-sm text-[#EAF4E7] max-w-3xl leading-relaxed">

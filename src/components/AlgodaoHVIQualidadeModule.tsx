@@ -141,13 +141,13 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2.5 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-400">
+              <div className="p-2.5 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-700">
                 <Award className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Qualidade da Fibra de Algodão & Classificação HVI
-                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-mono border border-amber-500/30">
+                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-800 font-mono border border-amber-500/30">
                     ABRAPA • ICE Cotton #2
                   </span>
                 </h2>
@@ -162,8 +162,8 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
             <span
               className={`px-3 py-1.5 rounded-xl text-xs font-bold font-mono border flex items-center gap-1.5 ${
                 hviMetrics.atendeExportacaoPremium
-                  ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
-                  : 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                  ? 'bg-emerald-500/20 text-emerald-800 border-emerald-500/40'
+                  : 'bg-amber-500/20 text-amber-800 border-amber-500/40'
               }`}
             >
               <CheckCircle2 className="w-4 h-4" />
@@ -181,9 +181,9 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Fardos Exportação</span>
-            <Layers className="w-4 h-4 text-amber-400" />
+            <Layers className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-amber-400">
+          <div className="text-2xl font-black mt-2 font-mono text-amber-700">
             {hviMetrics.totalFardos228Kg.toLocaleString('pt-BR')}{' '}
             <span className="text-xs font-normal text-slate-600">fardos (228 kg)</span>
           </div>
@@ -196,9 +196,9 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>HVI: UHM & Micronaire</span>
-            <Sparkles className="w-4 h-4 text-emerald-400" />
+            <Sparkles className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-emerald-400">
+          <div className="text-2xl font-black mt-2 font-mono text-emerald-700">
             {hviMetrics.mediaUhm.toFixed(2)}" • {hviMetrics.mediaMicronaire.toFixed(2)}
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
@@ -210,9 +210,9 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Caroço para Confinamento</span>
-            <Scale className="w-4 h-4 text-cyan-400" />
+            <Scale className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
+          <div className="text-2xl font-black mt-2 font-mono text-sky-700">
             {hviMetrics.carocoTotalTon.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
             <span className="text-xs font-normal text-slate-600">ton</span>
           </div>
@@ -227,9 +227,9 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
             <span>Faturamento Bruto Total</span>
             <TrendingUp className="w-4 h-4 text-white" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-white">
+          <div className="text-2xl font-black mt-2 font-mono text-slate-800">
             R$ {hviMetrics.faturamentoPorHaReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}{' '}
-            <span className="text-xs font-normal text-emerald-400">/ ha</span>
+            <span className="text-xs font-normal text-emerald-700">/ ha</span>
           </div>
           <p className="text-[11px] text-slate-500 mt-1">
             Total: R$ {hviMetrics.receitaBrutaTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })} ({areaAlgodaoHa} ha).
@@ -243,8 +243,8 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <FileCheck2 className="w-5 h-5 text-amber-400" />
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <FileCheck2 className="w-5 h-5 text-amber-700" />
                 Laudos Laboratoriais HVI dos Lotes de Algodão
               </h3>
               <p className="text-xs text-slate-600">
@@ -264,10 +264,10 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
-                    <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-xs font-bold border border-amber-500/30">
+                    <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-800 font-mono text-xs font-bold border border-amber-500/30">
                       {f.id}
                     </span>
-                    <h4 className="text-xs font-bold text-white">{f.classificacaoComercial}</h4>
+                    <h4 className="text-xs font-bold text-slate-900">{f.classificacaoComercial}</h4>
                   </div>
                   <span className="text-[11px] font-mono text-slate-600">
                     Carga: {f.pesoBrutoCarocoKg.toLocaleString('pt-BR')} kg caroço • {f.rendimentoPlumaPct}% pluma
@@ -281,13 +281,13 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
                   </div>
                   <div className="p-2 rounded bg-white border border-slate-200">
                     <span className="text-slate-500 block text-[10px]">Micronaire</span>
-                    <span className={f.micronaire >= 3.8 && f.micronaire <= 4.5 ? 'text-emerald-400 font-bold' : 'text-amber-400 font-bold'}>
+                    <span className={f.micronaire >= 3.8 && f.micronaire <= 4.5 ? 'text-emerald-700 font-bold' : 'text-amber-700 font-bold'}>
                       {f.micronaire.toFixed(2)}
                     </span>
                   </div>
                   <div className="p-2 rounded bg-white border border-slate-200">
                     <span className="text-slate-500 block text-[10px]">Resistência</span>
-                    <span className="text-cyan-400 font-bold">{f.resistenciaGtex} g/tex</span>
+                    <span className="text-sky-700 font-bold">{f.resistenciaGtex} g/tex</span>
                   </div>
                   <div className="p-2 rounded bg-white border border-slate-200">
                     <span className="text-slate-500 block text-[10px]">Uniformidade (UI)</span>
@@ -300,7 +300,7 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
 
           {/* Banner Técnico HVI */}
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
-            <div className="flex items-center gap-2 text-amber-400 font-semibold">
+            <div className="flex items-center gap-2 text-amber-700 font-semibold">
               <Sparkles className="w-4 h-4" />
               Padrões Globais de Comercialização de Pluma:
             </div>
@@ -320,8 +320,8 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
 
         {/* Painel Direito: Parâmetros Comerciais */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Scale className="w-5 h-5 text-amber-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Scale className="w-5 h-5 text-amber-700" />
             Parâmetros da Safra
           </h3>
 
@@ -349,7 +349,7 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span className="text-slate-600 font-medium">Rendimento no Descaroçador</span>
-                <span className="text-amber-400 font-mono font-bold">{rendimentoPlumaBasePct}%</span>
+                <span className="text-amber-700 font-mono font-bold">{rendimentoPlumaBasePct}%</span>
               </div>
               <input
                 type="range"
@@ -386,19 +386,19 @@ export const AlgodaoHVIQualidadeModule: React.FC = () => {
             <div className="pt-3 border-t border-slate-200 space-y-2">
               <div className="flex justify-between">
                 <span className="text-slate-600">Receita Bruta Pluma:</span>
-                <span className="text-emerald-400 font-mono font-bold">
+                <span className="text-emerald-700 font-mono font-bold">
                   R$ {hviMetrics.receitaPlumaReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-600">Receita Bruta Caroço:</span>
-                <span className="text-cyan-400 font-mono font-bold">
+                <span className="text-sky-700 font-mono font-bold">
                   R$ {hviMetrics.receitaCarocoReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span className="text-white">Faturamento Global:</span>
-                <span className="text-amber-400 font-mono">
+                <span className="text-amber-700 font-mono">
                   R$ {hviMetrics.receitaBrutaTotalReais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
                 </span>
               </div>

@@ -42,7 +42,15 @@ import {
   Menu,
   PanelLeftClose,
   PanelLeft,
-  Filter
+  Filter,
+  CreditCard,
+  KeyRound,
+  Key,
+  BookOpen,
+  Cpu,
+  Server,
+  ShieldAlert,
+  Lock,
 } from 'lucide-react';
 import { agroApi } from './services/agroApiService';
 import { PublicLandingPage } from './components/PublicLandingPage';
@@ -53,12 +61,26 @@ import { QuickAccessModal, ALL_MODULES, ModuleItem } from './components/QuickAcc
 import { GlobalQuickEntryModal } from './components/GlobalQuickEntryModal';
 import { NotificationCenterModal } from './components/NotificationCenterModal';
 import { ToastNotification, ToastItem } from './components/ToastNotification';
-import { UserRoleBar, UserProfileRole } from './components/UserRoleBar';
 import { ModuleConfigModal } from './components/ModuleConfigModal';
+import { BillingSubscriptionModal } from './components/BillingSubscriptionModal';
 import { HeaderFintechBar } from './components/HeaderFintechBar';
 import { DossieBancarioCreditoModal } from './components/DossieBancarioCreditoModal';
 import { OfflineSyncCockpitModal } from './components/OfflineSyncCockpitModal';
 import { DeltaTModal } from './components/DeltaTModal';
+import { PerfilAcessoSuperadminModal } from './components/PerfilAcessoSuperadminModal';
+import { ConfiguracaoCredenciaisTenantModal } from './components/ConfiguracaoCredenciaisTenantModal';
+import { ManualImplantacaoOperacionalModal } from './components/ManualImplantacaoOperacionalModal';
+import { AcessoRestritoView } from './components/AcessoRestritoView';
+import {
+  UserRole,
+  RoleGrantsMap,
+  ROLE_DEFINITIONS,
+  normalizeUserRole,
+  isSuperAdmin,
+  loadSavedRoleGrants,
+  syncGrantsWithBackend,
+  resolveEffectiveModulesForUser,
+} from './services/rbacService';
 import {
   getSavedSubscriptionConfig,
   saveSubscriptionConfig,
@@ -494,7 +516,7 @@ export const App: React.FC = () => {
   };
 
   // Perfil RBAC ativo & Controle do Menu Lateral Enterprise
-  const [selectedRole, setSelectedRole] = useState<UserProfileRole>('PRODUTOR');
+  const [selectedRole, setSelectedRole] = useState<UserRole>('PRODUTOR');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
 
   // Atalho de Teclado Global: Ctrl + K (Busca) e N (Novo Lançamento Rápido)
@@ -524,6 +546,22 @@ export const App: React.FC = () => {
     getSavedSubscriptionConfig()
   );
   const [isModuleConfigOpen, setIsModuleConfigOpen] = useState<boolean>(false);
+  const [isBillingModalOpen, setIsBillingModalOpen] = useState<boolean>(false);
+  const [isTenantCredsModalOpen, setIsTenantCredsModalOpen] = useState<boolean>(false);
+  const [isManualModalOpen, setIsManualModalOpen] = useState<boolean>(false);
+
+  // Matriz de Controle de Acesso RBAC & Liberação de Recursos pelo Superadmin
+  const [roleGrants, setRoleGrants] = useState<RoleGrantsMap>(() => loadSavedRoleGrants());
+  const [isSuperadminModalOpen, setIsSuperadminModalOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    syncGrantsWithBackend().then((grants) => {
+      setRoleGrants(grants);
+    });
+  }, []);
+
+  const isSuperAdminUser = useMemo(() => isSuperAdmin(currentUser.role), [currentUser.role]);
+  const activeUserRole = useMemo(() => normalizeUserRole(currentUser.role), [currentUser.role]);
 
   // Todos os IDs de módulos disponíveis
   const allModuleIds = useMemo(() => ALL_MODULES.map((m) => m.id), []);
@@ -533,10 +571,23 @@ export const App: React.FC = () => {
     return resolveActiveModuleIds(subscriptionConfig, allModuleIds);
   }, [subscriptionConfig, allModuleIds]);
 
-  // Lista dos módulos efetivamente disponíveis para o cliente
+  // Conjunto de módulos autorizados para o perfil do usuário + recursos liberados pelo Superadmin
+  const allowedModuleIdsForRole = useMemo(() => {
+    return resolveEffectiveModulesForUser(currentUser.role, allModuleIds, roleGrants);
+  }, [currentUser.role, allModuleIds, roleGrants]);
+
+  // Interseção entre módulos contratados e módulos com permissão de acesso
+  const effectiveModuleIds = useMemo(() => {
+    if (isSuperAdminUser) return enabledModuleIds;
+    return new Set<string>(
+      Array.from(allowedModuleIdsForRole).filter((id) => enabledModuleIds.has(id))
+    );
+  }, [isSuperAdminUser, allowedModuleIdsForRole, enabledModuleIds]);
+
+  // Lista dos módulos efetivamente disponíveis para o usuário atual
   const availableModules = useMemo(() => {
-    return ALL_MODULES.filter((m: ModuleItem) => enabledModuleIds.has(m.id));
-  }, [enabledModuleIds]);
+    return ALL_MODULES.filter((m: ModuleItem) => effectiveModuleIds.has(m.id));
+  }, [effectiveModuleIds]);
 
   // Perfil operacional atual do cliente
   const activeProfile = useMemo(() => {
@@ -546,12 +597,12 @@ export const App: React.FC = () => {
     );
   }, [subscriptionConfig.profileId]);
 
-  // Se o módulo ativo atual não estiver habilitado no perfil contratado, redireciona para o primeiro módulo habilitado
+  // Redirecionamento seguro caso o identificador de módulo ativo não exista no catálogo global
   useEffect(() => {
-    if (!enabledModuleIds.has(activeTab) && availableModules.length > 0) {
+    if (!ALL_MODULES.some((m) => m.id === activeTab) && availableModules.length > 0) {
       setActiveTab(availableModules[0].id);
     }
-  }, [enabledModuleIds, activeTab, availableModules]);
+  }, [activeTab, availableModules]);
 
   // Seleção e sincronização inteligente de módulos
   const handleSelectModule = (id: string) => {
@@ -605,10 +656,16 @@ export const App: React.FC = () => {
         <PublicLandingPage
           onGoToLogin={() => handleNavigateView('LOGIN')}
           onGoToRegister={() => handleNavigateView('REGISTER')}
+          onOpenManual={() => setIsManualModalOpen(true)}
           onEnterPlatformDirectly={() => {
             handleNavigateView('PLATFORM');
             addToast('Bem-vindo ao Cockpit Super AgTech Enterprise!', 'success');
           }}
+        />
+        <ManualImplantacaoOperacionalModal
+          isOpen={isManualModalOpen}
+          onClose={() => setIsManualModalOpen(false)}
+          onNotify={(msg, type) => addToast(msg, type)}
         />
         <ToastNotification toasts={toasts} onDismiss={removeToast} />
       </div>
@@ -634,6 +691,11 @@ export const App: React.FC = () => {
           onGoToLogin={() => handleNavigateView('LOGIN')}
           onBackToLanding={() => handleNavigateView('LANDING')}
         />
+        <ManualImplantacaoOperacionalModal
+          isOpen={isManualModalOpen}
+          onClose={() => setIsManualModalOpen(false)}
+          onNotify={(msg, type) => addToast(msg, type)}
+        />
         <ToastNotification toasts={toasts} onDismiss={removeToast} />
       </div>
     );
@@ -653,6 +715,12 @@ export const App: React.FC = () => {
           }}
           onBackToLanding={() => handleNavigateView('LANDING')}
           onGoToRegister={() => handleNavigateView('REGISTER')}
+          onOpenManual={() => setIsManualModalOpen(true)}
+        />
+        <ManualImplantacaoOperacionalModal
+          isOpen={isManualModalOpen}
+          onClose={() => setIsManualModalOpen(false)}
+          onNotify={(msg, type) => addToast(msg, type)}
         />
         <ToastNotification toasts={toasts} onDismiss={removeToast} />
       </div>
@@ -660,39 +728,39 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 flex font-sans antialiased selection:bg-[#8FBF88] selection:text-slate-900">
-      {/* 1. SIDEBAR CORPORATIVA ENTERPRISE (Deep Slate #0F172A) */}
+    <div className="min-h-screen bg-[#F8FAF6] text-[#122117] flex font-sans antialiased selection:bg-[#1D6F42] selection:text-white">
+      {/* 1. SIDEBAR CORPORATIVA ENTERPRISE (Verde Floresta Noturno #112319) */}
       <aside
-        className={`bg-[#0F172A] text-slate-300 flex flex-col h-screen sticky top-0 border-r border-slate-800 shrink-0 select-none z-30 transition-all duration-200 print:hidden ${
+        className={`bg-[#112319] text-[#CBD8CE] flex flex-col h-screen sticky top-0 border-r border-[#1C3626] shrink-0 select-none z-30 transition-all duration-200 print:hidden ${
           isSidebarCollapsed ? 'w-16' : 'w-64'
         }`}
       >
         {/* Brand Header */}
-        <div className="h-14 px-4 flex items-center justify-between border-b border-slate-800/80">
+        <div className="h-14 px-4 flex items-center justify-between border-b border-[#1C3626]">
           {!isSidebarCollapsed ? (
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-xs shrink-0 font-bold">
+              <div className="w-8 h-8 rounded-xl bg-[#1D6F42] text-white flex items-center justify-center shadow-xs shrink-0 font-bold">
                 <Sprout className="w-4 h-4 text-white" />
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
-                  <span className="text-sm font-black tracking-tight text-white leading-none">AGROTECH</span>
-                  <span className="px-1.5 py-0.2 text-[9px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded">
+                  <span className="text-sm font-black tracking-tight text-white font-display leading-none">AGROTECH</span>
+                  <span className="px-1.5 py-0.2 text-[9px] font-bold bg-[#1D6F42]/40 text-[#6EE7B7] border border-[#2D7A4F] rounded">
                     SaaS
                   </span>
                 </div>
-                <span className="text-[10px] text-slate-400 font-medium">Empresa Rural</span>
+                <span className="text-[10px] text-[#8DA697] font-medium">Empresa Rural</span>
               </div>
             </div>
           ) : (
-            <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-xs mx-auto font-bold">
+            <div className="w-8 h-8 rounded-xl bg-[#1D6F42] text-white flex items-center justify-center shadow-xs mx-auto font-bold">
               <Sprout className="w-4 h-4 text-white" />
             </div>
           )}
 
           <button
             onClick={() => setIsSidebarCollapsed((prev) => !prev)}
-            className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
+            className="p-1.5 text-[#8DA697] hover:text-white hover:bg-[#183324] rounded-lg transition-colors cursor-pointer"
             title={isSidebarCollapsed ? 'Expandir menu lateral' : 'Recolher menu lateral'}
           >
             {isSidebarCollapsed ? <PanelLeft className="w-4 h-4" /> : <PanelLeftClose className="w-4 h-4" />}
@@ -702,33 +770,33 @@ export const App: React.FC = () => {
         {!isSidebarCollapsed ? (
           <>
             {/* Seletor de Propriedade Agrícola */}
-            <div className="p-3 border-b border-slate-800/80 relative">
+            <div className="p-3 border-b border-[#1C3626] relative">
               <button
                 onClick={() => setIsFarmDropdownOpen((prev) => !prev)}
-                className="w-full p-2.5 rounded-xl bg-slate-850 hover:bg-slate-800 border border-slate-700/80 text-left transition-all cursor-pointer group shadow-2xs"
+                className="w-full p-2.5 rounded-xl bg-[#183123] hover:bg-[#1E3E2D] border border-[#264C37] text-left transition-all cursor-pointer group shadow-2xs"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5 min-w-0">
-                    <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <MapPin className="w-3.5 h-3.5 text-[#34D399] shrink-0" />
                     <span className="text-xs font-bold text-white truncate">
                       {selectedFarm.split('(')[0].trim()}
                     </span>
                   </div>
-                  <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-white shrink-0 transition-transform" />
+                  <ChevronDown className="w-3.5 h-3.5 text-[#8DA697] group-hover:text-white shrink-0 transition-transform" />
                 </div>
-                <div className="flex items-center justify-between mt-1 text-[10px] text-slate-400">
+                <div className="flex items-center justify-between mt-1 text-[10px] text-[#8DA697]">
                   <span className="truncate">
                     {selectedFarm.includes('(') ? selectedFarm.split('(')[1].replace(')', '').trim() : 'Sorriso - MT'} • 2.450 ha
                   </span>
-                  <span className="px-1.5 py-0.2 bg-emerald-950/60 text-emerald-400 rounded text-[9px] font-mono border border-emerald-800/50 shrink-0 ml-1">
+                  <span className="px-1.5 py-0.2 bg-[#0E2417] text-[#34D399] rounded text-[9px] font-mono border border-[#1E4D30] shrink-0 ml-1">
                     PostGIS
                   </span>
                 </div>
               </button>
 
               {isFarmDropdownOpen && (
-                <div className="absolute left-3 right-3 top-full mt-1 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl p-1.5 z-50 space-y-1 text-slate-200">
-                  <span className="text-[9px] uppercase font-bold text-slate-400 px-2 py-0.5 block">
+                <div className="absolute left-3 right-3 top-full mt-1 bg-[#13281C] border border-[#264C37] rounded-xl shadow-2xl p-1.5 z-50 space-y-1 text-[#E2EBE5]">
+                  <span className="text-[9px] uppercase font-bold text-[#8DA697] px-2 py-0.5 block">
                     Trocar Propriedade Agrícola:
                   </span>
                   {farmsList.map((f) => (
@@ -737,17 +805,17 @@ export const App: React.FC = () => {
                       onClick={() => handleSelectFarm(f)}
                       className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs transition-all flex flex-col cursor-pointer ${
                         selectedFarm.includes(f.nome)
-                          ? 'bg-emerald-600/30 text-emerald-300 font-bold border border-emerald-500/30'
-                          : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                          ? 'bg-[#1D6F42]/40 text-[#6EE7B7] font-bold border border-[#2D7A4F]'
+                          : 'text-[#CBD8CE] hover:bg-[#183123] hover:text-white'
                       }`}
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-semibold text-white">{f.nome}</span>
-                        <span className="text-[9px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 font-mono font-bold">
+                        <span className="text-[9px] px-1.5 py-0.2 rounded bg-[#183123] text-[#CBD8CE] font-mono font-bold">
                           {f.profileLabel}
                         </span>
                       </div>
-                      <span className="text-[10px] text-slate-400">
+                      <span className="text-[10px] text-[#8DA697]">
                         {f.local} • {f.area}
                       </span>
                     </button>
@@ -756,269 +824,445 @@ export const App: React.FC = () => {
               )}
             </div>
 
-            {/* Perfil Operacional RBAC Switcher */}
-            <div className="px-3 py-2 border-b border-slate-800/80">
-              <div className="flex items-center justify-between text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5 px-1">
-                <span>Perfil de Acesso</span>
-                <span className="text-emerald-400 font-mono">RBAC</span>
-              </div>
-              <div className="grid grid-cols-2 gap-1 bg-slate-900/80 p-1 rounded-xl border border-slate-800">
-                {[
-                  { id: 'PRODUTOR', label: 'Produtor', icon: Crown },
-                  { id: 'AGRONOMO', label: 'Agrônomo', icon: Sprout },
-                  { id: 'OPERADOR', label: 'Operador', icon: Tractor },
-                  { id: 'CONTADOR', label: 'Contador', icon: FileSpreadsheet },
-                ].map((r) => (
-                  <button
-                    key={r.id}
-                    onClick={() => {
-                      setSelectedRole(r.id as UserProfileRole);
-                      agroApi.login(r.id as UserProfileRole);
-                      addToast(`Perfil operacional alternado para: ${r.label}`, 'info');
-                    }}
-                    className={`flex items-center gap-1.5 px-2 py-1 rounded-lg text-[11px] font-semibold transition-all cursor-pointer ${
-                      selectedRole === r.id
-                        ? 'bg-emerald-600 text-white font-bold shadow-2xs'
-                        : 'text-slate-400 hover:text-white hover:bg-slate-800'
-                    }`}
-                  >
-                    <r.icon className="w-3 h-3 shrink-0" />
-                    <span className="truncate">{r.label}</span>
-                  </button>
-                ))}
-              </div>
+            {/* Perfil Operacional RBAC: Governança Superadmin vs Perfil Restrito */}
+            <div className="px-3 py-2 border-b border-[#1C3626]">
+              {isSuperAdminUser ? (
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between text-[10px] font-bold text-[#8DA697] uppercase tracking-wider px-1">
+                    <span className="flex items-center gap-1.5 text-[#34D399] font-bold">
+                      <KeyRound className="w-3.5 h-3.5" /> Governança RBAC
+                    </span>
+                    <button
+                      onClick={() => setIsSuperadminModalOpen(true)}
+                      className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#1D6F42] text-white hover:bg-[#165A34] transition cursor-pointer shadow-2xs"
+                      title="Gerenciar Perfis de Acesso e Matriz de Recursos"
+                    >
+                      Matriz
+                    </button>
+                  </div>
+                  <div className="text-[10px] text-[#8DA697] px-1 font-medium">
+                    Simular visão operacional:
+                  </div>
+                  <div className="grid grid-cols-2 gap-1 bg-[#0E2417] p-1 rounded-xl border border-[#1C3626]">
+                    {[
+                      { id: 'SUPERADMIN', label: 'Superadmin', icon: KeyRound },
+                      { id: 'PRODUTOR', label: 'Produtor', icon: Crown },
+                      { id: 'AGRONOMO', label: 'Agrônomo', icon: Sprout },
+                      { id: 'OPERADOR', label: 'Operador', icon: Tractor },
+                      { id: 'CONTADOR', label: 'Contador', icon: FileSpreadsheet },
+                      { id: 'VETERINARIO', label: 'Veterinário', icon: ShieldCheck },
+                    ].map((r) => (
+                      <button
+                        key={r.id}
+                        onClick={() => {
+                          const def = ROLE_DEFINITIONS[r.id as UserRole];
+                          updateCurrentUser({
+                            name: r.id === 'SUPERADMIN' ? 'Dr. Roberto Schneider' : `Usuário ${def.shortLabel}`,
+                            role: r.id,
+                            farm: currentUser.farm,
+                          });
+                          addToast(`Simulação operacional ativa: ${def.label}`, 'info');
+                        }}
+                        className={`flex items-center gap-1.5 px-2 py-1 rounded-lg text-[10px] font-semibold transition-all cursor-pointer ${
+                          activeUserRole === r.id
+                            ? 'bg-[#1D6F42] text-white font-bold shadow-2xs'
+                            : 'text-[#8DA697] hover:text-white hover:bg-[#183123]'
+                        }`}
+                      >
+                        <r.icon className="w-3 h-3 shrink-0" />
+                        <span className="truncate">{r.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="bg-[#0E2417] p-2.5 rounded-xl border border-[#1C3626] space-y-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-bold text-[#8DA697] uppercase tracking-wider">
+                      Perfil de Acesso
+                    </span>
+                    <span className="px-1.5 py-0.2 rounded text-[9px] font-bold bg-[#183123] text-[#34D399] border border-[#264C37]">
+                      {ROLE_DEFINITIONS[activeUserRole]?.shortLabel || activeUserRole}
+                    </span>
+                  </div>
+                  <p className="text-xs font-bold text-white truncate">
+                    {ROLE_DEFINITIONS[activeUserRole]?.label || currentUser.role}
+                  </p>
+                  <p className="text-[10px] text-[#8DA697] leading-tight">
+                    Recursos restritos ao perfil cadastrado. Liberação de módulos extras exclusivamente pelo Superadmin.
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Árvore de Navegação Principal (Scrollable) */}
             <div className="flex-1 overflow-y-auto px-3 py-3 space-y-4 text-xs">
               {/* Central Executiva */}
               <div className="space-y-1">
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2">
+                <span className="text-[10px] font-bold text-[#8DA697] uppercase tracking-wider px-2">
                   Central Executiva
                 </span>
-                <button
-                  onClick={() => {
-                    handleSelectModule('BI');
-                    setSelectedDomain('TODOS');
-                  }}
-                  className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                    activeTab === 'BI'
-                      ? 'bg-emerald-600 text-white font-bold shadow-xs'
-                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <LayoutDashboard className="w-4 h-4 text-emerald-400" />
-                    <span>Painel Executivo (BI)</span>
-                  </div>
-                </button>
-                <button
-                  onClick={() => {
-                    handleSelectModule('SIG');
-                    setSelectedDomain('TODOS');
-                  }}
-                  className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                    activeTab === 'SIG'
-                      ? 'bg-emerald-600 text-white font-bold shadow-xs'
-                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <Map className="w-4 h-4 text-sky-400" />
-                    <span>Mapas SIG & Satélite</span>
-                  </div>
-                </button>
-                <button
-                  onClick={() => {
-                    handleSelectModule('COPILOT');
-                    setSelectedDomain('TODOS');
-                  }}
-                  className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                    activeTab === 'COPILOT'
-                      ? 'bg-emerald-600 text-white font-bold shadow-xs'
-                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <Sparkles className="w-4 h-4 text-amber-400" />
-                    <span>Copilot IA Safra</span>
-                  </div>
-                  <span className="px-1.5 py-0.2 rounded text-[9px] bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                    IA
-                  </span>
-                </button>
-                <button
-                  onClick={() => {
-                    handleSelectModule('MOBILE');
-                    setSelectedDomain('TODOS');
-                  }}
-                  className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                    activeTab === 'MOBILE'
-                      ? 'bg-emerald-600 text-white font-bold shadow-xs'
-                      : 'text-slate-300 hover:bg-slate-800 hover:text-white'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <Smartphone className="w-4 h-4 text-emerald-400" />
-                    <span>PWA Mobile Offline</span>
-                  </div>
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                </button>
+                {effectiveModuleIds.has('BI') && (
+                  <button
+                    onClick={() => {
+                      handleSelectModule('BI');
+                      setSelectedDomain('TODOS');
+                    }}
+                    className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                      activeTab === 'BI'
+                        ? 'bg-[#1D6F42] text-white font-bold shadow-xs'
+                        : 'text-[#CBD8CE] hover:bg-[#183324] hover:text-white'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <LayoutDashboard className="w-4 h-4 text-[#34D399]" />
+                      <span>Painel Executivo (BI)</span>
+                    </div>
+                  </button>
+                )}
+                {effectiveModuleIds.has('SIG') && (
+                  <button
+                    onClick={() => {
+                      handleSelectModule('SIG');
+                      setSelectedDomain('TODOS');
+                    }}
+                    className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                      activeTab === 'SIG'
+                        ? 'bg-[#1D6F42] text-white font-bold shadow-xs'
+                        : 'text-[#CBD8CE] hover:bg-[#183324] hover:text-white'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <Map className="w-4 h-4 text-[#38BDF8]" />
+                      <span>Mapas SIG & Satélite</span>
+                    </div>
+                  </button>
+                )}
+                {effectiveModuleIds.has('COPILOT') && (
+                  <button
+                    onClick={() => {
+                      handleSelectModule('COPILOT');
+                      setSelectedDomain('TODOS');
+                    }}
+                    className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                      activeTab === 'COPILOT'
+                        ? 'bg-[#1D6F42] text-white font-bold shadow-xs'
+                        : 'text-[#CBD8CE] hover:bg-[#183324] hover:text-white'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <Sparkles className="w-4 h-4 text-[#FBBF24]" />
+                      <span>Copilot IA Safra</span>
+                    </div>
+                    <span className="px-1.5 py-0.2 rounded text-[9px] bg-[#D97706]/20 text-[#FCD34D] border border-[#D97706]/30 font-bold">
+                      IA
+                    </span>
+                  </button>
+                )}
+                {effectiveModuleIds.has('MOBILE') && (
+                  <button
+                    onClick={() => {
+                      handleSelectModule('MOBILE');
+                      setSelectedDomain('TODOS');
+                    }}
+                    className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                      activeTab === 'MOBILE'
+                        ? 'bg-[#1D6F42] text-white font-bold shadow-xs'
+                        : 'text-[#CBD8CE] hover:bg-[#183324] hover:text-white'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <Smartphone className="w-4 h-4 text-[#34D399]" />
+                      <span>PWA Mobile Offline</span>
+                    </div>
+                    <span className="w-2 h-2 rounded-full bg-[#34D399] animate-pulse"></span>
+                  </button>
+                )}
               </div>
 
               {/* Domínios Operacionais da Fazenda */}
               <div className="space-y-1">
                 <div className="flex items-center justify-between px-2">
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                  <span className="text-[10px] font-bold text-[#8DA697] uppercase tracking-wider">
                     Domínios da Fazenda
                   </span>
-                  <span className="text-[10px] text-slate-500 font-mono">{availableModules.length} mds</span>
+                  <span className="text-[10px] text-[#769382] font-mono">{availableModules.length} mds</span>
                 </div>
 
                 {[
-                  { id: 'CAMPO', label: 'Campo & Manejo', icon: Sprout, count: campoCount, iconColor: 'text-emerald-400' },
-                  { id: 'FROTA', label: 'Máquinas & Frotas', icon: Tractor, count: frotaCount, iconColor: 'text-sky-400' },
-                  { id: 'MERCADO', label: 'Mercado & Finanças', icon: TrendingUp, count: mercadoCount, iconColor: 'text-amber-400' },
-                  { id: 'FISCAL', label: 'Fiscal & ESG', icon: FileCheck, count: fiscalCount, iconColor: 'text-emerald-300' },
-                  { id: 'PECUARIA', label: 'Pecuária & ILPF', icon: ShieldCheck, count: pecuariaCount, iconColor: 'text-rose-400' },
-                  { id: 'FAVORITOS', label: 'Módulos Favoritos', icon: Star, count: favoritos.length, iconColor: 'text-amber-400' },
-                ].map((dom) => {
-                  const IconComponent = dom.icon;
-                  const isCurrentDomain =
-                    selectedDomain === dom.id &&
-                    !['BI', 'SIG', 'COPILOT', 'MOBILE'].includes(activeTab);
+                  { id: 'CAMPO', label: 'Campo & Manejo', icon: Sprout, count: campoCount, iconColor: 'text-[#34D399]' },
+                  { id: 'FROTA', label: 'Máquinas & Frotas', icon: Tractor, count: frotaCount, iconColor: 'text-[#38BDF8]' },
+                  { id: 'MERCADO', label: 'Mercado & Finanças', icon: TrendingUp, count: mercadoCount, iconColor: 'text-[#FBBF24]' },
+                  { id: 'FISCAL', label: 'Fiscal & ESG', icon: FileCheck, count: fiscalCount, iconColor: 'text-[#6EE7B7]' },
+                  { id: 'PECUARIA', label: 'Pecuária & ILPF', icon: ShieldCheck, count: pecuariaCount, iconColor: 'text-[#FB7185]' },
+                  { id: 'FAVORITOS', label: 'Módulos Favoritos', icon: Star, count: favoritos.length, iconColor: 'text-[#FBBF24]' },
+                ]
+                  .filter((dom) => (dom.id === 'FAVORITOS' ? dom.count > 0 : dom.count > 0))
+                  .map((dom) => {
+                    const IconComponent = dom.icon;
+                    const isCurrentDomain =
+                      selectedDomain === dom.id &&
+                      !['BI', 'SIG', 'COPILOT', 'MOBILE'].includes(activeTab);
 
-                  return (
-                    <button
-                      key={dom.id}
-                      onClick={() => {
-                        setSelectedDomain(dom.id);
-                        const targetMod = availableModules.find((m) =>
-                          dom.id === 'FAVORITOS'
-                            ? favoritos.includes(m.id)
-                            : m.category === dom.id && !['BI', 'SIG', 'COPILOT', 'MOBILE'].includes(m.id)
-                        );
-                        if (targetMod) handleSelectModule(targetMod.id);
-                      }}
-                      className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${
-                        isCurrentDomain
-                          ? 'bg-slate-800 text-emerald-400 font-bold border border-slate-700'
-                          : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
-                      }`}
-                    >
-                      <div className="flex items-center gap-2.5 truncate">
-                        <IconComponent className={`w-4 h-4 ${dom.iconColor} shrink-0`} />
-                        <span className="truncate">{dom.label}</span>
-                      </div>
-                      <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-800 text-slate-400 shrink-0">
-                        {dom.count}
-                      </span>
-                    </button>
-                  );
-                })}
+                    return (
+                      <button
+                        key={dom.id}
+                        onClick={() => {
+                          setSelectedDomain(dom.id);
+                          const targetMod = availableModules.find((m) =>
+                            dom.id === 'FAVORITOS'
+                              ? favoritos.includes(m.id)
+                              : m.category === dom.id && !['BI', 'SIG', 'COPILOT', 'MOBILE'].includes(m.id)
+                          );
+                          if (targetMod) handleSelectModule(targetMod.id);
+                        }}
+                        className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${
+                          isCurrentDomain
+                            ? 'bg-[#183324] text-[#34D399] font-bold border border-[#264C37]'
+                            : 'text-[#8DA697] hover:bg-[#183324]/70 hover:text-white'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2.5 truncate">
+                          <IconComponent className={`w-4 h-4 ${dom.iconColor} shrink-0`} />
+                          <span className="truncate">{dom.label}</span>
+                        </div>
+                        <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-[#0E2417] text-[#8DA697] shrink-0">
+                          {dom.count}
+                        </span>
+                      </button>
+                    );
+                  })}
               </div>
 
               {/* Sistema & Assinatura */}
               <div className="space-y-1">
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2">
+                <span className="text-[10px] font-bold text-[#8DA697] uppercase tracking-wider px-2">
                   Sistema & Gestão
                 </span>
+                {isSuperAdminUser && (
+                  <button
+                    onClick={() => setIsSuperadminModalOpen(true)}
+                    className="w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-bold text-[#6EE7B7] bg-[#0E2819] border border-[#1E5232] hover:bg-[#153D26] transition-all cursor-pointer"
+                  >
+                    <div className="flex items-center gap-2 truncate pr-1">
+                      <KeyRound className="w-4 h-4 text-[#34D399] shrink-0" />
+                      <span className="truncate">Perfis &amp; Matriz RBAC</span>
+                    </div>
+                    <span className="text-[9px] px-1.5 py-0.2 rounded bg-[#1D6F42] text-white font-mono shrink-0 font-bold">
+                      ADMIN
+                    </span>
+                  </button>
+                )}
+                {isSuperAdminUser && (
+                  <button
+                    onClick={() => setIsModuleConfigOpen(true)}
+                    className="w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-medium text-[#8DA697] hover:bg-[#183324] hover:text-white transition-all cursor-pointer"
+                  >
+                    <div className="flex items-center gap-2 truncate pr-1">
+                      <Sliders className="w-4 h-4 text-[#8DA697] shrink-0" />
+                      <span className="truncate">Configurar Módulos</span>
+                    </div>
+                    <span className="text-[9px] px-1.5 py-0.2 rounded bg-[#0E2417] text-[#CBD8CE] font-mono shrink-0 whitespace-nowrap">
+                      {activeProfile.shortLabel.split(' ')[0]}
+                    </span>
+                  </button>
+                )}
                 <button
-                  onClick={() => setIsModuleConfigOpen(true)}
-                  className="w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-all cursor-pointer"
+                  onClick={() => setIsBillingModalOpen(true)}
+                  className="w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-medium text-[#8DA697] hover:bg-[#183324] hover:text-white transition-all cursor-pointer"
                 >
                   <div className="flex items-center gap-2 truncate pr-1">
-                    <Sliders className="w-4 h-4 text-slate-400 shrink-0" />
-                    <span className="truncate">Configurar Módulos</span>
+                    <CreditCard className="w-4 h-4 text-[#34D399] shrink-0" />
+                    <span className="truncate">Planos & Assinatura</span>
                   </div>
-                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 font-mono shrink-0 whitespace-nowrap">
-                    {activeProfile.shortLabel.split(' ')[0]}
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-[#0E2819] text-[#6EE7B7] font-bold border border-[#1E5232]">
+                    PRO
+                  </span>
+                </button>
+                <button
+                  onClick={() => setIsTenantCredsModalOpen(true)}
+                  className="w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-medium text-[#8DA697] hover:bg-[#183324] hover:text-white transition-all cursor-pointer"
+                >
+                  <div className="flex items-center gap-2 truncate pr-1">
+                    <Key className="w-4 h-4 text-[#34D399] shrink-0" />
+                    <span className="truncate">Certificado A1 & APIs</span>
+                  </div>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-[#0E2417] text-[#CBD8CE] font-mono">
+                    SEFAZ
                   </span>
                 </button>
                 <button
                   onClick={() => handleNavigateView('LANDING')}
-                  className="w-full flex items-center gap-2 px-2.5 py-2 rounded-xl text-xs font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition-all cursor-pointer"
+                  className="w-full flex items-center gap-2 px-2.5 py-2 rounded-xl text-xs font-medium text-[#8DA697] hover:bg-[#183324] hover:text-white transition-all cursor-pointer"
                 >
-                  <Globe className="w-4 h-4 text-slate-400" />
+                  <Globe className="w-4 h-4 text-[#8DA697]" />
                   <span>Portal & Planos SaaS</span>
+                </button>
+              </div>
+
+              {/* Seção Própria da Sidebar: Manual & Implantação */}
+              <div className="space-y-1 pt-2 border-t border-[#1C3626]">
+                <div className="flex items-center justify-between px-2 pb-1">
+                  <span className="text-[10px] font-bold text-[#34D399] uppercase tracking-wider flex items-center gap-1.5">
+                    <BookOpen className="w-3.5 h-3.5 text-[#34D399]" />
+                    <span>Manual &amp; Guias</span>
+                  </span>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-[#0E2819] text-[#6EE7B7] font-mono border border-[#1E5232] font-bold">
+                    v2.6
+                  </span>
+                </div>
+                <button
+                  onClick={() => setIsManualModalOpen(true)}
+                  className="w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-semibold text-white bg-[#193625] hover:bg-[#204430] hover:text-[#6EE7B7] border border-[#2B543B] transition-all cursor-pointer group shadow-2xs"
+                  title="Abrir o Manual Completo e Ilustrado de Uso do Sistema"
+                >
+                  <div className="flex items-center gap-2 truncate pr-1">
+                    <BookOpen className="w-4 h-4 text-[#34D399] shrink-0 group-hover:scale-110 transition-transform" />
+                    <span className="truncate">Manual do Usuário</span>
+                  </div>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-[#155734] text-[#6EE7B7] font-bold border border-[#246B42]">
+                    ILUSTRADO
+                  </span>
+                </button>
+                <button
+                  onClick={() => setIsManualModalOpen(true)}
+                  className="w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs font-medium text-[#CBD8CE] hover:bg-[#183324] hover:text-white transition-all cursor-pointer"
+                  title="Esquemático Elétrico e Pinagem do Conector Deutsch J1939"
+                >
+                  <div className="flex items-center gap-2 truncate pr-1">
+                    <Cpu className="w-3.5 h-3.5 text-[#8DA697] shrink-0" />
+                    <span className="truncate">Chicote CAN Bus J1939</span>
+                  </div>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-[#0E2417] text-[#8DA697] font-mono">
+                    DEUTSCH
+                  </span>
+                </button>
+                <button
+                  onClick={() => setIsManualModalOpen(true)}
+                  className="w-full flex items-center justify-between px-2.5 py-1.5 rounded-xl text-xs font-medium text-[#CBD8CE] hover:bg-[#183324] hover:text-white transition-all cursor-pointer"
+                  title="Instalação Local na Fazenda e Hospedagem nas Nuvens do Brasil"
+                >
+                  <div className="flex items-center gap-2 truncate pr-1">
+                    <Server className="w-3.5 h-3.5 text-[#8DA697] shrink-0" />
+                    <span className="truncate">Instalação Local &amp; Nuvem</span>
+                  </div>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-[#0E2417] text-[#8DA697] font-mono">
+                    DOCKER
+                  </span>
                 </button>
               </div>
             </div>
 
             {/* Sidebar Footer */}
-            <div className="p-3 border-t border-slate-800/80 bg-slate-950/70 space-y-2.5">
+            <div className="p-3 border-t border-[#1C3626] bg-[#0C1B13] space-y-2.5">
               {/* Clima & Psicrometria Delta T */}
               <button
                 type="button"
                 onClick={() => setIsDeltaTModalOpen(true)}
-                className="w-full flex items-center justify-between text-[11px] font-mono bg-slate-900/90 hover:bg-slate-800/90 px-2.5 py-1.5 rounded-xl border border-slate-800 transition cursor-pointer text-left"
+                className="w-full flex items-center justify-between text-[11px] font-mono bg-[#13281C] hover:bg-[#183123] px-2.5 py-1.5 rounded-xl border border-[#1E3E2D] transition cursor-pointer text-left"
                 title="Ver Análise Psicrométrica ASABE S572 (ΔT Janela de Pulverização)"
               >
-                <div className="flex items-center gap-1.5 text-slate-300">
-                  <Droplet className="w-3.5 h-3.5 text-emerald-400" />
+                <div className="flex items-center gap-1.5 text-[#CBD8CE]">
+                  <Droplet className="w-3.5 h-3.5 text-[#34D399]" />
                   <span>ΔT 5.2°C</span>
                 </div>
-                <span className="px-1.5 py-0.2 rounded bg-emerald-950/80 text-emerald-400 text-[9px] font-sans font-bold border border-emerald-800">
+                <span className="px-1.5 py-0.2 rounded bg-[#0E2819] text-[#34D399] text-[9px] font-sans font-bold border border-[#1E5232]">
                   IDEAL
                 </span>
               </button>
 
               {/* Status SEFAZ & DB */}
-              <div className="flex items-center justify-between text-[10px] text-slate-400 px-1 font-mono">
+              <button
+                type="button"
+                onClick={() => setIsTenantCredsModalOpen(true)}
+                className="w-full flex items-center justify-between text-[10px] text-[#8DA697] hover:text-[#34D399] px-1 font-mono transition-colors cursor-pointer text-left"
+                title="Configurar Certificado Digital A1 e Chaves do Tenant"
+              >
                 <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#34D399]"></span>
                   SEFAZ A1 Conectado
                 </span>
                 <span>DB 18ms</span>
-              </div>
+              </button>
 
-              {/* Perfil do Usuário & Seletor de Papel RBAC */}
-              <div className="relative pt-1 border-t border-slate-800/80">
+              {/* Perfil do Usuário & Governança RBAC */}
+              <div className="relative pt-1 border-t border-[#1C3626]">
                 {isUserMenuOpen && (
-                  <div className="absolute bottom-full left-0 mb-2 w-64 bg-slate-900 border border-slate-700 rounded-xl shadow-xl p-2 z-50 text-xs animate-fade-in space-y-1.5">
-                    <div className="px-2 py-1 border-b border-slate-800">
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-                        Alternar Papel Operacional (RBAC)
+                  <div className="absolute bottom-full left-0 mb-2 w-64 bg-[#13281C] border border-[#264C37] rounded-xl shadow-xl p-2 z-50 text-xs animate-fade-in space-y-2">
+                    <div className="px-2 py-1 border-b border-[#1C3626]">
+                      <span className="text-[10px] font-bold text-[#8DA697] uppercase tracking-wider block">
+                        Usuário Autenticado
                       </span>
-                      <span className="text-[11px] text-emerald-400 font-medium truncate block">
+                      <span className="text-[11px] text-[#34D399] font-semibold truncate block">
                         {currentUser.farm}
                       </span>
                     </div>
 
-                    {[
-                      { nome: 'Carlos Eduardo Silva', role: 'Produtor Titular & Gestor', sigla: 'CS' },
-                      { nome: 'Engª Juliana Prado', role: 'Agrônoma RT (MIP / ASABE)', sigla: 'JP' },
-                      { nome: 'Valmor Bertoncelli', role: 'Chefe de Frotas (CAN Bus)', sigla: 'VB' },
-                      { nome: 'Dr. Marcelo Arantes', role: 'Médico Veterinário SISBOV', sigla: 'MA' },
-                    ].map((perfil) => (
-                      <button
-                        key={perfil.nome}
-                        onClick={() => {
-                          updateCurrentUser({
-                            name: perfil.nome,
-                            role: perfil.role,
-                            farm: currentUser.farm,
-                          });
-                          setIsUserMenuOpen(false);
-                          addToast(`Perfil ativo alterado para: ${perfil.nome} (${perfil.role})`, 'info');
-                        }}
-                        className={`w-full flex items-center gap-2 px-2 py-1.5 rounded-lg text-left transition cursor-pointer ${
-                          currentUser.name === perfil.nome
-                            ? 'bg-emerald-800/60 text-white font-bold border border-emerald-600/50'
-                            : 'text-slate-300 hover:bg-slate-800 hover:text-white'
-                        }`}
-                      >
-                        <div className="w-6 h-6 rounded-full bg-slate-700 text-emerald-300 font-bold flex items-center justify-center text-[10px] shrink-0">
-                          {perfil.sigla}
+                    {isSuperAdminUser ? (
+                      <div className="space-y-1">
+                        <button
+                          onClick={() => {
+                            setIsUserMenuOpen(false);
+                            setIsSuperadminModalOpen(true);
+                          }}
+                          className="w-full flex items-center gap-2 px-2 py-1.5 rounded-lg bg-[#0E2819] text-[#6EE7B7] hover:bg-[#153D26] border border-[#1E5232] text-left font-bold cursor-pointer"
+                        >
+                          <KeyRound className="w-3.5 h-3.5" />
+                          <span>Gerenciar Matriz de Acesso</span>
+                        </button>
+                        <span className="text-[9px] uppercase font-bold text-[#8DA697] px-1 block pt-1">
+                          Simular Perfil Operacional:
+                        </span>
+                        {[
+                          { nome: 'Carlos Eduardo Silva', role: 'PRODUTOR', label: 'Produtor Titular', sigla: 'CS' },
+                          { nome: 'Engª Juliana Prado', role: 'AGRONOMO', label: 'Agrônoma RT', sigla: 'JP' },
+                          { nome: 'Valmor Bertoncelli', role: 'OPERADOR', label: 'Operador de Frota', sigla: 'VB' },
+                          { nome: 'Dra. Valéria Campos', role: 'CONTADOR', label: 'Contadora Rural', sigla: 'VC' },
+                          { nome: 'Dr. Marcelo Arantes', role: 'VETERINARIO', label: 'Médico Veterinário', sigla: 'MA' },
+                        ].map((perfil) => (
+                          <button
+                            key={perfil.role}
+                            onClick={() => {
+                              updateCurrentUser({
+                                name: perfil.nome,
+                                role: perfil.role,
+                                farm: currentUser.farm,
+                              });
+                              setIsUserMenuOpen(false);
+                              addToast(`Simulação ativada: ${perfil.label}`, 'info');
+                            }}
+                            className={`w-full flex items-center gap-2 px-2 py-1.5 rounded-lg text-left transition cursor-pointer ${
+                              activeUserRole === perfil.role
+                                ? 'bg-[#1D6F42] text-white font-bold border border-[#2D7A4F]'
+                                : 'text-[#CBD8CE] hover:bg-[#183324] hover:text-white'
+                            }`}
+                          >
+                            <div className="w-5 h-5 rounded-full bg-[#183324] text-[#34D399] font-bold flex items-center justify-center text-[9px] shrink-0">
+                              {perfil.sigla}
+                            </div>
+                            <div className="truncate min-w-0">
+                              <p className="truncate font-semibold text-xs leading-tight">{perfil.nome}</p>
+                              <p className="text-[9px] text-[#8DA697] truncate">{perfil.label}</p>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="p-2 bg-[#0E2417] rounded-lg space-y-1">
+                        <div className="flex items-center gap-1.5 text-[#34D399] font-bold">
+                          <ShieldAlert className="w-3.5 h-3.5" />
+                          <span>Acesso Restrito ao Perfil</span>
                         </div>
-                        <div className="truncate min-w-0">
-                          <p className="truncate font-semibold text-xs leading-tight">{perfil.nome}</p>
-                          <p className="text-[9px] text-slate-400 truncate">{perfil.role}</p>
-                        </div>
-                      </button>
-                    ))}
+                        <p className="text-[10px] text-[#CBD8CE]">
+                          Seu perfil cadastrado ({ROLE_DEFINITIONS[activeUserRole]?.label || currentUser.role}) possui acesso exclusivo aos módulos autorizados.
+                        </p>
+                        <p className="text-[9px] text-[#8DA697] italic">
+                          Solicitações de recursos adicionais devem ser autorizadas pelo Superadmin.
+                        </p>
+                      </div>
+                    )}
 
-                    <div className="pt-1 border-t border-slate-800">
+                    <div className="pt-1 border-t border-[#1C3626]">
                       <button
                         onClick={() => {
                           setIsUserMenuOpen(false);
@@ -1036,20 +1280,22 @@ export const App: React.FC = () => {
                 <div className="flex items-center justify-between">
                   <button
                     onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                    className="flex items-center gap-2 min-w-0 flex-1 text-left p-1 rounded-lg hover:bg-slate-800/80 transition cursor-pointer"
-                    title="Alternar perfil de operador (Produtor, Agrônomo, Frota, Veterinário)"
+                    className="flex items-center gap-2 min-w-0 flex-1 text-left p-1 rounded-lg hover:bg-[#183324] transition cursor-pointer"
+                    title={isSuperAdminUser ? 'Menu Superadmin Master' : 'Ver detalhes do perfil cadastrado'}
                   >
-                    <div className="w-7 h-7 rounded-full bg-emerald-700 text-white font-bold flex items-center justify-center text-xs shrink-0">
+                    <div className="w-7 h-7 rounded-full bg-[#1D6F42] text-white font-bold flex items-center justify-center text-xs shrink-0">
                       {userInitials}
                     </div>
                     <div className="truncate min-w-0 flex-1">
                       <p className="text-xs font-bold text-white truncate">{currentUser.name}</p>
-                      <p className="text-[10px] text-emerald-400 truncate">{currentUser.role}</p>
+                      <p className="text-[10px] text-[#34D399] truncate font-semibold">
+                        {ROLE_DEFINITIONS[activeUserRole]?.shortLabel || currentUser.role}
+                      </p>
                     </div>
                   </button>
                   <button
                     onClick={() => handleNavigateView('LOGIN')}
-                    className="p-1.5 text-slate-400 hover:text-rose-400 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer shrink-0"
+                    className="p-1.5 text-[#8DA697] hover:text-rose-400 hover:bg-[#183324] rounded-lg transition-colors cursor-pointer shrink-0"
                     title="Sair do sistema"
                   >
                     <LogOut className="w-3.5 h-3.5" />
@@ -1068,8 +1314,8 @@ export const App: React.FC = () => {
               }}
               className={`p-2.5 rounded-xl transition cursor-pointer ${
                 activeTab === 'BI'
-                  ? 'bg-emerald-600 text-white'
-                  : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                  ? 'bg-[#1D6F42] text-white'
+                  : 'text-[#8DA697] hover:bg-[#183324] hover:text-white'
               }`}
               title="Painel Executivo BI"
             >
@@ -1082,8 +1328,8 @@ export const App: React.FC = () => {
               }}
               className={`p-2.5 rounded-xl transition cursor-pointer ${
                 activeTab === 'SIG'
-                  ? 'bg-emerald-600 text-white'
-                  : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                  ? 'bg-[#1D6F42] text-white'
+                  : 'text-[#8DA697] hover:bg-[#183324] hover:text-white'
               }`}
               title="Mapas SIG & Satélite"
             >
@@ -1096,8 +1342,8 @@ export const App: React.FC = () => {
               }}
               className={`p-2.5 rounded-xl transition cursor-pointer ${
                 activeTab === 'COPILOT'
-                  ? 'bg-emerald-600 text-white'
-                  : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                  ? 'bg-[#1D6F42] text-white'
+                  : 'text-[#8DA697] hover:bg-[#183324] hover:text-white'
               }`}
               title="Copilot IA Safra"
             >
@@ -1110,24 +1356,31 @@ export const App: React.FC = () => {
               }}
               className={`p-2.5 rounded-xl transition cursor-pointer ${
                 activeTab === 'MOBILE'
-                  ? 'bg-emerald-600 text-white'
-                  : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                  ? 'bg-[#1D6F42] text-white'
+                  : 'text-[#8DA697] hover:bg-[#183324] hover:text-white'
               }`}
               title="PWA Mobile Offline"
             >
               <Smartphone className="w-5 h-5" />
             </button>
-            <div className="h-px w-8 bg-slate-800 my-1"></div>
+            <div className="h-px w-8 bg-[#1C3626] my-1"></div>
             <button
               onClick={() => setIsQuickAccessOpen(true)}
-              className="p-2.5 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition cursor-pointer"
+              className="p-2.5 rounded-xl text-[#8DA697] hover:bg-[#183324] hover:text-white transition cursor-pointer"
               title="Busca Rápida (Ctrl+K)"
             >
               <Search className="w-5 h-5" />
             </button>
             <button
+              onClick={() => setIsManualModalOpen(true)}
+              className="p-2.5 rounded-xl text-[#8DA697] hover:bg-[#183324] hover:text-[#34D399] transition cursor-pointer"
+              title="Manual do Sistema & Implantação (v2.6)"
+            >
+              <BookOpen className="w-5 h-5" />
+            </button>
+            <button
               onClick={() => handleNavigateView('LOGIN')}
-              className="mt-auto p-2.5 rounded-xl text-slate-400 hover:text-rose-400 hover:bg-slate-800 transition cursor-pointer"
+              className="mt-auto p-2.5 rounded-xl text-[#8DA697] hover:text-rose-400 hover:bg-[#183324] transition cursor-pointer"
               title="Sair"
             >
               <LogOut className="w-5 h-5" />
@@ -1159,8 +1412,8 @@ export const App: React.FC = () => {
             </span>
             {activeTab !== 'BI' && (
               <>
-                <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                <span className="text-emerald-800 font-bold bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200 shrink-0">
+                <ChevronRight className="w-3.5 h-3.5 text-[#8DA697] shrink-0" />
+                <span className="text-[#1D6F42] font-bold bg-[#EBF7EE] px-2 py-0.5 rounded-md border border-[#B7E4C4] shrink-0">
                   {activeModuleObj.fullName}
                 </span>
               </>
@@ -1170,12 +1423,12 @@ export const App: React.FC = () => {
           {/* Centro: Barra de Comando Ctrl+K */}
           <button
             onClick={() => setIsQuickAccessOpen(true)}
-            className="hidden md:flex items-center gap-2.5 px-3 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-500 rounded-xl border border-slate-200 text-xs font-medium shadow-2xs transition-all cursor-pointer w-64 lg:w-80"
+            className="hidden md:flex items-center gap-2.5 px-3 py-1.5 bg-[#F8FAF6] hover:bg-[#EFF3EB] text-[#415446] rounded-xl border border-[#E2E8DF] text-xs font-medium shadow-2xs transition-all cursor-pointer w-64 lg:w-80"
             title="Pressione Ctrl + K para abrir o Command Palette"
           >
-            <Search className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+            <Search className="w-3.5 h-3.5 text-[#8DA697] shrink-0" />
             <span className="truncate">Buscar módulo, talhão ou comando...</span>
-            <kbd className="ml-auto px-1.5 py-0.5 text-[9px] font-mono bg-white text-slate-500 rounded border border-slate-200 shrink-0">
+            <kbd className="ml-auto px-1.5 py-0.5 text-[9px] font-mono bg-white text-[#415446] rounded border border-[#E2E8DF] shrink-0">
               Ctrl K
             </kbd>
           </button>
@@ -1183,24 +1436,24 @@ export const App: React.FC = () => {
           {/* Ações Rápidas: Cotações, Dossiê, Alertas, Novo Lançamento */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {/* Cotação B3/CBOT */}
-            <div className="hidden 2xl:flex items-center gap-2 text-xs font-mono bg-slate-50 px-2.5 py-1 rounded-xl border border-slate-200 text-slate-700">
-              <span className="text-[11px] font-sans font-medium text-slate-500">Soja B3:</span>
-              <span className="font-bold text-slate-900">R$ 130,00</span>
-              <span className="text-emerald-700 font-bold text-[10px]">▲ +1.2%</span>
-              <span className="text-slate-300">|</span>
-              <span className="text-[11px] font-sans font-medium text-slate-500">Dólar:</span>
-              <span className="font-bold text-slate-900">R$ 5,42</span>
+            <div className="hidden 2xl:flex items-center gap-2 text-xs font-mono bg-[#F8FAF6] px-2.5 py-1 rounded-xl border border-[#E2E8DF] text-[#122117]">
+              <span className="text-[11px] font-sans font-medium text-[#415446]">Soja B3:</span>
+              <span className="font-bold text-[#122117]">R$ 130,00</span>
+              <span className="text-[#1D6F42] font-bold text-[10px]">▲ +1.2%</span>
+              <span className="text-[#CBD5C5]">|</span>
+              <span className="text-[11px] font-sans font-medium text-[#415446]">Dólar:</span>
+              <span className="font-bold text-[#122117]">R$ 5,42</span>
             </div>
 
             {/* Monitor Psicrométrico Delta T ASABE S572 */}
             <button
               onClick={() => setIsDeltaTModalOpen(true)}
-              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 rounded-xl border border-emerald-200 text-xs font-mono font-bold shadow-2xs transition-all cursor-pointer"
+              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 bg-[#EBF7EE] hover:bg-[#DCF2E2] text-[#114B2B] rounded-xl border border-[#B7E4C4] text-xs font-mono font-bold shadow-2xs transition-all cursor-pointer"
               title="Monitor Psicrométrico de Delta T ASABE S572: 5.2°C (Janela Ideal para Pulverização)"
             >
-              <Droplet className="w-3.5 h-3.5 text-emerald-700" />
+              <Droplet className="w-3.5 h-3.5 text-[#1D6F42]" />
               <span>ΔT 5.2°C</span>
-              <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-200/80 text-emerald-900 font-sans font-extrabold uppercase">
+              <span className="text-[9px] px-1.5 py-0.2 rounded bg-[#C3E8CC] text-[#114B2B] font-sans font-extrabold uppercase">
                 Janela Ideal
               </span>
             </button>
@@ -1208,39 +1461,62 @@ export const App: React.FC = () => {
             {/* Status Sincronização PWA Offline Outbox */}
             <button
               onClick={() => setIsOfflineSyncModalOpen(true)}
-              className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-700 rounded-xl border border-slate-200 text-xs font-medium shadow-2xs transition-all cursor-pointer"
+              className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 bg-[#F8FAF6] hover:bg-[#EFF3EB] text-[#415446] rounded-xl border border-[#E2E8DF] text-xs font-medium shadow-2xs transition-all cursor-pointer"
               title="Central de Sincronização Offline-First PWA (Outbox & Fila)"
             >
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="w-2 h-2 rounded-full bg-[#1D6F42] animate-pulse"></span>
               <span className="font-mono text-[11px]">Sync Ativo</span>
             </button>
 
             {/* Dossiê Bancário Executivo */}
             <button
               onClick={() => setIsDossieBancarioOpen(true)}
-              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-700 rounded-xl border border-slate-200 text-xs font-semibold shadow-2xs transition-all cursor-pointer"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-[#F8FAF6] hover:bg-[#EFF3EB] text-[#415446] rounded-xl border border-[#E2E8DF] text-xs font-semibold shadow-2xs transition-all cursor-pointer"
               title="Dossiê Executivo de Crédito Rural (Plano Safra / Bancos)"
             >
-              <FileCheck className="w-3.5 h-3.5 text-emerald-700" />
+              <FileCheck className="w-3.5 h-3.5 text-[#1D6F42]" />
               <span className="hidden lg:inline">Dossiê Bancário</span>
+            </button>
+
+            {/* Manual de Uso e Implantação Telemática CAN Bus */}
+            <button
+              onClick={() => setIsManualModalOpen(true)}
+              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 bg-[#EBF7EE] hover:bg-[#DCF2E2] text-[#114B2B] rounded-xl border border-[#B7E4C4] text-xs font-bold shadow-2xs transition-all cursor-pointer"
+              title="Manual Completo de Uso, Implantação e Instalação Telemática CAN Bus"
+            >
+              <BookOpen className="w-3.5 h-3.5 text-[#1D6F42] shrink-0" />
+              <span className="inline">Manual & Guias</span>
+              <span className="text-[9px] px-1.5 py-0.2 rounded bg-[#1D6F42] text-white font-mono hidden md:inline">v2.6</span>
             </button>
 
             {/* Central de Notificações */}
             <button
               onClick={() => setIsNotificationOpen(true)}
-              className="relative p-2 bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-slate-900 rounded-xl border border-slate-200 text-xs transition-all cursor-pointer shadow-2xs"
+              className="relative p-2 bg-[#F8FAF6] hover:bg-[#EFF3EB] text-[#415446] hover:text-[#122117] rounded-xl border border-[#E2E8DF] text-xs transition-all cursor-pointer shadow-2xs"
               title="Central de Alertas e Notificações"
             >
               <Bell className="w-4 h-4" />
-              <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-600 text-white text-[9px] font-bold flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#DC2626] text-white text-[9px] font-bold flex items-center justify-center">
                 3
               </span>
             </button>
 
+            {/* Painel de Governança RBAC Exclusivo Superadmin */}
+            {isSuperAdminUser && (
+              <button
+                onClick={() => setIsSuperadminModalOpen(true)}
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-[#1D6F42] hover:bg-[#165A34] text-white font-bold rounded-xl text-xs shadow-2xs transition-all cursor-pointer border border-[#165A34]"
+                title="Governança RBAC: Gestão de Perfis & Liberação de Recursos"
+              >
+                <KeyRound className="w-3.5 h-3.5 text-[#A7F3D0]" />
+                <span className="hidden xl:inline">Perfis &amp; Matriz RBAC</span>
+              </button>
+            )}
+
             {/* Botão Novo Lançamento */}
             <button
               onClick={() => setIsQuickEntryOpen(true)}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl text-xs shadow-xs transition-all cursor-pointer"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 bg-[#1D6F42] hover:bg-[#165A34] text-white font-bold rounded-xl text-xs shadow-xs transition-all cursor-pointer"
               title="Novo Lançamento Operacional (Tecla N)"
             >
               <Plus className="w-4 h-4 stroke-[3]" />
@@ -1255,9 +1531,9 @@ export const App: React.FC = () => {
           activeTab !== 'SIG' &&
           activeTab !== 'COPILOT' &&
           activeTab !== 'MOBILE' && (
-            <div className="bg-white border-b border-slate-200 px-6 py-2 shadow-2xs flex items-center justify-between gap-3 overflow-x-auto text-xs shrink-0 print:hidden">
+            <div className="bg-white border-b border-[#E2E8DF] px-6 py-2 shadow-2xs flex items-center justify-between gap-3 overflow-x-auto text-xs shrink-0 print:hidden">
               <div className="flex items-center gap-1.5 overflow-x-auto">
-                <span className="text-slate-500 font-bold text-[10px] uppercase tracking-wider pr-1 shrink-0">
+                <span className="text-[#415446] font-bold text-[10px] uppercase tracking-wider pr-1 shrink-0">
                   Módulos de {selectedDomain}:
                 </span>
                 {ribbonModules.map((m: ModuleItem) => {
@@ -1268,8 +1544,8 @@ export const App: React.FC = () => {
                       onClick={() => handleSelectModule(m.id)}
                       className={`px-3 py-1 rounded-lg flex items-center gap-1.5 text-xs font-medium transition-all whitespace-nowrap cursor-pointer border ${
                         isActive
-                          ? 'bg-emerald-800 text-white font-bold border-emerald-800 shadow-2xs'
-                          : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                          ? 'bg-[#1D6F42] text-white font-bold border-[#1D6F42] shadow-2xs'
+                          : 'bg-[#F8FAF6] text-[#415446] border-[#E2E8DF] hover:bg-[#EFF3EB]'
                       }`}
                     >
                       <span>{m.name}</span>
@@ -1281,7 +1557,7 @@ export const App: React.FC = () => {
               <div className="flex items-center gap-2 shrink-0">
                 <button
                   onClick={() => handleSelectModule('BI')}
-                  className="text-xs text-emerald-800 hover:underline font-bold"
+                  className="text-xs text-[#1D6F42] hover:underline font-bold"
                 >
                   ← Voltar ao BI
                 </button>
@@ -1312,24 +1588,24 @@ export const App: React.FC = () => {
                     ? 'Fiscal & LCDPR'
                     : 'Pecuária & ILPF'}
                 </span>
-                <h1 className="text-base font-bold text-slate-900">{activeModuleObj.fullName}</h1>
+                <h1 className="text-base font-bold text-[#122117]">{activeModuleObj.fullName}</h1>
                 {activeModuleObj.badge && (
-                  <span className="text-[10px] px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full font-bold">
+                  <span className="text-[10px] px-2 py-0.5 bg-[#EBF7EE] text-[#1D6F42] border border-[#B7E4C4] rounded-full font-bold">
                     {activeModuleObj.badge}
                   </span>
                 )}
               </div>
-              <p className="text-xs text-slate-500 mt-0.5">{activeModuleObj.description}</p>
+              <p className="text-xs text-[#415446] mt-0.5">{activeModuleObj.description}</p>
             </div>
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
             {/* Atalhos Rápidos Operacionais do Módulo */}
-            <div className="hidden sm:flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
+            <div className="hidden sm:flex items-center gap-1 bg-[#EFF3EB] p-1 rounded-xl border border-[#E2E8DF]">
               {activeTab !== 'BI' && (
                 <button
                   onClick={() => handleSelectModule('BI')}
-                  className="px-2.5 py-1 text-[11px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-white rounded-lg transition-all cursor-pointer"
+                  className="px-2.5 py-1 text-[11px] font-semibold text-[#415446] hover:text-[#122117] hover:bg-white rounded-lg transition-all cursor-pointer"
                   title="Painel Executivo BI"
                 >
                   Cockpit BI
@@ -1338,7 +1614,7 @@ export const App: React.FC = () => {
               {activeTab !== 'SIG' && (
                 <button
                   onClick={() => handleSelectModule('SIG')}
-                  className="px-2.5 py-1 text-[11px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-white rounded-lg transition-all cursor-pointer"
+                  className="px-2.5 py-1 text-[11px] font-semibold text-[#415446] hover:text-[#122117] hover:bg-white rounded-lg transition-all cursor-pointer"
                   title="Central SIG de Mapas"
                 >
                   Mapa SIG
@@ -1347,19 +1623,19 @@ export const App: React.FC = () => {
               {activeTab !== 'COPILOT' && (
                 <button
                   onClick={() => handleSelectModule('COPILOT')}
-                  className="px-2.5 py-1 text-[11px] font-semibold text-emerald-700 hover:text-emerald-900 hover:bg-white rounded-lg transition-all flex items-center gap-1 cursor-pointer"
+                  className="px-2.5 py-1 text-[11px] font-semibold text-[#1D6F42] hover:text-[#165A34] hover:bg-white rounded-lg transition-all flex items-center gap-1 cursor-pointer"
                   title="Copilot IA Safra"
                 >
-                  <Sparkles className="w-3 h-3 text-emerald-700" /> Copilot IA
+                  <Sparkles className="w-3 h-3 text-[#1D6F42]" /> Copilot IA
                 </button>
               )}
               {activeTab !== 'MOBILE' && (
                 <button
                   onClick={() => handleSelectModule('MOBILE')}
-                  className="px-2.5 py-1 text-[11px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-white rounded-lg transition-all flex items-center gap-1 cursor-pointer"
+                  className="px-2.5 py-1 text-[11px] font-semibold text-[#415446] hover:text-[#122117] hover:bg-white rounded-lg transition-all flex items-center gap-1 cursor-pointer"
                   title="Simulador de Aplicativo Mobile Offline"
                 >
-                  <Smartphone className="w-3 h-3 text-slate-500" /> Mobile
+                  <Smartphone className="w-3 h-3 text-[#8DA697]" /> Mobile
                 </button>
               )}
             </div>
@@ -1368,20 +1644,20 @@ export const App: React.FC = () => {
               onClick={() => handleToggleFavorito(activeModuleObj.id)}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-semibold transition cursor-pointer shadow-2xs ${
                 favoritos.includes(activeModuleObj.id)
-                  ? 'bg-amber-50 border-amber-300 text-amber-900'
-                  : 'bg-white hover:bg-slate-50 border-slate-200 text-slate-700'
+                  ? 'bg-[#FEF3C7] border-[#FCD34D] text-[#92400E]'
+                  : 'bg-white hover:bg-[#F8FAF6] border-[#E2E8DF] text-[#415446]'
               }`}
             >
               <Star
                 className={`w-3.5 h-3.5 ${
-                  favoritos.includes(activeModuleObj.id) ? 'fill-current text-amber-500' : 'text-slate-400'
+                  favoritos.includes(activeModuleObj.id) ? 'fill-current text-[#D97706]' : 'text-[#8DA697]'
                 }`}
               />
               <span className="hidden sm:inline">{favoritos.includes(activeModuleObj.id) ? 'Favoritado' : 'Favoritar'}</span>
             </button>
             <button
               onClick={() => setIsQuickAccessOpen(true)}
-              className="p-1.5 bg-white hover:bg-slate-50 border border-slate-200 rounded-xl text-slate-600 hover:text-slate-900 transition cursor-pointer shadow-2xs"
+              className="p-1.5 bg-white hover:bg-[#F8FAF6] border border-[#E2E8DF] rounded-xl text-[#415446] hover:text-[#122117] transition cursor-pointer shadow-2xs"
               title="Abrir Command Palette (Ctrl+K)"
             >
               <Search className="w-4 h-4" />
@@ -1392,17 +1668,35 @@ export const App: React.FC = () => {
 
         <ModuleErrorBoundary key={activeTab}>
           <React.Suspense fallback={<ModuleFallback />}>
-            {activeTab === 'BI' && (
-            <DashboardBI
-              onSelectTalhao={(talhao) => {
-                setSelectedTalhao(talhao);
-                setActiveTab('SIG');
-              }}
-              profileId={subscriptionConfig.profileId}
-              onNavigate={(moduleId) => handleSelectModule(moduleId)}
-              onOpenModuleConfig={() => setIsModuleConfigOpen(true)}
-            />
-          )}
+            {!isSuperAdminUser && !allowedModuleIdsForRole.has(activeTab) ? (
+              <AcessoRestritoView
+                moduleName={activeModuleObj.name}
+                moduleId={activeTab}
+                userRole={currentUser.role}
+                userName={currentUser.name}
+                isSuperAdminUser={isSuperAdminUser}
+                onOpenSuperadminModal={() => setIsSuperadminModalOpen(true)}
+                onReturnToAllowedModule={() => {
+                  const firstAllowed = availableModules[0]?.id || 'BI';
+                  setActiveTab(firstAllowed);
+                }}
+              />
+            ) : (
+              <>
+                {activeTab === 'BI' && (
+                  <DashboardBI
+                    onSelectTalhao={(talhao) => {
+                      setSelectedTalhao(talhao);
+                      setActiveTab('SIG');
+                    }}
+                    profileId={subscriptionConfig.profileId}
+                    onNavigate={(moduleId) => handleSelectModule(moduleId)}
+                    onOpenModuleConfig={() => setIsModuleConfigOpen(true)}
+                    onOpenQuickEntry={() => setIsQuickEntryOpen(true)}
+                    onOpenDeltaTModal={() => setIsDeltaTModalOpen(true)}
+                    onOpenManualModal={() => setIsManualModalOpen(true)}
+                  />
+                )}
 
           {activeTab === 'SIG' && (
             <div className="space-y-4">
@@ -1745,6 +2039,8 @@ export const App: React.FC = () => {
           {activeTab === 'ARRENDAMENTO' && <ArrendamentosContratosModule />}
 
             {activeTab === 'ZOOTECNIA' && <ZootecniaModule />}
+              </>
+            )}
           </React.Suspense>
         </ModuleErrorBoundary>
         </main>
@@ -1830,17 +2126,69 @@ export const App: React.FC = () => {
         }}
       />
 
+      {/* Modal de Planos, Faturamento e Pagamentos SaaS (PIX / Cartão / Boleto) */}
+      <BillingSubscriptionModal
+        isOpen={isBillingModalOpen}
+        onClose={() => setIsBillingModalOpen(false)}
+        currentPlanId="PRO"
+        onPlanActivated={(planId) => {
+          addToast(`Plano ${planId} ativado com sucesso! NFS-e disponível.`, 'success');
+        }}
+      />
+
+      {/* Modal de Configuração de Credenciais & Certificado A1 do Tenant */}
+      <ConfiguracaoCredenciaisTenantModal
+        isOpen={isTenantCredsModalOpen}
+        onClose={() => setIsTenantCredsModalOpen(false)}
+        onNotify={(msg, type) => addToast(msg, type)}
+      />
+
+      {/* Modal de Manual Completo de Uso, Implantação e Instalação Telemática CAN Bus */}
+      <ManualImplantacaoOperacionalModal
+        isOpen={isManualModalOpen}
+        onClose={() => setIsManualModalOpen(false)}
+        onNotify={(msg, type) => addToast(msg, type)}
+      />
+
       {/* Modal de Acesso Rápido, Busca e Gerenciamento de Favoritos (Command Palette) */}
       <QuickAccessModal
         isOpen={isQuickAccessOpen}
         onClose={() => setIsQuickAccessOpen(false)}
-        onSelectModule={(id) => handleSelectModule(id)}
+        onSelectModule={(id) => {
+          if (id === 'MANUAL') {
+            setIsManualModalOpen(true);
+            return;
+          }
+          handleSelectModule(id);
+        }}
         activeModuleId={activeTab}
         favoritos={favoritos}
         onToggleFavorito={handleToggleFavorito}
-        enabledModuleIds={enabledModuleIds}
+        enabledModuleIds={effectiveModuleIds}
         onOpenModuleConfig={() => setIsModuleConfigOpen(true)}
         activeProfileName={activeProfile.name}
+        isSuperAdmin={isSuperAdminUser}
+      />
+
+      {/* Modal de Governança RBAC e Matriz de Permissões (Exclusivo Superadmin) */}
+      <PerfilAcessoSuperadminModal
+        isOpen={isSuperadminModalOpen}
+        onClose={() => setIsSuperadminModalOpen(false)}
+        currentUserRole={currentUser.role}
+        onApplyGrants={(updatedGrants: RoleGrantsMap) => {
+          setRoleGrants(updatedGrants);
+          addToast('Permissões de perfis propagadas e salvas com sucesso!', 'success');
+        }}
+        onSimulateRole={(targetRole: UserRole, targetName: string) => {
+          const def = ROLE_DEFINITIONS[targetRole];
+          updateCurrentUser({
+            name: targetName || `Usuário ${def.shortLabel}`,
+            role: targetRole,
+            farm: currentUser.farm,
+          });
+          addToast(`Simulação operacional ativada: ${def.label}`, 'info');
+        }}
+        addToast={addToast}
       />
 
       

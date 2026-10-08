@@ -124,7 +124,7 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
             </span>
             <span className="text-xs text-[#EAF4E7] font-medium">Amostragem Georreferenciada em Grid + Sentinel-2 Level-2A</span>
           </div>
-          <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-2">
+          <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
             <Layers className="w-6 h-6 text-emerald-600" /> Agricultura de Precisão & Satélite Multiespectral
           </h2>
           <p className="text-xs sm:text-sm text-[#EAF4E7] max-w-2xl leading-relaxed">

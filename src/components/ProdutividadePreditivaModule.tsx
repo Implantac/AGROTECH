@@ -3,16 +3,9 @@ import {
   LineChart,
   Target,
   Sparkles,
-  TrendingUp,
   Download,
-  CheckCircle2,
-  AlertTriangle,
-  Calculator,
-  Calendar,
-  Layers,
-  BarChart2
+  Calculator
 } from 'lucide-react';
-import { TALHOES_INICIAIS, TalhaoData } from '../data/mockAgroData';
 
 interface PrevisaoTalhao {
   id: string;
@@ -107,42 +100,39 @@ export const ProdutividadePreditivaModule: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Top Banner Header */}
-      <div className="bg-gradient-to-r from-emerald-950 via-teal-950 to-stone-950 border border-emerald-800/40 rounded-2xl p-6 shadow-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 relative z-10">
-          <div>
-            <div className="flex items-center gap-3 mb-2">
-              <span className="p-2.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl">
-                <Target className="w-6 h-6" />
-              </span>
-              <div>
-                <div className="flex items-center gap-2">
-                  <h1 className="text-2xl font-bold text-white tracking-wide">
-                    Previsão de Produtividade por Satélite & Monte Carlo
-                  </h1>
-                  <span className="px-2.5 py-0.5 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
-                    IA Preditiva R5
-                  </span>
-                </div>
-                <p className="text-stone-300 text-sm mt-0.5">
-                  Modelagem estocástica com NDVI Sentinel-2, acúmulo de Graus-Dia (GDD) e teto seguro contra wash-out de Barter.
-                </p>
+      {/* Top Header Card */}
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-2xs">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+          <div className="flex items-center gap-3">
+            <span className="p-2.5 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl">
+              <Target className="w-6 h-6 text-emerald-700" />
+            </span>
+            <div>
+              <div className="flex items-center gap-2">
+                <h1 className="text-xl font-bold text-slate-900">
+                  Previsão de Produtividade por Satélite & Monte Carlo
+                </h1>
+                <span className="px-2.5 py-0.5 text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full">
+                  IA Preditiva R5
+                </span>
               </div>
+              <p className="text-slate-500 text-xs mt-0.5">
+                Modelagem estocástica com NDVI Sentinel-2, acúmulo de Graus-Dia (GDD) e teto seguro contra wash-out de Barter.
+              </p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             <button
               onClick={() => alert('Relatório de Estimativa Pré-Colheita e Trava Segura exportado em PDF!')}
-              className="flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-sm font-semibold transition shadow-lg shadow-emerald-950/40"
+              className="flex items-center gap-2 px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-semibold transition cursor-pointer shadow-2xs"
             >
               <Download className="w-4 h-4" />
               Exportar Estimativa
             </button>
-            <div className="text-right pl-4 border-l border-emerald-800/60 hidden sm:block">
-              <div className="text-xs text-stone-400">P50 Provável</div>
-              <div className="text-xl font-bold text-emerald-300">{p50Ajustado} sc/ha</div>
+            <div className="text-right pl-4 border-l border-slate-200 hidden sm:block">
+              <div className="text-[11px] text-slate-500">P50 Provável</div>
+              <div className="text-lg font-bold text-emerald-700">{p50Ajustado} sc/ha</div>
             </div>
           </div>
         </div>
@@ -150,42 +140,42 @@ export const ProdutividadePreditivaModule: React.FC = () => {
 
       {/* 4 Summary Metric Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Produtividade P50 Estimada</div>
-          <div className="text-2xl font-bold text-emerald-400 mt-1">
-            {p50Ajustado} <span className="text-sm font-normal text-stone-400">sc/ha</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Produtividade P50 Estimada</div>
+          <div className="text-2xl font-bold text-emerald-700 mt-1">
+            {p50Ajustado} <span className="text-sm font-normal text-slate-400">sc/ha</span>
           </div>
-          <div className="text-xs text-stone-500 mt-1">
+          <div className="text-xs text-slate-500 mt-1">
             Histórico: {selecionada.produtividadeHistoricaScHa} sc/ha (+{((p50Ajustado/selecionada.produtividadeHistoricaScHa - 1)*100).toFixed(1)}%)
           </div>
         </div>
 
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Intervalo de Confiança (P10 - P90)</div>
-          <div className="text-2xl font-bold text-cyan-300 mt-1">
-            {p10Ajustado} - {selecionada.p90OtimistaScHa} <span className="text-sm font-normal text-stone-400">sc/ha</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Intervalo de Confiança (P10 - P90)</div>
+          <div className="text-2xl font-bold text-slate-900 mt-1">
+            {p10Ajustado} - {selecionada.p90OtimistaScHa} <span className="text-sm font-normal text-slate-400">sc/ha</span>
           </div>
-          <div className="text-xs text-stone-500 mt-1">
+          <div className="text-xs text-slate-500 mt-1">
             Simulação Monte Carlo com 1.000 iterações
           </div>
         </div>
 
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Trava Máxima Barter Recomendada</div>
-          <div className="text-2xl font-bold text-amber-400 mt-1">
-            {travaSeguraRecomendadaSacas.toLocaleString('pt-BR')} <span className="text-sm font-normal text-stone-400">sacas</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Trava Máxima Barter Recomendada</div>
+          <div className="text-2xl font-bold text-amber-700 mt-1">
+            {travaSeguraRecomendadaSacas.toLocaleString('pt-BR')} <span className="text-sm font-normal text-slate-400">sacas</span>
           </div>
-          <div className="text-xs text-emerald-400 mt-1">
+          <div className="text-xs text-emerald-700 mt-1">
             {percentualTravaBarter}% do cenário pessimista P10 (Risco Zero Wash-out)
           </div>
         </div>
 
-        <div className="bg-stone-900/90 border border-stone-800 p-4 rounded-xl">
-          <div className="text-xs font-medium text-stone-400">Volume Total Esperado ({selecionada.areaHa} ha)</div>
-          <div className="text-2xl font-bold text-white mt-1">
-            {volumeTotalAjustadoSacas.toLocaleString('pt-BR')} <span className="text-sm font-normal text-stone-400">sacas</span>
+        <div className="bg-white border border-slate-200/80 p-4 rounded-xl shadow-2xs">
+          <div className="text-xs font-medium text-slate-500">Volume Total Esperado ({selecionada.areaHa} ha)</div>
+          <div className="text-2xl font-bold text-slate-900 mt-1">
+            {volumeTotalAjustadoSacas.toLocaleString('pt-BR')} <span className="text-sm font-normal text-slate-400">sacas</span>
           </div>
-          <div className="text-xs text-stone-400 mt-1">
+          <div className="text-xs text-slate-500 mt-1">
             {selecionada.cultivar} • {selecionada.estadioFenologico}
           </div>
         </div>
@@ -196,15 +186,15 @@ export const ProdutividadePreditivaModule: React.FC = () => {
         
         {/* Left Column: Lista de Talhões Monitorados (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
-          <div className="bg-stone-900/90 border border-stone-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <LineChart className="w-5 h-5 text-emerald-400" />
-                <h2 className="text-lg font-semibold text-white">
+                <LineChart className="w-5 h-5 text-emerald-700" />
+                <h2 className="text-base font-bold text-slate-900">
                   Talhões Monitorados por Sensoriamento Remoto
                 </h2>
               </div>
-              <span className="text-xs text-stone-400">Sentinel-2 MSI 10m</span>
+              <span className="text-xs text-slate-500 font-mono">Sentinel-2 MSI 10m</span>
             </div>
 
             {/* List of Fields */}
@@ -217,27 +207,27 @@ export const ProdutividadePreditivaModule: React.FC = () => {
                     onClick={() => setSelecionada(p)}
                     className={`p-4 rounded-xl border cursor-pointer transition-all ${
                       isSelected
-                        ? 'bg-emerald-950/40 border-emerald-500/80 shadow-md'
-                        : 'bg-stone-800/40 border-stone-700/60 hover:bg-stone-800'
+                        ? 'bg-emerald-50/70 border-emerald-400 shadow-2xs'
+                        : 'bg-slate-50/60 border-slate-200 hover:bg-slate-50'
                     }`}
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                       <div>
-                        <div className="font-semibold text-white text-sm flex items-center gap-2">
-                          <Target className="w-4 h-4 text-emerald-400" />
+                        <div className="font-semibold text-slate-900 text-sm flex items-center gap-2">
+                          <Target className="w-4 h-4 text-emerald-700" />
                           {p.talhaoNome}
-                          <span className="text-xs text-stone-400 font-normal">({p.areaHa} ha)</span>
+                          <span className="text-xs text-slate-500 font-normal">({p.areaHa} ha)</span>
                         </div>
-                        <div className="text-xs text-stone-400 mt-0.5">
+                        <div className="text-xs text-slate-500 mt-0.5">
                           {p.cultivar} • {p.estadioFenologico}
                         </div>
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="text-right">
-                          <div className="text-xs text-stone-400">NDVI Pico</div>
-                          <div className="text-sm font-bold text-emerald-400">{p.ndviPicoR3}</div>
+                          <div className="text-xs text-slate-500">NDVI Pico</div>
+                          <div className="text-sm font-bold text-emerald-700">{p.ndviPicoR3}</div>
                         </div>
-                        <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-lg">
+                        <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-lg">
                           {p.p50ProvavelScHa} sc/ha
                         </span>
                       </div>
@@ -248,43 +238,43 @@ export const ProdutividadePreditivaModule: React.FC = () => {
             </div>
 
             {/* Agrometeorology Parameters Card */}
-            <div className="bg-stone-950/70 border border-stone-800 rounded-xl p-4">
-              <h3 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-emerald-400" />
+            <div className="bg-slate-50/70 border border-slate-200/80 rounded-xl p-4">
+              <h3 className="text-sm font-semibold text-slate-900 mb-3 flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-emerald-700" />
                 Parâmetros Biofísicos ({selecionada.talhaoNome})
               </h3>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs mb-3">
-                <div className="p-3 bg-stone-900 border border-stone-800 rounded-lg">
-                  <div className="text-stone-400">Graus-Dia (GDD)</div>
-                  <div className="text-lg font-bold text-white mt-1">
+                <div className="p-3 bg-white border border-slate-200 rounded-lg">
+                  <div className="text-slate-500">Graus-Dia (GDD)</div>
+                  <div className="text-lg font-bold text-slate-900 mt-1">
                     {selecionada.gddAcumulado} °C-dia
                   </div>
-                  <div className="text-[10px] text-stone-500 mt-0.5">Base térmica 10°C</div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">Base térmica 10°C</div>
                 </div>
 
-                <div className="p-3 bg-stone-900 border border-stone-800 rounded-lg">
-                  <div className="text-stone-400">NDVI Médio Pico</div>
-                  <div className="text-lg font-bold text-emerald-400 mt-1">
+                <div className="p-3 bg-white border border-slate-200 rounded-lg">
+                  <div className="text-slate-500">NDVI Médio Pico</div>
+                  <div className="text-lg font-bold text-emerald-700 mt-1">
                     {selecionada.ndviPicoR3}
                   </div>
-                  <div className="text-[10px] text-stone-500 mt-0.5">Dossel fechado vigoroso</div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">Dossel fechado vigoroso</div>
                 </div>
 
-                <div className="p-3 bg-stone-900 border border-stone-800 rounded-lg">
-                  <div className="text-stone-400">Déficit Hídrico</div>
-                  <div className="text-lg font-bold text-cyan-300 mt-1">
+                <div className="p-3 bg-white border border-slate-200 rounded-lg">
+                  <div className="text-slate-500">Déficit Hídrico</div>
+                  <div className="text-lg font-bold text-sky-700 mt-1">
                     {selecionada.deficitHidricoMm} mm
                   </div>
-                  <div className="text-[10px] text-stone-500 mt-0.5">Baixo estresse no enchimento</div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">Baixo estresse no enchimento</div>
                 </div>
 
-                <div className="p-3 bg-stone-900 border border-stone-800 rounded-lg">
-                  <div className="text-stone-400">Status Fitossanitário</div>
-                  <div className="text-lg font-bold text-emerald-300 mt-1">
+                <div className="p-3 bg-white border border-slate-200 rounded-lg">
+                  <div className="text-slate-500">Status Fitossanitário</div>
+                  <div className="text-lg font-bold text-emerald-700 mt-1">
                     {selecionada.statusLavoura}
                   </div>
-                  <div className="text-[10px] text-stone-500 mt-0.5">Zero foco de ferrugem</div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">Zero foco de ferrugem</div>
                 </div>
               </div>
             </div>
@@ -293,28 +283,28 @@ export const ProdutividadePreditivaModule: React.FC = () => {
 
         {/* Right Column: Barter Risk & Climate Stress Simulator (5 cols) */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="bg-stone-900/90 border border-stone-800 rounded-2xl p-5 shadow-lg">
+          <div className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <Calculator className="w-5 h-5 text-emerald-400" />
-                <h2 className="text-lg font-semibold text-white">
+                <Calculator className="w-5 h-5 text-emerald-700" />
+                <h2 className="text-base font-bold text-slate-900">
                   Simulador de Risco de Comercialização
                 </h2>
               </div>
-              <span className="text-xs bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 px-2 py-0.5 rounded">
+              <span className="text-xs bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded font-semibold">
                 Proteção Wash-Out
               </span>
             </div>
 
-            <p className="text-xs text-stone-400 mb-5">
+            <p className="text-xs text-slate-500 mb-5">
               Simule cenários pluviométricos para estressar a safra e definir o volume seguro de entrega em contratos futuros com tradings.
             </p>
 
             <div className="space-y-4 text-xs">
               <div>
                 <div className="flex justify-between mb-1">
-                  <span className="text-stone-400 font-medium">Condição Pluviométrica no Enchimento de Grãos</span>
-                  <span className="text-emerald-300 font-bold">{fatorChuvaSimulado}% da média</span>
+                  <span className="text-slate-600 font-medium">Condição Pluviométrica no Enchimento de Grãos</span>
+                  <span className="text-emerald-800 font-bold">{fatorChuvaSimulado}% da média</span>
                 </div>
                 <input
                   type="range"
@@ -323,9 +313,9 @@ export const ProdutividadePreditivaModule: React.FC = () => {
                   step="5"
                   value={fatorChuvaSimulado}
                   onChange={(e) => setFatorChuvaSimulado(Number(e.target.value))}
-                  className="w-full accent-emerald-500 bg-stone-800 rounded-lg h-2 cursor-pointer"
+                  className="w-full accent-emerald-600 bg-slate-200 rounded-lg h-2 cursor-pointer"
                 />
-                <div className="flex justify-between text-[10px] text-stone-500">
+                <div className="flex justify-between text-[10px] text-slate-400">
                   <span>60% (Veranico Severo)</span>
                   <span>100% (Normal)</span>
                   <span>130% (Chuvoso)</span>
@@ -334,8 +324,8 @@ export const ProdutividadePreditivaModule: React.FC = () => {
 
               <div>
                 <div className="flex justify-between mb-1">
-                  <span className="text-stone-400 font-medium">% de Trava Antecipada sobre o P10</span>
-                  <span className="text-amber-300 font-bold">{percentualTravaBarter}%</span>
+                  <span className="text-slate-600 font-medium">% de Trava Antecipada sobre o P10</span>
+                  <span className="text-amber-800 font-bold">{percentualTravaBarter}%</span>
                 </div>
                 <input
                   type="range"
@@ -344,9 +334,9 @@ export const ProdutividadePreditivaModule: React.FC = () => {
                   step="5"
                   value={percentualTravaBarter}
                   onChange={(e) => setPercentualTravaBarter(Number(e.target.value))}
-                  className="w-full accent-amber-500 bg-stone-800 rounded-lg h-2 cursor-pointer"
+                  className="w-full accent-amber-600 bg-slate-200 rounded-lg h-2 cursor-pointer"
                 />
-                <div className="flex justify-between text-[10px] text-stone-500">
+                <div className="flex justify-between text-[10px] text-slate-400">
                   <span>30% (Conservador)</span>
                   <span>60% (Recomendado)</span>
                   <span>80% (Agressivo)</span>
@@ -355,28 +345,28 @@ export const ProdutividadePreditivaModule: React.FC = () => {
             </div>
 
             {/* Trading Risk Output Box */}
-            <div className="mt-6 p-4 bg-stone-950/80 border border-stone-800 rounded-xl space-y-3 text-xs">
+            <div className="mt-6 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3 text-xs">
               <div className="flex justify-between items-center">
-                <span className="text-stone-400">Volume Total Simulado (P50):</span>
-                <span className="text-white font-bold text-sm">
+                <span className="text-slate-600">Volume Total Simulado (P50):</span>
+                <span className="text-slate-900 font-bold text-sm">
                   {volumeTotalAjustadoSacas.toLocaleString('pt-BR')} sacas
                 </span>
               </div>
 
               <div className="flex justify-between items-center">
-                <span className="text-stone-400">Volume no Pior Cenário (P10):</span>
-                <span className="text-rose-400 font-semibold">
+                <span className="text-slate-600">Volume no Pior Cenário (P10):</span>
+                <span className="text-rose-700 font-semibold">
                   {Math.round(p10Ajustado * selecionada.areaHa).toLocaleString('pt-BR')} sacas
                 </span>
               </div>
 
-              <div className="pt-2 border-t border-stone-800 flex justify-between items-center">
-                <span className="font-semibold text-white">Teto Seguro para Trava Futura:</span>
+              <div className="pt-2 border-t border-slate-200 flex justify-between items-center">
+                <span className="font-semibold text-slate-900">Teto Seguro para Trava Futura:</span>
                 <div className="text-right">
-                  <div className="text-base font-bold text-emerald-300">
+                  <div className="text-base font-bold text-emerald-700">
                     {travaSeguraRecomendadaSacas.toLocaleString('pt-BR')} sacas
                   </div>
-                  <div className="text-[10px] text-emerald-500">
+                  <div className="text-[10px] text-emerald-800">
                     {Number((travaSeguraRecomendadaSacas / volumeTotalAjustadoSacas * 100).toFixed(1))}% da safra total comprometida
                   </div>
                 </div>
@@ -389,3 +379,4 @@ export const ProdutividadePreditivaModule: React.FC = () => {
     </div>
   );
 };
+export default ProdutividadePreditivaModule;

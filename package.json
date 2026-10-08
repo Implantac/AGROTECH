@@ -8,7 +8,19 @@
     "start": "node server.cjs",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "node scripts/test_billing_webhook_e2e.mjs && node scripts/test_telemetry_gis_e2e.mjs && node scripts/test_rbac_governance.mjs && node scripts/test_offline_outbox_e2e.mjs && node scripts/test_esg_lcdpr_e2e.mjs && node scripts/test_zarc_renovabio_e2e.mjs && node scripts/test_tenant_credentials_e2e.mjs && node scripts/test_manual_and_telematics_guide.mjs && node scripts/test_reforma_tributaria_ibscbs_e2e.mjs && node scripts/test_todos_os_regimes_tributarios_e2e.mjs && node scripts/test_security_auth_hardening_e2e.mjs",
+    "test:security": "node scripts/test_security_auth_hardening_e2e.mjs",
+    "test:telemetry": "node scripts/test_telemetry_gis_e2e.mjs",
+    "test:billing": "node scripts/test_billing_webhook_e2e.mjs",
+    "test:rbac": "node scripts/test_rbac_governance.mjs",
+    "test:outbox": "node scripts/test_offline_outbox_e2e.mjs",
+    "test:esg": "node scripts/test_esg_lcdpr_e2e.mjs",
+    "test:zarc": "node scripts/test_zarc_renovabio_e2e.mjs",
+    "test:credentials": "node scripts/test_tenant_credentials_e2e.mjs",
+    "test:guide": "node scripts/test_manual_and_telematics_guide.mjs",
+    "test:reforma": "node scripts/test_reforma_tributaria_ibscbs_e2e.mjs",
+    "test:regimes": "node scripts/test_todos_os_regimes_tributarios_e2e.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",

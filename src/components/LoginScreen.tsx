@@ -16,19 +16,22 @@ import {
   AlertCircle,
   Cpu,
   Layers,
-  Database
+  Database,
+  BookOpen
 } from 'lucide-react';
 
 interface LoginScreenProps {
   onLoginSuccess: (userProfile?: { name: string; role: string; farm: string }) => void;
   onBackToLanding: () => void;
   onGoToRegister?: () => void;
+  onOpenManual?: () => void;
 }
 
 export const LoginScreen: React.FC<LoginScreenProps> = ({
   onLoginSuccess,
   onBackToLanding,
   onGoToRegister,
+  onOpenManual,
 }) => {
   const [emailOrCpf, setEmailOrCpf] = useState('produtor@superagtech.com.br');
   const [password, setPassword] = useState('produtor123');
@@ -41,36 +44,58 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
   // Perfis Rápidos de Demonstração (1 Clique)
   const perfisDemo = [
     {
-      nome: 'Carlos Eduardo Silva',
-      cargo: 'Produtor Titular & Gestor',
-      fazenda: 'Fazenda Santa Maria (Sorriso/MT)',
-      email: 'produtor@superagtech.com.br',
-      cultura: 'Soja / Milho Safrinha',
-      badge: 'Gestor Titular'
+      nome: 'Dr. Roberto Schneider',
+      cargo: 'SUPERADMIN',
+      cargoLabel: 'Superadministrador Geral (TI & Governança)',
+      fazenda: 'Diretoria Corporativa AgTech',
+      email: 'admin@superagtech.com.br',
+      cultura: 'Governança & Controle de Acesso RBAC',
+      badge: 'Superadmin (Acesso Total)'
     },
     {
-      nome: 'Dr. Marcelo Arantes',
-      cargo: 'Médico Veterinário RT',
-      fazenda: 'Estância Boi Gordo (Araguaia/GO)',
-      email: 'agronoma@superagtech.com.br',
-      cultura: 'Pecuária SISBOV & Confinamento',
-      badge: 'Veterinário SISBOV'
+      nome: 'Carlos Eduardo Silva',
+      cargo: 'PRODUTOR',
+      cargoLabel: 'Produtor Titular & Gestor da Fazenda',
+      fazenda: 'Fazenda Santa Maria (Sorriso/MT)',
+      email: 'produtor@superagtech.com.br',
+      cultura: 'Soja / Milho Safrinha / Barter',
+      badge: 'Produtor Rural'
     },
     {
       nome: 'Engª Juliana Prado',
-      cargo: 'Agrônoma Responsável Técnica',
+      cargo: 'AGRONOMO',
+      cargoLabel: 'Agrônoma Responsável Técnica (RT)',
       fazenda: 'Agropecuária Rio Verde (Rio Verde/GO)',
       email: 'agronoma@superagtech.com.br',
-      cultura: 'Algodão & Grãos Irrigados',
-      badge: 'Agronomia & MIP'
+      cultura: 'Algodão & Grãos Irrigados (MIP / VRA)',
+      badge: 'Engenheira Agrônoma'
     },
     {
       nome: 'Valmor Bertoncelli',
-      cargo: 'Chefe de Oficina Mecânica & Frotas',
+      cargo: 'OPERADOR',
+      cargoLabel: 'Chefe de Oficina Mecânica & Frotas',
       fazenda: 'Fazenda Primavera (Sapezal/MT)',
       email: 'operador@superagtech.com.br',
-      cultura: 'Gestão de Frotas CAN Bus',
-      badge: 'Oficina & Telemetria'
+      cultura: 'Gestão de Frotas CAN Bus & Oficina',
+      badge: 'Operador / Frotas'
+    },
+    {
+      nome: 'Dra. Valéria Campos (CRC)',
+      cargo: 'CONTADOR',
+      cargoLabel: 'Contadora Rural & Auditora Fiscal',
+      fazenda: 'Fazenda Santa Maria (Sorriso/MT)',
+      email: 'contadora@superagtech.com.br',
+      cultura: 'Livro Caixa Digital LCDPR & SEFAZ',
+      badge: 'Contadora / Fiscal'
+    },
+    {
+      nome: 'Dr. Marcelo Arantes',
+      cargo: 'VETERINARIO',
+      cargoLabel: 'Médico Veterinário SISBOV',
+      fazenda: 'Estância Boi Gordo (Araguaia/GO)',
+      email: 'veterinario@superagtech.com.br',
+      cultura: 'Pecuária SISBOV & Confinamento',
+      badge: 'Veterinário / SISBOV'
     }
   ];
 
@@ -112,8 +137,16 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
   };
 
   const handleSelectDemoProfile = (p: typeof perfisDemo[0]) => {
+    const demoPwMap: Record<string, string> = {
+      'admin@superagtech.com.br': 'admin123',
+      'produtor@superagtech.com.br': 'produtor123',
+      'agronoma@superagtech.com.br': 'agro123',
+      'operador@superagtech.com.br': 'op123',
+      'contadora@superagtech.com.br': 'fiscal123',
+      'veterinario@superagtech.com.br': 'vet123',
+    };
     setEmailOrCpf(p.email);
-    setPassword('••••••••');
+    setPassword(demoPwMap[p.email] || 'agro123');
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -160,15 +193,30 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
           </div>
         </div>
 
-        {onGoToRegister && (
-          <button
-            type="button"
-            onClick={onGoToRegister}
-            className="text-xs font-bold text-emerald-800 hover:text-emerald-950 hover:underline cursor-pointer"
-          >
-            Não tem conta? <b>Criar Conta Grátis</b>
-          </button>
-        )}
+        <div className="flex items-center gap-2">
+          {onOpenManual && (
+            <button
+              type="button"
+              onClick={onOpenManual}
+              className="flex items-center gap-1.5 text-xs font-bold text-emerald-800 hover:text-emerald-950 transition cursor-pointer px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 shadow-2xs"
+              title="Manual do Usuário & Implantação"
+            >
+              <BookOpen className="w-3.5 h-3.5 text-emerald-700" />
+              <span className="hidden sm:inline">Manual do Sistema</span>
+              <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-700 text-white font-mono">v2.6</span>
+            </button>
+          )}
+
+          {onGoToRegister && (
+            <button
+              type="button"
+              onClick={onGoToRegister}
+              className="text-xs font-bold text-emerald-800 hover:text-emerald-950 hover:underline cursor-pointer"
+            >
+              Não tem conta? <b>Criar Conta</b>
+            </button>
+          )}
+        </div>
       </header>
 
       {/* Conteúdo Central Split Screen de Alto Contraste */}
@@ -264,7 +312,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
                           {p.badge}
                         </span>
                       </div>
-                      <span className="text-[11px] text-slate-600 block font-medium">{p.cargo}</span>
+                      <span className="text-[11px] text-slate-600 block font-medium">{p.cargoLabel || p.cargo}</span>
                       <span className="text-[10px] text-emerald-800 font-mono block mt-0.5 font-semibold">{p.fazenda}</span>
                     </button>
                   ))}

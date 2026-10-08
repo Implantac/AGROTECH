@@ -126,7 +126,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header do Módulo */}
-      <div className="bg-gradient-to-r from-orange-950/60 via-slate-900 to-slate-950 border border-orange-500/30 rounded-2xl p-6 shadow-xl relative overflow-hidden">
+      <div className="bg-white border border-slate-200 shadow-xs rounded-2xl p-6 shadow-xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
 
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
@@ -136,11 +136,11 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
                 <Scale className="w-3.5 h-3.5" />
                 Módulo 80 • Confinamento de Cordeiros & Dieta Alto Grão
               </span>
-              <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+              <span className="px-2.5 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 rounded-full">
                 NRC Ovinos & Carcaça Gourmet
               </span>
             </div>
-            <h2 className="text-2xl font-black text-white tracking-tight flex items-center gap-3">
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-3">
               🐑 Terminação Intensiva de Cordeiros de Corte
             </h2>
             <p className="text-sm text-slate-900 max-w-3xl leading-relaxed">
@@ -156,8 +156,8 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-center min-w-[145px] shadow-inner">
               <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block">Margem do Giro</span>
-              <span className="text-xl font-black text-emerald-400">R$ 408k</span>
-              <span className="text-[10px] text-emerald-400/80 block mt-0.5">R$ 340,02 / cab</span>
+              <span className="text-xl font-black text-emerald-700">R$ 408k</span>
+              <span className="text-[10px] text-emerald-700/80 block mt-0.5">R$ 340,02 / cab</span>
             </div>
           </div>
         </div>
@@ -170,8 +170,8 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
             <span className="text-xs font-semibold uppercase tracking-wider">Ganho Médio Diário (GMD)</span>
             <Activity className="w-4 h-4 text-orange-400" />
           </div>
-          <div className="text-2xl font-black text-white">320 g/dia</div>
-          <div className="text-[11px] text-emerald-400 font-medium mt-1 flex items-center gap-1">
+          <div className="text-2xl font-black text-slate-900">320 g/dia</div>
+          <div className="text-[11px] text-emerald-700 font-medium mt-1 flex items-center gap-1">
             <CheckCircle2 className="w-3.5 h-3.5" />
             Meta &gt; 300 g/dia (Alto Desempenho)
           </div>
@@ -180,10 +180,10 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-orange-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Conversão Alimentar (CA)</span>
-            <Scale className="w-4 h-4 text-cyan-400" />
+            <Scale className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black text-white">3.85 kg MS/kg</div>
-          <div className="text-[11px] text-cyan-400 font-medium mt-1">
+          <div className="text-2xl font-black text-slate-900">3.85 kg MS/kg</div>
+          <div className="text-[11px] text-sky-700 font-medium mt-1">
             Consumo total: 84.7 kg MS / cordeiro
           </div>
         </div>
@@ -191,9 +191,9 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-orange-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Rendimento Carcaça (RCQ)</span>
-            <Award className="w-4 h-4 text-emerald-400" />
+            <Award className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-emerald-400">49.5% (20.54 kg)</div>
+          <div className="text-2xl font-black text-emerald-700">49.5% (20.54 kg)</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             EGS 3.2 mm • Gordura Cobertura Grau 3
           </div>
@@ -202,9 +202,9 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:border-orange-500/30 transition-all">
           <div className="flex items-center justify-between text-slate-600 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Período de Confinamento</span>
-            <Calendar className="w-4 h-4 text-amber-400" />
+            <Calendar className="w-4 h-4 text-amber-700" />
           </div>
-          <div className="text-2xl font-black text-amber-400">69 dias</div>
+          <div className="text-2xl font-black text-amber-700">69 dias</div>
           <div className="text-[11px] text-slate-600 font-medium mt-1">
             Entrada 19.5 kg ➔ Abate 41.5 kg
           </div>
@@ -217,8 +217,8 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
           onClick={() => setActiveTab('lotes')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'lotes'
-              ? 'bg-orange-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-orange-50 text-orange-800 border border-orange-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Scale className="w-4 h-4" />
@@ -229,8 +229,8 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
           onClick={() => setActiveTab('nutricao_dieta')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'nutricao_dieta'
-              ? 'bg-orange-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-orange-50 text-orange-800 border border-orange-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Flame className="w-4 h-4" />
@@ -241,8 +241,8 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
           onClick={() => setActiveTab('carcaca_cortes')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'carcaca_cortes'
-              ? 'bg-orange-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-orange-50 text-orange-800 border border-orange-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <Award className="w-4 h-4" />
@@ -253,8 +253,8 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
           onClick={() => setActiveTab('simulador')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'simulador'
-              ? 'bg-orange-500 text-slate-950 shadow-md font-black'
-              : 'bg-slate-900 text-slate-900 hover:bg-slate-800 border border-slate-200'
+              ? 'bg-orange-50 text-orange-800 border border-orange-300 font-bold shadow-2xs cursor-pointer'
+              : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 font-semibold cursor-pointer'
           }`}
         >
           <BarChart3 className="w-4 h-4" />
@@ -266,7 +266,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
       {activeTab === 'lotes' && (
         <div className="space-y-4">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
               <Scale className="w-5 h-5 text-orange-400" />
               Acompanhamento Biométrico e Sanitário por Baia
             </h3>
@@ -289,11 +289,11 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
                     <th className="py-3 px-3">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60 font-medium">
+                <tbody className="divide-y divide-slate-100 font-medium">
                   {lotes.map((lote) => (
-                    <tr key={lote.id} className="hover:bg-slate-800/40 transition-colors">
+                    <tr key={lote.id} className="hover:bg-slate-50/80 transition-colors">
                       <td className="py-3.5 px-3">
-                        <div className="font-bold text-white">{lote.identificacao}</div>
+                        <div className="font-bold text-slate-900">{lote.identificacao}</div>
                         <div className="text-[11px] text-slate-600 font-mono">{lote.id}</div>
                       </td>
                       <td className="py-3.5 px-3">
@@ -303,27 +303,27 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
                       </td>
                       <td className="py-3.5 px-3 font-mono text-slate-900">{lote.totalAnimais} cab</td>
                       <td className="py-3.5 px-3 font-mono text-slate-900">{lote.diasConfinados} dias</td>
-                      <td className="py-3.5 px-3 font-mono font-bold text-white">
+                      <td className="py-3.5 px-3 font-mono font-bold text-slate-900">
                         {lote.pesoAtualKg.toFixed(1)} kg
                       </td>
-                      <td className="py-3.5 px-3 font-mono font-bold text-emerald-400">
+                      <td className="py-3.5 px-3 font-mono font-bold text-emerald-700">
                         {(lote.gmdKgDia * 1000).toFixed(0)} g/dia
                       </td>
-                      <td className="py-3.5 px-3 font-mono text-amber-300 font-bold">
+                      <td className="py-3.5 px-3 font-mono text-amber-800 font-bold">
                         {lote.eccAtual.toFixed(1)}
                       </td>
                       <td className="py-3.5 px-3">
                         <span className={`px-2 py-0.5 rounded font-mono font-bold text-[11px] ${
                           lote.famachaPredominante === 1
                             ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30'
-                            : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                            : 'bg-emerald-500/20 text-emerald-800 border border-emerald-500/30'
                         }`}>
                           Grau {lote.famachaPredominante} (Ótimo)
                         </span>
                       </td>
                       <td className="py-3.5 px-3">
                         {lote.statusLote === 'PRONTO_ABATE' && (
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-700 border border-emerald-500/30">
                             Pronto para Abate
                           </span>
                         )}
@@ -333,7 +333,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
                           </span>
                         )}
                         {lote.statusLote === 'ADAPTACAO' && (
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30">
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-500/20 text-blue-700 border border-blue-500/30">
                             Fase Adaptação
                           </span>
                         )}
@@ -351,7 +351,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
       {activeTab === 'nutricao_dieta' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <Flame className="w-5 h-5 text-orange-400" />
               Protocolo de Alimentação & Dieta Alto Grão
             </h3>
@@ -362,41 +362,41 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
             <div className="space-y-3">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center text-xs">
                 <div>
-                  <span className="font-bold text-white block">Milho Grão Inteiro Seco (ou Quebrado)</span>
+                  <span className="font-bold text-slate-900 block">Milho Grão Inteiro Seco (ou Quebrado)</span>
                   <span className="text-slate-600">Aporte de amido de fermentação ruminal lenta</span>
                 </div>
-                <span className="font-mono font-bold text-amber-400 text-sm">68.0%</span>
+                <span className="font-mono font-bold text-amber-700 text-sm">68.0%</span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center text-xs">
                 <div>
-                  <span className="font-bold text-white block">Farelo de Soja 46% PB</span>
+                  <span className="font-bold text-slate-900 block">Farelo de Soja 46% PB</span>
                   <span className="text-slate-600">Aporte de proteína verdadeira de alto valor biológico</span>
                 </div>
-                <span className="font-mono font-bold text-amber-400 text-sm">14.0%</span>
+                <span className="font-mono font-bold text-amber-700 text-sm">14.0%</span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center text-xs">
                 <div>
-                  <span className="font-bold text-white block">Feno Triturado (Tifton 85 / Coastcross)</span>
+                  <span className="font-bold text-slate-900 block">Feno Triturado (Tifton 85 / Coastcross)</span>
                   <span className="text-slate-600">Fibra efetiva (FDNe) para motilidade e ruminação</span>
                 </div>
-                <span className="font-mono font-bold text-emerald-400 text-sm">15.0%</span>
+                <span className="font-mono font-bold text-emerald-700 text-sm">15.0%</span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center text-xs">
                 <div>
-                  <span className="font-bold text-white block">Núcleo Peletizado Mineral + Monensina + Bicarbonato</span>
+                  <span className="font-bold text-slate-900 block">Núcleo Peletizado Mineral + Monensina + Bicarbonato</span>
                   <span className="text-slate-600">Tamponante anti-acidose, ionóforo e minerais orgânicos</span>
                 </div>
-                <span className="font-mono font-bold text-cyan-400 text-sm">3.0%</span>
+                <span className="font-mono font-bold text-sky-700 text-sm">3.0%</span>
               </div>
             </div>
           </div>
 
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <ShieldAlert className="w-5 h-5 text-rose-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <ShieldAlert className="w-5 h-5 text-rose-700" />
               Manejo de Transição & Adaptação Ruminal (14 Dias)
             </h3>
             <p className="text-xs text-slate-600">
@@ -406,7 +406,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
             <div className="space-y-3 text-xs">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <div className="flex justify-between items-center mb-1">
-                  <span className="font-bold text-white">Fase 1: Dias 1 ao 5 (Início da Adaptação)</span>
+                  <span className="font-bold text-slate-900">Fase 1: Dias 1 ao 5 (Início da Adaptação)</span>
                   <span className="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-mono font-bold">50% Concentrado</span>
                 </div>
                 <p className="text-slate-600 text-[11px]">
@@ -416,8 +416,8 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <div className="flex justify-between items-center mb-1">
-                  <span className="font-bold text-white">Fase 2: Dias 6 ao 10 (Transição Média)</span>
-                  <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono font-bold">70% Concentrado</span>
+                  <span className="font-bold text-slate-900">Fase 2: Dias 6 ao 10 (Transição Média)</span>
+                  <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-800 font-mono font-bold">70% Concentrado</span>
                 </div>
                 <p className="text-slate-600 text-[11px]">
                   30% de volumoso + 70% de concentrado. Monitoramento da consistência fecal (escore fecal 3 pastoso a normal).
@@ -426,8 +426,8 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <div className="flex justify-between items-center mb-1">
-                  <span className="font-bold text-white">Fase 3: Do 11º Dia até o Abate (Dieta Plena)</span>
-                  <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono font-bold">85% Concentrado</span>
+                  <span className="font-bold text-slate-900">Fase 3: Do 11º Dia até o Abate (Dieta Plena)</span>
+                  <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-800 font-mono font-bold">85% Concentrado</span>
                 </div>
                 <p className="text-slate-600 text-[11px]">
                   15% de feno + 85% de concentrado alto grão. Fornecimento parcelado em 3 tratos diários para evitar consumo excessivo em binga.
@@ -442,7 +442,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
       {activeTab === 'carcaca_cortes' && (
         <div className="space-y-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg">
-            <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
               <Award className="w-5 h-5 text-orange-400" />
               Tipificação de Carcaça e Rendimento de Cortes Especiais
             </h3>
@@ -452,7 +452,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                <span className="text-xs font-bold text-amber-400 block">Carré Francês (French Rack)</span>
+                <span className="text-xs font-bold text-amber-700 block">Carré Francês (French Rack)</span>
                 <div className="text-xl font-black text-white">12.5% da carcaça</div>
                 <p className="text-[11px] text-slate-600">
                   Corte ícone da alta gastronomia. Cotação média: R$ 85,00 a R$ 110,00/kg fracionado.
@@ -460,7 +460,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                <span className="text-xs font-bold text-amber-400 block">Pernil Desossado / Inteiro</span>
+                <span className="text-xs font-bold text-amber-700 block">Pernil Desossado / Inteiro</span>
                 <div className="text-xl font-black text-white">33.5% da carcaça</div>
                 <p className="text-[11px] text-slate-600">
                   Principal corte em massa muscular magra. Cotação média: R$ 48,00 a R$ 56,00/kg.
@@ -468,7 +468,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                <span className="text-xs font-bold text-amber-400 block">Paleta Especial com Osso</span>
+                <span className="text-xs font-bold text-amber-700 block">Paleta Especial com Osso</span>
                 <div className="text-xl font-black text-white">19.0% da carcaça</div>
                 <p className="text-[11px] text-slate-600">
                   Maciez e sabor característico de animais jovens (&lt; 5 meses). Cotação: R$ 44,00 a R$ 52,00/kg.
@@ -476,7 +476,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                <span className="text-xs font-bold text-amber-400 block">T-Bone & Costela Prime</span>
+                <span className="text-xs font-bold text-amber-700 block">T-Bone & Costela Prime</span>
                 <div className="text-xl font-black text-white">18.0% da carcaça</div>
                 <p className="text-[11px] text-slate-600">
                   Lombo com contrafilé e filé mignon ovino. Cotação: R$ 75,00 a R$ 90,00/kg.
@@ -491,7 +491,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
       {activeTab === 'simulador' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <Scale className="w-5 h-5 text-orange-400" />
               Parâmetros Zootécnicos do Lote
             </h3>
@@ -508,7 +508,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
                 step="50"
                 value={totalCabecas}
                 onChange={(e) => setTotalCabecas(Number(e.target.value))}
-                className="w-full accent-orange-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-orange-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
@@ -524,7 +524,7 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
                 step="0.5"
                 value={pesoEntradaKg}
                 onChange={(e) => setPesoEntradaKg(Number(e.target.value))}
-                className="w-full accent-orange-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-orange-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
@@ -540,14 +540,14 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
                 step="0.5"
                 value={pesoMetaAbateKg}
                 onChange={(e) => setPesoMetaAbateKg(Number(e.target.value))}
-                className="w-full accent-orange-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-orange-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>GMD Meta (Ganho Diário)</span>
-                <span className="font-mono text-emerald-400">{gmdGramas} g/dia</span>
+                <span className="font-mono text-emerald-700">{gmdGramas} g/dia</span>
               </div>
               <input
                 type="range"
@@ -556,14 +556,14 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
                 step="10"
                 value={gmdGramas}
                 onChange={(e) => setGmdGramas(Number(e.target.value))}
-                className="w-full accent-emerald-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-emerald-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Conversão Alimentar (MS/Ganho)</span>
-                <span className="font-mono text-cyan-400">{conversaoAlimentar.toFixed(2)}</span>
+                <span className="font-mono text-sky-700">{conversaoAlimentar.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -572,14 +572,14 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
                 step="0.05"
                 value={conversaoAlimentar}
                 onChange={(e) => setConversaoAlimentar(Number(e.target.value))}
-                className="w-full accent-cyan-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-cyan-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Custo Dieta (R$ / kg MS)</span>
-                <span className="font-mono text-amber-400">R$ {custoKgMsDieta.toFixed(2)}</span>
+                <span className="font-mono text-amber-700">R$ {custoKgMsDieta.toFixed(2)}</span>
               </div>
               <input
                 type="range"
@@ -588,14 +588,14 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
                 step="0.05"
                 value={custoKgMsDieta}
                 onChange={(e) => setCustoKgMsDieta(Number(e.target.value))}
-                className="w-full accent-amber-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-amber-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
 
             <div>
               <div className="flex justify-between text-xs text-slate-900 font-semibold mb-1">
                 <span>Cotação Carcaça Gourmet</span>
-                <span className="font-mono text-emerald-400">R$ {precoKgCarcacaGourmet.toFixed(2)} / kg</span>
+                <span className="font-mono text-emerald-700">R$ {precoKgCarcacaGourmet.toFixed(2)} / kg</span>
               </div>
               <input
                 type="range"
@@ -604,21 +604,21 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
                 step="0.50"
                 value={precoKgCarcacaGourmet}
                 onChange={(e) => setPrecoKgCarcacaGourmet(Number(e.target.value))}
-                className="w-full accent-emerald-500 bg-slate-800 rounded-lg cursor-pointer h-2"
+                className="w-full accent-emerald-500 bg-slate-200 rounded-lg cursor-pointer h-2"
               />
             </div>
           </div>
 
           <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg space-y-4">
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-emerald-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <DollarSign className="w-5 h-5 text-emerald-700" />
               DRE Zootécnica & Margem do Confinamento
             </h3>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Dias no Cocho</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   {metricasConfinamento.diasConfinamento} dias
                 </span>
                 <span className="text-[10px] text-slate-600 block">Giro Rápido</span>
@@ -626,15 +626,15 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Peso Carcaça</span>
-                <span className="font-mono font-bold text-amber-400 text-base">
+                <span className="font-mono font-bold text-amber-700 text-base">
                   {metricasConfinamento.pesoCarcacaFriaKg} kg
                 </span>
-                <span className="text-[10px] text-amber-400/80 block">{rendimentoCarcacaPct}% RCQ</span>
+                <span className="text-[10px] text-amber-700/80 block">{rendimentoCarcacaPct}% RCQ</span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Receita Bruta/Cab</span>
-                <span className="font-mono font-bold text-white text-base">
+                <span className="font-mono font-bold text-slate-900 text-base">
                   R$ {metricasConfinamento.receitaBrutaCabeca.toFixed(2)}
                 </span>
                 <span className="text-[10px] text-slate-600 block">Frigorífico Gourmet</span>
@@ -642,29 +642,29 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <span className="text-[10px] text-slate-600 uppercase tracking-wider block">Lucro Líquido Lote</span>
-                <span className="font-mono font-bold text-emerald-400 text-base">
+                <span className="font-mono font-bold text-emerald-700 text-base">
                   R$ {metricasConfinamento.margemLiquidaLote.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
-                <span className="text-[10px] text-emerald-400/80 block">{totalCabecas} cordeiros</span>
+                <span className="text-[10px] text-emerald-700/80 block">{totalCabecas} cordeiros</span>
               </div>
             </div>
 
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Preço Compra Cordeiro Magro ({pesoEntradaKg} kg @ R$ {precoAquisicaoKgVivo.toFixed(2)}/kg):</span>
-                <span className="font-mono font-bold text-rose-400">
+                <span className="font-mono font-bold text-rose-700">
                   - R$ {metricasConfinamento.custoAquisicaoCabeca.toFixed(2)} / cab
                 </span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Custo Alimentação Alto Grão ({metricasConfinamento.consumoMsCabecaKg} kg MS):</span>
-                <span className="font-mono font-bold text-rose-400">
+                <span className="font-mono font-bold text-rose-700">
                   - R$ {metricasConfinamento.custoAlimentarCabeca.toFixed(2)} / cab
                 </span>
               </div>
               <div className="flex justify-between items-center py-1 border-b border-slate-200/80">
                 <span className="text-slate-600">Custo Sanitário & Manejo (Vacinas Clostridioses e Vermífugo):</span>
-                <span className="font-mono font-bold text-rose-400">
+                <span className="font-mono font-bold text-rose-700">
                   - R$ 18,00 / cab
                 </span>
               </div>
@@ -674,9 +674,9 @@ export const ConfinamentoCordeirosModule: React.FC = () => {
                   R$ {metricasConfinamento.custoTotalCabeca.toFixed(2)} / cab
                 </span>
               </div>
-              <div className="flex justify-between items-center py-2 text-sm font-black bg-emerald-950/30 px-3 rounded-lg border border-emerald-800/50">
+              <div className="flex justify-between items-center py-2 text-sm font-black bg-emerald-50 px-3 rounded-lg border border-emerald-200">
                 <span className="text-white">Margem Líquida por Cordeiro Acabado:</span>
-                <span className="font-mono text-emerald-300">
+                <span className="font-mono text-emerald-800">
                   R$ {metricasConfinamento.margemLiquidaCabeca.toFixed(2)} / animal
                 </span>
               </div>

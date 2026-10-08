@@ -147,13 +147,13 @@ export const DistribuicaoAduboModule: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2.5 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-400">
+              <div className="p-2.5 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-700">
                 <Tractor className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
                   Calibração de Adubação a Lanço & Coeficiente de Variação (CV%)
-                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-mono border border-amber-500/30">
+                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-800 font-mono border border-amber-500/30">
                     ASAE S341 • ABNT
                   </span>
                 </h2>
@@ -167,14 +167,14 @@ export const DistribuicaoAduboModule: React.FC = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={() => aplicarPerfilSimulado('PERFEITO')}
-              className="px-3 py-1.5 bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all"
+              className="px-3 py-1.5 bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-700 border border-emerald-500/30 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all"
             >
               <CheckCircle2 className="w-3.5 h-3.5" />
               Perfil Calibrado (&lt;10% CV)
             </button>
             <button
               onClick={() => aplicarPerfilSimulado('DESREGULADO_CENTRO')}
-              className="px-3 py-1.5 bg-rose-600/20 hover:bg-rose-600/30 text-rose-400 border border-rose-500/30 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all"
+              className="px-3 py-1.5 bg-rose-600/20 hover:bg-rose-600/30 text-rose-700 border border-rose-500/30 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all"
             >
               <AlertTriangle className="w-3.5 h-3.5" />
               Simular Efeito Zebrado
@@ -189,16 +189,16 @@ export const DistribuicaoAduboModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg relative overflow-hidden">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Coeficiente Variação (CV%)</span>
-            <Sliders className="w-4 h-4 text-amber-400" />
+            <Sliders className="w-4 h-4 text-amber-700" />
           </div>
           <div className="text-2xl font-black mt-2 font-mono flex items-baseline gap-2">
             <span
               className={
                 metrics.cvPct <= 12
-                  ? 'text-emerald-400'
+                  ? 'text-emerald-700'
                   : metrics.cvPct <= 18
-                  ? 'text-amber-400'
-                  : 'text-rose-400'
+                  ? 'text-amber-700'
+                  : 'text-rose-700'
               }
             >
               {metrics.cvPct.toFixed(1)}%
@@ -216,9 +216,9 @@ export const DistribuicaoAduboModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Vazão Requerida</span>
-            <Zap className="w-4 h-4 text-cyan-400" />
+            <Zap className="w-4 h-4 text-sky-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-cyan-400">
+          <div className="text-2xl font-black mt-2 font-mono text-sky-700">
             {metrics.vazaoRequeridaKgMin.toFixed(1)}{' '}
             <span className="text-xs font-normal text-slate-600">kg/min</span>
           </div>
@@ -231,9 +231,9 @@ export const DistribuicaoAduboModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Perda Estimada</span>
-            <TrendingDown className="w-4 h-4 text-rose-400" />
+            <TrendingDown className="w-4 h-4 text-rose-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-rose-400">
+          <div className="text-2xl font-black mt-2 font-mono text-rose-700">
             {metrics.perdaProdutividadeScHa > 0
               ? `${metrics.perdaProdutividadeScHa.toFixed(1)} sc/ha`
               : '0.0 sc/ha'}
@@ -249,9 +249,9 @@ export const DistribuicaoAduboModule: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Adubo Total no Talhão</span>
-            <Layers className="w-4 h-4 text-emerald-400" />
+            <Layers className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black mt-2 font-mono text-white">
+          <div className="text-2xl font-black mt-2 font-mono text-slate-800">
             {metrics.aduboTotalToneladas.toFixed(1)}{' '}
             <span className="text-xs font-normal text-slate-600">t ({areaTalhaoHa} ha)</span>
           </div>
@@ -269,8 +269,8 @@ export const DistribuicaoAduboModule: React.FC = () => {
         <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <Sliders className="w-5 h-5 text-amber-400" />
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <Sliders className="w-5 h-5 text-amber-700" />
                 Perfil de Deposição Transversal (Faixa de {larguraFaixaMetros} metros)
               </h3>
               <p className="text-xs text-slate-600">
@@ -280,9 +280,9 @@ export const DistribuicaoAduboModule: React.FC = () => {
             <span
               className={`px-3 py-1 text-xs font-bold font-mono rounded-lg border ${
                 metrics.cvPct <= 12
-                  ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                  ? 'bg-emerald-500/20 text-emerald-800 border-emerald-500/40'
                   : metrics.cvPct <= 18
-                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                  ? 'bg-amber-500/20 text-amber-800 border-amber-500/40'
                   : 'bg-rose-500/20 text-rose-300 border-rose-500/40 animate-pulse'
               }`}
             >
@@ -336,7 +336,7 @@ export const DistribuicaoAduboModule: React.FC = () => {
 
           {/* Dicas de Regulagem Mecânica */}
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs">
-            <div className="flex items-center gap-2 text-amber-400 font-semibold">
+            <div className="flex items-center gap-2 text-amber-700 font-semibold">
               <Sparkles className="w-4 h-4" />
               Recomendações de Regulagem de Aletas e Ponto de Queda:
             </div>
@@ -352,7 +352,7 @@ export const DistribuicaoAduboModule: React.FC = () => {
                 </>
               ) : (
                 <>
-                  <li className="text-emerald-300">
+                  <li className="text-emerald-800">
                     <strong>Excelente Distribuição:</strong> O perfil trapezoidal de sobreposição garante distribuição homogênea sem faixas de subdosagem ou fitotoxicidade.
                   </li>
                   <li>
@@ -366,8 +366,8 @@ export const DistribuicaoAduboModule: React.FC = () => {
 
         {/* Painel Direito: Parâmetros de Simulação e Configuração de Máquina */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl space-y-5">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Tractor className="w-5 h-5 text-amber-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Tractor className="w-5 h-5 text-amber-700" />
             Parâmetros da Operação
           </h3>
 
@@ -402,7 +402,7 @@ export const DistribuicaoAduboModule: React.FC = () => {
                     onClick={() => setTipoFertilizante(tipo)}
                     className={`py-1.5 px-2 rounded-lg font-bold text-xs border transition-all ${
                       tipoFertilizante === tipo
-                        ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                        ? 'bg-amber-500/20 text-amber-800 border-amber-500/40'
                         : 'bg-slate-50 text-slate-600 border-slate-200 hover:text-white'
                     }`}
                   >
@@ -422,7 +422,7 @@ export const DistribuicaoAduboModule: React.FC = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span className="text-slate-600 font-medium">Dose Desejada (kg/ha)</span>
-                <span className="text-amber-400 font-mono font-bold">{doseAlvoKgHa} kg/ha</span>
+                <span className="text-amber-700 font-mono font-bold">{doseAlvoKgHa} kg/ha</span>
               </div>
               <input
                 type="range"
@@ -439,7 +439,7 @@ export const DistribuicaoAduboModule: React.FC = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span className="text-slate-600 font-medium">Largura de Faixa (Passada)</span>
-                <span className="text-amber-400 font-mono font-bold">{larguraFaixaMetros} metros</span>
+                <span className="text-amber-700 font-mono font-bold">{larguraFaixaMetros} metros</span>
               </div>
               <input
                 type="range"
@@ -456,7 +456,7 @@ export const DistribuicaoAduboModule: React.FC = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span className="text-slate-600 font-medium">Velocidade de Trabalho</span>
-                <span className="text-amber-400 font-mono font-bold">{velocidadeOperacaoKmH} km/h</span>
+                <span className="text-amber-700 font-mono font-bold">{velocidadeOperacaoKmH} km/h</span>
               </div>
               <input
                 type="range"

@@ -107,16 +107,16 @@ export const InpevLogisticaReversaModule: React.FC = () => {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white border border-slate-200 p-6 rounded-2xl backdrop-blur-md">
         <div>
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400">
+            <div className="p-2.5 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-700">
               <Recycle className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-xl font-bold text-[#1D4B38]">inpEV & Logística Reversa de Embalagens</h1>
-                <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+                <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 rounded-full">
                   Sistema Campo Limpo
                 </span>
-                <span className="px-2 py-0.5 text-[11px] font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full">
+                <span className="px-2 py-0.5 text-[11px] font-semibold bg-amber-500/20 text-amber-800 border border-amber-500/30 rounded-full">
                   Lei 14.785/2023
                 </span>
               </div>
@@ -141,28 +141,28 @@ export const InpevLogisticaReversaModule: React.FC = () => {
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
           <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Volume de Embalagens</span>
-            <Trash2 className="w-4 h-4 text-emerald-400" />
+            <Trash2 className="w-4 h-4 text-emerald-700" />
           </div>
           <div className="text-2xl font-bold text-[#1D4B38] font-mono">{totalEmbalagens} unidades</div>
           <p className="text-xs text-slate-500 mt-1">Galões 5L, 20L e sacos aluminizados</p>
         </div>
 
-        <div className="bg-emerald-950/30 border border-emerald-800/40 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-emerald-300 mb-1">
+        <div className="bg-emerald-50 border border-emerald-800/40 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-emerald-800 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Devolvidas à Central inpEV</span>
-            <PackageCheck className="w-4 h-4 text-emerald-400" />
+            <PackageCheck className="w-4 h-4 text-emerald-700" />
           </div>
           <div className="text-2xl font-bold text-emerald-200 font-mono">{totalDevolvidas} unidades</div>
-          <p className="text-xs text-emerald-400/80 mt-1">Recicladas e transformadas em tubos</p>
+          <p className="text-xs text-emerald-700/80 mt-1">Recicladas e transformadas em tubos</p>
         </div>
 
-        <div className="bg-amber-950/30 border border-amber-800/40 p-4 rounded-xl">
-          <div className="flex items-center justify-between text-amber-300 mb-1">
+        <div className="bg-amber-50 border border-amber-800/40 p-4 rounded-xl">
+          <div className="flex items-center justify-between text-amber-800 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Agendamento Pendente</span>
-            <Clock className="w-4 h-4 text-amber-400" />
+            <Clock className="w-4 h-4 text-amber-700" />
           </div>
           <div className="text-2xl font-bold text-amber-200 font-mono">{totalAgendadas} unidades</div>
-          <p className="text-xs text-amber-400/80 mt-1">Vencimento em &lt; 30 dias (Alerta)</p>
+          <p className="text-xs text-amber-700/80 mt-1">Vencimento em &lt; 30 dias (Alerta)</p>
         </div>
 
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
@@ -180,7 +180,7 @@ export const InpevLogisticaReversaModule: React.FC = () => {
         <div className="p-5 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <h2 className="text-base font-bold text-[#1D4B38] flex items-center gap-2">
-              <PackageCheck className="w-5 h-5 text-emerald-400" />
+              <PackageCheck className="w-5 h-5 text-emerald-700" />
               Controle de Lotes de Embalagens Vazias & Prazos Legais (1 Ano)
             </h2>
             <p className="text-xs text-slate-600">
@@ -201,7 +201,7 @@ export const InpevLogisticaReversaModule: React.FC = () => {
                 <th className="px-4 py-3.5">Status inpEV</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60">
+            <tbody className="divide-y divide-slate-100">
               {embalagens.map((emb) => {
                 let prazoBadge = (
                   <span className="text-slate-900 font-mono font-medium">
@@ -211,27 +211,27 @@ export const InpevLogisticaReversaModule: React.FC = () => {
 
                 if (emb.statusDevolucao === 'DEVOLVIDO_INPEV') {
                   prazoBadge = (
-                    <span className="text-emerald-400 font-mono font-bold flex items-center gap-1">
+                    <span className="text-emerald-700 font-mono font-bold flex items-center gap-1">
                       <CheckCircle2 className="w-3.5 h-3.5" /> Devolvido no Prazo
                     </span>
                   );
                 } else if (emb.diasRestantes <= 30) {
                   prazoBadge = (
-                    <span className="text-amber-400 font-mono font-bold flex items-center gap-1">
+                    <span className="text-amber-700 font-mono font-bold flex items-center gap-1">
                       <AlertTriangle className="w-3.5 h-3.5" /> {emb.diasRestantes} dias (Urgente!)
                     </span>
                   );
                 }
 
                 let statusBadge = (
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-800 text-slate-900 border border-slate-700">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
                     Galpão da Fazenda
                   </span>
                 );
 
                 if (emb.statusDevolucao === 'DEVOLVIDO_INPEV') {
                   statusBadge = (
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1 w-fit">
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-800 border border-emerald-500/30 flex items-center gap-1 w-fit">
                       <CheckCircle2 className="w-3 h-3" /> Devolvido na Central
                     </span>
                   );
@@ -244,7 +244,7 @@ export const InpevLogisticaReversaModule: React.FC = () => {
                 }
 
                 return (
-                  <tr key={emb.id} className="hover:bg-slate-800/40 transition-colors">
+                  <tr key={emb.id} className="hover:bg-slate-50/80 transition-colors">
                     <td className="px-4 py-3.5">
                       <div className="font-bold text-slate-900">{emb.produtoComercial}</div>
                       <div className="text-[11px] text-slate-500 font-mono">{emb.notaFiscalCompra}</div>
@@ -263,7 +263,7 @@ export const InpevLogisticaReversaModule: React.FC = () => {
                     </td>
 
                     <td className="px-4 py-3.5">
-                      <div className="flex items-center gap-1 text-emerald-400 font-semibold text-[11px]">
+                      <div className="flex items-center gap-1 text-emerald-700 font-semibold text-[11px]">
                         <CheckCircle2 className="w-3.5 h-3.5" /> Tríplice Lavada
                       </div>
                       <div className="text-[10px] text-slate-500">Fundo perfurado conforme norma</div>
@@ -284,7 +284,7 @@ export const InpevLogisticaReversaModule: React.FC = () => {
           <div className="bg-white border border-slate-200 rounded-2xl max-w-2xl w-full p-6 shadow-2xl overflow-y-auto max-h-[90vh]">
             <div className="flex items-center justify-between pb-4 border-b border-slate-200">
               <div className="flex items-center gap-2">
-                <Recycle className="w-5 h-5 text-emerald-400" />
+                <Recycle className="w-5 h-5 text-emerald-700" />
                 <h3 className="text-base font-bold text-[#1D4B38]">
                   Comprovante Oficial de Devolução de Embalagens Vazias (inpEV)
                 </h3>
@@ -299,10 +299,10 @@ export const InpevLogisticaReversaModule: React.FC = () => {
 
             <div className="mt-4 space-y-4 text-xs">
               <div className="p-4 bg-emerald-950/40 border border-emerald-800/60 rounded-xl space-y-2">
-                <span className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider block">
+                <span className="text-[10px] text-emerald-700 font-bold uppercase tracking-wider block">
                   Instituto Nacional de Processamento de Embalagens Vazias - Sistema Campo Limpo
                 </span>
-                <h4 className="text-sm font-bold text-white">
+                <h4 className="text-sm font-bold text-slate-900">
                   Recibo de Entrega nº DEV-INPEV-2026-MT-09412
                 </h4>
                 <p className="text-[11px] text-slate-900">
@@ -319,7 +319,7 @@ export const InpevLogisticaReversaModule: React.FC = () => {
 
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
                   <span className="text-slate-500 text-[10px] uppercase font-bold block">Volume Entregue:</span>
-                  <span className="font-bold text-emerald-300 font-mono text-sm">150 Galões de 20L + 80 Galões de 5L</span>
+                  <span className="font-bold text-emerald-800 font-mono text-sm">150 Galões de 20L + 80 Galões de 5L</span>
                   <span className="text-[10px] text-slate-500 block">100% Inutilizados com laudo de vistoria</span>
                 </div>
               </div>
