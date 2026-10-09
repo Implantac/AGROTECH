@@ -1,14 +1,14 @@
 # ==========================================
-# SUPER AGTECH - PRODUCTION DOCKERFILE
+# SUPER AGTECH ENTERPRISE - DOCKERFILE PROD
 # ==========================================
-
-FROM node:20-alpine AS runner
+FROM node:20-alpine AS production
 
 WORKDIR /app
 
+# Definir variáveis de ambiente seguras
 ENV NODE_ENV=production
 ENV PORT=5173
-ENV JWT_SECRET=super_agro_jwt_secret_2026_xyz
+ENV SECONDARY_PORT=3000
 
 # Copia manifestos de dependências
 COPY package.json ./
@@ -16,19 +16,25 @@ COPY package.json ./
 # Copia código do servidor e diretórios estáticos
 COPY server.cjs ./
 COPY data/ ./data/
+COPY src/ ./src/
+COPY infra/ ./infra/
 COPY app_static/ ./app_static/
 COPY public/ ./public/
 
-# Permissões seguras não-root
-RUN addgroup -g 1001 -S nodejs && \
-    adduser -S agtech -u 1001 -G nodejs && \
-    chown -R agtech:nodejs /app
+# Cria diretórios de dados e logs com permissão não-root
+RUN mkdir -p /app/data /app/logs && \
+    chown -R node:node /app
 
-USER agtech
+# Muda para usuário não-privilegiado (Princípio 10 - Segurança)
+USER node
 
-EXPOSE 5173 3000
+# Expõe as portas de acesso
+EXPOSE 5173
+EXPOSE 3000
 
-HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
-  CMD wget --quiet --tries=1 --spider http://127.0.0.1:5173/api/v1/health || exit 1
+# Healthcheck nativo
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:5173/api/v1/health || exit 1
 
+# Inicialização com cluster e store ACID
 CMD ["node", "server.cjs"]

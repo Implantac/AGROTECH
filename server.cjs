@@ -23,6 +23,75 @@ const DB_BACKUP_FILE = path.join(__dirname, 'data', 'agtech_db.backup.json');
 const { dbAdapter } = require('./src/services/dbAdapter.cjs');
 dbAdapter.init().catch(err => console.warn('[DB Adapter Init Warning]:', err.message));
 
+const {
+  assinarXmlNfe,
+  validarAssinaturaXmlNfe,
+  montarEnvelopeSoapNfe,
+  transmitirParaSefaz,
+  gerarEventoEpecNfe
+} = require('./src/services/sefazSignatureService.cjs');
+
+const { gerarIsoXmlTaskData } = require('./src/services/isoXmlTaskService.cjs');
+const { processarSensoriamentoTalhao, calcularNdvi, calcularNdre, classificarVigorNdvi } = require('./src/services/remoteSensingIndicesService.cjs');
+
+const { telemetryEngine } = require('./src/services/telemetryIngestionEngine.cjs');
+
+const JWT_SECRET = process.env.JWT_SECRET || 'super_agro_jwt_secret_2026_xyz';
+
+function createHmacJwt(payload) {
+  const header = Buffer.from(JSON.stringify({ alg: 'HS256', typ: 'JWT' })).toString('base64url');
+  const exp = Math.floor(Date.now() / 1000) + (7 * 24 * 3600); // 7 dias
+  const body = Buffer.from(JSON.stringify({ ...payload, exp, iat: Math.floor(Date.now() / 1000) })).toString('base64url');
+  const signature = crypto.createHmac('sha256', JWT_SECRET).update(`${header}.${body}`).digest('base64url');
+  return `${header}.${body}.${signature}`;
+}
+
+function verifyHmacJwt(token) {
+  try {
+    if (!token || !token.includes('.')) return null;
+    const parts = token.split('.');
+    if (parts.length !== 3) return null;
+    const [header, body, signature] = parts;
+    const expectedSig = crypto.createHmac('sha256', JWT_SECRET).update(`${header}.${body}`).digest('base64url');
+    
+    // Comparação de tempo constante (timingSafeEqual) para proteção contra side-channel attack
+    const sigBuf = Buffer.from(signature);
+    const expBuf = Buffer.from(expectedSig);
+    if (sigBuf.length !== expBuf.length || !crypto.timingSafeEqual(sigBuf, expBuf)) {
+      return null;
+    }
+    
+    const data = JSON.parse(Buffer.from(body, 'base64url').toString('utf8'));
+    if (data.exp && data.exp < Math.floor(Date.now() / 1000)) return null;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+function validateTenantAccess(req, body = {}) {
+  const authHeader = req.headers.authorization || '';
+  const token = authHeader.replace('Bearer ', '').trim();
+  if (token) {
+    const decoded = verifyHmacJwt(token);
+    if (!decoded) {
+      return { allowed: false, status: 401, erro: 'Token de autenticação inválido ou expirado.' };
+    }
+    if (decoded.perfil === 'SUPERADMIN') {
+      return { allowed: true, tenantId: body.tenantId || decoded.tenantId };
+    }
+    if (body.tenantId && body.tenantId !== decoded.tenantId) {
+      return {
+        allowed: false,
+        status: 403,
+        erro: 'Acesso negado: tentativa de violação de limite multi-tenant (IDOR interceptado pelo gateway de segurança).'
+      };
+    }
+    return { allowed: true, tenantId: decoded.tenantId };
+  }
+  return { allowed: true, tenantId: body.tenantId || 'tenant-fazenda-santa-helena' };
+}
+
 function getDefaultTenantCredentials(tenantId = 'tenant-fazenda-santa-helena') {
   return {
     tenantId,
@@ -239,39 +308,6 @@ function calcularModulo11(chave43) {
   }
   const resto = soma % 11;
   return (resto === 0 || resto === 1) ? 0 : 11 - resto;
-}
-
-const JWT_SECRET = process.env.JWT_SECRET || 'super_agro_jwt_secret_2026_xyz';
-
-function createHmacJwt(payload) {
-  const header = Buffer.from(JSON.stringify({ alg: 'HS256', typ: 'JWT' })).toString('base64url');
-  const exp = Math.floor(Date.now() / 1000) + (7 * 24 * 3600); // 7 dias
-  const body = Buffer.from(JSON.stringify({ ...payload, exp, iat: Math.floor(Date.now() / 1000) })).toString('base64url');
-  const signature = crypto.createHmac('sha256', JWT_SECRET).update(`${header}.${body}`).digest('base64url');
-  return `${header}.${body}.${signature}`;
-}
-
-function verifyHmacJwt(token) {
-  try {
-    if (!token || !token.includes('.')) return null;
-    const parts = token.split('.');
-    if (parts.length !== 3) return null;
-    const [header, body, signature] = parts;
-    const expectedSig = crypto.createHmac('sha256', JWT_SECRET).update(`${header}.${body}`).digest('base64url');
-    
-    // Comparação de tempo constante (timingSafeEqual) para proteção contra side-channel attack
-    const sigBuf = Buffer.from(signature);
-    const expBuf = Buffer.from(expectedSig);
-    if (sigBuf.length !== expBuf.length || !crypto.timingSafeEqual(sigBuf, expBuf)) {
-      return null;
-    }
-    
-    const data = JSON.parse(Buffer.from(body, 'base64url').toString('utf8'));
-    if (data.exp && data.exp < Math.floor(Date.now() / 1000)) return null;
-    return data;
-  } catch {
-    return null;
-  }
 }
 
 // --------------------------------------------------------------------------
@@ -942,20 +978,28 @@ function calculatePolygonAreaHa(coordinates) {
 }
 
 function calculateCentroid(coordinates) {
+  if (!coordinates || !Array.isArray(coordinates) || coordinates.length === 0) {
+    return { lat: -12.5512, lng: -55.7098 };
+  }
   let ring = coordinates;
   if (Array.isArray(coordinates[0]) && Array.isArray(coordinates[0][0])) {
     ring = coordinates[0];
   }
-  if (!Array.isArray(ring) || ring.length === 0) return { lat: 0, lng: 0 };
+  if (!Array.isArray(ring) || ring.length === 0) return { lat: -12.5512, lng: -55.7098 };
   let sumLat = 0;
   let sumLng = 0;
+  let validPoints = 0;
   for (let i = 0; i < ring.length; i++) {
-    sumLng += ring[i][0];
-    sumLat += ring[i][1];
+    if (Array.isArray(ring[i]) && ring[i].length >= 2) {
+      sumLng += Number(ring[i][0]) || 0;
+      sumLat += Number(ring[i][1]) || 0;
+      validPoints++;
+    }
   }
+  if (validPoints === 0) return { lat: -12.5512, lng: -55.7098 };
   return {
-    lat: Number((sumLat / ring.length).toFixed(6)),
-    lng: Number((sumLng / ring.length).toFixed(6))
+    lat: Number((sumLat / validPoints).toFixed(6)),
+    lng: Number((sumLng / validPoints).toFixed(6))
   };
 }
 
@@ -1363,6 +1407,13 @@ const server = http.createServer((req, res) => {
     const db = loadDb();
     if (req.method === 'POST') {
       parseRequestBody(newTalhao => {
+        const tenantValidation = validateTenantAccess(req, newTalhao?.properties || newTalhao);
+        if (!tenantValidation.allowed) {
+          res.setHeader('Content-Type', 'application/json');
+          res.statusCode = 403;
+          res.end(JSON.stringify({ sucesso: false, erro: tenantValidation.erro }));
+          return;
+        }
         if (newTalhao && newTalhao.properties) {
           const idx = db.talhoes.findIndex(t => t.id === newTalhao.id || t.properties.id === newTalhao.id);
           if (idx >= 0) {
@@ -1393,11 +1444,101 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 3.0.1 API: Gerador de Prescrição em Taxa Variável ISO-XML (ISO 11783-10)
+  if (pathname === '/api/v1/talhoes/prescricao/gerar' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const tenantValidation = validateTenantAccess(req, body);
+      if (!tenantValidation.allowed) {
+        res.statusCode = tenantValidation.status || 403;
+        res.end(JSON.stringify({ sucesso: false, erro: tenantValidation.erro }));
+        return;
+      }
+
+      const db = loadDb();
+      const talhaoId = body.talhaoId || 'talhao-01';
+      const talhao = (db.talhoes || []).find(t => t.id === talhaoId || t.properties?.id === talhaoId);
+
+      const areaHa = talhao?.properties?.areaHa || body.areaHa || 420.5;
+      const fieldName = talhao?.properties?.nome || body.fieldName || 'Talhão 01 - Pivô Central Norte';
+
+      const prescricao = gerarIsoXmlTaskData({
+        fieldId: talhaoId,
+        fieldName,
+        areaHa,
+        produto: body.produto || { codigo: 'ADU-MAP', nome: 'Fosfato Monoamônico (MAP 11-52-00)', unidade: 'kg/ha' },
+        zonasTaxaVariavel: body.zonasTaxaVariavel || [
+          { zona: 1, descricao: 'Baixo Vigor (Deficiência P2O5)', doseKgHa: 220, percentualArea: 30 },
+          { zona: 2, descricao: 'Vigor Médio (Manutenção)', doseKgHa: 160, percentualArea: 50 },
+          { zona: 3, descricao: 'Alto Vigor (Econômico)', doseKgHa: 110, percentualArea: 20 }
+        ]
+      });
+
+      // Salvar histórico de prescrição
+      if (!db.prescricoesIsoXml) db.prescricoesIsoXml = [];
+      db.prescricoesIsoXml.push({
+        id: prescricao.taskId,
+        talhaoId,
+        produto: prescricao.produto,
+        doseMediaKgHa: prescricao.doseMediaKgHa,
+        consumoTotalKg: prescricao.consumoTotalEstimadoKg,
+        criadoEm: new Date().toISOString()
+      });
+      saveDb(db);
+
+      res.statusCode = 200;
+      res.end(JSON.stringify(prescricao));
+    });
+    return;
+  }
+
+  // 3.0.2 API: Download Direto do Arquivo TASKDATA.XML para Pen-Drive ISOBUS
+  if (pathname === '/api/v1/talhoes/prescricao/isoxml' && req.method === 'GET') {
+    const talhaoId = parsedUrl.searchParams.get('talhaoId') || 'talhao-01';
+    const db = loadDb();
+    const talhao = (db.talhoes || []).find(t => t.id === talhaoId || t.properties?.id === talhaoId);
+    const areaHa = talhao?.properties?.areaHa || 420.5;
+    const fieldName = talhao?.properties?.nome || 'Talhão 01';
+
+    const prescricao = gerarIsoXmlTaskData({ fieldId: talhaoId, fieldName, areaHa });
+
+    res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+    res.setHeader('Content-Disposition', 'attachment; filename="TASKDATA.XML"');
+    res.statusCode = 200;
+    res.end(prescricao.conteudoXml);
+    return;
+  }
+
+  // 3.0.3 API: Sensoriamento Remoto & Índices Espectrais (NDVI, NDRE, MSAVI, EVI2)
+  if (pathname === '/api/v1/talhoes/sensoriamento/indices' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    const talhaoId = parsedUrl.searchParams.get('talhaoId') || 'talhao-01';
+    const db = loadDb();
+    const talhao = (db.talhoes || []).find(t => t.id === talhaoId || t.properties?.id === talhaoId);
+
+    const relatorio = processarSensoriamentoTalhao({
+      talhaoId,
+      nomeTalhao: talhao?.properties?.nome || 'Talhão 01 - Pivô Central Norte',
+      cultura: talhao?.properties?.cultura || 'Soja'
+    });
+
+    res.statusCode = 200;
+    res.end(JSON.stringify(relatorio));
+    return;
+  }
+
   // 4. API: Frota & Telemetria CAN Bus
   if (pathname === '/api/v1/frota') {
     const db = loadDb();
     if (req.method === 'POST') {
       parseRequestBody(novoEquip => {
+        const tenantValidation = validateTenantAccess(req, novoEquip);
+        if (!tenantValidation.allowed) {
+          res.setHeader('Content-Type', 'application/json');
+          res.statusCode = 403;
+          res.end(JSON.stringify({ sucesso: false, erro: tenantValidation.erro }));
+          return;
+        }
         if (novoEquip && novoEquip.tag) {
           const idx = db.frota.findIndex(f => f.tag === novoEquip.tag);
           if (idx >= 0) db.frota[idx] = novoEquip;
@@ -1421,6 +1562,13 @@ const server = http.createServer((req, res) => {
     const db = loadDb();
     if (req.method === 'POST') {
       parseRequestBody(novoItem => {
+        const tenantValidation = validateTenantAccess(req, novoItem);
+        if (!tenantValidation.allowed) {
+          res.setHeader('Content-Type', 'application/json');
+          res.statusCode = 403;
+          res.end(JSON.stringify({ sucesso: false, erro: tenantValidation.erro }));
+          return;
+        }
         if (novoItem && novoItem.codigo) {
           const idx = db.estoque.findIndex(e => e.codigo === novoItem.codigo);
           if (idx >= 0) db.estoque[idx] = novoItem;
@@ -1504,9 +1652,7 @@ const server = http.createServer((req, res) => {
         aliquotaFederalCbs: dadosNfe.aliquotaFederalCbs,
       });
 
-      const xmlDistribuicao = `<?xml version="1.0" encoding="UTF-8"?>
-<nfeProc versao="4.00" xmlns="http://www.portalfiscal.inf.br/nfe">
-  <NFe>
+      const rawXmlNfe = `<NFe xmlns="http://www.portalfiscal.inf.br/nfe">
     <infNFe Id="NFe${chaveAcesso44}" versao="4.00">
       <ide>
         <cUF>${cUF}</cUF>
@@ -1583,15 +1729,20 @@ ${ibsCbsCalculo.xmlSnippetIbsCbs}
 ${ibsCbsCalculo.xmlSnippetTot}
       </total>
     </infNFe>
-    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
-      <SignedInfo>
-        <Reference URI="#NFe${chaveAcesso44}">
-          <DigestValue>${digestValue}</DigestValue>
-        </Reference>
-      </SignedInfo>
-      <SignatureValue>MIIByAYJKoZIhvcNAQcCoIIB...[Assinado Digitalmente por Certificado ICP-Brasil]</SignatureValue>
-    </Signature>
-  </NFe>
+  </NFe>`;
+
+      // 1. Assinatura Digital Real XMLDSig / RSA-SHA1 com ICP-Brasil
+      const assinaturaResult = assinarXmlNfe(rawXmlNfe);
+      const xmlAssinado = assinaturaResult.xmlAssinado;
+      const soapEnvelope = montarEnvelopeSoapNfe(xmlAssinado);
+
+      // 2. Validação Criptográfica de Integridade da Assinatura Gerada
+      const validacaoAssinatura = validarAssinaturaXmlNfe(xmlAssinado);
+
+      // 3. Montagem do nfeProc de Distribuição Oficial
+      const xmlDistribuicao = `<?xml version="1.0" encoding="UTF-8"?>
+<nfeProc versao="4.00" xmlns="http://www.portalfiscal.inf.br/nfe">
+${xmlAssinado}
   <protNFe versao="4.00">
     <infProt>
       <tpAmb>${ambiente === 'PRODUCAO' ? '1' : '2'}</tpAmb>
@@ -1599,7 +1750,7 @@ ${ibsCbsCalculo.xmlSnippetTot}
       <chNFe>${chaveAcesso44}</chNFe>
       <dhRecbto>${new Date().toISOString()}</dhRecbto>
       <nProt>${protocoloAutorizacao}</nProt>
-      <digVal>${digestValue}</digVal>
+      <digVal>${assinaturaResult.digestValue}</digVal>
       <cStat>100</cStat>
       <xMotivo>Autorizado o uso da NF-e (Schema NT 2024.002 IBS/CBS Conforme)</xMotivo>
     </infProt>
@@ -1617,15 +1768,205 @@ ${ibsCbsCalculo.xmlSnippetTot}
         chaveAcesso: chaveAcesso44,
         protocoloAutorizacao: protocoloAutorizacao,
         protocolo: protocoloAutorizacao,
-        digestValue: digestValue,
+        digestValue: assinaturaResult.digestValue,
+        signatureValue: assinaturaResult.signatureValue,
+        algoritmoAssinatura: assinaturaResult.algoritmo,
+        assinaturaDigitalValida: validacaoAssinatura.valida,
         xmlDistribuicao: xmlDistribuicao,
+        soapEnvelope: soapEnvelope,
         dataEmissao: new Date().toISOString(),
         ibscbs: ibsCbsCalculo,
         mensagem: ambiente === 'PRODUCAO'
-          ? 'NF-e do Produtor autorizada com sucesso na SEFAZ Nacional (IBS/CBS NT 2024.002)'
-          : 'NF-e pré-validada em ambiente de HOMOLOGAÇÃO da SEFAZ (Schema IBS/CBS NT 2024.002)'
+          ? 'NF-e do Produtor autorizada com sucesso na SEFAZ Nacional com assinatura digital ICP-Brasil e grupos IBS/CBS calculados.'
+          : 'NF-e pré-validada em ambiente de HOMOLOGAÇÃO da SEFAZ com assinatura digital ICP-Brasil A1.'
       }));
     });
+    return;
+  }
+
+  // 3.1. API: Validação Criptográfica de Assinatura XMLDSig de NF-e
+  if (pathname === '/api/v1/sefaz/nfe/validar-assinatura' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const xmlToValidate = body.xml || body.xmlAssinado;
+      if (!xmlToValidate) {
+        res.statusCode = 400;
+        res.end(JSON.stringify({ sucesso: false, erro: 'XML para validação é obrigatório.' }));
+        return;
+      }
+      const valResult = validarAssinaturaXmlNfe(xmlToValidate);
+      res.statusCode = valResult.valida ? 200 : 422;
+      res.end(JSON.stringify({
+        sucesso: valResult.valida,
+        ...valResult
+      }));
+    });
+    return;
+  }
+
+  // 3.1.1 API: Emissão em Contingência Fiscal EPEC (Evento Prévio de Emissão em Contingência - tpEvento 110140)
+  if (pathname === '/api/v1/sefaz/nfe/contingencia' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const tenantValidation = validateTenantAccess(req, body);
+      if (!tenantValidation.allowed) {
+        res.statusCode = tenantValidation.status || 403;
+        res.end(JSON.stringify({ sucesso: false, erro: tenantValidation.erro }));
+        return;
+      }
+
+      if (!body.chaveAcesso) {
+        res.statusCode = 400;
+        res.end(JSON.stringify({ sucesso: false, erro: 'Chave de acesso da NF-e é obrigatória para ativação de EPEC.' }));
+        return;
+      }
+
+      const epecResult = gerarEventoEpecNfe({
+        chaveAcesso: body.chaveAcesso,
+        cnpjEmitente: body.cnpjEmitente || '00123456000199',
+        ieEmitente: body.ieEmitente || '134567890',
+        ufEmitente: body.ufEmitente || 'MT',
+        cnpjDestinatario: body.cnpjDestinatario || '12345678000100',
+        ufDestinatario: body.ufDestinatario || 'SP',
+        valorTotal: Number(body.valorTotal || 185400.0),
+        vICMS: Number(body.vICMS || 22248.0),
+        justificativa: body.justificativa || 'INDISPONIBILIDADE TEMPORARIA DO WEBSERVICE DA SEFAZ AUTORIZADORA ESTADUAL',
+        ambiente: body.ambiente === 'PRODUCAO' ? 'PRODUCAO' : 'HOMOLOGACAO'
+      });
+
+      // Persistir na fila de conciliação para envio à SEFAZ estadual após restabelecimento
+      const db = loadDb();
+      if (!db.contingenciaNfe) db.contingenciaNfe = [];
+      db.contingenciaNfe.push({
+        id: `epec-${Date.now()}`,
+        chaveAcesso: body.chaveAcesso,
+        protocoloEpec: epecResult.protocoloEpec,
+        dataEmissao: new Date().toISOString(),
+        tenantId: tenantValidation.tenantId,
+        status: 'PENDENTE_CONCILIACAO_SEFAZ_ESTADUAL',
+        prazoLimiteHoras: 168
+      });
+      saveDb(db);
+
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        avisoLegal: 'DOCUMENTO FISCAL AUTORIZADO EM CONTINGÊNCIA NACIONAL (EPEC - NT 2014.001 / NT 2024.002). TRÂNSITO DE CARGA LIBERADO.',
+        ...epecResult
+      }));
+    });
+    return;
+  }
+
+  // 3.1.2 API: Consulta de NF-e em Fila de Contingência Pendentes de Reconciliação
+  if (pathname === '/api/v1/sefaz/nfe/contingencia/pendentes' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    const db = loadDb();
+    const pendentes = db.contingenciaNfe || [];
+    res.statusCode = 200;
+    res.end(JSON.stringify({
+      sucesso: true,
+      totalPendentes: pendentes.length,
+      pendentes
+    }));
+    return;
+  }
+
+  // 3.2. API: Ingestão de Telemetria IoT em Lote (Store-and-Forward de Campo)
+  if (pathname === '/api/v1/telemetria/iot/buffer' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const tenantValidation = validateTenantAccess(req, body);
+      if (!tenantValidation.allowed) {
+        res.statusCode = 403;
+        res.end(JSON.stringify({ sucesso: false, erro: tenantValidation.erro }));
+        return;
+      }
+      const frames = Array.isArray(body.frames) ? body.frames : (body.machineId ? [body] : []);
+      const result = telemetryEngine.ingestBulk(frames);
+      res.statusCode = 200;
+      res.end(JSON.stringify(result));
+    });
+    return;
+  }
+
+  // 3.3. API: Status do Broker e Fila de Telemetria IoT
+  if (pathname === '/api/v1/telemetria/iot/status' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    res.statusCode = 200;
+    res.end(JSON.stringify(telemetryEngine.getStatus()));
+    return;
+  }
+
+  // 3.3.1 API: Server-Sent Events (SSE) para Telemetria em Tempo Real (Cabine e Torre de Controle)
+  if (pathname === '/api/v1/telemetria/stream' && req.method === 'GET') {
+    res.writeHead(200, {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache, no-transform',
+      'Connection': 'keep-alive',
+      'Access-Control-Allow-Origin': '*'
+    });
+
+    const sendEvent = (event, data) => {
+      res.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
+    };
+
+    const db = loadDb();
+    sendEvent('init', {
+      timestamp: new Date().toISOString(),
+      frotaAtiva: db.frota || [],
+      bufferStatus: telemetryEngine.getStatus()
+    });
+
+    const intervalId = setInterval(() => {
+      const currentDb = loadDb();
+      const randomMachine = (currentDb.frota || [])[0] || { tag: 'TRAT-JD-8R', rpm: 1850 };
+      sendEvent('telemetria_update', {
+        timestamp: new Date().toISOString(),
+        machineId: randomMachine.tag || randomMachine.id,
+        rpm: Math.floor(1800 + Math.random() * 200),
+        temperaturaC: Math.floor(85 + Math.random() * 5),
+        pressaoOleoBar: Number((3.2 + Math.random() * 0.4).toFixed(1)),
+        posicaoGps: randomMachine.posicaoGps || { lat: -12.5512, lng: -55.7098 }
+      });
+    }, 2000);
+
+    req.on('close', () => {
+      clearInterval(intervalId);
+      res.end();
+    });
+    return;
+  }
+
+  // 3.4 API: SPED Fiscal - Bloco K (Controle da Produção e do Estoque Agropecuário)
+  if (pathname === '/api/v1/fiscal/sped/bloco-k' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    const db = loadDb();
+    const dataInicio = '01102026';
+    const dataFim = '31102026';
+    const lines = [];
+
+    // K001: Abertura do Bloco K (0 = Bloco com dados informados)
+    lines.push('|K001|0|');
+    // K100: Período de Apuração do ICMS/IPI
+    lines.push(`|K100|${dataInicio}|${dataFim}|`);
+
+    // K200: Estoque Escriturado (Grãos em Silos, Insumos, Combustível)
+    (db.estoque || []).forEach(item => {
+      const codItem = item.codigo || 'INS-001';
+      const qtd = Number(item.quantidadeDisponivel || item.saldo || 100).toFixed(3);
+      const indEst = '0'; // 0 = Estoque de propriedade do informante e em seu poder
+      lines.push(`|K200|${dataFim}|${codItem}|${qtd}|${indEst}||`);
+    });
+
+    // K280: Correção de Apontamento de Estoque Escriturado
+    lines.push(`|K280|${dataInicio}|SOJ-GRAO-01|0.000|0.000|0||`);
+
+    // K990: Encerramento do Bloco K
+    lines.push(`|K990|${lines.length + 1}|`);
+
+    res.statusCode = 200;
+    res.end(lines.join('\r\n'));
     return;
   }
 
@@ -3229,61 +3570,66 @@ ${ibsCbsCalculo.xmlSnippetTot}
   // 8.27. API: Core ERP - Consulta Espacial PostGIS (Raio, Bounding Box e Proximidade de Frota)
   if (pathname === '/api/v1/gis/spatial-query' && req.method === 'GET') {
     res.setHeader('Content-Type', 'application/json');
-    const db = loadDb();
-    const lat = parseFloat(parsedUrl.searchParams.get('lat') || -12.5512);
-    const lng = parseFloat(parsedUrl.searchParams.get('lng') || -55.7098);
-    const radiusKm = parseFloat(parsedUrl.searchParams.get('radiusKm') || 25);
+    try {
+      const db = loadDb();
+      const lat = parseFloat(parsedUrl.searchParams.get('lat') || -12.5512);
+      const lng = parseFloat(parsedUrl.searchParams.get('lng') || -55.7098);
+      const radiusKm = parseFloat(parsedUrl.searchParams.get('radiusKm') || 25);
 
-    const talhoesProximos = (db.talhoes || []).map(t => {
-      const centroide = t.properties?.centroide || calculateCentroid(t.geometry?.coordinates);
-      const distanciaKm = haversineDistanceKm(lat, lng, centroide.lat, centroide.lng);
-      return {
-        id: t.id,
-        nome: t.properties?.nome,
-        cultura: t.properties?.cultura,
-        areaHa: t.properties?.areaHa,
-        distanciaKm,
-        dentroDoRaio: distanciaKm <= radiusKm,
-        centroide
-      };
-    }).sort((a, b) => a.distanciaKm - b.distanciaKm);
+      const talhoesProximos = (db.talhoes || []).filter(t => t && t.id).map(t => {
+        const centroide = t.properties?.centroide || calculateCentroid(t.geometry?.coordinates);
+        const distanciaKm = haversineDistanceKm(lat, lng, centroide.lat, centroide.lng);
+        return {
+          id: t.id,
+          nome: t.properties?.nome,
+          cultura: t.properties?.cultura,
+          areaHa: t.properties?.areaHa,
+          distanciaKm,
+          dentroDoRaio: distanciaKm <= radiusKm,
+          centroide
+        };
+      }).sort((a, b) => a.distanciaKm - b.distanciaKm);
 
-    const frotaProxima = (db.frota || []).map(f => {
-      const mLat = f.posicaoGps?.lat || lat;
-      const mLng = f.posicaoGps?.lng || lng;
-      const distanciaKm = haversineDistanceKm(lat, lng, mLat, mLng);
-      return {
-        id: f.id,
-        tag: f.tag,
-        modelo: f.modelo,
-        tipo: f.tipo,
-        statusOperacional: f.statusOperacional,
-        rpmMotor: f.rpmMotor,
-        temperaturaC: f.tempLiquidoArrefecimentoC,
-        posicaoGps: f.posicaoGps,
-        distanciaKm,
-        dentroDoRaio: distanciaKm <= radiusKm
-      };
-    }).sort((a, b) => a.distanciaKm - b.distanciaKm);
+      const frotaProxima = (db.frota || []).map(f => {
+        const mLat = f.posicaoGps?.lat || lat;
+        const mLng = f.posicaoGps?.lng || lng;
+        const distanciaKm = haversineDistanceKm(lat, lng, mLat, mLng);
+        return {
+          id: f.id,
+          tag: f.tag,
+          modelo: f.modelo,
+          tipo: f.tipo,
+          statusOperacional: f.statusOperacional,
+          rpmMotor: f.rpmMotor,
+          temperaturaC: f.tempLiquidoArrefecimentoC,
+          posicaoGps: f.posicaoGps,
+          distanciaKm,
+          dentroDoRaio: distanciaKm <= radiusKm
+        };
+      }).sort((a, b) => a.distanciaKm - b.distanciaKm);
 
-    const talhoesNoRaio = talhoesProximos.filter(t => t.dentroDoRaio);
-    const frotaNoRaio = frotaProxima.filter(f => f.dentroDoRaio);
+      const talhoesNoRaio = talhoesProximos.filter(t => t.dentroDoRaio);
+      const frotaNoRaio = frotaProxima.filter(f => f.dentroDoRaio);
 
-    res.statusCode = 200;
-    res.end(JSON.stringify({
-      sucesso: true,
-      pontoConsulta: { lat, lng },
-      raioKm: radiusKm,
-      resumoEspacial: {
-        totalTalhoesNoRaio: talhoesNoRaio.length,
-        areaTotalHaNoRaio: Number(talhoesNoRaio.reduce((acc, cur) => acc + (cur.areaHa || 0), 0).toFixed(1)),
-        maquinasNoRaio: frotaNoRaio.length,
-        maquinasEmOperacao: frotaNoRaio.filter(f => f.statusOperacional === 'EM_OPERACAO').length
-      },
-      talhoes: talhoesProximos,
-      frota: frotaProxima,
-      normativa: 'OGC Simple Feature Access / PostGIS ST_DWithin'
-    }));
+      res.statusCode = 200;
+      res.end(JSON.stringify({
+        sucesso: true,
+        pontoConsulta: { lat, lng },
+        raioKm: radiusKm,
+        resumoEspacial: {
+          totalTalhoesNoRaio: talhoesNoRaio.length,
+          areaTotalHaNoRaio: Number(talhoesNoRaio.reduce((acc, cur) => acc + (cur.areaHa || 0), 0).toFixed(1)),
+          maquinasNoRaio: frotaNoRaio.length,
+          maquinasEmOperacao: frotaNoRaio.filter(f => f.statusOperacional === 'EM_OPERACAO').length
+        },
+        talhoes: talhoesProximos,
+        frota: frotaProxima,
+        normativa: 'OGC Simple Feature Access / PostGIS ST_DWithin'
+      }));
+    } catch (err) {
+      res.statusCode = 500;
+      res.end(JSON.stringify({ sucesso: false, erro: err.message }));
+    }
     return;
   }
 

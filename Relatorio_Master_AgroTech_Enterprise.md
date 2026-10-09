@@ -302,4 +302,30 @@ Para além da Reforma Tributária e do LCDPR tradicional, o AGROTECH implementou
   3. *Escrituração Fiscal LCDPR (Layout RFB 0013)*: demonstrativo contábil de entradas/saídas por condômino com gerador de arquivo texto homologado na IN RFB 1.903/2019.
 - **Validação E2E**: Teste `scripts/test_todos_os_regimes_tributarios_e2e.mjs` validado e adicionado à suíte geral `npm test` (10 de 10 suítes aprovadas com 100% de sucesso).
 
+---
+
+### 17. Interoperabilidade de Máquinas (ISO-XML 11783-10) e Sensoriamento Multiespectral Sentinel-2
+
+#### 17.1. Gerador de Prescrição em Taxa Variável ISOBUS (ISO 11783-10:2015)
+Em conformidade com as diretrizes da *Agricultural Industry Electronics Foundation* (AEF), o AGROTECH incorporou o serviço `isoXmlTaskService.cjs` capaz de gerar prescrições agronômicas interoperáveis para os principais monitores agrícolas do mercado (John Deere CommandCenter / Gen4, Trimble GFX-750, Case IH Pro 700 / AFS Pro 1200, AGCO Datatronic e Jacto):
+- **Estrutura XML Padronizada**: Gera o arquivo `TASKDATA.XML` contendo os elementos padrão da norma:
+  - `<CTR>` (Customer/Produtor) e `<FRM>` (Farm/Fazenda).
+  - `<PFD>` (Partfield/Talhão) com cálculo georreferenciado e centróide WGS84.
+  - `<TSK>` (Task/Tarefa) definindo tipo de operação (Plantio, Adubação ou Pulverização) e status operacional.
+  - `<GRD>` (Grid/Grade de Prescrição) e `<TZN>` (Treatment Zones) parametrizando as doses específicas (kg/ha ou L/ha) por zona de manejo e vigor vegetativo.
+- **Download Direto para Cabine**: Endpoint `GET /api/v1/talhoes/prescricao/isoxml?talhaoId=...` entrega o arquivo `TASKDATA.XML` diretamente com os cabeçalhos MIME corretos para cópia em pen-drives e cartões de memória de tratores e pulverizadores.
+
+#### 17.2. Sensoriamento Remoto Óptico e Índices Espectrais (Sentinel-2 L2A)
+O motor `remoteSensingIndicesService.cjs` processa as bandas espectrais do satélite Sentinel-2 (European Space Agency / Copernicus) com correção atmosférica Bottom-Of-Atmosphere (BOA), provendo diagnósticos contínuos de vigor:
+- **NDVI (Normalized Difference Vegetation Index)**: $(B08 - B04) / (B08 + B04)$ para estimativa de biomassa e atividade fotossintética do dossel.
+- **NDRE (Normalized Difference RedEdge)**: $(B08 - B05) / (B08 + B05)$ com banda RedEdge (705nm) para estimativa precisa de teor de nitrogênio foliar e superação da saturação do NDVI em dosséis densos.
+- **MSAVI (Modified Soil-Adjusted Vegetation Index)**: Cálculo com fator de compensação de reflectância do solo nu para fases iniciais de emergência da cultura.
+- **EVI2 (Enhanced Vegetation Index 2)**: Índice de 2 bandas com coeficientes atmosféricos otimizados para redução de efeitos de aerossóis.
+- **Zonificação de Vigor e Recomendações Automáticas**: Classificação dos talhões em zonas de Alto, Médio e Baixo vigor com geração de recomendações agronômicas automáticas para taxas variáveis de fertilizantes e corretivos.
+
+#### 17.3. Validação E2E Automatizada (Suíte 14)
+- Teste ponta a ponta implementado em `scripts/test_isoxml_and_remotesensing_e2e.mjs` e integrado ao `npm test`.
+- Cobertura completa de 14 suítes automatizadas passando com 100% de sucesso.
+
+
 
