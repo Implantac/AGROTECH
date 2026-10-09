@@ -438,6 +438,55 @@ O motor `remoteSensingIndicesService.cjs` processa as bandas espectrais do saté
 - Implementada a suíte `scripts/test_plano_safra_nr31_renovabio_e2e.mjs`.
 - Total de **17 suítes automatizadas** aprovadas com 100% de sucesso no comando `npm test`.
 
+---
+
+### 21. Automação Contábil-Financeira, Telemetria Streaming e Consolidação Visual da Plataforma Rural
+
+#### 21.1. Motor de Conciliação Bancária OFX & Automação do Livro Caixa Digital (LCDPR SPED)
+- **Serviço**: `src/services/ofxConciliacaoService.cjs`.
+- **Parsing Padrão Open Financial Exchange (OFX 1.x e 2.x)**:
+  - Compatibilidade com extratos de cooperativas e bancos rurais: Banco do Brasil (001), Sicredi (748), Sicoob (756), Bradesco (237) e Santander (033).
+  - Extração de metadados de conta bancária, número de transações, período e saldo líquido consolidado.
+- **Mapeamento Semântico Agro para o Plano de Contas do LCDPR**:
+  - `3.01.01`: Combustíveis e lubrificantes (Diesel S10 Petrobras, Ipiranga, Raízen).
+  - `3.01.02`: Fertilizantes e corretivos (NPK Yara, Mosaic, calcário e gesso).
+  - `3.01.03`: Defensivos agrícolas (Herbicidas Syngenta, Bayer, BASF, Corteva).
+  - `3.01.04`: Sementes e mudas (Sementes TSI Monsanto, Pioneer, Brasmax).
+  - `3.01.05`: Folha de pagamento e encargos (Salários, Senar, Funrural, FGTS).
+  - `1.01.01`: Receita de venda da atividade rural (Venda de soja e milho para Cargill, Bunge, Amaggi, Coamo).
+  - `3.02.01`: Amortização de financiamentos e linhas do Plano Safra (Pronamp, Moderfrota).
+- **Geração Direta do Registro Q100 (Livro Caixa SPED)**:
+  - Formatação com data, código da conta LCDPR, número de documento FITID, CNPJ participante, valores de entrada/saída e saldo final acumulado.
+- **Endpoints REST**: `POST /api/v1/financeiro/ofx/importar` e `POST /api/v1/financeiro/ofx/conciliar`.
+
+#### 21.2. Cockpit de Telemetria CAN Bus J1939 em Tempo Real via Server-Sent Events (SSE)
+- **Conexão SSE**: `GET /api/v1/telemetria/stream`.
+- **Streaming Instantâneo de Parâmetros Operacionais**:
+  - Rotação do motor (RPM - PGN 61444 EEC1).
+  - Velocidade de trabalho ($km/h$).
+  - Consumo horário instantâneo ($L/h$ - PGN 65263).
+  - Temperatura do líquido de arrefecimento (°C).
+- **Indicador Visual na UI**: Badge em tempo real `SSE Ao Vivo Ativo` em `TelemetriaFrotaModule.tsx` sincronizado com dados dos tratores e colheitadeiras em campo.
+
+#### 21.3. Integração Visual dos Novos Motores nas Interfaces Frontend
+- **Crédito Rural & Financiamentos (`CreditoRuralFinanciamentosModule.tsx`)**:
+  - Nova aba interativa `3. Simulador Plano Safra (BACEN MCR) & Dossiê`.
+  - Simulação de taxas subsidiadas, cálculo de economia versus mercado e botão de download do Dossiê Bancário completo em JSON/TXT.
+- **NR-31 & Segurança do Trabalho (`NR31SegurancaTrabalhoModule.tsx`)**:
+  - Novas abas `2. Checklist de Auditoria de Campo (NR-31)` e `3. Transmissão eSocial S-2240 (Ambiente & Riscos)`.
+  - Checklist interativo dos 6 pontos normativos com cálculo de conformidade (%) e visualizador do XML assinado com hash SHA-256.
+- **Fiscal & Contábil LCDPR (`FiscalLCDPRModule.tsx`)**:
+  - Nova aba `Conciliação Bancária OFX & Automação LCDPR`.
+  - Importação de extratos bancários com autoclassificação das transações e injeção com 1 clique no Livro Caixa do Produtor Rural (Q100).
+- **RenovaBio CBIO (`RenovabioCalculadoraCbioModule.tsx`)**:
+  - Nova aba `Auditoria Marco 2018 (ANP & B3)`.
+  - Validação de CAR contra o marco temporal do PRODES/INPE, emissão de CBIOs e projeção de receita líquida na B3.
+
+#### 21.4. Homologação Completa E2E (18 de 18 Suítes Aprovadas)
+- Implementada a suíte `scripts/test_ofx_e_cockpit_e2e.mjs`.
+- Total de **18 suítes automatizadas** aprovadas com 100% de sucesso no comando `npm test`.
+
+
 
 
 

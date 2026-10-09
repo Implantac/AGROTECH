@@ -57,7 +57,99 @@ export const FiscalLCDPRModule: React.FC = () => {
   const [regimeDetalheModal, setRegimeDetalheModal] = useState<DetalheRegimeTributario | null>(null);
 
   // Navegação Estruturada por Abas do Módulo Fiscal
-  const [abaFiscal, setAbaFiscal] = useState<'TODOS_REGIMES' | 'NFE_EMISSAO' | 'LCDPR_SPED'>('TODOS_REGIMES');
+  const [abaFiscal, setAbaFiscal] = useState<'TODOS_REGIMES' | 'NFE_EMISSAO' | 'LCDPR_SPED' | 'CONCILIACAO_OFX'>('TODOS_REGIMES');
+
+  // Estado Conciliação OFX
+  const [rawOfxTexto, setRawOfxTexto] = useState<string>(`OFXHEADER:100
+DATA:OFXSGML
+VERSION:102
+SECURITY:NONE
+<OFX>
+<BANKMSGSRSV1>
+<STMTTRNRS>
+<STMTRS>
+<BANKACCTFROM>
+<BANKID>001
+<ACCTID>98765-4
+</BANKACCTFROM>
+<BANKTRANLIST>
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20261002120000
+<TRNAMT>-45800.00
+<FITID>TX-2026-BB-01
+<MEMO>PAGTO DIESEL S10 COMBOIO PETROBRAS</MEMO>
+</STMTTRN>
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20261004120000
+<TRNAMT>-125000.00
+<FITID>TX-2026-BB-02
+<MEMO>COMPRA FERTILIZANTE NPK YARA BRASIL</MEMO>
+</STMTTRN>
+<STMTTRN>
+<TRNTYPE>CREDIT
+<DTPOSTED>20261007120000
+<TRNAMT>480000.00
+<FITID>TX-2026-BB-03
+<MEMO>RECEBTO VENDA SOJA DISPONIVEL CARGILL</MEMO>
+</STMTTRN>
+<STMTTRN>
+<TRNTYPE>DEBIT
+<DTPOSTED>20261008120000
+<TRNAMT>-32000.00
+<FITID>TX-2026-BB-04
+<MEMO>DEFENSIVO HERBICIDA SYNGENTA PULVERIZACAO</MEMO>
+</STMTTRN>
+</BANKTRANLIST>
+</STMTRS>
+</STMTTRNRS>
+</BANKMSGSRSV1>
+</OFX>`);
+  const [processandoOfx, setProcessandoOfx] = useState<boolean>(false);
+  const [resultadoOfxImportado, setResultadoOfxImportado] = useState<any>(null);
+  const [lancamentosOfxLcdpr, setLancamentosOfxLcdpr] = useState<any[]>([]);
+
+  const handleImportarOfx = async () => {
+    setProcessandoOfx(true);
+    try {
+      const res = await fetch('/api/v1/financeiro/ofx/importar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ conteudoOfx: rawOfxTexto })
+      });
+      const data = await res.json();
+      setResultadoOfxImportado(data);
+    } catch (err) {
+      console.error('Erro ao importar OFX:', err);
+    } finally {
+      setProcessandoOfx(false);
+    }
+  };
+
+  const handleConciliarOfxParaLcdpr = async () => {
+    if (!resultadoOfxImportado || !resultadoOfxImportado.transacoes) return;
+    setProcessandoOfx(true);
+    try {
+      const res = await fetch('/api/v1/financeiro/ofx/conciliar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          transacoes: resultadoOfxImportado.transacoes,
+          matriculaImovel: '001',
+          cnpjCpfTitular: '18.491.029/0001-88'
+        })
+      });
+      const data = await res.json();
+      if (data.sucesso && data.lancamentosQ100) {
+        setLancamentosOfxLcdpr(data.lancamentosQ100);
+      }
+    } catch (err) {
+      console.error('Erro ao conciliar OFX:', err);
+    } finally {
+      setProcessandoOfx(false);
+    }
+  };
 
   // Parâmetros de Simulação de Todos os Regimes Tributários
   const [faturamentoAnualAudit, setFaturamentoAnualAudit] = useState<number>(5500000);
@@ -562,6 +654,18 @@ ${tributacaoConsolidada.regraIbsCbs.xmlSnippetTot}
         >
           <FileText className="w-4 h-4" />
           <span>Escrituração Fiscal LCDPR (Layout RFB 0013)</span>
+        </button>
+        <button
+          type="button"
+          onClick={() => setAbaFiscal('CONCILIACAO_OFX')}
+          className={`flex-1 py-3 px-4 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
+            abaFiscal === 'CONCILIACAO_OFX'
+              ? 'bg-emerald-700 text-white shadow-2xs'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+          }`}
+        >
+          <Landmark className="w-4 h-4" />
+          <span>Conciliação Bancária OFX & Automação LCDPR</span>
         </button>
       </div>
 
@@ -1313,6 +1417,174 @@ ${tributacaoConsolidada.regraIbsCbs.xmlSnippetTot}
             </div>
           )}
         </>
+      )}
+
+      {/* ABA 4: Conciliação Bancária OFX & Automação LCDPR */}
+      {abaFiscal === 'CONCILIACAO_OFX' && (
+        <div className="space-y-6">
+          <div className="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-2xs space-y-5">
+            <div className="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b border-slate-200 gap-3">
+              <div>
+                <h3 className="text-base font-black text-slate-900 flex items-center gap-2">
+                  <Landmark className="w-5 h-5 text-emerald-700" />
+                  Conciliação Inteligente de Extrato Bancário OFX
+                </h3>
+                <p className="text-xs text-slate-600 mt-0.5">
+                  Importe extratos bancários de cooperativas (Sicredi, Sicoob) e bancos (BB, Bradesco, Santander) com autoclassificação no Plano de Contas do LCDPR.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <span className="px-2.5 py-1 text-[11px] font-bold bg-emerald-50 text-emerald-800 rounded-full border border-emerald-200">
+                  Open Financial Exchange (OFX)
+                </span>
+                <span className="px-2.5 py-1 text-[11px] font-bold bg-blue-50 text-blue-800 rounded-full border border-blue-200">
+                  Automação Registro Q100
+                </span>
+              </div>
+            </div>
+
+            {/* Editor de OFX com Exemplo Pré-Carregado */}
+            <div className="space-y-2">
+              <div className="flex justify-between items-center text-xs font-bold text-slate-700">
+                <span>Conteúdo do Arquivo .OFX (Extrato Bancário do Produtor):</span>
+                <span className="text-[11px] text-slate-500 font-mono">Compatível com BB (001), Sicredi (748), Sicoob (756)</span>
+              </div>
+              <textarea
+                value={rawOfxTexto}
+                onChange={(e) => setRawOfxTexto(e.target.value)}
+                rows={8}
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 font-mono text-[11px] text-slate-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-500 leading-relaxed"
+                placeholder="Cole aqui o conteúdo do seu arquivo .ofx..."
+              />
+            </div>
+
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+              <span className="text-xs text-slate-600">
+                O motor semântico identifica pagamentos de diesel, sementes, defensivos e receitas de grãos.
+              </span>
+
+              <button
+                type="button"
+                onClick={handleImportarOfx}
+                disabled={processandoOfx}
+                className="px-5 py-2.5 bg-[#285943] hover:bg-[#1D4B38] text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-2xs transition cursor-pointer disabled:opacity-50"
+              >
+                <CheckCircle2 className="w-4 h-4" />
+                {processandoOfx ? 'Analisando Extrato...' : 'Processar & Classificar OFX'}
+              </button>
+            </div>
+
+            {/* Resultado do Processamento OFX */}
+            {resultadoOfxImportado && resultadoOfxImportado.sucesso && (
+              <div className="space-y-5 pt-4 border-t border-slate-200">
+                {/* Cards de Resumo */}
+                <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+                  <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                    <span className="text-[10px] text-slate-600 font-bold uppercase block">Instituição Bancária</span>
+                    <span className="text-xs font-black text-slate-900 block mt-1">
+                      {resultadoOfxImportado.cabecalho.bancoNome}
+                    </span>
+                    <span className="text-[10px] text-slate-600 font-mono">Conta: {resultadoOfxImportado.cabecalho.contaCorrente}</span>
+                  </div>
+
+                  <div className="bg-emerald-50/60 p-3.5 rounded-xl border border-emerald-200">
+                    <span className="text-[10px] text-emerald-800 font-bold uppercase block">Receitas da Safra (+)</span>
+                    <span className="text-sm font-black text-emerald-800 font-mono block mt-1">
+                      R$ {resultadoOfxImportado.resumoFinanceiro.totalReceitasBrl.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                    </span>
+                    <span className="text-[10px] text-emerald-700">Entradas creditadas</span>
+                  </div>
+
+                  <div className="bg-rose-50/60 p-3.5 rounded-xl border border-rose-200">
+                    <span className="text-[10px] text-rose-800 font-bold uppercase block">Despesas Operacionais (-)</span>
+                    <span className="text-sm font-black text-rose-800 font-mono block mt-1">
+                      R$ {resultadoOfxImportado.resumoFinanceiro.totalDespesasBrl.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                    </span>
+                    <span className="text-[10px] text-rose-700">Insumos e serviços rurais</span>
+                  </div>
+
+                  <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                    <span className="text-[10px] text-slate-600 font-bold uppercase block">Saldo Líquido</span>
+                    <span className={`text-sm font-black font-mono block mt-1 ${resultadoOfxImportado.resumoFinanceiro.saldoLiquidoBrl >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
+                      R$ {resultadoOfxImportado.resumoFinanceiro.saldoLiquidoBrl.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                    </span>
+                    <span className="text-[10px] text-slate-600">{resultadoOfxImportado.cabecalho.totalTransacoes} transações</span>
+                  </div>
+                </div>
+
+                {/* Tabela de Transações Classificadas */}
+                <div className="border border-slate-200 rounded-xl overflow-hidden">
+                  <div className="p-3 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
+                    <span className="text-xs font-bold text-slate-900">
+                      Transações Extraídas & Plano de Contas LCDPR Sugerido
+                    </span>
+                    <button
+                      type="button"
+                      onClick={handleConciliarOfxParaLcdpr}
+                      disabled={processandoOfx}
+                      className="px-3.5 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-lg flex items-center gap-1.5 shadow-2xs cursor-pointer"
+                    >
+                      <FileText className="w-3.5 h-3.5" />
+                      Injetar no Livro Caixa (Q100)
+                    </button>
+                  </div>
+
+                  <table className="w-full text-left text-xs">
+                    <thead className="bg-slate-100/75 text-[11px] font-bold text-slate-700 uppercase border-b border-slate-200">
+                      <tr>
+                        <th className="p-3">Data</th>
+                        <th className="p-3">Histórico Bancário</th>
+                        <th className="p-3">Valor (R$)</th>
+                        <th className="p-3">Categoria Agro Identificada</th>
+                        <th className="p-3">Conta LCDPR</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-200">
+                      {resultadoOfxImportado.transacoes.map((t: any, idx: number) => (
+                        <tr key={idx} className="hover:bg-slate-50">
+                          <td className="p-3 font-mono text-slate-600">{t.data}</td>
+                          <td className="p-3 font-semibold text-slate-900">{t.historicoOriginal}</td>
+                          <td className={`p-3 font-mono font-bold ${t.valorBrl >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
+                            R$ {t.valorBrl.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                          </td>
+                          <td className="p-3">
+                            <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-800">
+                              {t.classificacaoAutomatica.categoria}
+                            </span>
+                          </td>
+                          <td className="p-3 font-mono text-xs font-bold text-emerald-800">
+                            {t.classificacaoAutomatica.contaLcdpr}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Confirmação de Lançamentos Q100 */}
+                {lancamentosOfxLcdpr.length > 0 && (
+                  <div className="bg-emerald-50 border border-emerald-300 rounded-xl p-4 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-emerald-700" />
+                      <div>
+                        <span className="text-xs font-bold text-emerald-950 block">
+                          {lancamentosOfxLcdpr.length} Lançamentos Gerados e Integrados com Sucesso!
+                        </span>
+                        <span className="text-[11px] text-emerald-800">
+                          Registros formatados no padrão Q100 do SPED para a Fazenda Santa Helena.
+                        </span>
+                      </div>
+                    </div>
+                    <span className="px-3 py-1 bg-emerald-200 text-emerald-900 rounded-lg text-xs font-mono font-bold">
+                      STATUS: PRONTO_SPED
+                    </span>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
       )}
 
       {/* Modal Gerenciador de Certificado Digital A1 (ICP-Brasil) */}

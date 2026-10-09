@@ -120,6 +120,7 @@ const COLABORADORES_INICIAIS: ColaboradorRural[] = [
 ];
 
 export const NR31SegurancaTrabalhoModule: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<'colaboradores' | 'auditoriaCampo' | 'esocialS2240'>('colaboradores');
   const [colaboradores, setColaboradores] = useState<ColaboradorRural[]>(COLABORADORES_INICIAIS);
   const [busca, setBusca] = useState<string>('');
   const [filtroStatus, setFiltroStatus] = useState<string>('TODOS');
@@ -132,6 +133,73 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
   const [formCargo, setFormCargo] = useState<string>('Operador de Trator');
   const [formSetor, setFormSetor] = useState<ColaboradorRural['setor']>('LAVOURA');
   const [formDataAso, setFormDataAso] = useState<string>('2026-09-28');
+
+  // Estado Auditoria NR-31 de Campo
+  const [frenteTrabalhoAudit, setFrenteTrabalhoAudit] = useState<string>('Frente Agrícola 01 - Pulverização e Plantio');
+  const [trabalhadoresAuditCount, setTrabalhadoresAuditCount] = useState<number>(18);
+  const [itensAuditados, setItensAuditados] = useState<{ [key: string]: boolean }>({
+    EPI_COMPLETO_AGROTOXICOS: true,
+    AREA_VIVENCIA_MOVEL: true,
+    PROTECAO_CARDAN_TDP: true,
+    AGUA_POTAVEL_DISPONIVEL: true,
+    TREINAMENTO_NR31_12: true,
+    COMISSAO_CIPATR_OPERANTE: true
+  });
+  const [auditandoNr31, setAuditandoNr31] = useState<boolean>(false);
+  const [resultadoAuditoriaNr31, setResultadoAuditoriaNr31] = useState<any>(null);
+
+  // Estado Evento S-2240 eSocial
+  const [colabSelecionadoS2240, setColabSelecionadoS2240] = useState<string>('Marcos Barreto de Oliveira');
+  const [cpfS2240, setCpfS2240] = useState<string>('123.456.789-00');
+  const [cargoS2240, setCargoS2240] = useState<string>('Operador de Máquinas Agrícolas');
+  const [transmitindoS2240, setTransmitindoS2240] = useState<boolean>(false);
+  const [resultadoS2240, setResultadoS2240] = useState<any>(null);
+
+  const handleAuditarNr31 = async () => {
+    setAuditandoNr31(true);
+    try {
+      const itensPayload = Object.entries(itensAuditados).map(([codigo, conforme]) => ({
+        codigo,
+        conforme
+      }));
+      const res = await fetch('/api/v1/trabalhista/nr31/auditoria', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          frenteTrabalho: frenteTrabalhoAudit,
+          totalTrabalhadoresPresentes: trabalhadoresAuditCount,
+          itensAuditados: itensPayload
+        })
+      });
+      const data = await res.json();
+      setResultadoAuditoriaNr31(data);
+    } catch (err) {
+      console.error('Erro na auditoria NR-31:', err);
+    } finally {
+      setAuditandoNr31(false);
+    }
+  };
+
+  const handleTransmitirS2240 = async () => {
+    setTransmitindoS2240(true);
+    try {
+      const res = await fetch('/api/v1/trabalhista/esocial/evento-s2240', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          trabalhadorNome: colabSelecionadoS2240,
+          trabalhadorCpf: cpfS2240,
+          cargo: cargoS2240
+        })
+      });
+      const data = await res.json();
+      setResultadoS2240(data);
+    } catch (err) {
+      console.error('Erro no envio S-2240:', err);
+    } finally {
+      setTransmitindoS2240(false);
+    }
+  };
 
   const aptosCount = colaboradores.filter((c) => c.statusAptidao === 'APTO').length;
   const alertaCount = colaboradores.filter((c) => c.statusAptidao === 'ALERTA_RENOVACAO').length;
@@ -225,8 +293,49 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
         </div>
       )}
 
-      {/* Cards de Conformidade NR-31 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* Tabs de Navegação */}
+      <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-2">
+        <button
+          onClick={() => setActiveTab('colaboradores')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+            activeTab === 'colaboradores'
+              ? 'bg-[#285943] text-white shadow-md'
+              : 'bg-slate-50 text-slate-900 hover:bg-emerald-50 border border-slate-200'
+          }`}
+        >
+          <Users className="w-4 h-4" />
+          1. Colaboradores & Fichas de EPI
+        </button>
+
+        <button
+          onClick={() => setActiveTab('auditoriaCampo')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+            activeTab === 'auditoriaCampo'
+              ? 'bg-[#285943] text-white shadow-md'
+              : 'bg-slate-50 text-slate-900 hover:bg-emerald-50 border border-slate-200'
+          }`}
+        >
+          <ShieldAlert className="w-4 h-4" />
+          2. Checklist de Auditoria de Campo (NR-31)
+        </button>
+
+        <button
+          onClick={() => setActiveTab('esocialS2240')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+            activeTab === 'esocialS2240'
+              ? 'bg-[#285943] text-white shadow-md'
+              : 'bg-slate-50 text-slate-900 hover:bg-emerald-50 border border-slate-200'
+          }`}
+        >
+          <FileText className="w-4 h-4" />
+          3. Transmissão eSocial S-2240 (Ambiente & Riscos)
+        </button>
+      </div>
+
+      {activeTab === 'colaboradores' && (
+        <div className="space-y-6">
+          {/* Cards de Conformidade NR-31 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white border border-slate-200 p-4 rounded-xl">
           <div className="flex items-center justify-between text-slate-600 mb-1">
             <span className="text-xs font-medium uppercase tracking-wider">Efetivo de Campo</span>
@@ -387,6 +496,197 @@ export const NR31SegurancaTrabalhoModule: React.FC = () => {
           </table>
         </div>
       </div>
+    </div>
+  )}
+
+  {/* Aba 2: Checklist de Auditoria de Campo (NR-31) */}
+  {activeTab === 'auditoriaCampo' && (
+    <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm space-y-6">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-4">
+        <div>
+          <h2 className="text-base font-black text-slate-900 flex items-center gap-2">
+            <ShieldAlert className="w-5 h-5 text-amber-700" />
+            Auditoria Normativa de Frente de Trabalho (Portaria MTP nº 667/2021)
+          </h2>
+          <p className="text-xs text-slate-600 mt-0.5">
+            Inspeção de segurança in loco: EPIs, áreas de vivência móvel, proteção de tomada de força (TDP) e água potável.
+          </p>
+        </div>
+
+        <button
+          onClick={handleAuditarNr31}
+          disabled={auditandoNr31}
+          className="px-5 py-2.5 bg-[#285943] hover:bg-[#1D4B38] text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-sm transition-all cursor-pointer disabled:opacity-50"
+        >
+          <CheckCircle2 className="w-4 h-4" />
+          {auditandoNr31 ? 'Calculando Risco...' : 'Executar Laudo de Auditoria'}
+        </button>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label className="text-xs font-bold text-slate-700 block mb-1">Frente de Operação Rural</label>
+          <input
+            type="text"
+            value={frenteTrabalhoAudit}
+            onChange={(e) => setFrenteTrabalhoAudit(e.target.value)}
+            className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-semibold text-slate-900"
+          />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-700 block mb-1">Trabalhadores em Atividade no Ponto</label>
+          <input
+            type="number"
+            value={trabalhadoresAuditCount}
+            onChange={(e) => setTrabalhadoresAuditCount(Number(e.target.value))}
+            className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900"
+          />
+        </div>
+      </div>
+
+      {/* Checklist Interativo */}
+      <div className="space-y-3">
+        <h3 className="text-xs font-black uppercase text-slate-600 tracking-wider">Itens Críticos Obrigatórios da NR-31</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {[
+            { id: 'EPI_COMPLETO_AGROTOXICOS', label: 'EPI Completo para Aplicação de Defensivos (NR-31.7)' },
+            { id: 'AREA_VIVENCIA_MOVEL', label: 'Área de Vivência Móvel com Sanitários Higienizados (NR-31.23)' },
+            { id: 'PROTECAO_CARDAN_TDP', label: 'Proteção Integral de Cardan e Tomada de Potência (NR-31.12)' },
+            { id: 'AGUA_POTAVEL_DISPONIVEL', label: 'Água Potável Fresca em Recipiente Térmico Individual' },
+            { id: 'TREINAMENTO_NR31_12', label: 'Operadores com Treinamento Teórico-Prático Concluído' },
+            { id: 'COMISSAO_CIPATR_OPERANTE', label: 'Comissão Interna de Prevenção de Acidentes Rurais (CIPATR)' },
+          ].map((item) => (
+            <label
+              key={item.id}
+              className={`p-3 rounded-lg border text-xs font-semibold flex items-center justify-between cursor-pointer transition-all ${
+                itensAuditados[item.id]
+                  ? 'bg-emerald-50/60 border-emerald-300 text-emerald-950'
+                  : 'bg-rose-50/60 border-rose-300 text-rose-950'
+              }`}
+            >
+              <div className="flex items-center gap-2.5">
+                <input
+                  type="checkbox"
+                  checked={itensAuditados[item.id]}
+                  onChange={(e) =>
+                    setItensAuditados({ ...itensAuditados, [item.id]: e.target.checked })
+                  }
+                  className="rounded text-emerald-700 w-4 h-4 cursor-pointer"
+                />
+                <span>{item.label}</span>
+              </div>
+              <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${itensAuditados[item.id] ? 'bg-emerald-200 text-emerald-900' : 'bg-rose-200 text-rose-900'}`}>
+                {itensAuditados[item.id] ? 'CONFORME' : 'NÃO CONFORME'}
+              </span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      {/* Resultado da Auditoria */}
+      {resultadoAuditoriaNr31 && (
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-3">
+            <div>
+              <span className="text-[10px] uppercase font-bold text-slate-600 block">Classificação de Risco MTP</span>
+              <span className="text-base font-black text-emerald-900 flex items-center gap-1.5 mt-0.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-700" />
+                {resultadoAuditoriaNr31.statusGeral}
+              </span>
+            </div>
+            <div className="text-right">
+              <span className="text-[10px] uppercase font-bold text-slate-600 block">Conformidade Global</span>
+              <span className="text-xl font-black text-emerald-700 font-mono">
+                {resultadoAuditoriaNr31.percentualConformidade}%
+              </span>
+            </div>
+          </div>
+          <div className="text-xs text-slate-700">
+            <strong>Recomendação Técnica:</strong> {resultadoAuditoriaNr31.acoesRecomendadas.join(' • ')}
+          </div>
+        </div>
+      )}
+    </div>
+  )}
+
+  {/* Aba 3: Transmissão eSocial S-2240 */}
+  {activeTab === 'esocialS2240' && (
+    <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm space-y-6">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-4">
+        <div>
+          <h2 className="text-base font-black text-slate-900 flex items-center gap-2">
+            <FileText className="w-5 h-5 text-blue-700" />
+            Evento S-2240: Condições Ambientais do Trabalho (Layout S-1.2)
+          </h2>
+          <p className="text-xs text-slate-600 mt-0.5">
+            Mapeamento de riscos físicos, ruído em decibéis e exposição a defensivos com geração de XML e assinatura digital.
+          </p>
+        </div>
+
+        <button
+          onClick={handleTransmitirS2240}
+          disabled={transmitindoS2240}
+          className="px-5 py-2.5 bg-[#285943] hover:bg-[#1D4B38] text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-sm transition-all cursor-pointer disabled:opacity-50"
+        >
+          <Send className="w-4 h-4" />
+          {transmitindoS2240 ? 'Assinando XML...' : 'Gerar e Validar Evento S-2240'}
+        </button>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label className="text-xs font-bold text-slate-700 block mb-1">Nome do Trabalhador</label>
+          <input
+            type="text"
+            value={colabSelecionadoS2240}
+            onChange={(e) => setColabSelecionadoS2240(e.target.value)}
+            className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-semibold text-slate-900"
+          />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-700 block mb-1">CPF</label>
+          <input
+            type="text"
+            value={cpfS2240}
+            onChange={(e) => setCpfS2240(e.target.value)}
+            className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900"
+          />
+        </div>
+        <div>
+          <label className="text-xs font-bold text-slate-700 block mb-1">Cargo / Função Rural</label>
+          <input
+            type="text"
+            value={cargoS2240}
+            onChange={(e) => setCargoS2240(e.target.value)}
+            className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-semibold text-slate-900"
+          />
+        </div>
+      </div>
+
+      {resultadoS2240 && (
+        <div className="bg-slate-50 border border-blue-200 rounded-xl p-5 space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-2">
+            <span className="text-xs font-black text-slate-900 flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-emerald-700" />
+              Status: {resultadoS2240.statusValidacao}
+            </span>
+            <span className="text-[10px] font-mono text-slate-600 font-bold">
+              Hash Assinatura: {resultadoS2240.hashAssinaturaXml.substring(0, 24)}...
+            </span>
+          </div>
+
+          <div>
+            <span className="text-[10px] text-slate-600 uppercase font-bold block mb-1">
+              XML Gerado Conforme Schema Oficial eSocial S-1.2:
+            </span>
+            <pre className="p-3 bg-white border border-slate-200 rounded-lg font-mono text-[10px] text-slate-800 overflow-x-auto whitespace-pre leading-relaxed">
+              {resultadoS2240.xmlEvento}
+            </pre>
+          </div>
+        </div>
+      )}
+    </div>
+  )}
 
       {/* Modal Novo Colaborador */}
       {mostrarModalNovo && (

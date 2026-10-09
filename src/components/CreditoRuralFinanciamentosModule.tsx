@@ -131,7 +131,7 @@ const CONTRATOS_INICIAIS: ContratoCreditoRural[] = [
 ];
 
 export const CreditoRuralFinanciamentosModule: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'carteira' | 'cnab240'>('carteira');
+  const [activeTab, setActiveTab] = useState<'carteira' | 'cnab240' | 'planoSafra'>('carteira');
   const [contratos] = useState<ContratoCreditoRural[]>(CONTRATOS_INICIAIS);
 
   // Simulador de Nova Linha de Crédito
@@ -147,6 +147,70 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
   const [conta, setConta] = useState<string>('56789');
   const [gerandoCnab, setGerandoCnab] = useState<boolean>(false);
   const [resultadoCnab, setResultadoCnab] = useState<CnabResponse | null>(null);
+
+  // Estado do Simulador Plano Safra MCR & Dossiê
+  const [safraReceitaBruta, setSafraReceitaBruta] = useState<number>(2400000.0);
+  const [safraValorDesejado, setSafraValorDesejado] = useState<number>(1000000.0);
+  const [safraFinalidade, setSafraFinalidade] = useState<string>('CUSTEIO_LAVOURA');
+  const [safraCar, setSafraCar] = useState<string>('MT-5107909-E8192841029');
+  const [safraAreaHa, setSafraAreaHa] = useState<number>(420.5);
+  const [simulandoSafra, setSimulandoSafra] = useState<boolean>(false);
+  const [resultadoSafra, setResultadoSafra] = useState<any>(null);
+  const [dossieGerado, setDossieGerado] = useState<any>(null);
+
+  const handleSimularPlanoSafra = async () => {
+    setSimulandoSafra(true);
+    try {
+      const res = await fetch('/api/v1/credito/plano-safra/simular', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          receitaBrutaAnualBrl: safraReceitaBruta,
+          valorDesejadoBrl: safraValorDesejado,
+          finalidadeSolicitada: safraFinalidade
+        })
+      });
+      const data = await res.json();
+      setResultadoSafra(data);
+    } catch (err) {
+      console.error('Erro ao simular plano safra:', err);
+    } finally {
+      setSimulandoSafra(false);
+    }
+  };
+
+  const handleGerarDossieMcr = async () => {
+    setSimulandoSafra(true);
+    try {
+      const res = await fetch('/api/v1/credito/dossie/gerar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          produtorNome: razaoSocial,
+          carNumero: safraCar,
+          areaCultivadaHa: safraAreaHa,
+          valorSolicitadoBrl: safraValorDesejado
+        })
+      });
+      const data = await res.json();
+      setDossieGerado(data);
+    } catch (err) {
+      console.error('Erro ao gerar dossie:', err);
+    } finally {
+      setSimulandoSafra(false);
+    }
+  };
+
+  const handleDownloadDossie = () => {
+    if (!dossieGerado) return;
+    const blob = new Blob([JSON.stringify(dossieGerado, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `DOSSIE_BACEN_MCR_${dossieGerado.protocoloDossie || 'PROPOSTA'}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
 
   const [itensPagamento] = useState<ItemPagamentoCnab[]>([
     {
@@ -289,6 +353,18 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
         >
           <FileSpreadsheet className="w-4 h-4" />
           2. Remessa Bancária CNAB 240 (FEBRABAN)
+        </button>
+
+        <button
+          onClick={() => setActiveTab('planoSafra')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+            activeTab === 'planoSafra'
+              ? 'bg-[#285943] text-white shadow-md'
+              : 'bg-slate-50 text-slate-900 hover:bg-emerald-50 border border-slate-200'
+          }`}
+        >
+          <Building className="w-4 h-4" />
+          3. Simulador Plano Safra (BACEN MCR) & Dossiê
         </button>
       </div>
 
@@ -625,6 +701,202 @@ export const CreditoRuralFinanciamentosModule: React.FC = () => {
                     {resultadoCnab.conteudoCnab240}
                   </pre>
                 </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Aba 3: Simulador Plano Safra (BACEN MCR) & Dossiê Bancário */}
+      {activeTab === 'planoSafra' && (
+        <div className="space-y-6">
+          <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm space-y-5">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-4">
+              <div>
+                <h2 className="text-base font-black text-slate-900 flex items-center gap-2">
+                  <Building className="w-5 h-5 text-emerald-700" />
+                  Simulador de Enquadramento do Plano Safra (BACEN MCR 2025/2026)
+                </h2>
+                <p className="text-xs text-slate-600 mt-0.5">
+                  Auditoria de teto, taxas subsidiadas de custeio/investimento e geração de dossiê completo para bancos credenciados.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <span className="px-2.5 py-1 text-[11px] font-bold bg-emerald-50 text-emerald-800 rounded-full border border-emerald-200">
+                  BACEN Res. 4.883
+                </span>
+                <span className="px-2.5 py-1 text-[11px] font-bold bg-blue-50 text-blue-800 rounded-full border border-blue-200">
+                  Equalização Tesouro Nacional
+                </span>
+              </div>
+            </div>
+
+            {/* Formulário de Simulação */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label className="text-xs font-bold text-slate-700 block mb-1">
+                  Receita Bruta Agropecuária Anual (R$)
+                </label>
+                <input
+                  type="number"
+                  value={safraReceitaBruta}
+                  onChange={(e) => setSafraReceitaBruta(Number(e.target.value))}
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900 focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                />
+                <span className="text-[10px] text-slate-600 mt-1 block">
+                  Define enquadramento: PRONAF (até 500k), PRONAMP (até 3M) ou Demais.
+                </span>
+              </div>
+
+              <div>
+                <label className="text-xs font-bold text-slate-700 block mb-1">
+                  Valor Solicitado de Financiamento (R$)
+                </label>
+                <input
+                  type="number"
+                  value={safraValorDesejado}
+                  onChange={(e) => setSafraValorDesejado(Number(e.target.value))}
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900 focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                />
+                <span className="text-[10px] text-slate-600 mt-1 block">
+                  Cálculo de parcelas e margem de garantia MCR.
+                </span>
+              </div>
+
+              <div>
+                <label className="text-xs font-bold text-slate-700 block mb-1">
+                  Finalidade / Destinação do Recurso
+                </label>
+                <select
+                  value={safraFinalidade}
+                  onChange={(e) => setSafraFinalidade(e.target.value)}
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-bold text-slate-900 focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                >
+                  <option value="CUSTEIO_LAVOURA">Custeio Agrícola (Sementes, Insumos & Adubo)</option>
+                  <option value="MODERFROTA_TRATORES">MODERFROTA (Tratores & Colheitadeiras)</option>
+                  <option value="PROIRRIGA_PIVO">PROIRRIGA (Pivôs & Irrigação de Precisão)</option>
+                  <option value="PCA_ARMAZENS">PCA (Construção de Silos & Armazenagem)</option>
+                  <option value="INOVAGRO_SOFTWARE">INOVAGRO (Softwares, Drones & Telemetria)</option>
+                </select>
+                <span className="text-[10px] text-slate-600 mt-1 block">
+                  Linha oficial conforme Manual de Crédito Rural.
+                </span>
+              </div>
+            </div>
+
+            <div className="flex justify-end gap-3 pt-2 border-t border-slate-100">
+              <button
+                onClick={handleSimularPlanoSafra}
+                disabled={simulandoSafra}
+                className="px-5 py-2.5 bg-[#285943] hover:bg-[#1D4B38] text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-sm transition-all cursor-pointer disabled:opacity-50"
+              >
+                <Sparkles className="w-4 h-4" />
+                {simulandoSafra ? 'Calculando MCR...' : 'Simular Linhas Oficiais'}
+              </button>
+            </div>
+
+            {/* Painel do Resultado da Simulação */}
+            {resultadoSafra && resultadoSafra.sucesso && (
+              <div className="bg-slate-50 border border-emerald-300/60 rounded-xl p-5 space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <div className="bg-white p-3 rounded-lg border border-slate-200">
+                    <span className="text-[10px] text-slate-600 font-bold uppercase block">Enquadramento Oficial</span>
+                    <span className="text-sm font-black text-emerald-800 block mt-1">
+                      {resultadoSafra.enquadramento.linhaNome}
+                    </span>
+                    <span className="text-[10px] text-slate-600">{resultadoSafra.perfilProdutor.descricao}</span>
+                  </div>
+
+                  <div className="bg-white p-3 rounded-lg border border-slate-200">
+                    <span className="text-[10px] text-slate-600 font-bold uppercase block">Taxa de Juros Subsidiada</span>
+                    <span className="text-sm font-black text-[#285943] font-mono block mt-1">
+                      {resultadoSafra.enquadramento.taxaJurosAnual}
+                    </span>
+                    <span className="text-[10px] text-emerald-700 font-bold">
+                      Economia vs Mercado: -{resultadoSafra.economiaEstimadaMercado.diferencialPctAoAno}% a.a.
+                    </span>
+                  </div>
+
+                  <div className="bg-white p-3 rounded-lg border border-slate-200">
+                    <span className="text-[10px] text-slate-600 font-bold uppercase block">Prazo & Carência</span>
+                    <span className="text-sm font-black text-slate-800 block mt-1">
+                      {resultadoSafra.enquadramento.prazoMaximoAnos} Anos
+                    </span>
+                    <span className="text-[10px] text-slate-600">
+                      Carência de até {resultadoSafra.enquadramento.carenciaMaximaAnos} ano(s)
+                    </span>
+                  </div>
+
+                  <div className="bg-white p-3 rounded-lg border border-slate-200">
+                    <span className="text-[10px] text-slate-600 font-bold uppercase block">Economia Anual de Juros</span>
+                    <span className="text-sm font-black text-emerald-700 font-mono block mt-1">
+                      R$ {resultadoSafra.economiaEstimadaMercado.economiaJurosAnualBrl.toLocaleString('pt-BR')}
+                    </span>
+                    <span className="text-[10px] text-slate-600">Subsídio do Tesouro Nacional</span>
+                  </div>
+                </div>
+
+                {/* Bloco de Emissão do Dossiê */}
+                <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <h3 className="text-xs font-black text-slate-900 flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4 text-emerald-700" />
+                      Dossiê Bancário Padronizado (Bacen MCR)
+                    </h3>
+                    <p className="text-[11px] text-slate-600">
+                      Inclui certidões negativas, CAR homologado, laudo ZARC e cronograma de desembolso para BB, Sicredi e Sicoob.
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={handleGerarDossieMcr}
+                    disabled={simulandoSafra}
+                    className="px-4 py-2 bg-[#5F8F52] hover:bg-[#285943] text-white text-xs font-bold rounded-xl flex items-center gap-2 shadow-sm transition-all cursor-pointer"
+                  >
+                    <FileText className="w-4 h-4" />
+                    Gerar Dossiê da Proposta
+                  </button>
+                </div>
+
+                {/* Exibição do Dossiê Gerado */}
+                {dossieGerado && (
+                  <div className="bg-white border border-slate-200 rounded-lg p-4 space-y-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-2">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-700" />
+                        <span className="text-xs font-black text-slate-900">
+                          Protocolo Oficial: {dossieGerado.protocoloDossie}
+                        </span>
+                        <span className="px-2 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-800 rounded">
+                          {dossieGerado.statusDossie}
+                        </span>
+                      </div>
+
+                      <button
+                        onClick={handleDownloadDossie}
+                        className="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white rounded text-xs font-bold flex items-center gap-1.5 cursor-pointer"
+                      >
+                        <Download className="w-3.5 h-3.5" /> Baixar Dossiê Completo (.JSON)
+                      </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                      <div>
+                        <span className="text-[10px] text-slate-600 block uppercase font-bold">Imóvel & CAR:</span>
+                        <span className="font-mono text-slate-800 font-semibold">{dossieGerado.documentoFormatado.imovelRural.carNumero}</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-slate-600 block uppercase font-bold">Aptidão Agroclimática:</span>
+                        <span className="text-emerald-700 font-semibold">{dossieGerado.documentoFormatado.analiseZarc.aptidao}</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-slate-600 block uppercase font-bold">Garantia Obrigatória:</span>
+                        <span className="text-slate-800 font-semibold">{dossieGerado.documentoFormatado.garantiasOferecidas.garantiaPrincipal}</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>

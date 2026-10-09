@@ -25,7 +25,7 @@ interface CertificadoRenovabio {
 }
 
 export const RenovabioCalculadoraCbioModule: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'certificados' | 'renovacalc' | 'b3mercado' | 'simulador'>('certificados');
+  const [activeTab, setActiveTab] = useState<'certificados' | 'renovacalc' | 'b3mercado' | 'simulador' | 'auditoriaElegibilidade'>('certificados');
 
   // Parâmetros do Simulador
   const [etanolProduzidoM3, setEtanolProduzidoM3] = useState<number>(45000);
@@ -33,6 +33,49 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
   const [notaEficienciaEnergeticaGCo2Mj, setNotaEficienciaEnergeticaGCo2Mj] = useState<number>(62.8);
   const [precoMedioCbioB3Reais, setPrecoMedioCbioB3Reais] = useState<number>(95.0);
   const [custoAuditoriaRenovabioReais, setCustoAuditoriaRenovabioReais] = useState<number>(140000);
+
+  // Estado Auditoria Marco 2018 & Emissão CBIOs
+  const [carAuditoria, setCarAuditoria] = useState<string>('MT-5107909-E8192841029');
+  const [anoAberturaArea, setAnoAberturaArea] = useState<number>(2014);
+  const [volumeSojaBiodieselTon, setVolumeSojaBiodieselTon] = useState<number>(28000);
+  const [auditandoElegibilidade, setAuditandoElegibilidade] = useState<boolean>(false);
+  const [resultadoElegibilidade, setResultadoElegibilidade] = useState<any>(null);
+  const [resultadoEmissaoCbio, setResultadoEmissaoCbio] = useState<any>(null);
+
+  const handleAuditarElegibilidadeRenovabio = async () => {
+    setAuditandoElegibilidade(true);
+    try {
+      const resEleg = await fetch('/api/v1/renovabio/elegibilidade/auditar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          carNumero: carAuditoria,
+          anoAberturaArea: anoAberturaArea,
+          sobreposicaoTerrasProtegidas: false
+        })
+      });
+      const dataEleg = await resEleg.json();
+      setResultadoElegibilidade(dataEleg);
+
+      // Calcula também a emissão em tempo real
+      const resEmissao = await fetch('/api/v1/renovabio/cbio/calcular-emissao', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          culturaBiomassa: 'SOJA_PARA_BIODIESEL',
+          volumeProducaoTon: volumeSojaBiodieselTon,
+          intensidadeCarbonoAgricolaGCo2Mj: 24.8,
+          cotacaoCbioB3Brl: precoMedioCbioB3Reais
+        })
+      });
+      const dataEmissao = await resEmissao.json();
+      setResultadoEmissaoCbio(dataEmissao);
+    } catch (err) {
+      console.error('Erro na auditoria RenovaBio:', err);
+    } finally {
+      setAuditandoElegibilidade(false);
+    }
+  };
 
   const [certificados, setCertificados] = useState<CertificadoRenovabio[]>([
     {
@@ -231,6 +274,18 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
           <DollarSign className="w-4 h-4" />
           Simulador Econômico
         </button>
+
+        <button
+          onClick={() => setActiveTab('auditoriaElegibilidade')}
+          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+            activeTab === 'auditoriaElegibilidade'
+              ? 'bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold shadow-2xs cursor-pointer'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-semibold cursor-pointer'
+          }`}
+        >
+          <ShieldCheck className="w-4 h-4" />
+          Auditoria Marco 2018 (ANP & B3)
+        </button>
       </div>
 
       {/* Conteúdo das Abas */}
@@ -423,6 +478,112 @@ export const RenovabioCalculadoraCbioModule: React.FC = () => {
               </span>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Aba 5: Auditoria Marco 2018 (ANP & B3) */}
+      {activeTab === 'auditoriaElegibilidade' && (
+        <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-6 shadow-xs">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-4">
+            <div>
+              <h3 className="text-base font-black text-slate-900 flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-emerald-700" />
+                Auditoria de Elegibilidade RenovaBio (Marco 27/11/2018) & Projeção B3
+              </h3>
+              <p className="text-xs text-slate-600 mt-0.5">
+                Validação de desmatamento zero via PRODES/INPE, cálculo de NEEA comparativa e receita líquida em leilões B3.
+              </p>
+            </div>
+
+            <button
+              onClick={handleAuditarElegibilidadeRenovabio}
+              disabled={auditandoElegibilidade}
+              className="px-5 py-2.5 bg-[#285943] hover:bg-[#1D4B38] text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-sm transition-all cursor-pointer disabled:opacity-50"
+            >
+              <Recycle className="w-4 h-4" />
+              {auditandoElegibilidade ? 'Auditando Satélite...' : 'Executar Auditoria & Calcular CBIOs'}
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label className="text-xs font-bold text-slate-700 block mb-1">Número do CAR da Fazenda</label>
+              <input
+                type="text"
+                value={carAuditoria}
+                onChange={(e) => setCarAuditoria(e.target.value)}
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900"
+              />
+            </div>
+            <div>
+              <label className="text-xs font-bold text-slate-700 block mb-1">Ano de Consolidação / Abertura</label>
+              <input
+                type="number"
+                value={anoAberturaArea}
+                onChange={(e) => setAnoAberturaArea(Number(e.target.value))}
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900"
+              />
+              <span className="text-[10px] text-slate-500 mt-0.5 block">Marco limite da ANP: 2018</span>
+            </div>
+            <div>
+              <label className="text-xs font-bold text-slate-700 block mb-1">Volume de Soja para Biodiesel (ton)</label>
+              <input
+                type="number"
+                value={volumeSojaBiodieselTon}
+                onChange={(e) => setVolumeSojaBiodieselTon(Number(e.target.value))}
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-900"
+              />
+            </div>
+          </div>
+
+          {resultadoElegibilidade && (
+            <div className="bg-slate-50 border border-emerald-300/60 rounded-xl p-5 space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-3">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-700" />
+                  <div>
+                    <span className="text-xs font-black text-slate-900 block">
+                      Status: {resultadoElegibilidade.statusElegibilidade}
+                    </span>
+                    <span className="text-[11px] text-slate-600">
+                      Fator de Elegibilidade: {resultadoElegibilidade.fatorElegibilidadePercentual}% • Marco Temporal 2018 Atendido
+                    </span>
+                  </div>
+                </div>
+                <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-lg text-xs font-bold border border-emerald-200">
+                  APTO CERTIFICAGRO ANP
+                </span>
+              </div>
+
+              {resultadoEmissaoCbio && resultadoEmissaoCbio.sucesso && (
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                  <div className="bg-white p-3.5 rounded-xl border border-slate-200">
+                    <span className="text-[10px] uppercase font-bold text-slate-600 block">NEEA da Cultura</span>
+                    <span className="text-base font-black text-emerald-800 font-mono block mt-1">
+                      {resultadoEmissaoCbio.calculoNeea.neeaGCo2Mj} g CO₂eq/MJ
+                    </span>
+                    <span className="text-[10px] text-slate-500">Eficiência vs fóssil (86,5 g/MJ)</span>
+                  </div>
+
+                  <div className="bg-white p-3.5 rounded-xl border border-slate-200">
+                    <span className="text-[10px] uppercase font-bold text-slate-600 block">CBIOs Gerados</span>
+                    <span className="text-base font-black text-emerald-800 font-mono block mt-1">
+                      {resultadoEmissaoCbio.saldoCbios.totalCbiosEmitidos.toLocaleString('pt-BR')} Títulos
+                    </span>
+                    <span className="text-[10px] text-slate-500">1 CBIO = 1 t CO₂ evitada</span>
+                  </div>
+
+                  <div className="bg-white p-3.5 rounded-xl border border-slate-200">
+                    <span className="text-[10px] uppercase font-bold text-slate-600 block">Receita Líquida B3</span>
+                    <span className="text-base font-black text-emerald-700 font-mono block mt-1">
+                      R$ {resultadoEmissaoCbio.saldoCbios.receitaLiquidaProdutorBrl.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                    </span>
+                    <span className="text-[10px] text-slate-500">Cotação: R$ {resultadoEmissaoCbio.saldoCbios.cotacaoCbioBrl}/CBIO</span>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       )}
     </div>

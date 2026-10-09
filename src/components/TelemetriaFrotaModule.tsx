@@ -22,6 +22,46 @@ import { MAQUINAS_INICIAIS, MaquinaData } from '../data/mockAgroData';
 export const TelemetriaFrotaModule: React.FC = () => {
   const [maquinas, setMaquinas] = useState<MaquinaData[]>(MAQUINAS_INICIAIS);
   const [isSimulating, setIsSimulating] = useState<boolean>(true);
+  const [sseConectado, setSseConectado] = useState<boolean>(false);
+  const [ultimoPingSse, setUltimoPingSse] = useState<string>('Aguardando SSE...');
+
+  // Conexão Server-Sent Events (SSE) para Telemetria em Tempo Real
+  useEffect(() => {
+    let es: EventSource | null = null;
+    try {
+      es = new EventSource('/api/v1/telemetria/stream');
+      es.onopen = () => setSseConectado(true);
+      es.onmessage = (event) => {
+        try {
+          const dados = JSON.parse(event.data);
+          setUltimoPingSse(new Date().toLocaleTimeString('pt-BR'));
+          if (dados && dados.tag) {
+            setMaquinas((prev) =>
+              prev.map((maq) =>
+                maq.tag === dados.tag
+                  ? {
+                      ...maq,
+                      rpmMotor: dados.rpm || maq.rpmMotor,
+                      velocidadeKmh: dados.velocidadeKmh || maq.velocidadeKmh,
+                      consumoInstantaneoLh: dados.consumoInstantaneoLh || maq.consumoInstantaneoLh,
+                      temperaturaMotorC: dados.temperaturaMotorC || maq.temperaturaMotorC
+                    }
+                  : maq
+              )
+            );
+          }
+        } catch {
+          // fallback silencioso
+        }
+      };
+      es.onerror = () => setSseConectado(false);
+    } catch {
+      setSseConectado(false);
+    }
+    return () => {
+      if (es) es.close();
+    };
+  }, []);
 
   // Efeito de telemetria CAN Bus em tempo real (simula oscilação de sensores a cada 3 segundos)
   useEffect(() => {
@@ -68,6 +108,10 @@ export const TelemetriaFrotaModule: React.FC = () => {
             <span className="px-2.5 py-0.5 bg-emerald-100 text-emerald-900 border border-emerald-300 rounded-md text-xs font-bold flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-emerald-600 animate-ping"></span>
               Telemetria CAN Bus J1939 & TimescaleDB
+            </span>
+            <span className={`px-2 py-0.5 rounded text-[11px] font-bold border flex items-center gap-1 ${sseConectado ? 'bg-emerald-50 text-emerald-800 border-emerald-300' : 'bg-slate-100 text-slate-700 border-slate-300'}`}>
+              <Radio className="w-3 h-3 text-emerald-700" />
+              {sseConectado ? `SSE Ao Vivo Ativo (${ultimoPingSse})` : 'Conectando Stream SSE...'}
             </span>
             <span className="text-xs text-slate-500 font-medium">Transmissão IoT 4G / Starlink Rural</span>
           </div>

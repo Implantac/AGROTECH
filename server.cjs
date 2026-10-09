@@ -42,6 +42,7 @@ const { calcularEtoPenmanMonteith, processarBalancoHidricoTalhao, gerarJanelaPul
 const { LINHAS_PLANO_SAFRA, simularCreditoRural, gerarDossieBancario } = require('./src/services/planoSafraCreditoService.cjs');
 const { CHECKLIST_NR31, auditarConformidadeNr31, gerarEventoS2240eSocial } = require('./src/services/nr31EsocialService.cjs');
 const { FOSSIL_REFERENCIA, auditarElegibilidadeRenovabio, calcularEmissaoCbios } = require('./src/services/renovabioCbioAvancadoService.cjs');
+const { parseOfxContent, gerarLancamentosLcdprQ100 } = require('./src/services/ofxConciliacaoService.cjs');
 
 const { telemetryEngine } = require('./src/services/telemetryIngestionEngine.cjs');
 
@@ -1787,6 +1788,51 @@ const server = http.createServer((req, res) => {
       const calculoCbio = calcularEmissaoCbios(body);
       res.statusCode = 200;
       res.end(JSON.stringify(calculoCbio));
+    });
+    return;
+  }
+
+  // 3.0.18 API: Conciliação Bancária OFX & Automação do Livro Caixa Digital (LCDPR)
+  if (pathname === '/api/v1/financeiro/ofx/importar' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      try {
+        const conteudoOfx = body.conteudoOfx || body.rawOfx || body.arquivo;
+        if (!conteudoOfx) {
+          res.statusCode = 400;
+          res.end(JSON.stringify({ sucesso: false, erro: 'Campo conteudoOfx é obrigatório.' }));
+          return;
+        }
+        const resultadoOfx = parseOfxContent(conteudoOfx);
+        res.statusCode = 200;
+        res.end(JSON.stringify({ sucesso: true, ...resultadoOfx }));
+      } catch (err) {
+        res.statusCode = 400;
+        res.end(JSON.stringify({ sucesso: false, erro: err.message }));
+      }
+    });
+    return;
+  }
+
+  if (pathname === '/api/v1/financeiro/ofx/conciliar' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      try {
+        const transacoes = body.transacoes || [];
+        const matriculaImovel = body.matriculaImovel || '001';
+        const cnpjCpfTitular = body.cnpjCpfTitular || '12.345.678/0001-90';
+        const lancamentosQ100 = gerarLancamentosLcdprQ100(transacoes, matriculaImovel, cnpjCpfTitular);
+        res.statusCode = 200;
+        res.end(JSON.stringify({
+          sucesso: true,
+          totalLancamentosQ100: lancamentosQ100.length,
+          statusIntegracao: 'INTEGRADO_AO_LIVRO_CAIXA_SPED',
+          lancamentosQ100
+        }));
+      } catch (err) {
+        res.statusCode = 400;
+        res.end(JSON.stringify({ sucesso: false, erro: err.message }));
+      }
     });
     return;
   }
