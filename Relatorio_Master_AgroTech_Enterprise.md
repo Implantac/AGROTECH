@@ -386,6 +386,59 @@ O motor `remoteSensingIndicesService.cjs` processa as bandas espectrais do saté
 - Implementada a suíte `scripts/test_barter_sanidade_balancohidrico_e2e.mjs`.
 - Total de **16 suítes automatizadas** aprovadas com 100% de sucesso no comando `npm test`.
 
+---
+
+### 20. Módulos de Soberania Financeira, Trabalhista e Bioenergia: Plano Safra BACEN MCR, NR-31 / eSocial SST e RenovaBio CBIO Avançado
+
+#### 20.1. Simulador do Plano Safra (BACEN MCR) & Gerador de Dossiê Bancário Padronizado
+- **Serviço**: `src/services/planoSafraCreditoService.cjs`.
+- **Enquadramento Oficial do Produtor Rural**:
+  - *PRONAF*: Receita bruta anual de até R$ 500.000,00, taxas subsidiadas de 0,5% a 6,0% a.a., limite até R$ 420.000,00.
+  - *PRONAMP*: Receita bruta de R$ 500.000,01 até R$ 3.000.000,00, taxas de juros de 8,0% a.a., limite até R$ 1.500.000,00.
+  - *DEMAIS PRODUTORES*: Taxas livres/controladas de 12,0% a 14,0% a.a.
+- **Linhas Oficiais de Investimento MCR**:
+  - *MODERFROTA*: Aquisição e modernização de tratores, colheitadeiras e pulverizadores autopropelidos (Taxa: 10,5% a.a., prazo de até 7 anos).
+  - *PROIRRIGA*: Implantação e ampliação de pivôs centrais e sistemas de gotejamento (Taxa: 10,5% a.a., prazo de até 10 anos).
+  - *PCA*: Construção de silos, armazéns graneleiros e secadores (Taxa: 8,5% a.a. para até 6 mil toneladas, prazo de até 12 anos).
+  - *INOVAGRO*: Aquisição de softwares agro, telemetria IoT, drones agrícolas e estações meteorológicas (Taxa: 10,5% a.a., prazo de até 8 anos).
+- **Gerador de Dossiê Bancário MCR**:
+  - Compilação estruturada de Matrícula do Imóvel, CAR Ativo sem embargos, Laudo de Aptidão Climática ZARC, Orçamento Físico-Financeiro, Cronograma de Desembolso e Projeção de Fluxo de Caixa.
+  - Emissão de protocolo homologado pronto para submissão direta no Banco do Brasil, Sicredi, Sicoob, Bradesco e Caixa Econômica Federal.
+- **Endpoints REST**: `POST /api/v1/credito/plano-safra/simular` e `POST /api/v1/credito/dossie/gerar`.
+
+#### 20.2. Auditoria de Conformidade Trabalhista NR-31 & Eventos de SST do eSocial Rural (S-2240)
+- **Serviço**: `src/services/nr31EsocialService.cjs`.
+- **Auditoria de Conformidade com a NR-31 (Portaria MTP nº 667/2021)**:
+  - Verificação de EPIs completos para aplicação de agrotóxicos (macacão hidrorrepelente, respirador com filtro de carvão ativado P2/P3, viseira de policarbonato, luvas de nitrila e botas de cano longo).
+  - Áreas de vivência móveis no campo (instalações sanitárias higienizadas com separação por gênero, lavatórios com sabão líquido e água potável, refeitório com assentos e mesas protegidos do sol/chuva).
+  - Máquinas e Implementos: Proteção de tomada de potência (TDP/Cardan), estrutura de proteção contra capotamento (ROPS/EPCC) e cinto de segurança.
+  - Classificação de Risco Operacional: *CONFORME_RISCO_ZERO*, *CONFORME_COM_NOTAS*, *RISCO_MODERADO_INSPECAO_NECESSARIA* ou *NAO_CONFORME_RISCO_INTERDICAO*.
+- **Gerador do Evento S-2240 (Condições Ambientais do Trabalho - Agentes Nocivos)**:
+  - Layout oficial S-1.2 do eSocial Rural.
+  - Mapeamento de agentes nocivos físicos (Ruído contínuo e intermitente - Código 01.01.002, Vibração de corpo inteiro - Código 01.03.001) e químicos (Defensivos organofosforados / glifosato - Código 02.01.001).
+  - Geração de XML assinado com hash de integridade SHA-256 e referência a Laudo Técnico das Condições Ambientais de Trabalho (LTCAT).
+- **Endpoints REST**: `POST /api/v1/trabalhista/nr31/auditoria` e `POST /api/v1/trabalhista/esocial/evento-s2240`.
+
+#### 20.3. Motor Avançado RenovaBio CBIO (CertificAgro), Nota de Eficiência Energético-Ambiental (NEEA) e Projeção B3
+- **Serviço**: `src/services/renovabioCbioAvancadoService.cjs`.
+- **Auditoria de Elegibilidade e Desmatamento Zero (Lei 13.576/2017 - ANP)**:
+  - Marco Temporal: Verificação de que não houve supressão de vegetação nativa na propriedade rural após 27 de novembro de 2018 (conforme dados do PRODES/INPE).
+  - Validação de CAR ativo no SICAR e ausência de sobreposição com Terras Indígenas (TI) e Unidades de Conservação de Proteção Integral (UC).
+  - Fator de Elegibilidade ($F_{eleg}$): Cálculo da fração percentual da biomassa apta a gerar CBIOs.
+- **Cálculo da Nota de Eficiência Energético-Ambiental (NEEA)**:
+  - Fórmulas oficiais ANP: $\text{NEEA} = \text{IC}_{\text{fóssil referência}} - \text{IC}_{\text{biomassa}}$.
+  - Parâmetros comparativos: Diesel fóssil (86,5 g CO2eq/MJ), Gasolina fóssil (87,4 g CO2eq/MJ).
+  - Intensidade de Carbono Agrícola: Ingestão de emissões de fertilizantes nitrogenados, consumo de diesel em operações de campo e transporte até a usina.
+- **Emissão e Projeção de Faturamento de CBIOs na B3**:
+  - Conversão de toneladas de cana-de-açúcar, grãos de soja ou milho em CBIOs (1 CBIO = 1 tonelada de CO2 evitado de ser lançado na atmosfera).
+  - Marcação a mercado com cotação atualizada na B3 (ex: R$ 105,00 por CBIO) e apuração da receita líquida do produtor rural após taxa de custódia e intermediação da usina/distribuidora.
+- **Endpoints REST**: `POST /api/v1/renovabio/elegibilidade/auditar` e `POST /api/v1/renovabio/cbio/calcular-emissao`.
+
+#### 20.4. Homologação Completa E2E (17 de 17 Suítes Aprovadas)
+- Implementada a suíte `scripts/test_plano_safra_nr31_renovabio_e2e.mjs`.
+- Total de **17 suítes automatizadas** aprovadas com 100% de sucesso no comando `npm test`.
+
+
 
 
 

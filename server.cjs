@@ -39,6 +39,9 @@ const { gerarPassaporteLoteGrao } = require('./src/services/rastreabilidadeGraoS
 const { MERCADO_COMMODITIES, calcularRelacaoTroca, emitirCprDigital } = require('./src/services/cprBarterService.cjs');
 const { emitirCfoDigital, emitirGtaDigital } = require('./src/services/defesaSanitariaService.cjs');
 const { calcularEtoPenmanMonteith, processarBalancoHidricoTalhao, gerarJanelaPulverizacao15Dias } = require('./src/services/balancoHidricoPreditivoService.cjs');
+const { LINHAS_PLANO_SAFRA, simularCreditoRural, gerarDossieBancario } = require('./src/services/planoSafraCreditoService.cjs');
+const { CHECKLIST_NR31, auditarConformidadeNr31, gerarEventoS2240eSocial } = require('./src/services/nr31EsocialService.cjs');
+const { FOSSIL_REFERENCIA, auditarElegibilidadeRenovabio, calcularEmissaoCbios } = require('./src/services/renovabioCbioAvancadoService.cjs');
 
 const { telemetryEngine } = require('./src/services/telemetryIngestionEngine.cjs');
 
@@ -1722,6 +1725,69 @@ const server = http.createServer((req, res) => {
     const janela = gerarJanelaPulverizacao15Dias();
     res.statusCode = 200;
     res.end(JSON.stringify(janela));
+    return;
+  }
+
+  // 3.0.15 API: Simulador do Plano Safra e Dossiê Bancário MCR
+  if (pathname === '/api/v1/credito/plano-safra/simular' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const resultado = simularCreditoRural(body);
+      res.statusCode = 200;
+      res.end(JSON.stringify(resultado));
+    });
+    return;
+  }
+
+  if (pathname === '/api/v1/credito/dossie/gerar' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const dossie = gerarDossieBancario(body);
+      res.statusCode = 200;
+      res.end(JSON.stringify(dossie));
+    });
+    return;
+  }
+
+  // 3.0.16 API: Conformidade Trabalhista NR-31 & Eventos eSocial Rural
+  if (pathname === '/api/v1/trabalhista/nr31/auditoria' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const laudo = auditarConformidadeNr31(body);
+      res.statusCode = 200;
+      res.end(JSON.stringify(laudo));
+    });
+    return;
+  }
+
+  if (pathname === '/api/v1/trabalhista/esocial/evento-s2240' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const evento = gerarEventoS2240eSocial(body);
+      res.statusCode = 201;
+      res.end(JSON.stringify(evento));
+    });
+    return;
+  }
+
+  // 3.0.17 API: Motor RenovaBio CBIO Avançado (CertificAgro)
+  if (pathname === '/api/v1/renovabio/elegibilidade/auditar' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const elegibilidade = auditarElegibilidadeRenovabio(body);
+      res.statusCode = 200;
+      res.end(JSON.stringify(elegibilidade));
+    });
+    return;
+  }
+
+  if (pathname === '/api/v1/renovabio/cbio/calcular-emissao' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const calculoCbio = calcularEmissaoCbios(body);
+      res.statusCode = 200;
+      res.end(JSON.stringify(calculoCbio));
+    });
     return;
   }
 
