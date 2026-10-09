@@ -36,6 +36,9 @@ const { processarSensoriamentoTalhao, calcularNdvi, calcularNdre, classificarVig
 const { CATALOGO_AGROFIT, calcularOrdemTanque, validarCarenciaColheita } = require('./src/services/agrofitCaldaService.cjs');
 const { calcularOeeAgricola, avaliarManutencaoPreditivaFrota, PLANO_MANUTENCAO_PREVENTIVA } = require('./src/services/oeeManutencaoPreditivaService.cjs');
 const { gerarPassaporteLoteGrao } = require('./src/services/rastreabilidadeGraoService.cjs');
+const { MERCADO_COMMODITIES, calcularRelacaoTroca, emitirCprDigital } = require('./src/services/cprBarterService.cjs');
+const { emitirCfoDigital, emitirGtaDigital } = require('./src/services/defesaSanitariaService.cjs');
+const { calcularEtoPenmanMonteith, processarBalancoHidricoTalhao, gerarJanelaPulverizacao15Dias } = require('./src/services/balancoHidricoPreditivoService.cjs');
 
 const { telemetryEngine } = require('./src/services/telemetryIngestionEngine.cjs');
 
@@ -1622,6 +1625,103 @@ const server = http.createServer((req, res) => {
 
     res.statusCode = 200;
     res.end(JSON.stringify(lote));
+    return;
+  }
+
+  // 3.0.11 API: Cotações B3/CBOT e Relação de Troca Barter
+  if (pathname === '/api/v1/barter/cotacoes-tempo-real' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    res.statusCode = 200;
+    res.end(JSON.stringify({
+      sucesso: true,
+      mercado: MERCADO_COMMODITIES,
+      atualizadoEm: new Date().toISOString()
+    }));
+    return;
+  }
+
+  if (pathname === '/api/v1/barter/relacao-troca/calcular' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const resultado = calcularRelacaoTroca(body);
+      res.statusCode = 200;
+      res.end(JSON.stringify(resultado));
+    });
+    return;
+  }
+
+  // 3.0.12 API: Emissão de CPR Digital (Lei 13.986/2020) com Registro B3
+  if (pathname === '/api/v1/barter/cpr/emitir' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const tenantValidation = validateTenantAccess(req, body);
+      if (!tenantValidation.allowed) {
+        res.statusCode = tenantValidation.status || 403;
+        res.end(JSON.stringify({ sucesso: false, erro: tenantValidation.erro }));
+        return;
+      }
+      const cpr = emitirCprDigital(body);
+
+      const db = loadDb();
+      if (!db.cprsDigitais) db.cprsDigitais = [];
+      db.cprsDigitais.push(cpr);
+      saveDb(db);
+
+      res.statusCode = 201;
+      res.end(JSON.stringify(cpr));
+    });
+    return;
+  }
+
+  // 3.0.13 API: Defesa Sanitária - Emissão de CFO (Origem Vegetal) e GTA (Trânsito Animal)
+  if (pathname === '/api/v1/sanidade/cfo/emitir' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const cfo = emitirCfoDigital(body);
+
+      const db = loadDb();
+      if (!db.documentosSanitarios) db.documentosSanitarios = [];
+      db.documentosSanitarios.push(cfo);
+      saveDb(db);
+
+      res.statusCode = 201;
+      res.end(JSON.stringify(cfo));
+    });
+    return;
+  }
+
+  if (pathname === '/api/v1/sanidade/gta/emitir' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const gta = emitirGtaDigital(body);
+
+      const db = loadDb();
+      if (!db.documentosSanitarios) db.documentosSanitarios = [];
+      db.documentosSanitarios.push(gta);
+      saveDb(db);
+
+      res.statusCode = 201;
+      res.end(JSON.stringify(gta));
+    });
+    return;
+  }
+
+  // 3.0.14 API: Balanço Hídrico Climatológico FAO-56 Penman-Monteith & Janela Delta T 15D
+  if (pathname.startsWith('/api/v1/clima/balanco-hidrico/talhao') && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    const talhaoId = pathname.split('/').pop() || parsedUrl.searchParams.get('talhaoId') || 'talhao-01';
+    const cultura = parsedUrl.searchParams.get('cultura') || 'SOJA';
+    const balanco = processarBalancoHidricoTalhao({ talhaoId, cultura });
+    res.statusCode = 200;
+    res.end(JSON.stringify(balanco));
+    return;
+  }
+
+  if (pathname === '/api/v1/clima/janela-pulverizacao-15d' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    const janela = gerarJanelaPulverizacao15Dias();
+    res.statusCode = 200;
+    res.end(JSON.stringify(janela));
     return;
   }
 

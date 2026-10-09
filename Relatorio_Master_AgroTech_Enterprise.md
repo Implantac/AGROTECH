@@ -357,6 +357,36 @@ O motor `remoteSensingIndicesService.cjs` processa as bandas espectrais do saté
 - Implementada a suíte `scripts/test_todas_as_melhorias_estrategicas_e2e.mjs` testando todos os 4 pilares.
 - Comando `npm test` executado e aprovado com **100% de sucesso em 15 suítes automatizadas**.
 
+---
+
+### 19. Módulos Avançados de Soberania: CPR Digital B3, Defesa Sanitária (CFO/GTA) e Balanço Hídrico Climatológico
+
+#### 19.1. CPR Digital com Escrituração B3 e Relação de Troca Barter (Lei nº 13.986/2020)
+- **Serviço**: `src/services/cprBarterService.cjs`.
+- **Cédula de Produto Rural**: Emissão de CPR Física ou Financeira com constituição de garantia real (penhor agrícola e patrimônio de afetação).
+- **Escrituração na B3 / CERC**: Protocolo de registro de títulos do agronegócio autorizados pelo Banco Central do Brasil com hash criptográfico SHA-256 da cártula eletrônica.
+- **Barter Ratio Ponderado**: Conversão direta de orçamentos de fertilizantes (MAP, KCl, Ureia) e óleo diesel S10 em sacas de soja ou milho com marcação a mercado diária (CBOT + Prêmio de Porto + Câmbio PTAX).
+- **Endpoints REST**: `GET /api/v1/barter/cotacoes-tempo-real`, `POST /api/v1/barter/relacao-troca/calcular` e `POST /api/v1/barter/cpr/emitir`.
+
+#### 19.2. Defesa Sanitária Oficial: Certificado Fitossanitário de Origem (CFO) e e-GTA (Animal)
+- **Serviço**: `src/services/defesaSanitariaService.cjs`.
+- **CFO Vegetal (IN MAPA nº 33/2016)**: Certificação oficial de ausência de pragas quarentenárias (*Helicoverpa armigera*, *Phakopsora pachyrhizi*, *Amaranthus palmeri*) emitida por Engenheiro Agrônomo habilitado junto ao Ministério da Agricultura para liberação de trânsito interestadual e exportação portuária.
+- **e-GTA Animal (MAPA / INDEA)**: Guia de trânsito animal eletrônica para bovinos de corte destinados a confinamento ou abate frigorífico, auditando histórico vacinal (status de Livre de Aftosa sem vacinação conforme Portaria MAPA 665/2024, Brucelose B19 e Raiva).
+- **Endpoints REST**: `POST /api/v1/sanidade/cfo/emitir` e `POST /api/v1/sanidade/gta/emitir`.
+
+#### 19.3. Balanço Hídrico Climatológico (FAO-56 Penman-Monteith) & Radar Delta T 15 Dias
+- **Serviço**: `src/services/balancoHidricoPreditivoService.cjs`.
+- **Equação Padrão FAO-56 Penman-Monteith**: Cálculo físico da Evapotranspiração de Referência ($ET_0$) a partir de radiação solar global, temperatura diária, umidade relativa e velocidade do vento a 2 metros.
+- **Demanda Específica da Cultura**: $ET_c = ET_0 \times K_c$ parametrizada para as fases de emergência, vegetativo, florescimento e maturação de Soja, Milho e Algodão.
+- **Estoque de Água no Solo**: Monitoramento da Capacidade de Água Disponível (CAD) e Água Facilmente Disponível (AFD) no perfil radicular de 0-40cm, emitindo laudo de irrigação complementar.
+- **Janela Preditiva de Pulverização (15 Dias)**: Matriz horária calculando o índice Delta T (°C - ASABE S572.1) e classificando as janelas seguras contra evaporação de gotas ($>8^\circ\text{C}$), deriva por vento ($>18\text{ km/h}$) ou inversão térmica ($<2^\circ\text{C}$).
+- **Endpoints REST**: `GET /api/v1/clima/balanco-hidrico/talhao/:talhaoId` e `GET /api/v1/clima/janela-pulverizacao-15d`.
+
+#### 19.4. Homologação Completa E2E (16 de 16 Suítes Aprovadas)
+- Implementada a suíte `scripts/test_barter_sanidade_balancohidrico_e2e.mjs`.
+- Total de **16 suítes automatizadas** aprovadas com 100% de sucesso no comando `npm test`.
+
+
 
 
 
