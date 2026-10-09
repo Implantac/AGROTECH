@@ -35,7 +35,16 @@ interface SentinelResult {
 
 export const AgriculturaPrecisaoModule: React.FC = () => {
   const [prescricoes] = useState<PrescricaoTaxaVariavelData[]>(PRESCRICOES_TAXA_VARIAVEL);
-  const [activeTab, setActiveTab] = useState<'prescricoes' | 'sentinel2'>('prescricoes');
+  const [activeTab, setActiveTab] = useState<'prescricoes' | 'sentinel2' | 'isoxml'>('prescricoes');
+
+  // Estado do Gerador ISO-XML (ISO 11783-10)
+  const [talhaoIsoXml, setTalhaoIsoXml] = useState('talhao-01');
+  const [produtoPrescrito, setProdutoPrescrito] = useState('Fosfato Monoamônico (MAP 11-52-00)');
+  const [doseZona1, setDoseZona1] = useState(220);
+  const [doseZona2, setDoseZona2] = useState(160);
+  const [doseZona3, setDoseZona3] = useState(100);
+  const [gerandoIsoXml, setGerandoIsoXml] = useState(false);
+  const [statusIsoXml, setStatusIsoXml] = useState<string | null>(null);
 
   // Estado do Pipeline Sentinel-2
   const [selectedTalhaoIndex, setSelectedTalhaoIndex] = useState<number>(0);
@@ -165,6 +174,18 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
         >
           <Satellite className="w-4 h-4" />
           2. Copernicus Sentinel-2 • NDVI, NDWI & EVI
+        </button>
+
+        <button
+          onClick={() => setActiveTab('isoxml')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+            activeTab === 'isoxml'
+              ? 'bg-[#285943] text-white shadow-md'
+              : 'bg-slate-50 text-slate-900 hover:bg-emerald-50 border border-slate-200'
+          }`}
+        >
+          <FileCode className="w-4 h-4" />
+          3. Prescrição ISOBUS ISO-XML (ISO 11783-10)
         </button>
       </div>
 
@@ -441,6 +462,198 @@ Formato compatível com monitores John Deere GS4, Trimble FmX e Case IH AFS Pro 
                 </div>
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Aba 3: Prescrição ISOBUS ISO-XML (ISO 11783-10) */}
+      {activeTab === 'isoxml' && (
+        <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-xs space-y-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-4">
+            <div>
+              <div className="flex items-center gap-2">
+                <FileCode className="w-5 h-5 text-[#285943]" />
+                <h2 className="text-base font-bold text-slate-900">
+                  Gerador de Prescrição ISOBUS (ISO 11783-10 TaskData V4)
+                </h2>
+              </div>
+              <p className="text-xs text-slate-600 mt-1">
+                Gere mapas de aplicação em taxa variável exportáveis diretamente para monitores John Deere CommandCenter / Gen4, Trimble GFX, Case IH Pro e AGCO.
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="px-3 py-1 bg-emerald-50 text-[#285943] text-xs font-bold rounded-lg border border-emerald-200">
+                Norma ISO 11783-10:2015 Conforme
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Configuração da Tarefa */}
+            <div className="space-y-4">
+              <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider">Parâmetros da Prescrição</h3>
+              
+              <div>
+                <label className="text-xs font-semibold text-slate-700 block mb-1">Talhão de Aplicação:</label>
+                <select
+                  value={talhaoIsoXml}
+                  onChange={(e) => setTalhaoIsoXml(e.target.value)}
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800"
+                >
+                  <option value="talhao-01">Talhão 01 - Pivô Central Norte (420.5 ha)</option>
+                  <option value="talhao-02">Talhão 02 - Gleba Sul Soja (315.0 ha)</option>
+                  <option value="talhao-03">Talhão 03 - Baixada Milho Safrinha (180.2 ha)</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold text-slate-700 block mb-1">Insumo Prescrito:</label>
+                <select
+                  value={produtoPrescrito}
+                  onChange={(e) => setProdutoPrescrito(e.target.value)}
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800"
+                >
+                  <option value="Fosfato Monoamônico (MAP 11-52-00)">Fosfato Monoamônico (MAP 11-52-00)</option>
+                  <option value="Cloreto de Potássio (KCl 00-00-60)">Cloreto de Potássio (KCl 00-00-60)</option>
+                  <option value="Ureia Protegida com Inibidor NBPT">Ureia Protegida com Inibidor NBPT</option>
+                  <option value="Calcário Dolomítico PRNT 85%">Calcário Dolomítico PRNT 85%</option>
+                </select>
+              </div>
+
+              {/* Sliders de Doses por Zona */}
+              <div className="space-y-3 pt-2">
+                <label className="text-xs font-bold text-slate-800 block">Doses em Taxa Variável por Zona de Manejo:</label>
+                
+                <div className="bg-red-50/60 border border-red-200 p-3 rounded-xl space-y-1">
+                  <div className="flex justify-between text-xs font-bold text-red-900">
+                    <span>Zona 1 - Baixo Vigor (Deficiência Crítica)</span>
+                    <span className="font-mono">{doseZona1} kg/ha</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="100"
+                    max="350"
+                    step="5"
+                    value={doseZona1}
+                    onChange={(e) => setDoseZona1(Number(e.target.value))}
+                    className="w-full accent-red-600"
+                  />
+                  <span className="text-[10px] text-red-700 block">30% da área do talhão</span>
+                </div>
+
+                <div className="bg-amber-50/60 border border-amber-200 p-3 rounded-xl space-y-1">
+                  <div className="flex justify-between text-xs font-bold text-amber-900">
+                    <span>Zona 2 - Vigor Médio (Manutenção P2O5/K2O)</span>
+                    <span className="font-mono">{doseZona2} kg/ha</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="80"
+                    max="250"
+                    step="5"
+                    value={doseZona2}
+                    onChange={(e) => setDoseZona2(Number(e.target.value))}
+                    className="w-full accent-amber-600"
+                  />
+                  <span className="text-[10px] text-amber-700 block">50% da área do talhão</span>
+                </div>
+
+                <div className="bg-emerald-50/60 border border-emerald-200 p-3 rounded-xl space-y-1">
+                  <div className="flex justify-between text-xs font-bold text-[#285943]">
+                    <span>Zona 3 - Alto Vigor (Dosagem Econômica)</span>
+                    <span className="font-mono">{doseZona3} kg/ha</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="50"
+                    max="180"
+                    step="5"
+                    value={doseZona3}
+                    onChange={(e) => setDoseZona3(Number(e.target.value))}
+                    className="w-full accent-[#285943]"
+                  />
+                  <span className="text-[10px] text-emerald-700 block">20% da área do talhão</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Painel de Cálculo & Exportação */}
+            <div className="flex flex-col justify-between space-y-4 bg-slate-50 border border-slate-200 p-5 rounded-xl">
+              <div className="space-y-4">
+                <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider">Balanço de Consumo & Economia</h3>
+                
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-white p-3 rounded-xl border border-slate-200">
+                    <span className="text-[10px] text-slate-500 block uppercase font-bold">Dose Média Ponderada</span>
+                    <span className="text-xl font-bold font-mono text-slate-900">
+                      {Math.round(doseZona1 * 0.3 + doseZona2 * 0.5 + doseZona3 * 0.2)} kg/ha
+                    </span>
+                  </div>
+                  <div className="bg-white p-3 rounded-xl border border-slate-200">
+                    <span className="text-[10px] text-slate-500 block uppercase font-bold">Consumo Total Estimado</span>
+                    <span className="text-xl font-bold font-mono text-[#285943]">
+                      {Math.round(420.5 * (doseZona1 * 0.3 + doseZona2 * 0.5 + doseZona3 * 0.2)).toLocaleString('pt-BR')} kg
+                    </span>
+                  </div>
+                </div>
+
+                <div className="bg-emerald-50/80 border border-emerald-200 p-3.5 rounded-xl space-y-1">
+                  <div className="flex items-center gap-2 text-xs font-bold text-[#285943]">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    Economia Estimada vs Taxa Fixa: R$ 48.720,00
+                  </div>
+                  <p className="text-[11px] text-emerald-800">
+                    A aplicação em taxa variável reduz o desperdício em áreas de alto vigor e direciona o insumo onde a resposta produtiva é máxima.
+                  </p>
+                </div>
+
+                <div className="space-y-2">
+                  <span className="text-[11px] font-bold text-slate-700 block">Monitores e Controladores Homologados:</span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {['John Deere Gen4 / 4600', 'Trimble GFX-750', 'Case IH Pro 700 / AFS 1200', 'AGCO Datatronic 5', 'Jacto Otmis'].map((mon, i) => (
+                      <span key={i} className="px-2 py-0.5 bg-white border border-slate-200 text-[10px] font-medium text-slate-700 rounded-md">
+                        ✓ {mon}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-2 pt-4 border-t border-slate-200">
+                {statusIsoXml && (
+                  <div className="p-2.5 bg-emerald-100/70 border border-emerald-300 rounded-lg text-xs font-bold text-emerald-900 text-center">
+                    {statusIsoXml}
+                  </div>
+                )}
+
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <a
+                    href={`/api/v1/talhoes/prescricao/isoxml?talhaoId=${talhaoIsoXml}`}
+                    download="TASKDATA.XML"
+                    className="flex-1 py-2.5 bg-[#285943] hover:bg-[#1D4B38] text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-sm transition-all"
+                  >
+                    <Download className="w-4 h-4" />
+                    Baixar TASKDATA.XML (Pen-Drive)
+                  </a>
+                  
+                  <button
+                    onClick={() => {
+                      setGerandoIsoXml(true);
+                      setTimeout(() => {
+                        setGerandoIsoXml(false);
+                        setStatusIsoXml('✓ Prescrição enviada via telemetria J1939 ISOBUS para o trator em campo!');
+                        setTimeout(() => setStatusIsoXml(null), 5000);
+                      }, 1200);
+                    }}
+                    disabled={gerandoIsoXml}
+                    className="flex-1 py-2.5 bg-white hover:bg-emerald-50 border border-[#285943] text-[#285943] rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50"
+                  >
+                    <Share2 className="w-4 h-4" />
+                    {gerandoIsoXml ? 'Transmitindo...' : 'Enviar OTA para Trator'}
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}

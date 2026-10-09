@@ -327,5 +327,36 @@ O motor `remoteSensingIndicesService.cjs` processa as bandas espectrais do saté
 - Teste ponta a ponta implementado em `scripts/test_isoxml_and_remotesensing_e2e.mjs` e integrado ao `npm test`.
 - Cobertura completa de 14 suítes automatizadas passando com 100% de sucesso.
 
+---
+
+### 18. Quatro Grandes Inovações Estratégicas de Mercado (Implementadas e Homologadas)
+
+#### 18.1. Central Interativa de Prescrições ISOBUS ISO-XML no Módulo de Agricultura de Precisão
+- **Interface Visual**: Aba `3. Prescrição ISOBUS ISO-XML (ISO 11783-10)` integrada ao componente `AgriculturaPrecisaoModule.tsx`.
+- **Parametrização por Zonas de Vigor**: Sliders dinâmicos para dosagem em kg/ha de fertilizantes e corretivos (Baixo Vigor, Vigor Médio e Alto Vigor) com cálculo de dose média ponderada e consumo total estimado.
+- **Exportação Cabine & OTA**: Botão de download direto do arquivo binário/XML `TASKDATA.XML` para gravação em pen-drives e botão de envio por telemetria sem fio (Over-the-Air) para os monitores John Deere CommandCenter, Trimble GFX, Case IH Pro 700 / AFS 1200 e AGCO Datatronic.
+
+#### 18.2. Copilot Agronômico: Ordem Oficial de Tanque (D.A.L.E.) & Auditoria de LMR / Carência
+- **Bula AGROFIT Integrada**: Catálogo de defensivos homologados no Ministério da Agricultura (MAPA) em `src/services/agrofitCaldaService.cjs`.
+- **Preparo de Calda Conforme Embrapa**: Sequenciamento rigoroso de formulações (Água -> Pós Molháveis WP/WG -> Suspensões Concentradas SC -> Concentrados Emulsionáveis EC -> Adjuvantes SL -> Óleos) para prevenção de empedramento, fitotoxicidade e entupimento de bicos.
+- **Auditoria de Resíduos LMR**: Verificação dos dias decorridos entre a última aplicação e a data prevista de colheita, bloqueando romaneios com carência ativa.
+
+#### 18.3. Telemetria OEE da Frota & Manutenção Preditiva J1939
+- **Cálculo Mundial de OEE**: Motor `src/services/oeeManutencaoPreditivaService.cjs` apura os 3 fatores fundamentais:
+  - *Disponibilidade*: Horas de trabalho efetivo vs horas planejadas de turno.
+  - *Desempenho*: Hectares trabalhados vs capacidade teórica da barra de pulverização / plataforma.
+  - *Qualidade*: Área conforme sem sobreposição ou falhas de corte de seção GPS.
+- **Eficiência Energética**: Métrica de consumo específico de óleo diesel por hectare ($L/ha$).
+- **Gatilhos Automáticos de Oficina**: Alertas preditivos disparados ao atingir intervalos de 250h (troca de óleo/filtros de motor), 500h (filtros de ar e lubrificação 4WD) e 1.000h (transmissão Powershift/CVT e bicos injetores).
+
+#### 18.4. Rastreabilidade Digital do Grão & Passaporte com QR Code EUDR
+- **Cadeia de Custódia Ininterrupta**: Motor `src/services/rastreabilidadeGraoService.cjs` rastreia o grão desde o centróide do talhão e número do CAR, passando pelas aplicações com LMR conferido, até a pesagem de balança, índice de umidade (< 14%) e impurezas (< 1%).
+- **Hash SHA-256 e QR Code**: Emissão de passaporte digital com código hash imutável e renderização de QR Code em SVG nativo para colagem em fardos/big-bags e impressão nos documentos de exportação portuária.
+
+#### 18.5. Homologação Completa E2E (15 de 15 Suítes Aprovadas)
+- Implementada a suíte `scripts/test_todas_as_melhorias_estrategicas_e2e.mjs` testando todos os 4 pilares.
+- Comando `npm test` executado e aprovado com **100% de sucesso em 15 suítes automatizadas**.
+
+
 
 

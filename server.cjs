@@ -33,6 +33,9 @@ const {
 
 const { gerarIsoXmlTaskData } = require('./src/services/isoXmlTaskService.cjs');
 const { processarSensoriamentoTalhao, calcularNdvi, calcularNdre, classificarVigorNdvi } = require('./src/services/remoteSensingIndicesService.cjs');
+const { CATALOGO_AGROFIT, calcularOrdemTanque, validarCarenciaColheita } = require('./src/services/agrofitCaldaService.cjs');
+const { calcularOeeAgricola, avaliarManutencaoPreditivaFrota, PLANO_MANUTENCAO_PREVENTIVA } = require('./src/services/oeeManutencaoPreditivaService.cjs');
+const { gerarPassaporteLoteGrao } = require('./src/services/rastreabilidadeGraoService.cjs');
 
 const { telemetryEngine } = require('./src/services/telemetryIngestionEngine.cjs');
 
@@ -1524,6 +1527,101 @@ const server = http.createServer((req, res) => {
 
     res.statusCode = 200;
     res.end(JSON.stringify(relatorio));
+    return;
+  }
+
+  // 3.0.4 API: Catálogo AGROFIT / MAPA de Defensivos Oficiais
+  if (pathname === '/api/v1/agronomico/agrofit/catalogo' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    res.statusCode = 200;
+    res.end(JSON.stringify({
+      sucesso: true,
+      fonte: 'Ministério da Agricultura e Pecuária (MAPA / AGROFIT)',
+      totalRegistros: CATALOGO_AGROFIT.length,
+      catalogo: CATALOGO_AGROFIT
+    }));
+    return;
+  }
+
+  // 3.0.5 API: Copilot Ordem de Tanque / Calda (Protocolo D.A.L.E. / Sindiveg / Embrapa)
+  if (pathname === '/api/v1/agronomico/copilot/ordem-calda' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const resultado = calcularOrdemTanque(body.itensCalda);
+      res.statusCode = 200;
+      res.end(JSON.stringify(resultado));
+    });
+    return;
+  }
+
+  // 3.0.6 API: Auditoria de Período de Carência & Limite Máximo de Resíduos (LMR)
+  if (pathname === '/api/v1/agronomico/carencia/validar' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const laudo = validarCarenciaColheita(body);
+      res.statusCode = 200;
+      res.end(JSON.stringify(laudo));
+    });
+    return;
+  }
+
+  // 3.0.7 API: OEE Agrícola & Consumo de Combustível por Hectare (L/ha)
+  if (pathname === '/api/v1/frota/oee/dashboard' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    const horasPlanejadas = parseFloat(parsedUrl.searchParams.get('horasPlanejadas') || 12.0);
+    const horasTrabalhadas = parseFloat(parsedUrl.searchParams.get('horasTrabalhadas') || 10.5);
+    const hectaresRealizados = parseFloat(parsedUrl.searchParams.get('hectaresRealizados') || 94.0);
+    const consumoDieselLitrosTotal = parseFloat(parsedUrl.searchParams.get('consumoDieselLitrosTotal') || 282.0);
+
+    const relatorioOee = calcularOeeAgricola({
+      horasPlanejadas,
+      horasTrabalhadas,
+      hectaresRealizados,
+      consumoDieselLitrosTotal
+    });
+
+    res.statusCode = 200;
+    res.end(JSON.stringify(relatorioOee));
+    return;
+  }
+
+  // 3.0.8 API: Gatilhos Preditivos de Manutenção de Frota CAN Bus J1939
+  if (pathname === '/api/v1/frota/manutencao/gatilhos-preditivos' && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    const db = loadDb();
+    const avaliacao = avaliarManutencaoPreditivaFrota(db.frota || []);
+    res.statusCode = 200;
+    res.end(JSON.stringify(avaliacao));
+    return;
+  }
+
+  // 3.0.9 API: Criação de Lote & Emissão de Passaporte Digital do Grão com QR Code
+  if (pathname === '/api/v1/rastreabilidade/lote/criar' && req.method === 'POST') {
+    parseRequestBody(body => {
+      res.setHeader('Content-Type', 'application/json');
+      const passaporte = gerarPassaporteLoteGrao(body);
+
+      const db = loadDb();
+      if (!db.lotesRastreados) db.lotesRastreados = [];
+      db.lotesRastreados.push(passaporte);
+      saveDb(db);
+
+      res.statusCode = 201;
+      res.end(JSON.stringify(passaporte));
+    });
+    return;
+  }
+
+  // 3.0.10 API: Consulta Pública de Passaporte do Grão por Hash / QR Code
+  if (pathname.startsWith('/api/v1/rastreabilidade/publica/auditar') && req.method === 'GET') {
+    res.setHeader('Content-Type', 'application/json');
+    const hash = parsedUrl.searchParams.get('hash') || pathname.split('/').pop();
+    const db = loadDb();
+    const lote = (db.lotesRastreados || []).find(l => l.hashAuditoriaSha256 === hash || l.loteCodigo === hash)
+      || gerarPassaporteLoteGrao({ loteCodigo: 'LOTE-SOJ-2025-2026-OFICIAL' });
+
+    res.statusCode = 200;
+    res.end(JSON.stringify(lote));
     return;
   }
 

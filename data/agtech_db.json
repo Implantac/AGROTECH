@@ -321,7 +321,7 @@
     },
     {
       "type": "Feature",
-      "id": "car-1791543837351",
+      "id": "car-1791544403525",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -350,7 +350,7 @@
         ]
       },
       "properties": {
-        "id": "car-1791543837351",
+        "id": "car-1791544403525",
         "codigo": "TAL-05",
         "nome": "Fazenda AgroTech - Talhão 05 Gleba Sul - Gleba CAR",
         "areaHa": 755.99,
@@ -366,7 +366,7 @@
           "lat": -12.55,
           "lng": -55.715
         },
-        "criadoEm": "2026-10-09T11:03:57.400Z"
+        "criadoEm": "2026-10-09T11:13:23.625Z"
       }
     }
   ],
@@ -387,7 +387,7 @@
       "statusOperacional": "EM_OPERACAO",
       "operador": "Marcos Barreto",
       "pressaoOleoBar": 1.2,
-      "ultimaLeituraCanbus": "2026-10-09T11:03:57.343Z",
+      "ultimaLeituraCanbus": "2026-10-09T11:13:23.507Z",
       "alertasAtivos": [
         {
           "nivel": "CRITICO",
@@ -758,6 +758,39 @@
     }
   ],
   "outboxQueue": [
+    {
+      "id": "op-mip-1791544403742",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791544403742",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-09T11:13:23.742Z",
+      "updatedAt": "2026-10-09T11:13:23.768Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "30ba3792fb1330ca18ecf3494070a489",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791544403742",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791544403742",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-09T11:13:23.742Z",
+      "updatedAt": "2026-10-09T11:13:23.751Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "00d066fb180ce1dd06edfa4ec9a57cd0"
+    },
     {
       "id": "op-mip-1791543837487",
       "tenantId": "tenant-fazenda-santa-helena",
@@ -1866,6 +1899,19 @@
   ],
   "assinaturas": [
     {
+      "id": "sub-1791544403284",
+      "txid": "TX-1791544403284-1995",
+      "reciboFiscalNfse": "NFS-2026-28520",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-09T11:13:23.284Z",
+      "autenticacaoBancaria": "BACEN-AUT-914353954936",
+      "dataConfirmacao": "2026-10-09T11:13:23.316Z"
+    },
+    {
       "id": "sub-1791543837206",
       "txid": "TX-1791543837206-5391",
       "reciboFiscalNfse": "NFS-2026-57244",
@@ -2392,6 +2438,18 @@
   },
   "billingWebhookLogs": [
     {
+      "id": "whk-1791544403316",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-09T11:13:23.316Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791544403284-1995",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
       "id": "whk-1791543837229",
       "evento": "PAYMENT_CONFIRMED",
       "timestamp": "2026-10-09T11:03:57.229Z",
@@ -2835,6 +2893,30 @@
     }
   ],
   "telemetriaHistorico": [
+    {
+      "timestamp": "2026-10-09T11:13:23.507Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
     {
       "timestamp": "2026-10-09T11:03:57.343Z",
       "maquinaId": "TRAT-JD-8R",
@@ -3749,6 +3831,51 @@
     }
   ],
   "eudrDeclarations": [
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-A851773C",
+      "tracesNtId": "TRACES-NT-9AC4CE263B07",
+      "talhaoId": "talhao-09",
+      "carNumero": "MT-5107909-IRREGULAR",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1250,
+      "statusEUDR": "BLOQUEIO_SOCIOAMBIENTAL",
+      "conforme": false,
+      "irregularidades": [
+        {
+          "codigo": "EUDR_VIOLACAO_DESMATAMENTO",
+          "motivo": "Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas)."
+        },
+        {
+          "codigo": "EUDR_SOBREPOSICAO_TI",
+          "motivo": "Sobreposição detectada com Terra Indígena demarcada (FUNAI)."
+        }
+      ],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "795bcd9332de9b7426f12b7f591eb5e74084d5332b35944938aa4afe0ec23183",
+      "emitidoEm": "2026-10-09T11:13:23.844Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-22363",
+      "tracesNtId": "TRACES-NT-3F4CDCA6D3D2",
+      "talhaoId": "talhao-01",
+      "carNumero": "MT-5107909-E8192841029",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1500,
+      "statusEUDR": "APTO_EXPORTACAO_UE",
+      "conforme": true,
+      "irregularidades": [],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "a951d00aff0e6d4c1e623ca528c3a1b62f939bfa86b8b1bc0661318fb1e7cd73",
+      "emitidoEm": "2026-10-09T11:13:23.827Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
     {
       "ddsNumero": "DDS-EUDR-2026-BR-MT-D710F3A0",
       "tracesNtId": "TRACES-NT-3BEE2788DC4B",
@@ -5155,7 +5282,7 @@
         "titular": "SCHNEIDER AGRICULTURA E PECUARIA LTDA",
         "cnpj": "04.812.049/0001-20",
         "emissor": "AC SERASA RFB v5 (ICP-Brasil)",
-        "validadeAte": "2027-10-09T11:03:57.702Z",
+        "validadeAte": "2027-10-09T11:13:24.029Z",
         "diasRestantesValidade": 365,
         "status": "VALIDO",
         "ufAutorizadora": "MT",
@@ -5163,7 +5290,7 @@
         "cscCodigo": "TOKEN_CSC_OFICIAL_SEFAZ_MT_91820",
         "seriePadraoNfe": 1,
         "proximoNumeroNfe": 4129,
-        "sha256Fingerprint": "c082a618b4f28f2eee6284efec6f5ffb379ab35a1b7eeca75300d7dd312121b8"
+        "sha256Fingerprint": "c59ec0dab116dd6fa8c6c728de864dc19e45f8091954bc2179579132e20907ad"
       },
       "bancario": {
         "bancoPrincipal": "001 - Banco do Brasil",
@@ -5190,7 +5317,7 @@
           "VENCIMENTO_CPR_BARTER"
         ],
         "statusConexao": "CONECTADO",
-        "ultimaNotificacaoEnviada": "2026-10-09T11:03:57.713Z"
+        "ultimaNotificacaoEnviada": "2026-10-09T11:13:24.051Z"
       },
       "sateliteClima": {
         "provedorSatelite": "COPERNICUS_SENTINEL_2",
@@ -5202,7 +5329,7 @@
         "estacaoLongitude": -55.7098,
         "sicarNumeroCar": "MT-5107909-089201948120491820"
       },
-      "atualizadoEm": "2026-10-09T11:03:57.702Z"
+      "atualizadoEm": "2026-10-09T11:13:24.029Z"
     }
   },
   "contingenciaNfe": [
@@ -5259,6 +5386,15 @@
       "tenantId": "tenant-fazenda-santa-helena",
       "status": "PENDENTE_CONCILIACAO_SEFAZ_ESTADUAL",
       "prazoLimiteHoras": 168
+    },
+    {
+      "id": "epec-1791544405207",
+      "chaveAcesso": "51261000123456000199550010000050421520407796",
+      "protocoloEpec": "1912600731424425",
+      "dataEmissao": "2026-10-09T11:13:25.207Z",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "status": "PENDENTE_CONCILIACAO_SEFAZ_ESTADUAL",
+      "prazoLimiteHoras": 168
     }
   ],
   "prescricoesIsoXml": [
@@ -5293,6 +5429,233 @@
       "doseMediaKgHa": 166,
       "consumoTotalKg": 69803,
       "criadoEm": "2026-10-09T11:03:58.674Z"
+    },
+    {
+      "id": "TSK-1791544332905",
+      "talhaoId": "talhao-01",
+      "produto": "MAP 11-52-00",
+      "doseMediaKgHa": 166,
+      "consumoTotalKg": 69803,
+      "criadoEm": "2026-10-09T11:12:12.905Z"
+    },
+    {
+      "id": "TSK-1791544405266",
+      "talhaoId": "talhao-01",
+      "produto": "Fosfato Monoamônico MAP",
+      "doseMediaKgHa": 166,
+      "consumoTotalKg": 69803,
+      "criadoEm": "2026-10-09T11:13:25.266Z"
+    },
+    {
+      "id": "TSK-1791544405332",
+      "talhaoId": "talhao-01",
+      "produto": "MAP 11-52-00",
+      "doseMediaKgHa": 166,
+      "consumoTotalKg": 69803,
+      "criadoEm": "2026-10-09T11:13:25.332Z"
+    }
+  ],
+  "lotesRastreados": [
+    {
+      "sucesso": true,
+      "loteCodigo": "LOTE-SOJ-2025-2026-5399",
+      "hashAuditoriaSha256": "25b39a8e2da11421df04d8fa03bb919eec1f4f4a6504a7d745b45b207a371e1f",
+      "urlPassaportePublico": "https://agro.superagtech.com.br/rastreabilidade/auditoria/25b39a8e2da11421df04d8fa03bb919eec1f4f4a6504a7d745b45b207a371e1f",
+      "qrCodeSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 160 160\" width=\"160\" height=\"160\" shape-rendering=\"crispEdges\">\n    <rect width=\"160\" height=\"160\" fill=\"#ffffff\"/>\n    <!-- Position Detection Patterns (Top-Left) -->\n    <rect x=\"10\" y=\"10\" width=\"35\" height=\"35\" fill=\"#1b4332\"/>\n    <rect x=\"15\" y=\"15\" width=\"25\" height=\"25\" fill=\"#ffffff\"/>\n    <rect x=\"20\" y=\"20\" width=\"15\" height=\"15\" fill=\"#1b4332\"/>\n    <!-- Position Detection Patterns (Top-Right) -->\n    <rect x=\"115\" y=\"10\" width=\"35\" height=\"35\" fill=\"#1b4332\"/>\n    <rect x=\"120\" y=\"15\" width=\"25\" height=\"25\" fill=\"#ffffff\"/>\n    <rect x=\"125\" y=\"20\" width=\"15\" height=\"15\" fill=\"#1b4332\"/>\n    <!-- Position Detection Patterns (Bottom-Left) -->\n    <rect x=\"10\" y=\"115\" width=\"35\" height=\"35\" fill=\"#1b4332\"/>\n    <rect x=\"15\" y=\"120\" width=\"25\" height=\"25\" fill=\"#ffffff\"/>\n    <rect x=\"20\" y=\"125\" width=\"15\" height=\"15\" fill=\"#1b4332\"/>\n    <!-- Timing Lines & Data Bits Representation -->\n    <rect x=\"55\" y=\"25\" width=\"50\" height=\"8\" fill=\"#2d6a4f\"/>\n    <rect x=\"55\" y=\"45\" width=\"40\" height=\"8\" fill=\"#1b4332\"/>\n    <rect x=\"25\" y=\"55\" width=\"8\" height=\"50\" fill=\"#2d6a4f\"/>\n    <rect x=\"45\" y=\"55\" width=\"8\" height=\"40\" fill=\"#1b4332\"/>\n    <!-- Core Data Matrix Representation -->\n    <rect x=\"65\" y=\"65\" width=\"30\" height=\"30\" fill=\"#1b4332\"/>\n    <rect x=\"70\" y=\"70\" width=\"20\" height=\"20\" fill=\"#52b788\"/>\n    <rect x=\"105\" y=\"65\" width=\"40\" height=\"8\" fill=\"#1b4332\"/>\n    <rect x=\"105\" y=\"85\" width=\"30\" height=\"8\" fill=\"#2d6a4f\"/>\n    <rect x=\"65\" y=\"105\" width=\"40\" height=\"8\" fill=\"#1b4332\"/>\n    <rect x=\"85\" y=\"125\" width=\"45\" height=\"10\" fill=\"#2d6a4f\"/>\n    <circle cx=\"80\" cy=\"80\" r=\"4\" fill=\"#ffffff\"/>\n  </svg>",
+      "conformidadePadrao": [
+        "EUDR (Regulamento UE 2023/1115)",
+        "MAPA IN 02/2018 (Rastreabilidade Vegetal)",
+        "GlobalG.A.P. IFA",
+        "ISO 22005:2007"
+      ],
+      "classificacaoComercial": {
+        "umidadePercentual": 13.2,
+        "statusUmidade": "PADRAO_EXPORTACAO_OTIMO",
+        "impurezaPercentual": 0.8,
+        "statusImpureza": "LIMPEZA_CONFORME",
+        "avariasPercentual": 3.5,
+        "volumeTon": 220,
+        "siloArmazenamento": "Silo Metálico Pulmão 02 (Capacidade 3.000 ton)"
+      },
+      "origemGeoreferenciada": {
+        "fazenda": "Fazenda Santa Helena - MT",
+        "carNumero": "MT-5107909-E8192841029",
+        "talhaoId": "talhao-01",
+        "talhaoNome": "Talhão 01 - Pivô Central Norte",
+        "coordenadas": {
+          "lat": -12.5512,
+          "lng": -55.7098
+        },
+        "cultura": "Soja em Grãos",
+        "variedade": "TMG 2378 IPRO",
+        "safra": "2025/2026"
+      },
+      "segurancaAlimentarEudr": {
+        "conforme": true,
+        "status": "APTO_EXPORTACAO_UE",
+        "tracesNtId": "TRACES-NT-88106"
+      },
+      "historicoFitossanitario": [
+        {
+          "data": "15/12/2025",
+          "operacao": "Dessecação Pré-Plantio",
+          "produto": "Glifosato 720 WG",
+          "doseHa": "2.0 kg/ha",
+          "carenciaDias": 14,
+          "responsavel": "Eng. Agrônomo Marcelo Prado (CREA-MT 18.420)"
+        },
+        {
+          "data": "22/01/2026",
+          "operacao": "1ª Aplicação Fungicida (Vigor)",
+          "produto": "Trifloxistrobina + Protioconazol",
+          "doseHa": "0.4 L/ha",
+          "carenciaDias": 30,
+          "responsavel": "Eng. Agrônomo Marcelo Prado"
+        },
+        {
+          "data": "18/02/2026",
+          "operacao": "2ª Aplicação Fungicida + Inseticida",
+          "produto": "Clorantraniliprole 200 SC",
+          "doseHa": "0.1 L/ha",
+          "carenciaDias": 21,
+          "responsavel": "Eng. Agrônomo Marcelo Prado"
+        }
+      ],
+      "criadoEm": "2026-10-09T11:11:50.702Z"
+    },
+    {
+      "sucesso": true,
+      "loteCodigo": "LOTE-SOJ-2025-2026-8832",
+      "hashAuditoriaSha256": "8d75c3075fbd6197573343574c150180170370052dfd8fc46e1b6294c33109a3",
+      "urlPassaportePublico": "https://agro.superagtech.com.br/rastreabilidade/auditoria/8d75c3075fbd6197573343574c150180170370052dfd8fc46e1b6294c33109a3",
+      "qrCodeSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 160 160\" width=\"160\" height=\"160\" shape-rendering=\"crispEdges\">\n    <rect width=\"160\" height=\"160\" fill=\"#ffffff\"/>\n    <!-- Position Detection Patterns (Top-Left) -->\n    <rect x=\"10\" y=\"10\" width=\"35\" height=\"35\" fill=\"#1b4332\"/>\n    <rect x=\"15\" y=\"15\" width=\"25\" height=\"25\" fill=\"#ffffff\"/>\n    <rect x=\"20\" y=\"20\" width=\"15\" height=\"15\" fill=\"#1b4332\"/>\n    <!-- Position Detection Patterns (Top-Right) -->\n    <rect x=\"115\" y=\"10\" width=\"35\" height=\"35\" fill=\"#1b4332\"/>\n    <rect x=\"120\" y=\"15\" width=\"25\" height=\"25\" fill=\"#ffffff\"/>\n    <rect x=\"125\" y=\"20\" width=\"15\" height=\"15\" fill=\"#1b4332\"/>\n    <!-- Position Detection Patterns (Bottom-Left) -->\n    <rect x=\"10\" y=\"115\" width=\"35\" height=\"35\" fill=\"#1b4332\"/>\n    <rect x=\"15\" y=\"120\" width=\"25\" height=\"25\" fill=\"#ffffff\"/>\n    <rect x=\"20\" y=\"125\" width=\"15\" height=\"15\" fill=\"#1b4332\"/>\n    <!-- Timing Lines & Data Bits Representation -->\n    <rect x=\"55\" y=\"25\" width=\"50\" height=\"8\" fill=\"#2d6a4f\"/>\n    <rect x=\"55\" y=\"45\" width=\"40\" height=\"8\" fill=\"#1b4332\"/>\n    <rect x=\"25\" y=\"55\" width=\"8\" height=\"50\" fill=\"#2d6a4f\"/>\n    <rect x=\"45\" y=\"55\" width=\"8\" height=\"40\" fill=\"#1b4332\"/>\n    <!-- Core Data Matrix Representation -->\n    <rect x=\"65\" y=\"65\" width=\"30\" height=\"30\" fill=\"#1b4332\"/>\n    <rect x=\"70\" y=\"70\" width=\"20\" height=\"20\" fill=\"#52b788\"/>\n    <rect x=\"105\" y=\"65\" width=\"40\" height=\"8\" fill=\"#1b4332\"/>\n    <rect x=\"105\" y=\"85\" width=\"30\" height=\"8\" fill=\"#2d6a4f\"/>\n    <rect x=\"65\" y=\"105\" width=\"40\" height=\"8\" fill=\"#1b4332\"/>\n    <rect x=\"85\" y=\"125\" width=\"45\" height=\"10\" fill=\"#2d6a4f\"/>\n    <circle cx=\"80\" cy=\"80\" r=\"4\" fill=\"#ffffff\"/>\n  </svg>",
+      "conformidadePadrao": [
+        "EUDR (Regulamento UE 2023/1115)",
+        "MAPA IN 02/2018 (Rastreabilidade Vegetal)",
+        "GlobalG.A.P. IFA",
+        "ISO 22005:2007"
+      ],
+      "classificacaoComercial": {
+        "umidadePercentual": 13.1,
+        "statusUmidade": "PADRAO_EXPORTACAO_OTIMO",
+        "impurezaPercentual": 0.7,
+        "statusImpureza": "LIMPEZA_CONFORME",
+        "avariasPercentual": 3.5,
+        "volumeTon": 310.5,
+        "siloArmazenamento": "Silo Metálico Pulmão 02 (Capacidade 3.000 ton)"
+      },
+      "origemGeoreferenciada": {
+        "fazenda": "Fazenda Santa Helena - MT",
+        "carNumero": "MT-5107909-E8192841029",
+        "talhaoId": "talhao-01",
+        "talhaoNome": "Talhão 01 - Pivô Central Norte",
+        "coordenadas": {
+          "lat": -12.5512,
+          "lng": -55.7098
+        },
+        "cultura": "Soja em Grãos",
+        "variedade": "TMG 2378 IPRO",
+        "safra": "2025/2026"
+      },
+      "segurancaAlimentarEudr": {
+        "conforme": true,
+        "status": "APTO_EXPORTACAO_UE",
+        "tracesNtId": "TRACES-NT-88106"
+      },
+      "historicoFitossanitario": [
+        {
+          "data": "15/12/2025",
+          "operacao": "Dessecação Pré-Plantio",
+          "produto": "Glifosato 720 WG",
+          "doseHa": "2.0 kg/ha",
+          "carenciaDias": 14,
+          "responsavel": "Eng. Agrônomo Marcelo Prado (CREA-MT 18.420)"
+        },
+        {
+          "data": "22/01/2026",
+          "operacao": "1ª Aplicação Fungicida (Vigor)",
+          "produto": "Trifloxistrobina + Protioconazol",
+          "doseHa": "0.4 L/ha",
+          "carenciaDias": 30,
+          "responsavel": "Eng. Agrônomo Marcelo Prado"
+        },
+        {
+          "data": "18/02/2026",
+          "operacao": "2ª Aplicação Fungicida + Inseticida",
+          "produto": "Clorantraniliprole 200 SC",
+          "doseHa": "0.1 L/ha",
+          "carenciaDias": 21,
+          "responsavel": "Eng. Agrônomo Marcelo Prado"
+        }
+      ],
+      "criadoEm": "2026-10-09T11:12:12.928Z"
+    },
+    {
+      "sucesso": true,
+      "loteCodigo": "LOTE-SOJ-2025-2026-4348",
+      "hashAuditoriaSha256": "499b1e467cc72241587ebe913a73f6467dc4b78608a3afceeae15417dc543cfa",
+      "urlPassaportePublico": "https://agro.superagtech.com.br/rastreabilidade/auditoria/499b1e467cc72241587ebe913a73f6467dc4b78608a3afceeae15417dc543cfa",
+      "qrCodeSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 160 160\" width=\"160\" height=\"160\" shape-rendering=\"crispEdges\">\n    <rect width=\"160\" height=\"160\" fill=\"#ffffff\"/>\n    <!-- Position Detection Patterns (Top-Left) -->\n    <rect x=\"10\" y=\"10\" width=\"35\" height=\"35\" fill=\"#1b4332\"/>\n    <rect x=\"15\" y=\"15\" width=\"25\" height=\"25\" fill=\"#ffffff\"/>\n    <rect x=\"20\" y=\"20\" width=\"15\" height=\"15\" fill=\"#1b4332\"/>\n    <!-- Position Detection Patterns (Top-Right) -->\n    <rect x=\"115\" y=\"10\" width=\"35\" height=\"35\" fill=\"#1b4332\"/>\n    <rect x=\"120\" y=\"15\" width=\"25\" height=\"25\" fill=\"#ffffff\"/>\n    <rect x=\"125\" y=\"20\" width=\"15\" height=\"15\" fill=\"#1b4332\"/>\n    <!-- Position Detection Patterns (Bottom-Left) -->\n    <rect x=\"10\" y=\"115\" width=\"35\" height=\"35\" fill=\"#1b4332\"/>\n    <rect x=\"15\" y=\"120\" width=\"25\" height=\"25\" fill=\"#ffffff\"/>\n    <rect x=\"20\" y=\"125\" width=\"15\" height=\"15\" fill=\"#1b4332\"/>\n    <!-- Timing Lines & Data Bits Representation -->\n    <rect x=\"55\" y=\"25\" width=\"50\" height=\"8\" fill=\"#2d6a4f\"/>\n    <rect x=\"55\" y=\"45\" width=\"40\" height=\"8\" fill=\"#1b4332\"/>\n    <rect x=\"25\" y=\"55\" width=\"8\" height=\"50\" fill=\"#2d6a4f\"/>\n    <rect x=\"45\" y=\"55\" width=\"8\" height=\"40\" fill=\"#1b4332\"/>\n    <!-- Core Data Matrix Representation -->\n    <rect x=\"65\" y=\"65\" width=\"30\" height=\"30\" fill=\"#1b4332\"/>\n    <rect x=\"70\" y=\"70\" width=\"20\" height=\"20\" fill=\"#52b788\"/>\n    <rect x=\"105\" y=\"65\" width=\"40\" height=\"8\" fill=\"#1b4332\"/>\n    <rect x=\"105\" y=\"85\" width=\"30\" height=\"8\" fill=\"#2d6a4f\"/>\n    <rect x=\"65\" y=\"105\" width=\"40\" height=\"8\" fill=\"#1b4332\"/>\n    <rect x=\"85\" y=\"125\" width=\"45\" height=\"10\" fill=\"#2d6a4f\"/>\n    <circle cx=\"80\" cy=\"80\" r=\"4\" fill=\"#ffffff\"/>\n  </svg>",
+      "conformidadePadrao": [
+        "EUDR (Regulamento UE 2023/1115)",
+        "MAPA IN 02/2018 (Rastreabilidade Vegetal)",
+        "GlobalG.A.P. IFA",
+        "ISO 22005:2007"
+      ],
+      "classificacaoComercial": {
+        "umidadePercentual": 13.1,
+        "statusUmidade": "PADRAO_EXPORTACAO_OTIMO",
+        "impurezaPercentual": 0.7,
+        "statusImpureza": "LIMPEZA_CONFORME",
+        "avariasPercentual": 3.5,
+        "volumeTon": 310.5,
+        "siloArmazenamento": "Silo Metálico Pulmão 02 (Capacidade 3.000 ton)"
+      },
+      "origemGeoreferenciada": {
+        "fazenda": "Fazenda Santa Helena - MT",
+        "carNumero": "MT-5107909-E8192841029",
+        "talhaoId": "talhao-01",
+        "talhaoNome": "Talhão 01 - Pivô Central Norte",
+        "coordenadas": {
+          "lat": -12.5512,
+          "lng": -55.7098
+        },
+        "cultura": "Soja em Grãos",
+        "variedade": "TMG 2378 IPRO",
+        "safra": "2025/2026"
+      },
+      "segurancaAlimentarEudr": {
+        "conforme": true,
+        "status": "APTO_EXPORTACAO_UE",
+        "tracesNtId": "TRACES-NT-88106"
+      },
+      "historicoFitossanitario": [
+        {
+          "data": "15/12/2025",
+          "operacao": "Dessecação Pré-Plantio",
+          "produto": "Glifosato 720 WG",
+          "doseHa": "2.0 kg/ha",
+          "carenciaDias": 14,
+          "responsavel": "Eng. Agrônomo Marcelo Prado (CREA-MT 18.420)"
+        },
+        {
+          "data": "22/01/2026",
+          "operacao": "1ª Aplicação Fungicida (Vigor)",
+          "produto": "Trifloxistrobina + Protioconazol",
+          "doseHa": "0.4 L/ha",
+          "carenciaDias": 30,
+          "responsavel": "Eng. Agrônomo Marcelo Prado"
+        },
+        {
+          "data": "18/02/2026",
+          "operacao": "2ª Aplicação Fungicida + Inseticida",
+          "produto": "Clorantraniliprole 200 SC",
+          "doseHa": "0.1 L/ha",
+          "carenciaDias": 21,
+          "responsavel": "Eng. Agrônomo Marcelo Prado"
+        }
+      ],
+      "criadoEm": "2026-10-09T11:13:25.356Z"
     }
   ]
 }
