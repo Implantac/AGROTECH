@@ -10,7 +10,7 @@ process.on('unhandledRejection', (reason, promise) => {
   console.error('[Unhandled Rejection]:', reason);
 });
 
-const PORT = process.env.PORT || 5173;
+const PORT = process.env.PORT || 3000;
 const HOST = '0.0.0.0';
 
 const STATIC_DIR = fs.existsSync(path.join(__dirname, 'app_static'))
@@ -4510,11 +4510,12 @@ server.listen(PORT, HOST, () => {
 
   try {
     const handler = server.listeners('request')[0];
-    if (handler && PORT !== 3000) {
-      const server3000 = http.createServer(handler);
-      server3000.on('error', (e) => console.log('[Port 3000 bind skipped]:', e.message));
-      server3000.listen(3000, HOST, () => {
-        console.log(`[Super AgTech Server] Dual-binding rodando em http://${HOST}:3000`);
+    const secondaryPort = (Number(PORT) === 3000) ? 5173 : 3000;
+    if (handler) {
+      const secondaryServer = http.createServer(handler);
+      secondaryServer.on('error', (e) => console.log(`[Port ${secondaryPort} bind skipped]:`, e.message));
+      secondaryServer.listen(secondaryPort, HOST, () => {
+        console.log(`[Super AgTech Server] Dual-binding rodando em http://${HOST}:${secondaryPort}`);
       });
     }
   } catch (err) {
