@@ -321,7 +321,7 @@
     },
     {
       "type": "Feature",
-      "id": "car-1791977782844",
+      "id": "car-1791977826672",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
@@ -350,7 +350,7 @@
         ]
       },
       "properties": {
-        "id": "car-1791977782844",
+        "id": "car-1791977826672",
         "codigo": "TAL-05",
         "nome": "Fazenda AgroTech - Talhão 05 Gleba Sul - Gleba CAR",
         "areaHa": 755.99,
@@ -366,7 +366,7 @@
           "lat": -12.55,
           "lng": -55.715
         },
-        "criadoEm": "2026-10-14T11:36:22.844Z"
+        "criadoEm": "2026-10-14T11:37:06.672Z"
       }
     }
   ],
@@ -387,7 +387,7 @@
       "statusOperacional": "EM_OPERACAO",
       "operador": "Marcos Barreto",
       "pressaoOleoBar": 1.2,
-      "ultimaLeituraCanbus": "2026-10-14T11:36:22.834Z",
+      "ultimaLeituraCanbus": "2026-10-14T11:37:06.663Z",
       "alertasAtivos": [
         {
           "nivel": "CRITICO",
@@ -758,6 +758,39 @@
     }
   ],
   "outboxQueue": [
+    {
+      "id": "op-mip-1791977826740",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791977826740",
+      "tipo": "MONITORAMENTO_MIP",
+      "titulo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "talhao": "Talhão 01 - Norte",
+      "payloadResumo": "Lagarta Helicoverpa armigera • 1.4 lagartas/metro • Nível de Dano Econômico",
+      "status": "SYNCED",
+      "createdAt": "2026-10-14T11:37:06.740Z",
+      "updatedAt": "2026-10-14T11:37:06.763Z",
+      "createdBy": "Agrônomo Marcelo Prado",
+      "tentativas": 1,
+      "idempotencyKey": "ebc2ed623c11a08f9b74b73fba3e2ffc",
+      "resolucao": "VERSAO_LOCAL_MANTIDA",
+      "observacaoResolucao": "Validado pelo Agrônomo Chefe com base em foto de pano-de-batida"
+    },
+    {
+      "id": "op-abastecimento-1791977826740",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "batchId": "batch-test-1791977826740",
+      "tipo": "ABASTECIMENTO_COMBOIO",
+      "titulo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "talhao": "Talhão 02 - Pivô Central",
+      "payloadResumo": "Trator Case Magnum 340 • 420 L Diesel S10 • Horímetro 4.120h",
+      "status": "SYNCED",
+      "createdAt": "2026-10-14T11:37:06.740Z",
+      "updatedAt": "2026-10-14T11:37:06.746Z",
+      "createdBy": "Operador Valmor Bertoncelli",
+      "tentativas": 1,
+      "conflitoDetalhes": null,
+      "idempotencyKey": "cab96c49228ae768815ef550789641f0"
+    },
     {
       "id": "op-mip-1791977782914",
       "tenantId": "tenant-fazenda-santa-helena",
@@ -2229,6 +2262,19 @@
   ],
   "assinaturas": [
     {
+      "id": "sub-1791977826550",
+      "txid": "TX-1791977826550-9047",
+      "reciboFiscalNfse": "NFS-2026-46958",
+      "planoId": "PRO",
+      "ciclo": "ANNUAL",
+      "metodoPagamento": "PIX",
+      "valorTotal": 12384,
+      "status": "PAGO_CONFIRMADO",
+      "dataHora": "2026-10-14T11:37:06.550Z",
+      "autenticacaoBancaria": "BACEN-AUT-0338518811E2",
+      "dataConfirmacao": "2026-10-14T11:37:06.568Z"
+    },
+    {
       "id": "sub-1791977782715",
       "txid": "TX-1791977782715-8993",
       "reciboFiscalNfse": "NFS-2026-68573",
@@ -2898,6 +2944,18 @@
   },
   "billingWebhookLogs": [
     {
+      "id": "whk-1791977826568",
+      "evento": "PAYMENT_CONFIRMED",
+      "timestamp": "2026-10-14T11:37:06.568Z",
+      "payload": {
+        "event": "PAYMENT_CONFIRMED",
+        "txid": "TX-1791977826550-9047",
+        "amount": 12384,
+        "paymentMethod": "PIX",
+        "gatewayId": "GW-BACEN-2026-991823"
+      }
+    },
+    {
       "id": "whk-1791977782738",
       "evento": "PAYMENT_CONFIRMED",
       "timestamp": "2026-10-14T11:36:22.738Z",
@@ -3473,6 +3531,30 @@
     }
   ],
   "telemetriaHistorico": [
+    {
+      "timestamp": "2026-10-14T11:37:06.663Z",
+      "maquinaId": "TRAT-JD-8R",
+      "rpmMotor": 2012,
+      "tempLiquidoArrefecimentoC": 108,
+      "pressaoOleoBar": 1.2,
+      "consumoInstantaneoLh": 29.6,
+      "posicaoGps": {
+        "lat": -12.552,
+        "lng": -55.71
+      },
+      "alertas": [
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_SUPERAQUECIMENTO",
+          "msg": "Temperatura do motor elevada: 108°C (Limite: 102°C)"
+        },
+        {
+          "nivel": "CRITICO",
+          "codigo": "ALERTA_PRESSAO_OLEO_BAIXA",
+          "msg": "Pressão de óleo do motor perigosa: 1.2 bar (Mínimo: 1.5 bar)"
+        }
+      ]
+    },
     {
       "timestamp": "2026-10-14T11:36:22.834Z",
       "maquinaId": "TRAT-JD-8R",
@@ -4651,6 +4733,51 @@
     }
   ],
   "eudrDeclarations": [
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-A7AE63C4",
+      "tracesNtId": "TRACES-NT-91F7CC7A9B47",
+      "talhaoId": "talhao-09",
+      "carNumero": "MT-5107909-IRREGULAR",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1250,
+      "statusEUDR": "BLOQUEIO_SOCIOAMBIENTAL",
+      "conforme": false,
+      "irregularidades": [
+        {
+          "codigo": "EUDR_VIOLACAO_DESMATAMENTO",
+          "motivo": "Área com supressão de vegetação nativa pós-31/12/2020 (PRODES/MapBiomas)."
+        },
+        {
+          "codigo": "EUDR_SOBREPOSICAO_TI",
+          "motivo": "Sobreposição detectada com Terra Indígena demarcada (FUNAI)."
+        }
+      ],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "014bc049456773894a412d253297c4160899d082d00c90f3bbd05283e6ebdb3f",
+      "emitidoEm": "2026-10-14T11:37:06.817Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
+    {
+      "ddsNumero": "DDS-EUDR-2026-BR-MT-51508",
+      "tracesNtId": "TRACES-NT-2C7A4ECBE3B1",
+      "talhaoId": "talhao-01",
+      "carNumero": "MT-5107909-E8192841029",
+      "cultura": "Soja em Grãos",
+      "safra": "2025/2026",
+      "volumeTon": 1500,
+      "statusEUDR": "APTO_EXPORTACAO_UE",
+      "conforme": true,
+      "irregularidades": [],
+      "marcoTemporal": "31/12/2020 (EU Deforestation Regulation)",
+      "pegadaCarbonoKgCO2ePorTon": 213.3,
+      "verificationHash": "4207aa4198524db7170dadb1b89b9a8d24340cad5ee96efb260e6e1beccfaddd",
+      "emitidoEm": "2026-10-14T11:37:06.806Z",
+      "portoEmbarque": "Santos - STS (Exportação UE)",
+      "operadorEori": "NL820194812"
+    },
     {
       "ddsNumero": "DDS-EUDR-2026-BR-MT-F937BBDB",
       "tracesNtId": "TRACES-NT-AD37A6DCAB95",
@@ -6552,7 +6679,7 @@
         "titular": "SCHNEIDER AGRICULTURA E PECUARIA LTDA",
         "cnpj": "04.812.049/0001-20",
         "emissor": "AC SERASA RFB v5 (ICP-Brasil)",
-        "validadeAte": "2027-10-14T11:36:23.083Z",
+        "validadeAte": "2027-10-14T11:37:06.923Z",
         "diasRestantesValidade": 365,
         "status": "VALIDO",
         "ufAutorizadora": "MT",
@@ -6560,7 +6687,7 @@
         "cscCodigo": "TOKEN_CSC_OFICIAL_SEFAZ_MT_91820",
         "seriePadraoNfe": 1,
         "proximoNumeroNfe": 4129,
-        "sha256Fingerprint": "6fd94181aed462f8a29513456fd1178695508c3202349a5c97a1712d3622eb68"
+        "sha256Fingerprint": "99973af8ee4ef9d7f98556acf4c4d69a92c9c2af9fdc635f97decc074afd7097"
       },
       "bancario": {
         "bancoPrincipal": "001 - Banco do Brasil",
@@ -6587,7 +6714,7 @@
           "VENCIMENTO_CPR_BARTER"
         ],
         "statusConexao": "CONECTADO",
-        "ultimaNotificacaoEnviada": "2026-10-14T11:36:23.096Z"
+        "ultimaNotificacaoEnviada": "2026-10-14T11:37:06.937Z"
       },
       "sateliteClima": {
         "provedorSatelite": "COPERNICUS_SENTINEL_2",
@@ -6599,7 +6726,7 @@
         "estacaoLongitude": -55.7098,
         "sicarNumeroCar": "MT-5107909-089201948120491820"
       },
-      "atualizadoEm": "2026-10-14T11:36:23.083Z"
+      "atualizadoEm": "2026-10-14T11:37:06.924Z"
     }
   },
   "contingenciaNfe": [
@@ -6743,6 +6870,15 @@
       "chaveAcesso": "51261000123456000199550010000050421592502442",
       "protocoloEpec": "1912600829856314",
       "dataEmissao": "2026-10-14T11:36:23.647Z",
+      "tenantId": "tenant-fazenda-santa-helena",
+      "status": "PENDENTE_CONCILIACAO_SEFAZ_ESTADUAL",
+      "prazoLimiteHoras": 168
+    },
+    {
+      "id": "epec-1791977827463",
+      "chaveAcesso": "51261000123456000199550010000050421884384334",
+      "protocoloEpec": "1912600313952199",
+      "dataEmissao": "2026-10-14T11:37:07.463Z",
       "tenantId": "tenant-fazenda-santa-helena",
       "status": "PENDENTE_CONCILIACAO_SEFAZ_ESTADUAL",
       "prazoLimiteHoras": 168
@@ -6948,6 +7084,22 @@
       "doseMediaKgHa": 166,
       "consumoTotalKg": 69803,
       "criadoEm": "2026-10-14T11:36:23.735Z"
+    },
+    {
+      "id": "TSK-1791977827510",
+      "talhaoId": "talhao-01",
+      "produto": "Fosfato Monoamônico MAP",
+      "doseMediaKgHa": 166,
+      "consumoTotalKg": 69803,
+      "criadoEm": "2026-10-14T11:37:07.510Z"
+    },
+    {
+      "id": "TSK-1791977827552",
+      "talhaoId": "talhao-01",
+      "produto": "MAP 11-52-00",
+      "doseMediaKgHa": 166,
+      "consumoTotalKg": 69803,
+      "criadoEm": "2026-10-14T11:37:07.552Z"
     }
   ],
   "lotesRastreados": [
@@ -7754,6 +7906,73 @@
         }
       ],
       "criadoEm": "2026-10-14T11:36:23.750Z"
+    },
+    {
+      "sucesso": true,
+      "loteCodigo": "LOTE-SOJ-2025-2026-6149",
+      "hashAuditoriaSha256": "af6ae8d2203eccb89a7081b2bd38b7b8f0e672cfae1382b8329062797c45a399",
+      "urlPassaportePublico": "https://agro.superagtech.com.br/rastreabilidade/auditoria/af6ae8d2203eccb89a7081b2bd38b7b8f0e672cfae1382b8329062797c45a399",
+      "qrCodeSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 160 160\" width=\"160\" height=\"160\" shape-rendering=\"crispEdges\">\n    <rect width=\"160\" height=\"160\" fill=\"#ffffff\"/>\n    <!-- Position Detection Patterns (Top-Left) -->\n    <rect x=\"10\" y=\"10\" width=\"35\" height=\"35\" fill=\"#1b4332\"/>\n    <rect x=\"15\" y=\"15\" width=\"25\" height=\"25\" fill=\"#ffffff\"/>\n    <rect x=\"20\" y=\"20\" width=\"15\" height=\"15\" fill=\"#1b4332\"/>\n    <!-- Position Detection Patterns (Top-Right) -->\n    <rect x=\"115\" y=\"10\" width=\"35\" height=\"35\" fill=\"#1b4332\"/>\n    <rect x=\"120\" y=\"15\" width=\"25\" height=\"25\" fill=\"#ffffff\"/>\n    <rect x=\"125\" y=\"20\" width=\"15\" height=\"15\" fill=\"#1b4332\"/>\n    <!-- Position Detection Patterns (Bottom-Left) -->\n    <rect x=\"10\" y=\"115\" width=\"35\" height=\"35\" fill=\"#1b4332\"/>\n    <rect x=\"15\" y=\"120\" width=\"25\" height=\"25\" fill=\"#ffffff\"/>\n    <rect x=\"20\" y=\"125\" width=\"15\" height=\"15\" fill=\"#1b4332\"/>\n    <!-- Timing Lines & Data Bits Representation -->\n    <rect x=\"55\" y=\"25\" width=\"50\" height=\"8\" fill=\"#2d6a4f\"/>\n    <rect x=\"55\" y=\"45\" width=\"40\" height=\"8\" fill=\"#1b4332\"/>\n    <rect x=\"25\" y=\"55\" width=\"8\" height=\"50\" fill=\"#2d6a4f\"/>\n    <rect x=\"45\" y=\"55\" width=\"8\" height=\"40\" fill=\"#1b4332\"/>\n    <!-- Core Data Matrix Representation -->\n    <rect x=\"65\" y=\"65\" width=\"30\" height=\"30\" fill=\"#1b4332\"/>\n    <rect x=\"70\" y=\"70\" width=\"20\" height=\"20\" fill=\"#52b788\"/>\n    <rect x=\"105\" y=\"65\" width=\"40\" height=\"8\" fill=\"#1b4332\"/>\n    <rect x=\"105\" y=\"85\" width=\"30\" height=\"8\" fill=\"#2d6a4f\"/>\n    <rect x=\"65\" y=\"105\" width=\"40\" height=\"8\" fill=\"#1b4332\"/>\n    <rect x=\"85\" y=\"125\" width=\"45\" height=\"10\" fill=\"#2d6a4f\"/>\n    <circle cx=\"80\" cy=\"80\" r=\"4\" fill=\"#ffffff\"/>\n  </svg>",
+      "conformidadePadrao": [
+        "EUDR (Regulamento UE 2023/1115)",
+        "MAPA IN 02/2018 (Rastreabilidade Vegetal)",
+        "GlobalG.A.P. IFA",
+        "ISO 22005:2007"
+      ],
+      "classificacaoComercial": {
+        "umidadePercentual": 13.1,
+        "statusUmidade": "PADRAO_EXPORTACAO_OTIMO",
+        "impurezaPercentual": 0.7,
+        "statusImpureza": "LIMPEZA_CONFORME",
+        "avariasPercentual": 3.5,
+        "volumeTon": 310.5,
+        "siloArmazenamento": "Silo Metálico Pulmão 02 (Capacidade 3.000 ton)"
+      },
+      "origemGeoreferenciada": {
+        "fazenda": "Fazenda Santa Helena - MT",
+        "carNumero": "MT-5107909-E8192841029",
+        "talhaoId": "talhao-01",
+        "talhaoNome": "Talhão 01 - Pivô Central Norte",
+        "coordenadas": {
+          "lat": -12.5512,
+          "lng": -55.7098
+        },
+        "cultura": "Soja em Grãos",
+        "variedade": "TMG 2378 IPRO",
+        "safra": "2025/2026"
+      },
+      "segurancaAlimentarEudr": {
+        "conforme": true,
+        "status": "APTO_EXPORTACAO_UE",
+        "tracesNtId": "TRACES-NT-88106"
+      },
+      "historicoFitossanitario": [
+        {
+          "data": "15/12/2025",
+          "operacao": "Dessecação Pré-Plantio",
+          "produto": "Glifosato 720 WG",
+          "doseHa": "2.0 kg/ha",
+          "carenciaDias": 14,
+          "responsavel": "Eng. Agrônomo Marcelo Prado (CREA-MT 18.420)"
+        },
+        {
+          "data": "22/01/2026",
+          "operacao": "1ª Aplicação Fungicida (Vigor)",
+          "produto": "Trifloxistrobina + Protioconazol",
+          "doseHa": "0.4 L/ha",
+          "carenciaDias": 30,
+          "responsavel": "Eng. Agrônomo Marcelo Prado"
+        },
+        {
+          "data": "18/02/2026",
+          "operacao": "2ª Aplicação Fungicida + Inseticida",
+          "produto": "Clorantraniliprole 200 SC",
+          "doseHa": "0.1 L/ha",
+          "carenciaDias": 21,
+          "responsavel": "Eng. Agrônomo Marcelo Prado"
+        }
+      ],
+      "criadoEm": "2026-10-14T11:37:07.566Z"
     }
   ],
   "cprsDigitais": [
@@ -8044,6 +8263,38 @@
         "Dispensa de registro em Cartório de Títulos e Documentos mediante escrituração em registradora autorizada pelo BACEN"
       ],
       "emitidoEm": "2026-10-14T11:36:23.796Z"
+    },
+    {
+      "sucesso": true,
+      "numeroCpr": "CPR-B3-2026-217013",
+      "tipoCpr": "CPR_FISICA_LIQUIDACAO_PRODUTO",
+      "normaLegal": "Lei nº 8.929/1994 com redação dada pela Lei nº 13.986/2020 (Nova Lei do Agro)",
+      "statusRegistro": "REGISTRADA_E_ATIVA_NA_B3",
+      "protocoloRegistroB3": "B3-REG-2026-AGRO-96437290",
+      "hashCartulaSha256": "0d07881af5fa02b015d6d0565ded5a298d70df2a7c75ca2781b59464cf8c342d",
+      "resumoOperacao": {
+        "emitente": "Dr. Roberto Schneider",
+        "cnpjCpf": "04.812.049/0001-20",
+        "credor": "MULTINACIONAL AGROQUÍMICA & GRAOS S/A",
+        "produto": "Soja em Grãos Safra 2025/2026",
+        "quantidadeSacas": 8000,
+        "quantidadeKg": 480000,
+        "valorFinanceiroEstimadoBrl": 1092000,
+        "dataVencimento": "30/04/2026",
+        "localEntrega": "Terminal Ferroviário Rumo / Silo Credor - Sorriso/MT"
+      },
+      "garantiaVinculada": {
+        "tipo": "PENHOR_AGRICOLA_DE_SAFRA_FUTURA",
+        "talhaoId": "talhao-01",
+        "areaPenhoradaHa": 420.5,
+        "grau": "1º GRAU SEM CONCORRÊNCIA"
+      },
+      "clausulasMandatorias": [
+        "Constituição de patrimônio de afetação em garantia (Art. 7º Lei 13.986/2020)",
+        "Obrigação líquida, certa e exigível por execução de título extrajudicial",
+        "Dispensa de registro em Cartório de Títulos e Documentos mediante escrituração em registradora autorizada pelo BACEN"
+      ],
+      "emitidoEm": "2026-10-14T11:37:07.612Z"
     }
   ],
   "documentosSanitarios": [
@@ -8640,6 +8891,72 @@
       },
       "validadeDias": 3,
       "emitidoEm": "2026-10-14T11:36:23.806Z"
+    },
+    {
+      "sucesso": true,
+      "numeroCfo": "CFO-MT-2026-278328",
+      "tipoCertificado": "CFO_ORIGEM_PROPRIEDADE",
+      "normativa": "Instrução Normativa MAPA nº 33/2016",
+      "statusSanitario": "APROVADO_TRANSITO_INTERESTADUAL_E_EXPORTACAO",
+      "hashIntegridadeSha256": "623989e651b159c92c905f5e898349f049ae916f5bb7278c220cb781da3f3830",
+      "dadosCarga": {
+        "produtor": "Schneider Agricultura e Pecuária Ltda",
+        "cnpjCpf": "04.812.049/0001-20",
+        "propriedade": "Fazenda Santa Helena - MT",
+        "carNumero": "MT-5107909-E8192841029",
+        "produto": "Soja em Grãos (Glycine max)",
+        "volumeTotalKg": 48000,
+        "volumeSacas": 800,
+        "destino": "Terminal Portuário Graneleiro de Santos - Exportação"
+      },
+      "declaracaoAdicionalFitossanitaria": "A partida vegetal foi inspecionada na Unidade de Produção e encontra-se livre de pragas quarentenárias de relevância agronômica.",
+      "laudoPragas": [
+        "Helicoverpa armigera (Ausente / Monitoramento MIP abaixo do NDE)",
+        "Phakopsora pachyrhizi (Área com vazio sanitário cumprido e manejo registrado)",
+        "Amaranthus palmeri (Caruru-gigante - Área Livre Oficial)"
+      ],
+      "responsavelTecnicoHabilitado": {
+        "nome": "Eng. Agrônomo Marcelo Prado",
+        "crea": "CREA-MT 18.420/D",
+        "habilitacaoMapaCfo": "BR-MT-9812-CFO"
+      },
+      "validadeDias": 30,
+      "emitidoEm": "2026-10-14T11:37:07.616Z"
+    },
+    {
+      "sucesso": true,
+      "numeroGta": "GTA-MT-2026-4720861",
+      "padrao": "Guia de Trânsito Animal Eletrônica (e-GTA) MAPA / INDEA",
+      "statusEmissao": "AUTORIZADA_TRANSITO_SANITARIO_VIGENTE",
+      "hashAutenticidade": "9b219c09ff21cecf14815f84df7824f35b82f8b7b6d99f9ad1c6939d8f481d51",
+      "dadosOrigem": {
+        "produtor": "Schneider Agricultura e Pecuária Ltda",
+        "cpfCnpj": "04.812.049/0001-20",
+        "propriedade": "Fazenda Santa Helena - Confinamento",
+        "municipio": "Sorriso - MT"
+      },
+      "dadosDestino": {
+        "estabelecimento": "JBS / MARFRIG FRIGORÍFICO REGIONAL",
+        "municipio": "Sinop - MT",
+        "finalidade": "ABATE_FRIGORIFICO"
+      },
+      "rebanho": {
+        "especie": "BOVINA",
+        "quantidadeCabecas": 90,
+        "categoria": "Machos Inteiros de 24 a 36 meses"
+      },
+      "controleSanitario": {
+        "febreAftosa": "Área Livre Sem Vacinação (Conforme Portaria MAPA 665/2024)",
+        "bruceloseB19": "100% fêmeas vacinadas no rebanho de origem",
+        "raivaHerbivoros": "Vacinado com dose anual obrigatória"
+      },
+      "responsavelTecnico": {
+        "nome": "Dr. Fernando Arantes",
+        "crmv": "CRMV-MT 4.912",
+        "portariaHabilitacao": "INDEA/MT nº 104/2024"
+      },
+      "validadeDias": 3,
+      "emitidoEm": "2026-10-14T11:37:07.621Z"
     }
   ]
 }
