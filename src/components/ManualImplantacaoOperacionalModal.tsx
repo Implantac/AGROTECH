@@ -521,14 +521,149 @@ export const ManualImplantacaoOperacionalModal: React.FC<ManualImplantacaoOperac
                     <div className="flex items-center justify-between mb-1">
                       <h4 className="font-bold text-xs text-slate-900 flex items-center gap-1.5">
                         <FileText className="w-3.5 h-3.5 text-purple-700" />
-                        <span>Fiscal: NF-e do Produtor (Mod. 55) & LCDPR SPED 0013</span>
+                        <span>Fiscal: NF-e SEFAZ XMLDSig & Contingência EPEC (Evento 110140)</span>
                       </h4>
                       <span className="text-[10px] font-bold px-2 py-0.2 rounded bg-purple-100 text-purple-800">
-                        SEFAZ Nacional
+                        ICP-Brasil & AN
                       </span>
                     </div>
                     <p className="text-slate-600 text-[11px]">
-                      Gere notas fiscais eletrônicas de venda de grãos e remessa para armazém com cálculo automático de ICMS diferido e Funrural. O Livro Caixa Digital é exportado diretamente no layout 0013 para o programa validador da Receita Federal.
+                      Assinatura digital padrão ICP-Brasil (A1 PFX) com validação criptográfica RSA-SHA1 em tempo real. Se o webservice da SEFAZ estadual cair, a contingência EPEC transmite ao Ambiente Nacional da Receita Federal liberando o DANFE para trânsito de grãos com reconciliação automática em até 168 horas.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="font-bold text-xs text-slate-900 flex items-center gap-1.5">
+                        <Zap className="w-3.5 h-3.5 text-amber-700" />
+                        <span>Reforma Tributária EC 132/2023, Split Payment & Auditoria dos 7 Regimes</span>
+                      </h4>
+                      <span className="text-[10px] font-bold px-2 py-0.2 rounded bg-amber-100 text-amber-800">
+                        IBS 0,1% • CBS 0,9%
+                      </span>
+                    </div>
+                    <p className="text-slate-600 text-[11px]">
+                      Simulação e conformidade com o novo sistema tributário: alíquota zero para a Cesta Básica Nacional (soja, milho, arroz, feijão), 60% de redução para insumos agropecuários e mecanismo de Split Payment que segrega o imposto retido na liquidação bancária. Auditoria completa para Pessoa Física (LCDPR), Simples Nacional, Lucro Presumido e Lucro Real com créditos não-cumulativos.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="font-bold text-xs text-slate-900 flex items-center gap-1.5">
+                        <FileText className="w-3.5 h-3.5 text-emerald-700" />
+                        <span>Conciliação Bancária OFX & Livro Caixa SPED LCDPR (Registro Q100)</span>
+                      </h4>
+                      <span className="text-[10px] font-bold px-2 py-0.2 rounded bg-emerald-100 text-emerald-800">
+                        Sicredi • BB • Sicoob
+                      </span>
+                    </div>
+                    <p className="text-slate-600 text-[11px]">
+                      Importe extratos bancários .OFX de bancos tradicionais e cooperativas de crédito. O motor semântico autoclassifica créditos de safra e débitos de fertilizantes, sementes, diesel e salários, formatando instantaneamente os registros Q100 e 9999 do Livro Caixa Digital do Produtor Rural sem erros de digitação.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="font-bold text-xs text-slate-900 flex items-center gap-1.5">
+                        <Navigation className="w-3.5 h-3.5 text-blue-700" />
+                        <span>Prescrições VRA ISO-XML (ISO 11783-10) & Pen-Drive ISOBUS</span>
+                      </h4>
+                      <span className="text-[10px] font-bold px-2 py-0.2 rounded bg-blue-100 text-blue-800">
+                        JD • Trimble • Case IH
+                      </span>
+                    </div>
+                    <p className="text-slate-600 text-[11px]">
+                      Geração de mapas de aplicação em taxa variável a partir de análises de solo e índices de satélite. O arquivo TASKDATA.XML padronizado é salvo na pasta TASKDATA/ de um pen-drive FAT32 e conectado diretamente aos monitores GreenStar 3/Gen 4, Trimble TMX-2050 e Case AFS Pro 700 para controle automático de esteiras e bicos.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="font-bold text-xs text-slate-900 flex items-center gap-1.5">
+                        <Droplet className="w-3.5 h-3.5 text-cyan-700" />
+                        <span>Copilot de Calda D.A.L.E. & Carência de Defensivos (LMR)</span>
+                      </h4>
+                      <span className="text-[10px] font-bold px-2 py-0.2 rounded bg-cyan-100 text-cyan-800">
+                        Ordem Científica
+                      </span>
+                    </div>
+                    <p className="text-slate-600 text-[11px]">
+                      Prevenção contra talhamento de calda no tanque do pulverizador seguindo a sequência mandatória: Dispersão (WG/WP) ➔ Agitação (SC/SL) ➔ Líquidos Emulsionáveis (EC/OD) ➔ Emulsões e Nutrição Foliar. Auditoria automática do intervalo de segurança entre a última aplicação e a data da colheita para compliance com os limites máximos de resíduos (LMR).
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="font-bold text-xs text-slate-900 flex items-center gap-1.5">
+                        <Gauge className="w-3.5 h-3.5 text-orange-700" />
+                        <span>OEE de Frotas & Gatilhos de Manutenção Preditiva CAN Bus</span>
+                      </h4>
+                      <span className="text-[10px] font-bold px-2 py-0.2 rounded bg-orange-100 text-orange-800">
+                        Disponibilidade • Ritmo • Qualidade
+                      </span>
+                    </div>
+                    <p className="text-slate-600 text-[11px]">
+                      Cálculo em tempo real do Overall Equipment Effectiveness de tratores e colheitadeiras via PGNs J1939. Alarmes preditivos automáticos para troca de óleo do motor a cada 250h/500h, temperatura do líquido acima de 102°C e pressão de óleo abaixo de 1.5 bar para evitar fundição e paradas caras durante a janela da safra.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="font-bold text-xs text-slate-900 flex items-center gap-1.5">
+                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-800" />
+                        <span>Defesa Sanitária: CFO Vegetal (IN MAPA 33/2016) & e-GTA Animal</span>
+                      </h4>
+                      <span className="text-[10px] font-bold px-2 py-0.2 rounded bg-emerald-100 text-emerald-800">
+                        MAPA • INDEA • SIF
+                      </span>
+                    </div>
+                    <p className="text-slate-600 text-[11px]">
+                      Emissão do Certificado Fitossanitário de Origem (CFO) com laudo de ausência de pragas quarentenárias (Helicoverpa, ferrugem e caruru-gigante) assinado pelo Engenheiro Agrônomo RT. Emissão da e-GTA para trânsito de bovinos de corte com atestado de Área Livre de Febre Aftosa Sem Vacinação (Portaria MAPA 665/2024), Brucelose e Raiva.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="font-bold text-xs text-slate-900 flex items-center gap-1.5">
+                        <FileText className="w-3.5 h-3.5 text-indigo-700" />
+                        <span>Plano Safra (BACEN MCR) & Dossiê Bancário Padronizado SCR</span>
+                      </h4>
+                      <span className="text-[10px] font-bold px-2 py-0.2 rounded bg-indigo-100 text-indigo-800">
+                        Pronaf • Pronamp • Moderfrota
+                      </span>
+                    </div>
+                    <p className="text-slate-600 text-[11px]">
+                      Simulador de linhas oficiais do Manual de Crédito Rural com enquadramento de taxas subsidiadas. Geração do Dossiê Bancário consolidado reunindo glebas do CAR, histórico de 5 safras, comprovação ZARC e fluxo de caixa do LCDPR para aprovação de crédito em até 5 dias úteis no Banco do Brasil, Sicredi e cooperativas.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="font-bold text-xs text-slate-900 flex items-center gap-1.5">
+                        <ShieldCheck className="w-3.5 h-3.5 text-rose-700" />
+                        <span>Segurança no Trabalho Rural (NR-31) & eSocial S-2240</span>
+                      </h4>
+                      <span className="text-[10px] font-bold px-2 py-0.2 rounded bg-rose-100 text-rose-800">
+                        Layout S-1.2 Oficial
+                      </span>
+                    </div>
+                    <p className="text-slate-600 text-[11px]">
+                      Checklist de auditoria das instalações, alojamentos, áreas de vivência móveis nos talhões, capacitação de 40h de tratoristas e entrega de EPIs para defensivos. Geração do arquivo XML oficial do Evento S-2240 de Condições Ambientais de Trabalho para transmissão ao eSocial Rural.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                    <div className="flex items-center justify-between mb-1">
+                      <h4 className="font-bold text-xs text-slate-900 flex items-center gap-1.5">
+                        <Flame className="w-3.5 h-3.5 text-teal-700" />
+                        <span>Rastreabilidade Digital de Grãos por Lote & Passaporte QR Code</span>
+                      </h4>
+                      <span className="text-[10px] font-bold px-2 py-0.2 rounded bg-teal-100 text-teal-800">
+                        GlobalG.A.P. • MAPA IN 02/2018
+                      </span>
+                    </div>
+                    <p className="text-slate-600 text-[11px]">
+                      Controle de recebimento de grãos com análise de umidade (13% a 14%), impurezas (&lt;1%) e avarias (&lt;4%). Emissão de Passaporte Digital com QR Code auditável contendo centróide do talhão, histórico completo de aplicações fitossanitárias e hash SHA-256 aceito pelas tradings exportadoras.
                     </p>
                   </div>
                 </div>
