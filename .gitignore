@@ -14,3 +14,6 @@ dist-ssr
 .github/
 *.backup.json
 *telemetry_buffer*.json
+dist-package/
+app_static/screenshots/
+

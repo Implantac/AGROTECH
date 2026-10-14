@@ -1,0 +1,18 @@
+[Unit]
+Description=AGROTECH Enterprise — O Sistema Operacional da Empresa Rural
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/agtech-platform
+ExecStart=/usr/bin/node /opt/agtech-platform/server.cjs
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=production
+Environment=PORT=3000
+Environment=HOST=0.0.0.0
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
