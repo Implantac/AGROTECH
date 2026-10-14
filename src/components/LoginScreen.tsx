@@ -138,11 +138,17 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
 
   const handleSelectDemoProfile = (p: typeof perfisDemo[0]) => {
     const demoPwMap: Record<string, string> = {
+      'admin@agrotech.com.br': 'admin123',
       'admin@superagtech.com.br': 'admin123',
+      'produtor@agrotech.com.br': 'produtor123',
       'produtor@superagtech.com.br': 'produtor123',
+      'agronomo@agrotech.com.br': 'agro123',
       'agronoma@superagtech.com.br': 'agro123',
+      'operador@agrotech.com.br': 'op123',
       'operador@superagtech.com.br': 'op123',
+      'contador@agrotech.com.br': 'fiscal123',
       'contadora@superagtech.com.br': 'fiscal123',
+      'veterinario@agrotech.com.br': 'vet123',
       'veterinario@superagtech.com.br': 'vet123',
     };
     setEmailOrCpf(p.email);

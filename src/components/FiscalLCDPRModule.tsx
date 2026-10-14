@@ -21,7 +21,8 @@ import {
   KeyRound,
   ChevronDown,
   ChevronUp,
-  Award
+  Award,
+  Landmark
 } from 'lucide-react';
 import { CONDOMINOS_FAZENDA, LANCAMENTOS_FISCAIS_SAFRA, CondominoData, LancamentoFiscalData } from '../data/mockAgroData';
 import {

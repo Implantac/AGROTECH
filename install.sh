@@ -79,13 +79,23 @@ else
   echo -e "${GREEN}✓ Arquivo .env existente preservado.${NC}"
 fi
 
-# 3. Criação de diretórios necessários
-echo -e "\n${BLUE}[3/5] Verificando estrutura de dados e diretórios...${NC}"
+# 3. Criação de diretórios necessários e inicialização do Banco de Dados
+echo -e "\n${BLUE}[3/5] Verificando estrutura de dados e inicializando banco limpo...${NC}"
 mkdir -p data/certificados data/backups logs public app_static
-if [ ! -f data/agtech_db.json ] && [ -f data/agtech_db.backup.json ]; then
-  cp data/agtech_db.backup.json data/agtech_db.json
+
+# Inicializa ou restaura o banco de dados limpo para produção
+if [ ! -f data/agtech_db.json ]; then
+  echo -e "${YELLOW}[*] Banco de dados não encontrado. Inicializando banco limpo de produção...${NC}"
+  node scripts/init_clean_db.cjs
+else
+  echo -e "${GREEN}✓ Banco de dados existente detectado em data/agtech_db.json.${NC}"
+  echo -e "Deseja resetar para o estado inicial 100% limpo de fábrica? (Recomendado para novas implantações)"
+  read -p "Resetar banco? (s/N): " RESET_DB
+  if [ "$RESET_DB" = "s" ] || [ "$RESET_DB" = "S" ]; then
+    node scripts/init_clean_db.cjs
+  fi
 fi
-echo -e "${GREEN}✓ Diretórios de persistência verificados.${NC}"
+echo -e "${GREEN}✓ Estrutura e banco de dados prontos.${NC}"
 
 # 4. Modo de Execução: Docker ou Bare-Metal (PM2 / Systemd)
 echo -e "\n${BLUE}[4/5] Escolha a modalidade de execução desejada:${NC}"
@@ -156,6 +166,19 @@ if [ "$HEALTH_CHECK_PASSED" = true ]; then
   echo -e "Acesse a plataforma no seu navegador:"
   echo -e "  ➤ ${BLUE}http://localhost:3000${NC} ou ${BLUE}http://localhost:5173${NC}"
   echo -e "  ➤ Ou pelo IP da sua rede local (ex: http://192.168.1.xxx:3000)"
+  echo -e "\n----------------------------------------------------------------"
+  echo -e "🔐 ${GREEN}CREDENCIAIS DE ACESSO DO ADMINISTRADOR (ACESSO TOTAL):${NC}"
+  echo -e "----------------------------------------------------------------"
+  echo -e "  E-mail : ${YELLOW}admin@agrotech.com.br${NC} (ou admin@superagtech.com.br)"
+  echo -e "  Senha  : ${YELLOW}admin123${NC}"
+  echo -e "  Perfil : ${GREEN}SUPERADMIN (Acesso Total irrestrito a todos os recursos)${NC}"
+  echo -e "----------------------------------------------------------------"
+  echo -e "Cadastros Iniciais Disponíveis ao Acessar:"
+  echo -e "  1. Cadastre sua Fazenda real (CNPJ, Inscrição Estadual, Município)"
+  echo -e "  2. Importe o CAR (Cadastro Ambiental Rural) em GeoJSON/KML"
+  echo -e "  3. Cadastre tratores e colheitadeiras para telemetria CAN Bus"
+  echo -e "  4. Configure o Certificado Digital A1 (.pfx) para emissão de NF-e"
+  echo -e "----------------------------------------------------------------"
   echo -e "\nPara visualizar o manual completo:"
   echo -e "  ➤ ${BLUE}MANUAL_IMPLANTACAO_E_USO_AGROTECH.md${NC} ou ${BLUE}MANUAL_ILUSTRADO_AGROTECH.html${NC}"
   echo -e "Para o guia completo do comprador do código-fonte:"

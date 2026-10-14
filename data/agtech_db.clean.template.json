@@ -1,0 +1,276 @@
+{
+  "usuarios": [
+    {
+      "id": "usr-admin",
+      "nome": "Administrador do Sistema",
+      "email": "admin@agrotech.com.br",
+      "aliases": [
+        "admin@superagtech.com.br"
+      ],
+      "senhaHash": "pbkdf2$sha512$100000$7e23c8010015360836c711ce96e1efe3$d8e5bdc7a55f60c8962d161d3c2470b9c7d9998cc4fe4f87f00c0187314ba526031b95745691a4b1901df85b32ab56ec136d912a132a04cbc0d5d58bf3435221",
+      "perfil": "SUPERADMIN",
+      "cargo": "Superadministrador (Acesso Total)",
+      "fazenda": "Sede Administrativa Matriz",
+      "permissoes": [
+        "ALL"
+      ],
+      "status": "ATIVO",
+      "criadoEm": "2026-10-14T00:00:00.000Z"
+    },
+    {
+      "id": "usr-produtor",
+      "nome": "Produtor Titular",
+      "email": "produtor@agrotech.com.br",
+      "aliases": [
+        "produtor@superagtech.com.br"
+      ],
+      "senhaHash": "pbkdf2$sha512$100000$faa92443b565dce76d8137e9605adcbd$30e8b9ed75e22afc22a6bf37b51b3e1a9640621dedb4a62f95f5465c970f65e785e5085f2fc8aa4350dee665caaf408e629cac6dea2059408169f0fd7b7e0e5c",
+      "perfil": "PRODUTOR",
+      "cargo": "Produtor Titular & Gestor da Fazenda",
+      "fazenda": "Sede Administrativa Matriz",
+      "permissoes": [
+        "PRODUCAO",
+        "FINANCEIRO",
+        "BARTER",
+        "COMERCIALIZACAO",
+        "RELATORIOS"
+      ],
+      "status": "ATIVO",
+      "criadoEm": "2026-10-14T00:00:00.000Z"
+    },
+    {
+      "id": "usr-agronomo",
+      "nome": "Engenheiro Agrônomo",
+      "email": "agronomo@agrotech.com.br",
+      "aliases": [
+        "agronoma@superagtech.com.br"
+      ],
+      "senhaHash": "pbkdf2$sha512$100000$072084e971cb16994ef624e17e1effe8$402d4600c126ba60d3e951633dc63955608dcd3969cab93066f32207d73b931f76331e25f732d2cfde7dcfc8e0938f7a91884dd6a5c98b7d324d29a019bb3f88",
+      "perfil": "AGRONOMO",
+      "cargo": "Responsável Técnico Agrícola (CREA/BR)",
+      "fazenda": "Sede Administrativa Matriz",
+      "permissoes": [
+        "LAVOURA",
+        "DEFENSIVOS",
+        "MANEJO",
+        "PRESCRIÇÃO",
+        "SOLOS"
+      ],
+      "status": "ATIVO",
+      "criadoEm": "2026-10-14T00:00:00.000Z"
+    },
+    {
+      "id": "usr-operador",
+      "nome": "Operador de Maquinário",
+      "email": "operador@agrotech.com.br",
+      "aliases": [
+        "operador@superagtech.com.br"
+      ],
+      "senhaHash": "pbkdf2$sha512$100000$b256049f460cfa9a0f7c79b5781e927b$8377267fe62556f60a41b42ef09cfabeff64ec0f7a4dfe2a95d999d105fadcd013dcc8e01d753f2b26ddb40dc2a49d6a9e17ca0cf0d2fac8c332285843cee1f0",
+      "perfil": "OPERADOR",
+      "cargo": "Operador de Máquinas e Telemetria",
+      "fazenda": "Sede Administrativa Matriz",
+      "permissoes": [
+        "TELEMETRIA",
+        "APONTAMENTO",
+        "OFICINA",
+        "FROTA"
+      ],
+      "status": "ATIVO",
+      "criadoEm": "2026-10-14T00:00:00.000Z"
+    },
+    {
+      "id": "usr-contador",
+      "nome": "Contador Responsável",
+      "email": "contador@agrotech.com.br",
+      "aliases": [
+        "contadora@superagtech.com.br"
+      ],
+      "senhaHash": "pbkdf2$sha512$100000$8a82b29e33fc81149b47a55438945050$b4ebe7d36658475ada0dedc253bae64fe4f7f11d348ebc1fda5f4745fd58569b99d2fcb58f3b127a7ebb088d1ceba170e3905ef6389ed30917ccdbbcd383f42b",
+      "perfil": "CONTADOR",
+      "cargo": "Responsável Contábil e Fiscal (CRC/BR)",
+      "fazenda": "Sede Administrativa Matriz",
+      "permissoes": [
+        "FISCAL",
+        "LCDPR",
+        "NFE",
+        "REFORMA_TRIBUTARIA",
+        "FINANCEIRO"
+      ],
+      "status": "ATIVO",
+      "criadoEm": "2026-10-14T00:00:00.000Z"
+    },
+    {
+      "id": "usr-veterinario",
+      "nome": "Médico Veterinário",
+      "email": "veterinario@agrotech.com.br",
+      "aliases": [
+        "veterinario@superagtech.com.br"
+      ],
+      "senhaHash": "pbkdf2$sha512$100000$ed81a25155d0f7cb686b496e895f9e31$58e9a0e50fea169d741aba4320f12df357f75cd8c8af0f1fbb838d49c6460d7fb93b59d779e3f202a8656d8d9e28bf714746c3996a1c51d9705a4d942643c124",
+      "perfil": "VETERINARIO",
+      "cargo": "Responsável Sanitário Pecuário (CRMV/BR)",
+      "fazenda": "Sede Administrativa Matriz",
+      "permissoes": [
+        "ZOOTECNIA",
+        "SANIDADE",
+        "SISBOV",
+        "DEFESA_SANITARIA"
+      ],
+      "status": "ATIVO",
+      "criadoEm": "2026-10-14T00:00:00.000Z"
+    }
+  ],
+  "fazendas": [
+    {
+      "id": "faz-matriz",
+      "nome": "Fazenda Matriz (Configuração Inicial)",
+      "cnpj": "00.000.000/0001-00",
+      "municipio": "A Cadastrar",
+      "uf": "BR",
+      "areaTotalHa": 0,
+      "areaAgricultavelHa": 0,
+      "reservaLegalHa": 0,
+      "car": "",
+      "sigef": "",
+      "status": "AGUARDANDO_CADASTRO"
+    }
+  ],
+  "talhoes": [],
+  "frota": [],
+  "estoque": [],
+  "cotacoesMercado": {
+    "sojaB3": {
+      "valor": 136.5,
+      "unidade": "sc 60kg",
+      "variacao": "+0.85%",
+      "fonte": "B3 / CEPEA Paranaguá"
+    },
+    "milhoB3": {
+      "valor": 64.2,
+      "unidade": "sc 60kg",
+      "variacao": "-0.30%",
+      "fonte": "B3 / CEPEA Campinas"
+    },
+    "boiGordoB3": {
+      "valor": 248,
+      "unidade": "@ 15kg",
+      "variacao": "+1.10%",
+      "fonte": "B3 / CEPEA Araçatuba"
+    },
+    "dolarPtax": {
+      "valor": 5.48,
+      "unidade": "BRL/USD",
+      "variacao": "+0.15%",
+      "fonte": "BACEN PTAX"
+    },
+    "cbioB3": {
+      "valor": 105,
+      "unidade": "BRL/CBIO",
+      "variacao": "+2.40%",
+      "fonte": "B3 RenovaBio"
+    },
+    "etanolHidratado": {
+      "valor": 2.45,
+      "unidade": "BRL/L",
+      "variacao": "+0.40%",
+      "fonte": "CEPEA / ESALQ"
+    }
+  },
+  "subscriptionConfig": {
+    "plano": "ENTERPRISE",
+    "status": "ATIVO",
+    "limiteHectares": 50000,
+    "modulosLiberados": [
+      "ALL"
+    ]
+  },
+  "planoAtivo": "ENTERPRISE",
+  "rbac_grants": {
+    "PRODUTOR": {
+      "extraModuleIds": [],
+      "grantedBy": "SUPERADMIN",
+      "updatedAt": "2026-10-14T00:00:00.000Z"
+    },
+    "AGRONOMO": {
+      "extraModuleIds": [],
+      "grantedBy": "SUPERADMIN",
+      "updatedAt": "2026-10-14T00:00:00.000Z"
+    },
+    "OPERADOR": {
+      "extraModuleIds": [
+        "DRE_COMBOIO"
+      ],
+      "grantedBy": "SUPERADMIN",
+      "updatedAt": "2026-10-14T00:00:00.000Z"
+    },
+    "CONTADOR": {
+      "extraModuleIds": [],
+      "grantedBy": "SUPERADMIN",
+      "updatedAt": "2026-10-14T00:00:00.000Z"
+    },
+    "VETERINARIO": {
+      "extraModuleIds": [],
+      "grantedBy": "SUPERADMIN",
+      "updatedAt": "2026-10-14T00:00:00.000Z"
+    }
+  },
+  "tenantCredentials": {
+    "tenant-fazenda-santa-helena": {
+      "tenantId": "tenant-fazenda-santa-helena",
+      "sefaz": {
+        "ambiente": "HOMOLOGACAO",
+        "certificadoA1Configurado": false,
+        "nomeArquivo": null,
+        "titular": null,
+        "cnpj": null,
+        "emissor": null,
+        "status": "PENDENTE_CONFIGURACAO",
+        "ufAutorizadora": "MT",
+        "seriePadraoNfe": 1,
+        "proximoNumeroNfe": 1
+      },
+      "bancario": {
+        "bancoPrincipal": "001 - Banco do Brasil",
+        "chavePix": "",
+        "tipoChavePix": "CNPJ",
+        "openFinanceAtivo": false,
+        "padraoCnab": "CNAB_240"
+      },
+      "mensageria": {
+        "provedor": "WHATSAPP_EVOLUTION_API",
+        "instancia": "agro-alerta",
+        "tokenConfigurado": false,
+        "telefonePlantao": "",
+        "alertasAtivos": [
+          "ALERTA_SUPERAQUECIMENTO",
+          "ALERTA_PRESSAO_OLEO_BAIXA",
+          "CONFLITO_OUTBOX",
+          "VENCIMENTO_CPR_BARTER"
+        ],
+        "statusConexao": "DESCONECTADO"
+      },
+      "sateliteClima": {
+        "provedorSatelite": "COPERNICUS_SENTINEL_2",
+        "apiKeyConfigurada": false,
+        "filtroNuvensMaximoPct": 20
+      },
+      "atualizadoEm": "2026-10-14T00:00:00.000Z"
+    }
+  },
+  "gtasEmitidas": [],
+  "romaneiosEmitidos": [],
+  "contratosBarter": [],
+  "viagensMdfe": [],
+  "dossiesBancarios": [],
+  "outboxQueue": [],
+  "assinaturas": [],
+  "billingWebhookLogs": [],
+  "telemetriaHistorico": [],
+  "eudrDeclarations": [],
+  "contingenciaNfe": [],
+  "prescricoesIsoXml": [],
+  "lotesRastreados": [],
+  "cprsDigitais": [],
+  "documentosSanitarios": []
+}

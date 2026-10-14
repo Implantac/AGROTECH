@@ -90,8 +90,27 @@ O instalador verificará o Node.js, configurará o arquivo `.env` com chaves cri
 ### 4.2. Instalação em Windows (Windows 10, 11 ou Windows Server)
 1. Certifique-se de ter o **Node.js v20 LTS** instalado ([Download oficial](https://nodejs.org/)).
 2. Dê um duplo-clique no arquivo `install-windows.bat`.
-3. O script criará o ambiente, estruturará as pastas e iniciará o servidor instantaneamente.
+3. O script criará o ambiente, inicializará o banco de dados limpo e iniciará o servidor instantaneamente.
 4. Para inicializações futuras, basta dar duplo-clique em `start-windows.bat`.
+
+### 4.3. Banco de Dados Limpo de Fábrica & Usuário Administrador Inicial (Acesso Total)
+O instalador automatizado executa o script `scripts/init_clean_db.cjs`, garantindo que o comprador receba o sistema **100% funcional e com zero dados mockados ou resíduos de testes**:
+- **0 talhões fictícios**: Pronto para você importar seu arquivo CAR real (GeoJSON, KML ou Shapefile).
+- **0 máquinas fictícias**: Pronto para cadastrar seus tratores e colheitadeiras e conectar a telemetria CAN Bus.
+- **0 notas fiscais ou lançamentos de teste**: Auditoria e livro caixa 100% zerados para sua escrituração contábil real.
+- **0 logs de webhook ou filas residuais**: Histórico de auditoria limpo.
+
+#### Credenciais do Administrador Mestre Inicial:
+- **E-mail**: `admin@agrotech.com.br` *(ou alias `admin@superagtech.com.br`)*
+- **Senha Inicial**: `admin123`
+- **Perfil de Acesso**: `SUPERADMIN` *(Acesso irrestrito a todas as áreas, parametrizações e governança)*
+
+#### Roteiro dos Cadastros Iniciais (Primeiros Passos do Cliente):
+1. **Cadastro da Fazenda**: Acesse a plataforma e informe a Razão Social, CNPJ, Inscrição Estadual e Município da sua propriedade rural.
+2. **Georreferenciamento dos Talhões**: Vá ao menu *Agricultura de Precisão / AgroMap* e importe o polígono do seu CAR ou demarque os pivôs e glebas.
+3. **Cadastro da Frota**: Acesse *Telemetria de Frotas* para registrar os equipamentos e gerar as tags de telemetria CAN Bus J1939.
+4. **Certificado Digital A1**: No menu lateral em *Credenciais do Tenant*, importe o arquivo `.pfx` do seu Certificado Digital ICP-Brasil e teste a conexão com a SEFAZ do seu estado.
+5. **Delegação de Acessos**: Utilize a tela de governança RBAC para convidar os agrônomos, operadores e contadores da sua equipe.
 
 ---
 

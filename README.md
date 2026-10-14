@@ -39,6 +39,13 @@ docker compose up -d --build
 
 Acesse no navegador: **`http://localhost:3000`** ou **`http://localhost:5173`** (Dual-binding ativo).
 
+### 🔐 Credenciais do Usuário Administrador Inicial (Acesso Total)
+Após a instalação automatizada, o sistema já estará configurado com banco de dados ACID limpo de fábrica e um usuário Administrador Mestre pronto para o primeiro login e parametrizações da fazenda:
+- **E-mail**: `admin@agrotech.com.br` *(ou alias `admin@superagtech.com.br`)*
+- **Senha Inicial**: `admin123`
+- **Perfil de Acesso**: `SUPERADMIN` (Acesso irrestrito a todos os 135 módulos do sistema)
+- **Status do Banco**: 100% limpo (0 talhões de teste, 0 frotas fictícias, 0 notas mockadas)
+
 ---
 
 ## 💎 Pilares Arquiteturais & Funcionalidades

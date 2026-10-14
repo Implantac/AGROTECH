@@ -27,6 +27,7 @@ export interface InsumoEstoqueData {
 
 export interface MaquinaData {
   id: string;
+  tag?: string;
   nome: string;
   tipo: 'TRATOR' | 'COLHEITADEIRA' | 'PULVERIZADOR' | 'CAMINHAO';
   horimetroAtual: number;

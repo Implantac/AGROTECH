@@ -1164,7 +1164,10 @@ const server = http.createServer((req, res) => {
 
       let user = null;
       if (email) {
-        user = db.usuarios.find(u => u.email.toLowerCase() === email.toLowerCase());
+        user = db.usuarios.find(u => 
+          (u.email && u.email.toLowerCase() === email.toLowerCase()) ||
+          (Array.isArray(u.aliases) && u.aliases.some(a => a.toLowerCase() === email.toLowerCase()))
+        );
         if (!user) {
           recordFailedLogin(rateLimitKey);
           recordFailedLogin(clientIp);

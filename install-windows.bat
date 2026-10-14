@@ -49,20 +49,22 @@ if not exist .env (
 )
 echo.
 
-REM 3. Criação de pastas necessárias
-echo [3/4] Verificando pastas de dados...
+REM 3. Criação de pastas necessárias e inicialização do Banco de Dados
+echo [3/4] Verificando pastas e inicializando banco de dados limpo...
 if not exist data mkdir data
 if not exist data\certificados mkdir data\certificados
+if not exist data\backups mkdir data\backups
 if not exist logs mkdir logs
 if not exist app_static mkdir app_static
 if not exist public mkdir public
 
 if not exist data\agtech_db.json (
-    if exist data\agtech_db.backup.json (
-        copy data\agtech_db.backup.json data\agtech_db.json >nul
-    )
+    echo [*] Inicializando banco de dados ACID limpo de producao...
+    node scripts\init_clean_db.cjs
+) else (
+    echo [OK] Banco de dados existente detectado em data\agtech_db.json.
 )
-echo [OK] Estrutura de dados pronta.
+echo [OK] Estrutura e banco de dados prontos.
 echo.
 
 REM 4. Inicialização do Servidor
@@ -74,6 +76,14 @@ echo ================================================================
 echo.
 echo Abra o navegador e acesse:
 echo   http://localhost:3000  ou  http://localhost:5173
+echo.
+echo ----------------------------------------------------------------
+echo 🔐 CREDENCIAIS DO USUARIO ADMINISTRADOR (ACESSO TOTAL):
+echo ----------------------------------------------------------------
+echo   E-mail : admin@agrotech.com.br (ou admin@superagtech.com.br)
+echo   Senha  : admin123
+echo   Perfil : SUPERADMIN (Acesso Total irrestrito a todos os recursos)
+echo ----------------------------------------------------------------
 echo.
 echo Pressione CTRL+C para encerrar o servidor quando desejar.
 echo ================================================================
