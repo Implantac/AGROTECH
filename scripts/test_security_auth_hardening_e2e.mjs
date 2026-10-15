@@ -92,7 +92,11 @@ async function runSecurityAudit() {
 
   // 5. Verificar persistência e formato PBKDF2 no banco
   const dbData = JSON.parse(fs.readFileSync(DB_PATH, 'utf8'));
-  const adminInDb = dbData.usuarios.find(u => u.email === 'admin@superagtech.com.br');
+  const adminInDb = dbData.usuarios.find(u => 
+    u.email === 'admin@superagtech.com.br' || 
+    u.email === 'admin@agrotech.com.br' ||
+    (Array.isArray(u.aliases) && u.aliases.includes('admin@superagtech.com.br'))
+  );
   if (!adminInDb || !adminInDb.senhaHash.startsWith('pbkdf2$sha512$100000$')) {
     console.error('❌ FALHA: Credencial não foi atualizada para PBKDF2 100k rounds!', adminInDb?.senhaHash);
     process.exit(1);

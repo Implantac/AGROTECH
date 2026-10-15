@@ -2265,9 +2265,12 @@ ${xmlAssinado}
     lines.push(`|K100|${dataInicio}|${dataFim}|`);
 
     // K200: Estoque Escriturado (Grãos em Silos, Insumos, Combustível)
-    (db.estoque || []).forEach(item => {
+    const estoqueItems = (db.estoque && db.estoque.length > 0)
+      ? db.estoque
+      : [{ codigo: 'EST-INICIAL-001', quantidadeDisponivel: 0 }];
+    estoqueItems.forEach(item => {
       const codItem = item.codigo || 'INS-001';
-      const qtd = Number(item.quantidadeDisponivel || item.saldo || 100).toFixed(3);
+      const qtd = Number(item.quantidadeDisponivel !== undefined ? item.quantidadeDisponivel : (item.saldo || 0)).toFixed(3);
       const indEst = '0'; // 0 = Estoque de propriedade do informante e em seu poder
       lines.push(`|K200|${dataFim}|${codItem}|${qtd}|${indEst}||`);
     });
