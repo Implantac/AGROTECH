@@ -37,7 +37,9 @@ import {
   Bot,
   Activity,
   DollarSign,
-  BookOpen
+  BookOpen,
+  Building2,
+  Calculator
 } from 'lucide-react';
 
 interface PublicLandingPageProps {
@@ -55,6 +57,77 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
 }) => {
   // Estado dos Planos & Alternador Mensal / Anual
   const [faturamentoPeriodo, setFaturamentoPeriodo] = useState<'ANUAL' | 'MENSAL'>('ANUAL');
+
+  // Modal do Tour Executivo de 90 Segundos
+  const [isTourModalOpen, setIsTourModalOpen] = useState(false);
+  const [tourActiveStep, setTourActiveStep] = useState(0);
+
+  const tourSteps = [
+    {
+      titulo: '1. Telemetria CAN Bus J1939 & OEE de Frotas ao Vivo',
+      subtitulo: 'Conexão direta com a injeção eletrônica dos tratores, colheitadeiras e pulverizadores.',
+      icone: Tractor,
+      detalhes: [
+        'Decodificação em milissegundos dos PGNs 61444 (RPM) e 65263 (L/h)',
+        'Alertas imediatos de temperatura de arrefecimento e pressão de óleo',
+        'Controle de marcha lenta desnecessária que economiza até 18% em diesel',
+        'Buffer Store-and-Forward para operar sem internet no talhão'
+      ],
+      metricas: [
+        { rotulo: 'Economia Diesel', valor: '14.8%' },
+        { rotulo: 'OEE da Frota', valor: '84.9%' },
+        { rotulo: 'Latência SSE', valor: '< 250ms' }
+      ]
+    },
+    {
+      titulo: '2. Satélite Sentinel-2 & Índices NDVI / NDRE e VRA',
+      subtitulo: 'Visão orbital da saúde vegetativa e prescrições em taxa variável prontas para pen-drive.',
+      icone: Compass,
+      detalhes: [
+        'Resolução de 10 metros com filtros de nuvens automatizados',
+        'Detecção antecipada de reboleiras de nematoides e ferrugem asiática',
+        'Exportação de arquivos TASKDATA.XML no padrão ISO 11783-10 (ISOBUS)',
+        'Compatibilidade universal: John Deere Gen 4, Trimble GFX e Case AFS Pro'
+      ],
+      metricas: [
+        { rotulo: 'Resolução', valor: '10m / pixel' },
+        { rotulo: 'Economia Adubo', valor: 'R$ 74/ha' },
+        { rotulo: 'Padrão Monitores', valor: 'ISO 11783' }
+      ]
+    },
+    {
+      titulo: '3. Motor Fiscal SEFAZ XMLDSig, Reforma EC 132 & LCDPR',
+      subtitulo: 'Segurança tributária com assinatura digital ICP-Brasil e SPED automatizado.',
+      icone: ShieldCheck,
+      detalhes: [
+        'Assinatura digital padrão Enveloped RSA-SHA1 com Certificado A1 (.pfx)',
+        'Contingência EPEC com prazo de 168h para transporte sem travar a colheita',
+        'Importação de extratos bancários .OFX com injeção automática no registro Q100',
+        'Motor de transição da Reforma Tributária: Split Payment, IBS e CBS'
+      ],
+      metricas: [
+        { rotulo: 'Assinatura', valor: 'ICP-Brasil A1' },
+        { rotulo: 'Contingência', valor: 'EPEC 168h' },
+        { rotulo: 'SPED Rural', valor: 'LCDPR Q100' }
+      ]
+    },
+    {
+      titulo: '4. Cockpit Executivo, Custo ABC & Break-Even por Saca',
+      subtitulo: 'Gestão de margem líquida, CPR digital na B3 e simulação do Plano Safra.',
+      icone: BarChart3,
+      detalhes: [
+        'Custo de produção rateado talhão por talhão pelo método ABC',
+        'Cálculo em tempo real do ponto de equilíbrio (sacas/ha para cobrir o custo)',
+        'Simulador oficial do Plano Safra (BACEN MCR): Pronaf, Pronamp e Moderfrota',
+        'Emissão de CPR Digital registrada e Due Diligence antidesmatamento EUDR'
+      ],
+      metricas: [
+        { rotulo: 'Break-Even', valor: '46.2 sc/ha' },
+        { rotulo: 'Taxa Pronamp', valor: '8.0% a.a.' },
+        { rotulo: 'Conformidade', valor: 'EUDR 100%' }
+      ]
+    }
+  ];
 
   // Demonstração Interativa do Sistema (Seção 9)
   const [demoTabAtiva, setDemoTabAtiva] = useState<
@@ -346,6 +419,15 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
                 className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-100 text-slate-900 font-bold rounded-xl text-sm border border-slate-300 shadow-sm transition flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Conhecer a plataforma</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => { setTourActiveStep(0); setIsTourModalOpen(true); }}
+                className="w-full sm:w-auto px-6 py-4 bg-emerald-950 text-white hover:bg-emerald-900 font-bold rounded-xl text-sm shadow-md transition flex items-center justify-center gap-2 cursor-pointer border border-emerald-800"
+              >
+                <Play className="w-4 h-4 fill-emerald-400 text-emerald-400" />
+                <span>Tour Executivo (90s)</span>
               </button>
 
               {onOpenManual && (
@@ -893,6 +975,131 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
               </div>
             ))}
           </div>
+
+          {/* SIMULADOR INTERATIVO DE ECONOMIA & RETORNO SOBRE INVESTIMENTO (ROI) */}
+          <div className="mt-12 bg-gradient-to-br from-slate-900 via-slate-850 to-emerald-950 text-white rounded-3xl p-6 sm:p-10 border border-emerald-800/60 shadow-xl space-y-8">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 border-b border-white/10 pb-6">
+              <div>
+                <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-mono font-bold border border-emerald-500/30 inline-flex items-center gap-1.5">
+                  <Calculator className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>CALCULADORA DE RETORNO DO INVESTIMENTO</span>
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-black text-white mt-2">
+                  Calcule quanto a AGROTECH economiza na sua fazenda
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl">
+                  Simulação matemática ponderada considerando redução de consumo de diesel (CAN Bus), corte de sobreposição de adubos e blindagem fiscal contra autuações da Receita Federal.
+                </p>
+              </div>
+              <div className="text-left lg:text-right shrink-0 bg-white/5 p-4 rounded-2xl border border-white/10 lg:bg-transparent lg:p-0 lg:border-0">
+                <span className="text-[11px] text-slate-400 block font-mono">RETORNO ESTIMADO / SAFRA</span>
+                <span className="text-3xl sm:text-4xl font-black text-emerald-400 font-mono">
+                  R$ {retornoEstimado.retornoTotalAnual.toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
+                </span>
+                <span className="text-xs text-emerald-300 block font-medium mt-0.5">
+                  {retornoEstimado.multiplicadorROI}x o valor da assinatura • Payback em {retornoEstimado.paybackDias} dias
+                </span>
+              </div>
+            </div>
+
+            {/* Controles: Hectares e Cultura */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white/5 p-6 rounded-2xl border border-white/10">
+              <div className="space-y-3">
+                <div className="flex justify-between items-center text-xs">
+                  <span className="font-bold text-slate-200">ÁREA TOTAL CULTIVADA (HECTARES):</span>
+                  <span className="text-lg font-black font-mono text-emerald-400 bg-white/10 px-3 py-1 rounded-lg border border-white/10">
+                    {areaHaCalculadora.toLocaleString('pt-BR')} ha
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min="200"
+                  max="15000"
+                  step="100"
+                  value={areaHaCalculadora}
+                  onChange={(e) => setAreaHaCalculadora(Number(e.target.value))}
+                  className="w-full h-2.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+                />
+                <div className="flex justify-between text-[11px] text-slate-400 font-mono">
+                  <span>200 ha (Familiar)</span>
+                  <span>5.000 ha (Médio)</span>
+                  <span>15.000 ha+ (Mega Grupo)</span>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <span className="text-xs font-bold text-slate-200 block">ATIVIDADE PRODUTIVA PRINCIPAL:</span>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {[
+                    { id: 'SOJA_MILHO', label: 'Soja / Milho' },
+                    { id: 'ALGODAO', label: 'Algodão HVI' },
+                    { id: 'CAFE', label: 'Café Especial' },
+                    { id: 'PECUARIA', label: 'Pecuária Corte' },
+                  ].map((cult) => (
+                    <button
+                      key={cult.id}
+                      type="button"
+                      onClick={() => setCulturaCalculadora(cult.id as any)}
+                      className={`py-2.5 px-3 rounded-xl text-xs font-bold transition text-center cursor-pointer border ${
+                        culturaCalculadora === cult.id
+                          ? 'bg-emerald-600 text-white border-emerald-400 shadow-md'
+                          : 'bg-white/10 text-slate-300 border-white/10 hover:bg-white/15'
+                      }`}
+                    >
+                      {cult.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Decomposição dos Ganhos e Economias */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-1">
+                <span className="text-[11px] font-mono text-slate-400 uppercase">1. Ganho em Produtividade</span>
+                <span className="text-xl font-bold font-mono text-white block">
+                  R$ {retornoEstimado.ganhoProdutividadeTotal.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
+                </span>
+                <p className="text-[11px] text-slate-300">
+                  +2.4 sacas/ha por controle de janelas climáticas e vigor NDVI.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-1">
+                <span className="text-[11px] font-mono text-slate-400 uppercase">2. Corte de Insumos & Diesel</span>
+                <span className="text-xl font-bold font-mono text-emerald-300 block">
+                  R$ {retornoEstimado.economiaInsumosTotal.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
+                </span>
+                <p className="text-[11px] text-slate-300">
+                  Prescrições ISO-XML em taxa variável e eliminação de marcha lenta.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-1">
+                <span className="text-[11px] font-mono text-slate-400 uppercase">3. Blindagem Fiscal SPED</span>
+                <span className="text-xl font-bold font-mono text-cyan-300 block">
+                  R$ {retornoEstimado.economiaGlosasFiscais.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}
+                </span>
+                <p className="text-[11px] text-slate-300">
+                  LCDPR sem glosas da Receita Federal e conciliação bancária OFX.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+              <div className="text-xs text-slate-300">
+                Investimento anual estimado de apenas <strong>R$ {retornoEstimado.custoAnualPlano.toLocaleString('pt-BR')}</strong> no plano selecionado.
+              </div>
+              <button
+                type="button"
+                onClick={handleStartRegister}
+                className="w-full sm:w-auto px-6 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-xl text-xs uppercase tracking-wider transition shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>Capturar Essa Economia na Minha Fazenda</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1128,6 +1335,42 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
               </button>
             </div>
           </div>
+
+          {/* BANNER CORPORATIVO WHITE-LABEL PARA COOPERATIVAS & REVENDAS */}
+          <div className="mt-14 bg-gradient-to-r from-emerald-950 via-slate-900 to-emerald-900 border border-emerald-700/60 rounded-3xl p-8 sm:p-12 text-white shadow-xl flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="space-y-3 max-w-2xl text-left">
+              <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-mono font-bold border border-emerald-500/30 inline-flex items-center gap-2">
+                <Building2 className="w-3.5 h-3.5 text-emerald-400" />
+                <span>SOLUÇÃO WHITE-LABEL PARA COOPERATIVAS E REVENDAS</span>
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
+                Ofereça o AGROTECH com a marca da sua Cooperativa ou Revenda
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Personalize a plataforma com o logotipo, cores e domínio da sua organização. Conecte milhares de produtores e cooperados à sua infraestrutura de Barter, receituário agronômico e compras de insumos em um portal exclusivo e escalável.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full lg:w-auto">
+              <button
+                type="button"
+                onClick={onEnterPlatformDirectly}
+                className="px-6 py-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-xl text-xs uppercase tracking-wider transition shadow-md flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>Ver Demonstração Institucional</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              {onOpenManual && (
+                <button
+                  type="button"
+                  onClick={onOpenManual}
+                  className="px-6 py-4 bg-white/10 hover:bg-white/15 text-white font-bold rounded-xl text-xs border border-white/20 transition flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <BookOpen className="w-4 h-4 text-emerald-300" />
+                  <span>Manual de Parcerias</span>
+                </button>
+              )}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1252,6 +1495,130 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
           </div>
         </div>
       </footer>
+
+      {/* MODAL TOUR EXECUTIVO DE 90 SEGUNDOS */}
+      {isTourModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4 overflow-y-auto animate-fade-in">
+          <div className="relative bg-white border border-slate-300 rounded-3xl shadow-2xl max-w-3xl w-full p-6 sm:p-8 space-y-6 overflow-hidden">
+            {/* Header do Tour */}
+            <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-700 text-white flex items-center justify-center shadow-sm">
+                  <Play className="w-5 h-5 fill-white text-white" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 text-[10px] font-bold font-mono border border-emerald-300">
+                      PASSO {tourActiveStep + 1} DE {tourSteps.length}
+                    </span>
+                    <span className="text-[11px] text-slate-500 font-medium font-mono">TOUR EXECUTIVO (90s)</span>
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
+                    {tourSteps[tourActiveStep].titulo}
+                  </h3>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsTourModalOpen(false)}
+                className="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 flex items-center justify-center transition cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Barra de Progresso dos Capítulos */}
+            <div className="grid grid-cols-4 gap-2">
+              {tourSteps.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => setTourActiveStep(idx)}
+                  className={`h-2 rounded-full transition-all cursor-pointer ${
+                    tourActiveStep === idx
+                      ? 'bg-emerald-700'
+                      : idx < tourActiveStep
+                      ? 'bg-emerald-400'
+                      : 'bg-slate-200'
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Conteúdo do Capítulo Ativo */}
+            <div className="space-y-6">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                {tourSteps[tourActiveStep].subtitulo}
+              </p>
+
+              {/* Cards de Métricas em Destaque */}
+              <div className="grid grid-cols-3 gap-3">
+                {tourSteps[tourActiveStep].metricas.map((m, mIdx) => (
+                  <div key={mIdx} className="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 text-center space-y-1">
+                    <span className="text-[10px] font-mono text-slate-500 uppercase block">{m.rotulo}</span>
+                    <span className="text-base sm:text-lg font-black text-emerald-800 font-mono block">{m.valor}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Lista de Recursos Chave do Capítulo */}
+              <div className="bg-emerald-50/50 border border-emerald-200 rounded-2xl p-4 sm:p-5 space-y-2.5">
+                <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider block font-mono">
+                  Destaques Operacionais em Campo:
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {tourSteps[tourActiveStep].detalhes.map((det, dIdx) => (
+                    <div key={dIdx} className="flex items-start gap-2 text-xs text-slate-800">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" />
+                      <span>{det}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Rodapé e Navegação do Tour */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-slate-200">
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <button
+                  type="button"
+                  disabled={tourActiveStep === 0}
+                  onClick={() => setTourActiveStep(prev => Math.max(0, prev - 1))}
+                  className="px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed text-xs font-bold transition cursor-pointer"
+                >
+                  Anterior
+                </button>
+                <button
+                  type="button"
+                  disabled={tourActiveStep === tourSteps.length - 1}
+                  onClick={() => setTourActiveStep(prev => Math.min(tourSteps.length - 1, prev + 1))}
+                  className="px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed text-xs font-bold transition cursor-pointer"
+                >
+                  Próximo
+                </button>
+              </div>
+
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <button
+                  type="button"
+                  onClick={() => { setIsTourModalOpen(false); onEnterPlatformDirectly(); }}
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-800 text-xs font-bold border border-slate-300 transition cursor-pointer shadow-xs"
+                >
+                  Abrir Cockpit ao Vivo
+                </button>
+                <button
+                  type="button"
+                  onClick={() => { setIsTourModalOpen(false); handleStartRegister(); }}
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold transition cursor-pointer shadow-md flex items-center justify-center gap-1.5"
+                >
+                  <span>Cadastrar Fazenda</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
