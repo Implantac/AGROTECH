@@ -1636,12 +1636,23 @@ const server = http.createServer((req, res) => {
   }
 
   // 3.0.11 API: Cotações B3/CBOT e Relação de Troca Barter
-  if (pathname === '/api/v1/barter/cotacoes-tempo-real' && req.method === 'GET') {
+  if ((pathname === '/api/v1/barter/cotacoes-tempo-real' || pathname === '/api/v1/mercado/cotacoes') && req.method === 'GET') {
     res.setHeader('Content-Type', 'application/json');
     res.statusCode = 200;
+    const ticker = [
+      { id: 'SOJA_MT', nome: 'Soja Sorriso/Sinop', preco: 136.50, unidade: 'R$/sc', variacao: +0.82, tendencia: 'ALTA' },
+      { id: 'SOJA_CBOT', nome: 'Soja Chicago (CBOT)', preco: 11.85, unidade: 'US$/bu', variacao: +1.15, tendencia: 'ALTA' },
+      { id: 'MILHO_B3', nome: 'Milho B3 Campinas', preco: 58.20, unidade: 'R$/sc', variacao: -0.45, tendencia: 'BAIXA' },
+      { id: 'BOI_B3', nome: 'Boi Gordo B3 (CEPEA)', preco: 242.50, unidade: 'R$/@', variacao: +0.65, tendencia: 'ALTA' },
+      { id: 'ALGODAO', nome: 'Algodão Pluma B3', preco: 138.00, unidade: 'R$/@', variacao: +0.12, tendencia: 'ESTAVEL' },
+      { id: 'CAFE_NY', nome: 'Café Arábica NY', preco: 1180.00, unidade: 'R$/sc', variacao: +1.40, tendencia: 'ALTA' },
+      { id: 'DOLAR_PTAX', nome: 'Dólar PTAX (BACEN)', preco: 5.42, unidade: 'R$', variacao: -0.28, tendencia: 'BAIXA' },
+      { id: 'BARTER_MAP', nome: 'Relação Barter MAP', preco: 32.6, unidade: 'sc/ton', variacao: -1.10, tendencia: 'FAVORAVEL' }
+    ];
     res.end(JSON.stringify({
       sucesso: true,
       mercado: MERCADO_COMMODITIES,
+      ticker,
       atualizadoEm: new Date().toISOString()
     }));
     return;

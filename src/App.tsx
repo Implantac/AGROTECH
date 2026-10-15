@@ -64,6 +64,7 @@ import { ToastNotification, ToastItem } from './components/ToastNotification';
 import { ModuleConfigModal } from './components/ModuleConfigModal';
 import { BillingSubscriptionModal } from './components/BillingSubscriptionModal';
 import { HeaderFintechBar } from './components/HeaderFintechBar';
+import { CommoditiesTickerTape } from './components/CommoditiesTickerTape';
 import { DossieBancarioCreditoModal } from './components/DossieBancarioCreditoModal';
 import { OfflineSyncCockpitModal } from './components/OfflineSyncCockpitModal';
 import { DeltaTModal } from './components/DeltaTModal';
@@ -1524,6 +1525,15 @@ export const App: React.FC = () => {
             </button>
           </div>
         </header>
+
+        {/* Ticker Tape de Cotações de Commodities em Tempo Real no Topbar */}
+        <CommoditiesTickerTape
+          onOpenBarter={() => {
+            setActiveTab('BARTER');
+            setSelectedDomain('MERCADO');
+          }}
+          onOpenDossie={() => setIsDossieBancarioOpen(true)}
+        />
 
         {/* Faixa Contextual de Submódulos (Aparece se o usuário estiver explorando um domínio específico) */}
         {selectedDomain !== 'TODOS' &&

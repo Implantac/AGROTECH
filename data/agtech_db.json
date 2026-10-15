@@ -24,7 +24,7 @@
       "aliases": [
         "produtor@superagtech.com.br"
       ],
-      "senhaHash": "pbkdf2$sha512$100000$8c62c9c406f3dd7da6c2e5e010c18209$08bb0c0f9228c0faf9450beab7cd410b8bdd294d451afd9764aa4cf5b7ad010b9728b9085ca218ad27ce25803737d6d1c482d192ea0aa98a7b8bba5dfc085e60",
+      "senhaHash": "pbkdf2$sha512$100000$17a189d31ab56ecf97eb2dd0a8630d09$7ddd125fabd4586c2ffc4aee0acb03b3459c97415e9ea9096db67f825da702a2b1d0aac247d5c0b5a50f3733b16594dff6550fc40cf6dcc16a824e419b927d40",
       "perfil": "PRODUTOR",
       "cargo": "Produtor Titular & Gestor da Fazenda",
       "fazenda": "Sede Administrativa Matriz",
@@ -45,7 +45,7 @@
       "aliases": [
         "agronoma@superagtech.com.br"
       ],
-      "senhaHash": "pbkdf2$sha512$100000$914aecc4d3bf3087d8c81dbe26ee2165$695a9a3ef86a5a6362d31053b53bbcc7368c1d833409013c6c3c586134c9266699ba26e3eda3f471c0a9e1d449212627d3b74993897cd2800ec8dace16031d50",
+      "senhaHash": "pbkdf2$sha512$100000$16a6a3653f160ead89ef29ee7324e4bd$f851a3e2a246518da41ac98a4a2ce002e7f57906f6e151cf73d6fc5bafe3a8818b9e2981d7ba99e35036c2632ccb02910519bc580931bbda84e0a8d90099f198",
       "perfil": "AGRONOMO",
       "cargo": "Responsável Técnico Agrícola (CREA/BR)",
       "fazenda": "Sede Administrativa Matriz",
@@ -66,7 +66,7 @@
       "aliases": [
         "operador@superagtech.com.br"
       ],
-      "senhaHash": "pbkdf2$sha512$100000$b3e400912fda98aef66945f3caebfa7d$935592332d92a41d69c3a18dbd036bc677404635142fb213ceac9559b4011b455d19e8ae5423905e0b5595184bd6a50f4a966c428b1ad0ecf1ae9a3824875d7c",
+      "senhaHash": "pbkdf2$sha512$100000$b29fc57784441b34c69cdafe8213285e$23715648216f93fbe16e9218c0e1a07f3c72e8153dd593fdba399e51a1e0b2362b85e1fd0f28cfbad7a0a73e2cec9ff01b2a21c656ea8dc41473b208771af089",
       "perfil": "OPERADOR",
       "cargo": "Operador de Máquinas e Telemetria",
       "fazenda": "Sede Administrativa Matriz",
@@ -86,7 +86,7 @@
       "aliases": [
         "contadora@superagtech.com.br"
       ],
-      "senhaHash": "pbkdf2$sha512$100000$00223d19f822257dff287d19d0e3811f$8cdd64e1028d3a2cf1fcf976a6f2e9fec55d04f1c9dd7a2e496eac4bac6ce32f9c58f41da44a7bf343b52d6349ac8cca9074177d663d0f716fa94d3b421fb715",
+      "senhaHash": "pbkdf2$sha512$100000$d2aabdcdf785584cd9307ac6a1f5d805$8fa60d716f51c98534c72effb4673260890f064082590ed8c7967a547bbc9e82dad879b7c41a6c67e711dba4fcd1d9eae342f103465d12c83fa9eacee89e83ab",
       "perfil": "CONTADOR",
       "cargo": "Responsável Contábil e Fiscal (CRC/BR)",
       "fazenda": "Sede Administrativa Matriz",
@@ -107,7 +107,7 @@
       "aliases": [
         "veterinario@superagtech.com.br"
       ],
-      "senhaHash": "pbkdf2$sha512$100000$129e122cadd3489a3f5a206a70eb1ef7$fa72de73456a50b81aa3dcf1f9e55ff3ea04f9f42172d3974c1f7ca6bebdba65d29d006fb3dc44bfc13de27bec07180ddc6430400105708e674c0c9b43922b9a",
+      "senhaHash": "pbkdf2$sha512$100000$be70fe3b1ddb0a80886b1b549b23f39b$c3e8f08285e5030d2b224baa82aa7b87aec163c6de6bb19788d8907796a2635985392d6306c166e6b7e1c4787943fb9476393e7b4f0073b313fd333cb96aaa01",
       "perfil": "VETERINARIO",
       "cargo": "Responsável Sanitário Pecuário (CRMV/BR)",
       "fazenda": "Sede Administrativa Matriz",
