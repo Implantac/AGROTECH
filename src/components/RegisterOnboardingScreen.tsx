@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Sprout,
   Tractor,
   CheckCircle2,
   ArrowRight,
@@ -15,6 +14,7 @@ import {
   ShieldCheck,
   Check
 } from 'lucide-react';
+import { AgroTechLogo } from './AgroTechLogo';
 
 interface RegisterOnboardingProps {
   onRegisterSuccess: (data: {
@@ -150,15 +150,7 @@ export const RegisterOnboardingScreen: React.FC<RegisterOnboardingProps> = ({
           <span>Voltar ao Início</span>
         </button>
 
-        <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-emerald-800 text-white flex items-center justify-center shadow-sm">
-            <Sprout className="w-5 h-5 text-emerald-300" />
-          </div>
-          <div>
-            <span className="text-base font-black tracking-tight text-slate-900 block leading-tight">AGROTECH</span>
-            <span className="text-[10px] text-emerald-700 font-bold uppercase tracking-wider block">Implantação Digital da Fazenda</span>
-          </div>
-        </div>
+        <AgroTechLogo variant="full" theme="light" size="md" showBadge={true} />
 
         <div className="text-xs text-slate-600 font-medium">
           Já tem conta?{' '}

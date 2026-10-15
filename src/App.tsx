@@ -66,6 +66,7 @@ import { BillingSubscriptionModal } from './components/BillingSubscriptionModal'
 import { HeaderFintechBar } from './components/HeaderFintechBar';
 import { CommoditiesTickerTape } from './components/CommoditiesTickerTape';
 import { DossieBancarioCreditoModal } from './components/DossieBancarioCreditoModal';
+import { AgroTechLogo, AgroTechIcon } from './components/AgroTechLogo';
 import { OfflineSyncCockpitModal } from './components/OfflineSyncCockpitModal';
 import { DeltaTModal } from './components/DeltaTModal';
 import { PerfilAcessoSuperadminModal } from './components/PerfilAcessoSuperadminModal';
@@ -739,23 +740,10 @@ export const App: React.FC = () => {
         {/* Brand Header */}
         <div className="h-14 px-4 flex items-center justify-between border-b border-[#1C3626]">
           {!isSidebarCollapsed ? (
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-[#1D6F42] text-white flex items-center justify-center shadow-xs shrink-0 font-bold">
-                <Sprout className="w-4 h-4 text-white" />
-              </div>
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-sm font-black tracking-tight text-white font-display leading-none">AGROTECH</span>
-                  <span className="px-1.5 py-0.2 text-[9px] font-bold bg-[#1D6F42]/40 text-[#6EE7B7] border border-[#2D7A4F] rounded">
-                    SaaS
-                  </span>
-                </div>
-                <span className="text-[10px] text-[#8DA697] font-medium">Empresa Rural</span>
-              </div>
-            </div>
+            <AgroTechLogo variant="full" theme="dark" size="sm" showBadge={true} />
           ) : (
-            <div className="w-8 h-8 rounded-xl bg-[#1D6F42] text-white flex items-center justify-center shadow-xs mx-auto font-bold">
-              <Sprout className="w-4 h-4 text-white" />
+            <div className="mx-auto" title="AGROTECH">
+              <AgroTechIcon size={30} />
             </div>
           )}
 

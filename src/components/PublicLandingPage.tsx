@@ -41,6 +41,7 @@ import {
   Building2,
   Calculator
 } from 'lucide-react';
+import { AgroTechLogo } from './AgroTechLogo';
 
 interface PublicLandingPageProps {
   onGoToLogin: () => void;
@@ -337,15 +338,7 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
       {/* HEADER INSTITUCIONAL ELEGANTE & LIMPO */}
       <header className="sticky top-0 z-50 bg-slate-50/90 backdrop-blur-md border-b border-slate-200 px-4 sm:px-6 lg:px-8 py-3.5 transition-all">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-emerald-800 text-white flex items-center justify-center shadow-sm">
-              <Sprout className="w-5 h-5 text-emerald-300" />
-            </div>
-            <div>
-              <span className="text-lg font-black tracking-tight text-slate-900 block leading-none">AGROTECH</span>
-              <span className="text-[10px] text-emerald-700 font-semibold tracking-wider uppercase">O Sistema Operacional da Empresa Rural</span>
-            </div>
-          </div>
+          <AgroTechLogo variant="full" theme="light" size="md" showBadge={true} />
 
           <nav className="hidden lg:flex items-center gap-6 text-xs font-semibold text-slate-600">
             <a href="#complexidade" className="hover:text-emerald-800 transition">O Desafio</a>
@@ -1407,12 +1400,7 @@ export const PublicLandingPage: React.FC<PublicLandingPageProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
             <div className="col-span-2 space-y-3">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-emerald-700 text-white flex items-center justify-center">
-                  <Sprout className="w-4 h-4 text-emerald-600" />
-                </div>
-                <span className="text-base font-black text-slate-900">AGROTECH</span>
-              </div>
+              <AgroTechLogo variant="compact" theme="light" size="md" showBadge={true} />
               <p className="text-xs text-slate-600 max-w-sm leading-relaxed">
                 O sistema operacional da empresa rural. Conectando campo, máquinas, estoque, financeiro e inteligência de ponta a ponta.
               </p>
