@@ -65,12 +65,12 @@ export const PerfilAcessoSuperadminModal: React.FC<PerfilAcessoSuperadminModalPr
   // Lista de usuários simulados do sistema
   const [usuariosSistema, setUsuariosSistema] = useState([
     {
-      id: 'usr-admin',
-      nome: 'Dr. Roberto Schneider',
-      email: 'admin@superagtech.com.br',
+      id: 'usr-superadmin',
+      nome: 'Superadministrador Mestre',
+      email: 'etcsuporte889@gmail.com',
       role: 'SUPERADMIN' as UserRole,
-      cargo: 'Superadministrador & Diretor de TI Rural',
-      fazenda: 'Diretoria Corporativa AgTech'
+      cargo: 'Superadministrador (Acesso Total & Governança)',
+      fazenda: 'Diretoria Corporativa Matriz'
     },
     {
       id: 'usr-01',

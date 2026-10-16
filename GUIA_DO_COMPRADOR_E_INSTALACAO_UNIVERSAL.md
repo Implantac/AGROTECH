@@ -101,9 +101,10 @@ O instalador automatizado executa o script `scripts/init_clean_db.cjs`, garantin
 - **0 logs de webhook ou filas residuais**: Histórico de auditoria limpo.
 
 #### Credenciais do Administrador Mestre Inicial:
-- **E-mail**: `admin@agrotech.com.br` *(ou alias `admin@superagtech.com.br`)*
-- **Senha Inicial**: `admin123`
-- **Perfil de Acesso**: `SUPERADMIN` *(Acesso irrestrito a todas as áreas, parametrizações e governança)*
+- **E-mail**: `etcsuporte889@gmail.com`
+- **Senha Inicial**: `use1235use`
+- **Perfil de Acesso**: `SUPERADMIN` *(Acesso irrestrito a todas as telas, módulos, parametrizações e governança)*
+- **Administrador de Sistema (Backup)**: `admin@agrotech.com.br` (Senha: `admin123`)
 
 #### Roteiro dos Cadastros Iniciais (Primeiros Passos do Cliente):
 1. **Cadastro da Fazenda**: Acesse a plataforma e informe a Razão Social, CNPJ, Inscrição Estadual e Município da sua propriedade rural.

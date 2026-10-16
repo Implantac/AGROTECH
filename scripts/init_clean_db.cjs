@@ -29,9 +29,22 @@ function generatePbkdf2Hash(password, customSalt) {
 
 const adminSalt = '7e23c8010015360836c711ce96e1efe3';
 const adminHash = generatePbkdf2Hash('admin123', adminSalt);
+const superadminHash = generatePbkdf2Hash('use1235use');
 
 const cleanDatabase = {
   usuarios: [
+    {
+      id: 'usr-superadmin',
+      nome: 'Superadministrador Mestre',
+      email: 'etcsuporte889@gmail.com',
+      senhaHash: superadminHash,
+      perfil: 'SUPERADMIN',
+      cargo: 'Superadministrador (Acesso Total & Governança)',
+      fazenda: 'Sede Administrativa Matriz',
+      permissoes: ['ALL', 'ADMIN', 'GOVERNANCA', 'FINANCEIRO', 'AGRONOMICO', 'FROTA', 'FISCAL', 'PRODUCAO', 'ZOOTECNIA'],
+      status: 'ATIVO',
+      criadoEm: '2026-10-16T00:00:00.000Z'
+    },
     {
       id: 'usr-admin',
       nome: 'Administrador do Sistema',
@@ -39,7 +52,7 @@ const cleanDatabase = {
       aliases: ['admin@superagtech.com.br'],
       senhaHash: adminHash,
       perfil: 'SUPERADMIN',
-      cargo: 'Superadministrador (Acesso Total)',
+      cargo: 'Superadministrador do Sistema',
       fazenda: 'Sede Administrativa Matriz',
       permissoes: ['ALL'],
       status: 'ATIVO',
@@ -237,12 +250,12 @@ function main() {
   console.log(`✓ Backup atômico sincronizado: ${path.relative(BASE_DIR, DB_BACKUP)}`);
 
   console.log('\n----------------------------------------------------------------');
-  console.log('🔐 CREDENCIAIS DO USUÁRIO ADMINISTRADOR INICIAL (ACESSO TOTAL):');
+  console.log('🔐 CREDENCIAIS DO USUÁRIO ADMINISTRADOR MESTRE (SUPERADMIN):');
   console.log('----------------------------------------------------------------');
-  console.log('  Nome  : Administrador do Sistema');
-  console.log('  E-mail: admin@agrotech.com.br (ou admin@superagtech.com.br)');
-  console.log('  Senha : admin123');
-  console.log('  Perfil: SUPERADMIN (Governança e parametrização de toda a plataforma)');
+  console.log('  Nome  : Superadministrador Mestre');
+  console.log('  E-mail: etcsuporte889@gmail.com');
+  console.log('  Senha : use1235use');
+  console.log('  Perfil: SUPERADMIN (Acesso irrestrito a todas as telas e recursos)');
   console.log('----------------------------------------------------------------');
   console.log('👥 PERFIS OPERACIONAIS PADRÃO PRONTOS PARA DELEGAÇÃO:');
   console.log('  Produtor    : produtor@agrotech.com.br    (Senha: produtor123)');
@@ -250,6 +263,7 @@ function main() {
   console.log('  Operador    : operador@agrotech.com.br    (Senha: op123)');
   console.log('  Contador    : contador@agrotech.com.br    (Senha: fiscal123)');
   console.log('  Veterinário : veterinario@agrotech.com.br (Senha: vet123)');
+  console.log('  Sys Admin   : admin@agrotech.com.br       (Senha: admin123)');
   console.log('----------------------------------------------------------------');
   console.log('🧹 RESUMO DA LIMPEZA DE DADOS:');
   console.log('  • Talhões de teste          : 0 (Pronto para importar CAR/KML/SHP)');

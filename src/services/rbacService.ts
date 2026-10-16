@@ -53,7 +53,7 @@ export const ROLE_DEFINITIONS: Record<UserRole, RoleDefinition> = {
     badge: 'Controle Total & Matriz RBAC',
     description: 'Acesso irrestrito a todos os módulos da plataforma, auditoria, concessão de permissões extras e governança.',
     avatarInitials: 'SA',
-    defaultEmail: 'admin@superagtech.com.br',
+    defaultEmail: 'etcsuporte889@gmail.com',
     defaultModuleIds: [
       // SUPERADMIN tem acesso a todos os módulos nativamente
       'BI', 'COPILOT', 'SIG', 'MOBILE', 'CLIMA', 'FROTA', 'OFICINA', 'NR31',

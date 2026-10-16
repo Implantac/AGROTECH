@@ -43,11 +43,11 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
   // Perfis Rápidos de Demonstração (1 Clique)
   const perfisDemo = [
     {
-      nome: 'Dr. Roberto Schneider',
+      nome: 'Superadministrador Mestre',
       cargo: 'SUPERADMIN',
-      cargoLabel: 'Superadministrador Geral (TI & Governança)',
-      fazenda: 'Diretoria Corporativa AgTech',
-      email: 'admin@superagtech.com.br',
+      cargoLabel: 'Superadministrador Geral (Acesso Total & Governança)',
+      fazenda: 'Diretoria Corporativa Matriz',
+      email: 'etcsuporte889@gmail.com',
       cultura: 'Governança & Controle de Acesso RBAC',
       badge: 'Superadmin (Acesso Total)'
     },
@@ -137,6 +137,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
 
   const handleSelectDemoProfile = (p: typeof perfisDemo[0]) => {
     const demoPwMap: Record<string, string> = {
+      'etcsuporte889@gmail.com': 'use1235use',
       'admin@agrotech.com.br': 'admin123',
       'admin@superagtech.com.br': 'admin123',
       'produtor@agrotech.com.br': 'produtor123',
